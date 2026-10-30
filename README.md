@@ -3,7 +3,7 @@
 GARDA adalah proyek eksplorasi dan pengembangan hardware untuk pengambilan keputusan robot. Dashboard statis tersedia di `dashboard/dist`; konfigurasi Vercel ada di `vercel.json`. Hasil pengujian dan implementasi historis terikat pada revisi sumber yang menghasilkannya dan tidak membuktikan signoff desain baru.
 
 > **Implementasi workspace 16 Oktober 2026.** Software `../src` menggunakan
-> **74 → 128 → 64 → 3**, berbeda dari model legacy 24 → 64 → 64 → 4 yang
+> **74 → 128 → 64 → 3**
 > dijelaskan pada halaman ini. Jalur baru tersedia pada
 > [RTL source-policy](rtl/garda_src_policy/README.md) dan
 > [proyek Quartus DE10-Nano baru beserta pin planning](fpga_de10_nano/src_policy/README.md).
