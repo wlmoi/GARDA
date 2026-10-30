@@ -35,9 +35,9 @@ function setMode(next,fromScene=false){
   if(scene){scene.setBlocks(tt?ttModules:modules);if(!fromScene)scene.setMode(mode);}
   document.querySelectorAll('[data-mode]').forEach(b=>{const yes=b.dataset.mode===mode;b.setAttribute('aria-selected',String(yes));b.tabIndex=yes?0:-1;});
   $('mode-chip').textContent=tt?'CMOS5L / NEURAL CORE':mode==='die'?'20 MODUL / 19 BERKAS':'CYCLONE V SoC';
-  $('stage-kicker').textContent=tt?'03 / TINYTAPEOUT EXPLORER':mode==='die'?'02 / LOGICAL RTL EXPLORER':'01 / BOARD EXPLORER';
+  $('stage-kicker').textContent=tt?'TINYTAPEOUT EXPLORER':mode==='die'?'LOGICAL RTL EXPLORER':'BOARD EXPLORER';
   $('stage-title').innerHTML=tt?'24 → 64 → 64 → 4.<br>Dual MAC. Model tetap.':mode==='die'?'Dari masukan peta.<br>Ke gerbang keputusan.':'Satu board.<br>Dua dunia komputasi.';
-  $('stage-description').textContent=tt?'Neural core TinyTapeout. DWA dan penggerak motor berada di luar chip ini.':mode==='die'?'Klik blok untuk melihat fungsi, port, dan source Verilog aslinya.':'FPGA fabric untuk RTL IGOR. HPS ARM untuk perangkat lunak host.';
+  $('stage-description').textContent=tt?'Neural core TinyTapeout. DWA dan penggerak motor berada di luar chip ini.':mode==='die'?'Klik blok untuk melihat fungsi, port, dan source Verilog aslinya.':'FPGA fabric untuk RTL GARDA. HPS ARM untuk perangkat lunak host.';
   $('model-scale').textContent=tt?'Susunan logis, bukan GDS signoff':mode==='die'?'Ukuran dan posisi blok bersifat konseptual':'DE10-Nano / bentuk konseptual';
   $('block-count').textContent=tt?'4 modul': '20 modul / 19 berkas';
   renderLegend();
@@ -51,7 +51,7 @@ function renderLegend(){
 }
 function selectBlock(id){
   if(id==='hps'){
-    selected={id:'hps',title:'HPS ARM Cortex-A9',module:'Cyclone V HPS',explanation:'Processor ARM untuk Linux dan perangkat lunak host. HPS adalah bagian dari SoC Cyclone V. Tidak ada modul RTL HPS buatan tim dalam katalog ini.',highlights:['FPGA fabric dan HPS berada pada SoC yang sama','Jalur neural dan DWA IGOR berada pada fabric','Integrasi HPS menuju sensor dan motor merupakan tahap sistem berikutnya'],ports:[],group:'board'};
+    selected={id:'hps',title:'HPS ARM Cortex-A9',module:'Cyclone V HPS',explanation:'Processor ARM untuk Linux dan perangkat lunak host. HPS adalah bagian dari SoC Cyclone V. Tidak ada modul RTL HPS buatan tim dalam katalog ini.',highlights:['FPGA fabric dan HPS berada pada SoC yang sama','Jalur neural dan DWA GARDA berada pada fabric','Integrasi HPS menuju sensor dan motor merupakan tahap sistem berikutnya'],ports:[],group:'board'};
   }else{selected=[...modules,...ttModules].find(m=>m.id===id);if(!selected)return;}
   if(selected.group==='tt'&&mode!=='tt')setMode('tt');
   if(selected.group!=='tt'&&mode==='tt')setMode('die');

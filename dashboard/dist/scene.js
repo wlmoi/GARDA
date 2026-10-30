@@ -2,7 +2,7 @@ import * as THREE from './vendor/three.module.min.js';
 
 // The package and board are explanatory models. RTL placement is deliberately
 // independent of the FPGA fitter and of an ASIC place-and-route result.
-const BG = '#f1f5f8';
+const BG = '#061858';
 const INK = '#102b43';
 const PALETTE = {
   control: '#638ee1', dwa: '#26adc4', memory: '#7693d7', gate: '#edac48',
@@ -237,7 +237,7 @@ export class IgorScene {
     this.fpga = this._box(root, -7, 4.05, 0, 29.2, 2.7, 29.2, '#303842', { roughness: .42, pick: '_fpga' });
     this._flatLabel(root, ['ALTERA', 'CYCLONE V', 'SoC'], -7, 5.42, -1.7, 22, 10,
       { color: '#c7cdd2', size: 53, height: 320 });
-    this._flatLabel(root, ['5CSEBA6U23I7', 'IGOR   |   FPGA + HPS'], -7, 5.43, 7, 23, 5,
+    this._flatLabel(root, ['5CSEBA6U23I7', 'GARDA   |   FPGA + HPS'], -7, 5.43, 7, 23, 5,
       { color: '#b4c3ce', size: 43, height: 200, mono: true });
     const pinMarker = new THREE.Mesh(new THREE.CircleGeometry(.72, 20), this._mat('#c7cdd2', .3));
     pinMarker.rotation.x = -Math.PI / 2;
@@ -433,14 +433,14 @@ export class IgorScene {
       mat.makeRotationY(Math.PI / 2); mat.setPosition(50.6, 4.16, z); pads.setMatrixAt(padCount * 3 + i, mat);
     }
     root.add(pads);
-    this._flatLabel(root, tiny ? 'TinyTapeout  |  IGOR NEURAL' : 'IGOR  |  RTL ARCHITECTURE',
+    this._flatLabel(root, tiny ? 'TinyTapeout  |  GARDA NEURAL' : 'GARDA  |  RTL ARCHITECTURE',
       0, 4.69, -28.6, 76, 4,
       { size: 49, color: '#25405b', height: 128 });
     this._flatLabel(root, 'CONCEPTUAL PLACEMENT', 0, 4.69, 29.1, 64, 2.1,
       { size: 37, color: '#58758a', height: 96, mono: true });
 
     if (!blocks.length) {
-      this._flatLabel(root, ['IGOR', 'SELECT AN RTL CATALOG'], 0, 4.8, 0, 70, 18,
+      this._flatLabel(root, ['GARDA', 'SELECT AN RTL CATALOG'], 0, 4.8, 0, 70, 18,
         { size: 55, color: '#48667b' });
       return;
     }
