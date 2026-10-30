@@ -20,7 +20,7 @@ Jalankan melalui HTTP. Pembukaan langsung dengan `file://` tidak dapat memuat mo
 | DE10-Nano | Model prosedural board, Cyclone V SoC, GPIO, clock, LED, dan periferal |
 | Isi RTL | 20 deklarasi modul pada 19 berkas Verilog FPGA asli |
 | TinyTapeout | Empat modul neural aktif 24 → 64 → 64 → 4 dengan dua MAC |
-| Jadwal Parallel8 | Visualisasi 6.916 clock FPGA untuk 74 → 128 → 64 → 3; model edukasi |
+| Rencana Parallel16 | Visualisasi proyeksi 3.556 clock untuk 74 → 128 → 64 → 3; verifikasi RTL dan timing belum selesai |
 | Demo gerbang | Model JavaScript dibandingkan dengan RTL Icarus pada 3.084 vektor |
 | Bukti | Angka kernel, hasil Quartus, status simulasi dan implementasi fisik |
 | Unduhan | Source Verilog, proyek Quartus portabel dan `.sof` historis, source dan test TinyTapeout |

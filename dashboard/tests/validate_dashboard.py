@@ -20,7 +20,7 @@ for link in p.links:
     if link.startswith('#'):
         assert link=='#' or link[1:] in p.ids,link
         continue
-    target=(D/unquote(link.split('#')[0])).resolve()
+    target=(D/unquote(urlsplit(link).path)).resolve()
     assert target.is_relative_to(D.resolve()) and target.is_file(),link
     checked+=1
 catalog=json.loads((D/'data/rtl-catalog.json').read_text(encoding='utf-8'))

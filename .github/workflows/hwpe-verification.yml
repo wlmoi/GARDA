@@ -1,0 +1,42 @@
+name: GARDA neural HWPE adapter
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'fpga/hwpe/**'
+      - 'fpga/experiments/parallel8/**'
+      - 'fpga/experiments/parallel16/**'
+      - 'fpga/riscv/**'
+      - 'fpga/verification/src_policy/artifacts/**'
+      - '.github/workflows/hwpe-verification.yml'
+  pull_request:
+    paths:
+      - 'fpga/hwpe/**'
+      - 'fpga/experiments/parallel8/**'
+      - 'fpga/experiments/parallel16/**'
+      - 'fpga/riscv/**'
+      - 'fpga/verification/src_policy/artifacts/**'
+      - '.github/workflows/hwpe-verification.yml'
+permissions:
+  contents: read
+jobs:
+  mmio-parallel16:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.11'
+      - name: Install RTL simulator
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Verify MMIO protocol and all 236 neural vectors
+        run: python fpga/hwpe/run_test.py
+      - name: Preserve source-bound simulation receipt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: garda-hwpe-mmio-regression
+          path: fpga/hwpe/mmio-regression.json
+          if-no-files-found: error

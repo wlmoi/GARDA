@@ -27,6 +27,7 @@
 | 🔌 [Program FPGA](docs/FPGA_PROGRAMMING.md) | Proyek board dan pemrograman |
 | 🎬 [Panduan demo](docs/DEMO_GUIDE.md) | Urutan demonstrasi |
 | 🧩 [Explorer 3D RTL](docs/INTERACTIVE_EXPLORER.md) | Model, source, dan batas visualisasi |
+| ⚙️ [RISC-V dan neural HWPE](docs/RISCV_HWPE_ARCHITECTURE.md) | Pemilihan CPU, integrasi eksperimen, dan validasi sebelum SOF |
 | 📄 [Laporan teknis](docs/TECHNICAL_REPORT.md) | Arsitektur dan hasil pengujian |
 | 🧠 [Eksperimen AI](#hasil-eksperimen-model-ai-cl-drl-dan-akselerator-q88) | CL-DRL dan akselerator Q8.8 |
 | ☀️ [Hackathon ITS 2026](docs/HACKATHON_ITS_2026.md) | Konteks proposal, prinsip, dan jadwal resmi |

@@ -16,6 +16,10 @@ Produk utama adalah **GARDA: Gerbang AI Robot Deterministik & Aman**, tim iSeeDe
 | Explorer 3D dan animasi tiap clock | [Website GARDA](https://garda-chip-explorer.vercel.app/#clock-explorer) | Animasi edukasi model FSM, bukan simulator HDL atau telemetri langsung |
 | TKT 4 menuju TKT 5 dan 100 lintasan pilot | Proposal, Lampiran G | Target validasi lapangan; tidak dianggap sudah selesai |
 
+## Perubahan setelah proposal
+
+Pengguna meminta **Parallel16** dan integrasi CPU **RISC-V** setelah penyerahan PDF. [Varian Parallel16](../fpga/experiments/parallel16/README.md) mempertahankan model 74 → 128 → 64 → 3 dengan 16 MAC: 1.808 + 1.552 + 196 = **3.556 clock** (71,12 µs pada referensi 50 MHz). Angka FPGA fitted, daya, dan uji fisik Parallel8 pada PDF tidak berpindah otomatis ke varian baru. [Rancangan integrasi RISC-V/HWPE](RISCV_HWPE_ARCHITECTURE.md) menjelaskan status dan gerbang validasinya.
+
 ## Jalur yang harus dibedakan
 
 - **Parallel8 FPGA** adalah implementasi utama proposal. Latensi 6.916 clock hanya berlaku pada core ini.

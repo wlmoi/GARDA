@@ -1,0 +1,11 @@
+{
+  "lane_count": 16,
+  "model_words": 18051,
+  "bank_count": 16,
+  "bank_depth": 2048,
+  "bank_used_words": 1181,
+  "expected_cycles": 3556,
+  "scope": "isolated candidate; not a routed or physical hardware result",
+  "model_sha256": "55a647207c0b670901fe8074716331ac2876886bbbe1ca44aff9bbb942426e2d",
+  "baseline_core_sha256": "2d05c00ad1e782c059cb1ef9ef5cc36a92a194ee400dffc1c9161f2d9ef06437"
+}
