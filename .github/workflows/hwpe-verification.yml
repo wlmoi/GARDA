@@ -1,4 +1,4 @@
-name: GARDA neural HWPE adapter
+name: GARDA neural HWPE and real RISC-V control
 on:
   workflow_dispatch:
   push:
@@ -34,9 +34,13 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y iverilog
       - name: Verify MMIO protocol and all 236 neural vectors
         run: python fpga/hwpe/run_test.py
+      - name: Boot the real RISC-V CPU, service HWPE interrupts and reject bus faults
+        run: python fpga/riscv/run_test.py
       - name: Preserve source-bound simulation receipt
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: garda-hwpe-mmio-regression
-          path: fpga/hwpe/mmio-regression.json
+          name: garda-hwpe-riscv-regression
+          path: |
+            fpga/hwpe/mmio-regression.json
+            fpga/riscv/cpu-regression.json
           if-no-files-found: error
