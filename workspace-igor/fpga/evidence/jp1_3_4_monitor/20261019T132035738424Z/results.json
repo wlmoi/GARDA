@@ -1,0 +1,56 @@
+[
+  {
+    "command": "q",
+    "status": "\r\nJP1 pins 3/4 q=status e=echo i=infer\r\nmode=I stop=0 pin=1 edges=00000000 rxbytes=00000000 last=00 framing=00000000 accepted=00000000 rejected=00000000 error=00 state=0 cycles=00000000\r\n> "
+  },
+  {
+    "command": "e",
+    "status": "\r\nJP1 pins 3/4 q=status e=echo i=infer\r\nmode=E stop=0 pin=1 edges=00000000 rxbytes=00000000 last=00 framing=00000000 accepted=00000000 rejected=00000000 error=00 state=0 cycles=00000000\r\n> "
+  },
+  {
+    "test": "physical_pad_echo",
+    "baud": 9600,
+    "tx_hex": "55 aa 00 ff 5a a5 49 47 4f 52 2d 4a 50 37",
+    "rx_hex": "",
+    "passed": false
+  },
+  {
+    "command": "q",
+    "status": "\r\nJP1 pins 3/4 q=status e=echo i=infer\r\nmode=E stop=0 pin=1 edges=00000000 rxbytes=00000000 last=00 framing=00000000 accepted=00000000 rejected=00000000 error=00 state=0 cycles=00000000\r\n> "
+  },
+  {
+    "test": "physical_pad_echo",
+    "baud": 115200,
+    "tx_hex": "55 aa 00 ff 5a a5 49 47 4f 52 2d 4a 50 37",
+    "rx_hex": "",
+    "passed": false
+  },
+  {
+    "command": "q",
+    "status": "\r\nJP1 pins 3/4 q=status e=echo i=infer\r\nmode=E stop=0 pin=1 edges=00000000 rxbytes=00000000 last=00 framing=00000000 accepted=00000000 rejected=00000000 error=00 state=0 cycles=00000000\r\n> "
+  },
+  {
+    "test": "physical_pad_echo",
+    "baud": 921600,
+    "tx_hex": "55 aa 00 ff 5a a5 49 47 4f 52 2d 4a 50 37",
+    "rx_hex": "",
+    "passed": false
+  },
+  {
+    "command": "q",
+    "status": "\r\nJP1 pins 3/4 q=status e=echo i=infer\r\nmode=E stop=0 pin=1 edges=00000000 rxbytes=00000000 last=00 framing=00000000 accepted=00000000 rejected=00000000 error=00 state=0 cycles=00000000\r\n> "
+  },
+  {
+    "command": "i",
+    "status": "\r\nJP1 pins 3/4 q=status e=echo i=infer\r\nmode=I stop=0 pin=1 edges=00000000 rxbytes=00000000 last=00 framing=00000000 accepted=00000000 rejected=00000000 error=00 state=0 cycles=00000000\r\n> "
+  },
+  {
+    "test": "inference",
+    "passed": false,
+    "error": "Timeout/no valid CRC8 response; received 0 bytes; RX first 64 bytes: (none)"
+  },
+  {
+    "command": "q",
+    "status": "\r\nJP1 pins 3/4 q=status e=echo i=infer\r\nmode=I stop=0 pin=1 edges=00000000 rxbytes=00000000 last=00 framing=00000000 accepted=00000000 rejected=00000000 error=00 state=0 cycles=00000000\r\n> "
+  }
+]

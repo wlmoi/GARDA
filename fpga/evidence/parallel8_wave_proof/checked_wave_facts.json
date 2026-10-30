@@ -1,0 +1,75 @@
+{
+  "busy_start_ps": 1689490000,
+  "done_ps": 1827810000,
+  "latency_cycles": 6916,
+  "tx_bytes_hex": "5A A5 02 06 C7 FF 4C 00 2A 00 0F",
+  "outputs_raw_q8_8": [
+    -57,
+    76,
+    42
+  ],
+  "first_mac_arithmetic": [
+    {
+      "lane": 0,
+      "before": -512,
+      "weight": -18,
+      "operand": 256,
+      "after": -5120
+    },
+    {
+      "lane": 1,
+      "before": -1280,
+      "weight": 28,
+      "operand": 256,
+      "after": 5888
+    },
+    {
+      "lane": 2,
+      "before": 0,
+      "weight": -36,
+      "operand": 256,
+      "after": -9216
+    },
+    {
+      "lane": 3,
+      "before": -256,
+      "weight": -1,
+      "operand": 256,
+      "after": -512
+    },
+    {
+      "lane": 4,
+      "before": -1024,
+      "weight": 50,
+      "operand": 256,
+      "after": 11776
+    },
+    {
+      "lane": 5,
+      "before": -1024,
+      "weight": 31,
+      "operand": 256,
+      "after": 6912
+    },
+    {
+      "lane": 6,
+      "before": 0,
+      "weight": -39,
+      "operand": 256,
+      "after": -9984
+    },
+    {
+      "lane": 7,
+      "before": 0,
+      "weight": -8,
+      "operand": 256,
+      "after": -2048
+    }
+  ],
+  "loaded_mask_before_start_hex": "0x3ffffffffffffffffff",
+  "checked_rx_byte": 90,
+  "checked_tx_bytes": 11,
+  "checked_mac_updates_all_lanes": 18176,
+  "checked_banked_rom_weights": 18176,
+  "checked_activation_groups": 25
+}

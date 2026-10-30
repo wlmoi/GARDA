@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-19T11:55:52.1968811Z",
+  "fpga_chain_index": 2,
+  "project": "source_policy_parallel8",
+  "hardware_programmed": true,
+  "uart_function_verified": false,
+  "sof_sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49"
+}

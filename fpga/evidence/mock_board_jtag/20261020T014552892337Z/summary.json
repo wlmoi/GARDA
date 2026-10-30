@@ -1,0 +1,9 @@
+{
+  "passed": false,
+  "vectors_completed": 96,
+  "output_words_checked": 288,
+  "max_abs_error_lsb": 0,
+  "cycles_each": 6916,
+  "core_latency_us": 138.32,
+  "scope": "Real board: observations via COM12, results via JTAG latch with fresh sequence; not a UART return-link test"
+}

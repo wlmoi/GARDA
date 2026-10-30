@@ -1,0 +1,48 @@
+OpenROAD b16bda7e82721d10566ff7e2b68f1ff0be9f9e38 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+[INFO ODB-0227] LEF file: /mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/.runtime/pdk-models/sg13cmos5l_tech.lef, created 15 layers, 52 vias
+[INFO ODB-0227] LEF file: /mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/.runtime/pdk-models/sg13cmos5l_stdcell.lef, created 84 library cells
+[INFO ODB-0127] Reading DEF file: /mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/.runtime/artifact-11952133725/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_wlmoi_igor_neural_logic.def
+[INFO ODB-0128] Design: tt_um_wlmoi_igor_neural_logic
+[INFO ODB-0130]     Created 45 pins.
+[INFO ODB-0131]     Created 29034 components and 150291 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 58068 connections.
+[INFO ODB-0133]     Created 28916 nets and 92086 connections.
+[INFO ODB-0134] Finished DEF file: /mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/.runtime/artifact-11952133725/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_wlmoi_igor_neural_logic.def
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal4
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.4200  line-2-Via Pitch: 0.3650
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4150
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4100
+[INFO GRT-0019] Found 239 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 19
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal          0             0          0.00%
+Metal2     Vertical       396403        389445          1.76%
+Metal3     Horizontal     464331        457661          1.44%
+Metal4     Vertical       396403        354815          10.49%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 167420
+[INFO GRT-0198] Via related Steiner nodes: 5323
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 233876
+[INFO GRT-0112] Final usage 3D: 1246487
+[ERROR GRT-0119] Routing congestion too high. Check the congestion heatmap in the GUI and load /mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/.runtime/logic-grt-100.rpt in the DRC viewer.
+Error: replay_logic_grt_100.tcl, 9 GRT-0119

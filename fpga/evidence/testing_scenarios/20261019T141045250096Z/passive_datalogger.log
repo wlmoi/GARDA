@@ -1,0 +1,13 @@
+Log: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\datalogger\20261019T141235496668Z
+Location: Scenario runner - physical location unspecified
+FPGA -> laptop, JTAG. Ctrl+C untuk berhenti.
+2026-10-19T21:12:36.156+07:00 | Scenario runner - physical location unspecified | existing_result seq=257 actions=[-46, 60, 34] stop=0 error=0x0B
+{
+  "status": "completed",
+  "error": null,
+  "snapshots": 11,
+  "new_results_observed": 0,
+  "unobserved_results_at_least": 0,
+  "duration_s": 3.187
+} 
+Log: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\datalogger\20261019T141235496668Z

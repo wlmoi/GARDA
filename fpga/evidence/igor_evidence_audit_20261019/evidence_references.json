@@ -1,0 +1,30 @@
+[
+  {
+    "path": "fpga/evidence/mock_board_jtag/20261019T140444384058Z/summary.json",
+    "sha256": "9a305e891fa34093a6e96084bbb1a82a028370b2d989b0f401df48de57e973b6"
+  },
+  {
+    "path": "fpga/evidence/mock_board_jtag/20261019T140444384058Z/identity.json",
+    "sha256": "84fe725f9cfe80e009bf4e240f31b15b1807e0758f4f13d7ea56f17848f5e361"
+  },
+  {
+    "path": "fpga/evidence/live_io/20261020T063143723875Z/summary.json",
+    "sha256": "4578971068a2361394f6097314364dfb43eb870d47d97a3c8cd2680044b9d6eb"
+  },
+  {
+    "path": "fpga/evidence/rtl_coverage/core/receipt.json",
+    "sha256": "7f6123f2c20ad8e516f456846dbc68f4e17e26f2ea04d9a21c1712086c9ab251"
+  },
+  {
+    "path": "fpga/evidence/rtl_coverage/uart/receipt.json",
+    "sha256": "cfe0b0c5e8d023ec208f2f91f891a2c4818329055d14a73578f40a79af41abc0"
+  },
+  {
+    "path": "fpga/evidence/rtl_coverage/board/receipt.json",
+    "sha256": "8c94dbd9ca7386aa90b74d72baaf35025a7bc809b174aee8b981f5f4432d994d"
+  },
+  {
+    "path": "fpga/evidence/rtl_coverage/gate/receipt.json",
+    "sha256": "d024a4d41ae35c6539a65512eea1cfb178dfbe2fb9d60327ca70aa47bb6be5da"
+  }
+]

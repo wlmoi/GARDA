@@ -1,0 +1,13 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@420
++act_accumulator tb_src_policy_core.activation_accumulator[39:0]
+@24
++act_output_layer tb_src_policy_core.activation_output
+@420
++act_value tb_src_policy_core.activation_value[15:0]
+@24
++act_saturated tb_src_policy_core.activation_saturated

@@ -1,0 +1,288 @@
+source,line,kind,name,description,execution
+fpga/verification/run_host_regression.py,62,Python test definition,test_source_packet_and_integer_actions,source packet and integer actions,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,71,Python test definition,test_no_automatic_mock_if_serial_missing,no automatic mock if serial missing,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,75,Python test definition,test_no_automatic_mock_if_port_missing,no automatic mock if port missing,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,79,Python test definition,test_each_bad_response_is_an_error,each bad response is an error,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,91,Python test definition,test_input_shape_nan_infinity_and_domain,input shape nan infinity and domain,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,100,Python test definition,test_short_write_and_serial_exception,short write and serial exception,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,104,Python test definition,test_quantization_ties_even_and_negative,quantization ties even and negative,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,108,Python test definition,test_failed_exchange_latches_against_late_valid_response,failed exchange latches against late valid response,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,114,Python test definition,test_total_deadline_rejects_slow_write_and_slow_read,total deadline rejects slow write and slow read,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,123,Python test definition,test_no_automatic_mock_if_serial_missing_or_port_unavailable,no automatic mock if serial missing or port unavailable,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,127,Python test definition,test_short_motor_write_is_not_success,short motor write is not success,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,132,Python test definition,test_explicit_mock_imu_timestamp_is_monotonic,explicit mock imu timestamp is monotonic,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,193,Python test definition,test_transport_failure_stops_original_nonzero_command,transport failure stops original nonzero command,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,197,Python test definition,test_command_watchdog_stops_without_inference,command watchdog stops without inference,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,200,Python test definition,test_missing_and_frozen_lidar_stop,missing and frozen lidar stop,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,204,Python test definition,test_invalid_command_stops,invalid command stops,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,208,Python test definition,test_nonfinite_sensor_stops,nonfinite sensor stops,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,212,Python test definition,test_missing_stale_and_future_imu_stop,missing stale and future imu stop,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,216,Python test definition,test_valid_zero_residual_preserves_valid_operator_command,valid zero residual preserves valid operator command,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,222,Python test definition,test_zero_operator_command_cannot_become_policy_motion,zero operator command cannot become policy motion,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,226,Python test definition,test_real_cbf_no_longer_bypasses_critical_distance_stop,real cbf no longer bypasses critical distance stop,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,233,Python test definition,test_final_envelope_and_all_axis_limits_after_filter,final envelope and all axis limits after filter,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,240,Python test definition,test_nonfinite_filter_output_stops,nonfinite filter output stops,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,246,Python test definition,test_invalid_scan_does_not_refresh_lease_or_become_clear,invalid scan does not refresh lease or become clear,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,252,Python test definition,test_scan_metadata_and_positive_infinity_no_return,scan metadata and positive infinity no return,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,260,Python test definition,test_incomplete_fov_scan_is_invalid,incomplete fov scan is invalid,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,264,Python test definition,test_command_expires_during_compute,command expires during compute,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,272,Python test definition,test_scan_expires_during_compute,scan expires during compute,See suite receipt; definition alone is not PASS
+fpga/verification/run_host_regression.py,280,Python test definition,test_wall_clock_jump_does_not_extend_motor_leases,wall clock jump does not extend motor leases,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,105,Python test definition,test_no_automatic_mock_when_serial_missing,no automatic mock when serial missing,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,108,Python test definition,test_no_automatic_mock_when_port_missing,no automatic mock when port missing,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,112,Python test definition,test_explicit_mock_is_the_only_synthetic_mode,explicit mock is the only synthetic mode,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,116,Python test definition,test_invalid_descriptor_fails_and_closes_port,invalid descriptor fails and closes port,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,127,Python test definition,test_segmented_valid_descriptor_and_boot_no_scan,segmented valid descriptor and boot no scan,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,133,Python test definition,test_partial_revolution_never_publishes_default_free_scan,partial revolution never publishes default free scan,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,138,Python test definition,test_complete_scan_uses_previous_marker_stamp_and_no_next_scan_point,complete scan uses previous marker stamp and no next scan point,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,146,Python test definition,test_scan_bins_never_carry_previous_revolution,scan bins never carry previous revolution,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,154,Python test definition,test_repeated_bin_cannot_fake_coverage_and_keeps_nearest,repeated bin cannot fake coverage and keeps nearest,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,161,Python test definition,test_bad_packets_returns_and_long_or_backward_revolutions_rejected,bad packets returns and long or backward revolutions rejected,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,172,Python test definition,test_publish_once_at_acquisition_timestamp_and_correct_geometry,publish once at acquisition timestamp and correct geometry,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,180,Python test definition,test_queued_stale_or_future_scan_never_publishes,queued stale or future scan never publishes,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,184,Python test definition,test_frozen_sensor_does_not_republish_or_refresh_timestamp,frozen sensor does not republish or refresh timestamp,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,189,Python test definition,test_stream_exception_invalidates_unpublished_scan,stream exception invalidates unpublished scan,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,197,Python test definition,test_fragmented_measurements_resynchronize_and_publish_completed_scan,fragmented measurements resynchronize and publish completed scan,See suite receipt; definition alone is not PASS
+fpga/verification/run_lidar_regression.py,221,Python test definition,test_invalid_configuration_rejected,invalid configuration rejected,See suite receipt; definition alone is not PASS
+fpga/verification/src_policy/tb_src_policy_core.sv,70,RTL named checkpoint,rejected,rejected,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_core.sv,100,RTL named checkpoint,inference_started,inference started,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_core.sv,123,RTL named checkpoint,bit_exact_complete,bit exact complete,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_core.sv,154,RTL named checkpoint,aborted_state,aborted state,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_core.sv,159,RTL named checkpoint,reset_recovery,reset recovery,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,114,RTL named checkpoint,rejected_zero_guard,rejected zero guard,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,142,RTL named checkpoint,valid_residual_response,valid residual response,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,222,RTL named checkpoint,final_recovery,final recovery,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,229,RTL named checkpoint,accepted_counter_reaches_max,accepted counter reaches max,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,232,RTL named checkpoint,accepted_counter_saturates,accepted counter saturates,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,237,RTL named checkpoint,rejected_counter_reaches_max,rejected counter reaches max,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,240,RTL named checkpoint,rejected_counter_crc_saturates,rejected counter crc saturates,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,243,RTL named checkpoint,rejected_counter_estop_saturates,rejected counter estop saturates,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,247,RTL named checkpoint,saturated_counters_reset_clear,saturated counters reset clear,See suite log/receipt
+fpga/verification/src_policy/tb_src_policy_uart.sv,251,RTL named checkpoint,post_saturation_reset_recovery,post saturation reset recovery,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,32,RTL named checkpoint,clean_boot_no_phantom_estop,clean boot no phantom estop,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,56,RTL named checkpoint,full_crc_valid_uart_response_matches_src_model,full crc valid uart response matches src model,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,71,RTL named checkpoint,partial_header_never_accepted,partial header never accepted,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,73,RTL named checkpoint,all_74_fields_without_crc_never_accepted,all 74 fields without crc never accepted,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,74,RTL named checkpoint,crc_completes_single_frame_acceptance,crc completes single frame acceptance,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,78,RTL named checkpoint,raw_key1_between_clocks_immediate_zero,raw key1 between clocks immediate zero,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,79,RTL named checkpoint,key1_stop_latched_and_error_recorded,key1 stop latched and error recorded,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,80,RTL named checkpoint,held_estop_deduplicated,held estop deduplicated,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,82,RTL named checkpoint,key1_release_still_stopped_until_reset,key1 release still stopped until reset,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,84,RTL named checkpoint,valid_frame_while_latched_never_accepted,valid frame while latched never accepted,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,85,RTL named checkpoint,key0_reset_restores_successful_inference,key0 reset restores successful inference,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,86,RTL named checkpoint,raw_key0_reset_immediately_clears_gate_and_history,raw key0 reset immediately clears gate and history,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,89,RTL named checkpoint,boot_with_key1_held_real_estop_recorded_once,boot with key1 held real estop recorded once,See suite log/receipt
+fpga/verification/tb_board_wrapper.sv,90,RTL named checkpoint,boot_stop_release_requires_reset,boot stop release requires reset,See suite log/receipt
+fpga/verification/tb_safety_top.v,43,RTL named checkpoint,valid_nonzero_result_7938_cycles,valid nonzero result 7938 cycles,See suite log/receipt
+fpga/verification/tb_safety_top.v,57,RTL named checkpoint,start_without_map_rejected_and_latched,start without map rejected and latched,See suite log/receipt
+fpga/verification/tb_safety_top.v,58,RTL named checkpoint,locked_config_mutation_zero_and_logged,locked config mutation zero and logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,59,RTL named checkpoint,estop_asserted_between_clocks_immediate_zero,estop asserted between clocks immediate zero,See suite log/receipt
+fpga/verification/tb_safety_top.v,60,RTL named checkpoint,estop_registered_error_log,estop registered error log,See suite log/receipt
+fpga/verification/tb_safety_top.v,61,RTL named checkpoint,estop_release_requires_reset,estop release requires reset,See suite log/receipt
+fpga/verification/tb_safety_top.v,62,RTL named checkpoint,restart_without_reset_rejected,restart without reset rejected,See suite log/receipt
+fpga/verification/tb_safety_top.v,63,RTL named checkpoint,protective_stop_result_zero_and_logged,protective stop result zero and logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,64,RTL named checkpoint,estop_during_run_aborts,estop during run aborts,See suite log/receipt
+fpga/verification/tb_safety_top.v,65,RTL named checkpoint,protective_stop_during_run_aborts,protective stop during run aborts,See suite log/receipt
+fpga/verification/tb_safety_top.v,66,RTL named checkpoint,ready_drop_result_zero_and_logged,ready drop result zero and logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,67,RTL named checkpoint,write_without_map_begin_zero_and_logged,write without map begin zero and logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,68,RTL named checkpoint,new_start_retracts_old_command_immediately,new start retracts old command immediately,See suite log/receipt
+fpga/verification/tb_safety_top.v,68,RTL named checkpoint,rerun_busy_no_old_command,rerun busy no old command,See suite log/receipt
+fpga/verification/tb_safety_top.v,70,RTL named checkpoint,compute_deadline_variant_zero_and_logged,compute deadline variant zero and logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,71,RTL named checkpoint,map_freshness_exact_boundary_zero,map freshness exact boundary zero,See suite log/receipt
+fpga/verification/tb_safety_top.v,71,RTL named checkpoint,map_freshness_zero_and_logged,map freshness zero and logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,72,RTL named checkpoint,result_command_lease_exact_boundary_zero,result command lease exact boundary zero,See suite log/receipt
+fpga/verification/tb_safety_top.v,72,RTL named checkpoint,result_command_lease_zero_and_logged,result command lease zero and logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,73,RTL named checkpoint,external_reset_recovers_sticky_faults,external reset recovers sticky faults,See suite log/receipt
+fpga/verification/tb_safety_top.v,79,RTL named checkpoint,map_sequence_1_result_before_valid_swap,map sequence 1 result before valid swap,See suite log/receipt
+fpga/verification/tb_safety_top.v,81,RTL named checkpoint,valid_map_swap_retracts_previous_result,valid map swap retracts previous result,See suite log/receipt
+fpga/verification/tb_safety_top.v,82,RTL named checkpoint,map_swap_requires_fresh_result_logged,map swap requires fresh result logged,See suite log/receipt
+fpga/verification/tb_safety_top.v,84,RTL named checkpoint,fresh_run_binds_map_sequence_2_and_recovers,fresh run binds map sequence 2 and recovers,See suite log/receipt
+fpga/verification/tb_safety_uart.v,46,RTL named checkpoint,valid_config_accepted,valid config accepted,See suite log/receipt
+fpga/verification/tb_safety_uart.v,47,RTL named checkpoint,valid_lock_accepted,valid lock accepted,See suite log/receipt
+fpga/verification/tb_safety_uart.v,48,RTL named checkpoint,status_response_gate_and_fault,status response gate and fault,See suite log/receipt
+fpga/verification/tb_safety_uart.v,49,RTL named checkpoint,command_response_output,command response output,See suite log/receipt
+fpga/verification/tb_safety_uart.v,50,RTL named checkpoint,event_count_response,event count response,See suite log/receipt
+fpga/verification/tb_safety_uart.v,51,RTL named checkpoint,last_fault_response,last fault response,See suite log/receipt
+fpga/verification/tb_safety_uart.v,52,RTL named checkpoint,crc_corruption_zero_and_logged,crc corruption zero and logged,See suite log/receipt
+fpga/verification/tb_safety_uart.v,53,RTL named checkpoint,good_command_after_crc_fault_rejected,good command after crc fault rejected,See suite log/receipt
+fpga/verification/tb_safety_uart.v,54,RTL named checkpoint,wrong_terminator_rejected,wrong terminator rejected,See suite log/receipt
+fpga/verification/tb_safety_uart.v,55,RTL named checkpoint,truncated_frame_timeout,truncated frame timeout,See suite log/receipt
+fpga/verification/tb_safety_uart.v,56,RTL named checkpoint,uart_stop_bit_error,uart stop bit error,See suite log/receipt
+fpga/verification/tb_safety_uart.v,57,RTL named checkpoint,rom_address_6019_accepted,rom address 6019 accepted,See suite log/receipt
+fpga/verification/tb_safety_uart.v,58,RTL named checkpoint,neural_index_23_signed_minus_one_accepted,neural index 23 signed minus one accepted,See suite log/receipt
+fpga/verification/tb_safety_uart.v,59,RTL named checkpoint,neural_output_index_3_accepted,neural output index 3 accepted,See suite log/receipt
+fpga/verification/tb_safety_uart.v,60,RTL named checkpoint,reset_recovers_uart_faults,reset recovers uart faults,See suite log/receipt
+fpga/verification/tb_safety_units.v,34,RTL named checkpoint,reset_defaults,reset defaults,See suite log/receipt
+fpga/verification/tb_safety_units.v,36,RTL named checkpoint,config_lock_decode,config lock decode,See suite log/receipt
+fpga/verification/tb_safety_units.v,37,RTL named checkpoint,config_write_after_lock,config write after lock,See suite log/receipt
+fpga/verification/tb_safety_units.v,38,RTL named checkpoint,config_lock_without_write,config lock without write,See suite log/receipt
+fpga/verification/tb_safety_units.v,39,RTL named checkpoint,config_write_while_busy,config write while busy,See suite log/receipt
+fpga/verification/tb_safety_units.v,40,RTL named checkpoint,config_write_lock_conflict,config write lock conflict,See suite log/receipt
+fpga/verification/tb_safety_units.v,41,RTL named checkpoint,config_reserved_bits,config reserved bits,See suite log/receipt
+fpga/verification/tb_safety_units.v,42,RTL named checkpoint,config_wrong_version,config wrong version,See suite log/receipt
+fpga/verification/tb_safety_units.v,43,RTL named checkpoint,config_omega_out_of_range,config omega out of range,See suite log/receipt
+fpga/verification/tb_safety_units.v,44,RTL named checkpoint,config_delta_omega_out_of_range,config delta omega out of range,See suite log/receipt
+fpga/verification/tb_safety_units.v,45,RTL named checkpoint,map_sequence_zero,map sequence zero,See suite log/receipt
+fpga/verification/tb_safety_units.v,46,RTL named checkpoint,map_commit_without_begin,map commit without begin,See suite log/receipt
+fpga/verification/tb_safety_units.v,47,RTL named checkpoint,map_write_without_begin,map write without begin,See suite log/receipt
+fpga/verification/tb_safety_units.v,48,RTL named checkpoint,map_nonsequential,map nonsequential,See suite log/receipt
+fpga/verification/tb_safety_units.v,49,RTL named checkpoint,map_truncated,map truncated,See suite log/receipt
+fpga/verification/tb_safety_units.v,50,RTL named checkpoint,map_begin_write_conflict,map begin write conflict,See suite log/receipt
+fpga/verification/tb_safety_units.v,51,RTL named checkpoint,map_begin_commit_conflict,map begin commit conflict,See suite log/receipt
+fpga/verification/tb_safety_units.v,52,RTL named checkpoint,map_nested_begin,map nested begin,See suite log/receipt
+fpga/verification/tb_safety_units.v,54,RTL named checkpoint,map_complete_atomic_commit,map complete atomic commit,See suite log/receipt
+fpga/verification/tb_safety_units.v,55,RTL named checkpoint,map_fresh_boundary_minus_one,map fresh boundary minus one,See suite log/receipt
+fpga/verification/tb_safety_units.v,56,RTL named checkpoint,map_stale_exact_boundary,map stale exact boundary,See suite log/receipt
+fpga/verification/tb_safety_units.v,58,RTL named checkpoint,map_upload_preserves_active_bank,map upload preserves active bank,See suite log/receipt
+fpga/verification/tb_safety_units.v,59,RTL named checkpoint,map_failed_commit_preserves_sequence_and_bank,map failed commit preserves sequence and bank,See suite log/receipt
+fpga/verification/tb_safety_units.v,60,RTL named checkpoint,map_address_count_overflow,map address count overflow,See suite log/receipt
+fpga/verification/tb_safety_units.v,61,RTL named checkpoint,map_commit_while_busy,map commit while busy,See suite log/receipt
+fpga/verification/tb_safety_units.v,62,RTL named checkpoint,map_write_commit_conflict,map write commit conflict,See suite log/receipt
+fpga/verification/tb_safety_units.v,64,RTL named checkpoint,map_sequence_replay,map sequence replay,See suite log/receipt
+fpga/verification/tb_safety_units.v,65,RTL named checkpoint,map_fault_sticky_until_reset,map fault sticky until reset,See suite log/receipt
+fpga/verification/tb_safety_units.v,67,RTL named checkpoint,logger_deduplicates_held_fault,logger deduplicates held fault,See suite log/receipt
+fpga/verification/tb_safety_units.v,68,RTL named checkpoint,logger_records_new_code,logger records new code,See suite log/receipt
+fpga/verification/tb_safety_units.v,70,RTL named checkpoint,logger_counts_recurrence_after_clear,logger counts recurrence after clear,See suite log/receipt
+fpga/verification/test_capture_hardware_safety.py,42,Python test definition,test_crc_reference,crc reference,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,46,Python test definition,test_exact_request_and_response,exact request and response,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,55,Python test definition,test_short_write_rejected,short write rejected,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,61,Python test definition,test_corruption_truncation_opcode_and_markers_rejected,corruption truncation opcode and markers rejected,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,70,Python test definition,test_stable_fault_and_logger_checked,stable fault and logger checked,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,76,Python test definition,test_unstable_brackets_are_not_accepted,unstable brackets are not accepted,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,82,Python test definition,test_nonzero_outputs_and_enabled_zero_rejected,nonzero outputs and enabled zero rejected,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,93,Python test definition,test_current_fault_retained_cause_and_event_count_required,current fault retained cause and event count required,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,101,Python test definition,test_signed_omega_boundaries,signed omega boundaries,See suite receipt; definition alone is not PASS
+fpga/verification/test_capture_hardware_safety.py,110,Python test definition,test_logger_change_during_sampling_is_detected,logger change during sampling is detected,See suite receipt; definition alone is not PASS
+test/test.py,7,Python test definition,test_project,project,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,26,Python test definition,test_jetson_interface_and_ambiguity,jetson interface and ambiguity,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,33,Python test definition,test_reject_jetson_identity,reject jetson identity,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,38,Python test definition,test_neighbor_discovery_uses_only_wired_subnet_and_valid_entries,neighbor discovery uses only wired subnet and valid entries,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,52,Python test definition,test_ssh_probe_binds_jetson_wired_address,ssh probe binds jetson wired address,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,61,Python test definition,test_console_autodetection_does_not_probe_robot_ports,console autodetection does not probe robot ports,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,71,Python test definition,test_usb_absent_does_not_load_random_drivers,usb absent does not load random drivers,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,78,Python test definition,test_enumerated_ftdi_gets_driver_then_port_is_rechecked,enumerated ftdi gets driver then port is rechecked,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,87,Python test definition,test_usb_inventory_from_sysfs,usb inventory from sysfs,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,100,Python test definition,test_console_command_ignores_echo_and_handles_fragments,console command ignores echo and handles fragments,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,106,Python test definition,test_console_sudo_password_is_not_a_shell_command,console sudo password is not a shell command,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,115,Python test definition,test_console_failed_command_not_success,console failed command not success,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,120,Python test definition,test_wrong_console_never_changes_remote_ip,wrong console never changes remote ip,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,126,Python test definition,test_hps_setup_runs_only_after_identity_check,hps setup runs only after identity check,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,135,Python test definition,test_serial_argument_is_shell_quoted,serial argument is shell quoted,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,140,Python test definition,test_remote_directory_quotes_user_input,remote directory quotes user input,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,145,Python test definition,test_local_machine_identity,local machine identity,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,151,Python test definition,test_check_only_has_no_mutations_or_console_access,check only has no mutations or console access,See suite receipt; definition alone is not PASS
+test/test_connect_de10.py,164,Python test definition,test_standalone_script_extracts_assets_and_runs_without_repo,standalone script extracts assets and runs without repo,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,65,Python test definition,test_exact_protocol_sizes_roundtrip_all_cases,exact protocol sizes roundtrip all cases,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,73,Python test definition,test_reject_lengths_crc_nonfinite_and_redundant_float,reject lengths crc nonfinite and redundant float,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,85,Python test definition,test_real_localhost_udp_to_uart_fixture_16_cases,real localhost udp to uart fixture 16 cases,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,91,Python test definition,test_production_bridge_uses_same_udp_protocol,production bridge uses same udp protocol,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,98,Python test definition,test_mock_explicitly_not_production_success,mock explicitly not production success,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,106,Python test definition,test_uart_error_latches_server_and_client,uart error latches server and client,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,114,Python test definition,test_malformed_request_never_reaches_uart,malformed request never reaches uart,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,123,Python test definition,test_duplicate_datagram_does_not_trigger_uart_again,duplicate datagram does not trigger uart again,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,132,Python test definition,test_stale_identity_ignored_and_timeout_latched,stale identity ignored and timeout latched,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,149,Python test definition,test_cli_capture_redecode_and_network_only_labels,cli capture redecode and network only labels,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,163,Python test definition,test_source_and_packaged_clients_identical,source and packaged clients identical,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,167,Python test definition,test_coarse_clock_still_produces_unique_transactions,coarse clock still produces unique transactions,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,174,Python test definition,test_uart_total_deadline_not_just_read_timeout,uart total deadline not just read timeout,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,182,Python test definition,test_source_controller_transport_handler_commands_full_stop,source controller transport handler commands full stop,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,200,Python test definition,test_old_hal_cannot_map_unreserved_physical_ddr,old hal cannot map unreserved physical ddr,See suite receipt; definition alone is not PASS
+test/test_ethernet.py,213,Python test definition,test_c_struct_interoperability,c struct interoperability,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,11,Python test definition,test_power_adapter_preserves_connections_and_other_cells,power adapter preserves connections and other cells,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,24,Python test definition,test_missing_supply_connection_rejected,missing supply connection rejected,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,29,Python test definition,test_duplicate_sram_instance_rejected,duplicate sram instance rejected,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,34,Python test definition,test_valid_escapes_and_unicode_unchanged,valid escapes and unicode unchanged,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,41,Python test definition,test_literal_hdl_identifier_escapes,literal hdl identifier escapes,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,48,Python test definition,test_invalid_unicode_identifier_escape,invalid unicode identifier escape,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,53,Python test definition,test_report_retains_original_and_mismatch_data,report retains original and mismatch data,See suite receipt; definition alone is not PASS
+test/test_netgen_json.py,66,Python test definition,test_structurally_invalid_report_still_fails,structurally invalid report still fails,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,18,Python test definition,test_measured_motion_first_five_then_four_with_four_left_turns,measured motion first five then four with four left turns,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,43,Python test definition,test_frozen_pose_times_out_and_never_claims_distance,frozen pose times out and never claims distance,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,48,Python test definition,test_nonfinite_and_path_deviation_latch_zero,nonfinite and path deviation latch zero,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,55,Python test definition,test_no_right_corner_to_correct_large_overshoot,no right corner to correct large overshoot,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,60,Python test definition,test_invalid_dimensions_and_speed,invalid dimensions and speed,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,64,Python test definition,test_wheel_frame_matches_wire_contract,wheel frame matches wire contract,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,80,Python test definition,test_active_source_stale_or_missing_scan_stops_before_inference,active source stale or missing scan stops before inference,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,89,Python test definition,test_active_source_expired_command_stops,active source expired command stops,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,97,Python test definition,test_blind_route_integrates_commands_in_correct_order,blind route integrates commands in correct order,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,115,Python test definition,test_stopped_controller_does_not_accumulate_distance,stopped controller does not accumulate distance,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,132,Python test definition,test_actual_slamtec_359_degree_scan_accepted,actual slamtec 359 degree scan accepted,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,144,Python test definition,test_missing_physical_serial_does_not_mock,missing physical serial does not mock,See suite receipt; definition alone is not PASS
+test/test_rectangle_route.py,150,Python test definition,test_short_motor_write_is_failure_and_nan_not_sent,short motor write is failure and nan not sent,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,10,Python test definition,test_uart_baud_selection_and_firmware_boundaries,uart baud selection and firmware boundaries,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,30,Python test definition,test_firmware_error_flag,firmware error flag,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,41,Python test definition,test_round_robin_and_halt,round robin and halt,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,54,Python test definition,test_branch_conditions_and_signed_boundaries,branch conditions and signed boundaries,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,68,Python test definition,test_wait_full_byte_and_enable_freeze,wait full byte and enable freeze,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,84,Python test definition,test_masked_open_drain_and_literal_wrap,masked open drain and literal wrap,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,103,Python test definition,test_rejected_encodings,rejected encodings,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,116,Python test definition,test_demo_fits_and_ownership_is_disjoint,demo fits and ownership is disjoint,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,125,Python test definition,test_literal_fetch_pause_and_restart,literal fetch pause and restart,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,142,Python test definition,test_geometry_matches_rtl,geometry matches rtl,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,150,Python test definition,test_read_program_at_last_word,read program at last word,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,158,Python test definition,test_invalid_program_ranges_have_no_spi_side_effects,invalid program ranges have no spi side effects,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,169,Python test definition,test_load_frames_endianness_and_readback,load frames endianness and readback,See suite receipt; definition alone is not PASS
+test/test_reference_model.py,179,Python test definition,test_bad_readback_and_short_transport,bad readback and short transport,See suite receipt; definition alone is not PASS
+test/test_rtl.py,22,Python test definition,test_targeted_sram_programming_preserves_other_addresses,targeted sram programming preserves other addresses,See suite receipt; definition alone is not PASS
+test/test_rtl.py,118,Python test definition,test_randomized_execution_and_ena,randomized execution and ena,See suite receipt; definition alone is not PASS
+test/test_rtl.py,144,Python test definition,test_branches_literal_wrap_and_pin_wait,branches literal wrap and pin wait,See suite receipt; definition alone is not PASS
+test/test_rtl.py,157,Python test definition,test_uart_tx_wire_frame,uart tx wire frame,See suite receipt; definition alone is not PASS
+test/test_rtl.py,168,Python test definition,test_uart_rx_wire_frame,uart rx wire frame,See suite receipt; definition alone is not PASS
+test/test_rtl.py,202,Python test definition,test_uart_rx_start_glitch_and_valid_frame,uart rx start glitch and valid frame,See suite receipt; definition alone is not PASS
+test/test_rtl.py,206,Python test definition,test_uart_rx_framing_error_status,uart rx framing error status,See suite receipt; definition alone is not PASS
+test/test_rtl.py,211,Python test definition,test_uart_rx_idle_qualification,uart rx idle qualification,See suite receipt; definition alone is not PASS
+test/test_rtl.py,218,Python test definition,test_uart_rx_data_patterns_timing_and_pin_mapping,uart rx data patterns timing and pin mapping,See suite receipt; definition alone is not PASS
+test/test_rtl.py,224,Python test definition,test_uart_rx_baud_mismatch,uart rx baud mismatch,See suite receipt; definition alone is not PASS
+test/test_rtl.py,230,Python test definition,test_uart_tx_patterns_and_period_boundaries,uart tx patterns and period boundaries,See suite receipt; definition alone is not PASS
+test/test_rtl.py,246,Python test definition,test_spi_mode0_wire_transfer,spi mode0 wire transfer,See suite receipt; definition alone is not PASS
+test/test_rtl.py,274,Python test definition,test_i2c_open_drain_ack_and_stretch,i2c open drain ack and stretch,See suite receipt; definition alone is not PASS
+test/test_rtl.py,318,Python test definition,test_i2c_nack_stops_before_data,i2c nack stops before data,See suite receipt; definition alone is not PASS
+test/test_rtl.py,327,Python test definition,test_four_protocol_contexts_concurrently,four protocol contexts concurrently,See suite receipt; definition alone is not PASS
+test/test_rtl.py,347,Python test definition,test_pin_ownership_rejects_overlap_and_releases_old_mask,pin ownership rejects overlap and releases old mask,See suite receipt; definition alone is not PASS
+test/test_rtl.py,359,Python test definition,test_host_protection_stop_restart_and_reset,host protection stop restart and reset,See suite receipt; definition alone is not PASS
+test/test_rtl.py,377,Python test definition,test_memory_geometry_live_read_and_invalid_high_address,memory geometry live read and invalid high address,See suite receipt; definition alone is not PASS
+test/test_sram.py,29,Python test definition,test_macro_partial_mask_enable_and_output_hold,macro partial mask enable and output hold,See suite receipt; definition alone is not PASS
+test/test_sram.py,54,Python test definition,test_wrapper_byte_preservation_read_edge_and_reset_retention,wrapper byte preservation read edge and reset retention,See suite receipt; definition alone is not PASS
+test/test_uart_diagnose.py,29,Python test definition,test_idle_never_transmits_and_records_noise,idle never transmits and records noise,See suite receipt; definition alone is not PASS
+test/test_uart_diagnose.py,35,Python test definition,test_exact_loopback_both_bauds,exact loopback both bauds,See suite receipt; definition alone is not PASS
+test/test_uart_diagnose.py,42,Python test definition,test_noise_blocks_loopback_transmission,noise blocks loopback transmission,See suite receipt; definition alone is not PASS
+test/test_uart_diagnose.py,47,Python test definition,test_corrupted_echo_fails,corrupted echo fails,See suite receipt; definition alone is not PASS
+test/test_uart_fabric.py,15,Python test definition,test_wire_contract,wire contract,See suite receipt; definition alone is not PASS
+test/test_uart_fabric.py,24,Python test definition,test_resync_corruption_and_fragments,resync corruption and fragments,See suite receipt; definition alone is not PASS
+test/test_uart_fabric.py,35,Python test definition,test_reject_invalid,reject invalid,See suite receipt; definition alone is not PASS
+test/test_uart_q88.py,19,Python test definition,test_integer_endian_and_domains,integer endian and domains,See suite receipt; definition alone is not PASS
+test/test_uart_q88.py,28,Python test definition,test_fixture_integrity,fixture integrity,See suite receipt; definition alone is not PASS
+test/test_uart_q88.py,42,Python test definition,test_capture_rejects_tampering_and_missing_frames,capture rejects tampering and missing frames,See suite receipt; definition alone is not PASS
+test/test_uart_q88.py,60,Python test definition,test_hardware_suite_with_simulated_serial_fixture,hardware suite with simulated serial fixture,See suite receipt; definition alone is not PASS
+test/test_uart_q88.py,79,Python test definition,test_main_test_marks_numeric_mismatch_failed,main test marks numeric mismatch failed,See suite receipt; definition alone is not PASS
+test/test_uart_q88.py,91,Python test definition,test_hardware_valid_crc_wrong_model_is_failure,hardware valid crc wrong model is failure,See suite receipt; definition alone is not PASS
+test/test_uart_q88.py,105,Python test definition,test_portable_installer_and_repeat_backup,portable installer and repeat backup,See suite receipt; definition alone is not PASS
+fpga/experiments/parallel8/tb_board_wrapper.sv,32,RTL named checkpoint,clean_boot_no_phantom_estop,clean boot no phantom estop,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,56,RTL named checkpoint,full_crc_valid_uart_response_matches_src_model,full crc valid uart response matches src model,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,71,RTL named checkpoint,partial_header_never_accepted,partial header never accepted,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,73,RTL named checkpoint,all_74_fields_without_crc_never_accepted,all 74 fields without crc never accepted,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,74,RTL named checkpoint,crc_completes_single_frame_acceptance,crc completes single frame acceptance,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,78,RTL named checkpoint,raw_key1_between_clocks_immediate_zero,raw key1 between clocks immediate zero,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,79,RTL named checkpoint,key1_stop_latched_and_error_recorded,key1 stop latched and error recorded,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,80,RTL named checkpoint,held_estop_deduplicated,held estop deduplicated,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,82,RTL named checkpoint,key1_release_still_stopped_until_reset,key1 release still stopped until reset,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,84,RTL named checkpoint,valid_frame_while_latched_never_accepted,valid frame while latched never accepted,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,85,RTL named checkpoint,key0_reset_restores_successful_inference,key0 reset restores successful inference,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,86,RTL named checkpoint,raw_key0_reset_immediately_clears_gate_and_history,raw key0 reset immediately clears gate and history,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,89,RTL named checkpoint,boot_with_key1_held_real_estop_recorded_once,boot with key1 held real estop recorded once,See suite log/receipt
+fpga/experiments/parallel8/tb_board_wrapper.sv,90,RTL named checkpoint,boot_stop_release_requires_reset,boot stop release requires reset,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_core.sv,70,RTL named checkpoint,rejected,rejected,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_core.sv,100,RTL named checkpoint,inference_started,inference started,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_core.sv,123,RTL named checkpoint,bit_exact_complete,bit exact complete,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_core.sv,154,RTL named checkpoint,aborted_state,aborted state,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_core.sv,159,RTL named checkpoint,reset_recovery,reset recovery,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,114,RTL named checkpoint,rejected_zero_guard,rejected zero guard,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,142,RTL named checkpoint,valid_residual_response,valid residual response,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,222,RTL named checkpoint,final_recovery,final recovery,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,229,RTL named checkpoint,accepted_counter_reaches_max,accepted counter reaches max,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,232,RTL named checkpoint,accepted_counter_saturates,accepted counter saturates,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,237,RTL named checkpoint,rejected_counter_reaches_max,rejected counter reaches max,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,240,RTL named checkpoint,rejected_counter_crc_saturates,rejected counter crc saturates,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,243,RTL named checkpoint,rejected_counter_estop_saturates,rejected counter estop saturates,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,247,RTL named checkpoint,saturated_counters_reset_clear,saturated counters reset clear,See suite log/receipt
+fpga/experiments/parallel8/tb_src_policy_uart.sv,251,RTL named checkpoint,post_saturation_reset_recovery,post saturation reset recovery,See suite log/receipt

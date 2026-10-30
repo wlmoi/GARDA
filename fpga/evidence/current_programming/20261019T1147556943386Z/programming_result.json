@@ -1,0 +1,9 @@
+{
+  "sof_sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
+  "utc": "2026-10-19T11:48:00.5953827Z",
+  "uart_function_verified": false,
+  "log": "programming.log",
+  "fpga_chain_index": 2,
+  "hardware_programmed": true,
+  "project": "source_policy_parallel8"
+}

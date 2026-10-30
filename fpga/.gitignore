@@ -1,0 +1,14 @@
+.runtime/
+**/db/
+**/incremental_db/
+**/sim_build/
+verification/build/
+**/__pycache__/
+*.pyc
+*.qws
+*.vvp
+*.vcd
+*.gtkw.bak
+software_integration/build/
+software_integration/install/
+software_integration/log/

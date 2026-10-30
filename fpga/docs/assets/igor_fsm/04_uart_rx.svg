@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1030" viewBox="0 0 1700 1030">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="1030" fill="white"/>
+<rect x="25" y="25" width="1650" height="980" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">UART RX — SAMPLE START, DATA, STOP</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state[1:0]  |  FSM eksplisit numerik; valid/error/data register</text>
+<ellipse cx="1143.42" cy="412.14" rx="194.1012" ry="48.0276" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="1143.42" y="399.99" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=0 | IDLE</text>
+<text x="1143.42" y="424.29" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tunggu sync=0; idle line tinggi</text>
+<ellipse cx="489.41999999999996" cy="412.14" rx="188.26559999999998" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="489.42" y="387.84" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=1 | START_CHECK</text>
+<text x="489.42" y="412.14" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tunggu setengah bit; validasi</text>
+<text x="489.42" y="436.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">start</text>
+<ellipse cx="489.41999999999996" cy="641.394" rx="187.2072" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="489.42" y="617.09" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=2 | DATA</text>
+<text x="489.42" y="641.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">shift[bit_index]=sync; sample</text>
+<text x="489.42" y="665.69" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">delapan bit</text>
+<ellipse cx="1148.42" cy="641.394" rx="188.26559999999998" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1148.42" y="629.24" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=3 | STOP</text>
+<text x="1148.42" y="653.54" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tunggu satu bit; validasi stop</text>
+<circle cx="1143.42" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 1143.42,262.25 C 1143.42,276.69 1143.42,317.03999999999996 1143.42,352.09 L 1143.42,363.24" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1122.42" y="290.94" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="1180.92" y="305.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 1096.02,364.74 C 1062.02,346.32 1062.02,310.74 1143.42,310.74 C 1216.23,310.74 1223.9099999999999,339.21 1200.38,358.4 L 1190.82,364.74" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1114.92" y="288.42" width="57.0" height="28.9" rx="3" fill="white"/>
+<text x="1143.42" y="302.87" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sync=1</text>
+<path d="M 948.43,412.14 C 866.9,412.14 772.21,412.14 690.0799999999999,412.14 L 678.5799999999999,412.14" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="691.25" y="386.82" width="244.5" height="28.9" rx="3" fill="white"/>
+<text x="813.50" y="401.27" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sync=0 / count=CLKS_PER_BIT/2-1</text>
+<path d="M 429.05999999999995,351.78999999999996 C 395.063,331.46999999999997 395.063,295.89 489.41999999999996,295.89 C 574.19,295.89 582.8,324.60999999999996 559.01,345.18 L 549.77,351.78999999999996" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="415.91999999999996" y="273.57" width="147.0" height="28.9" rx="3" fill="white"/>
+<text x="489.42" y="288.02" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count!=0 / count--</text>
+<path d="M 489.41999999999996,475.84 C 489.41999999999996,503.90999999999997 489.41999999999996,537.2 489.41999999999996,566.48 L 489.41999999999996,577.9" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="469.53999999999996" y="502.87" width="237.0" height="47.8" rx="3" fill="white"/>
+<text x="588.04" y="517.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count==0 &amp;&amp; sync==0 / index=0;</text>
+<text x="588.04" y="536.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count=BIT-1</text>
+<path d="M 672.04,428.79999999999995 C 685.38,429.63 698.65,430.34999999999997 711.5,430.89 C 802.0899999999999,434.71 824.91,434.60999999999996 915.5,430.89 C 926.17,430.45 937.12,429.9 948.17,429.26 L 959.6999999999999,428.57" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="683.75" y="408.57" width="259.5" height="28.9" rx="3" fill="white"/>
+<text x="813.50" y="423.02" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count==0 &amp;&amp; sync==1 / false start</text>
+<path d="M 429.09,581.06 C 395.08799999999997,559.41 395.08799999999997,521.21 489.41999999999996,521.21 C 574.53,521.21 582.8499999999999,552.3199999999999 558.68,574.3 L 549.75,581.06" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="378.41999999999996" y="481.56" width="222.0" height="47.8" rx="3" fill="white"/>
+<text x="489.42" y="496.01" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count!=0: count--; sample &amp;&amp;</text>
+<text x="489.42" y="514.91" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">index&lt;7: index++</text>
+<path d="M 677.38,641.394 C 761.94,641.394 861.85,641.394 947.85,641.394 L 959.35,641.394" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="688.64" y="598.744" width="259.5" height="47.8" rx="3" fill="white"/>
+<text x="818.39" y="613.19" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count==0 &amp;&amp; bit_index==7 / sample</text>
+<text x="818.39" y="632.09" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">bit terakhir</text>
+<path d="M 1101.02,594.0 C 1067.02,574.26 1067.02,536.05 1148.42,536.05 C 1221.54,536.05 1228.97,566.9 1205.07,587.47 L 1195.81,594.0" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1074.92" y="513.7299999999999" width="147.0" height="28.9" rx="3" fill="white"/>
+<text x="1148.42" y="528.18" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count!=0 / count--</text>
+<path d="M 1055.67,598.8199999999999 C 1033.73,584.31 1013.11,565.6899999999999 1000.67,542.52 C 983.6,510.74 1006.25,482.77 1038.1799999999998,461.04999999999995 L 1047.88,454.79999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="978.54" y="502.87" width="237.0" height="47.8" rx="3" fill="white"/>
+<text x="1097.04" y="517.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count==0 &amp;&amp; sync==1 / valid=1;</text>
+<text x="1097.04" y="536.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">data[7:0]=shift</text>
+<path d="M 1187.19,593.64 C 1202.53,569.56 1214.75,539.36 1206.42,511.02 C 1202.24,496.79999999999995 1195.29,482.71 1187.49,469.82 L 1181.4,460.21999999999997" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1189.1999999999998" y="512.3199999999999" width="229.5" height="28.9" rx="3" fill="white"/>
+<text x="1303.95" y="526.77" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count==0 &amp;&amp; sync==0 / error=1</text>
+<rect x="70" y="769.27" width="1560" height="200" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="799.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_uart_rx.v</text>
+<text x="90.00" y="825.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: state=0; valid=error=0; data=0; meta=sync=1</text>
+<text x="90.00" y="851.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. meta/sync adalah dua flop sinkronisasi RX asinkron. Sample dipakai dari sync, bukan langsung rx.</text>
+<text x="90.00" y="877.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. valid dan error default0 tiap clock; pulse hanya pada penyelesaian STOP. Default case(state): state=0.</text>
+<text x="90.00" y="903.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. Pada proyek Parallel8 BIT_CYCLES=(50.000.000+921600/2)/921600=54. Nominal921600, aktual50MHz/54.</text>
+<text x="90.00" y="929.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. IDLE/START_CHECK/DATA/STOP adalah alias diagram; RTL memakai angka0..3, bukan enum bernama.</text>
+</svg>

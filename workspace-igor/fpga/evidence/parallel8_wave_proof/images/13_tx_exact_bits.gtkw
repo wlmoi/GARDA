@@ -1,0 +1,19 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++transmitter_send tb_board_wrapper.dut.policy.transmitter.send
+@22
++transmitter_data tb_board_wrapper.dut.policy.transmitter.data[7:0]
+@24
++transmitter_busy tb_board_wrapper.dut.policy.transmitter.busy
+@24
++transmitter_bit_index tb_board_wrapper.dut.policy.transmitter.bit_index[3:0]
+@24
++transmitter_count tb_board_wrapper.dut.policy.transmitter.count[15:0]
+@22
++transmitter_shift tb_board_wrapper.dut.policy.transmitter.shift[9:0]
+@24
++transmitter_tx tb_board_wrapper.dut.policy.transmitter.tx

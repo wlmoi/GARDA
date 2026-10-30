@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-10-17T01:16:07.110244+00:00",
+  "suites": [
+    "policy"
+  ],
+  "evidence_kind": "Software and RTL simulation; no physical FPGA or motor measurement",
+  "hardware_tests_executed": false,
+  "python": "3.11.9",
+  "runner_sha256": "5e7b03382c64288c125a793c796525b9668a29c08ba828d57d68952b793ad965",
+  "steps": [
+    {
+      "name": "policy_core_uart",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "verification/src_policy/run.py",
+        "--check"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-10-17T01:16:07.115737+00:00",
+      "status": "PASS",
+      "log": "policy_core_uart.log",
+      "returncode": 0,
+      "elapsed_seconds": 270.625,
+      "log_sha256": "a7c427766db3b71559f881f2632d94ca2921370a47d4847681d703554b2084db"
+    },
+    {
+      "name": "policy_board_wrapper",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "verification/run_board_wrapper.py"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-10-17T01:20:37.753607+00:00",
+      "status": "PASS",
+      "log": "policy_board_wrapper.log",
+      "returncode": 0,
+      "elapsed_seconds": 11.86,
+      "log_sha256": "c3e8911e7fee373d1ca9cd04a2142164d103726a8465661e41962f7e637ca0e7"
+    }
+  ],
+  "completed_utc": "2026-10-17T01:20:49.634102+00:00"
+}

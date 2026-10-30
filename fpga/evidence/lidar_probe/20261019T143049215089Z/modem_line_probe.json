@@ -1,0 +1,16 @@
+[
+  {
+    "port": "COM14",
+    "baud": 115200,
+    "dtr": false,
+    "rts": true,
+    "rx_hex": ""
+  },
+  {
+    "port": "COM14",
+    "baud": 115200,
+    "dtr": true,
+    "rts": true,
+    "rx_hex": ""
+  }
+]

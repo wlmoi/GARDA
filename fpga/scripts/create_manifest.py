@@ -1,0 +1,46 @@
+"""Hash release files using Git's encoding-independent text classification."""
+from pathlib import Path
+import hashlib, json, subprocess
+from release_integrity import read_symlink_payload
+
+root = Path(__file__).resolve().parents[1]
+index = subprocess.check_output(['git', 'ls-files', '--stage', '-z'], cwd=root).decode('utf-8')
+git_symlinks = {
+    entry.split('\t', 1)[1]
+    for entry in index.split('\0') if entry.startswith('120000 ')
+}
+target = root / 'evidence' / 'RELEASE_MANIFEST.json'
+entries = subprocess.check_output([
+    'git', 'ls-files', '--cached', '--others', '--exclude-standard',
+    '--eol', '-z',
+], cwd=root).decode('utf-8').split('\0')
+paths = {}
+for entry in filter(None, entries):
+    metadata, name = entry.split('\t', 1)
+    worktree_eol = metadata.split()[1]
+    attributes = metadata.split('attr/', 1)[1].split()
+    # Git detects binary content independently of its character encoding.
+    # Explicit text/-text attributes take precedence over automatic detection.
+    is_text = '-text' not in attributes and (
+        'text' in attributes or worktree_eol != 'w/-text'
+    )
+    paths[name] = is_text
+manifest = {}
+text_files = []
+symlinks = []
+for name in sorted(paths):
+    path = root / name
+    if path == target:
+        continue
+    is_symlink = name in git_symlinks or path.is_symlink()
+    if not is_symlink and not path.is_file():
+        continue
+    data = read_symlink_payload(path) if is_symlink else path.read_bytes()
+    if is_symlink:
+        symlinks.append(name)
+    elif paths[name]:
+        data = data.replace(b'\r\n', b'\n')
+        text_files.append(name)
+    manifest[name] = hashlib.sha256(data).hexdigest()
+target.write_text(json.dumps({'algorithm':'SHA256', 'text_normalization':'CRLF to LF for text files classified by Git, independent of character encoding', 'text_files':text_files, 'symlink_normalization':'Hash UTF-8 link target bytes without dereferencing or EOL normalization', 'symlinks':symlinks, 'files':manifest}, indent=2) + '\n', encoding='utf-8')
+print(f'Hashed {len(manifest)} release files')

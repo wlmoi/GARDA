@@ -1,0 +1,291 @@
+# Test and checkpoint inventory
+
+Nama dan uraian berikut menunjuk definisi tes, bukan klaim bahwa semua tes telah dijalankan. Cocokkan dengan log/receipt suite. Proses setup, stimulus, oracle dan cara menjalankan tersedia pada VERIFICATION_GUIDE.md.
+
+- `fpga/verification/run_host_regression.py:62` — **test_source_packet_and_integer_actions**: source packet and integer actions
+- `fpga/verification/run_host_regression.py:71` — **test_no_automatic_mock_if_serial_missing**: no automatic mock if serial missing
+- `fpga/verification/run_host_regression.py:75` — **test_no_automatic_mock_if_port_missing**: no automatic mock if port missing
+- `fpga/verification/run_host_regression.py:79` — **test_each_bad_response_is_an_error**: each bad response is an error
+- `fpga/verification/run_host_regression.py:91` — **test_input_shape_nan_infinity_and_domain**: input shape nan infinity and domain
+- `fpga/verification/run_host_regression.py:100` — **test_short_write_and_serial_exception**: short write and serial exception
+- `fpga/verification/run_host_regression.py:104` — **test_quantization_ties_even_and_negative**: quantization ties even and negative
+- `fpga/verification/run_host_regression.py:108` — **test_failed_exchange_latches_against_late_valid_response**: failed exchange latches against late valid response
+- `fpga/verification/run_host_regression.py:114` — **test_total_deadline_rejects_slow_write_and_slow_read**: total deadline rejects slow write and slow read
+- `fpga/verification/run_host_regression.py:123` — **test_no_automatic_mock_if_serial_missing_or_port_unavailable**: no automatic mock if serial missing or port unavailable
+- `fpga/verification/run_host_regression.py:127` — **test_short_motor_write_is_not_success**: short motor write is not success
+- `fpga/verification/run_host_regression.py:132` — **test_explicit_mock_imu_timestamp_is_monotonic**: explicit mock imu timestamp is monotonic
+- `fpga/verification/run_host_regression.py:193` — **test_transport_failure_stops_original_nonzero_command**: transport failure stops original nonzero command
+- `fpga/verification/run_host_regression.py:197` — **test_command_watchdog_stops_without_inference**: command watchdog stops without inference
+- `fpga/verification/run_host_regression.py:200` — **test_missing_and_frozen_lidar_stop**: missing and frozen lidar stop
+- `fpga/verification/run_host_regression.py:204` — **test_invalid_command_stops**: invalid command stops
+- `fpga/verification/run_host_regression.py:208` — **test_nonfinite_sensor_stops**: nonfinite sensor stops
+- `fpga/verification/run_host_regression.py:212` — **test_missing_stale_and_future_imu_stop**: missing stale and future imu stop
+- `fpga/verification/run_host_regression.py:216` — **test_valid_zero_residual_preserves_valid_operator_command**: valid zero residual preserves valid operator command
+- `fpga/verification/run_host_regression.py:222` — **test_zero_operator_command_cannot_become_policy_motion**: zero operator command cannot become policy motion
+- `fpga/verification/run_host_regression.py:226` — **test_real_cbf_no_longer_bypasses_critical_distance_stop**: real cbf no longer bypasses critical distance stop
+- `fpga/verification/run_host_regression.py:233` — **test_final_envelope_and_all_axis_limits_after_filter**: final envelope and all axis limits after filter
+- `fpga/verification/run_host_regression.py:240` — **test_nonfinite_filter_output_stops**: nonfinite filter output stops
+- `fpga/verification/run_host_regression.py:246` — **test_invalid_scan_does_not_refresh_lease_or_become_clear**: invalid scan does not refresh lease or become clear
+- `fpga/verification/run_host_regression.py:252` — **test_scan_metadata_and_positive_infinity_no_return**: scan metadata and positive infinity no return
+- `fpga/verification/run_host_regression.py:260` — **test_incomplete_fov_scan_is_invalid**: incomplete fov scan is invalid
+- `fpga/verification/run_host_regression.py:264` — **test_command_expires_during_compute**: command expires during compute
+- `fpga/verification/run_host_regression.py:272` — **test_scan_expires_during_compute**: scan expires during compute
+- `fpga/verification/run_host_regression.py:280` — **test_wall_clock_jump_does_not_extend_motor_leases**: wall clock jump does not extend motor leases
+- `fpga/verification/run_lidar_regression.py:105` — **test_no_automatic_mock_when_serial_missing**: no automatic mock when serial missing
+- `fpga/verification/run_lidar_regression.py:108` — **test_no_automatic_mock_when_port_missing**: no automatic mock when port missing
+- `fpga/verification/run_lidar_regression.py:112` — **test_explicit_mock_is_the_only_synthetic_mode**: explicit mock is the only synthetic mode
+- `fpga/verification/run_lidar_regression.py:116` — **test_invalid_descriptor_fails_and_closes_port**: invalid descriptor fails and closes port
+- `fpga/verification/run_lidar_regression.py:127` — **test_segmented_valid_descriptor_and_boot_no_scan**: segmented valid descriptor and boot no scan
+- `fpga/verification/run_lidar_regression.py:133` — **test_partial_revolution_never_publishes_default_free_scan**: partial revolution never publishes default free scan
+- `fpga/verification/run_lidar_regression.py:138` — **test_complete_scan_uses_previous_marker_stamp_and_no_next_scan_point**: complete scan uses previous marker stamp and no next scan point
+- `fpga/verification/run_lidar_regression.py:146` — **test_scan_bins_never_carry_previous_revolution**: scan bins never carry previous revolution
+- `fpga/verification/run_lidar_regression.py:154` — **test_repeated_bin_cannot_fake_coverage_and_keeps_nearest**: repeated bin cannot fake coverage and keeps nearest
+- `fpga/verification/run_lidar_regression.py:161` — **test_bad_packets_returns_and_long_or_backward_revolutions_rejected**: bad packets returns and long or backward revolutions rejected
+- `fpga/verification/run_lidar_regression.py:172` — **test_publish_once_at_acquisition_timestamp_and_correct_geometry**: publish once at acquisition timestamp and correct geometry
+- `fpga/verification/run_lidar_regression.py:180` — **test_queued_stale_or_future_scan_never_publishes**: queued stale or future scan never publishes
+- `fpga/verification/run_lidar_regression.py:184` — **test_frozen_sensor_does_not_republish_or_refresh_timestamp**: frozen sensor does not republish or refresh timestamp
+- `fpga/verification/run_lidar_regression.py:189` — **test_stream_exception_invalidates_unpublished_scan**: stream exception invalidates unpublished scan
+- `fpga/verification/run_lidar_regression.py:197` — **test_fragmented_measurements_resynchronize_and_publish_completed_scan**: fragmented measurements resynchronize and publish completed scan
+- `fpga/verification/run_lidar_regression.py:221` — **test_invalid_configuration_rejected**: invalid configuration rejected
+- `fpga/verification/src_policy/tb_src_policy_core.sv:70` — **rejected**: rejected
+- `fpga/verification/src_policy/tb_src_policy_core.sv:100` — **inference_started**: inference started
+- `fpga/verification/src_policy/tb_src_policy_core.sv:123` — **bit_exact_complete**: bit exact complete
+- `fpga/verification/src_policy/tb_src_policy_core.sv:154` — **aborted_state**: aborted state
+- `fpga/verification/src_policy/tb_src_policy_core.sv:159` — **reset_recovery**: reset recovery
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:114` — **rejected_zero_guard**: rejected zero guard
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:142` — **valid_residual_response**: valid residual response
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:222` — **final_recovery**: final recovery
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:229` — **accepted_counter_reaches_max**: accepted counter reaches max
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:232` — **accepted_counter_saturates**: accepted counter saturates
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:237` — **rejected_counter_reaches_max**: rejected counter reaches max
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:240` — **rejected_counter_crc_saturates**: rejected counter crc saturates
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:243` — **rejected_counter_estop_saturates**: rejected counter estop saturates
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:247` — **saturated_counters_reset_clear**: saturated counters reset clear
+- `fpga/verification/src_policy/tb_src_policy_uart.sv:251` — **post_saturation_reset_recovery**: post saturation reset recovery
+- `fpga/verification/tb_board_wrapper.sv:32` — **clean_boot_no_phantom_estop**: clean boot no phantom estop
+- `fpga/verification/tb_board_wrapper.sv:56` — **full_crc_valid_uart_response_matches_src_model**: full crc valid uart response matches src model
+- `fpga/verification/tb_board_wrapper.sv:71` — **partial_header_never_accepted**: partial header never accepted
+- `fpga/verification/tb_board_wrapper.sv:73` — **all_74_fields_without_crc_never_accepted**: all 74 fields without crc never accepted
+- `fpga/verification/tb_board_wrapper.sv:74` — **crc_completes_single_frame_acceptance**: crc completes single frame acceptance
+- `fpga/verification/tb_board_wrapper.sv:78` — **raw_key1_between_clocks_immediate_zero**: raw key1 between clocks immediate zero
+- `fpga/verification/tb_board_wrapper.sv:79` — **key1_stop_latched_and_error_recorded**: key1 stop latched and error recorded
+- `fpga/verification/tb_board_wrapper.sv:80` — **held_estop_deduplicated**: held estop deduplicated
+- `fpga/verification/tb_board_wrapper.sv:82` — **key1_release_still_stopped_until_reset**: key1 release still stopped until reset
+- `fpga/verification/tb_board_wrapper.sv:84` — **valid_frame_while_latched_never_accepted**: valid frame while latched never accepted
+- `fpga/verification/tb_board_wrapper.sv:85` — **key0_reset_restores_successful_inference**: key0 reset restores successful inference
+- `fpga/verification/tb_board_wrapper.sv:86` — **raw_key0_reset_immediately_clears_gate_and_history**: raw key0 reset immediately clears gate and history
+- `fpga/verification/tb_board_wrapper.sv:89` — **boot_with_key1_held_real_estop_recorded_once**: boot with key1 held real estop recorded once
+- `fpga/verification/tb_board_wrapper.sv:90` — **boot_stop_release_requires_reset**: boot stop release requires reset
+- `fpga/verification/tb_safety_top.v:43` — **valid_nonzero_result_7938_cycles**: valid nonzero result 7938 cycles
+- `fpga/verification/tb_safety_top.v:57` — **start_without_map_rejected_and_latched**: start without map rejected and latched
+- `fpga/verification/tb_safety_top.v:58` — **locked_config_mutation_zero_and_logged**: locked config mutation zero and logged
+- `fpga/verification/tb_safety_top.v:59` — **estop_asserted_between_clocks_immediate_zero**: estop asserted between clocks immediate zero
+- `fpga/verification/tb_safety_top.v:60` — **estop_registered_error_log**: estop registered error log
+- `fpga/verification/tb_safety_top.v:61` — **estop_release_requires_reset**: estop release requires reset
+- `fpga/verification/tb_safety_top.v:62` — **restart_without_reset_rejected**: restart without reset rejected
+- `fpga/verification/tb_safety_top.v:63` — **protective_stop_result_zero_and_logged**: protective stop result zero and logged
+- `fpga/verification/tb_safety_top.v:64` — **estop_during_run_aborts**: estop during run aborts
+- `fpga/verification/tb_safety_top.v:65` — **protective_stop_during_run_aborts**: protective stop during run aborts
+- `fpga/verification/tb_safety_top.v:66` — **ready_drop_result_zero_and_logged**: ready drop result zero and logged
+- `fpga/verification/tb_safety_top.v:67` — **write_without_map_begin_zero_and_logged**: write without map begin zero and logged
+- `fpga/verification/tb_safety_top.v:68` — **new_start_retracts_old_command_immediately**: new start retracts old command immediately
+- `fpga/verification/tb_safety_top.v:68` — **rerun_busy_no_old_command**: rerun busy no old command
+- `fpga/verification/tb_safety_top.v:70` — **compute_deadline_variant_zero_and_logged**: compute deadline variant zero and logged
+- `fpga/verification/tb_safety_top.v:71` — **map_freshness_exact_boundary_zero**: map freshness exact boundary zero
+- `fpga/verification/tb_safety_top.v:71` — **map_freshness_zero_and_logged**: map freshness zero and logged
+- `fpga/verification/tb_safety_top.v:72` — **result_command_lease_exact_boundary_zero**: result command lease exact boundary zero
+- `fpga/verification/tb_safety_top.v:72` — **result_command_lease_zero_and_logged**: result command lease zero and logged
+- `fpga/verification/tb_safety_top.v:73` — **external_reset_recovers_sticky_faults**: external reset recovers sticky faults
+- `fpga/verification/tb_safety_top.v:79` — **map_sequence_1_result_before_valid_swap**: map sequence 1 result before valid swap
+- `fpga/verification/tb_safety_top.v:81` — **valid_map_swap_retracts_previous_result**: valid map swap retracts previous result
+- `fpga/verification/tb_safety_top.v:82` — **map_swap_requires_fresh_result_logged**: map swap requires fresh result logged
+- `fpga/verification/tb_safety_top.v:84` — **fresh_run_binds_map_sequence_2_and_recovers**: fresh run binds map sequence 2 and recovers
+- `fpga/verification/tb_safety_uart.v:46` — **valid_config_accepted**: valid config accepted
+- `fpga/verification/tb_safety_uart.v:47` — **valid_lock_accepted**: valid lock accepted
+- `fpga/verification/tb_safety_uart.v:48` — **status_response_gate_and_fault**: status response gate and fault
+- `fpga/verification/tb_safety_uart.v:49` — **command_response_output**: command response output
+- `fpga/verification/tb_safety_uart.v:50` — **event_count_response**: event count response
+- `fpga/verification/tb_safety_uart.v:51` — **last_fault_response**: last fault response
+- `fpga/verification/tb_safety_uart.v:52` — **crc_corruption_zero_and_logged**: crc corruption zero and logged
+- `fpga/verification/tb_safety_uart.v:53` — **good_command_after_crc_fault_rejected**: good command after crc fault rejected
+- `fpga/verification/tb_safety_uart.v:54` — **wrong_terminator_rejected**: wrong terminator rejected
+- `fpga/verification/tb_safety_uart.v:55` — **truncated_frame_timeout**: truncated frame timeout
+- `fpga/verification/tb_safety_uart.v:56` — **uart_stop_bit_error**: uart stop bit error
+- `fpga/verification/tb_safety_uart.v:57` — **rom_address_6019_accepted**: rom address 6019 accepted
+- `fpga/verification/tb_safety_uart.v:58` — **neural_index_23_signed_minus_one_accepted**: neural index 23 signed minus one accepted
+- `fpga/verification/tb_safety_uart.v:59` — **neural_output_index_3_accepted**: neural output index 3 accepted
+- `fpga/verification/tb_safety_uart.v:60` — **reset_recovers_uart_faults**: reset recovers uart faults
+- `fpga/verification/tb_safety_units.v:34` — **reset_defaults**: reset defaults
+- `fpga/verification/tb_safety_units.v:36` — **config_lock_decode**: config lock decode
+- `fpga/verification/tb_safety_units.v:37` — **config_write_after_lock**: config write after lock
+- `fpga/verification/tb_safety_units.v:38` — **config_lock_without_write**: config lock without write
+- `fpga/verification/tb_safety_units.v:39` — **config_write_while_busy**: config write while busy
+- `fpga/verification/tb_safety_units.v:40` — **config_write_lock_conflict**: config write lock conflict
+- `fpga/verification/tb_safety_units.v:41` — **config_reserved_bits**: config reserved bits
+- `fpga/verification/tb_safety_units.v:42` — **config_wrong_version**: config wrong version
+- `fpga/verification/tb_safety_units.v:43` — **config_omega_out_of_range**: config omega out of range
+- `fpga/verification/tb_safety_units.v:44` — **config_delta_omega_out_of_range**: config delta omega out of range
+- `fpga/verification/tb_safety_units.v:45` — **map_sequence_zero**: map sequence zero
+- `fpga/verification/tb_safety_units.v:46` — **map_commit_without_begin**: map commit without begin
+- `fpga/verification/tb_safety_units.v:47` — **map_write_without_begin**: map write without begin
+- `fpga/verification/tb_safety_units.v:48` — **map_nonsequential**: map nonsequential
+- `fpga/verification/tb_safety_units.v:49` — **map_truncated**: map truncated
+- `fpga/verification/tb_safety_units.v:50` — **map_begin_write_conflict**: map begin write conflict
+- `fpga/verification/tb_safety_units.v:51` — **map_begin_commit_conflict**: map begin commit conflict
+- `fpga/verification/tb_safety_units.v:52` — **map_nested_begin**: map nested begin
+- `fpga/verification/tb_safety_units.v:54` — **map_complete_atomic_commit**: map complete atomic commit
+- `fpga/verification/tb_safety_units.v:55` — **map_fresh_boundary_minus_one**: map fresh boundary minus one
+- `fpga/verification/tb_safety_units.v:56` — **map_stale_exact_boundary**: map stale exact boundary
+- `fpga/verification/tb_safety_units.v:58` — **map_upload_preserves_active_bank**: map upload preserves active bank
+- `fpga/verification/tb_safety_units.v:59` — **map_failed_commit_preserves_sequence_and_bank**: map failed commit preserves sequence and bank
+- `fpga/verification/tb_safety_units.v:60` — **map_address_count_overflow**: map address count overflow
+- `fpga/verification/tb_safety_units.v:61` — **map_commit_while_busy**: map commit while busy
+- `fpga/verification/tb_safety_units.v:62` — **map_write_commit_conflict**: map write commit conflict
+- `fpga/verification/tb_safety_units.v:64` — **map_sequence_replay**: map sequence replay
+- `fpga/verification/tb_safety_units.v:65` — **map_fault_sticky_until_reset**: map fault sticky until reset
+- `fpga/verification/tb_safety_units.v:67` — **logger_deduplicates_held_fault**: logger deduplicates held fault
+- `fpga/verification/tb_safety_units.v:68` — **logger_records_new_code**: logger records new code
+- `fpga/verification/tb_safety_units.v:70` — **logger_counts_recurrence_after_clear**: logger counts recurrence after clear
+- `fpga/verification/test_capture_hardware_safety.py:42` — **test_crc_reference**: crc reference
+- `fpga/verification/test_capture_hardware_safety.py:46` — **test_exact_request_and_response**: exact request and response
+- `fpga/verification/test_capture_hardware_safety.py:55` — **test_short_write_rejected**: short write rejected
+- `fpga/verification/test_capture_hardware_safety.py:61` — **test_corruption_truncation_opcode_and_markers_rejected**: corruption truncation opcode and markers rejected
+- `fpga/verification/test_capture_hardware_safety.py:70` — **test_stable_fault_and_logger_checked**: stable fault and logger checked
+- `fpga/verification/test_capture_hardware_safety.py:76` — **test_unstable_brackets_are_not_accepted**: unstable brackets are not accepted
+- `fpga/verification/test_capture_hardware_safety.py:82` — **test_nonzero_outputs_and_enabled_zero_rejected**: nonzero outputs and enabled zero rejected
+- `fpga/verification/test_capture_hardware_safety.py:93` — **test_current_fault_retained_cause_and_event_count_required**: current fault retained cause and event count required
+- `fpga/verification/test_capture_hardware_safety.py:101` — **test_signed_omega_boundaries**: signed omega boundaries
+- `fpga/verification/test_capture_hardware_safety.py:110` — **test_logger_change_during_sampling_is_detected**: logger change during sampling is detected
+- `test/test.py:7` — **test_project**: project
+- `test/test_connect_de10.py:26` — **test_jetson_interface_and_ambiguity**: jetson interface and ambiguity
+- `test/test_connect_de10.py:33` — **test_reject_jetson_identity**: reject jetson identity
+- `test/test_connect_de10.py:38` — **test_neighbor_discovery_uses_only_wired_subnet_and_valid_entries**: neighbor discovery uses only wired subnet and valid entries
+- `test/test_connect_de10.py:52` — **test_ssh_probe_binds_jetson_wired_address**: ssh probe binds jetson wired address
+- `test/test_connect_de10.py:61` — **test_console_autodetection_does_not_probe_robot_ports**: console autodetection does not probe robot ports
+- `test/test_connect_de10.py:71` — **test_usb_absent_does_not_load_random_drivers**: usb absent does not load random drivers
+- `test/test_connect_de10.py:78` — **test_enumerated_ftdi_gets_driver_then_port_is_rechecked**: enumerated ftdi gets driver then port is rechecked
+- `test/test_connect_de10.py:87` — **test_usb_inventory_from_sysfs**: usb inventory from sysfs
+- `test/test_connect_de10.py:100` — **test_console_command_ignores_echo_and_handles_fragments**: console command ignores echo and handles fragments
+- `test/test_connect_de10.py:106` — **test_console_sudo_password_is_not_a_shell_command**: console sudo password is not a shell command
+- `test/test_connect_de10.py:115` — **test_console_failed_command_not_success**: console failed command not success
+- `test/test_connect_de10.py:120` — **test_wrong_console_never_changes_remote_ip**: wrong console never changes remote ip
+- `test/test_connect_de10.py:126` — **test_hps_setup_runs_only_after_identity_check**: hps setup runs only after identity check
+- `test/test_connect_de10.py:135` — **test_serial_argument_is_shell_quoted**: serial argument is shell quoted
+- `test/test_connect_de10.py:140` — **test_remote_directory_quotes_user_input**: remote directory quotes user input
+- `test/test_connect_de10.py:145` — **test_local_machine_identity**: local machine identity
+- `test/test_connect_de10.py:151` — **test_check_only_has_no_mutations_or_console_access**: check only has no mutations or console access
+- `test/test_connect_de10.py:164` — **test_standalone_script_extracts_assets_and_runs_without_repo**: standalone script extracts assets and runs without repo
+- `test/test_ethernet.py:65` — **test_exact_protocol_sizes_roundtrip_all_cases**: exact protocol sizes roundtrip all cases
+- `test/test_ethernet.py:73` — **test_reject_lengths_crc_nonfinite_and_redundant_float**: reject lengths crc nonfinite and redundant float
+- `test/test_ethernet.py:85` — **test_real_localhost_udp_to_uart_fixture_16_cases**: real localhost udp to uart fixture 16 cases
+- `test/test_ethernet.py:91` — **test_production_bridge_uses_same_udp_protocol**: production bridge uses same udp protocol
+- `test/test_ethernet.py:98` — **test_mock_explicitly_not_production_success**: mock explicitly not production success
+- `test/test_ethernet.py:106` — **test_uart_error_latches_server_and_client**: uart error latches server and client
+- `test/test_ethernet.py:114` — **test_malformed_request_never_reaches_uart**: malformed request never reaches uart
+- `test/test_ethernet.py:123` — **test_duplicate_datagram_does_not_trigger_uart_again**: duplicate datagram does not trigger uart again
+- `test/test_ethernet.py:132` — **test_stale_identity_ignored_and_timeout_latched**: stale identity ignored and timeout latched
+- `test/test_ethernet.py:149` — **test_cli_capture_redecode_and_network_only_labels**: cli capture redecode and network only labels
+- `test/test_ethernet.py:163` — **test_source_and_packaged_clients_identical**: source and packaged clients identical
+- `test/test_ethernet.py:167` — **test_coarse_clock_still_produces_unique_transactions**: coarse clock still produces unique transactions
+- `test/test_ethernet.py:174` — **test_uart_total_deadline_not_just_read_timeout**: uart total deadline not just read timeout
+- `test/test_ethernet.py:182` — **test_source_controller_transport_handler_commands_full_stop**: source controller transport handler commands full stop
+- `test/test_ethernet.py:200` — **test_old_hal_cannot_map_unreserved_physical_ddr**: old hal cannot map unreserved physical ddr
+- `test/test_ethernet.py:213` — **test_c_struct_interoperability**: c struct interoperability
+- `test/test_netgen_json.py:11` — **test_power_adapter_preserves_connections_and_other_cells**: power adapter preserves connections and other cells
+- `test/test_netgen_json.py:24` — **test_missing_supply_connection_rejected**: missing supply connection rejected
+- `test/test_netgen_json.py:29` — **test_duplicate_sram_instance_rejected**: duplicate sram instance rejected
+- `test/test_netgen_json.py:34` — **test_valid_escapes_and_unicode_unchanged**: valid escapes and unicode unchanged
+- `test/test_netgen_json.py:41` — **test_literal_hdl_identifier_escapes**: literal hdl identifier escapes
+- `test/test_netgen_json.py:48` — **test_invalid_unicode_identifier_escape**: invalid unicode identifier escape
+- `test/test_netgen_json.py:53` — **test_report_retains_original_and_mismatch_data**: report retains original and mismatch data
+- `test/test_netgen_json.py:66` — **test_structurally_invalid_report_still_fails**: structurally invalid report still fails
+- `test/test_rectangle_route.py:18` — **test_measured_motion_first_five_then_four_with_four_left_turns**: measured motion first five then four with four left turns
+- `test/test_rectangle_route.py:43` — **test_frozen_pose_times_out_and_never_claims_distance**: frozen pose times out and never claims distance
+- `test/test_rectangle_route.py:48` — **test_nonfinite_and_path_deviation_latch_zero**: nonfinite and path deviation latch zero
+- `test/test_rectangle_route.py:55` — **test_no_right_corner_to_correct_large_overshoot**: no right corner to correct large overshoot
+- `test/test_rectangle_route.py:60` — **test_invalid_dimensions_and_speed**: invalid dimensions and speed
+- `test/test_rectangle_route.py:64` — **test_wheel_frame_matches_wire_contract**: wheel frame matches wire contract
+- `test/test_rectangle_route.py:80` — **test_active_source_stale_or_missing_scan_stops_before_inference**: active source stale or missing scan stops before inference
+- `test/test_rectangle_route.py:89` — **test_active_source_expired_command_stops**: active source expired command stops
+- `test/test_rectangle_route.py:97` — **test_blind_route_integrates_commands_in_correct_order**: blind route integrates commands in correct order
+- `test/test_rectangle_route.py:115` — **test_stopped_controller_does_not_accumulate_distance**: stopped controller does not accumulate distance
+- `test/test_rectangle_route.py:132` — **test_actual_slamtec_359_degree_scan_accepted**: actual slamtec 359 degree scan accepted
+- `test/test_rectangle_route.py:144` — **test_missing_physical_serial_does_not_mock**: missing physical serial does not mock
+- `test/test_rectangle_route.py:150` — **test_short_motor_write_is_failure_and_nan_not_sent**: short motor write is failure and nan not sent
+- `test/test_reference_model.py:10` — **test_uart_baud_selection_and_firmware_boundaries**: uart baud selection and firmware boundaries
+- `test/test_reference_model.py:30` — **test_firmware_error_flag**: firmware error flag
+- `test/test_reference_model.py:41` — **test_round_robin_and_halt**: round robin and halt
+- `test/test_reference_model.py:54` — **test_branch_conditions_and_signed_boundaries**: branch conditions and signed boundaries
+- `test/test_reference_model.py:68` — **test_wait_full_byte_and_enable_freeze**: wait full byte and enable freeze
+- `test/test_reference_model.py:84` — **test_masked_open_drain_and_literal_wrap**: masked open drain and literal wrap
+- `test/test_reference_model.py:103` — **test_rejected_encodings**: rejected encodings
+- `test/test_reference_model.py:116` — **test_demo_fits_and_ownership_is_disjoint**: demo fits and ownership is disjoint
+- `test/test_reference_model.py:125` — **test_literal_fetch_pause_and_restart**: literal fetch pause and restart
+- `test/test_reference_model.py:142` — **test_geometry_matches_rtl**: geometry matches rtl
+- `test/test_reference_model.py:150` — **test_read_program_at_last_word**: read program at last word
+- `test/test_reference_model.py:158` — **test_invalid_program_ranges_have_no_spi_side_effects**: invalid program ranges have no spi side effects
+- `test/test_reference_model.py:169` — **test_load_frames_endianness_and_readback**: load frames endianness and readback
+- `test/test_reference_model.py:179` — **test_bad_readback_and_short_transport**: bad readback and short transport
+- `test/test_rtl.py:22` — **test_targeted_sram_programming_preserves_other_addresses**: targeted sram programming preserves other addresses
+- `test/test_rtl.py:118` — **test_randomized_execution_and_ena**: randomized execution and ena
+- `test/test_rtl.py:144` — **test_branches_literal_wrap_and_pin_wait**: branches literal wrap and pin wait
+- `test/test_rtl.py:157` — **test_uart_tx_wire_frame**: uart tx wire frame
+- `test/test_rtl.py:168` — **test_uart_rx_wire_frame**: uart rx wire frame
+- `test/test_rtl.py:202` — **test_uart_rx_start_glitch_and_valid_frame**: uart rx start glitch and valid frame
+- `test/test_rtl.py:206` — **test_uart_rx_framing_error_status**: uart rx framing error status
+- `test/test_rtl.py:211` — **test_uart_rx_idle_qualification**: uart rx idle qualification
+- `test/test_rtl.py:218` — **test_uart_rx_data_patterns_timing_and_pin_mapping**: uart rx data patterns timing and pin mapping
+- `test/test_rtl.py:224` — **test_uart_rx_baud_mismatch**: uart rx baud mismatch
+- `test/test_rtl.py:230` — **test_uart_tx_patterns_and_period_boundaries**: uart tx patterns and period boundaries
+- `test/test_rtl.py:246` — **test_spi_mode0_wire_transfer**: spi mode0 wire transfer
+- `test/test_rtl.py:274` — **test_i2c_open_drain_ack_and_stretch**: i2c open drain ack and stretch
+- `test/test_rtl.py:318` — **test_i2c_nack_stops_before_data**: i2c nack stops before data
+- `test/test_rtl.py:327` — **test_four_protocol_contexts_concurrently**: four protocol contexts concurrently
+- `test/test_rtl.py:347` — **test_pin_ownership_rejects_overlap_and_releases_old_mask**: pin ownership rejects overlap and releases old mask
+- `test/test_rtl.py:359` — **test_host_protection_stop_restart_and_reset**: host protection stop restart and reset
+- `test/test_rtl.py:377` — **test_memory_geometry_live_read_and_invalid_high_address**: memory geometry live read and invalid high address
+- `test/test_sram.py:29` — **test_macro_partial_mask_enable_and_output_hold**: macro partial mask enable and output hold
+- `test/test_sram.py:54` — **test_wrapper_byte_preservation_read_edge_and_reset_retention**: wrapper byte preservation read edge and reset retention
+- `test/test_uart_diagnose.py:29` — **test_idle_never_transmits_and_records_noise**: idle never transmits and records noise
+- `test/test_uart_diagnose.py:35` — **test_exact_loopback_both_bauds**: exact loopback both bauds
+- `test/test_uart_diagnose.py:42` — **test_noise_blocks_loopback_transmission**: noise blocks loopback transmission
+- `test/test_uart_diagnose.py:47` — **test_corrupted_echo_fails**: corrupted echo fails
+- `test/test_uart_fabric.py:15` — **test_wire_contract**: wire contract
+- `test/test_uart_fabric.py:24` — **test_resync_corruption_and_fragments**: resync corruption and fragments
+- `test/test_uart_fabric.py:35` — **test_reject_invalid**: reject invalid
+- `test/test_uart_q88.py:19` — **test_integer_endian_and_domains**: integer endian and domains
+- `test/test_uart_q88.py:28` — **test_fixture_integrity**: fixture integrity
+- `test/test_uart_q88.py:42` — **test_capture_rejects_tampering_and_missing_frames**: capture rejects tampering and missing frames
+- `test/test_uart_q88.py:60` — **test_hardware_suite_with_simulated_serial_fixture**: hardware suite with simulated serial fixture
+- `test/test_uart_q88.py:79` — **test_main_test_marks_numeric_mismatch_failed**: main test marks numeric mismatch failed
+- `test/test_uart_q88.py:91` — **test_hardware_valid_crc_wrong_model_is_failure**: hardware valid crc wrong model is failure
+- `test/test_uart_q88.py:105` — **test_portable_installer_and_repeat_backup**: portable installer and repeat backup
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:32` — **clean_boot_no_phantom_estop**: clean boot no phantom estop
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:56` — **full_crc_valid_uart_response_matches_src_model**: full crc valid uart response matches src model
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:71` — **partial_header_never_accepted**: partial header never accepted
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:73` — **all_74_fields_without_crc_never_accepted**: all 74 fields without crc never accepted
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:74` — **crc_completes_single_frame_acceptance**: crc completes single frame acceptance
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:78` — **raw_key1_between_clocks_immediate_zero**: raw key1 between clocks immediate zero
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:79` — **key1_stop_latched_and_error_recorded**: key1 stop latched and error recorded
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:80` — **held_estop_deduplicated**: held estop deduplicated
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:82` — **key1_release_still_stopped_until_reset**: key1 release still stopped until reset
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:84` — **valid_frame_while_latched_never_accepted**: valid frame while latched never accepted
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:85` — **key0_reset_restores_successful_inference**: key0 reset restores successful inference
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:86` — **raw_key0_reset_immediately_clears_gate_and_history**: raw key0 reset immediately clears gate and history
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:89` — **boot_with_key1_held_real_estop_recorded_once**: boot with key1 held real estop recorded once
+- `fpga/experiments/parallel8/tb_board_wrapper.sv:90` — **boot_stop_release_requires_reset**: boot stop release requires reset
+- `fpga/experiments/parallel8/tb_src_policy_core.sv:70` — **rejected**: rejected
+- `fpga/experiments/parallel8/tb_src_policy_core.sv:100` — **inference_started**: inference started
+- `fpga/experiments/parallel8/tb_src_policy_core.sv:123` — **bit_exact_complete**: bit exact complete
+- `fpga/experiments/parallel8/tb_src_policy_core.sv:154` — **aborted_state**: aborted state
+- `fpga/experiments/parallel8/tb_src_policy_core.sv:159` — **reset_recovery**: reset recovery
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:114` — **rejected_zero_guard**: rejected zero guard
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:142` — **valid_residual_response**: valid residual response
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:222` — **final_recovery**: final recovery
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:229` — **accepted_counter_reaches_max**: accepted counter reaches max
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:232` — **accepted_counter_saturates**: accepted counter saturates
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:237` — **rejected_counter_reaches_max**: rejected counter reaches max
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:240` — **rejected_counter_crc_saturates**: rejected counter crc saturates
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:243` — **rejected_counter_estop_saturates**: rejected counter estop saturates
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:247` — **saturated_counters_reset_clear**: saturated counters reset clear
+- `fpga/experiments/parallel8/tb_src_policy_uart.sv:251` — **post_saturation_reset_recovery**: post saturation reset recovery

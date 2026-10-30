@@ -1,0 +1,2 @@
+PASS core: 236 network vectors, 8364 activation cases, 54401 assertions; all 192 hidden activations and 3 outputs checked per vector
+- /mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/core/tb_src_policy_core.sv:180: Verilog $finish

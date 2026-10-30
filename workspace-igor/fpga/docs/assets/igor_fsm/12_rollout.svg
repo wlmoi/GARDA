@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1858" height="1030" viewBox="0 0 1858 1030">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1858" height="1030" fill="white"/>
+<rect x="25" y="25" width="1808" height="980" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1738" height="75" rx="10" fill="#78638C"/>
+<text x="929.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">LAMPIRAN — ROLLOUT TILE (4 INSTANCE)</text>
+<text x="929.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state[2:0]  |  FSM eksplisit; hasil dan fault register</text>
+<ellipse cx="463.96999999999997" cy="412.14" rx="95.9904" ry="48.0276" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="463.97" y="399.99" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">IDLE (0)</text>
+<text x="463.97" y="424.29" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tunggu start</text>
+<ellipse cx="1043.97" cy="412.14" rx="219.0276" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1043.97" y="387.84" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">INIT (1)</text>
+<text x="1043.97" y="412.14" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Reset pose/biaya; x=y=16384; cek</text>
+<text x="1043.97" y="436.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">window</text>
+<ellipse cx="1593.0" cy="412.14" rx="194.63039999999998" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1593.00" y="387.84" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">STEP (2)</text>
+<text x="1593.00" y="412.14" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Integrasi x/y/heading; legal &amp;=</text>
+<text x="1593.00" y="436.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">!outside &amp;&amp; !overflow</text>
+<ellipse cx="263.96999999999997" cy="641.394" rx="193.572" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="263.97" y="629.24" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">WAIT_RAM (3)</text>
+<text x="263.97" y="653.54" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tunggu baca costmap sinkron</text>
+<ellipse cx="749.97" cy="641.394" rx="156.44879999999998" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="749.97" y="617.09" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">SCORE (4)</text>
+<text x="749.97" y="641.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tambah map_data; cek</text>
+<text x="749.97" y="665.69" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">obstacle/overflow</text>
+<ellipse cx="1310.0" cy="641.394" rx="214.25400000000002" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1310.00" y="617.09" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">FINISH (5)</text>
+<text x="1310.00" y="641.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Hitung score; update best dengan</text>
+<text x="1310.00" y="665.69" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">tie-break index</text>
+<circle cx="463.96999999999997" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 463.96999999999997,262.25 C 463.96999999999997,276.69 463.96999999999997,317.03999999999996 463.96999999999997,352.09 L 463.96999999999997,363.24" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="442.96999999999997" y="290.94" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="501.47" y="305.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 420.29999999999995,368.46999999999997 C 386.29999999999995,346.32 386.29999999999995,310.74 463.96999999999997,310.74 C 534.06,310.74 540.9,339.71 516.5899999999999,361.64 L 507.64,368.46999999999997" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="435.46999999999997" y="288.42" width="57.0" height="28.9" rx="3" fill="white"/>
+<text x="463.97" y="302.87" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!start</text>
+<path d="M 560.72,412.14 C 629.42,412.14 724.68,412.14 812.47,412.14 L 823.97,412.14" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="566.4499999999999" y="369.49" width="252.0" height="47.8" rx="3" fill="white"/>
+<text x="692.45" y="383.94" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">start / candidate_index=TILE_ID;</text>
+<text x="692.45" y="402.84" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">reset hasil</text>
+<path d="M 1263.6999999999998,412.14 C 1304.1,412.14 1346.1999999999998,412.14 1386.3000000000002,412.14 L 1397.8000000000002,412.14" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1298.4499999999998" y="386.82" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="1330.70" y="401.27" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 1435.8000000000002,450.16999999999996 C 1391.1999999999998,459.54999999999995 1342.3000000000002,468.74 1297.0,475.02 C 1067.5,506.78999999999996 1005.75,474.54999999999995 776.97,511.02 C 645.91,531.91 499.38,570.43 396.59,600.03 L 385.53,603.23" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="765.72" y="512.3199999999999" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="797.97" y="526.77" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 458.5,641.394 C 499.10999999999996,641.394 541.5999999999999,641.394 581.19,641.394 L 592.55,641.394" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="493.28" y="616.069" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="525.53" y="630.52" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 888.2099999999999,610.826 C 942.26,599.8299999999999 1004.87,587.79 1061.97,578.52 C 1187.6,558.13 1224.6,580.64 1346.0,542.52 C 1397.5,526.3399999999999 1451.0,499.68999999999994 1495.0,474.77 L 1504.8000000000002,469.15" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1416.9499999999998" y="512.3199999999999" width="184.5" height="28.9" rx="3" fill="white"/>
+<text x="1509.20" y="526.77" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">pose&lt;HORIZON-1 / pose++</text>
+<path d="M 907.0799999999999,641.394 C 961.79,641.394 1024.31,641.394 1083.5,641.394 L 1094.9,641.394" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="938.8199999999999" y="616.069" width="124.5" height="28.9" rx="3" fill="white"/>
+<text x="1001.07" y="630.52" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">pose==HORIZON-1</text>
+<path d="M 1240.8000000000002,581.3299999999999 C 1204.4,550.21 1159.6,511.91999999999996 1121.9,479.74 L 1113.5,472.54999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1176.35" y="502.87" width="169.5" height="47.8" rx="3" fill="white"/>
+<text x="1261.10" y="517.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">candidate_index&lt;508 /</text>
+<text x="1261.10" y="536.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">candidate_index+=4</text>
+<path d="M 1152.1999999999998,598.0 C 978.1,551.25 703.65,477.53 559.56,438.82 L 548.5699999999999,435.87" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="920.0" y="512.3199999999999" width="229.5" height="28.9" rx="3" fill="white"/>
+<text x="1034.75" y="526.77" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">candidate_index&gt;=508 / done=1</text>
+<rect x="70" y="769.27" width="1718" height="200" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="799.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_rollout_tile.v</text>
+<text x="90.00" y="825.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: IDLE; done/best_valid/arithmetic_fault0</text>
+<text x="90.00" y="851.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. Prioritas !rst_n &gt; abort_run &gt; case(state). abort_run -&gt; IDLE, done=best_valid=0.</text>
+<text x="90.00" y="877.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. Default ilegal -&gt; IDLE, done=best_valid=0, arithmetic_fault=1. Tidak ada state FAULT lokal.</text>
+<text x="90.00" y="903.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. HORIZON default20. Masing-masing tile mengerjakan128 index dengan langkah4; empat tile mencakup512 kandidat.</text>
+<text x="90.00" y="929.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. done ditahan di IDLE sampai start/reset/abort, bukan otomatis pulse satu clock.</text>
+</svg>

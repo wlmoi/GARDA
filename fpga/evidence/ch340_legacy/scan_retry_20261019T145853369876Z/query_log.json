@@ -1,0 +1,35 @@
+[
+  {
+    "tx": "a5 52",
+    "attempt": 1,
+    "rx": ""
+  },
+  {
+    "tx": "a5 52",
+    "attempt": 2,
+    "rx": ""
+  },
+  {
+    "tx": "a5 52",
+    "attempt": 3,
+    "rx": ""
+  },
+  {
+    "tx": "a5 52",
+    "attempt": 4,
+    "rx": ""
+  },
+  {
+    "tx": "a5 52",
+    "attempt": 5,
+    "rx": ""
+  },
+  {
+    "tx": "a5 52",
+    "attempt": 6,
+    "rx": ""
+  },
+  {
+    "error": "No current healthy response"
+  }
+]

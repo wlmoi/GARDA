@@ -1,0 +1,6 @@
+{
+  "expected_cycles": 6916,
+  "latency_ms_at_50mhz": 0.13832,
+  "scope": "Isolated candidate; not substituted for baseline",
+  "baseline_sha256": "3f566c285f468d7a148d3226eb3ff2344c3e617dc5f544b7f94994efb6973726"
+}

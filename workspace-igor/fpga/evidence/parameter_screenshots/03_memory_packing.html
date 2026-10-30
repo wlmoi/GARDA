@@ -1,0 +1,25 @@
+<!doctype html><meta charset="utf-8"><style>
+        *{box-sizing:border-box}body{margin:0;background:#edf2f8;color:#13223a;font:20px Segoe UI,Arial;padding:38px}
+        header{border-top:9px solid #146b83;background:white;padding:24px 30px;border-radius:12px}h1{font-size:33px;margin:8px 0 14px}
+        .badge{color:#166076;font-weight:700;letter-spacing:1px;font-size:15px}p{line-height:1.45;margin:12px 0}
+        .source{font:15px Consolas,monospace;background:#dfedf4;padding:14px;overflow-wrap:anywhere;margin-top:20px}
+        pre{font:18px/1.5 Consolas,monospace;background:white;border:1px solid #c2d0dd;margin:0;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+        table{width:100%;border-collapse:collapse;background:white;margin-top:20px;font-size:21px}td,th{padding:14px;border:1px solid #bfd0de;text-align:left}th{background:#163f57;color:white}
+        footer{font-size:15px;margin-top:20px;color:#43566b}.note{background:#fff2ce;padding:15px;border-left:5px solid #c08a12}
+        </style><header><div class="badge">IGOR PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>03 | SRAM-based block memory and ALM packing</h1><p>Configured data = 524,288 bits (64 KiB). Physical block implementation = 655,360 bits (64 x 10,240). Do not add these as two memories.</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header><div class="source">SOURCE: fpga\experiments\parallel8\output_files\igor_src_policy.fit.rpt<br>SHA256: b6e8db415e22b6f4864afa7d317b036cb30ea8cb2dc56c9abcc393a9ca299132</div><pre> 487 | ; Logic utilization (ALMs needed / total ALMs on device)      ; 3,303 / 41,910        ; 8 %   ;
+ 488 | ; ALMs needed [=A-B+C]                                        ; 3,303                 ;       ;
+ 489 | ;     [A] ALMs used in final placement [=a+b+c+d]             ; 4,113 / 41,910        ; 10 %  ;
+ 490 | ;         [a] ALMs used for LUT logic and registers           ; 1,044                 ;       ;
+ 491 | ;         [b] ALMs used for LUT logic                         ; 1,295                 ;       ;
+ 492 | ;         [c] ALMs used for registers                         ; 1,774                 ;       ;
+ 493 | ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ;       ;
+ 494 | ;     [B] Estimate of ALMs recoverable by dense packing       ; 823 / 41,910          ; 2 %   ;
+ 495 | ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 13 / 41,910           ; &lt; 1 % ;</pre><div class="source">SOURCE: fpga\experiments\parallel8\output_files\igor_src_policy.fit.rpt<br>SHA256: b6e8db415e22b6f4864afa7d317b036cb30ea8cb2dc56c9abcc393a9ca299132</div><pre> 554 | ;                                                             ;                       ;       ;
+ 555 | ; M10K blocks                                                 ; 64 / 553              ; 12 %  ;
+ 556 | ; Total MLAB memory bits                                      ; 0                     ;       ;
+ 557 | ; Total block memory bits                                     ; 524,288 / 5,662,720   ; 9 %   ;
+ 558 | ; Total block memory implementation bits                      ; 655,360 / 5,662,720   ; 12 %  ;
+ 559 | ;                                                             ;                       ;       ;
+ 560 | ; Total DSP Blocks                                            ; 8 / 112               ; 7 %   ;
+ 561 | ;                                                             ;                       ;       ;
+ 562 | ; Fractional PLLs                                             ; 0 / 6                 ; 0 %   ;</pre><footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_igorchip protocol engine, not a mapped PPO neural ASIC.</footer>

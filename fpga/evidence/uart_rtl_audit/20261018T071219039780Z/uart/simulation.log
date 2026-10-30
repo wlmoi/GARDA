@@ -1,0 +1,2 @@
+PASS uart: 184 directed transactions, 268 assertions, all 74 field range boundaries, independent wire decode, E-stop/parser/inference/TX/reset/stale/watchdog recovery
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\uart_rtl_audit\20261018T071219039780Z\uart\tb_src_policy_uart.sv:254: $finish called at 49187951000 (1ps)

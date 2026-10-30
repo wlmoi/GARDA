@@ -1,0 +1,17 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++clk tb_board_wrapper.clk
+@24
++rx tb_board_wrapper.rx
+@24
++receiver_meta tb_board_wrapper.dut.policy.receiver.meta
+@24
++receiver_sync tb_board_wrapper.dut.policy.receiver.sync
+@24
++receiver_state tb_board_wrapper.dut.policy.receiver.state[1:0]
+@24
++receiver_count tb_board_wrapper.dut.policy.receiver.count[15:0]

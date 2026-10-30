@@ -1,0 +1,21 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.dut.policy.core_done tb_board_wrapper.dut.policy.mode[3:0] tb_board_wrapper.dut.policy.core_output_index[1:0] tb_board_wrapper.dut.policy.core_output_value[15:0] tb_board_wrapper.dut.policy.sample0[15:0] tb_board_wrapper.dut.policy.sample1[15:0] tb_board_wrapper.dut.policy.sample2[15:0] tb_board_wrapper.dut.policy.response_crc[7:0] tb_board_wrapper.dut.policy.result_valid tb_board_wrapper.dut.policy.response_valid tb_board_wrapper.dut.policy.safety_permit 
+VALUE 0 1
+VALUE 1 1
+VALUE 2 7
+VALUE 3 2
+VALUE 4 42
+VALUE 5 -57
+VALUE 6 76
+VALUE 7 42
+VALUE 8 0F
+VALUE 9 1
+VALUE 10 1
+VALUE 11 1
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\11_capture_q88.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/11_capture_q88.png'

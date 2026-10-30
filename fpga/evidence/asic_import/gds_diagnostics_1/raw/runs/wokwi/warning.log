@@ -1,0 +1,87 @@
+20 Lint warnings found.
+'PNR_SDC_FILE' is not defined. Using generic fallback SDC for OpenROAD PnR steps.
+'SIGNOFF_SDC_FILE' is not defined. Using generic fallback SDC for OpenROAD PnR steps.
+[PSM-0038] Unconnected shape on net VPWR at (304.260um, 34.020um) - (307.070um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (304.260um, 79.485um) - (307.070um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (315.500um, 34.020um) - (318.310um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (315.500um, 79.485um) - (318.310um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (326.740um, 34.020um) - (329.550um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (326.740um, 79.485um) - (329.550um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (337.980um, 34.020um) - (340.790um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (337.980um, 79.485um) - (340.790um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (349.220um, 34.020um) - (352.030um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (349.220um, 79.485um) - (352.030um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (360.460um, 34.020um) - (363.270um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (360.460um, 79.485um) - (363.270um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (371.700um, 34.020um) - (374.510um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (371.700um, 79.485um) - (374.510um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (382.940um, 34.020um) - (385.750um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (382.940um, 79.485um) - (385.750um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (404.120um, 34.020um) - (406.930um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (414.420um, 34.020um) - (417.230um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (419.570um, 34.020um) - (422.380um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (429.870um, 34.020um) - (432.680um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (451.050um, 34.020um) - (453.860um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (451.050um, 79.485um) - (453.860um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (462.290um, 34.020um) - (465.100um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (462.290um, 79.485um) - (465.100um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (473.530um, 34.020um) - (476.340um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (473.530um, 79.485um) - (476.340um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (484.770um, 34.020um) - (487.580um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (484.770um, 79.485um) - (487.580um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (496.010um, 34.020um) - (498.820um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (496.010um, 79.485um) - (498.820um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (507.250um, 34.020um) - (510.060um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (507.250um, 79.485um) - (510.060um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (518.490um, 34.020um) - (521.300um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (518.490um, 79.485um) - (521.300um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (529.730um, 34.020um) - (532.540um, 72.845um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VPWR at (529.730um, 79.485um) - (532.540um, 152.800um), layer: Metal4.
+[PSM-0039] Unconnected instance program_store.i_sram/VDD! at location (418.400um, 61.428um).
+[PSM-0039] Unconnected instance program_store.i_sram/VDDARRAY! at location (418.400um, 116.142um).
+Grid check for VPWR failed: PSM-0069
+[PSM-0038] Unconnected shape on net VGND at (309.880um, 34.020um) - (312.690um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (321.120um, 34.020um) - (323.930um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (332.360um, 34.020um) - (335.170um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (343.600um, 34.020um) - (346.410um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (354.840um, 34.020um) - (357.650um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (366.080um, 34.020um) - (368.890um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (377.320um, 34.020um) - (380.130um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (388.560um, 34.020um) - (391.370um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (398.970um, 34.020um) - (401.780um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (409.270um, 34.020um) - (412.080um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (424.720um, 34.020um) - (427.530um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (435.020um, 34.020um) - (437.830um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (445.430um, 34.020um) - (448.240um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (456.670um, 34.020um) - (459.480um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (467.910um, 34.020um) - (470.720um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (479.150um, 34.020um) - (481.960um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (490.390um, 34.020um) - (493.200um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (501.630um, 34.020um) - (504.440um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (512.870um, 34.020um) - (515.680um, 152.800um), layer: Metal4.
+[PSM-0038] Unconnected shape on net VGND at (524.110um, 34.020um) - (526.920um, 152.800um), layer: Metal4.
+[PSM-0039] Unconnected instance program_store.i_sram/VSS! at location (418.400um, 93.410um).
+Grid check for VGND failed: PSM-0069
+[CTS-0041] Net "net692" has 1 sinks. Skipping...
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Cont
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer TopVia1
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer TopVia1
+Threshold for Threshold-surpassing long wires is not set. The checker will be skipped.
+'VSRC_LOC_FILES' was not given a value, which may make the results of IR drop analysis inaccurate. If you are not integrating a top-level chip for manufacture, you may ignore this warning, otherwise, see the documentation for 'VSRC_LOC_FILES'.
+Cell 'tt_um_igorchip' has (5) input pin(s) without antenna gate information. They might not be connected to a gate.
+42 Magic Illegal Overlap errors found.
+Setup violations found in the following corners:
+* nom_slow_1p08V_125C
+Max Slew violations found in the following corners:
+* nom_fast_1p32V_m40C
+* nom_slow_1p08V_125C
+* nom_typ_1p20V_25C
+Max Cap violations found in the following corners:
+* nom_fast_1p32V_m40C
+* nom_slow_1p08V_125C
+* nom_typ_1p20V_25C
+magic__drc_error__count not reported. Magic.DRC may have been skipped.

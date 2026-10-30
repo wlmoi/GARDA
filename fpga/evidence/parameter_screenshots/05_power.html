@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><style>
+        *{box-sizing:border-box}body{margin:0;background:#edf2f8;color:#13223a;font:20px Segoe UI,Arial;padding:38px}
+        header{border-top:9px solid #146b83;background:white;padding:24px 30px;border-radius:12px}h1{font-size:33px;margin:8px 0 14px}
+        .badge{color:#166076;font-weight:700;letter-spacing:1px;font-size:15px}p{line-height:1.45;margin:12px 0}
+        .source{font:15px Consolas,monospace;background:#dfedf4;padding:14px;overflow-wrap:anywhere;margin-top:20px}
+        pre{font:18px/1.5 Consolas,monospace;background:white;border:1px solid #c2d0dd;margin:0;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+        table{width:100%;border-collapse:collapse;background:white;margin-top:20px;font-size:21px}td,th{padding:14px;border:1px solid #bfd0de;text-align:left}th{background:#163f57;color:white}
+        footer{font-size:15px;margin-top:20px;color:#43566b}.note{background:#fff2ce;padding:15px;border-left:5px solid #c08a12}
+        </style><header><div class="badge">IGOR PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>05 | FPGA power estimate: dynamic, static and I/O</h1><p>Vectorless Power Analyzer estimate, confidence Low; not a board-current measurement. Includes full FPGA top, not isolated neural-core power.</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header><div class="source">SOURCE: fpga\experiments\parallel8\artifacts\power\typical\igor_src_policy.pow.summary<br>SHA256: df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77</div><pre>   1 | Power Analyzer Status : Successful - Sat Oct 17 09:23:10 2026
+   2 | Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+   3 | Revision Name : igor_src_policy
+   4 | Top-level Entity Name : igor_src_policy_de10_nano
+   5 | Family : Cyclone V
+   6 | Device : 5CSEBA6U23I7
+   7 | Power Models : Final
+   8 | Total Thermal Power Dissipation : 476.18 mW
+   9 | Core Dynamic Thermal Power Dissipation : 50.36 mW
+  10 | Core Static Thermal Power Dissipation : 413.27 mW
+  11 | I/O Thermal Power Dissipation : 12.55 mW
+  12 | Power Estimation Confidence : Low: user provided insufficient toggle rate data</pre><div class="source">SOURCE: fpga\experiments\parallel8\artifacts\power\maximum_tj100\igor_src_policy.pow.summary<br>SHA256: c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4</div><pre>   1 | Power Analyzer Status : Successful - Sat Oct 17 09:23:26 2026
+   2 | Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+   3 | Revision Name : igor_src_policy
+   4 | Top-level Entity Name : igor_src_policy_de10_nano
+   5 | Family : Cyclone V
+   6 | Device : 5CSEBA6U23I7
+   7 | Power Models : Final
+   8 | Total Thermal Power Dissipation : 937.55 mW
+   9 | Core Dynamic Thermal Power Dissipation : 50.36 mW
+  10 | Core Static Thermal Power Dissipation : 865.80 mW
+  11 | I/O Thermal Power Dissipation : 21.40 mW
+  12 | Power Estimation Confidence : Low: user provided insufficient toggle rate data</pre><footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_igorchip protocol engine, not a mapped PPO neural ASIC.</footer>

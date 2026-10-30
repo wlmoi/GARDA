@@ -1,0 +1,3 @@
+VCD info: dumpfile units.vcd opened for output.
+PASS units: 30 directed boundary and mutation checks
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\tb_safety_units.v:71: $finish called at 1640591000 (1ps)

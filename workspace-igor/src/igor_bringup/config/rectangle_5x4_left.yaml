@@ -1,0 +1,9 @@
+igor_rectangle_route:
+  ros__parameters:
+    armed: false
+    measured_pose_confirmed: false
+    pose_topic: /pose
+    first_side_m: 5.0
+    second_side_m: 4.0
+    speed_mps: 0.20
+    turn_speed_radps: 0.30

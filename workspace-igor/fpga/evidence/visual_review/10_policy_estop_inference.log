@@ -1,0 +1,9 @@
+DISPLAYED tb_src_policy_uart.rst_n tb_src_policy_uart.estop tb_src_policy_uart.safety_permit tb_src_policy_uart.response_valid tb_src_policy_uart.test_id tb_src_policy_uart.error_code[7:0] tb_src_policy_uart.error_flags[15:0] tb_src_policy_uart.action0[15:0] tb_src_policy_uart.action1[15:0] tb_src_policy_uart.action2[15:0] tb_src_policy_uart.accepted_frames[31:0] tb_src_policy_uart.rejected_frames[31:0] tb_src_policy_uart.last_latency_cycles[31:0] 
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[64366191000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\visual_review\10_policy_estop_inference.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/visual_review/10_policy_estop_inference.png'

@@ -1,0 +1,60 @@
+# Tiny Tapeout project information
+project:
+  title:        "IgorChip Programmable Protocol Engine"
+  author:       "wlmoi"
+  discord:      "icdesignboi"
+  description:  "Four-thread programmable digital protocol engine"
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     50000000
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "6x4"
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_igorchip"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "defines.vh"
+    - "igorchip_top.v"
+    - "program_host.v"
+    - "program_memory.v"
+    - "sram_256x16_bb.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "host SPI CS_n"
+  ui[1]: "host SPI SCLK"
+  ui[2]: "host SPI MOSI"
+  ui[3]: "reserved control input"
+  ui[4]: "reserved"
+  ui[5]: "reserved"
+  ui[6]: "reserved"
+  ui[7]: "reserved"
+
+  # Outputs
+  uo[0]: "host SPI MISO"
+  uo[1]: "core enabled"
+  uo[2]: "context 0 running"
+  uo[3]: "context 1 running"
+  uo[4]: "context 2 running"
+  uo[5]: "context 3 running"
+  uo[6]: "context 0 error"
+  uo[7]: "context 1 error"
+
+  # Bidirectional pins
+  uio[0]: "GPIO input bit 0"
+  uio[1]: "GPIO input bit 1"
+  uio[2]: "GPIO input bit 2"
+  uio[3]: "GPIO input bit 3"
+  uio[4]: "GPIO input bit 4"
+  uio[5]: "GPIO input bit 5"
+  uio[6]: "GPIO input bit 6"
+  uio[7]: "GPIO input bit 7"
+
+# Do not change!
+yaml_version: 6

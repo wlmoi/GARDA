@@ -1,0 +1,3 @@
+VCD info: dumpfile gate.vcd opened for output.
+PASS gate: 111210 oracle comparisons across all 12 outcomes
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\tb_safety_gate.v:23: $finish called at 111210000 (1ps)

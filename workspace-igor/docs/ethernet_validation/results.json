@@ -1,0 +1,70 @@
+{
+  "scope": "Localhost UDP + simulated UART; native C wire/HAL tests; no physical board acceptance",
+  "utc": "2026-10-18T09:17:00.494384+00:00",
+  "hardware_verified": false,
+  "suites": {
+    "connection": {
+      "passed": true,
+      "tests": 18,
+      "log": "connection.log"
+    },
+    "ethernet": {
+      "passed": true,
+      "tests": 16,
+      "log": "ethernet.log"
+    },
+    "uart": {
+      "passed": true,
+      "tests": 14,
+      "log": "uart.log"
+    },
+    "host": {
+      "passed": true,
+      "tests": 29,
+      "log": "host.log"
+    }
+  },
+  "cli_smoke": {
+    "network_only_passed": true,
+    "production_rejected_mock": true
+  },
+  "source_sha256": {
+    "docs/connect_de10.md": "9e1de60d74a483dba8dbdbdd8afd0899d615ce88b1a5eeccfe541162a8446178",
+    "eth_direction.md": "343f3f377626daee66bd67304a361442dc866eff07ff877cfe6ca8dfbf752f7b",
+    "fpga/software_integration/src/igor_controller/igor_controller/__init__.py": "193ebb463856d04f55eb163e152f46f7981f1efcc6c563f845c4e4f723e733d5",
+    "fpga/software_integration/src/igor_controller/igor_controller/controller_node.py": "2ebe5e4e3ccefe93ae3a7242e42644d2b02bb1d3277bd6127b4b9875f77b758b",
+    "fpga/software_integration/src/igor_controller/igor_controller/ethernet_protocol.py": "95b188d057e6b9cc97cdb5cb7a1b6c73ced290acc8086d418f2b9c1b3a541a7f",
+    "fpga/software_integration/src/igor_controller/igor_controller/fpga_bridge.py": "06cb8d5df6a31680ab9d2e2cad8bb6bb1a4561e4087db9b68f2653354143a3cc",
+    "fpga/software_integration/src/igor_controller/igor_controller/heading_estimator.py": "a5e605242363ea50356a1d88e5245c26358780a3f421cb61bb00b5251193e1c2",
+    "fpga/software_integration/src/igor_controller/igor_controller/mcu_driver.py": "4a5c5699952083afd96047fc9a4adf73693931da889a5eae18d04ef358249c6b",
+    "src/igor_controller/igor_controller/__init__.py": "193ebb463856d04f55eb163e152f46f7981f1efcc6c563f845c4e4f723e733d5",
+    "src/igor_controller/igor_controller/controller_node.py": "aeca6e2a8cf6f6575ab830ed2e02421d9b6bd889dcfcdf5a9ab001774598270e",
+    "src/igor_controller/igor_controller/ethernet_protocol.py": "95b188d057e6b9cc97cdb5cb7a1b6c73ced290acc8086d418f2b9c1b3a541a7f",
+    "src/igor_controller/igor_controller/fpga_bridge.py": "06cb8d5df6a31680ab9d2e2cad8bb6bb1a4561e4087db9b68f2653354143a3cc",
+    "src/igor_controller/igor_controller/heading_estimator.py": "a5e605242363ea50356a1d88e5245c26358780a3f421cb61bb00b5251193e1c2",
+    "src/igor_controller/igor_controller/mcu_driver.py": "d0c4fc9051ea2355c1c1670a3ec9bf3c6418fb11e56963670346e91f533fdbc4",
+    "src/igor_controller/igor_controller/waypoint_global_planner_node.py": "5d946677f1c1ec87d49ca48be90652227b94fd7df258e5bd1a9e8ca1b431da7f",
+    "src/igor_pipeline/hps_de10/de10_driver_legacy.h": "d4714474baf6cca9bcdc140242b1e57c800d31262578a6dba11c72424d8f220f",
+    "src/igor_pipeline/hps_de10/de10_fpga_bridge.c": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/igor_pipeline/hps_de10/de10_server_daemon.c": "838d7e58ef4861c7dfd05e25fadd806780d867a559cbd7ecc24c2cc637689d53",
+    "src/igor_pipeline/hps_de10/de10_server_legacy.c": "a1ff76d5ada7b046fe6de1c0a92c2c36285d52b9348334fcda8314e78623945b",
+    "src/igor_pipeline/hps_de10/de10_shared_mem_ext.c": "ab583727581623a22870ffb139fec50fcb361306b748303d6beafd4a219f4b51",
+    "src/igor_pipeline/hps_de10/de10_shared_mem_ext.h": "114851193db407cb01917df35ea3551743cb5531a7fd848ddb5a3d656d873ed4",
+    "src/igor_pipeline/hps_de10/de10_udp_gateway.py": "0bd9ec984262b6ea4d554e3c221ee14ff99ec2796f83f00d2389c842d5984633",
+    "src/igor_pipeline/hps_de10/igor-ethernet.service.example": "efd20eed87075207b533ce9da8adc1f84f6aed23adec7af0c425e31d2c1b33fc",
+    "src/igor_pipeline/protocol/protocol_legacy.h": "65a11c28dfef1b8394dda67b4a4ca59a3ac98db0f602a838fdd35f892b8e71f0",
+    "src/igor_pipeline/protocol/protocol_v2.h": "ba23b8a4303863c9b8f18869f5242aabee5b921c69dd80d8710b9ea42e1875b4",
+    "src/igor_pipeline/scripts/benchmark_latency.py": "4d2ed70a179b064a19335280ae2699dbdcc000001ee361d9d42a82e079dedfa2",
+    "src/igor_pipeline/scripts/ethernet_test.py": "331f7b2f09de78410c1fc9c42f97eeff3c4cf90eee140e7e05a75f2c2fb53643",
+    "src/igor_pipeline/scripts/uart_q88_vectors.json": "d7ca3345a693cf693faa4b4f98082c91bc8440fc5671da9eecaed002232be533",
+    "src/igor_pipeline/scripts/uart_test.py": "9a052c0b394eb441ce782529a57238d1b66617fd9eaab49e36073aad0daa5636",
+    "src/igor_pipeline/scripts/uart_validate_hardware_q88.py": "bafd6593ee7365bdf7eb81f2b7a6dea6aa98ca6d3ad65e9da6f00b71ee59fa04",
+    "src/igor_pipeline/scripts/uart_validate_q88.py": "bbb78b8c1e1e854f9df1b5cf9c9f6e15718ba02f6dc2857529e55c3118d0e3a9",
+    "test/test_connect_de10.py": "15898de88c35e1ba3935f46903c533712ce43b2ac7d17d8de1c7b72c0d36f1d3",
+    "test/test_ethernet.py": "4fe1d744dc7e4037e8aa49af3ae8a26d59c267dc702d82abbc68a3f67dc996db",
+    "tools/connect_de10.py": "ca46777fad658fa42e20b2d40f86c4a4bcacb48d8955b7d10ab7bc1174a75ab1",
+    "tools/de10_connect.py": "7b00c88ca31463d51c2ca8bee5e61a6fc26c68ed3a287f5865fc72d8e618bc4d",
+    "tools/package_de10_connect.py": "e6f5614946148f5ea37f98b27adb49aa4f6f8f594c6bd9a428513ce823b9bdbf",
+    "tools/verify_ethernet.py": "42b948446f181aaada81ce7ed88bfb85182eb1a0e11252c818d0abd721d0c89f"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "main_numeric_vectors": 256,
+  "numeric_transactions": 261,
+  "numeric_passed": 261,
+  "output_words_checked": 783,
+  "mismatches": 0,
+  "invalid_tests": 4,
+  "invalid_passed": 4,
+  "distinct_expected_outputs": 162,
+  "max_abs_error_lsb": 0,
+  "host_mean_rtt_us": 113606.83678177676,
+  "host_max_rtt_us": 115583.59999617096,
+  "scope": "Synthetic observations applied to physical FPGA; exact quantized integer equivalence on tested cases. Not exhaustive proof, not FP32 equivalence, not motor/system validation; host RTT includes USB/UART/OS."
+}

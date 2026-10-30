@@ -1,0 +1,73 @@
+name: Quartus 25 DE10-Nano src policy build
+
+# A trusted Windows runner must have Quartus Standard 25.x, Cyclone V support
+# and a valid license. This job compiles; it does not program a board or move motors.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: igor-quartus-src-policy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: [self-hosted, Windows, X64, quartus-25]
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: fpga/fpga_de10_nano/src_policy
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          lfs: true
+      - name: Find Quartus and record tool and source identity
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $igorQuartus = $env:QUARTUS_SH
+          if (-not $igorQuartus -and $env:QUARTUS_ROOTDIR) {
+            $igorQuartus = Join-Path $env:QUARTUS_ROOTDIR 'bin64/quartus_sh.exe'
+          }
+          if (-not $igorQuartus) {
+            $igorQuartus = (Get-Command quartus_sh.exe -ErrorAction Stop).Source
+          }
+          if (-not (Test-Path -LiteralPath $igorQuartus -PathType Leaf)) {
+            throw 'Quartus unavailable: set QUARTUS_SH or QUARTUS_ROOTDIR on the trusted runner.'
+          }
+          "IGOR_QUARTUS_SH=$igorQuartus" >> $env:GITHUB_ENV
+          New-Item -ItemType Directory -Force -Path output_files | Out-Null
+          & $igorQuartus --version | Tee-Object -FilePath output_files/ci_quartus_version.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Cannot read Quartus version.' }
+          if (-not (Select-String -LiteralPath output_files/ci_quartus_version.txt -Pattern 'Version 25\.' -Quiet)) {
+            throw 'This build is specified for Quartus 25.x.'
+          }
+          git rev-parse HEAD | Set-Content output_files/ci_hardware_commit.txt
+          git -C $env:GITHUB_WORKSPACE rev-parse HEAD | Set-Content output_files/ci_software_commit.txt
+          $igorSourceFiles = @(Get-ChildItem -File *.qpf,*.qsf,*.sdc,*.v,*.tcl)
+          $igorSourceFiles += @(Get-ChildItem -LiteralPath ../../rtl/igor_src_policy -File)
+          $igorSourceFiles += @(Get-Item -LiteralPath ../../rtl/igor_uart_rx.v,../../rtl/igor_uart_tx.v)
+          $igorSourceFiles |
+            Get-FileHash -Algorithm SHA256 |
+            Export-Csv -NoTypeInformation output_files/ci_project_sha256.csv
+      - name: Compile DE10-Nano project, including fitter, assembler and timing analysis
+        run: |
+          $ErrorActionPreference = 'Stop'
+          & $env:IGOR_QUARTUS_SH --flow compile igor_src_policy 2>&1 |
+            Tee-Object -FilePath output_files/ci_compile.log
+          if ($LASTEXITCODE -ne 0) { throw "Quartus failed: $LASTEXITCODE" }
+          if (-not (Test-Path -LiteralPath output_files/igor_src_policy.sof -PathType Leaf)) {
+            throw 'Compile completed without the expected SOF.'
+          }
+          Get-FileHash -Algorithm SHA256 output_files/igor_src_policy.sof |
+            Export-Csv -NoTypeInformation output_files/ci_sof_sha256.csv
+      - name: Save build reports and programming image
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: quartus25-de10nano-src-policy-${{ github.sha }}
+          path: fpga/fpga_de10_nano/src_policy/output_files/
+          if-no-files-found: error
+          retention-days: 30

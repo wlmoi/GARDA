@@ -1,0 +1,32 @@
+
+
+JP1 pins 1/2 q=status e=echo i=infer
+
+mode=I stop=0 pin=1 accepted=00000001 rejected=00000002 error=06 cycles=00001B04 seq=00000000 a0=0000 a1=0000 a2=0000
+
+> 
+
+JP1 pins 1/2 q=status e=echo i=infer
+
+mode=I stop=0 pin=1 accepted=00000001 rejected=00000002 error=06 cycles=00001B04 seq=00000001 a0=FFD2 a1=003C a2=0022
+
+> 
+
+JP1 pins 1/2 q=status e=echo i=infer
+
+mode=I stop=0 pin=1 accepted=00000001 rejected=00000002 error=06 cycles=00001B04 seq=00000001 a0=FFD2 a1=003C a2=0022
+
+> 
+
+JP1 pins 1/2 q=status e=echo i=infer
+
+mode=E stop=0 pin=1 accepted=00000001 rejected=00000002 error=06 cycles=00001B04 seq=00000001 a0=FFD2 a1=003C a2=0022
+
+> 
+
+JP1 pins 1/2 q=status e=echo i=infer
+
+mode=I stop=0 pin=1 accepted=00000001 rejected=00000002 error=06 cycles=00001B04 seq=00000001 a0=FFD2 a1=003C a2=0022
+
+> PASS: physical UART decoding/counters, framing error, status snapshot, echo/inference selection
+tb_jp7_monitor.v:28: $finish called at 41990000 (1ps)

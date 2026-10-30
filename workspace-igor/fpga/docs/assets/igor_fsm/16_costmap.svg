@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1261" viewBox="0 0 1700 1261">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="1261" fill="white"/>
+<rect x="25" y="25" width="1650" height="1211" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">LAMPIRAN — COSTMAP ATOMIC COMMIT</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">loading + fault + valid + count[14:0]  |  Kontrol implisit flags; map lama bisa tetap valid saat loading</text>
+<ellipse cx="758.6800000000001" cy="412.1500000000001" rx="179.25119999999998" ry="62.8776" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="758.68" y="387.85" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">loading=0, fault=0</text>
+<text x="758.68" y="412.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">valid bisa0 atau1; age terus</text>
+<text x="758.68" y="436.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">bertambah</text>
+<ellipse cx="711.6800000000001" cy="657.1500000000001" rx="173.4192" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="711.68" y="632.85" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">loading=1, fault=0</text>
+<text x="711.68" y="657.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tulis inactive bank; alamat</text>
+<text x="711.68" y="681.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">harus count</text>
+<ellipse cx="865.6800000000001" cy="887.303" rx="206.298" ry="48.0276" fill="#FDE8E8" stroke="#6E8950" stroke-width="2"/>
+<text x="865.68" y="875.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">fault=1</text>
+<text x="865.68" y="899.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">loading=0; gate map_ok tertutup</text>
+<circle cx="758.6800000000001" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 758.6800000000001,262.26 C 758.6800000000001,274.70000000000005 758.6800000000001,306.34000000000003 758.6800000000001,337.2700000000001 L 758.6800000000001,348.6" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="737.6800000000001" y="290.9500000000001" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="796.18" y="305.40" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 590.07,434.51000000000005 C 544.925,448.81000000000006 501.044,472.36 473.432,511.02000000000004 C 439.105,559.09 491.559,594.3000000000001 555.9,617.99 L 566.74,621.84" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="462.55999999999995" y="501.30000000000007" width="222.0" height="66.69999999999999" rx="3" fill="white"/>
+<text x="573.56" y="515.75" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">begin_frame sah /</text>
+<text x="573.56" y="534.65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sequence&gt;committed_sequence;</text>
+<text x="573.56" y="553.55" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">count=0</text>
+<path d="M 651.94,597.4100000000001 C 617.94,573.86 617.94,533.02 711.6800000000001,533.02 C 796.27,533.02 804.53,566.27 780.36,590.07 L 771.4200000000001,597.4100000000001" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="593.1800000000001" y="510.7000000000001" width="237.0" height="28.9" rx="3" fill="white"/>
+<text x="711.68" y="525.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">write_byte &amp;&amp; ram_wr / count++</text>
+<path d="M 723.74,593.78 C 730.04,561.22 737.79,521.1600000000001 744.39,487.05000000000007 L 746.5799999999999,475.73" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="728.14" y="501.30000000000007" width="244.5" height="66.69999999999999" rx="3" fill="white"/>
+<text x="850.39" y="515.75" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">commit_frame &amp;&amp; count==16384 &amp;&amp;</text>
+<text x="850.39" y="534.65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!busy &amp;&amp; !fault / bank flip;</text>
+<text x="850.39" y="553.55" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">valid=1; age=0</text>
+<path d="M 903.85,449.80000000000007 C 933.3199999999999,464.07000000000005 960.75,483.79 978.6800000000001,511.02000000000004 C 1050.1100000000001,619.52 1041.06,687.75 981.6800000000001,803.28 C 975.58,815.1500000000001 966.9000000000001,825.7 957.01,834.97 L 948.44,842.4490000000001" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1003.76" y="633.2500000000001" width="259.5" height="47.8" rx="3" fill="white"/>
+<text x="1133.51" y="647.70" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">conflict atau write/commit tidak</text>
+<text x="1133.51" y="666.60" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sah atau begin sequence tidak sah</text>
+<path d="M 722.89,720.87 C 729.86,747.94 740.86,778.9200000000001 757.9300000000001,803.28 C 765.74,814.4200000000001 775.49,824.75 785.9100000000001,834.07 L 794.39,841.321" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="733.56" y="746.3000000000001" width="259.5" height="66.69999999999999" rx="3" fill="white"/>
+<text x="863.31" y="760.75" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">conflict / begin ulang / write</text>
+<text x="863.31" y="779.65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">salah / commit belum lengkap atau</text>
+<text x="863.31" y="798.55" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">busy</text>
+<path d="M 818.05,839.672 C 784.05,821.33 784.05,785.45 865.6800000000001,785.45 C 938.7,785.45 946.4000000000001,814.1600000000001 922.88,833.35 L 913.31,839.672" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="743.4300000000001" y="763.13" width="244.5" height="28.9" rx="3" fill="white"/>
+<text x="865.68" y="777.58" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">fault sticky; reset untuk pulih</text>
+<rect x="70" y="1000.33" width="1560" height="200" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="1030.33" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_costmap_manager.v</text>
+<text x="90.00" y="1056.33" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: READY; valid=0; age=0xffffffff; bank0</text>
+<text x="90.00" y="1082.33" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. Prioritas conflict &gt; begin_frame &gt; write_byte &gt; commit_frame; tanpa command register kontrol ditahan.</text>
+<text x="90.00" y="1108.33" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. ram_wr=write_byte &amp;&amp; loading &amp;&amp; !fault &amp;&amp; !conflict &amp;&amp; count&lt;16384 &amp;&amp; frame_addr==count.</text>
+<text x="90.00" y="1134.33" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. fresh=valid &amp;&amp; age&lt;FRESH_CYCLES. Kadaluarsa tidak otomatis mengganti loading/fault; gate tetap melihat fresh0.</text>
+<text x="90.00" y="1160.33" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. valid lama tidak harus0 saat LOAD/FAULT; map_ok di top juga mensyaratkan !map_fault. Diagram bukan enum RTL.</text>
+</svg>

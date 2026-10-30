@@ -1,0 +1,16 @@
+[dumpfile] "top.vcd"
+[timestart] 0
+[size] 1500 900
+@28
+tb_safety_top.estop
+tb_safety_top.protective_stop
+tb_safety_top.ready
+tb_safety_top.start
+tb_safety_top.motor_enable
+tb_safety_top.v_command[4:0]
+tb_safety_top.omega_command[6:0]
+tb_safety_top.fault_code[7:0]
+tb_safety_top.event_count[31:0]
+tb_safety_top.last_fault[7:0]
+tb_safety_top.busy
+tb_safety_top.done

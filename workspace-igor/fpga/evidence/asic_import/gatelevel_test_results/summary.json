@@ -1,0 +1,29 @@
+{
+  "functional_test_status": "PASS",
+  "testcases": [
+    {
+      "name": "test_project",
+      "classname": "test",
+      "file": "/home/runner/work/igor_ws/igor_ws/test/test.py",
+      "lineno": "6",
+      "time": "1.6632161140441895",
+      "sim_time_ns": "74821.0",
+      "ratio_time": "44985.73538833096",
+      "status": "PASS"
+    }
+  ],
+  "random_seed": [
+    {
+      "name": "random_seed",
+      "value": "1792151866"
+    }
+  ],
+  "waveform_signals": 31409,
+  "source_archive_sha256": "126d64bf9aad0a869151c4017032433ff09ae132aa7d730b418298ea254b5754",
+  "physical_signoff_status": "NOT_ESTABLISHED_BY_GATELEVEL_XML",
+  "notes": [
+    "XML confirms supplied functional test result; not rerun locally.",
+    "Simulation wall time and sim_time_ns are not inference latency.",
+    "No SDF annotation log, netlist/GDS hash or precheck result is contained in this two-file archive."
+  ]
+}

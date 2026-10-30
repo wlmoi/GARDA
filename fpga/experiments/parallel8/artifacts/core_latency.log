@@ -1,0 +1,9 @@
+DISPLAYED tb_src_policy_core.start tb_src_policy_core.busy tb_src_policy_core.done tb_src_policy_core.fault tb_src_policy_core.error_code[3:0] tb_src_policy_core.latency_cycles[31:0] tb_src_policy_core.dut.state[3:0] tb_src_policy_core.dut.layer[1:0] tb_src_policy_core.dut.neuron[7:0] tb_src_policy_core.dut.k[7:0] 
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[33315911000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\experiments\parallel8\artifacts\core_latency.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/artifacts/core_latency.png'

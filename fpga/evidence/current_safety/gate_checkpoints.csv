@@ -1,0 +1,13 @@
+case,time_ns,motor_enable,v_command,omega_command,fault_code
+gate_fault_0,1,1,3,0,0
+gate_fault_1,2,0,0,0,1
+gate_fault_2,3,0,0,0,2
+gate_fault_3,4,0,0,0,3
+gate_fault_4,5,0,0,0,4
+gate_fault_5,6,0,0,0,5
+gate_fault_6,7,0,0,0,6
+gate_fault_7,8,0,0,0,7
+gate_fault_8,9,0,0,0,8
+gate_fault_9,10,0,0,0,9
+gate_fault_10,11,0,0,0,10
+gate_fault_11,12,0,0,0,11

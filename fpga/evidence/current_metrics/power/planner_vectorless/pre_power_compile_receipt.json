@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "project": "planner",
+  "revision": "igor",
+  "started_utc": "2026-10-16T10:55:53.030055+00:00",
+  "tool_version": "Quartus Prime Shell\nVersion 25.1std.0 Build 1129 10/21/2025 SC Standard Edition\nCopyright (C) 2025  Altera Corporation. All rights reserved.",
+  "source_sha256": {
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_b1.mem": "8d64c335ab813a9699c91e5cce6a738e7fb8a5439687f9945f014f48f461cdd8",
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_b2.mem": "0cab6f999d6b0c2a1799197b33f1f3239ca515eba167dffd4b2ae35e30778667",
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_b3.mem": "8252250b53d63f495ba2aee85e84b0b02604388c1086ff11e35294216f1bd451",
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_unified_weights.mem": "e63854e8dd87aaf99bf96b418a623af917ad0ef1d0eef71b66300eb1a4bd4c89",
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_unified_weights_padded.mem": "d9e1de2172ba2f3011bc225d01401ce139e84756743837d821a670b64c5aba41",
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_w1.mem": "82d7c0d1e8d2f98987e25a1a0940dee4a28cb89c8790e24d7ccae47fe50cd2a9",
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_w2.mem": "80cc4dc5f9158cb44567ee54b99efcc65356b66512ea8d76ce3681b1c64d987e",
+    "fpga_de10_nano/assets/neural_24_64_64_4/bram_w3.mem": "faf2f5f352737b4c81fd2da3d2384f4291e7d904ec9f67865efda501ade62ad9",
+    "fpga_de10_nano/assets/neural_24_64_64_4/test_inputs.mem": "4772a1549583d440b9ed0059470f0c816c0df49eb1a7be364665de7df1625aed",
+    "fpga_de10_nano/assets/neural_24_64_64_4/test_outputs.mem": "245405e4764b85de94c5ef9cb70d00a4115b7b0fe20d070e286fa1e41540ea2b",
+    "fpga_de10_nano/quartus/igor.qpf": "f54fc2bc989a26b1d177277d40dda3209baa3d06c3d6032da1c200065b7143f8",
+    "fpga_de10_nano/quartus/igor.qsf": "8ef01895c71f4afe27a5ee4d4521776ac0fb68f7fc6317570f91d72873b57ece",
+    "fpga_de10_nano/quartus/igor.sdc": "310635efb4c5f9f98ccfe4910373ac703f974c3c31284a5a996dc0179eaa6f5b",
+    "fpga_de10_nano/quartus/pin_assignment.tcl": "cb97dd87cb915cc3f108275cd6ecc591d331c37625ae8365a48254a37b4985fb",
+    "rtl/igor_best_candidate_selector.v": "0728b4f7f142c3596298693137b1be92777f6e270a5d20377ec84721cd09a18b",
+    "rtl/igor_candidate_generator.v": "32996ce0186033ab076ff33f9fa5ceda140bd98ad8d91644893ddba9cec15f71",
+    "rtl/igor_config_registers.v": "8c318768bc696c2a99b22ad26fd6444f4816eef542253def4660b42d9f634662",
+    "rtl/igor_costmap_bank.v": "9e75536ca0997c57c3a1199ed1b315f52b6a0658412a6fdf7edc40bef846b91b",
+    "rtl/igor_costmap_manager.v": "5d58ee1bc90873f1c226ee0308c32fda351fdd97e23f8db6d7598c356fa58e94",
+    "rtl/igor_de10_nano_wrapper.v": "48daf163ae3ef2fc2a7ee2b1ed55b9f43252da6aecb372238a8c5e133d8fbd0f",
+    "rtl/igor_kinematic_step.v": "66481ded5c0e5d00004e1b67ca2278e6f2b4f67c53c0100038a10d8a464f6c76",
+    "rtl/igor_neural_core.v": "6698cc94f22c9a3c8392175adf07f07683a3b57884e360f3fe1cd794c3876d8f",
+    "rtl/igor_neural_rom.v": "e9e8df074fd56e886e064004dcf099034f8bfcbf53da46b833ed1ec13823bbc3",
+    "rtl/igor_rollout_tile.v": "7b87b0f126177996be3b6be8970535727590e597941c124cc331485eed2f0a94",
+    "rtl/igor_safety_security_gate.v": "17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6",
+    "rtl/igor_score_accumulator.v": "d3a52ae41b8a35a4c2a751840065f6fcdab9291ba237dc308c34d901290a2e2c",
+    "rtl/igor_status_logger.v": "3d6c24cf9355084f200b20d22fabf236527787f308a06550b36ab16769972de7",
+    "rtl/igor_top.v": "dafbcf718d713441fbbf5a7f1bc806768895f6431488a0aea22dd95d88e572e0",
+    "rtl/igor_trig_lut.v": "51c87caf83927ce2f6a14e27c69874ada9e91a77a47ee311b97c446dd7667d7e",
+    "rtl/igor_uart_protocol.v": "835b3f8faec0fe0b550c28dd520c386fe51cbcf9d30e4d1a6bb087a75e267e4a",
+    "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "rtl/igor_uart_top.v": "6d7ba12b44e3cd5555d418a4c99658f9860db71a1e87d2251af54de1d6cf21be",
+    "rtl/igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28"
+  },
+  "status": "PASS",
+  "hardware_programmed": false,
+  "command": [
+    "D:\\Quartus-Program\\quartus\\bin64\\quartus_sh.exe",
+    "--flow",
+    "compile",
+    "igor"
+  ],
+  "exit_code": 0,
+  "finished_utc": "2026-10-16T11:01:03.391834+00:00",
+  "source_unchanged": true,
+  "slacks_ns": {
+    "Slow 1100mV 100C Model Setup 'FPGA_CLK1_50'": 0.741,
+    "Slow 1100mV 100C Model Hold 'FPGA_CLK1_50'": 0.262,
+    "Slow 1100mV 100C Model Recovery 'FPGA_CLK1_50'": 15.009,
+    "Slow 1100mV 100C Model Removal 'FPGA_CLK1_50'": 0.679,
+    "Slow 1100mV 100C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.804,
+    "Slow 1100mV -40C Model Setup 'FPGA_CLK1_50'": 0.641,
+    "Slow 1100mV -40C Model Hold 'FPGA_CLK1_50'": 0.2,
+    "Slow 1100mV -40C Model Recovery 'FPGA_CLK1_50'": 15.182,
+    "Slow 1100mV -40C Model Removal 'FPGA_CLK1_50'": 0.595,
+    "Slow 1100mV -40C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.804,
+    "Fast 1100mV 100C Model Setup 'FPGA_CLK1_50'": 10.232,
+    "Fast 1100mV 100C Model Hold 'FPGA_CLK1_50'": 0.138,
+    "Fast 1100mV 100C Model Recovery 'FPGA_CLK1_50'": 17.051,
+    "Fast 1100mV 100C Model Removal 'FPGA_CLK1_50'": 0.357,
+    "Fast 1100mV 100C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.483,
+    "Fast 1100mV -40C Model Setup 'FPGA_CLK1_50'": 11.561,
+    "Fast 1100mV -40C Model Hold 'FPGA_CLK1_50'": 0.094,
+    "Fast 1100mV -40C Model Recovery 'FPGA_CLK1_50'": 17.525,
+    "Fast 1100mV -40C Model Removal 'FPGA_CLK1_50'": 0.281,
+    "Fast 1100mV -40C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.414
+  },
+  "pin_assignments": {
+    "LED[7]": {
+      "location": "AA23",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[1]": {
+      "location": "AA24",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[5]": {
+      "location": "AE26",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[4]": {
+      "location": "AF26",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "KEY[1]": {
+      "location": "AH16",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "KEY[0]": {
+      "location": "AH17",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "UART_TX": {
+      "location": "E8",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "FPGA_CLK1_50": {
+      "location": "V11",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "UART_RX": {
+      "location": "V12",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[3]": {
+      "location": "V15",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[2]": {
+      "location": "V16",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[0]": {
+      "location": "W15",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "SW[3]": {
+      "location": "W20",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "SW[2]": {
+      "location": "W21",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "SW[1]": {
+      "location": "W24",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[6]": {
+      "location": "Y16",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "SW[0]": {
+      "location": "Y24",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    }
+  },
+  "sof": "fpga_de10_nano/quartus/output_files/igor.sof",
+  "sof_sha256": "84295ae937ab4a759efa1e4d21ebda09805559038bc4fef971894a8946d701d2",
+  "log": "fpga_de10_nano/quartus/compile_current.log",
+  "log_sha256": "2f53d1c3f915fe8d3d9abe0b7938ffdaeed5566398324088d45fda630724dc50",
+  "report_sha256": {
+    "fpga_de10_nano/quartus/output_files/igor.asm.rpt": "8033eade2bec65092f4b6794f85cc2aee020d2ced1b8d77c4d9ab6829d4bac1b",
+    "fpga_de10_nano/quartus/output_files/igor.fit.rpt": "4263e19c8862f9d2159d9857cda1f51f002912536ae9e42cf18df93a4bfa032a",
+    "fpga_de10_nano/quartus/output_files/igor.fit.summary": "3e05fa2b79701600eecb69432d291c74bd4770941c2bd0aa9d38d47c7260d0da",
+    "fpga_de10_nano/quartus/output_files/igor.flow.rpt": "1eefd415483189b16af736a9265114987650a1edaba1e80c215bcb48d354242a",
+    "fpga_de10_nano/quartus/output_files/igor.map.rpt": "204de29f9feb0ccb00bd063357b6cac889f6e6161863de5289ec0bf1dc9ebe00",
+    "fpga_de10_nano/quartus/output_files/igor.map.summary": "fb8deccfd3c4481cc0829b3940f4ba3da38cf9dafcab2f28024ec0104a4d7090",
+    "fpga_de10_nano/quartus/output_files/igor.pin": "6242e6f719cb4e22d88f9b3443938cf11ef2260f0b93e9b01a22af1f340c7f0b",
+    "fpga_de10_nano/quartus/output_files/igor.sof": "84295ae937ab4a759efa1e4d21ebda09805559038bc4fef971894a8946d701d2",
+    "fpga_de10_nano/quartus/output_files/igor.sta.rpt": "0e05eb0551c8934c96290bcc44efcb4b751e26009ca947168690532c88d88a02",
+    "fpga_de10_nano/quartus/output_files/igor.sta.summary": "2e8ad555c8144a93a1645eb70c19da55a8a941a087cff441418b027ae5020158"
+  }
+}

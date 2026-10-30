@@ -1,0 +1,55 @@
+EXPECTED OUTPUT EXAMPLE -- RTT and script hash depend on the actual run.
+IGOR source-policy UART | /dev/ttyTHS1 | 9600 baud | TX=153B RX=11B CRC8 Maxim
+[Frame    0] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    1] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    2] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    3] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    4] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    5] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    6] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    7] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    8] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame    9] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   10] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   11] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   12] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   13] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   14] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   15] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   16] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   17] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   18] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   19] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   20] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   21] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   22] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   23] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   24] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   25] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   26] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   27] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   28] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   29] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   30] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   31] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   32] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   33] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   34] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   35] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   36] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   37] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   38] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   39] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   40] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   41] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   42] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   43] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   44] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   45] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   46] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   47] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   48] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+[Frame   49] PASS | Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125] | RTT: <measured> us
+Frames sent: 50 | received: 50 | dropped: 0
+Validation passed: 50/50
+Mean RTT: <measured> us (includes UART transfer)

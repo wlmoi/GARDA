@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="970" viewBox="0 0 1700 970">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="970" fill="white"/>
+<rect x="25" y="25" width="1650" height="920" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">LAMPIRAN — CONFIG WRITE, LOCK, FAULT</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">locked + valid + fault  |  Pengelompokan flags; bukan enum</text>
+<ellipse cx="608.89" cy="397.29999999999995" rx="168.6456" ry="48.0276" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="608.89" y="385.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">locked=0, valid=0, fault=0</text>
+<text x="608.89" y="409.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Belum ada config sah</text>
+<ellipse cx="1196.8899999999999" cy="397.29999999999995" rx="168.6456" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1196.89" y="385.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">locked=0, valid=1, fault=0</text>
+<text x="1196.89" y="409.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Config bisa ditulis ulang</text>
+<ellipse cx="460.89" cy="596.8530000000001" rx="168.6456" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="460.89" y="584.70" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">locked=1, valid=1, fault=0</text>
+<text x="460.89" y="609.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Config terkunci</text>
+<ellipse cx="1003.89" cy="596.8530000000001" rx="185.0868" ry="48.0276" fill="#FDE8E8" stroke="#6E8950" stroke-width="2"/>
+<text x="1003.89" y="584.70" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">fault=1</text>
+<text x="1003.89" y="609.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">cfg_ok tertutup sampai reset</text>
+<circle cx="608.89" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 608.89,262.40999999999997 C 608.89,275.2 608.89,307.62 608.89,337.35 L 608.89,348.56" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="587.89" y="290.95" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="646.39" y="305.40" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 778.1800000000001,397.29999999999995 C 852.56,397.29999999999995 940.02,397.29999999999995 1015.72,397.29999999999995 L 1027.28,397.29999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="784.39" y="371.97" width="237.0" height="28.9" rx="3" fill="white"/>
+<text x="902.89" y="386.42" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">wr sah / simpan batas; valid=1</text>
+<path d="M 1150.0,350.4 C 1116.0,333.96 1116.0,303.32 1196.8899999999999,303.32 C 1268.95,303.32 1276.83,327.62 1253.67,344.55 L 1243.79,350.4" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1145.8899999999999" y="281.0" width="102.0" height="28.9" rx="3" fill="white"/>
+<text x="1196.89" y="295.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">wr sah ulang</text>
+<path d="M 1090.8200000000002,435.46000000000004 C 1055.3200000000002,448.83 1015.84,464.74 980.64,481.33 C 954.9,493.46000000000004 951.67,503.18 924.89,512.8299999999999 C 870.32,532.48 733.9100000000001,555.826 623.03,572.749 L 611.7,574.469" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="954.77" y="482.63" width="252.0" height="28.9" rx="3" fill="white"/>
+<text x="1080.77" y="497.08" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">lock_request &amp;&amp; !busy / locked=1</text>
+<path d="M 646.39,444.85 C 667.36,468.19 695.27,495.16999999999996 725.14,512.8299999999999 C 762.1600000000001,534.7 805.38,551.2049999999999 846.6,563.4970000000001 L 857.59,566.692" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="696.27" y="473.18" width="244.5" height="47.8" rx="3" fill="white"/>
+<text x="818.52" y="487.63" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">lock_request tanpa config sah /</text>
+<text x="818.52" y="506.53" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">valid=0</text>
+<path d="M 556.6700000000001,443.82 C 537.65,465.81 524.65,491.90999999999997 542.14,512.8299999999999 C 551.8299999999999,524.41 705.26,550.4359999999999 832.63,570.284 L 843.7,572.0029999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="517.02" y="482.63" width="177.0" height="28.9" rx="3" fill="white"/>
+<text x="605.52" y="497.08" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">wr tidak sah / valid=0</text>
+<path d="M 1208.83,446.03999999999996 C 1211.5900000000001,468.03999999999996 1210.65,493.49 1197.8899999999999,512.8299999999999 C 1185.47,531.66 1167.79,546.24 1148.1100000000001,557.519 L 1137.98,562.958" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1174.95" y="473.18" width="267.0" height="47.8" rx="3" fill="white"/>
+<text x="1308.45" y="487.63" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">wr tidak sah atau lock saat busy /</text>
+<text x="1308.45" y="506.53" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">valid=0</text>
+<path d="M 630.47,596.8530000000001 C 686.3399999999999,596.8530000000001 748.94,596.8530000000001 806.68,596.8530000000001 L 818.16,596.8530000000001" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="643.1700000000001" y="571.528" width="162.0" height="28.9" rx="3" fill="white"/>
+<text x="724.17" y="585.98" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">wr apa pun / valid=0</text>
+<path d="M 414.0,549.954 C 379.995,532.2 379.995,498.94 460.89,498.94 C 533.26,498.94 540.89,525.55 517.36,543.88 L 507.78999999999996,549.954" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="342.39" y="459.29" width="237.0" height="47.8" rx="3" fill="white"/>
+<text x="460.89" y="473.74" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">tidak ada wr; lock_request sah</text>
+<text x="460.89" y="492.64" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">tetap locked</text>
+<path d="M 956.74,549.698 C 922.74,532.2 922.74,498.94 1003.89,498.94 C 1076.49,498.94 1084.15,525.55 1060.62,543.69 L 1051.05,549.698" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="881.64" y="459.29" width="244.5" height="47.8" rx="3" fill="white"/>
+<text x="1003.89" y="473.74" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">fault sticky; tidak dibersihkan</text>
+<text x="1003.89" y="492.64" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">oleh wr</text>
+<rect x="70" y="709.88" width="1560" height="200" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="739.88" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_config_registers.v</text>
+<text x="90.00" y="765.88" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: EMPTY; seluruh batas0</text>
+<text x="90.00" y="791.88" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. wr lebih diprioritaskan daripada lock_request; keduanya bersamaan ditolak. Validasi reserved bits dan rentang dilakukan sebelum simpan.</text>
+<text x="90.00" y="817.88" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. Guard wr: !locked &amp;&amp; !busy &amp;&amp; !lock_request &amp;&amp; format/range sah. Tidak ada unlock selain reset.</text>
+<text x="90.00" y="843.88" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. fault dapat tetap1 ketika write berikutnya mengubah valid/data jika belum locked; label FAULT berarti fault sticky, bukan semua register dibekukan.</text>
+<text x="90.00" y="869.88" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. cfg_ok di top=cfg_valid &amp;&amp; locked &amp;&amp; !cfg_fault. Tidak ada state enum baru pada source.</text>
+</svg>

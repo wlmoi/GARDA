@@ -1,0 +1,20 @@
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name TOP_LEVEL_ENTITY igor_src_policy_de10_nano
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+set_global_assignment -name SEED 1
+set_global_assignment -name SYNCHRONIZER_IDENTIFICATION AUTO
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name SDC_FILE igor_src_policy.sdc
+set_global_assignment -name VERILOG_FILE igor_src_policy_de10_nano.v
+set_global_assignment -name VERILOG_FILE igor_src_policy_core.v
+set_global_assignment -name VERILOG_FILE ../../rtl/igor_src_policy/igor_src_policy_rom.v
+set_global_assignment -name VERILOG_FILE ../../rtl/igor_src_policy/igor_src_policy_uart.v
+set_global_assignment -name VERILOG_FILE ../../rtl/igor_uart_rx.v
+set_global_assignment -name VERILOG_FILE ../../rtl/igor_uart_tx.v
+source pin_assignment.tcl
+
+
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Standard Edition"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"

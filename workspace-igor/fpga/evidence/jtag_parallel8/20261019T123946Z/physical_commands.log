@@ -1,0 +1,30 @@
+
+
+IGOR Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
+RX count=0xB FPGA bytes: 5A A5 02 06 D2 FF 3C 00 22 00 61
+cycles=0x00001B04 accepted=0x00000002 rejected=0x00000001 error=0x0B CHECK=PASS
+> 
+
+
+IGOR Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
+RX count=0xB FPGA bytes: 5A A5 02 06 D2 FF 3C 00 22 00 61
+cycles=0x00001B04 accepted=0x00000003 rejected=0x00000002 error=0x0B CHECK=PASS
+> 
+
+
+IGOR Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
+RX count=0xB FPGA bytes: 5A A5 02 06 D2 FF 3C 00 22 00 61
+cycles=0x00001B04 accepted=0x00000004 rejected=0x00000003 error=0x0B CHECK=PASS
+> 
+
+
+
+IGOR Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
+RX count=0x0 FPGA bytes: -- -- -- -- -- -- -- -- -- -- --
+cycles=0x00001B04 accepted=0x00000004 rejected=0x00000005 error=0x06 CHECK=PASS
+> 
+
+IGOR Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
+RX count=0xB FPGA bytes: 5A A5 02 06 D2 FF 3C 00 22 00 61
+cycles=0x00001B04 accepted=0x00000005 rejected=0x00000005 error=0x06 CHECK=DATA
+> 

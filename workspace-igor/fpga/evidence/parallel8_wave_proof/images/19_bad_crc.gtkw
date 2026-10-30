@@ -1,0 +1,39 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++test_id tb_src_policy_uart.test_id
+@24
++uart_rx tb_src_policy_uart.uart_rx
+@24
++uart_tx tb_src_policy_uart.uart_tx
+@24
++error_code tb_src_policy_uart.error_code[7:0]
+@22
++error_flags tb_src_policy_uart.error_flags[15:0]
+@24
++safety_permit tb_src_policy_uart.safety_permit
+@420
++action0 tb_src_policy_uart.action0[15:0]
+@420
++action1 tb_src_policy_uart.action1[15:0]
+@420
++action2 tb_src_policy_uart.action2[15:0]
+@24
++accepted_frames tb_src_policy_uart.accepted_frames[31:0]
+@24
++rejected_frames tb_src_policy_uart.rejected_frames[31:0]
+@24
++dut_core_abort tb_src_policy_uart.dut.core_abort
+@24
++dut_mode tb_src_policy_uart.dut.mode[3:0]
+@24
++dut_rx_valid tb_src_policy_uart.dut.rx_valid
+@22
++dut_rx_data tb_src_policy_uart.dut.rx_data[7:0]
+@22
++dut_crc tb_src_policy_uart.dut.crc[7:0]
+@24
++dut_position tb_src_policy_uart.dut.position[7:0]

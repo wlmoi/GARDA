@@ -1,0 +1,415 @@
+Window: "Pin Planner - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy", App: quartus.exe.
+	0 window (settable, string) Pin Planner - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy Secondary Actions: Raise ID: QUI_APP.prj_pplq
+		1 title bar (settable, string) Value: Pin Planner - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy
+			2 menu bar System ID: MenuBar
+				3 menu item System
+			4 button Minimize
+			5 button Restore
+			6 button Close
+		7 window (settable, string) Pin Planner Secondary Actions: Raise ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND
+			8 window (settable, string) Report Secondary Actions: Raise ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report
+				9 tree (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.rpwq_toc_treeview
+					10 tree item (selectable, settable, string) Report not available ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.rpwq_toc_treeview
+				11 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+					12 custom (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame
+						13 text Report ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_title
+						14 check box (settable, string) P ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_pin_button
+						15 button (settable, string) D ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_detach_button
+						16 button (settable, string) C ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Report.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_close_button
+			17 window (settable, string) Groups Secondary Actions: Raise ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK
+				18 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget
+					19 text Named: ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_name_label
+					20 combo box (settable, string) Value: * ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_name_combo
+						21 edit (settable, string) Value: * ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_name_combo.QLineEdit
+					22 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table
+						23 tree (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							24 header (selectable, settable, string) Node Name ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							25 header (selectable, settable, string) Customize Columns... ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							26 header (selectable, settable, string) Direction ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							27 header (selectable, settable, string) Location ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							28 header (selectable, settable, string) I/O Bank ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							29 header (selectable, settable, string) VREF Group ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							30 header (selectable, settable, string) I/O Standard ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							31 header (selectable, settable, string) Reserved ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							32 tree item (selectable, settable, string) KEY[1..0] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							33 tree item (selectable, settable, string) Input Group ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							34 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							35 tree item (selectable, settable, string) LED[7..0] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							36 tree item (selectable, settable, string) Output Group ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							37 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							38 tree item (selectable, settable, string) <<new group>> ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							39 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+							40 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.m_dock_widget.m_node_table.groups_table
+				41 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_GROUP_DOCK.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+			42 menu bar (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar
+				43 menu item (settable, string) File ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar.QAction
+				44 menu item (settable, string) Edit ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar.QAction
+				45 menu item (settable, string) View ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar.QAction
+				46 menu item (settable, string) Processing ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar.QAction
+				47 menu item (settable, string) Tools ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar.QAction
+				48 menu item (settable, string) Window ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar.QAction
+				49 menu item (settable, string) Help ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMenuBar.QAction
+			50 status bar ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QStatusBar
+				51 text ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QStatusBar.QLabel
+				52 custom (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QStatusBar.QUI_STATUS_DISPLAY
+					53 text 0% ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QStatusBar.QUI_STATUS_DISPLAY.QLabel
+					54 text ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QStatusBar.QUI_STATUS_DISPLAY.QLabel
+					55 text 00:00:00 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QStatusBar.QUI_STATUS_DISPLAY.QLabel
+			56 tool bar (settable, string) Pin Planner ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner
+				57 button (settable, string) Attach Window ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				58 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolBarSeparator
+				59 check box (settable, string) Selection Tool ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				60 check box (settable, string) Zoom Tool ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				61 check box (settable, string) Hand Tool ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				62 button (settable, string) Fit in Window ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				63 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolBarSeparator
+				64 button (disabled, settable, string) Undo ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				65 button (disabled, settable, string) Redo ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				66 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolBarSeparator
+				67 check box (settable, string) Show I/O Banks ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				68 check box (settable, string) Show VREF Groups ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				69 check box (settable, string) Show Edges ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				70 check box (settable, string) Show Fitter Placements ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				71 check box (settable, string) Show Differential Pin Pair Connections ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				72 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolBarSeparator
+				73 check box (settable, string) Pad View ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				74 check box (settable, string) Board Trace Model ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				75 check box (settable, string) Pin Legend Window ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				76 check box (settable, string) Pin Finder ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				77 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolBarSeparator
+				78 check box (disabled, settable, string) Find Swappable Pins ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				79 button (settable, string) Start I/O Assignment Analysis ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+				80 check box (settable, string) Selection Synchronization ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Planner.QToolButton
+			81 window (settable, string) All Pins Secondary Actions: Raise ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK
+				82 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget
+					83 text Named: ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_name_label
+					84 combo box (settable, string) Value: * ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_name_combo
+						85 edit (settable, string) Value: * ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_name_combo.QLineEdit
+					86 button (settable, string) New Node ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_new_node_button
+					87 text Edit: ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_edit_label
+					88 button (disabled, settable, string) No ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_cancel_button
+					89 button (disabled, settable, string) Yes ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_ok_button
+					90 edit (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_edit_bar
+						91 tree (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_edit_bar.PPLQ_EDIT_BAR
+							92 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_edit_bar.PPLQ_EDIT_BAR
+					93 text Filter: ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_type_filter_label
+					94 combo box (settable, string) Value: Pins: all ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_type_filter_combo
+					95 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table
+						96 tree (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							97 header (selectable, settable, string) Node Name ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							98 header (selectable, settable, string) Direction ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							99 header (selectable, settable, string) Location ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							100 header (selectable, settable, string) I/O Bank ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							101 header (selectable, settable, string) VREF Group ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							102 header (selectable, settable, string) Fitter Location ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							103 header (selectable, settable, string) I/O Standard ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							104 header (selectable, settable, string) Reserved ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							105 header (selectable, settable, string) Current Strength ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							106 header (selectable, settable, string) Slew Rate ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							107 header (selectable, settable, string) Differential Pair ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							108 header (selectable, settable, string) Transceiver Analog Settings Protocol ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							109 header (selectable, settable, string) VCCR_GXB/VCCT_GXB Voltage ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							110 header (selectable, settable, string) Transceiver I/O Pin Termination ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							111 header (selectable, settable, string) Transceiver Dedicated Refclk Pin Termination ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							112 tree item (selectable, settable, string) <<new node>> ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							113 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							114 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							115 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							116 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							117 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							118 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							119 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							120 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							121 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							122 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							123 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							124 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							125 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							126 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							127 tree item (selectable, settable, string) UART_TX ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							128 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							129 tree item (selectable, settable, string) PIN_E8 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							130 tree item (selectable, settable, string) 8A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							131 tree item (selectable, settable, string) B8A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							132 tree item (selectable, settable, string) PIN_E8 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							133 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							134 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							135 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							136 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							137 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							138 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							139 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							140 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							141 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							142 tree item (selectable, settable, string) UART_RX ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							143 tree item (selectable, settable, string) Input ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							144 tree item (selectable, settable, string) PIN_V12 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							145 tree item (selectable, settable, string) 3B ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							146 tree item (selectable, settable, string) B3B_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							147 tree item (selectable, settable, string) PIN_V12 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							148 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							149 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							150 tree item (selectable, settable, string) 16mA (default) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							151 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							152 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							153 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							154 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							155 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							156 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							157 tree item (selectable, settable, string) LED[0] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							158 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							159 tree item (selectable, settable, string) PIN_W15 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							160 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							161 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							162 tree item (selectable, settable, string) PIN_W15 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							163 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							164 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							165 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							166 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							167 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							168 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							169 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							170 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							171 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							172 tree item (selectable, settable, string) LED[1] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							173 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							174 tree item (selectable, settable, string) PIN_AA24 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							175 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							176 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							177 tree item (selectable, settable, string) PIN_AA24 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							178 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							179 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							180 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							181 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							182 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							183 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							184 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							185 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							186 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							187 tree item (selectable, settable, string) LED[2] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							188 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							189 tree item (selectable, settable, string) PIN_V16 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							190 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							191 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							192 tree item (selectable, settable, string) PIN_V16 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							193 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							194 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							195 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							196 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							197 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							198 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							199 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							200 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							201 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							202 tree item (selectable, settable, string) LED[3] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							203 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							204 tree item (selectable, settable, string) PIN_V15 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							205 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							206 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							207 tree item (selectable, settable, string) PIN_V15 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							208 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							209 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							210 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							211 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							212 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							213 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							214 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							215 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							216 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							217 tree item (selectable, settable, string) LED[4] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							218 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							219 tree item (selectable, settable, string) PIN_AF26 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							220 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							221 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							222 tree item (selectable, settable, string) PIN_AF26 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							223 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							224 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							225 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							226 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							227 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							228 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							229 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							230 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							231 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							232 tree item (selectable, settable, string) LED[5] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							233 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							234 tree item (selectable, settable, string) PIN_AE26 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							235 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							236 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							237 tree item (selectable, settable, string) PIN_AE26 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							238 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							239 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							240 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							241 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							242 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							243 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							244 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							245 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							246 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							247 tree item (selectable, settable, string) LED[6] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							248 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							249 tree item (selectable, settable, string) PIN_Y16 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							250 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							251 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							252 tree item (selectable, settable, string) PIN_Y16 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							253 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							254 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							255 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							256 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							257 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							258 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							259 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							260 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							261 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							262 tree item (selectable, settable, string) LED[7] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							263 tree item (selectable, settable, string) Output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							264 tree item (selectable, settable, string) PIN_AA23 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							265 tree item (selectable, settable, string) 5A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							266 tree item (selectable, settable, string) B5A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							267 tree item (selectable, settable, string) PIN_AA23 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							268 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							269 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							270 tree item (selectable, settable, string) 16ma ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							271 tree item (selectable, settable, string) 1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							272 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							273 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							274 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							275 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							276 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							277 tree item (selectable, settable, string) KEY[0] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							278 tree item (selectable, settable, string) Input ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							279 tree item (selectable, settable, string) PIN_AH17 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							280 tree item (selectable, settable, string) 4A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							281 tree item (selectable, settable, string) B4A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							282 tree item (selectable, settable, string) PIN_AH17 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							283 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							284 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							285 tree item (selectable, settable, string) 16mA (default) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							286 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							287 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							288 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							289 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							290 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							291 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							292 tree item (selectable, settable, string) KEY[1] ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							293 tree item (selectable, settable, string) Input ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							294 tree item (selectable, settable, string) PIN_AH16 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							295 tree item (selectable, settable, string) 4A ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							296 tree item (selectable, settable, string) B4A_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							297 tree item (selectable, settable, string) PIN_AH16 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							298 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							299 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							300 tree item (selectable, settable, string) 16mA (default) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							301 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							302 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							303 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							304 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							305 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							306 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							413 tree item (selectable, settable, string) FPGA_CLK1_50 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							414 tree item (selectable, settable, string) Input ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							415 tree item (selectable, settable, string) PIN_V11 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							416 tree item (selectable, settable, string) 3B ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							417 tree item (selectable, settable, string) B3B_N0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							418 tree item (selectable, settable, string) PIN_V11 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							419 tree item (selectable, settable, string) 3.3-V LVTTL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							420 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							421 tree item (selectable, settable, string) 16mA (default) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							422 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							423 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							424 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							425 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							426 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+							427 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.m_dock_widget.m_node_table.all_pins_table
+				307 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+					308 custom (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v
+						309 button (settable, string) C ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_close_button_v
+						310 button (settable, string) D ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_detach_button_v
+						311 check box (settable, string) P ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_pin_button_v
+						312 text All Pins ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_ALL_PIN_DOCK.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_title_v
+			313 window (settable, string) Tasks Secondary Actions: Raise ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks
+				314 tree (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					315 tree item (selectable, settable, string) Early Pin Planning ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					316 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					317 tree item (selectable, settable, string) Early Pin Planning... ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					318 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					319 tree item (selectable, settable, string) Run I/O Assignment Analysis ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					320 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					321 tree item (selectable, settable, string) Export Pin Assignments... ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					322 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					323 tree item (selectable, settable, string) Pin Finder... ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					324 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					325 tree item (selectable, settable, string) Highlight Pins ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					326 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					327 tree item (selectable, settable, string) I/O Banks ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+					328 tree item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.tftw_toc_treeview
+				333 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+					334 custom (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame
+						335 text Tasks ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_title
+						336 check box (settable, string) P ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_pin_button
+						337 button (settable, string) D ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_detach_button
+						338 button (settable, string) C ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_close_button
+			339 window (settable, string) Pin Legend Secondary Actions: Raise ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend
+				340 table (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					341 pane (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					342 header (selectable, settable, string) Symbol ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					343 header (selectable, settable, string) Pin Type ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					344 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					345 item (selectable, settable, string) User I/O ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					346 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					347 item (selectable, settable, string) User assigned I/O ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					348 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					349 item (selectable, settable, string) Fitter assigned I/O ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					350 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					351 item (selectable, settable, string) Unbonded pad ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					352 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					353 item (selectable, settable, string) Reserved pin ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					354 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					355 item (selectable, settable, string) DEV_OE ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					356 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					357 item (selectable, settable, string) DIFF_n ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					358 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					359 item (selectable, settable, string) DIFF_p ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					360 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					361 item (selectable, settable, string) DIFF_n output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					362 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					363 item (selectable, settable, string) DIFF_p output ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					364 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					365 item (selectable, settable, string) DQ ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					366 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					367 item (selectable, settable, string) DQS ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					368 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					369 item (selectable, settable, string) DQSB ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					370 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					371 item (selectable, settable, string) Hard processor system pin ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					372 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					373 item (selectable, settable, string) CLK_n ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					374 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					375 item (selectable, settable, string) CLK_p ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					376 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					377 item (selectable, settable, string) Other PLL ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					378 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					379 item (selectable, settable, string) Other dual purpose ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					380 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					381 item (selectable, settable, string) MSEL0 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					382 item (selectable, settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+					383 item (selectable, settable, string) MSEL1 ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.PPLQ_LEGEND_TABLE
+				398 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+					399 custom (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame
+						400 text Pin Legend ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_title
+						401 check box (settable, string) P ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_pin_button
+						402 button (settable, string) D ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_detach_button
+						403 button (settable, string) C ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.Pin Legend.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_close_button
+			404 tab (settable, string) Report ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMainWindowTabBar
+				405 tab item (selectable, settable, string) Groups ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMainWindowTabBar
+				406 tab item (selectable, settable, string) Report ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMainWindowTabBar
+			407 custom (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_VIEW_FRAME
+				408 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_VIEW_FRAME.PPLQ_ZOOM_SCROLL_AREA
+					409 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_VIEW_FRAME.PPLQ_ZOOM_SCROLL_AREA.qt_scrollarea_viewport
+						410 group (settable, string) ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.PPLQ_VIEW_FRAME.PPLQ_ZOOM_SCROLL_AREA.qt_scrollarea_viewport.PPLQ_VIEW
+			411 tab (settable, string) All Pins ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMainWindowTabBar
+				412 tab item (selectable, settable, string) All Pins ID: QUI_APP.prj_pplq.PPLQ_FRAME_WND.QMainWindowTabBar
+
+Document text: ```
+*
+```

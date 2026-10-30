@@ -1,0 +1,22 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.dut.policy.core.state[3:0] tb_board_wrapper.dut.policy.core.layer[1:0] tb_board_wrapper.dut.policy.core.neuron[7:0] tb_board_wrapper.dut.policy.core.k[7:0] tb_board_wrapper.dut.policy.core.lane0.activation.value[15:0] tb_board_wrapper.dut.policy.core.lane1.activation.value[15:0] tb_board_wrapper.dut.policy.core.lane2.activation.value[15:0] tb_board_wrapper.dut.policy.core.lane3.activation.value[15:0] tb_board_wrapper.dut.policy.core.lane4.activation.value[15:0] tb_board_wrapper.dut.policy.core.lane5.activation.value[15:0] tb_board_wrapper.dut.policy.core.lane6.activation.value[15:0] tb_board_wrapper.dut.policy.core.lane7.activation.value[15:0] 
+VALUE 0 1
+VALUE 1 1
+VALUE 2 0
+VALUE 3 8
+VALUE 4 73
+VALUE 5 0
+VALUE 6 0
+VALUE 7 0
+VALUE 8 0
+VALUE 9 27
+VALUE 10 20
+VALUE 11 63
+VALUE 12 0
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\09_relu_group.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/09_relu_group.png'

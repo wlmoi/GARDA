@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "generated_utc": "2026-10-16T05:45:18.240782+00:00",
+  "evidence_kind": "RTL simulation, not a physical FPGA measurement",
+  "seed": 16523109,
+  "gate_comparisons": 111210,
+  "gate_fault_bins": {
+    "0": 66915,
+    "1": 6509,
+    "2": 3236,
+    "3": 1612,
+    "4": 858,
+    "5": 431,
+    "6": 185,
+    "7": 100,
+    "8": 52,
+    "9": 36,
+    "10": 4105,
+    "11": 27171
+  },
+  "limits": "Exhaustive control combinations and enumerated numeric domains; directed top/protocol cases. Not exhaustive 16384-byte maps, analog timing, metastability, all temporal interleavings, or formal proof.",
+  "suites": {
+    "gate": {
+      "status": "PASS",
+      "checkpoints": 12,
+      "waveform": "gate.vcd",
+      "gtkwave_save": "gate.gtkw",
+      "log": "gate.log"
+    },
+    "units": {
+      "status": "PASS",
+      "checkpoints": 31,
+      "waveform": "units.vcd",
+      "gtkwave_save": "units.gtkw",
+      "log": "units.log"
+    },
+    "top": {
+      "status": "PASS",
+      "checkpoints": 29,
+      "waveform": "top.vcd",
+      "gtkwave_save": "top.gtkw",
+      "log": "top.log"
+    },
+    "uart": {
+      "status": "PASS",
+      "checkpoints": 39,
+      "waveform": "uart.vcd",
+      "gtkwave_save": "uart.gtkw",
+      "log": "uart.log"
+    }
+  },
+  "source_sha256": {
+    "rtl/igor_best_candidate_selector.v": "ece9eb3d48a11febbe502d313cc1f48d2c4edc42ec3a32fe58b3d382bdf54ba7",
+    "rtl/igor_candidate_generator.v": "06516bb38b54db2ef305a9f79188b07e0230c6761f56bb97e23f4a67d9b78dce",
+    "rtl/igor_config_registers.v": "6d9f039702d49957edbf11b2e3d56a06e5f629bbf47222a54e97b2bb36a4a1a6",
+    "rtl/igor_costmap_bank.v": "08432c9dc6e35f9d1092abd8eab475192d004b8ea96f606ef9fe5b36c6397ac8",
+    "rtl/igor_costmap_manager.v": "315ef94c25947a587bd01c5b569733ff0a5c4b6927007e97cb0522c82f5244dd",
+    "rtl/igor_de10_nano_wrapper.v": "8757c000d2578aa63ebe524bafc816dcc9a9d68750903753c29fd078c1d2bc35",
+    "rtl/igor_kinematic_step.v": "1b850ad2f420ada928e44bd635c6130f9867d31d077658d6cbe225437610e3a8",
+    "rtl/igor_neural_core.v": "db25311352dd9f45a808236e43cead4c2ea6c58b6d61c7a605749d6c486e7f9f",
+    "rtl/igor_neural_rom.v": "4bed1d98c76b0b071eeef30bc016cfb06e4c47fffc240872b2200d3788c0a418",
+    "rtl/igor_rollout_tile.v": "cf32d383303e445be01d0d85353fd6f5fc62cce37de1b61e58c87c1d6c4257a7",
+    "rtl/igor_safety_security_gate.v": "6aa5369fe2c29005a8fa9d6b30563fa1b2c7825a0ba1e9f9084b409d26e3c316",
+    "rtl/igor_score_accumulator.v": "8b649cb5cc7da5f1b663b381d22be15727ccd2984c8c7b7fdcfcf9fc3c18f562",
+    "rtl/igor_status_logger.v": "df51f538fa6a66832d19c4cf038a386af7d7f0ae20ab17f99b579755021d0ec0",
+    "rtl/igor_top.v": "cf55aad2f311066d9af8a4824b44d0d825b54e6e15939eb0cb577f4588fd5708",
+    "rtl/igor_trig_lut.v": "a7a0efad622407fefb26b285e5dcdb35baefed6a550f6ce98b1b65d84f60b7f5",
+    "rtl/igor_uart_protocol.v": "d5de988f67af2b003decf6ebe7d6e5cd398e0616b1b405e017b4a84b73c3bee0",
+    "rtl/igor_uart_rx.v": "c03c8ec8c50ec822aceb743b73f62f907926402716ec8c68b4c0776290450b4e",
+    "rtl/igor_uart_top.v": "890a3e6a5ff02732bdddae84c918f6dc3a44f3cc4083469d17c1cdc36a40920f",
+    "rtl/igor_uart_tx.v": "2c60e05dc1815857832d4ddb09e4b8b16b53a18706f11b377ec6ed1d195cb0d0",
+    "verification/tb_safety_gate.v": "17845202c567faa9c3bc240e8a9ceb947f0d644200eb9b8f65a78cb8782083e7",
+    "verification/tb_safety_top.v": "4762ba74212f32ee4e3c235ecbeef8e9c1fac0cdfa2a60d1266aa9156f8b164d",
+    "verification/tb_safety_uart.v": "4ed41b2180611c4cb770b12bdf4abaf26f48a9611a899d783f1992fd3a53dac9",
+    "verification/tb_safety_units.v": "e3bff4dc16981efc860877ea798379fe3a2d08e06f57170a0db33438dc562ac5",
+    "verification/run_safety_regression.py": "86a7a6865b2392f8080ccd9441c77e67e2f17520540c1be13a7f287417547aa3"
+  },
+  "tool_versions": {
+    "python": "3.11.9",
+    "iverilog": "Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)"
+  },
+  "elapsed_seconds": 60.39,
+  "checkpoint_count": 111,
+  "hardware_tests_executed": false
+}

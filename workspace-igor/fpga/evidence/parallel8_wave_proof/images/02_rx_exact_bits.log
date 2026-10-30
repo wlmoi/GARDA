@@ -1,0 +1,19 @@
+DISPLAYED tb_board_wrapper.rx tb_board_wrapper.dut.policy.receiver.meta tb_board_wrapper.dut.policy.receiver.sync tb_board_wrapper.dut.policy.receiver.state[1:0] tb_board_wrapper.dut.policy.receiver.bit_index[2:0] tb_board_wrapper.dut.policy.receiver.count[15:0] tb_board_wrapper.dut.policy.receiver.shift[7:0] tb_board_wrapper.dut.policy.receiver.data[7:0] tb_board_wrapper.dut.policy.receiver.valid tb_board_wrapper.dut.policy.receiver.error 
+VALUE 0 1
+VALUE 1 1
+VALUE 2 1
+VALUE 3 3
+VALUE 4 7
+VALUE 5 2
+VALUE 6 5A
+VALUE 7 00
+VALUE 8 0
+VALUE 9 0
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\02_rx_exact_bits.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/02_rx_exact_bits.png'

@@ -1,0 +1,12 @@
+{
+  "location": "Robot unchanged mounting; operator target approximately 15cm front",
+  "inventory": [
+    {
+      "port": "COM17",
+      "vid": 6790,
+      "pid": 29987,
+      "description": "USB-SERIAL CH340 (COM17)"
+    }
+  ],
+  "yaw_deg": 0
+}

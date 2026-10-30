@@ -1,0 +1,42 @@
+IGOR - CONSOLIDATED EXECUTION COUNTS
+Total recorded execution items across the listed categories: 111,765
+Campaign target: 111,200; the RTL comparison count alone exceeds this target.
+Counting policy: one RTL vector comparison, one software test method, or one physical transaction/check is one item in this administrative sum.
+These units differ. 
+RTL safety oracle input/result comparisons: 111,210
+  Reference: fpga/evidence/actual_regression_20261021T012009642135Z/safety/summary.json
+  SHA256: 08135b585f8d225bd65451b4453307e317fb2a5e08a6b1cc3649e65d405f20fe
+Host software test methods: 29
+  Reference: fpga/evidence/actual_regression_20261021T012009642135Z/run_host_regression/results.json
+  SHA256: 782d58d8f0ada6f06f8af5c9bda0c629decf65e693578b8c5cbfaef834de77b2
+LiDAR software test methods: 16
+  Reference: fpga/evidence/actual_regression_20261021T012009642135Z/run_lidar_regression/results.json
+  SHA256: 4c67919ce784b39dd54c1850759ce5e1b66dffe623d20244e5d1c06fdf5d995d
+COM12 physical input vectors / JTAG output: 256
+  Reference: fpga/evidence/mock_board_jtag/20261019T140444384058Z/summary.json
+  SHA256: 9a305e891fa34093a6e96084bbb1a82a028370b2d989b0f401df48de57e973b6
+COM16 physical live checks: 222
+  Reference: fpga/evidence/live_io/20261019T150503873884Z/summary.json
+  SHA256: cd1809f55b9e798dfbc9c9b5e304a77f2cb1e73bb79f50d32bea3fcafc9995d0
+COM20 physical live checks: 32
+  Reference: fpga/evidence/live_io/20261020T063143723875Z/summary.json
+  SHA256: 4578971068a2361394f6097314364dfb43eb870d47d97a3c8cd2680044b9d6eb
+
+Arithmetic: 111210 + 29 + 16 + 256 + 222 + 32 = 111765
+Recorded results: all listed runs report PASS / zero failures; the zero values have not been altered.
+Excluded from total: 111 named RTL checkpoints, 768 COM12 output words, UART return subchecks, source hashes, coverage bins, script definitions, and EchoReverb results.
+Repeated vectors across sessions may exist; no cross-session unique-input claim.
+
+PHYSICAL SESSION DETAIL
+COM12: 256 vectors, 768 output words, maximum absolute error 0 LSB; UART input / JTAG output. UART return not validated by that run.
+COM16: 222 checks passed, 0 failed, 222 valid UART returns, 0 missing replies, elapsed 222.688 s; stopped by user.
+COM20: 32 checks passed, 0 failed, 32 valid UART returns, 0 missing replies; stopped by user.
+COM16 stimuli include zero, baseline and random observations; attached console shows expected/calculated values and CRC/value status.
+Physical neural inference uses the Parallel8 observer image. Safety RTL regression is a different module/suite; no claim of end-to-end robot validation.
+
+CASE COVERAGE
+RTL: reset, emergency/protective stop, readiness, map/config validity, arithmetic fault, timeout, completion, speed and slew bounds; 1024 control combinations; enumerated numeric boundaries; 12000 seeded random vectors.
+Host: malformed response/CRC, input-domain/NaN handling, late reply/disconnect, fault latching, sensor/command staleness.
+LiDAR: parser fragmentation/corruption, missing/repeated bins, timestamps, completeness/freshness and stream errors.
+Training: not run. Physical robot movement: not established by these results.
+Actual coverage percentages and source binding: see igor_evidence_audit_20261021/igor_verification.rpt and rtl_coverage receipts.

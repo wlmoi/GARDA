@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-19T12:39:48Z",
+  "image_sha256": "268149fbd1eb9bd2102c5a4b6dfc7ae4f13e60101ead04a1d9aaa10788ed9019",
+  "cable": "DE-SoC [USB-1]",
+  "device": 2,
+  "instance": 0,
+  "results": [
+    {
+      "test": "physical_demo_1",
+      "pass": true
+    },
+    {
+      "test": "no_extra_report_after_demo_1",
+      "pass": true
+    },
+    {
+      "test": "physical_demo_2",
+      "pass": true
+    },
+    {
+      "test": "no_extra_report_after_demo_2",
+      "pass": true
+    },
+    {
+      "test": "physical_demo_3",
+      "pass": true
+    },
+    {
+      "test": "no_extra_report_after_demo_3",
+      "pass": true
+    },
+    {
+      "test": "twenty_blank_CRLF_pairs_ignored",
+      "pass": true
+    },
+    {
+      "test": "physical_bad_crc",
+      "pass": true
+    },
+    {
+      "test": "physical_pasted_hex",
+      "pass": true
+    },
+    {
+      "test": "custom_frame_CRLF_single_report",
+      "pass": true
+    }
+  ]
+}

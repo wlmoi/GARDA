@@ -1,0 +1,33 @@
+{
+  "scope": "RTL simulation, not physical UART acceptance",
+  "suites": {
+    "core": {
+      "passed": true,
+      "log": "PASS core: 236 network vectors, 8364 activation cases, 54399 assertions; all 192 hidden activations and 3 outputs checked per vector\nD:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\uart_rtl_audit\\20261018T071219039780Z\\core\\tb_src_policy_core.sv:162: $finish called at 33315911000 (1ps)"
+    },
+    "uart": {
+      "passed": true,
+      "log": "PASS uart: 184 directed transactions, 268 assertions, all 74 field range boundaries, independent wire decode, E-stop/parser/inference/TX/reset/stale/watchdog recovery\nD:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\uart_rtl_audit\\20261018T071219039780Z\\uart\\tb_src_policy_uart.sv:254: $finish called at 49187951000 (1ps)"
+    },
+    "board": {
+      "passed": true,
+      "log": "PASS board_wrapper: 18 checkpoints, actual50MHz/921600 framing and KEY safety\nD:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\uart_rtl_audit\\20261018T071219039780Z\\board\\tb_board_wrapper.sv:92: $finish called at 5523212000 (1ps)"
+    },
+    "board_nominal": {
+      "passed": true,
+      "log": "PASS board_wrapper: 18 checkpoints, actual50MHz/921600 framing and KEY safety\nD:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\uart_rtl_audit\\20261018T071219039780Z\\board_nominal\\tb_board_wrapper.sv:92: $finish called at 5537452000 (1ps)"
+    },
+    "stress": {
+      "passed": true,
+      "log": "PASS stress: 50/50 frames, exactly 550 response bytes, 150 golden actions, nominal and +/-1% asynchronous host timing; reset/boot/21ms stale idle TX high with no extra bytes\ntools/uart_board_stress.sv:95: $finish called at 120499850000 (1ps)"
+    }
+  },
+  "accepted_sources_verified": true,
+  "accepted_sources_unchanged_after_tests": true,
+  "packaged_sof_sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
+  "test_harness_note": "Initial stress selected an out-of-domain core vector; RTL correctly rejected it with error 8. Revised harness selects 50 valid normalized vectors and passes.",
+  "test_harness_sha256": {
+    "tools\\check_uart_rtl.py": "918b80f5eda2f615a932623aa8d04a0f68cade3829e15c211a480589980fc77d",
+    "tools\\uart_board_stress.sv": "d2bd7fe04732ff317902d6d67be522f29630dec469cffb1709d282c02a2c0de9"
+  }
+}

@@ -1,0 +1,10 @@
+# JetAuto Mecanum AMR Device Udev Rules (Project IGOR)
+# 1. JetAuto STM32 Chassis Sub-Controller (CH340/CH341 /dev/ttyACM* or /dev/ttyUSB*)
+KERNEL=="ttyACM*", SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d4", MODE="0777", GROUP="dialout", SYMLINK+="rrc", ENV{ID_MM_PORT_IGNORE}="1"
+
+# 2. Slamtec RPLiDAR A1/A2 (Silicon Labs CP2102 USB to UART Bridge)
+KERNEL=="ttyUSB*", SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0777", GROUP="dialout", SYMLINK+="lidar rplidar"
+
+# 3. Terasic DE10-Nano FPGA Accelerator (FTDI USB-to-UART / On-board FT232R)
+KERNEL=="ttyUSB*", SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE="0777", GROUP="dialout", SYMLINK+="fpga"
+KERNEL=="ttyUSB*", SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE="0777", GROUP="dialout", SYMLINK+="fpga"

@@ -1,0 +1,2 @@
+PASS board_wrapper: 18 checkpoints, actual50MHz/921600 framing and KEY safety
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\uart_rtl_audit\20261018T071219039780Z\board\tb_board_wrapper.sv:92: $finish called at 5523212000 (1ps)

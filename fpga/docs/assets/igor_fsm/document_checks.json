@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "kind": "documentation/source consistency; not a new RTL simulation or hardware test",
+  "pages": 19,
+  "common_rtl_files_audited": 22,
+  "all_edges_named": true,
+  "checks": [
+    "native XML IDs/endpoints",
+    "all transitions retained",
+    "numeric/named encodings matched",
+    "core abort/fault priority and output gating",
+    "policy last-byte handshake",
+    "SVG XML and PNG dimensions",
+    "local links",
+    "source and artifact SHA256"
+  ]
+}

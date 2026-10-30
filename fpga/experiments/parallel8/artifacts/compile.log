@@ -1,0 +1,543 @@
+TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize
+Info: *******************************************************************
+Info: Running Quartus Prime Shell
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Sat Oct 17 09:19:26 2026
+Info: Command: quartus_sh --flow compile igor_src_policy
+Info: Quartus(args): compile igor_src_policy
+Info: Project Name = D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy
+Info: Revision Name = igor_src_policy
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+    Info: Processing started: Sat Oct 17 09:19:27 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off igor_src_policy -c igor_src_policy
+Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Info (12021): Found 1 design units, including 1 entities, in source file igor_src_policy_de10_nano.v
+    Info (12023): Found entity 1: igor_src_policy_de10_nano File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_de10_nano.v Line: 4
+Info (12021): Found 2 design units, including 2 entities, in source file igor_src_policy_core.v
+    Info (12023): Found entity 1: igor_src_policy_activation File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 6
+    Info (12023): Found entity 2: igor_src_policy_core File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file /linkedinprojects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_rom.v
+    Info (12023): Found entity 1: igor_src_policy_rom File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_rom.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /linkedinprojects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v
+    Info (12023): Found entity 1: igor_src_policy_uart File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file /linkedinprojects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v
+    Info (12023): Found entity 1: igor_uart_rx File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file /linkedinprojects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v
+    Info (12023): Found entity 1: igor_uart_tx File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v Line: 6
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(62): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 62
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(63): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 63
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(64): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 64
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(117): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 117
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(118): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 118
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(119): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 119
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(172): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 172
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(173): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 173
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(174): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 174
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(227): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 227
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(228): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 228
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(229): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 229
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(282): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 282
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(283): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 283
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(284): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 284
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(337): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 337
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(338): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 338
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(339): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 339
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(392): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 392
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(393): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 393
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(394): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 394
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(447): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 447
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(448): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 448
+Warning (10037): Verilog HDL or VHDL warning at igor_src_policy_core.v(449): conditional expression evaluates to a constant File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 449
+Info (12127): Elaborating entity "igor_src_policy_de10_nano" for the top level hierarchy
+Info (12128): Elaborating entity "igor_src_policy_uart" for hierarchy "igor_src_policy_uart:policy" File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_de10_nano.v Line: 42
+Info (12128): Elaborating entity "igor_uart_rx" for hierarchy "igor_src_policy_uart:policy|igor_uart_rx:receiver" File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v Line: 40
+Info (12128): Elaborating entity "igor_uart_tx" for hierarchy "igor_src_policy_uart:policy|igor_uart_tx:transmitter" File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v Line: 42
+Info (12128): Elaborating entity "igor_src_policy_core" for hierarchy "igor_src_policy_uart:policy|igor_src_policy_core:core" File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v Line: 90
+Warning (10230): Verilog HDL assignment warning at igor_src_policy_core.v(572): truncated value with size 32 to match size of target (8) File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 572
+Warning (10030): Net "lane0.memory.data_a" at igor_src_policy_core.v(65) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 65
+Warning (10030): Net "lane0.memory.waddr_a" at igor_src_policy_core.v(65) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 65
+Warning (10030): Net "lane1.memory.data_a" at igor_src_policy_core.v(120) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 120
+Warning (10030): Net "lane1.memory.waddr_a" at igor_src_policy_core.v(120) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 120
+Warning (10030): Net "lane2.memory.data_a" at igor_src_policy_core.v(175) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 175
+Warning (10030): Net "lane2.memory.waddr_a" at igor_src_policy_core.v(175) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 175
+Warning (10030): Net "lane3.memory.data_a" at igor_src_policy_core.v(230) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 230
+Warning (10030): Net "lane3.memory.waddr_a" at igor_src_policy_core.v(230) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 230
+Warning (10030): Net "lane4.memory.data_a" at igor_src_policy_core.v(285) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 285
+Warning (10030): Net "lane4.memory.waddr_a" at igor_src_policy_core.v(285) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 285
+Warning (10030): Net "lane5.memory.data_a" at igor_src_policy_core.v(340) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 340
+Warning (10030): Net "lane5.memory.waddr_a" at igor_src_policy_core.v(340) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 340
+Warning (10030): Net "lane6.memory.data_a" at igor_src_policy_core.v(395) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 395
+Warning (10030): Net "lane6.memory.waddr_a" at igor_src_policy_core.v(395) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 395
+Warning (10030): Net "lane7.memory.data_a" at igor_src_policy_core.v(450) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 450
+Warning (10030): Net "lane7.memory.waddr_a" at igor_src_policy_core.v(450) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 450
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(65) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 65
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(120) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 120
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(175) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 175
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(230) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 230
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(285) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 285
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(340) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 340
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(395) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 395
+Warning (10030): Net "memory.we_a" at igor_src_policy_core.v(450) has no driver or initial value, using a default initial value '0' File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 450
+Info (12128): Elaborating entity "igor_src_policy_activation" for hierarchy "igor_src_policy_uart:policy|igor_src_policy_core:core|igor_src_policy_activation:lane0.activation" File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 114
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "igor_src_policy_uart:policy|frame_observation" is uninferred due to asynchronous read logic File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v Line: 74
+    Info (276007): RAM logic "igor_src_policy_uart:policy|igor_src_policy_core:core|observations" is uninferred due to asynchronous read logic File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v Line: 44
+Info (19000): Inferred 8 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane0.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram0_igor_src_policy_core_f7491037.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane1.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram1_igor_src_policy_core_f7491037.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane2.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram2_igor_src_policy_core_f7491037.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane3.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram3_igor_src_policy_core_f7491037.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane4.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram4_igor_src_policy_core_f7491037.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane5.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram5_igor_src_policy_core_f7491037.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane6.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram6_igor_src_policy_core_f7491037.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "igor_src_policy_uart:policy|igor_src_policy_core:core|lane7.memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 4096
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/igor_src_policy.ram7_igor_src_policy_core_f7491037.hdl.mif
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane0.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane0.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram0_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m9h1.tdf
+    Info (12023): Found entity 1: altsyncram_m9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_m9h1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane1.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane1.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram1_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_n9h1.tdf
+    Info (12023): Found entity 1: altsyncram_n9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_n9h1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane2.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane2.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram2_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o9h1.tdf
+    Info (12023): Found entity 1: altsyncram_o9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_o9h1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane3.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane3.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram3_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_p9h1.tdf
+    Info (12023): Found entity 1: altsyncram_p9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_p9h1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane4.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane4.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram4_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_q9h1.tdf
+    Info (12023): Found entity 1: altsyncram_q9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_q9h1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane5.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane5.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram5_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r9h1.tdf
+    Info (12023): Found entity 1: altsyncram_r9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_r9h1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane6.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane6.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram6_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_s9h1.tdf
+    Info (12023): Found entity 1: altsyncram_s9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_s9h1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane7.memory_rtl_0"
+Info (12133): Instantiated megafunction "igor_src_policy_uart:policy|igor_src_policy_core:core|altsyncram:lane7.memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "4096"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/igor_src_policy.ram7_igor_src_policy_core_f7491037.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_t9h1.tdf
+    Info (12023): Found entity 1: altsyncram_t9h1 File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/db/altsyncram_t9h1.tdf Line: 28
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 10 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/output_files/igor_src_policy.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 9088 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 8939 logic cells
+    Info (21064): Implemented 128 RAM segments
+    Info (21062): Implemented 8 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 4965 megabytes
+    Info: Processing ended: Sat Oct 17 09:20:03 2026
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:54
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+    Info: Processing started: Sat Oct 17 09:20:04 2026
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off igor_src_policy -c igor_src_policy
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = igor_src_policy
+Info: Revision = igor_src_policy
+Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Info (119006): Selected device 5CSEBA6U23I7 for design "igor_src_policy"
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '100'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '-40'.
+Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
+Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
+Info (184020): Starting Fitter periphery placement operations
+Info (11191): Automatically promoted 1 clock (1 global)
+    Info (11162): FPGA_CLK1_50~inputCLKENA0 with 6398 fanout uses global clock CLKCTRL_G4
+Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
+Info (176233): Starting register packing
+Info (332104): Reading SDC File: 'igor_src_policy.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
+Info (332111): Found 1 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):   20.000 FPGA_CLK1_50
+Info (176235): Finished register packing
+    Extra Info (176218): Packed 128 registers into blocks of type DSP block
+    Extra Info (176220): Created 112 register duplicates
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:15
+Info (170189): Fitter placement preparation operations beginning
+Info (14951): The Fitter is using Advanced Physical Optimization.
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:25
+Info (170191): Fitter placement operations beginning
+Info (170137): Fitter placement was successful
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
+Info (170193): Fitter routing operations beginning
+Info (170195): Router estimated average interconnect usage is 3% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 22% of the available device resources in the region that extends from location X45_Y11 to location X55_Y22
+Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
+    Info (170201): Optimizations that may affect the design's routability were skipped
+    Info (170200): Optimizations that may affect the design's timing were skipped
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
+Info (11888): Total time spent on timing analysis during the Fitter is 11.28 seconds.
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:20
+Info (144001): Generated suppressed messages file D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/output_files/igor_src_policy.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 6714 megabytes
+    Info: Processing ended: Sat Oct 17 09:22:04 2026
+    Info: Elapsed time: 00:02:00
+    Info: Total CPU time (on all processors): 00:05:44
+Info: *******************************************************************
+Info: Running Quartus Prime Assembler
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+    Info: Processing started: Sat Oct 17 09:22:05 2026
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off igor_src_policy -c igor_src_policy
+Info (115030): Assembler is generating device programming files
+Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 5290 megabytes
+    Info: Processing ended: Sat Oct 17 09:22:14 2026
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:10
+Info (293026): Skipped module Power Analyzer due to the assignment FLOW_ENABLE_POWER_ANALYZER
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+    Info: Processing started: Sat Oct 17 09:22:15 2026
+Info: Command: quartus_sta igor_src_policy -c igor_src_policy
+Info: qsta_default_script.tcl version: #1
+Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '100'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '-40'.
+Info (332104): Reading SDC File: 'igor_src_policy.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1100mV 100C Model
+Info (332146): Worst-case setup slack is 5.647
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     5.647               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case hold slack is 0.251
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.251               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case recovery slack is 14.279
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    14.279               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case removal slack is 0.585
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.585               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case minimum pulse width slack is 8.850
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     8.850               0.000 FPGA_CLK1_50 
+Info (332114): Report Metastability: Found 4 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 4
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 27.020 ns
+Info: Analyzing Slow 1100mV -40C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 6.253
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     6.253               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case hold slack is 0.241
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.241               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case recovery slack is 14.520
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    14.520               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case removal slack is 0.455
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.455               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case minimum pulse width slack is 8.796
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     8.796               0.000 FPGA_CLK1_50 
+Info (332114): Report Metastability: Found 4 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 4
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 27.390 ns
+Info: Analyzing Fast 1100mV 100C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 11.190
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    11.190               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case hold slack is 0.133
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.133               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case recovery slack is 16.766
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    16.766               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case removal slack is 0.305
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.305               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case minimum pulse width slack is 8.537
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     8.537               0.000 FPGA_CLK1_50 
+Info (332114): Report Metastability: Found 4 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 4
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 32.501 ns
+Info: Analyzing Fast 1100mV -40C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 12.850
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    12.850               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case hold slack is 0.119
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.119               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case recovery slack is 17.281
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    17.281               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case removal slack is 0.253
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.253               0.000 FPGA_CLK1_50 
+Info (332146): Worst-case minimum pulse width slack is 8.462
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     8.462               0.000 FPGA_CLK1_50 
+Info (332114): Report Metastability: Found 4 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 4
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 33.734 ns
+Info (332101): Design is fully constrained for setup requirements
+Info (332101): Design is fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 5520 megabytes
+    Info: Processing ended: Sat Oct 17 09:22:32 2026
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:36
+Info (293000): Quartus Prime Full Compilation was successful. 0 errors, 49 warnings
+Info (23030): Evaluation of Tcl script d:/quartus-program/quartus/common/tcl/internal/qsh_flow.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 4637 megabytes
+    Info: Processing ended: Sat Oct 17 09:22:32 2026
+    Info: Elapsed time: 00:03:06
+    Info: Total CPU time (on all processors): 00:00:01

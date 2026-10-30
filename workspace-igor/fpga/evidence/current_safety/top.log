@@ -1,0 +1,3 @@
+VCD info: dumpfile top.vcd opened for output.
+PASS top: asynchronous stop, mutation, reset, deadline, freshness, and invariants
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\tb_safety_top.v:85: $finish called at 4918711000 (1ps)

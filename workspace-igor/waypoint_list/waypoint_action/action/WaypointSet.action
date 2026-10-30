@@ -1,0 +1,16 @@
+# Goal
+float64 absis
+float64 ordinat
+float64 yaw
+float64 duration
+---
+# Result
+bool success
+float64 speed
+string message
+---
+# Feedback
+float64 absis_feedback
+float64 ordinat_feedback
+float64 yaw_feedback
+string progress

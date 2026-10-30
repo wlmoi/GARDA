@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="862" viewBox="0 0 1700 862">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="862" fill="white"/>
+<rect x="25" y="25" width="1650" height="812" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">ACUAN STRUKTUR THREE-PROCESS — BUKAN REFACTOR LIVE</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Model struktur rekomendasi, bukan nama state RTL  |  STRUCTURE: pembagian tugas kode untuk kandidat berikutnya</text>
+<rect x="249.44560000000004" y="359.34" width="275.2488" height="88.92" rx="15" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="387.07" y="379.50" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">1. STATE REGISTER</text>
+<text x="387.07" y="403.80" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">always @(posedge clk / reset)</text>
+<text x="387.07" y="428.10" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">current_state &lt;= next_state</text>
+<rect x="1153.55" y="348.83879999999994" width="297.0" height="109.9224" rx="15" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1302.05" y="367.35" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">2. NEXT-STATE LOGIC</text>
+<text x="1302.05" y="391.65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">always @*</text>
+<text x="1302.05" y="415.95" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">next_state=current_state; case +</text>
+<text x="1302.05" y="440.25" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">default</text>
+<rect x="786.4468" y="348.83879999999994" width="299.2464" height="109.9224" rx="15" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="936.07" y="367.35" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">3. OUTPUT LOGIC / REGISTER</text>
+<text x="936.07" y="391.65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Decode state + input/datapath</text>
+<text x="936.07" y="415.95" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Pulse default0; output penting</text>
+<text x="936.07" y="440.25" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">diregister</text>
+<path d="M 525.53,360.352 C 653.6,325.78 849.1800000000001,287.22 1018.7,313.56 C 1060.62,320.08 1104.81,331.7 1145.51,344.49 L 1156.3400000000001,347.94" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="878.07" y="290.51" width="162.0" height="28.9" rx="3" fill="white"/>
+<text x="959.07" y="304.96" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">current_state[N-1:0]</text>
+<path d="M 1156.3400000000001,347.94 C 1112.73,333.82 1064.3600000000001,320.65999999999997 1018.7,313.56 C 853.98,287.97 664.6500000000001,323.65 536.57,357.40999999999997 L 525.53,360.352" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="889.32" y="290.51" width="139.5" height="28.9" rx="3" fill="white"/>
+<text x="959.07" y="304.96" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">next_state[N-1:0]</text>
+<path d="M 525.6100000000001,403.79999999999995 C 601.1500000000001,403.79999999999995 695.07,403.79999999999995 773.99,403.79999999999995 L 785.5300000000001,403.79999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="525.82" y="361.15000000000003" width="259.5" height="47.8" rx="3" fill="white"/>
+<text x="655.57" y="375.60" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">current_state[N-1:0] + input/data</text>
+<text x="655.57" y="394.50" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">yang diperlukan</text>
+<rect x="70" y="523.76" width="1560" height="278" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="553.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_src_policy/igor_src_policy_uart.v</text>
+<text x="90.00" y="579.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: Lihat halaman FSM; halaman ini adalah struktur/overview.</text>
+<text x="90.00" y="605.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. RTL core/policy sekarang menggabungkan state update, next-state dan register datapath dalam always clocked; ini gaya sequential yang sah.</text>
+<text x="90.00" y="631.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. Moore: output=f(state). Mealy: output=f(state,input). Mealy yang diregister menunggu clock; tidak selalu berarti respons tanpa latensi.</text>
+<text x="90.00" y="657.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. Moore decode kombinasi tidak otomatis bebas glitch. Registrasi output + CDC/reset yang benar menentukan kestabilan fisik.</text>
+<text x="90.00" y="683.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. Assignment tidak lengkap dalam always @* dapat membentuk latch; tidak menulis register dalam always posedge berarti hold flip-flop.</text>
+<text x="90.00" y="709.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">5. Default case membantu perilaku RTL ilegal; proteksi state fisik tetap perlu verifikasi encoding/safe-FSM di synthesis, bukan sekadar gambar.</text>
+<text x="90.00" y="735.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">6. Enum/localparam bernama membantu review. Nilai state di halaman lain disalin dari source, bukan janji encoding hasil Fitter.</text>
+<text x="90.00" y="761.76" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">7. Refactor three-process harus menjaga timing pulse, prioritas reject, nonblocking pipeline, oracle integer, safety, dan hasil build sebelum mengganti SOF.</text>
+</svg>

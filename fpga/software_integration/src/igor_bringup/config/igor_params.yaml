@@ -1,0 +1,10 @@
+/**:
+  ros__parameters:
+    algorithm: "cl_drl_cbf"
+    use_fpga: false
+    mcu_port: "/dev/ttyACM0"
+    fpga_port: "/dev/fpga"
+    fpga_baudrate: 921600
+    lidar_port: "/dev/lidar"
+    control_rate_hz: 50.0
+    use_mock_serial: false

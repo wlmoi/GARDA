@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "project": "source_policy",
+  "revision": "igor_src_policy",
+  "started_utc": "2026-10-17T01:16:22.718044+00:00",
+  "tool_version": "Quartus Prime Shell\nVersion 25.1std.0 Build 1129 10/21/2025 SC Standard Edition\nCopyright (C) 2025  Altera Corporation. All rights reserved.",
+  "source_sha256": {
+    "fpga_de10_nano/src_policy/igor_src_policy.qpf": "ebc0446cac9ec52e23f6751309881e00212eab5298b745212e17b5dbc7a1ab18",
+    "fpga_de10_nano/src_policy/igor_src_policy.qsf": "17ab47770fb3a204122ede58084199297ac21bd15594d43b9162f3d3d27a4853",
+    "fpga_de10_nano/src_policy/igor_src_policy.sdc": "a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c",
+    "fpga_de10_nano/src_policy/igor_src_policy_de10_nano.v": "74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81",
+    "fpga_de10_nano/src_policy/pin_assignment.tcl": "9c72ec63fee5d7064273212ed614b288ade217b8709944068ea7c99ebac03e20",
+    "rtl/igor_src_policy/igor_src_policy_core.v": "3f566c285f468d7a148d3226eb3ff2344c3e617dc5f544b7f94994efb6973726",
+    "rtl/igor_src_policy/igor_src_policy_rom.v": "310f769eb8752d04920cebd8ac58c6ba2afcbfa5aabc442cca91dbb6e797c2f0",
+    "rtl/igor_src_policy/igor_src_policy_uart.v": "8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a",
+    "rtl/igor_src_policy/policy_weights.mem": "55a647207c0b670901fe8074716331ac2876886bbbe1ca44aff9bbb942426e2d",
+    "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "rtl/igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28"
+  },
+  "status": "PASS",
+  "hardware_programmed": false,
+  "command": [
+    "D:\\Quartus-Program\\quartus\\bin64\\quartus_sh.exe",
+    "--flow",
+    "compile",
+    "igor_src_policy"
+  ],
+  "exit_code": 0,
+  "finished_utc": "2026-10-17T01:22:09.910883+00:00",
+  "source_unchanged": true,
+  "slacks_ns": {
+    "Slow 1100mV 100C Model Setup 'FPGA_CLK1_50'": 6.531,
+    "Slow 1100mV 100C Model Hold 'FPGA_CLK1_50'": 0.247,
+    "Slow 1100mV 100C Model Recovery 'FPGA_CLK1_50'": 12.825,
+    "Slow 1100mV 100C Model Removal 'FPGA_CLK1_50'": 0.713,
+    "Slow 1100mV 100C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.858,
+    "Slow 1100mV -40C Model Setup 'FPGA_CLK1_50'": 6.019,
+    "Slow 1100mV -40C Model Hold 'FPGA_CLK1_50'": 0.238,
+    "Slow 1100mV -40C Model Recovery 'FPGA_CLK1_50'": 13.277,
+    "Slow 1100mV -40C Model Removal 'FPGA_CLK1_50'": 0.663,
+    "Slow 1100mV -40C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.807,
+    "Fast 1100mV 100C Model Setup 'FPGA_CLK1_50'": 12.446,
+    "Fast 1100mV 100C Model Hold 'FPGA_CLK1_50'": 0.133,
+    "Fast 1100mV 100C Model Recovery 'FPGA_CLK1_50'": 15.451,
+    "Fast 1100mV 100C Model Removal 'FPGA_CLK1_50'": 0.314,
+    "Fast 1100mV 100C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.508,
+    "Fast 1100mV -40C Model Setup 'FPGA_CLK1_50'": 13.792,
+    "Fast 1100mV -40C Model Hold 'FPGA_CLK1_50'": 0.116,
+    "Fast 1100mV -40C Model Recovery 'FPGA_CLK1_50'": 16.324,
+    "Fast 1100mV -40C Model Removal 'FPGA_CLK1_50'": 0.265,
+    "Fast 1100mV -40C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.437
+  },
+  "pin_assignments": {
+    "LED[7]": {
+      "location": "AA23",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[1]": {
+      "location": "AA24",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[5]": {
+      "location": "AE26",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[4]": {
+      "location": "AF26",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "KEY[1]": {
+      "location": "AH16",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "KEY[0]": {
+      "location": "AH17",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "UART_TX": {
+      "location": "E8",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "FPGA_CLK1_50": {
+      "location": "V11",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "UART_RX": {
+      "location": "V12",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[3]": {
+      "location": "V15",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[2]": {
+      "location": "V16",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[0]": {
+      "location": "W15",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[6]": {
+      "location": "Y16",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    }
+  },
+  "sof": "fpga_de10_nano/src_policy/output_files/igor_src_policy.sof",
+  "sof_sha256": "fb9fcd28136b647492d2284fef82beca34b97f8300ce0579c25e0745fa88cf4a",
+  "log": "fpga_de10_nano/src_policy/compile.log",
+  "log_sha256": "d8338406b8862a34b06a9b92b0e2a1d6a49a18cb294d40513447e600e457e54b",
+  "report_sha256": {
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.asm.rpt": "55288762c03e160d5b25b33691fb1a1a7f2490b642d5b5eaf37e2cd82b60e0a8",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.fit.rpt": "a3f753378c3227e0cb4750c977c4a911f15ededde3537c1abc6eabaa95a29322",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.fit.summary": "f4c3e002d867998aaa4d841c10a8fb30d71c21d4e6d079b9a97e772fdc3604d9",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.flow.rpt": "e939a12d4b77264a6d61b11305db86cef566a6ab60dec84a34f7f5169f2cdab2",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.map.rpt": "da31059f0c24640012c0ecc9a08bfcdbd9ec99cb4c6b1e78600d1395e9e0f0a8",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.map.summary": "b8fa9fab24a73b4d45a568791c04feb12da165c6e3fcef1c7f27328db0e664e9",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.pin": "56a6db6f924d425b0c2087f18b88c33fb3c01f36e3f009fd93057b582e8594fe",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.sof": "fb9fcd28136b647492d2284fef82beca34b97f8300ce0579c25e0745fa88cf4a",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.sta.rpt": "d7e817c8ffc453ad78db86649b8b6ca806143e24382089c49b19ad9b866c20fb",
+    "fpga_de10_nano/src_policy/output_files/igor_src_policy.sta.summary": "d0fcf959bdce4592ddc86fb1ad606a1c08987936d1a409c3835b35655d5526ae"
+  }
+}

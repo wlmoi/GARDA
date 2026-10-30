@@ -1,0 +1,66 @@
+name: Quartus 25 DE10-Nano src policy build
+
+# A trusted Windows runner must have Quartus Standard 25.1, Cyclone V support
+# and a valid license. This job compiles; it does not program a board or move motors.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: igor-quartus-src-policy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: [self-hosted, Windows, X64, quartus-25]
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: fpga
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Find Quartus and record tool and source identity
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $igorQuartus = $env:QUARTUS_SH
+          if (-not $igorQuartus -and $env:QUARTUS_ROOTDIR) {
+            $igorQuartus = Join-Path $env:QUARTUS_ROOTDIR 'bin64/quartus_sh.exe'
+          }
+          if (-not $igorQuartus) {
+            $igorQuartus = (Get-Command quartus_sh.exe -ErrorAction Stop).Source
+          }
+          if (-not (Test-Path -LiteralPath $igorQuartus -PathType Leaf)) {
+            throw 'Quartus unavailable: set QUARTUS_SH or QUARTUS_ROOTDIR on the trusted runner.'
+          }
+          "IGOR_QUARTUS_SH=$igorQuartus" >> $env:GITHUB_ENV
+          New-Item -ItemType Directory -Force -Path evidence/current_builds | Out-Null
+          & $igorQuartus --version | Tee-Object -FilePath evidence/current_builds/ci_quartus_version.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Cannot read Quartus version.' }
+          if (-not (Select-String -LiteralPath evidence/current_builds/ci_quartus_version.txt -Pattern 'Version 25\.1' -Quiet)) {
+            throw 'This build is specified for Quartus 25.1.'
+          }
+          git rev-parse HEAD | Set-Content evidence/current_builds/ci_repository_commit.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Cannot record repository commit.' }
+      - name: Compile and validate source provenance, timing, assigned pins and SOF
+        run: |
+          $ErrorActionPreference = 'Stop'
+          python scripts/build_quartus.py source_policy --quartus-sh "$env:IGOR_QUARTUS_SH"
+          if ($LASTEXITCODE -ne 0) { throw "Validated Quartus build failed: $LASTEXITCODE" }
+      - name: Save build reports and programming image
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: quartus25-de10nano-src-policy-${{ github.sha }}
+          path: |
+            fpga/fpga_de10_nano/src_policy/output_files/
+            fpga/fpga_de10_nano/src_policy/compile.log
+            fpga/evidence/current_builds/source_policy.json
+            fpga/evidence/current_builds/ci_*.txt
+          if-no-files-found: error
+          retention-days: 30

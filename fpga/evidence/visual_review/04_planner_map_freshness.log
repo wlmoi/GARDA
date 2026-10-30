@@ -1,0 +1,9 @@
+DISPLAYED tb_safety_top.freshness_core.rst_n tb_safety_top.freshness_core.estop tb_safety_top.freshness_core.motor_enable tb_safety_top.freshness_core.v_command[4:0] tb_safety_top.freshness_core.omega_command[6:0] tb_safety_top.freshness_core.fault_code[7:0] tb_safety_top.freshness_core.event_count[31:0] tb_safety_top.freshness_core.last_fault[7:0] tb_safety_top.freshness_core.busy tb_safety_top.freshness_core.done tb_safety_top.freshness_core.age[31:0] tb_safety_top.freshness_core.map_fresh 
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[4918711000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\visual_review\04_planner_map_freshness.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/visual_review/04_planner_map_freshness.png'

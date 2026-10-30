@@ -1,4 +1,4 @@
-# IGOR RTL Explorer
+# GARDA RTL Explorer
 
 Interactive hardware explorer by iSeeDesignITB.
 

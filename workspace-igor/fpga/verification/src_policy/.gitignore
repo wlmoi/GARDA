@@ -1,0 +1,4 @@
+artifacts/*.vvp
+artifacts/*.vcd
+artifacts/*.fst
+*.gtkw.bak

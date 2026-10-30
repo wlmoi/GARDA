@@ -1,0 +1,29 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++clk tb_board_wrapper.clk
+@24
++core_state tb_board_wrapper.dut.policy.core.state[3:0]
+@24
++core_k tb_board_wrapper.dut.policy.core.k[7:0]
+@420
++core_operand tb_board_wrapper.dut.policy.core.operand[15:0]
+@420
++L0_acc tb_board_wrapper.dut.policy.core.lane0.acc[39:0]
+@420
++L1_acc tb_board_wrapper.dut.policy.core.lane1.acc[39:0]
+@420
++L2_acc tb_board_wrapper.dut.policy.core.lane2.acc[39:0]
+@420
++L3_acc tb_board_wrapper.dut.policy.core.lane3.acc[39:0]
+@420
++L4_acc tb_board_wrapper.dut.policy.core.lane4.acc[39:0]
+@420
++L5_acc tb_board_wrapper.dut.policy.core.lane5.acc[39:0]
+@420
++L6_acc tb_board_wrapper.dut.policy.core.lane6.acc[39:0]
+@420
++L7_acc tb_board_wrapper.dut.policy.core.lane7.acc[39:0]

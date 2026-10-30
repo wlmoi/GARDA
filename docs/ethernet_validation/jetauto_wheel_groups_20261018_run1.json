@@ -1,0 +1,138 @@
+{
+  "port": "/dev/ttyACM0",
+  "baud": 1000000,
+  "rps": 0.5,
+  "seconds": 0.75,
+  "groups": [
+    "singles",
+    "pairs",
+    "four"
+  ],
+  "planned_pulses": 11,
+  "physical_observation": "User confirmed all 11 groups moved and stopped correctly.",
+  "events": [
+    {
+      "wheel": "M1 front-left",
+      "speeds": [
+        0.5,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "start_monotonic": 18843.174870572,
+      "stop_monotonic": 18843.98609196
+    },
+    {
+      "wheel": "M2 rear-left",
+      "speeds": [
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "start_monotonic": 18844.737165692,
+      "stop_monotonic": 18845.548654065
+    },
+    {
+      "wheel": "M3 front-right",
+      "speeds": [
+        0.0,
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "start_monotonic": 18846.29972991,
+      "stop_monotonic": 18847.110912192
+    },
+    {
+      "wheel": "M4 rear-right",
+      "speeds": [
+        0.0,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "start_monotonic": 18847.862014309,
+      "stop_monotonic": 18848.673528603
+    },
+    {
+      "wheel": "M1 front-left + M2 rear-left",
+      "speeds": [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "start_monotonic": 18849.424269171,
+      "stop_monotonic": 18850.235884716
+    },
+    {
+      "wheel": "M1 front-left + M3 front-right",
+      "speeds": [
+        0.5,
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "start_monotonic": 18850.986882798,
+      "stop_monotonic": 18851.798671724
+    },
+    {
+      "wheel": "M1 front-left + M4 rear-right",
+      "speeds": [
+        0.5,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "start_monotonic": 18852.549787858,
+      "stop_monotonic": 18853.360920938
+    },
+    {
+      "wheel": "M2 rear-left + M3 front-right",
+      "speeds": [
+        0.0,
+        0.5,
+        -0.5,
+        0.0
+      ],
+      "start_monotonic": 18854.111938442,
+      "stop_monotonic": 18854.923447961
+    },
+    {
+      "wheel": "M2 rear-left + M4 rear-right",
+      "speeds": [
+        0.0,
+        0.5,
+        0.0,
+        -0.5
+      ],
+      "start_monotonic": 18855.674453037,
+      "stop_monotonic": 18856.486034002
+    },
+    {
+      "wheel": "M3 front-right + M4 rear-right",
+      "speeds": [
+        0.0,
+        0.0,
+        -0.5,
+        -0.5
+      ],
+      "start_monotonic": 18857.237119504,
+      "stop_monotonic": 18858.048158365
+    },
+    {
+      "wheel": "M1 front-left + M2 rear-left + M3 front-right + M4 rear-right",
+      "speeds": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "start_monotonic": 18858.79919665,
+      "stop_monotonic": 18859.610439279
+    }
+  ],
+  "final_stop_sent": true,
+  "physical_result": "PASS, user-observed"
+}

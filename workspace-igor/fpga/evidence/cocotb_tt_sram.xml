@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792019136" />
+    <testcase name="full_sram_upload_readback_and_inference" classname="test" file="C:\Users\William Anthony\Documents\Codex\2026-09-30\files-mentioned-by-the-user-draft\outputs\peruri-iseedesign\test\test.py" lineno="40" time="11.330570697784424" sim_time_ns="1511240.001" ratio_time="133377.2182627577" />
+  </testsuite>
+</testsuites>

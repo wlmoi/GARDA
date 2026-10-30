@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "2026-10-20T02:31:09.022690+00:00",
+  "motor_application_tx_bytes": 0,
+  "lidar": {
+    "error": "Expected exactly one USB 1a86:7523 for auto; found []"
+  },
+  "stm": {
+    "error": "Expected exactly one USB 1a86:55d4 for auto; found []"
+  },
+  "passed": false,
+  "motion_permit": false
+}

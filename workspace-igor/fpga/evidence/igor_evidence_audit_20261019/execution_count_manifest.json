@@ -1,0 +1,186 @@
+{
+  "total": 111765,
+  "counting_unit": "mixed execution items; not unique tests",
+  "rows": [
+    {
+      "category": "RTL safety oracle input/result comparisons",
+      "count": 111210,
+      "reference": "fpga/evidence/actual_regression_20261021T012009642135Z/safety/summary.json",
+      "sha256": "08135b585f8d225bd65451b4453307e317fb2a5e08a6b1cc3649e65d405f20fe",
+      "recorded_result": {
+        "status": "PASS",
+        "generated_utc": "2026-10-21T01:20:11.241139+00:00",
+        "evidence_kind": "RTL simulation, not a physical FPGA measurement",
+        "seed": 16523109,
+        "gate_comparisons": 111210,
+        "gate_fault_bins": {
+          "0": 66915,
+          "1": 6509,
+          "2": 3236,
+          "3": 1612,
+          "4": 858,
+          "5": 431,
+          "6": 185,
+          "7": 100,
+          "8": 52,
+          "9": 36,
+          "10": 4105,
+          "11": 27171
+        },
+        "limits": "Exhaustive control combinations and enumerated numeric domains; directed top/protocol cases. Not exhaustive 16384-byte maps, analog timing, metastability, all temporal interleavings, or formal proof.",
+        "suites": {
+          "gate": {
+            "status": "PASS",
+            "checkpoints": 12,
+            "waveform": "gate.vcd",
+            "gtkwave_save": "gate.gtkw",
+            "log": "gate.log"
+          },
+          "units": {
+            "status": "PASS",
+            "checkpoints": 31,
+            "waveform": "units.vcd",
+            "gtkwave_save": "units.gtkw",
+            "log": "units.log"
+          },
+          "top": {
+            "status": "PASS",
+            "checkpoints": 29,
+            "waveform": "top.vcd",
+            "gtkwave_save": "top.gtkw",
+            "log": "top.log"
+          },
+          "uart": {
+            "status": "PASS",
+            "checkpoints": 39,
+            "waveform": "uart.vcd",
+            "gtkwave_save": "uart.gtkw",
+            "log": "uart.log"
+          }
+        },
+        "source_sha256": {
+          "rtl/igor_best_candidate_selector.v": "0728b4f7f142c3596298693137b1be92777f6e270a5d20377ec84721cd09a18b",
+          "rtl/igor_candidate_generator.v": "32996ce0186033ab076ff33f9fa5ceda140bd98ad8d91644893ddba9cec15f71",
+          "rtl/igor_config_registers.v": "8c318768bc696c2a99b22ad26fd6444f4816eef542253def4660b42d9f634662",
+          "rtl/igor_costmap_bank.v": "9e75536ca0997c57c3a1199ed1b315f52b6a0658412a6fdf7edc40bef846b91b",
+          "rtl/igor_costmap_manager.v": "5d58ee1bc90873f1c226ee0308c32fda351fdd97e23f8db6d7598c356fa58e94",
+          "rtl/igor_de10_nano_wrapper.v": "48daf163ae3ef2fc2a7ee2b1ed55b9f43252da6aecb372238a8c5e133d8fbd0f",
+          "rtl/igor_kinematic_step.v": "66481ded5c0e5d00004e1b67ca2278e6f2b4f67c53c0100038a10d8a464f6c76",
+          "rtl/igor_neural_core.v": "6698cc94f22c9a3c8392175adf07f07683a3b57884e360f3fe1cd794c3876d8f",
+          "rtl/igor_neural_rom.v": "e9e8df074fd56e886e064004dcf099034f8bfcbf53da46b833ed1ec13823bbc3",
+          "rtl/igor_rollout_tile.v": "7b87b0f126177996be3b6be8970535727590e597941c124cc331485eed2f0a94",
+          "rtl/igor_safety_security_gate.v": "17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6",
+          "rtl/igor_score_accumulator.v": "d3a52ae41b8a35a4c2a751840065f6fcdab9291ba237dc308c34d901290a2e2c",
+          "rtl/igor_status_logger.v": "3d6c24cf9355084f200b20d22fabf236527787f308a06550b36ab16769972de7",
+          "rtl/igor_top.v": "dafbcf718d713441fbbf5a7f1bc806768895f6431488a0aea22dd95d88e572e0",
+          "rtl/igor_trig_lut.v": "51c87caf83927ce2f6a14e27c69874ada9e91a77a47ee311b97c446dd7667d7e",
+          "rtl/igor_uart_protocol.v": "835b3f8faec0fe0b550c28dd520c386fe51cbcf9d30e4d1a6bb087a75e267e4a",
+          "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+          "rtl/igor_uart_top.v": "6d7ba12b44e3cd5555d418a4c99658f9860db71a1e87d2251af54de1d6cf21be",
+          "rtl/igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28",
+          "verification/tb_safety_gate.v": "1726b3c4ba28e16293a9c76d6358ba001bfb4995131e991b4267d4f85969772d",
+          "verification/tb_safety_top.v": "4762ba74212f32ee4e3c235ecbeef8e9c1fac0cdfa2a60d1266aa9156f8b164d",
+          "verification/tb_safety_uart.v": "4ed41b2180611c4cb770b12bdf4abaf26f48a9611a899d783f1992fd3a53dac9",
+          "verification/tb_safety_units.v": "e3bff4dc16981efc860877ea798379fe3a2d08e06f57170a0db33438dc562ac5",
+          "verification/run_safety_regression.py": "86a7a6865b2392f8080ccd9441c77e67e2f17520540c1be13a7f287417547aa3"
+        },
+        "tool_versions": {
+          "python": "3.11.9",
+          "iverilog": "Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)"
+        },
+        "elapsed_seconds": 27.515,
+        "checkpoint_count": 111,
+        "hardware_tests_executed": false
+      }
+    },
+    {
+      "category": "Host software test methods",
+      "count": 29,
+      "reference": "fpga/evidence/actual_regression_20261021T012009642135Z/run_host_regression/results.json",
+      "sha256": "782d58d8f0ada6f06f8af5c9bda0c629decf65e693578b8c5cbfaef834de77b2",
+      "recorded_result": {
+        "scope": "software fixtures; no physical hardware",
+        "sha256": {
+          "software_integration/src/igor_controller/igor_controller/fpga_bridge.py": "06cb8d5df6a31680ab9d2e2cad8bb6bb1a4561e4087db9b68f2653354143a3cc",
+          "software_integration/src/igor_controller/igor_controller/controller_node.py": "86f9853eac4a2e7decae5c42544e29f5207fb3a11946d2c265985f7ac4e837a9",
+          "software_integration/src/igor_controller/igor_controller/mcu_driver.py": "4a5c5699952083afd96047fc9a4adf73693931da889a5eae18d04ef358249c6b",
+          "software_integration/src/igor_navigation/igor_navigation/controllers/cbf_safety_filter.py": "9fa53953647c9e05e9db4c7e18febe69f174ec0caa0fe065456ba0ec61b7991c",
+          "software_integration/src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py": "a6970937a41af8f246115e80daafaa9df2464b3568e5e619651175bd1284ad3b",
+          "verification/run_host_regression.py": "4c95d3956971b7db20125ee9eb20010163f437a2a27fec70d56c2b3e5a1ff53c"
+        },
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "success": true
+      }
+    },
+    {
+      "category": "LiDAR software test methods",
+      "count": 16,
+      "reference": "fpga/evidence/actual_regression_20261021T012009642135Z/run_lidar_regression/results.json",
+      "sha256": "4c67919ce784b39dd54c1850759ce5e1b66dffe623d20244e5d1c06fdf5d995d",
+      "recorded_result": {
+        "passed": true,
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "source": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\software_integration\\src\\igor_bringup\\igor_bringup\\rplidar_driver_node.py",
+        "source_sha256": "359d863646a7ac941abb89e01748adafe5d57a5d1096834a9680a07f8a1d33bd",
+        "runner_sha256": "6d9d846e5c57d78eb11db38d5c8d4f265314cfb12ec6180ff5a9602ba8ac69b7",
+        "scope": "Real production driver with ROS/serial fixtures; no physical A1 measurement",
+        "min_scan_bins": 180,
+        "max_scan_age_sec": 0.25,
+        "unknown_range_m": 0.15
+      }
+    },
+    {
+      "category": "COM12 physical input vectors / JTAG output",
+      "count": 256,
+      "reference": "fpga/evidence/mock_board_jtag/20261019T140444384058Z/summary.json",
+      "sha256": "9a305e891fa34093a6e96084bbb1a82a028370b2d989b0f401df48de57e973b6",
+      "recorded_result": {
+        "passed": true,
+        "vectors_completed": 256,
+        "output_words_checked": 768,
+        "max_abs_error_lsb": 0,
+        "cycles_each": 6916,
+        "core_latency_us": 138.32,
+        "scope": "Real board: observations via COM12, results via JTAG latch with fresh sequence; not a UART return-link test"
+      }
+    },
+    {
+      "category": "COM16 physical live checks",
+      "count": 222,
+      "reference": "fpga/evidence/live_io/20261019T150503873884Z/summary.json",
+      "sha256": "cd1809f55b9e798dfbc9c9b5e304a77f2cb1e73bb79f50d32bea3fcafc9995d0",
+      "recorded_result": {
+        "checks": 222,
+        "passed": 222,
+        "failed": 0,
+        "error": null,
+        "stopped_by_user": true,
+        "uart_return_valid": 222,
+        "uart_no_reply": 0,
+        "elapsed_s": 222.688,
+        "transport": "UART input / JTAG output; UART return status is separate"
+      }
+    },
+    {
+      "category": "COM20 physical live checks",
+      "count": 32,
+      "reference": "fpga/evidence/live_io/20261020T063143723875Z/summary.json",
+      "sha256": "4578971068a2361394f6097314364dfb43eb870d47d97a3c8cd2680044b9d6eb",
+      "recorded_result": {
+        "checks": 32,
+        "passed": 32,
+        "failed": 0,
+        "error": null,
+        "stopped_by_user": true,
+        "uart_return_valid": 32,
+        "uart_no_reply": 0,
+        "elapsed_s": 33.203,
+        "transport": "UART input / JTAG output; UART return status is separate"
+      }
+    }
+  ]
+}

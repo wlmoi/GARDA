@@ -1,0 +1,100 @@
+Reading timing models for corner nom_typ_1p20V_25C…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib'…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib'…
+Reading timing library for the 'nom_typ_1p20V_25C' corner at '/home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x16_c2_bm_bist_typ_1p20V_25C.lib'…
+Reading OpenROAD database at '/home/runner/work/igor_ws/igor_ws/runs/wokwi/21-odb-applydeftemplate/tt_um_igorchip.odb'…
+Reading design constraints file at '/nix/store/6a08ghhhzl5a07nr0ly762yh1ah6m5bj-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 4.0
+[INFO] Setting input delay to: 4.0
+[INFO] Setting load to: 0.006
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.15
+[INFO] Setting timing derate to: 5.0%
+[INFO] Setting global connections...
+program_store\.i_sram matched with program_store.i_sram
+program_store\.i_sram matched with program_store.i_sram
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
++ pdngen 
+[INFO PDN-0001] Inserting grid: stdcell_grid
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+program_store\.i_sram matched with program_store.i_sram
+program_store\.i_sram matched with program_store.i_sram
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                     1   28127.10
+  Buffer                                    9      65.32
+  Inverter                                134     729.39
+  Sequential cell                         403   19742.49
+  Multi-Input combinational cell         3504   34391.95
+  Total                                  4051   83056.25
+Writing OpenROAD database to '/home/runner/work/igor_ws/igor_ws/runs/wokwi/22-openroad-generatepdn/tt_um_igorchip.odb'…
+Writing netlist to '/home/runner/work/igor_ws/igor_ws/runs/wokwi/22-openroad-generatepdn/tt_um_igorchip.nl.v'…
+Writing powered netlist to '/home/runner/work/igor_ws/igor_ws/runs/wokwi/22-openroad-generatepdn/tt_um_igorchip.pnl.v'…
+Writing layout to '/home/runner/work/igor_ws/igor_ws/runs/wokwi/22-openroad-generatepdn/tt_um_igorchip.def'…
+Writing timing constraints to '/home/runner/work/igor_ws/igor_ws/runs/wokwi/22-openroad-generatepdn/tt_um_igorchip.sdc'…
+[WARNING PSM-0038] Unconnected shape on net VPWR at (304.260um, 34.020um) - (307.070um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (304.260um, 79.485um) - (307.070um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (315.500um, 34.020um) - (318.310um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (315.500um, 79.485um) - (318.310um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (326.740um, 34.020um) - (329.550um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (326.740um, 79.485um) - (329.550um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (337.980um, 34.020um) - (340.790um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (337.980um, 79.485um) - (340.790um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (349.220um, 34.020um) - (352.030um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (349.220um, 79.485um) - (352.030um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (360.460um, 34.020um) - (363.270um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (360.460um, 79.485um) - (363.270um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (371.700um, 34.020um) - (374.510um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (371.700um, 79.485um) - (374.510um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (382.940um, 34.020um) - (385.750um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (382.940um, 79.485um) - (385.750um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (404.120um, 34.020um) - (406.930um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (414.420um, 34.020um) - (417.230um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (419.570um, 34.020um) - (422.380um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (429.870um, 34.020um) - (432.680um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (451.050um, 34.020um) - (453.860um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (451.050um, 79.485um) - (453.860um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (462.290um, 34.020um) - (465.100um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (462.290um, 79.485um) - (465.100um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (473.530um, 34.020um) - (476.340um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (473.530um, 79.485um) - (476.340um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (484.770um, 34.020um) - (487.580um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (484.770um, 79.485um) - (487.580um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (496.010um, 34.020um) - (498.820um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (496.010um, 79.485um) - (498.820um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (507.250um, 34.020um) - (510.060um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (507.250um, 79.485um) - (510.060um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (518.490um, 34.020um) - (521.300um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (518.490um, 79.485um) - (521.300um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (529.730um, 34.020um) - (532.540um, 72.845um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VPWR at (529.730um, 79.485um) - (532.540um, 152.800um), layer: Metal4.
+[WARNING PSM-0039] Unconnected instance program_store.i_sram/VDD! at location (418.400um, 61.428um).
+[WARNING PSM-0039] Unconnected instance program_store.i_sram/VDDARRAY! at location (418.400um, 116.142um).
+[ERROR PSM-0069] Check connectivity failed on VPWR.
+[WARNING] Grid check for VPWR failed: PSM-0069
+[WARNING PSM-0038] Unconnected shape on net VGND at (309.880um, 34.020um) - (312.690um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (321.120um, 34.020um) - (323.930um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (332.360um, 34.020um) - (335.170um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (343.600um, 34.020um) - (346.410um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (354.840um, 34.020um) - (357.650um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (366.080um, 34.020um) - (368.890um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (377.320um, 34.020um) - (380.130um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (388.560um, 34.020um) - (391.370um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (398.970um, 34.020um) - (401.780um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (409.270um, 34.020um) - (412.080um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (424.720um, 34.020um) - (427.530um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (435.020um, 34.020um) - (437.830um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (445.430um, 34.020um) - (448.240um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (456.670um, 34.020um) - (459.480um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (467.910um, 34.020um) - (470.720um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (479.150um, 34.020um) - (481.960um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (490.390um, 34.020um) - (493.200um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (501.630um, 34.020um) - (504.440um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (512.870um, 34.020um) - (515.680um, 152.800um), layer: Metal4.
+[WARNING PSM-0038] Unconnected shape on net VGND at (524.110um, 34.020um) - (526.920um, 152.800um), layer: Metal4.
+[WARNING PSM-0039] Unconnected instance program_store.i_sram/VSS! at location (418.400um, 93.410um).
+[ERROR PSM-0069] Check connectivity failed on VGND.
+[WARNING] Grid check for VGND failed: PSM-0069

@@ -1,0 +1,19 @@
+{
+  "location": "Operator location unspecified",
+  "inventory": [
+    {
+      "port": "COM18",
+      "vid": 1659,
+      "pid": 8963,
+      "description": "Prolific USB-to-Serial Comm Port (COM18)"
+    }
+  ],
+  "yaw_deg": 0,
+  "scan_mode": "express",
+  "source_sha256": {
+    "fpga\\scripts\\lidar_ai_reader.py": "730dc0f054143c68a291710b68bf9f6919963e3dba7a05df43427287e1adb30a",
+    "fpga\\scripts\\lidar_express.py": "d74ff27170fd85cdff4aa40bd5a9fbcf9f471dd88bc8ffa2039dea3d9bfba0bd",
+    "fpga\\scripts\\laptop_sensor_preflight.py": "09b7e6c4d6c19bb3127e228e73a370dc944947f2b2afe5ac4f0c9a3ca9afbbc6",
+    "src\\igor_navigation\\igor_navigation\\drivers\\lidar_subsampler.py": "a6970937a41af8f246115e80daafaa9df2464b3568e5e619651175bd1284ad3b"
+  }
+}

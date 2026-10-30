@@ -1,0 +1,16 @@
+metric,value,unit,source,line,source_sha256,kind
+alm,3303,ALM,experiments/parallel8/output_files/igor_src_policy.fit.summary,8,f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b,post-fit resource count
+registers,6277,register,experiments/parallel8/output_files/igor_src_policy.fit.summary,9,f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b,post-fit resource count
+m10k,64,M10K,experiments/parallel8/output_files/igor_src_policy.fit.summary,13,f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b,post-fit resource count
+dsp,8,DSP,experiments/parallel8/output_files/igor_src_policy.fit.summary,14,f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b,post-fit resource count
+memory_bits,524288,bit,experiments/parallel8/output_files/igor_src_policy.fit.summary,12,f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b,post-fit resource count
+typical_total,476.18,mW,experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary,8,df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77,estimated FPGA thermal; HPS excluded; Low confidence
+typical_dynamic,50.36,mW,experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary,9,df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77,estimated FPGA thermal; HPS excluded; Low confidence
+typical_static,413.27,mW,experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary,10,df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77,estimated FPGA thermal; HPS excluded; Low confidence
+typical_io,12.55,mW,experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary,11,df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77,estimated FPGA thermal; HPS excluded; Low confidence
+maximum_tj100_total,937.55,mW,experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.summary,8,c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4,estimated FPGA thermal; HPS excluded; Low confidence
+maximum_tj100_dynamic,50.36,mW,experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.summary,9,c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4,estimated FPGA thermal; HPS excluded; Low confidence
+maximum_tj100_static,865.8,mW,experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.summary,10,c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4,estimated FPGA thermal; HPS excluded; Low confidence
+maximum_tj100_io,21.4,mW,experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.summary,11,c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4,estimated FPGA thermal; HPS excluded; Low confidence
+latency_cycles,6916,cycle,experiments/parallel8/core_checkpoints.csv,3,beba4fb6c983a4c89dedf38a2cae7266c3609525d6bd2d2002582385aae0acf3,RTL simulation; core only
+clock_period,20,ns,experiments/parallel8/igor_src_policy.sdc,1,a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c,timing constraint; validated by STA

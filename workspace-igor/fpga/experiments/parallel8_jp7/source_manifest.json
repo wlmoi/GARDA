@@ -1,0 +1,34 @@
+{
+  "source_project": "fpga/experiments/parallel8",
+  "unchanged_files": {
+    "igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "igor_src_policy_de10_nano.v": "74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81",
+    "igor_src_policy.sdc": "a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c",
+    "bank0.mem": "9ca680c769894f074db1d50acf09075c35a4e58b02fbdcb6a944dbb4624c6768",
+    "bank1.mem": "33c88dc96045e1bf3e7b34d111eb103825f57fa396f303c8bff9ee22a984dd88",
+    "bank2.mem": "348c2f8536b441b7ce15fa98b75570755815f2b694d108b5465226a882d5d466",
+    "bank3.mem": "2789b0cb6dddfe29e7d013112a3217cf735bb64c4a3a7556d67a0dcbdaa5ca53",
+    "bank4.mem": "f3e93047fa7e1f31e972e921fd908ac683e760ecf3f8407d550d62dcc6c6f1bf",
+    "bank5.mem": "8d638f6cf3912a7afb6642ff4755194bd919ffa840f7ccfd283571a8e048ee0b",
+    "bank6.mem": "30f0a7ea491c625fedd633b30d9d1ff2638649ae08261f48029db8e889b25e87",
+    "bank7.mem": "af74fd8bb339ee678cb556752ef358a20c185708af8decbac8534fc873ff8071"
+  },
+  "uart_rx": {
+    "header": "JP7",
+    "pin": 1,
+    "fpga_pin": "Y15"
+  },
+  "uart_tx": {
+    "header": "JP7",
+    "pin": 2,
+    "fpga_pin": "AC24"
+  },
+  "ground": {
+    "header": "JP7",
+    "pin": 12
+  },
+  "baud": 921600,
+  "format": "8N1",
+  "logic_voltage": 3.3,
+  "pinout_source": "https://www.mouser.com/datasheet/2/598/DE10_Nano_User_manual_a_b-1108056.pdf#page=28"
+}

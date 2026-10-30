@@ -1,0 +1,2 @@
+PASS uart: 184 directed transactions, 268 assertions, all 74 field range boundaries, independent wire decode, E-stop/parser/inference/TX/reset/stale/watchdog recovery
+- /mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/uart/tb_src_policy_uart.sv:254: Verilog $finish

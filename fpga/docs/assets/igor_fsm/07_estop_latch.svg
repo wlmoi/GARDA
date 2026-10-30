@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1014" viewBox="0 0 1700 1014">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="1014" fill="white"/>
+<rect x="25" y="25" width="1650" height="964" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">BOARD E-STOP — RAW INHIBIT + STICKY LATCH</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">stop_latched + stop_sync[1:0]  |  Flag sticky + synchronizer; bukan enum</text>
+<ellipse cx="849.995" cy="412.14" rx="178.722" ry="62.8776" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="850.00" y="387.84" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">stop_latched=0</text>
+<text x="850.00" y="412.14" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">stop_active tetap bisa1 dari</text>
+<text x="850.00" y="436.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">raw/sync</text>
+<ellipse cx="849.995" cy="625.644" rx="182.96280000000002" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="850.00" y="601.34" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">stop_latched=1</text>
+<text x="850.00" y="625.64" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">stop_active=1; tetap sampai</text>
+<text x="850.00" y="649.94" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">reset</text>
+<circle cx="849.995" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 849.995,262.25 C 849.995,274.69 849.995,306.33 849.995,337.26 L 849.995,348.59" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="828.995" y="290.94" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="887.50" y="305.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 789.9749999999999,352.10999999999996 C 755.971,331.46999999999997 755.971,295.89 849.995,295.89 C 934.4749999999999,295.89 943.055,324.60999999999996 919.275,345.41999999999996 L 910.025,352.10999999999996" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="813.995" y="273.57" width="72.0" height="28.9" rx="3" fill="white"/>
+<text x="850.00" y="288.02" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[1]=1</text>
+<path d="M 756.7239999999999,466.52 C 742.1899999999999,479.15999999999997 729.206,494.01 720.749,511.02 C 710.405,531.8299999999999 718.276,550.48 734.2479999999999,566.36 L 742.6949999999999,573.94" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="701.625" y="504.44" width="199.5" height="28.9" rx="3" fill="white"/>
+<text x="801.38" y="518.89" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[1]=0 pada rising edge</text>
+<path d="M 789.795,565.44 C 755.797,544.98 755.797,509.39 849.995,509.39 C 934.635,509.39 943.2249999999999,538.12 919.4449999999999,558.79 L 910.2049999999999,565.44" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="768.995" y="487.07" width="162.0" height="28.9" rx="3" fill="white"/>
+<text x="850.00" y="501.52" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY1 dilepas/ditekan</text>
+<path d="M 888.805,563.27 C 895.275,546.65 898.805,528.43 894.995,511.02 C 893.125,502.48 890.4449999999999,493.78999999999996 887.295,485.28999999999996 L 883.095,474.65999999999997" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="875.545" y="504.44" width="139.5" height="28.9" rx="3" fill="white"/>
+<text x="945.29" y="518.89" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n (asinkron)</text>
+<rect x="70" y="753.52" width="1560" height="200" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="783.52" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: experiments/parallel8/igor_src_policy_de10_nano.v</text>
+<text x="90.00" y="809.52" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: stop_latched=0; stop_sync=00</text>
+<text x="90.00" y="835.52" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. stop_active = !KEY[1] | stop_sync[1] | stop_latched. Tekanan raw langsung menginhibit tanpa menunggu latch.</text>
+<text x="90.00" y="861.52" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. stop_sync &lt;= {stop_sync[0],!KEY[1]}; jalur sampled memakai dua flop. Lepaskan KEY1 lalu reset KEY0 untuk recovery.</text>
+<text x="90.00" y="887.52" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. Raw stop masih aktif jika KEY1 ditahan saat reset. CLEAR bukan jaminan permit aktif.</text>
+<text x="90.00" y="913.52" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. Di policy ada synchronizer estop lagi; estop_active=estop | estop_sync. Jangan menyebut seluruh jalur stop Moore murni.</text>
+</svg>

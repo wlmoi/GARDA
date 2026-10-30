@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "command": [
+    "D:/Quartus-Program/quartus/bin64/quartus_pow.exe",
+    "igor_src_policy",
+    "--read_settings_files=on",
+    "--write_settings_files=off",
+    "--estimate_power=on",
+    "--use_vectorless_estimation=on",
+    "--no_input_file"
+  ],
+  "sof_sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
+  "kind": "Estimated FPGA thermal power; Low confidence; HPS excluded; not board measurement",
+  "sha256": {
+    "igor_src_policy.pow.rpt": "19e5f5306510877e72e442c68159f94ddadbad9ad2cbcbbaafcd148279e7a568",
+    "igor_src_policy.pow.summary": "df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77",
+    "post_power.flow.rpt": "25af3b8ef8a96a56e43681e4c61055d31b1407aeeea9ca140f1388ed66a394d4",
+    "run.log": "106499e7dd621dde102893eaeba749aa28ede0eac9aa91f6352fc12e9ec16bc4"
+  }
+}

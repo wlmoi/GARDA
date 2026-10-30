@@ -1,0 +1,194 @@
+{
+  "status": "FAIL",
+  "all_scenarios_passed": false,
+  "passed": 8,
+  "failed": 1,
+  "unresolved": 3,
+  "software_tests_run": 53,
+  "cases": [
+    {
+      "name": "lidar_communication_and_feature_format",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\lidar_ai_reader.py",
+        "--port",
+        "auto",
+        "--seconds",
+        "15",
+        "--output",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\lidar_ai"
+      ],
+      "status": "FAIL",
+      "exit_code": 1,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\lidar_communication_and_feature_format.log",
+      "duration_s": 0.312
+    },
+    {
+      "name": "lidar_measurement_quality",
+      "status": "BLOCKED",
+      "reason": "Sensor quality not established"
+    },
+    {
+      "name": "STM_telemetry",
+      "status": "NOT_RUN",
+      "reason": "LiDAR-only profile; STM not accessed"
+    },
+    {
+      "name": "test_rectangle_route",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_rectangle_route.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 13,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\test_rectangle_route.log",
+      "duration_s": 0.406
+    },
+    {
+      "name": "test_uart_fabric",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_uart_fabric.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 3,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\test_uart_fabric.log",
+      "duration_s": 0.203
+    },
+    {
+      "name": "test_uart_q88",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_uart_q88.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 7,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\test_uart_q88.log",
+      "duration_s": 1.219
+    },
+    {
+      "name": "test_ethernet",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_ethernet.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 16,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\test_ethernet.log",
+      "duration_s": 2.36
+    },
+    {
+      "name": "test_security_auth",
+      "status": "BLOCKED",
+      "reason": "Required test/test_security_auth.py does not exist in this checkout"
+    },
+    {
+      "name": "laptop_fault_contracts",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_laptop_scenario_contracts.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 2,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\laptop_fault_contracts.log",
+      "duration_s": 0.312
+    },
+    {
+      "name": "laptop_sensor_decoder",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_laptop_sensor_decode.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 2,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\laptop_sensor_decoder.log",
+      "duration_s": 0.188
+    },
+    {
+      "name": "lidar_ai_features",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_lidar_ai_features.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 5,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\lidar_ai_features.log",
+      "duration_s": 0.421
+    },
+    {
+      "name": "lidar_express_decoder",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_lidar_express.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 5,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261020T023123286505Z\\lidar_express_decoder.log",
+      "duration_s": 0.141
+    }
+  ]
+}

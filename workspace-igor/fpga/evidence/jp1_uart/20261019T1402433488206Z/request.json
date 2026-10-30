@@ -1,0 +1,14 @@
+{
+    "port":  "COM12",
+    "baud":  921600,
+    "iterations":  10,
+    "header":  "JP1",
+    "adapter_TX":  "pin 1 / FPGA RX V12",
+    "adapter_RX":  "pin 2 / FPGA TX E8",
+    "adapter_GND":  "pin 12",
+    "expected_q88":  [
+                         -46,
+                         60,
+                         34
+                     ]
+}

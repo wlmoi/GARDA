@@ -1,0 +1,9 @@
+﻿Traceback (most recent call last):
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\freeze_release.py", line 266, in <module>
+    check() if args.check else freeze()
+    ^^^^^^^
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\freeze_release.py", line 123, in check
+    check_mapping(doc['files'])
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\freeze_release.py", line 45, in check_mapping
+    raise RuntimeError('Changed or missing recorded files: ' + ', '.join(problems[:12]))
+RuntimeError: Changed or missing recorded files: fpga_de10_nano/quartus/igor.qsf, fpga_de10_nano/quartus/output_files/igor.asm.rpt, fpga_de10_nano/quartus/output_files/igor.fit.rpt, fpga_de10_nano/quartus/output_files/igor.fit.summary, fpga_de10_nano/quartus/output_files/igor.flow.rpt, fpga_de10_nano/quartus/output_files/igor.map.rpt, fpga_de10_nano/quartus/output_files/igor.map.summary, fpga_de10_nano/quartus/output_files/igor.pin, fpga_de10_nano/quartus/output_files/igor.sof, fpga_de10_nano/quartus/output_files/igor.sta.rpt, fpga_de10_nano/quartus/output_files/igor.sta.summary

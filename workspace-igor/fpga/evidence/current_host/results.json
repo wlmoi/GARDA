@@ -1,0 +1,15 @@
+{
+  "scope": "software fixtures; no physical hardware",
+  "sha256": {
+    "software_integration/src/igor_controller/igor_controller/fpga_bridge.py": "06cb8d5df6a31680ab9d2e2cad8bb6bb1a4561e4087db9b68f2653354143a3cc",
+    "software_integration/src/igor_controller/igor_controller/controller_node.py": "86f9853eac4a2e7decae5c42544e29f5207fb3a11946d2c265985f7ac4e837a9",
+    "software_integration/src/igor_controller/igor_controller/mcu_driver.py": "4a5c5699952083afd96047fc9a4adf73693931da889a5eae18d04ef358249c6b",
+    "software_integration/src/igor_navigation/igor_navigation/controllers/cbf_safety_filter.py": "9fa53953647c9e05e9db4c7e18febe69f174ec0caa0fe065456ba0ec61b7991c",
+    "software_integration/src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py": "a6970937a41af8f246115e80daafaa9df2464b3568e5e619651175bd1284ad3b",
+    "verification/run_host_regression.py": "4c95d3956971b7db20125ee9eb20010163f437a2a27fec70d56c2b3e5a1ff53c"
+  },
+  "tests": 29,
+  "failures": 0,
+  "errors": 0,
+  "success": true
+}

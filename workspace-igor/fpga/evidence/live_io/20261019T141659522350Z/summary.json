@@ -1,0 +1,9 @@
+{
+  "checks": 4,
+  "passed": 4,
+  "failed": 0,
+  "error": null,
+  "stopped_by_user": false,
+  "elapsed_s": 3.797,
+  "transport": "UART input / JTAG output; UART return status is separate"
+}

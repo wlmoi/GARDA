@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "passed_cases": 28,
+  "total_cases": 28,
+  "hardware_accessed": false,
+  "scope": "Software mock of actual controller; no physical cargo detection, FPGA inference or motor motion verified.",
+  "source_sha256": {
+    "bitstreams\\..\\scripts\\mock_ai_surge_cargo.py": "8e2bf9c3ada4b3028c96bcb3ca53ed6e016244086c5274ff201c4ab6736b9751",
+    "verification\\run_host_regression.py": "4c95d3956971b7db20125ee9eb20010163f437a2a27fec70d56c2b3e5a1ff53c",
+    "software_integration\\src\\igor_controller\\igor_controller\\controller_node.py": "2ebe5e4e3ccefe93ae3a7242e42644d2b02bb1d3277bd6127b4b9875f77b758b"
+  }
+}

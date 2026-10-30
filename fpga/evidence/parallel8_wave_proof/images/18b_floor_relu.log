@@ -1,0 +1,13 @@
+DISPLAYED tb_src_policy_core.activation_accumulator[39:0] tb_src_policy_core.activation_output tb_src_policy_core.activation_value[15:0] tb_src_policy_core.activation_saturated 
+VALUE 0 -1
+VALUE 1 1
+VALUE 2 -1
+VALUE 3 0
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[33315911000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\18b_floor_relu.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/18b_floor_relu.png'

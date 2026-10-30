@@ -1,0 +1,3 @@
+VCD info: dumpfile multispeed.vcd opened for output.
+PASS: 10 UART frames, 256 bytes, four speed levels, both directions, all four IDs, floats and CRC
+tb/tb_multispeed.v:62: $finish called at 2560880000 (1ps)

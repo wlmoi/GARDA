@@ -1,0 +1,19 @@
+﻿{
+    "schema":  1,
+    "utc":  "2026-10-16T10:48:33.7170197Z",
+    "project":  "source_policy",
+    "sof":  "fpga_de10_nano/src_policy/output_files/igor_src_policy.sof",
+    "sof_sha256":  "de92f7b00fc81dc27f28ec0d017407b9cff7d6acdbfeaffeaa54a9d2716a3bde",
+    "expected_device":  "5CSEBA6U23I7",
+    "requested_cable":  "",
+    "requested_device_index":  0,
+    "manifest":  "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\current_release\\manifest.json",
+    "manifest_verified":  false,
+    "mode":  "inspection",
+    "hardware_available":  false,
+    "hardware_programmed":  false,
+    "uart_function_verified":  false,
+    "chains":  [
+
+               ]
+}

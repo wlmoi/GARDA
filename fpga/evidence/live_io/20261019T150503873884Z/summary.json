@@ -1,0 +1,11 @@
+{
+  "checks": 222,
+  "passed": 222,
+  "failed": 0,
+  "error": null,
+  "stopped_by_user": true,
+  "uart_return_valid": 222,
+  "uart_no_reply": 0,
+  "elapsed_s": 222.688,
+  "transport": "UART input / JTAG output; UART return status is separate"
+}

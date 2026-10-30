@@ -1,0 +1,6 @@
+{
+  "status": "ERROR",
+  "motion_commanded": false,
+  "session": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\program_and_test\\20261020T020147886951Z",
+  "error": "Expected one FPGA Prolific 067B:2303 adapter for auto; found []"
+}

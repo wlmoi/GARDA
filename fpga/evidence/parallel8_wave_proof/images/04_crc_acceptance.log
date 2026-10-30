@@ -1,0 +1,20 @@
+DISPLAYED tb_board_wrapper.dut.policy.uart_rx tb_board_wrapper.dut.policy.rx_valid tb_board_wrapper.dut.policy.rx_data[7:0] tb_board_wrapper.dut.policy.position[7:0] tb_board_wrapper.dut.policy.crc[7:0] tb_board_wrapper.dut.policy.invalid_observation tb_board_wrapper.dut.policy.accepted_frames[31:0] tb_board_wrapper.dut.policy.mode[3:0] tb_board_wrapper.dut.policy.core_load tb_board_wrapper.dut.policy.core_start tb_board_wrapper.dut.policy.core_busy 
+VALUE 0 1
+VALUE 1 0
+VALUE 2 A6
+VALUE 3 0
+VALUE 4 A6
+VALUE 5 0
+VALUE 6 1
+VALUE 7 1
+VALUE 8 0
+VALUE 9 0
+VALUE 10 0
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\04_crc_acceptance.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/04_crc_acceptance.png'

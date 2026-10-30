@@ -1,0 +1,125 @@
+IGOR - SAVED VERIFICATION EVIDENCE AUDIT
+Requested campaign target: 111,200 checks.
+Verified IGOR total: not yet established.
+Physical-board vectors, output-word comparisons, live checks, and RTL coverage bins are reported separately to avoid double-counting.
+Project: D:\LinkedinProjects\igor_ws\igor_ws
+Scope: historical receipts inspected; hardware tests were not rerun by this audit.
+The unrelated 111200 EchoReverb software checks are excluded from IGOR results.
+
+PHYSICAL BOARD / COM12 UART INPUT / JTAG OUTPUT
+User wiring: adapter TX -> JP1 pin 1; RX -> pin 2; GND -> pin 12; Jetson disconnected.
+Vectors completed: 256; output words checked: 768
+Passed: True; max absolute error LSB: 0
+Recorded cycles: 6916; core latency us: 138.32
+Cycle count is attributed to prior RTL acceptance by identity.json.
+This COM12 run did not validate the UART return link.
+Reference: fpga/evidence/mock_board_jtag/20261019T140444384058Z/summary.json
+
+SEPARATE LIVE SESSION (attached console identifies COM20)
+Checks: 32; passed: 32; failed: 0
+Valid UART returns: 32; no reply: 0
+Do not combine this session with the earlier COM12 transport claim.
+Reference: fpga/evidence/live_io/20261020T063143723875Z/summary.json
+
+RTL SIMULATION RECEIPTS AND CURRENT SOURCE HASH CHECKS
+Suite core: recorded status=PASS; reference=fpga/evidence/rtl_coverage/core/receipt.json
+  MATCH: fpga\experiments\parallel8\igor_src_policy_core.v
+    recorded SHA256=0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34
+    current SHA256=0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34
+  MATCH: fpga\experiments\parallel8\tb_src_policy_core.sv
+    recorded SHA256=2548d3ed6b3173a973bb12335b90dcb41f86910b72dd5c754236977ee4ca8715
+    current SHA256=2548d3ed6b3173a973bb12335b90dcb41f86910b72dd5c754236977ee4ca8715
+  MATCH: fpga\evidence\rtl_coverage\core\tb_src_policy_core.sv
+    recorded SHA256=2c3d3e49099bf2a27ea86a25126142cfe89f57e11ef6632396f6f60663811c32
+    current SHA256=2c3d3e49099bf2a27ea86a25126142cfe89f57e11ef6632396f6f60663811c32
+  MATCH: fpga\verification\src_policy\coverage_illegal_state.svh
+    recorded SHA256=43c6a9843236b871d9a38dcc359bb2bd80369ecdacfe02407f65c3ff539d9ee2
+    current SHA256=43c6a9843236b871d9a38dcc359bb2bd80369ecdacfe02407f65c3ff539d9ee2
+  igor_src_policy_core.v v_branch: 96/96 (100.00%)
+  igor_src_policy_core.v v_line: 68/68 (100.00%)
+  igor_src_policy_core.v v_toggle: 870/908 (95.81%)
+Suite uart: recorded status=PASS; reference=fpga/evidence/rtl_coverage/uart/receipt.json
+  MATCH: fpga\experiments\parallel8\igor_src_policy_core.v
+    recorded SHA256=0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34
+    current SHA256=0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34
+  MATCH: fpga\rtl\igor_src_policy\igor_src_policy_uart.v
+    recorded SHA256=8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a
+    current SHA256=8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a
+  MATCH: fpga\rtl\igor_uart_rx.v
+    recorded SHA256=4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39
+    current SHA256=4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39
+  MATCH: fpga\rtl\igor_uart_tx.v
+    recorded SHA256=1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28
+    current SHA256=1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28
+  MATCH: fpga\experiments\parallel8\tb_src_policy_uart.sv
+    recorded SHA256=ec4f484abd225661298c55f9692a4e9c2e6693ef0910f8dcb4e003847b951ca5
+    current SHA256=ec4f484abd225661298c55f9692a4e9c2e6693ef0910f8dcb4e003847b951ca5
+  MATCH: fpga\evidence\rtl_coverage\uart\tb_src_policy_uart.sv
+    recorded SHA256=fac72f55552dafc7375ea67dd95b98f2bd8f57d12f3bed180c428a92ce97052d
+    current SHA256=fac72f55552dafc7375ea67dd95b98f2bd8f57d12f3bed180c428a92ce97052d
+  igor_src_policy_core.v v_branch: 95/96 (98.96%)
+  igor_src_policy_core.v v_line: 61/68 (89.71%)
+  igor_src_policy_core.v v_toggle: 829/908 (91.30%)
+  igor_src_policy_uart.v v_branch: 46/46 (100.00%)
+  igor_src_policy_uart.v v_line: 46/47 (97.87%)
+  igor_src_policy_uart.v v_toggle: 371/517 (71.76%)
+  igor_uart_rx.v v_branch: 14/14 (100.00%)
+  igor_uart_rx.v v_line: 9/10 (90.00%)
+  igor_uart_rx.v v_toggle: 31/44 (70.45%)
+  igor_uart_tx.v v_branch: 4/4 (100.00%)
+  igor_uart_tx.v v_line: 5/5 (100.00%)
+  igor_uart_tx.v v_toggle: 30/43 (69.77%)
+Suite board: recorded status=PASS; reference=fpga/evidence/rtl_coverage/board/receipt.json
+  MATCH: fpga\experiments\parallel8\igor_src_policy_core.v
+    recorded SHA256=0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34
+    current SHA256=0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34
+  MATCH: fpga\rtl\igor_src_policy\igor_src_policy_uart.v
+    recorded SHA256=8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a
+    current SHA256=8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a
+  MATCH: fpga\rtl\igor_uart_rx.v
+    recorded SHA256=4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39
+    current SHA256=4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39
+  MATCH: fpga\rtl\igor_uart_tx.v
+    recorded SHA256=1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28
+    current SHA256=1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28
+  MATCH: fpga\experiments\parallel8\igor_src_policy_de10_nano.v
+    recorded SHA256=74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81
+    current SHA256=74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81
+  MATCH: fpga\experiments\parallel8\tb_board_wrapper.sv
+    recorded SHA256=cf6afed010b93ce39a91f3337607298f02bf57853e5d3c66575d0ee5afa1543e
+    current SHA256=cf6afed010b93ce39a91f3337607298f02bf57853e5d3c66575d0ee5afa1543e
+  MATCH: fpga\evidence\rtl_coverage\board\tb_board_wrapper.sv
+    recorded SHA256=fffe70f33a2a53a6b911cd8f2ae8bd04b231af1adcdecf4947f50eb5700d455d
+    current SHA256=fffe70f33a2a53a6b911cd8f2ae8bd04b231af1adcdecf4947f50eb5700d455d
+  igor_src_policy_core.v v_branch: 95/96 (98.96%)
+  igor_src_policy_core.v v_line: 60/68 (88.24%)
+  igor_src_policy_core.v v_toggle: 789/908 (86.89%)
+  igor_src_policy_de10_nano.v v_branch: 6/6 (100.00%)
+  igor_src_policy_de10_nano.v v_line: 4/4 (100.00%)
+  igor_src_policy_de10_nano.v v_toggle: 51/194 (26.29%)
+  igor_src_policy_uart.v v_branch: 35/46 (76.09%)
+  igor_src_policy_uart.v v_line: 37/47 (78.72%)
+  igor_src_policy_uart.v v_toggle: 214/517 (41.39%)
+  igor_uart_rx.v v_branch: 13/14 (92.86%)
+  igor_uart_rx.v v_line: 8/10 (80.00%)
+  igor_uart_rx.v v_toggle: 33/44 (75.00%)
+  igor_uart_tx.v v_branch: 4/4 (100.00%)
+  igor_uart_tx.v v_line: 5/5 (100.00%)
+  igor_uart_tx.v v_toggle: 33/43 (76.74%)
+Suite gate: recorded status=PASS; reference=fpga/evidence/rtl_coverage/gate/receipt.json
+  MATCH: fpga\rtl\igor_safety_security_gate.v
+    recorded SHA256=17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6
+    current SHA256=17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6
+  MATCH: fpga\verification\tb_safety_gate.v
+    recorded SHA256=1726b3c4ba28e16293a9c76d6358ba001bfb4995131e991b4267d4f85969772d
+    current SHA256=1726b3c4ba28e16293a9c76d6358ba001bfb4995131e991b4267d4f85969772d
+  MATCH: fpga\evidence\rtl_coverage\gate\tb_safety_gate.sv
+    recorded SHA256=6b7619e5b41fc1bcd61dcb9ca2b25af90952bf0c4b58472ec301a31004c685f7
+    current SHA256=6b7619e5b41fc1bcd61dcb9ca2b25af90952bf0c4b58472ec301a31004c685f7
+  igor_safety_security_gate.v v_line: 13/13 (100.00%)
+  igor_safety_security_gate.v v_toggle: 102/107 (95.33%)
+
+Coverage bins are not independent test cases. Suites can overlap; no combined count inferred.
+Training: no training execution established by the receipts inspected here.
+Historical PASS does not prove a modified current source was tested.
+Zero mismatches are preserved because the saved physical result reports zero.

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "top": "tt_um_wlmoi_igor_neural_logic",
+  "physical_sram_banks": 0,
+  "register_bits": 2844,
+  "parameter_words": 6020,
+  "parameter_storage": "Immutable standard-cell logic",
+  "activation_storage": "Flip-flops",
+  "parallel_mac_lanes": 2,
+  "qualification": "Generic synthesis only; physical acceptance still required"
+}

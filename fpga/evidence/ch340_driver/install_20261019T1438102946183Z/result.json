@@ -1,0 +1,27 @@
+{
+  "source": "https://www.wch-ic.com/download/file?id=5",
+  "package_sha256": "59967D9CE371D0BF3DF02DEC0B66C8DFBF9CA576DA0572FF4404148A7C381807",
+  "expected_version": "4.0.2026.02",
+  "success": false,
+  "before": [
+    {
+      "DeviceName": "USB-SERIAL CH340",
+      "DeviceID": "USB\\VID_1A86&PID_7523\\6&32B4345B&0&2",
+      "DriverVersion": "3.9.2024.9",
+      "InfName": "oem60.inf",
+      "IsSigned": true
+    }
+  ],
+  "pnputil_exit_code": 0,
+  "after": [
+    {
+      "DeviceName": "USB-SERIAL CH340",
+      "DeviceID": "USB\\VID_1A86&PID_7523\\6&32B4345B&0&2",
+      "DriverVersion": "3.9.2024.9",
+      "InfName": "oem60.inf",
+      "IsSigned": true
+    }
+  ],
+  "reboot_required": false,
+  "note": "Package installed/staged; device has not yet reported expected version. Reconnect device and recheck before claiming updated."
+}

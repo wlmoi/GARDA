@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\verify_mock_inference.py", line 182, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\verify_mock_inference.py", line 127, in main
+    args.port=fpga_port(args.port)
+              ^^^^^^^^^^^^^^^^^^^^
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\usb_serial_roles.py", line 9, in fpga_port
+    raise RuntimeError(f'Expected one FPGA Prolific 067B:2303 adapter for {requested}; found {[p.device for p in candidates]}')
+RuntimeError: Expected one FPGA Prolific 067B:2303 adapter for COM18; found []

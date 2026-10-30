@@ -1,0 +1,205 @@
+{
+  "capture_method": "Computer Use @oai/sky get_window_state; original returned screenshot bytes saved without editing or compositing",
+  "project": "D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy.qpf",
+  "compilation_rerun": false,
+  "captures": [
+    {
+      "file": "01_flow_summary.jpg",
+      "panel": "Flow Summary",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:10:16.863Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "02_fitter_summary.jpg",
+      "panel": "Fitter Summary",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:10:23.037Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "03_core_uart_alms.jpg",
+      "panel": "Fitter > Resource Section > Resource Utilization by Entity (ALMs)",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:11:08.179Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "04_core_uart_resources.jpg",
+      "panel": "Fitter Resource Utilization by Entity: core, UART, ALUT/register/memory/DSP",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:12:19.347Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "05_resource_usage_logic.jpg",
+      "panel": "Fitter Resource Usage Summary: ALM packing, ALUTs and registers",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:12:26.050Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "06_memory_dsp_capacity.jpg",
+      "panel": "Fitter Resource Usage Summary: M10K, configured/implementation bits, DSP, PLL and HPS usage",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:12:35.853Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "07_ram_summary.jpg",
+      "panel": "Fitter RAM Summary: eight 4096x16 synchronous ROM banks",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:12:40.859Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "08_dsp_summary.jpg",
+      "panel": "Fitter DSP Block Usage Summary: eight signed multipliers",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:12:48.225Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "09_multicorner_timing.jpg",
+      "panel": "Timing Analyzer > Multicorner Timing Analysis Summary",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:13:05.265Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "10_clock_50mhz.jpg",
+      "panel": "Timing Analyzer > Clocks",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:13:11.748Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "11_fmax_slow100c.jpg",
+      "panel": "Timing Analyzer > Slow 1100mV 100C Model > Fmax Summary",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:13:23.205Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "12_power_summary_maximum.jpg",
+      "panel": "Power Analyzer Summary: Maximum/Tj100 run, total 937.55 mW",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:13:37.622Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "13_power_operating_conditions.jpg",
+      "panel": "Power Analyzer > Operating Conditions Used: Maximum, junction 100C",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:13:42.388Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "14_power_hierarchy.jpg",
+      "panel": "Power Analyzer > Thermal Power Dissipation by Hierarchy (global leakage excluded by tool footnote)",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:14:04.581Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "15_power_confidence.jpg",
+      "panel": "Power Analyzer > Confidence Metric Details",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:14:10.186Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "16_pin_planner.jpg",
+      "panel": "Native Pin Planner: 13 nodes, fitted locations and 3.3-V LVTTL",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 395768,
+        "title": "Pin Planner - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:14:42.001Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "17_typical_power_original_report.jpg",
+      "panel": "Quartus native Text Editor: untouched archived typical/igor_src_policy.pow.summary, not live Power Analyzer panel",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:15:28.621Z",
+      "screenshot_id": "screenshot-0"
+    },
+    {
+      "file": "18_flow_summary_fullwidth.jpg",
+      "panel": "Native Compilation Report > Flow Summary, successful Parallel8 build",
+      "window": {
+        "app": "process:D:\\Quartus-Program\\quartus\\bin64\\quartus.exe",
+        "id": 263938,
+        "title": "Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy"
+      },
+      "captured_utc": "2026-10-19T04:15:40.166Z",
+      "screenshot_id": "screenshot-0"
+    }
+  ]
+}

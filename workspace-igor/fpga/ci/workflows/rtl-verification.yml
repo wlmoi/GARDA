@@ -1,0 +1,127 @@
+name: IGOR RTL and host verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: igor-rtl-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: fpga
+
+jobs:
+  src-policy:
+    name: Current src PPO policy, core and UART
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Install RTL simulator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+      - name: Check model provenance and verify integer core and wire protocol
+        run: python verification/src_policy/run.py --check
+      - name: Verify the actual DE10-Nano wrapper at its configured UART baud
+        run: python verification/run_board_wrapper.py
+      - name: Save fresh policy evidence, including failure logs
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: src-policy-${{ github.sha }}
+          path: |
+            fpga/verification/src_policy/artifacts/
+            fpga/verification/src_policy/*.gtkw
+            fpga/evidence/current_board_wrapper/
+          if-no-files-found: error
+          retention-days: 30
+
+  safety:
+    name: Safety gate, map, logger, deadline and malformed UART
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Install RTL simulator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+      - name: Run source-current exhaustive controls, edge cases and fault injection
+        run: python verification/run_safety_regression.py
+      - name: Save fresh safety evidence, including failure logs
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: safety-${{ github.sha }}
+          path: fpga/evidence/current_safety/
+          if-no-files-found: error
+          retention-days: 30
+
+  host:
+    name: Host bridge fails closed without physical serial devices
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Install host test dependencies
+        run: python -m pip install numpy==2.2.6 pyserial==3.5
+      - name: Verify host transport and STOP on invalid or missing FPGA data
+        run: python scripts/run_all_checks.py --suite host
+      - name: Save fresh host evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: host-${{ github.sha }}
+          path: |
+            fpga/evidence/current_host/
+            fpga/evidence/current_lidar/
+            fpga/evidence/current_checks/
+          if-no-files-found: error
+          retention-days: 30
+
+  legacy:
+    name: Legacy neural, planner, TinyTapeout and offline motor protocol
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Install simulator and pinned legacy test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+          python -m pip install -r requirements.txt pyserial==3.5
+      - name: Run legacy RTL suites against source
+        run: python scripts/run_all_checks.py --suite legacy --suite motors
+      - name: Save fresh legacy evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: legacy-${{ github.sha }}
+          path: |
+            fpga/evidence/cocotb_*.xml
+            fpga/evidence/current_checks/
+            fpga/verification/*results.json
+            fpga/verification/*coverage.json
+            fpga/robot/jetauto/offline_verification.json
+            fpga/robot/jetauto/FPGA_UART_TTL_MULTISPEED/tb/rtl_captured_packets.hex
+          if-no-files-found: error
+          retention-days: 30

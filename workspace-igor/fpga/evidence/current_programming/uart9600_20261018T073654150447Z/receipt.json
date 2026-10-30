@@ -1,0 +1,27 @@
+{
+  "baud": 9600,
+  "clock_hz": 50000000,
+  "sof": "fpga\\experiments\\parallel8_9600\\output_files\\igor_src_policy_9600.sof",
+  "sof_sha256": "7149a16562964d30d1426e96984cd5d00521f67fc484a9e298a2b53f6b0d1656",
+  "minimum_timing_slack_ns": 0.123,
+  "hardware_programmed": true,
+  "uart_function_verified": false,
+  "source_sha256": {
+    "fpga\\experiments\\parallel8_9600\\igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "fpga\\experiments\\parallel8_9600\\igor_src_policy_de10_nano.v": "08d4b39364556b448b501086ca068a2616aaff345a093c6afdb8e82c60483d48",
+    "fpga\\experiments\\parallel8_9600\\pin_assignment.tcl": "9c72ec63fee5d7064273212ed614b288ade217b8709944068ea7c99ebac03e20",
+    "fpga\\experiments\\parallel8_9600\\igor_src_policy_9600.qsf": "b17742702027826ec0491971959a2ecd6deff9a64a82443d87d03f52d40b5f61",
+    "fpga\\experiments\\parallel8_9600\\igor_src_policy.sdc": "a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c",
+    "fpga\\experiments\\parallel8_9600\\bank0.mem": "9ca680c769894f074db1d50acf09075c35a4e58b02fbdcb6a944dbb4624c6768",
+    "fpga\\experiments\\parallel8_9600\\bank1.mem": "33c88dc96045e1bf3e7b34d111eb103825f57fa396f303c8bff9ee22a984dd88",
+    "fpga\\experiments\\parallel8_9600\\bank2.mem": "348c2f8536b441b7ce15fa98b75570755815f2b694d108b5465226a882d5d466",
+    "fpga\\experiments\\parallel8_9600\\bank3.mem": "2789b0cb6dddfe29e7d013112a3217cf735bb64c4a3a7556d67a0dcbdaa5ca53",
+    "fpga\\experiments\\parallel8_9600\\bank4.mem": "f3e93047fa7e1f31e972e921fd908ac683e760ecf3f8407d550d62dcc6c6f1bf",
+    "fpga\\experiments\\parallel8_9600\\bank5.mem": "8d638f6cf3912a7afb6642ff4755194bd919ffa840f7ccfd283571a8e048ee0b",
+    "fpga\\experiments\\parallel8_9600\\bank6.mem": "30f0a7ea491c625fedd633b30d9d1ff2638649ae08261f48029db8e889b25e87",
+    "fpga\\experiments\\parallel8_9600\\bank7.mem": "af74fd8bb339ee678cb556752ef358a20c185708af8decbac8534fc873ff8071",
+    "fpga\\rtl\\igor_src_policy\\igor_src_policy_uart.v": "8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a",
+    "fpga\\rtl\\igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "fpga\\rtl\\igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28"
+  }
+}

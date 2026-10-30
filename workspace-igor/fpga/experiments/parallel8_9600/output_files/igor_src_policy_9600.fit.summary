@@ -1,0 +1,20 @@
+Fitter Status : Successful - Sun Oct 18 14:34:39 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+Revision Name : igor_src_policy_9600
+Top-level Entity Name : igor_src_policy_de10_nano
+Family : Cyclone V
+Device : 5CSEBA6U23I7
+Timing Models : Final
+Logic utilization (in ALMs) : 3,307 / 41,910 ( 8 % )
+Total registers : 6262
+Total pins : 13 / 314 ( 4 % )
+Total virtual pins : 0
+Total block memory bits : 524,288 / 5,662,720 ( 9 % )
+Total RAM Blocks : 64 / 553 ( 12 % )
+Total DSP Blocks : 8 / 112 ( 7 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )

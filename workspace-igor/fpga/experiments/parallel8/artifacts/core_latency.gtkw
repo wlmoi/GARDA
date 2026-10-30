@@ -1,0 +1,16 @@
+[size] 1400 720
+[pos] 0 0
+[sst_width] 200
+[signals_width] 400
+[timestart] 0
+@22
+tb_src_policy_core.start
+tb_src_policy_core.busy
+tb_src_policy_core.done
+tb_src_policy_core.fault
+tb_src_policy_core.error_code[3:0]
+tb_src_policy_core.latency_cycles[31:0]
+tb_src_policy_core.dut.state[3:0]
+tb_src_policy_core.dut.layer[1:0]
+tb_src_policy_core.dut.neuron[7:0]
+tb_src_policy_core.dut.k[7:0]

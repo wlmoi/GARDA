@@ -1,0 +1,21 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.dut.policy.core.state[3:0] tb_board_wrapper.dut.policy.core.k[7:0] tb_board_wrapper.dut.policy.core.operand[15:0] tb_board_wrapper.dut.policy.core.lane0.acc[39:0] tb_board_wrapper.dut.policy.core.lane1.acc[39:0] tb_board_wrapper.dut.policy.core.lane2.acc[39:0] tb_board_wrapper.dut.policy.core.lane3.acc[39:0] tb_board_wrapper.dut.policy.core.lane4.acc[39:0] tb_board_wrapper.dut.policy.core.lane5.acc[39:0] tb_board_wrapper.dut.policy.core.lane6.acc[39:0] tb_board_wrapper.dut.policy.core.lane7.acc[39:0] 
+VALUE 0 1
+VALUE 1 4
+VALUE 2 1
+VALUE 3 256
+VALUE 4 -5120
+VALUE 5 5888
+VALUE 6 -9216
+VALUE 7 -512
+VALUE 8 11776
+VALUE 9 6912
+VALUE 10 -9984
+VALUE 11 -2048
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\08_eight_lanes.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/08_eight_lanes.png'

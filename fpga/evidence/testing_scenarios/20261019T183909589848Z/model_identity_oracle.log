@@ -1,0 +1,1 @@
+PASS: source JSON quantization, six hardware exports, eight bank layouts, accepted source/SOF hashes, 256-vector oracle cross-check

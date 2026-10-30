@@ -1,0 +1,56 @@
+**********************
+PowerShell transcript start
+Start time: 20261019220134
+Username: DESKTOP-3S5LN80\William Anthony
+RunAs User: DESKTOP-3S5LN80\William Anthony
+Configuration Name: 
+Machine: DESKTOP-3S5LN80 (Microsoft Windows NT 10.0.26300.0)
+Host Application: C:\Users\William Anthony\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -NoProfile -ExecutionPolicy Bypass -File D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\test_ch340_legacy_driver.ps1 -Mode Legacy34 -Elevated
+Process ID: 30828
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26300
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Microsoft PnP Utility
+
+Exporting driver package:   oem89.inf (ch341ser.inf)
+Driver package exported successfully.
+
+Total driver packages:      1
+Exported driver packages:   1
+{
+  "mode": "Legacy34",
+  "inf": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\ch340_legacy\\v34\\CH341SER.INF",
+  "expected_version": "3.4.2014.8",
+  "success": true,
+  "before": [
+    {
+      "DeviceID": "USB\\VID_1A86&PID_7523\\5&1F456139&0&3",
+      "Name": "USB-SERIAL CH340 (COM15)",
+      "Version": "4.0.2026.2",
+      "Inf": "oem89.inf",
+      "ProblemCode": 0
+    }
+  ],
+  "api_success": true,
+  "reboot_required": false,
+  "after": [
+    {
+      "DeviceID": "USB\\VID_1A86&PID_7523\\5&1F456139&0&3",
+      "Name": "USB-SERIAL CH340 (COM15)",
+      "Version": "3.4.2014.8",
+      "Inf": "oem90.inf",
+      "ProblemCode": 0
+    }
+  ]
+}
+**********************
+PowerShell transcript end
+End time: 20261019220143
+**********************

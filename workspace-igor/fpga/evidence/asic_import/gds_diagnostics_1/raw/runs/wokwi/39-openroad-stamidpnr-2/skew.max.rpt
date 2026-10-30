@@ -1,0 +1,15 @@
+
+===========================================================================
+Clock Skew (Setup)
+============================================================================
+Writing metric clock__skew__worst_setup__corner:nom_typ_1p20V_25C: 0.33099399158384313
+======================= nom_typ_1p20V_25C Corner ===================================
+
+Clock clk
+0.524272 source latency _7556_/CLK ^
+-0.443278 target latency program_store.i_sram/A_CLK ^
+0.250000 clock uncertainty
+0.000000 CRPR
+--------------
+0.330994 setup skew
+

@@ -1,0 +1,56 @@
+{
+  "scope": "Source-reviewed functional gate decision outcomes on applied, oracle-checked vector stream",
+  "cases": 111210,
+  "covered": 22,
+  "total": 22,
+  "percent": 100.0,
+  "bins": {
+    "reset": {
+      "false": 104701,
+      "true": 6509
+    },
+    "estop": {
+      "false": 101465,
+      "true": 3236
+    },
+    "protective_stop": {
+      "false": 99853,
+      "true": 1612
+    },
+    "not_ready": {
+      "false": 98995,
+      "true": 858
+    },
+    "invalid_map": {
+      "false": 98564,
+      "true": 431
+    },
+    "invalid_config": {
+      "false": 98379,
+      "true": 185
+    },
+    "arithmetic_fault": {
+      "false": 98279,
+      "true": 100
+    },
+    "timeout": {
+      "false": 98227,
+      "true": 52
+    },
+    "incomplete_result": {
+      "false": 98191,
+      "true": 36
+    },
+    "speed_bound": {
+      "false": 94086,
+      "true": 4105
+    },
+    "slew_bound": {
+      "false": 66915,
+      "true": 27171
+    }
+  },
+  "vector_sha256": "1fc0371b6a79f186268674701731cd1f65c723fab1843968092f964a637b086e",
+  "rtl_sha256": "17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6",
+  "limitations": "Not native branch/expression/MC-DC coverage; checks modeled decisions reached after higher-priority decisions are false."
+}

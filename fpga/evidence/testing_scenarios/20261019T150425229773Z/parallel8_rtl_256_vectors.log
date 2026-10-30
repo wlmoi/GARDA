@@ -1,0 +1,12 @@
+RTL vectors PASS: 32/256
+RTL vectors PASS: 64/256
+RTL vectors PASS: 96/256
+RTL vectors PASS: 128/256
+RTL vectors PASS: 160/256
+RTL vectors PASS: 192/256
+RTL vectors PASS: 224/256
+RTL vectors PASS: 256/256
+PASS: 256 synthetic vectors, 768 exact Q8.8 output checks, 6916 cycles each
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\tb_mock_parallel8.sv:35: $finish called at 35809361000 (1ps)
+
+Evidence: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\mock_inference\20261019T150456951883Z

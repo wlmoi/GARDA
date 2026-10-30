@@ -1,0 +1,47 @@
+test_duplicate_sram_instance_rejected (test_netgen_json.NetgenJSONTests.test_duplicate_sram_instance_rejected) ... ok
+test_invalid_unicode_identifier_escape (test_netgen_json.NetgenJSONTests.test_invalid_unicode_identifier_escape) ... ok
+test_literal_hdl_identifier_escapes (test_netgen_json.NetgenJSONTests.test_literal_hdl_identifier_escapes) ... ok
+test_missing_supply_connection_rejected (test_netgen_json.NetgenJSONTests.test_missing_supply_connection_rejected) ... ok
+test_power_adapter_preserves_connections_and_other_cells (test_netgen_json.NetgenJSONTests.test_power_adapter_preserves_connections_and_other_cells) ... ok
+test_report_retains_original_and_mismatch_data (test_netgen_json.NetgenJSONTests.test_report_retains_original_and_mismatch_data) ... ok
+test_structurally_invalid_report_still_fails (test_netgen_json.NetgenJSONTests.test_structurally_invalid_report_still_fails) ... ok
+test_valid_escapes_and_unicode_unchanged (test_netgen_json.NetgenJSONTests.test_valid_escapes_and_unicode_unchanged) ... ok
+test_bad_readback_and_short_transport (test_reference_model.HostTests.test_bad_readback_and_short_transport) ... ok
+test_invalid_program_ranges_have_no_spi_side_effects (test_reference_model.HostTests.test_invalid_program_ranges_have_no_spi_side_effects) ... ok
+test_load_frames_endianness_and_readback (test_reference_model.HostTests.test_load_frames_endianness_and_readback) ... ok
+test_read_program_at_last_word (test_reference_model.HostTests.test_read_program_at_last_word) ... ok
+test_branch_conditions_and_signed_boundaries (test_reference_model.ModelTests.test_branch_conditions_and_signed_boundaries) ... ok
+test_demo_fits_and_ownership_is_disjoint (test_reference_model.ModelTests.test_demo_fits_and_ownership_is_disjoint) ... ok
+test_firmware_error_flag (test_reference_model.ModelTests.test_firmware_error_flag) ... ok
+test_geometry_matches_rtl (test_reference_model.ModelTests.test_geometry_matches_rtl) ... ok
+test_literal_fetch_pause_and_restart (test_reference_model.ModelTests.test_literal_fetch_pause_and_restart) ... ok
+test_masked_open_drain_and_literal_wrap (test_reference_model.ModelTests.test_masked_open_drain_and_literal_wrap) ... ok
+test_rejected_encodings (test_reference_model.ModelTests.test_rejected_encodings) ... ok
+test_round_robin_and_halt (test_reference_model.ModelTests.test_round_robin_and_halt) ... ok
+test_uart_baud_selection_and_firmware_boundaries (test_reference_model.ModelTests.test_uart_baud_selection_and_firmware_boundaries) ... ok
+test_wait_full_byte_and_enable_freeze (test_reference_model.ModelTests.test_wait_full_byte_and_enable_freeze) ... ok
+test_branches_literal_wrap_and_pin_wait (test_rtl.RTLTests.test_branches_literal_wrap_and_pin_wait) ... ok
+test_four_protocol_contexts_concurrently (test_rtl.RTLTests.test_four_protocol_contexts_concurrently) ... ok
+test_host_protection_stop_restart_and_reset (test_rtl.RTLTests.test_host_protection_stop_restart_and_reset) ... ok
+test_i2c_nack_stops_before_data (test_rtl.RTLTests.test_i2c_nack_stops_before_data) ... ok
+test_i2c_open_drain_ack_and_stretch (test_rtl.RTLTests.test_i2c_open_drain_ack_and_stretch) ... ok
+test_memory_geometry_live_read_and_invalid_high_address (test_rtl.RTLTests.test_memory_geometry_live_read_and_invalid_high_address) ... ok
+test_pin_ownership_rejects_overlap_and_releases_old_mask (test_rtl.RTLTests.test_pin_ownership_rejects_overlap_and_releases_old_mask) ... ok
+test_randomized_execution_and_ena (test_rtl.RTLTests.test_randomized_execution_and_ena) ... ok
+test_spi_mode0_wire_transfer (test_rtl.RTLTests.test_spi_mode0_wire_transfer) ... ok
+test_targeted_sram_programming_preserves_other_addresses (test_rtl.RTLTests.test_targeted_sram_programming_preserves_other_addresses) ... ok
+test_uart_rx_baud_mismatch (test_rtl.RTLTests.test_uart_rx_baud_mismatch) ... ok
+test_uart_rx_data_patterns_timing_and_pin_mapping (test_rtl.RTLTests.test_uart_rx_data_patterns_timing_and_pin_mapping) ... ok
+test_uart_rx_framing_error_status (test_rtl.RTLTests.test_uart_rx_framing_error_status) ... ok
+test_uart_rx_idle_qualification (test_rtl.RTLTests.test_uart_rx_idle_qualification) ... ok
+test_uart_rx_start_glitch_and_valid_frame (test_rtl.RTLTests.test_uart_rx_start_glitch_and_valid_frame) ... ok
+test_uart_rx_wire_frame (test_rtl.RTLTests.test_uart_rx_wire_frame) ... ok
+test_uart_tx_patterns_and_period_boundaries (test_rtl.RTLTests.test_uart_tx_patterns_and_period_boundaries) ... ok
+test_uart_tx_wire_frame (test_rtl.RTLTests.test_uart_tx_wire_frame) ... ok
+test_macro_partial_mask_enable_and_output_hold (test_sram.SRAMTests.test_macro_partial_mask_enable_and_output_hold) ... ok
+test_wrapper_byte_preservation_read_edge_and_reset_retention (test_sram.SRAMTests.test_wrapper_byte_preservation_read_edge_and_reset_retention) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 27.606s
+
+OK

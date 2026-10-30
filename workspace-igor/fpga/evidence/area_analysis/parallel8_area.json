@@ -1,0 +1,108 @@
+{
+  "scope": "FPGA fitted hierarchical attribution, not standalone core compilation; ASIC import is a different protocol-engine top.",
+  "fpga": {
+    "board": {
+      "report_line": 1411,
+      "entity": "igor_src_policy_de10_nano",
+      "alms_needed": 3303.0,
+      "combinational_aluts": 3364,
+      "registers": 6277,
+      "block_memory_bits": 524288,
+      "m10k": 64,
+      "dsp": 8,
+      "alm_device_percent": 7.88117394416607
+    },
+    "core_plus_uart_policy": {
+      "report_line": 1412,
+      "entity": "igor_src_policy_uart",
+      "alms_needed": 3300.7,
+      "combinational_aluts": 3359,
+      "registers": 6272,
+      "block_memory_bits": 524288,
+      "m10k": 64,
+      "dsp": 8,
+      "alm_device_percent": 7.875685993796229
+    },
+    "core_only": {
+      "report_line": 1413,
+      "entity": "igor_src_policy_core",
+      "alms_needed": 2402.7,
+      "combinational_aluts": 2324,
+      "registers": 4747,
+      "block_memory_bits": 524288,
+      "m10k": 64,
+      "dsp": 8,
+      "alm_device_percent": 5.732999284180386
+    },
+    "uart_rx": {
+      "report_line": 1438,
+      "entity": "igor_uart_rx",
+      "alms_needed": 38.3,
+      "combinational_aluts": 63,
+      "registers": 63,
+      "block_memory_bits": 0,
+      "m10k": 0,
+      "dsp": 0,
+      "alm_device_percent": 0.09138630398472918
+    },
+    "uart_tx": {
+      "report_line": 1439,
+      "entity": "igor_uart_tx",
+      "alms_needed": 21.5,
+      "combinational_aluts": 39,
+      "registers": 33,
+      "block_memory_bits": 0,
+      "m10k": 0,
+      "dsp": 0,
+      "alm_device_percent": 0.051300405631114286
+    }
+  },
+  "capacities": {
+    "alms": 41910,
+    "m10k": 553,
+    "dsp": 112,
+    "memory_bits": 5662720
+  },
+  "uart_policy_overhead": {
+    "alms_needed": 898.0,
+    "combinational_aluts": 1035,
+    "registers": 1525,
+    "block_memory_bits": 0,
+    "m10k": 0,
+    "dsp": 0
+  },
+  "asic": {
+    "top": "tt_um_igorchip",
+    "die_mm2": 0.916214,
+    "core_mm2": 0.902417,
+    "standard_cells_mm2": 0.0698308,
+    "sram_macro_mm2": 0.0281271,
+    "standard_cells_plus_macro_mm2": 0.0979579,
+    "standard_cells_die_percent": 7.621669173359062,
+    "sram_die_percent": 3.0699268948084177,
+    "combined_die_percent": 10.691596068167481,
+    "logic_share_of_logic_plus_sram_percent": 71.28654248406714,
+    "sram_share_of_logic_plus_sram_percent": 28.713457515932866
+  },
+  "memory_only_projection": {
+    "assumption": "Replicate imported 256x16 SRAM macro footprint; excludes logic, routing, power/clock, spacing and ROM optimization.",
+    "macro_bytes": 512,
+    "macro_mm2": 0.0281271,
+    "allocated_fpga_bytes": 65536,
+    "allocated_macro_count": 128,
+    "allocated_macro_mm2": 3.6002688,
+    "active_parameter_bytes": 36102,
+    "active_macro_count": 71,
+    "active_macro_mm2": 1.9970241
+  },
+  "sources": [
+    {
+      "path": "fpga/experiments/parallel8/output_files/igor_src_policy.fit.rpt",
+      "sha256": "b6e8db415e22b6f4864afa7d317b036cb30ea8cb2dc56c9abcc393a9ca299132"
+    },
+    {
+      "path": "fpga/evidence/asic_import/gds_diagnostics_1/raw/runs/wokwi/final/metrics.json",
+      "sha256": "dcc3691d17a6cadaee4e63f6a0174b0dfe261cee488d91c899bff81e93b8acb0"
+    }
+  ]
+}

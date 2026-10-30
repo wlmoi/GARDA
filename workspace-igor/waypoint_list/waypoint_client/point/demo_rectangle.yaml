@@ -1,0 +1,39 @@
+# Demo Waypoint List for Project IGOR
+# Traverses a 3m x 5m rectangle:
+# 1. Forward 5m along X -> (5.0, 0.0)
+# 2. Turn 90 deg Left (yaw = 90 deg)
+# 3. Forward 3m along Y -> (5.0, 3.0)
+# 4. Turn 90 deg Left (yaw = 180 deg)
+# 5. Forward 5m along -X -> (0.0, 3.0)
+# 6. Turn 90 deg Left (yaw = -90 / 270 deg)
+# 7. Forward 3m along -Y -> (0.0, 0.0) back to start
+
+waypoints:
+  - x: 5.0
+    y: 0.0
+    yaw: 0.0
+    duration: 12.0
+  - x: 0.0
+    y: 0.0
+    yaw: 90.0
+    duration: 3.0
+  - x: 5.0
+    y: 3.0
+    yaw: 90.0
+    duration: 8.0
+  - x: 0.0
+    y: 0.0
+    yaw: 180.0
+    duration: 3.0
+  - x: 0.0
+    y: 3.0
+    yaw: 180.0
+    duration: 12.0
+  - x: 0.0
+    y: 0.0
+    yaw: -90.0
+    duration: 3.0
+  - x: 0.0
+    y: 0.0
+    yaw: 0.0
+    duration: 8.0

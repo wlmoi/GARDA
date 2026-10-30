@@ -1,0 +1,19 @@
+[dumpfile] "board.vcd"
+[timestart] 0
+[size] 1500 900
+@28
+tb_board_wrapper.key[1:0]
+tb_board_wrapper.rx
+tb_board_wrapper.tx
+tb_board_wrapper.led[7:0]
+tb_board_wrapper.dut.rst_n
+tb_board_wrapper.dut.stop_active
+tb_board_wrapper.dut.stop_latched
+tb_board_wrapper.dut.permit
+tb_board_wrapper.dut.a0[15:0]
+tb_board_wrapper.dut.a1[15:0]
+tb_board_wrapper.dut.a2[15:0]
+tb_board_wrapper.dut.error_code[7:0]
+tb_board_wrapper.dut.error_flags[15:0]
+tb_board_wrapper.dut.accepted[31:0]
+tb_board_wrapper.dut.rejected[31:0]

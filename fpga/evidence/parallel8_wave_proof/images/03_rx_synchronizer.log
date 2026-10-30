@@ -1,0 +1,15 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.rx tb_board_wrapper.dut.policy.receiver.meta tb_board_wrapper.dut.policy.receiver.sync tb_board_wrapper.dut.policy.receiver.state[1:0] tb_board_wrapper.dut.policy.receiver.count[15:0] 
+VALUE 0 1
+VALUE 1 0
+VALUE 2 0
+VALUE 3 0
+VALUE 4 1
+VALUE 5 25
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\03_rx_synchronizer.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/03_rx_synchronizer.png'

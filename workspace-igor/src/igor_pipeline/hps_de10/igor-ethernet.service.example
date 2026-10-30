@@ -1,0 +1,19 @@
+[Unit]
+Description=IGOR HPS Ethernet to local FPGA UART gateway
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+# Replace igor with the real HPS account; it needs access to the USB serial device.
+User=igor
+WorkingDirectory=/opt/igor_ws
+# Replace project and serial paths; keep baud identical to programmed FPGA image.
+ExecStart=/usr/bin/python3 /opt/igor_ws/src/igor_pipeline/hps_de10/de10_udp_gateway.py --bind 192.168.50.2 --port 8080 --backend uart --serial /dev/serial/by-id/REPLACE_WITH_ADAPTER --baud 9600 --timeout 0.5 --allow-client 192.168.50.1
+# UART errors remain latched until FPGA reset and manual gateway restart.
+Restart=no
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

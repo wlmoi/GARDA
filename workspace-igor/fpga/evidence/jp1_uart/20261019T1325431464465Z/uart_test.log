@@ -1,0 +1,8 @@
+Script: D:\LinkedinProjects\igor_ws\igor_ws\src\igor_pipeline\scripts\uart_test.py | SHA256: 9a052c0b394eb441ce782529a57238d1b66617fd9eaab49e36073aad0daa5636
+IGOR source-policy UART | COM12 | 921600 baud | TX=153B RX=11B CRC8 Maxim
+TX Q8.8: [205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Expected: Q8.8=[-46, 60, 34] | HEX16=['0xFFD2', '0x003C', '0x0022'] | decimal=[-0.1796875, 0.234375, 0.1328125]
+[Frame    0] FAIL: Timeout/no valid CRC8 response; received 0 bytes; RX first 64 bytes: (none)
+Frames sent: 1 | received: 0 | dropped: 1
+Validation passed: 0/1
+Check image/baud match and LED7:4 error code. Release KEY1 and press/release KEY0.

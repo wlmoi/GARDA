@@ -1,0 +1,19 @@
+﻿{
+    "schema":  1,
+    "utc":  "2026-10-16T10:48:34.9578492Z",
+    "project":  "planner",
+    "sof":  "fpga_de10_nano/quartus/output_files/igor.sof",
+    "sof_sha256":  "201b1e71f91c25444b3a0c6fb268f6d6410d1ec3fd1287334b63684766b1c4e1",
+    "expected_device":  "5CSEBA6U23I7",
+    "requested_cable":  "",
+    "requested_device_index":  0,
+    "manifest":  "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\current_release\\manifest.json",
+    "manifest_verified":  false,
+    "mode":  "inspection",
+    "hardware_available":  false,
+    "hardware_programmed":  false,
+    "uart_function_verified":  false,
+    "chains":  [
+
+               ]
+}

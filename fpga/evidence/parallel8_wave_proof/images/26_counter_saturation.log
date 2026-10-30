@@ -1,0 +1,18 @@
+DISPLAYED tb_src_policy_uart.test_id tb_src_policy_uart.accepted_frames[31:0] tb_src_policy_uart.rejected_frames[31:0] tb_src_policy_uart.error_flags[15:0] tb_src_policy_uart.response_valid tb_src_policy_uart.safety_permit tb_src_policy_uart.action0[15:0] tb_src_policy_uart.action1[15:0] tb_src_policy_uart.action2[15:0] 
+VALUE 0 1401
+VALUE 1 4294967295
+VALUE 2 0
+VALUE 3 0000
+VALUE 4 0
+VALUE 5 1
+VALUE 6 52
+VALUE 7 130
+VALUE 8 34
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[49187951000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\26_counter_saturation.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/26_counter_saturation.png'

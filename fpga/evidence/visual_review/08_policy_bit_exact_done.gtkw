@@ -1,0 +1,16 @@
+[size] 1400 720
+[pos] 0 0
+[sst_width] 200
+[signals_width] 400
+[timestart] 0
+@22
+tb_src_policy_core.start
+tb_src_policy_core.busy
+tb_src_policy_core.done
+tb_src_policy_core.fault
+tb_src_policy_core.test_id
+tb_src_policy_core.output_index[1:0]
+tb_src_policy_core.output_value[15:0]
+tb_src_policy_core.latency_cycles[31:0]
+tb_src_policy_core.dut.layer[1:0]
+tb_src_policy_core.dut.state[3:0]

@@ -1,0 +1,3 @@
+VCD info: dumpfile uart.vcd opened for output.
+PASS uart: physical serial framing and full command validation
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\tb_safety_uart.v:61: $finish called at 1136211000 (1ps)

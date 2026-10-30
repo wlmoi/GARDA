@@ -1,0 +1,32 @@
+<!doctype html><meta charset="utf-8"><style>
+        *{box-sizing:border-box}body{margin:0;background:#edf2f8;color:#13223a;font:20px Segoe UI,Arial;padding:38px}
+        header{border-top:9px solid #146b83;background:white;padding:24px 30px;border-radius:12px}h1{font-size:33px;margin:8px 0 14px}
+        .badge{color:#166076;font-weight:700;letter-spacing:1px;font-size:15px}p{line-height:1.45;margin:12px 0}
+        .source{font:15px Consolas,monospace;background:#dfedf4;padding:14px;overflow-wrap:anywhere;margin-top:20px}
+        pre{font:18px/1.5 Consolas,monospace;background:white;border:1px solid #c2d0dd;margin:0;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+        table{width:100%;border-collapse:collapse;background:white;margin-top:20px;font-size:21px}td,th{padding:14px;border:1px solid #bfd0de;text-align:left}th{background:#163f57;color:white}
+        footer{font-size:15px;margin-top:20px;color:#43566b}.note{background:#fff2ce;padding:15px;border-left:5px solid #c08a12}
+        </style><header><div class="badge">IGOR PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>06 | Core latency and simulation acceptance</h1><p>6,916 cycles / 50,000,000 Hz = 138.32 us = 0.13832 ms. This is core latency; not physical UART RTT. Throughput upper bound: 7,229.61 core inferences/s before interface overhead.</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header><div class="source">SOURCE: fpga\experiments\parallel8\artifacts\acceptance.json<br>SHA256: f025b1af91a04e1bd30f8eb5f75eeb98195149d0c7054d9cc0900196ba1479a2</div><pre>   1 | {
+   2 |   &quot;status&quot;: &quot;PASS&quot;,
+   3 |   &quot;bank_words_verified&quot;: 18051,
+   4 |   &quot;clock_hz&quot;: 50000000,
+   5 |   &quot;cycles&quot;: 6916,
+   6 |   &quot;latency_ms&quot;: 0.13832,
+   7 |   &quot;target_ms&quot;: 0.16,
+   8 |   &quot;hardware_measured&quot;: false,
+   9 |   &quot;suites&quot;: {
+  10 |     &quot;core&quot;: {
+  11 |       &quot;assertions&quot;: 54399,
+  12 |       &quot;passed&quot;: true
+  13 |     },
+  14 |     &quot;uart&quot;: {
+  15 |       &quot;assertions&quot;: 268,
+  16 |       &quot;passed&quot;: true
+  17 |     },
+  18 |     &quot;board&quot;: {
+  19 |       &quot;checkpoints&quot;: 18,
+  20 |       &quot;passed&quot;: true
+  21 |     }
+  22 |   },
+  23 |   &quot;fitter_summary&quot;: &quot;Fitter Status : Successful - Sat Oct 17 09:22:01 2026\nQuartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Standard Edition\nRevision Name : igor_src_policy\nTop-level Entity Name : igor_src_policy_de10_nano\nFamily : Cyclone V\nDevice : 5CSEBA6U23I7\nTiming Models : Final\nLogic utilization (in ALMs) : 3,303 / 41,910 ( 8 % )\nTotal registers : 6277\nTotal pins : 13 / 314 ( 4 % )\nTotal virtual pins : 0\nTotal block memory bits : 524,288 / 5,662,720 ( 9 % )\nTotal RAM Blocks : 64 / 553 ( 12 % )\nTotal DSP Blocks : 8 / 112 ( 7 % )\nTotal HSSI RX PCSs : 0\nTotal HSSI PMA RX Deserializers : 0\nTotal HSSI TX PCSs : 0\nTotal HSSI PMA TX Serializers : 0\nTotal PLLs : 0 / 6 ( 0 % )\nTotal DLLs : 0 / 4 ( 0 % )\n&quot;,
+  24 |   &quot;timing_slack_ns&quot;: {</pre><footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_igorchip protocol engine, not a mapped PPO neural ASIC.</footer>

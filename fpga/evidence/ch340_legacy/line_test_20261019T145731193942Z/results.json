@@ -1,0 +1,74 @@
+[
+  {
+    "dtr": false,
+    "rts": false,
+    "tx_hex": "a5 50",
+    "rx_hex": "a5 5a 14 00 00 00 04 18 1d 01 07 9c a2 ec f0 c3 e0 9e d2 a0 ea 98 f3 0f 7a 41 10"
+  },
+  {
+    "dtr": false,
+    "rts": false,
+    "tx_hex": "a5 50",
+    "rx_hex": ""
+  },
+  {
+    "dtr": false,
+    "rts": false,
+    "tx_hex": "a5 52",
+    "rx_hex": ""
+  },
+  {
+    "dtr": true,
+    "rts": false,
+    "tx_hex": "a5 50",
+    "rx_hex": ""
+  },
+  {
+    "dtr": true,
+    "rts": false,
+    "tx_hex": "a5 50",
+    "rx_hex": ""
+  },
+  {
+    "dtr": true,
+    "rts": false,
+    "tx_hex": "a5 52",
+    "rx_hex": "a5 5a 03 00 00 00 06 00 00 00"
+  },
+  {
+    "dtr": false,
+    "rts": true,
+    "tx_hex": "a5 50",
+    "rx_hex": ""
+  },
+  {
+    "dtr": false,
+    "rts": true,
+    "tx_hex": "a5 50",
+    "rx_hex": "a5 5a 14 00 00 00 04 18 1d 01 07 9c a2 ec f0 c3 e0 9e d2 a0 ea 98 f3 0f 7a 41 10"
+  },
+  {
+    "dtr": false,
+    "rts": true,
+    "tx_hex": "a5 52",
+    "rx_hex": ""
+  },
+  {
+    "dtr": true,
+    "rts": true,
+    "tx_hex": "a5 50",
+    "rx_hex": ""
+  },
+  {
+    "dtr": true,
+    "rts": true,
+    "tx_hex": "a5 50",
+    "rx_hex": ""
+  },
+  {
+    "dtr": true,
+    "rts": true,
+    "tx_hex": "a5 52",
+    "rx_hex": "a5 5a 03 00 00 00 06 00 00 00"
+  }
+]

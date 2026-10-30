@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1539" viewBox="0 0 1700 1539">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="1539" fill="white"/>
+<rect x="25" y="25" width="1650" height="1489" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">LAMPIRAN — SNAPSHOT DAN RESPONSE UART LEGACY</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">respond_delay[3:0] + sending + out_pos[3:0]  |  Kontrol implisit counter/flag; fase bukan enum</text>
+<ellipse cx="902.91" cy="397.28999999999996" rx="186.6744" ry="48.0276" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="902.91" y="385.14" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">IDLE</text>
+<text x="902.91" y="409.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">respond_delay=0; sending=0</text>
+<ellipse cx="753.91" cy="581.0999999999999" rx="146.3724" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="753.91" y="568.95" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">respond_delay=4..3</text>
+<text x="753.91" y="593.25" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Delay core side effect</text>
+<ellipse cx="669.91" cy="764.9" rx="246.0744" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="669.91" y="752.75" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">respond_delay=2</text>
+<text x="669.91" y="777.05" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">response_sample[31:0]=response_data</text>
+<ellipse cx="766.91" cy="963.55" rx="149.5548" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="766.91" y="939.25" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">respond_delay=1</text>
+<text x="766.91" y="963.55" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Build out_frame[63:0];</text>
+<text x="766.91" y="987.85" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">sending=1; out_pos=0</text>
+<ellipse cx="924.91" cy="1177.054" rx="192.51" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="924.91" y="1152.75" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">sending=1</text>
+<text x="924.91" y="1177.05" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Kirim8 byte via tx_send ketika</text>
+<text x="924.91" y="1201.35" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">transmitter siap</text>
+<circle cx="902.91" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 902.91,262.4 C 902.91,275.18999999999994 902.91,307.6099999999999 902.91,337.3399999999999 L 902.91,348.55999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="881.9100000000001" y="290.94" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="940.41" y="305.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 813.3699999999999,440.25 C 797.17,451.51 782.0,465.15 771.16,481.31999999999994 C 763.3199999999999,493.01 758.71,507.17999999999995 756.0799999999999,521.0799999999999 L 754.3599999999999,532.13" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="752.04" y="474.73999999999995" width="267.0" height="28.9" rx="3" fill="white"/>
+<text x="885.54" y="489.19" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">command diterima / respond_delay=4</text>
+<path d="M 707.48,534.66 C 673.48,517.75 673.48,487.12 753.91,487.12 C 825.55,487.12 833.38,511.41999999999996 810.22,528.68 L 800.3399999999999,534.66" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="676.66" y="464.7899999999999" width="154.5" height="28.9" rx="3" fill="white"/>
+<text x="753.91" y="479.24" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">delay=4 / decrement</text>
+<path d="M 732.06,629.39 C 721.26,652.77 708.1199999999999,681.1999999999999 696.72,705.89 L 691.95,716.2099999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="699.06" y="658.55" width="154.5" height="28.9" rx="3" fill="white"/>
+<text x="776.31" y="673.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">delay=3 / decrement</text>
+<path d="M 693.39,813.5 C 704.88,836.79 718.94,865.29 731.68,891.1199999999999 L 736.67,901.24" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="700.04" y="842.3499999999999" width="154.5" height="28.9" rx="3" fill="white"/>
+<text x="777.29" y="856.80" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock / decrement</text>
+<path d="M 811.56,1024.31 C 830.5799999999999,1049.77 852.9,1079.65 872.68,1106.1299999999999 L 879.56,1115.34" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="831.53" y="1055.85" width="139.5" height="28.9" rx="3" fill="white"/>
+<text x="901.28" y="1070.30" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock / delay=0</text>
+<path d="M 864.49,1116.63 C 830.49,1096.3899999999999 830.49,1060.8 924.91,1060.8 C 1009.75,1060.8 1018.3599999999999,1089.53 994.5799999999999,1110.04 L 985.3399999999999,1116.63" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="798.91" y="1021.15" width="252.0" height="47.8" rx="3" fill="white"/>
+<text x="924.91" y="1035.60" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">tx_busy || tx_send: tunggu; byte</text>
+<text x="924.91" y="1054.50" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">index&lt;7: kirim lalu index++</text>
+<path d="M 984.3199999999999,1116.3899999999999 C 1017.3799999999999,1076.79 1051.91,1021.73 1051.91,964.55 C 1051.91,580.0999999999999 1051.91,580.0999999999999 1051.91,580.0999999999999 C 1051.91,532.9 1041.48,518.89 1012.9100000000001,481.31999999999994 C 1004.2,469.8599999999999 993.51,459.19999999999993 982.24,449.5999999999999 L 973.55,442.4699999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1030.54" y="731.55" width="267.0" height="66.69999999999999" rx="3" fill="white"/>
+<text x="1164.04" y="746.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!tx_busy &amp;&amp; !tx_send &amp;&amp; out_pos==7</text>
+<text x="1164.04" y="764.90" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">/ byte terakhir dijadwalkan;</text>
+<text x="1164.04" y="783.80" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sending=0</text>
+<rect x="70" y="1304.9299999999998" width="1560" height="174" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="1334.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_uart_protocol.v</text>
+<text x="90.00" y="1360.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: delay=0; sending=0; tx_send=0</text>
+<text x="90.00" y="1386.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. sending=0 bukan bukti UART stop bit terakhir sudah selesai; berbeda dengan TX_START_LAST/TX_END_LAST di policy baru.</text>
+<text x="90.00" y="1412.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. tx_send default0 tiap clock. Frame LSB-byte-first dari out_frame={A5,response_crc,response_sample,opcode,5A}.</text>
+<text x="90.00" y="1438.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. Diagram mengelompokkan kombinasi counter yang normal; tidak menambah enum atau guard illegal-counter baru.</text>
+</svg>

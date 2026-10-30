@@ -1,0 +1,15 @@
+{
+  "DESIGN_NAME": "tt_um_igorchip",
+  "VERILOG_FILES": [
+    "dir::defines.vh",
+    "dir::igorchip_top.v",
+    "dir::program_host.v",
+    "dir::program_memory.v",
+    "dir::sram_256x16_bb.v"
+  ],
+  "DIE_AREA": "0 0 1289.28 710.64",
+  "FP_DEF_TEMPLATE": "dir::../tt/tech/ihp-sg13cmos5l/def/tt_block_6x4_pgvdd.def",
+  "VDD_PIN": "VPWR",
+  "GND_PIN": "VGND",
+  "RT_MAX_LAYER": "Metal4"
+}

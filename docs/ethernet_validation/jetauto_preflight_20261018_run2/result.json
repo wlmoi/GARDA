@@ -1,0 +1,14 @@
+{
+  "motion_requested": false,
+  "preflight_pass": false,
+  "scans": 106,
+  "healthy_diagnostics": 22,
+  "faults": {
+    "COMMAND_STALE": 3,
+    "SCAN_MISSING_OR_STALE": 3
+  },
+  "minimum_scan_m": 0.20399999618530273,
+  "all_preflight_commands_zero": true,
+  "sensor_lease_ms": 150.0,
+  "final_stop_sent": true
+}

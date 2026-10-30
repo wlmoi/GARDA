@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1800" viewBox="0 0 1600 1800">
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="black"/></marker></defs>
+<rect width="1600" height="1800" fill="white"/>
+<text x="800.0" y="52.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700">1. FSM CORE PARALLEL8</text>
+<text x="800.0" y="102.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="19" font-weight="400">Atas: state  |  Bawah: aksi register  |  Panah: kondisi transisi</text>
+<circle cx="439.3755415948608" cy="389.37554159486075" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M343.3755415948608,389.37554159486075 L535.3755415948608,389.37554159486075" stroke="black" stroke-width="1.5"/>
+<text x="439.3755415948608" y="337.37554159486075" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">IDLE</text>
+<text x="439.3755415948608" y="436.37554159486075" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">Tunggu start</text>
+<circle cx="800.0" cy="240.0" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M704.0,240.0 L896.0,240.0" stroke="black" stroke-width="1.5"/>
+<text x="800.0" y="188.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">BIAS_ADDRESS</text>
+<text x="800.0" y="276.6" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">address</text>
+<text x="800.0" y="297.4" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">← alamat bias</text>
+<circle cx="1160.6244584051392" cy="389.37554159486075" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M1064.6244584051392,389.37554159486075 L1256.6244584051392,389.37554159486075" stroke="black" stroke-width="1.5"/>
+<text x="1160.6244584051392" y="337.37554159486075" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">BIAS_WAIT</text>
+<text x="1160.6244584051392" y="436.37554159486075" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">Tunggu ROM</text>
+<circle cx="1310.0" cy="750.0" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M1214.0,750.0 L1406.0,750.0" stroke="black" stroke-width="1.5"/>
+<text x="1310.0" y="698.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">BIAS_TAKE</text>
+<text x="1310.0" y="786.6" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">acc[39:0]</text>
+<text x="1310.0" y="807.4" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">← bias &lt;&lt; 8</text>
+<circle cx="1160.6244584051392" cy="1110.6244584051392" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M1064.6244584051392,1110.6244584051392 L1256.6244584051392,1110.6244584051392" stroke="black" stroke-width="1.5"/>
+<text x="1160.6244584051392" y="1058.6244584051392" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">WEIGHT_ADDRESS</text>
+<text x="1160.6244584051392" y="1147.224458405139" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">address, operand</text>
+<text x="1160.6244584051392" y="1168.0244584051393" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">← data berikut</text>
+<circle cx="800.0" cy="1260.0" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M704.0,1260.0 L896.0,1260.0" stroke="black" stroke-width="1.5"/>
+<text x="800.0" y="1208.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">WEIGHT_WAIT</text>
+<text x="800.0" y="1307.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">Tunggu ROM</text>
+<circle cx="439.3755415948608" cy="1110.6244584051392" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M343.3755415948608,1110.6244584051392 L535.3755415948608,1110.6244584051392" stroke="black" stroke-width="1.5"/>
+<text x="439.3755415948608" y="1058.6244584051392" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">MAC</text>
+<text x="439.3755415948608" y="1147.224458405139" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">acc[39:0]</text>
+<text x="439.3755415948608" y="1168.0244584051393" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">← mac_sum[39:0]</text>
+<circle cx="290.0" cy="750.0000000000001" r="110" fill="white" stroke="black" stroke-width="2"/>
+<path d="M194.0,750.0000000000001 L386.0,750.0000000000001" stroke="black" stroke-width="1.5"/>
+<text x="290.0" y="698.0000000000001" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">ACTIVATE</text>
+<text x="290.0" y="786.6000000000001" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">hidden / actions</text>
+<text x="290.0" y="807.4000000000001" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400">← activated</text>
+<path d="M439.3755415948608,150 L439.3755415948608,279.37554159486075" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="463.8755415948608" y="198.68777079743037" width="91" height="32" fill="white"/>
+<text x="509.3755415948608" y="214.68777079743037" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">rst_n=0</text>
+<path d="M342.8414597869198,442.11235084132306 C206.81616269391205,516.4233093249745 206.81616269391202,262.327773864747 342.8414597869198,336.63873234839843" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="215.8755415948608" y="373.37554159486075" width="47" height="32" fill="white"/>
+<text x="239.3755415948608" y="389.37554159486075" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">S=0</text>
+<path d="M541.0022901711023,347.2803640347009 L698.3732514237585,282.09517756015987" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="596.1877707974304" y="298.6877707974304" width="47" height="32" fill="white"/>
+<text x="619.6877707974304" y="314.6877707974304" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">S=1</text>
+<path d="M901.6267485762415,282.09517756015987 L1058.9977098288978,347.2803640347009" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="967.8122292025696" y="298.6877707974304" width="25" height="32" fill="white"/>
+<text x="980.3122292025696" y="314.6877707974304" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">1</text>
+<path d="M1202.7196359652992,491.0022901711023 L1267.90482243984,648.3732514237585" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1222.8122292025696" y="553.6877707974304" width="25" height="32" fill="white"/>
+<text x="1235.3122292025696" y="569.6877707974304" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">1</text>
+<path d="M1267.90482243984,851.6267485762415 L1202.7196359652992,1008.9977098288977" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1222.8122292025696" y="914.3122292025696" width="25" height="32" fill="white"/>
+<text x="1235.3122292025696" y="930.3122292025696" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">1</text>
+<path d="M1058.9977098288978,1152.7196359652992 L901.6267485762415,1217.90482243984" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="967.8122292025696" y="1169.3122292025696" width="25" height="32" fill="white"/>
+<text x="980.3122292025696" y="1185.3122292025696" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">1</text>
+<path d="M698.3732514237585,1217.90482243984 L541.0022901711023,1152.7196359652992" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="607.1877707974304" y="1169.3122292025696" width="25" height="32" fill="white"/>
+<text x="619.6877707974304" y="1185.3122292025696" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">1</text>
+<path d="M527.3481376827201,1044.5879356502094 C680,930 920,930 1072.65186231728,1044.5879356502094" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="776.5" y="944.0" width="47" height="32" fill="white"/>
+<text x="800" y="960.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">N=0</text>
+<path d="M397.2803640347009,1008.9977098288977 L332.0951775601599,851.6267485762417" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="341.1877707974304" y="914.3122292025696" width="47" height="32" fill="white"/>
+<text x="364.6877707974304" y="930.3122292025696" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">N=1</text>
+<path d="M367.7817459305202,672.2182540694798 C550,490 720,470 763.86273125646,343.8946476376775" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="596.5" y="474.0" width="47" height="32" fill="white"/>
+<text x="620" y="490.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">G=0</text>
+<path d="M399.7452061949694,757.4826276951117 C730,780 950,550 847.9117020914708,339.01751765570646" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="799.0" y="604.0" width="102" height="32" fill="white"/>
+<text x="850" y="620.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">G=1, L=0</text>
+<path d="M332.09517756015987,648.3732514237586 L397.28036403470094,491.0022901711023" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="313.6877707974304" y="553.6877707974304" width="102" height="32" fill="white"/>
+<text x="364.6877707974304" y="569.6877707974304" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="20" font-weight="400">G=1, L=1</text>
+<text x="800.0" y="1561.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">S=start; N=(k==input_count-1); G=(neuron+8&gt;=output_count); L=(layer==2).</text>
+<text x="800.0" y="1584.9" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">MAC, N=0: k++. ACTIVATE, G=0: neuron+=8; G=1,L=0: layer++, neuron=0.</text>
+<text x="800.0" y="1608.3" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">ACTIVATE, G=1,L=1: busy=0, done=1. Bias/product memakai sign-extension ke 40-bit.</text>
+<text x="800.0" y="1631.7" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">Global: reset dari semua state; abort/fault/protokol salah → IDLE. Fault sticky sampai reset.</text>
+<text x="800.0" y="1655.1" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">Default state ilegal → IDLE, fault=1, error_code=6. Transisi normal hanya setelah prioritas global lolos.</text>
+<text x="800.0" y="1678.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400">1 = satu clock tanpa syarat. Source: experiments/parallel8/igor_src_policy_core.v</text>
+</svg>

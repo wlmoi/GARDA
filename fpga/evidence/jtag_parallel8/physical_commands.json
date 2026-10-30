@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-19T12:28:28Z",
+  "cable": "DE-SoC [USB-1]",
+  "device": 2,
+  "instance": 0,
+  "results": [
+    {
+      "test": "physical_demo_1",
+      "pass": true
+    },
+    {
+      "test": "physical_demo_2",
+      "pass": true
+    },
+    {
+      "test": "physical_demo_3",
+      "pass": true
+    },
+    {
+      "test": "physical_bad_crc",
+      "pass": true
+    },
+    {
+      "test": "physical_pasted_hex",
+      "pass": true
+    }
+  ]
+}

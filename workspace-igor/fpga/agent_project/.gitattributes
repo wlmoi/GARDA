@@ -1,0 +1,4 @@
+# Preserve snapshot byte hashes across Windows/Linux checkouts.
+*.md -text
+*.json -text
+*.csv -text

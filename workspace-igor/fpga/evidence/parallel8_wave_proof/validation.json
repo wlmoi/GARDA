@@ -1,0 +1,12 @@
+{
+  "verified_utc": "2026-10-18T13:47:11.960674+00:00",
+  "status": "PASS",
+  "screenshots": 29,
+  "all_png_and_vcd_hashes_match": true,
+  "all_gtkwave_marker_values_match_vcd": true,
+  "accepted_inputs_and_sof_unchanged": true,
+  "gallery_local_links_exist": true,
+  "interactive_viewer_list_command_passes": true,
+  "renderer": "GTKWave 3.3.100 native Grab_To_File, unmodified",
+  "reproduction_script_sha256": "08c2696b446fea22d0f2bd5d0f92ee534d4d9a4a869ef5fa71da4d553e999dcc"
+}

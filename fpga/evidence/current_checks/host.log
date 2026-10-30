@@ -1,0 +1,60 @@
+test_each_bad_response_is_an_error (__main__.BridgeTests.test_each_bad_response_is_an_error) ... FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+ok
+test_failed_exchange_latches_against_late_valid_response (__main__.BridgeTests.test_failed_exchange_latches_against_late_valid_response) ... FPGABridge operating in explicitly requested MOCK mode
+ok
+test_input_shape_nan_infinity_and_domain (__main__.BridgeTests.test_input_shape_nan_infinity_and_domain) ... FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+ok
+test_no_automatic_mock_if_port_missing (__main__.BridgeTests.test_no_automatic_mock_if_port_missing) ... ok
+test_no_automatic_mock_if_serial_missing (__main__.BridgeTests.test_no_automatic_mock_if_serial_missing) ... ok
+test_quantization_ties_even_and_negative (__main__.BridgeTests.test_quantization_ties_even_and_negative) ... FPGABridge operating in explicitly requested MOCK mode
+ok
+test_short_write_and_serial_exception (__main__.BridgeTests.test_short_write_and_serial_exception) ... FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+ok
+test_source_packet_and_integer_actions (__main__.BridgeTests.test_source_packet_and_integer_actions) ... FPGABridge operating in explicitly requested MOCK mode
+ok
+test_total_deadline_rejects_slow_write_and_slow_read (__main__.BridgeTests.test_total_deadline_rejects_slow_write_and_slow_read) ... FPGABridge operating in explicitly requested MOCK mode
+FPGABridge operating in explicitly requested MOCK mode
+ok
+test_command_expires_during_compute (__main__.ControllerTests.test_command_expires_during_compute) ... ok
+test_command_watchdog_stops_without_inference (__main__.ControllerTests.test_command_watchdog_stops_without_inference) ... ok
+test_final_envelope_and_all_axis_limits_after_filter (__main__.ControllerTests.test_final_envelope_and_all_axis_limits_after_filter) ... ok
+test_incomplete_fov_scan_is_invalid (__main__.ControllerTests.test_incomplete_fov_scan_is_invalid) ... ok
+test_invalid_command_stops (__main__.ControllerTests.test_invalid_command_stops) ... ok
+test_invalid_scan_does_not_refresh_lease_or_become_clear (__main__.ControllerTests.test_invalid_scan_does_not_refresh_lease_or_become_clear) ... ok
+test_missing_and_frozen_lidar_stop (__main__.ControllerTests.test_missing_and_frozen_lidar_stop) ... ok
+test_missing_stale_and_future_imu_stop (__main__.ControllerTests.test_missing_stale_and_future_imu_stop) ... ok
+test_nonfinite_filter_output_stops (__main__.ControllerTests.test_nonfinite_filter_output_stops) ... ok
+test_nonfinite_sensor_stops (__main__.ControllerTests.test_nonfinite_sensor_stops) ... ok
+test_real_cbf_no_longer_bypasses_critical_distance_stop (__main__.ControllerTests.test_real_cbf_no_longer_bypasses_critical_distance_stop) ... ok
+test_scan_expires_during_compute (__main__.ControllerTests.test_scan_expires_during_compute) ... ok
+test_scan_metadata_and_positive_infinity_no_return (__main__.ControllerTests.test_scan_metadata_and_positive_infinity_no_return) ... ok
+test_transport_failure_stops_original_nonzero_command (__main__.ControllerTests.test_transport_failure_stops_original_nonzero_command) ... ok
+test_valid_zero_residual_preserves_valid_operator_command (__main__.ControllerTests.test_valid_zero_residual_preserves_valid_operator_command) ... ok
+test_wall_clock_jump_does_not_extend_motor_leases (__main__.ControllerTests.test_wall_clock_jump_does_not_extend_motor_leases) ... ok
+test_zero_operator_command_cannot_become_policy_motion (__main__.ControllerTests.test_zero_operator_command_cannot_become_policy_motion) ... ok
+test_explicit_mock_imu_timestamp_is_monotonic (__main__.MCUTests.test_explicit_mock_imu_timestamp_is_monotonic) ... STM32Driver operating in explicitly requested MOCK mode
+ok
+test_no_automatic_mock_if_serial_missing_or_port_unavailable (__main__.MCUTests.test_no_automatic_mock_if_serial_missing_or_port_unavailable) ... ok
+test_short_motor_write_is_not_success (__main__.MCUTests.test_short_motor_write_is_not_success) ... STM32Driver operating in explicitly requested MOCK mode
+Short STM32 write: 26/27
+ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.093s
+
+OK

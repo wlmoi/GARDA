@@ -1,0 +1,9 @@
+/db/
+/incremental_db/
+/*.vvp
+/*.qws
+/*.bak
+/output_files/*.smsg
+/output_files/*.sof
+/output_files/*.jditmp
+/c5_pin_model_dump.txt

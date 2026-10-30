@@ -1,0 +1,2 @@
+PASS board_wrapper: 18 checkpoints, actual50MHz/921600 framing and KEY safety
+- /mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/board/tb_board_wrapper.sv:92: Verilog $finish

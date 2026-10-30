@@ -1,0 +1,29 @@
+<!doctype html><meta charset="utf-8"><style>
+        *{box-sizing:border-box}body{margin:0;background:#edf2f8;color:#13223a;font:20px Segoe UI,Arial;padding:38px}
+        header{border-top:9px solid #146b83;background:white;padding:24px 30px;border-radius:12px}h1{font-size:33px;margin:8px 0 14px}
+        .badge{color:#166076;font-weight:700;letter-spacing:1px;font-size:15px}p{line-height:1.45;margin:12px 0}
+        .source{font:15px Consolas,monospace;background:#dfedf4;padding:14px;overflow-wrap:anywhere;margin-top:20px}
+        pre{font:18px/1.5 Consolas,monospace;background:white;border:1px solid #c2d0dd;margin:0;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+        table{width:100%;border-collapse:collapse;background:white;margin-top:20px;font-size:21px}td,th{padding:14px;border:1px solid #bfd0de;text-align:left}th{background:#163f57;color:white}
+        footer{font-size:15px;margin-top:20px;color:#43566b}.note{background:#fff2ce;padding:15px;border-left:5px solid #c08a12}
+        </style><header><div class="badge">IGOR PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>09 | Fitted physical pins and clock constraints</h1><p>Pins from the fitted .pin file, not a conceptual diagram. KEY0 reset, KEY1 latched E-stop; fabric UART uses 3.3-V LVTTL.</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header><div class="source">SOURCE: fpga\experiments\parallel8\output_files\igor_src_policy.pin<br>SHA256: 56a6db6f924d425b0c2087f18b88c33fb3c01f36e3f009fd93057b582e8594fe</div><pre> 128 | LED[7]                       : AA23      : output : 3.3-V LVTTL       :         : 5A        : Y              
+ 129 | LED[1]                       : AA24      : output : 3.3-V LVTTL       :         : 5A        : Y              
+ 215 | LED[5]                       : AE26      : output : 3.3-V LVTTL       :         : 5A        : Y              
+ 243 | LED[4]                       : AF26      : output : 3.3-V LVTTL       :         : 5A        : Y              
+ 288 | KEY[1]                       : AH16      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+ 289 | KEY[0]                       : AH17      : input  : 3.3-V LVTTL       :         : 4A        : Y              
+ 391 | UART_TX                      : E8        : output : 3.3-V LVTTL       :         : 8A        : Y              
+ 690 | FPGA_CLK1_50                 : V11       : input  : 3.3-V LVTTL       :         : 3B        : Y              
+ 691 | UART_RX                      : V12       : input  : 3.3-V LVTTL       :         : 3B        : Y              
+ 694 | LED[3]                       : V15       : output : 3.3-V LVTTL       :         : 5A        : Y              
+ 695 | LED[2]                       : V16       : output : 3.3-V LVTTL       :         : 5A        : Y              
+ 718 | LED[0]                       : W15       : output : 3.3-V LVTTL       :         : 5A        : Y              
+ 743 | LED[6]                       : Y16       : output : 3.3-V LVTTL       :         : 5A        : Y              </pre><div class="source">SOURCE: fpga\experiments\parallel8\igor_src_policy.sdc<br>SHA256: a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c</div><pre>   1 | create_clock -name FPGA_CLK1_50 -period 20.000 [get_ports FPGA_CLK1_50]
+   2 | derive_clock_uncertainty
+   3 | # KEY0 reset assertion async; release passes two registers.
+   4 | set_false_path -from [get_ports {KEY[0]}]
+   5 | # KEY1 asserts stop asynchronously. Human input is not clock-related.
+   6 | set_false_path -from [get_ports {KEY[1]}]
+   7 | set_false_path -from [get_ports UART_RX] -to [get_registers {*receiver*meta}]
+   8 | # Board LEDs and asynchronous UART have no source-synchronous receiver.
+   9 | set_false_path -to [get_ports {LED[*] UART_TX}]</pre><footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_igorchip protocol engine, not a mapped PPO neural ASIC.</footer>

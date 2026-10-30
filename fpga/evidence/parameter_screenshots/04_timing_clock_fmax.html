@@ -1,0 +1,39 @@
+<!doctype html><meta charset="utf-8"><style>
+        *{box-sizing:border-box}body{margin:0;background:#edf2f8;color:#13223a;font:20px Segoe UI,Arial;padding:38px}
+        header{border-top:9px solid #146b83;background:white;padding:24px 30px;border-radius:12px}h1{font-size:33px;margin:8px 0 14px}
+        .badge{color:#166076;font-weight:700;letter-spacing:1px;font-size:15px}p{line-height:1.45;margin:12px 0}
+        .source{font:15px Consolas,monospace;background:#dfedf4;padding:14px;overflow-wrap:anywhere;margin-top:20px}
+        pre{font:18px/1.5 Consolas,monospace;background:white;border:1px solid #c2d0dd;margin:0;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+        table{width:100%;border-collapse:collapse;background:white;margin-top:20px;font-size:21px}td,th{padding:14px;border:1px solid #bfd0de;text-align:left}th{background:#163f57;color:white}
+        footer{font-size:15px;margin-top:20px;color:#43566b}.note{background:#fff2ce;padding:15px;border-left:5px solid #c08a12}
+        </style><header><div class="badge">IGOR PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>04 | Clock, setup/hold slack and analysed Fmax</h1><p>Operating clock: 50 MHz (20 ns). Worst reported setup +5.647 ns; worst hold +0.119 ns. Analysed Fmax is not the actual running clock.</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header><div class="source">SOURCE: fpga\experiments\parallel8\output_files\igor_src_policy.sta.summary<br>SHA256: 5ea2b6eec3d1ba7fc6aa9a4f3f270ace1a33e87007c3625986db4786e4d88915</div><pre>   5 | Type  : Slow 1100mV 100C Model Setup &#x27;FPGA_CLK1_50&#x27;
+   6 | Slack : 5.647
+   9 | Type  : Slow 1100mV 100C Model Hold &#x27;FPGA_CLK1_50&#x27;
+  10 | Slack : 0.251
+  25 | Type  : Slow 1100mV -40C Model Setup &#x27;FPGA_CLK1_50&#x27;
+  26 | Slack : 6.253
+  29 | Type  : Slow 1100mV -40C Model Hold &#x27;FPGA_CLK1_50&#x27;
+  30 | Slack : 0.241
+  45 | Type  : Fast 1100mV 100C Model Setup &#x27;FPGA_CLK1_50&#x27;
+  46 | Slack : 11.190
+  49 | Type  : Fast 1100mV 100C Model Hold &#x27;FPGA_CLK1_50&#x27;
+  50 | Slack : 0.133
+  65 | Type  : Fast 1100mV -40C Model Setup &#x27;FPGA_CLK1_50&#x27;
+  66 | Slack : 12.850
+  69 | Type  : Fast 1100mV -40C Model Hold &#x27;FPGA_CLK1_50&#x27;
+  70 | Slack : 0.119</pre><div class="source">SOURCE: fpga\experiments\parallel8\output_files\igor_src_policy.sta.rpt<br>SHA256: 868f265745a934b09dbdf0618b5792938d626dfc653db01dfcb8057d7dfff6fa</div><pre> 125 | ; Clock Name   ; Type ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets          ;
+ 126 | +--------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------+
+ 127 | ; FPGA_CLK1_50 ; Base ; 20.000 ; 50.0 MHz  ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { FPGA_CLK1_50 } ;
+ 128 | +--------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------+
+ 129 | 
+ 130 | 
+ 131 | +---------------------------------------------------+
+ 132 | ; Slow 1100mV 100C Model Fmax Summary               ;
+ 133 | +-----------+-----------------+--------------+------+
+ 134 | ; Fmax      ; Restricted Fmax ; Clock Name   ; Note ;
+ 135 | +-----------+-----------------+--------------+------+
+ 136 | ; 69.67 MHz ; 69.67 MHz       ; FPGA_CLK1_50 ;      ;</pre><div class="source">SOURCE: fpga\experiments\parallel8\output_files\igor_src_policy.sta.rpt<br>SHA256: 868f265745a934b09dbdf0618b5792938d626dfc653db01dfcb8057d7dfff6fa</div><pre> 205 | ; Slow 1100mV -40C Model Fmax Summary               ;
+ 206 | +-----------+-----------------+--------------+------+
+ 207 | ; Fmax      ; Restricted Fmax ; Clock Name   ; Note ;
+ 208 | +-----------+-----------------+--------------+------+
+ 209 | ; 72.74 MHz ; 72.74 MHz       ; FPGA_CLK1_50 ;      ;</pre><footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_igorchip protocol engine, not a mapped PPO neural ASIC.</footer>

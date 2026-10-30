@@ -1,0 +1,13 @@
+Log: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\datalogger\20261019T150727185750Z
+Location: Scenario runner - physical location unspecified
+FPGA -> laptop, JTAG. Ctrl+C untuk berhenti.
+LOGGER ERROR: Close other JTAG terminals; board monitor unavailable
+{
+  "status": "error",
+  "error": "Close other JTAG terminals; board monitor unavailable",
+  "snapshots": 0,
+  "new_results_observed": 0,
+  "unobserved_results_at_least": 0,
+  "duration_s": 0.125
+} 
+Log: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\datalogger\20261019T150727185750Z

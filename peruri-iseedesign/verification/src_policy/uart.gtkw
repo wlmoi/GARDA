@@ -1,0 +1,29 @@
+[dumpfile] "artifacts/uart.vcd"
+[savefile] "uart.gtkw"
+[timestart] 0
+[size] 1600 900
+@28
+tb_src_policy_uart.clk
+tb_src_policy_uart.rst_n
+tb_src_policy_uart.uart_rx
+tb_src_policy_uart.uart_tx
+tb_src_policy_uart.estop
+tb_src_policy_uart.safety_permit
+tb_src_policy_uart.response_valid
+@22
+tb_src_policy_uart.test_id
+tb_src_policy_uart.debug_state
+tb_src_policy_uart.error_code
+tb_src_policy_uart.error_flags
+tb_src_policy_uart.action0
+tb_src_policy_uart.action1
+tb_src_policy_uart.action2
+tb_src_policy_uart.accepted_frames
+tb_src_policy_uart.rejected_frames
+tb_src_policy_uart.last_latency_cycles
+tb_src_policy_uart.dut.position
+tb_src_policy_uart.dut.rx_timer
+tb_src_policy_uart.dut.infer_timer
+tb_src_policy_uart.dut.result_timer
+[pattern_trace] 1
+[pattern_trace] 0

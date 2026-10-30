@@ -1,0 +1,12 @@
+build/
+install/
+log/
+__pycache__/
+# Local reference repository, disconnected from the main project
+/peruri-iseedesign/
+install/
+log/
+.vscode/*
+/tools/.igor_de10_connect/
+
+/igor_connect_*.log

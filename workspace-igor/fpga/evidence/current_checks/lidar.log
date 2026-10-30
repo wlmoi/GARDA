@@ -1,0 +1,21 @@
+test_bad_packets_returns_and_long_or_backward_revolutions_rejected (__main__.LidarRegression.test_bad_packets_returns_and_long_or_backward_revolutions_rejected) ... ok
+test_complete_scan_uses_previous_marker_stamp_and_no_next_scan_point (__main__.LidarRegression.test_complete_scan_uses_previous_marker_stamp_and_no_next_scan_point) ... ok
+test_explicit_mock_is_the_only_synthetic_mode (__main__.LidarRegression.test_explicit_mock_is_the_only_synthetic_mode) ... ok
+test_fragmented_measurements_resynchronize_and_publish_completed_scan (__main__.LidarRegression.test_fragmented_measurements_resynchronize_and_publish_completed_scan) ... ok
+test_frozen_sensor_does_not_republish_or_refresh_timestamp (__main__.LidarRegression.test_frozen_sensor_does_not_republish_or_refresh_timestamp) ... ok
+test_invalid_configuration_rejected (__main__.LidarRegression.test_invalid_configuration_rejected) ... ok
+test_invalid_descriptor_fails_and_closes_port (__main__.LidarRegression.test_invalid_descriptor_fails_and_closes_port) ... ok
+test_no_automatic_mock_when_port_missing (__main__.LidarRegression.test_no_automatic_mock_when_port_missing) ... ok
+test_no_automatic_mock_when_serial_missing (__main__.LidarRegression.test_no_automatic_mock_when_serial_missing) ... ok
+test_partial_revolution_never_publishes_default_free_scan (__main__.LidarRegression.test_partial_revolution_never_publishes_default_free_scan) ... ok
+test_publish_once_at_acquisition_timestamp_and_correct_geometry (__main__.LidarRegression.test_publish_once_at_acquisition_timestamp_and_correct_geometry) ... ok
+test_queued_stale_or_future_scan_never_publishes (__main__.LidarRegression.test_queued_stale_or_future_scan_never_publishes) ... ok
+test_repeated_bin_cannot_fake_coverage_and_keeps_nearest (__main__.LidarRegression.test_repeated_bin_cannot_fake_coverage_and_keeps_nearest) ... ok
+test_scan_bins_never_carry_previous_revolution (__main__.LidarRegression.test_scan_bins_never_carry_previous_revolution) ... ok
+test_segmented_valid_descriptor_and_boot_no_scan (__main__.LidarRegression.test_segmented_valid_descriptor_and_boot_no_scan) ... ok
+test_stream_exception_invalidates_unpublished_scan (__main__.LidarRegression.test_stream_exception_invalidates_unpublished_scan) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.011s
+
+OK

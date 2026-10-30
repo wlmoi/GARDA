@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1000" viewBox="0 0 1700 1000">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="1000" fill="white"/>
+<rect x="25" y="25" width="1650" height="950" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">HASIL POLICY — VALIDITY, LEASE, DAN MASK</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">result_valid + result_timer[31:0]  |  Kontrol implisit flag/counter; permit kombinasi</text>
+<ellipse cx="878.97" cy="397.3" rx="198.8748" ry="48.0276" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="878.97" y="385.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">result_valid=0</text>
+<text x="878.97" y="409.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">safety_permit=0; action0/1/2=0</text>
+<ellipse cx="878.97" cy="611.704" rx="182.96280000000002" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="878.97" y="587.40" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">result_valid=1</text>
+<text x="878.97" y="611.70" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Permit juga memerlukan</text>
+<text x="878.97" y="636.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">!estop_active &amp;&amp; !core_fault</text>
+<circle cx="878.97" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 878.97,262.40999999999997 C 878.97,275.2 878.97,307.62 878.97,337.34999999999997 L 878.97,348.57" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="857.97" y="290.95" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="916.47" y="305.40" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 690.27,413.28999999999996 C 595.98,425.11 495.823,445.77 466.716,481.33 C 396.219,567.44 545.883,597.194 684.21,606.992 L 695.42,607.745" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="449.84000000000003" y="473.18" width="222.0" height="47.8" rx="3" fill="white"/>
+<text x="560.84" y="487.63" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">mode==CAP2 / result_timer=0;</text>
+<text x="560.84" y="506.53" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">response_valid pulse</text>
+<path d="M 764.9200000000001,561.5899999999999 C 732.3,540.11 709.98,512.63 728.47,481.33 C 736.8499999999999,467.13 748.62,455.19 761.9300000000001,445.2 L 771.37,438.6" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="705.22" y="473.18" width="252.0" height="47.8" rx="3" fill="white"/>
+<text x="831.22" y="487.63" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">header awal5A diterima pada RX /</text>
+<text x="831.22" y="506.53" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">mulai frame baru</text>
+<path d="M 929.16,550.26 C 936.48,538.48 942.91,525.76 946.97,512.8299999999999 C 953.3499999999999,492.44 946.27,471.85 934.61,453.86 L 928.15,444.7" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="918.24" y="482.63" width="207.0" height="28.9" rx="3" fill="white"/>
+<text x="1021.74" y="497.08" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">stale timeout / reject(11)</text>
+<path d="M 1034.33,577.756 C 1094.6599999999999,557.31 1142.56,526.2 1110.97,481.33 C 1095.56,459.45 1073.82,443.29999999999995 1049.77,431.39 L 1039.3400000000001,426.54999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1093.99" y="482.63" width="184.5" height="28.9" rx="3" fill="white"/>
+<text x="1186.24" y="497.08" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">reject lain atau E-stop</text>
+<path d="M 831.5899999999999,349.91999999999996 C 797.5899999999999,333.96 797.5899999999999,303.32 878.97,303.32 C 951.44,303.32 959.37,327.62 936.22,344.21999999999997 L 926.3499999999999,349.91999999999996" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="782.97" y="281.0" width="192.0" height="28.9" rx="3" fill="white"/>
+<text x="878.97" y="295.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">belum ada hasil baru sah</text>
+<path d="M 818.76,551.5 C 784.76,529.72 784.76,491.52 878.97,491.52 C 963.97,491.52 972.27,522.63 948.0999999999999,544.7 L 939.1700000000001,551.5" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="767.97" y="451.87" width="222.0" height="47.8" rx="3" fill="white"/>
+<text x="878.97" y="466.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">timer belum habis; tidak ada</text>
+<text x="878.97" y="485.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">invalidasi</text>
+<rect x="70" y="739.5799999999999" width="1560" height="200" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="769.58" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_src_policy/igor_src_policy_uart.v</text>
+<text x="90.00" y="795.58" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: result_valid=0; result_timer=0</text>
+<text x="90.00" y="821.58" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. Timer bertambah ketika result_valid=1. Default RESULT_TIMEOUT_CYCLES=1.000.000 (20ms @50MHz).</text>
+<text x="90.00" y="847.58" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. safety_permit=result_valid &amp;&amp; !estop_active &amp;&amp; !core_fault; core_fault sendiri menutup permit meskipun flag validity belum diubah.</text>
+<text x="90.00" y="873.58" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. Action mask kombinasi mengeluarkan0 saat permit0. Residual nol bukan perintah motor nol; host masih bertanggung jawab stop.</text>
+<text x="90.00" y="899.58" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. Pulse response_valid di CAP2 terpisah dari result_valid yang ditahan dan dari selesainya UART TX.</text>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "project": "source_policy_parallel8",
+  "hardware_programmed": true,
+  "uart_function_verified": false,
+  "sof_sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
+  "verification": "All acceptance.json sha256 entries verified; packaged SOF SHA256 matched accepted image; current JTAG auto-detect confirmed SOCVHPS @1 and 5CSEBA6 @2.",
+  "release_limitation": "Full release check failed on separate planner project files; release manifest was not changed. Parallel8 was verified separately.",
+  "programming_log": "parallel8_reprogram.log",
+  "result": "Quartus: Configuration succeeded -- 1 device(s) configured; 0 errors, 0 warnings.",
+  "host_tests": "python -m unittest discover -s test -p test_uart_fabric.py: 3 passed"
+}

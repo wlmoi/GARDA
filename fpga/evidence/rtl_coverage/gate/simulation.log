@@ -1,0 +1,2 @@
+PASS gate: 111210 oracle comparisons across all 12 outcomes
+- /mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/gate/tb_safety_gate.sv:25: Verilog $finish

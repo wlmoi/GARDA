@@ -1,0 +1,12 @@
+[INFO] [1792320234.192398535] [igor_controller_node]: ==================================================================
+[INFO] [1792320234.193264708] [igor_controller_node]:   IGOR CONTROLLER INITIALIZING (Hiwonder JetAuto Mecanum AMR)
+[INFO] [1792320234.193859129] [igor_controller_node]:   Selected Algorithm : cl_drl_cbf
+[INFO] [1792320234.194431820] [igor_controller_node]:   FPGA Acceleration  : True
+[INFO] [1792320234.194999392] [igor_controller_node]:   MCU Port           : /dev/ttyACM0
+[INFO] [1792320234.195594516] [igor_controller_node]:   FPGA Port          : /dev/ttyTHS1
+[INFO] [1792320234.196157415] [igor_controller_node]:   Freshness Timeout  : 150.0 ms
+[INFO] [1792320234.196716026] [igor_controller_node]:   Watchdog Active    : False (Dormant=True)
+[INFO] [1792320234.197272141] [igor_controller_node]: ==================================================================
+[INFO] [1792320234.225941346] [igor_controller_node]: IgorControllerNode successfully started at 50.0 Hz.
+[INFO] [1792320243.617006550] [igor_controller_node]: Shutting down IgorControllerNode: Stopping motors...
+Failed to publish log message to rosout: publisher's context is invalid, at ./src/rcl/publisher.c:389

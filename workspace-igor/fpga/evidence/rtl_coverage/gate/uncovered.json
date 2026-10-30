@@ -1,0 +1,47 @@
+[
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+    "metric": "v_toggle",
+    "line": "13",
+    "column": "58",
+    "object": "fault_code[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_safety_gate.gate"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+    "metric": "v_toggle",
+    "line": "13",
+    "column": "58",
+    "object": "fault_code[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_safety_gate.gate"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+    "metric": "v_toggle",
+    "line": "13",
+    "column": "58",
+    "object": "fault_code[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_safety_gate.gate"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+    "metric": "v_toggle",
+    "line": "13",
+    "column": "58",
+    "object": "fault_code[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_safety_gate.gate"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+    "metric": "v_toggle",
+    "line": "15",
+    "column": "12",
+    "object": "abs_dw[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_safety_gate.gate"
+  }
+]

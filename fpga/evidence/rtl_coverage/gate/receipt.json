@@ -1,0 +1,72 @@
+{
+  "suite": "gate",
+  "status": "PASS",
+  "commands": [
+    [
+      "verilator",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "2",
+      "--compiler",
+      "gcc",
+      "-MAKEFLAGS",
+      "CXX=g++ LINK=g++ CFG_CXXFLAGS_NO_UNUSED= CFG_CXXFLAGS_STD=-std=c++20 CFG_CXXFLAGS_PCH_I=-include CFG_GCH_IF_CLANG=",
+      "--timing",
+      "--coverage",
+      "--assert",
+      "-Wno-fatal",
+      "--top-module",
+      "tb_safety_gate",
+      "--Mdir",
+      "obj_dir",
+      "-DVECTOR_COUNT=236",
+      "-DACTIVATION_COUNT=8364",
+      "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+      "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/gate/tb_safety_gate.sv",
+      "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/gate/main.cpp"
+    ],
+    [
+      "./obj_dir/Vtb_safety_gate"
+    ]
+  ],
+  "scope": "RTL instrumented simulation; no hardware, no structural waivers",
+  "sha256": {
+    "fpga\\rtl\\igor_safety_security_gate.v": "17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6",
+    "fpga\\verification\\tb_safety_gate.v": "1726b3c4ba28e16293a9c76d6358ba001bfb4995131e991b4267d4f85969772d",
+    "fpga\\evidence\\rtl_coverage\\gate\\tb_safety_gate.sv": "6b7619e5b41fc1bcd61dcb9ca2b25af90952bf0c4b58472ec301a31004c685f7",
+    "fpga\\evidence\\rtl_coverage\\gate\\main.cpp": "d7a23c39b03ff3331221efb7096f64ac27dc7760c9053e25c036f74d7f3e62a4",
+    "fpga\\experiments\\parallel8\\bank0.mem": "9ca680c769894f074db1d50acf09075c35a4e58b02fbdcb6a944dbb4624c6768",
+    "fpga\\experiments\\parallel8\\bank1.mem": "33c88dc96045e1bf3e7b34d111eb103825f57fa396f303c8bff9ee22a984dd88",
+    "fpga\\experiments\\parallel8\\bank2.mem": "348c2f8536b441b7ce15fa98b75570755815f2b694d108b5465226a882d5d466",
+    "fpga\\experiments\\parallel8\\bank3.mem": "2789b0cb6dddfe29e7d013112a3217cf735bb64c4a3a7556d67a0dcbdaa5ca53",
+    "fpga\\experiments\\parallel8\\bank4.mem": "f3e93047fa7e1f31e972e921fd908ac683e760ecf3f8407d550d62dcc6c6f1bf",
+    "fpga\\experiments\\parallel8\\bank5.mem": "8d638f6cf3912a7afb6642ff4755194bd919ffa840f7ccfd283571a8e048ee0b",
+    "fpga\\experiments\\parallel8\\bank6.mem": "30f0a7ea491c625fedd633b30d9d1ff2638649ae08261f48029db8e889b25e87",
+    "fpga\\experiments\\parallel8\\bank7.mem": "af74fd8bb339ee678cb556752ef358a20c185708af8decbac8534fc873ff8071"
+  },
+  "unavailable": [
+    "expression",
+    "condition/MC-DC",
+    "native FSM state/arc",
+    "gate-level coverage"
+  ],
+  "coverage": [
+    {
+      "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+      "metric": "v_line",
+      "hit": 13,
+      "total": 13,
+      "percent": 100.0
+    },
+    {
+      "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+      "metric": "v_toggle",
+      "hit": 102,
+      "total": 107,
+      "percent": 95.32710280373831
+    }
+  ],
+  "denominator": "All emitted DUT counters; no testbench counters; hit count > 0"
+}

@@ -1,0 +1,27 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++clk tb_board_wrapper.clk
+@24
++core_state tb_board_wrapper.dut.policy.core.state[3:0]
+@24
++core_layer tb_board_wrapper.dut.policy.core.layer[1:0]
+@24
++core_neuron tb_board_wrapper.dut.policy.core.neuron[7:0]
+@24
++core_k tb_board_wrapper.dut.policy.core.k[7:0]
+@24
++core_input_count tb_board_wrapper.dut.policy.core.input_count[7:0]
+@24
++core_output_count tb_board_wrapper.dut.policy.core.output_count[7:0]
+@24
++core_bias_base tb_board_wrapper.dut.policy.core.bias_base[11:0]
+@24
++core_address tb_board_wrapper.dut.policy.core.address[11:0]
+@24
++core_weight_address tb_board_wrapper.dut.policy.core.weight_address[11:0]
+@420
++core_operand tb_board_wrapper.dut.policy.core.operand[15:0]

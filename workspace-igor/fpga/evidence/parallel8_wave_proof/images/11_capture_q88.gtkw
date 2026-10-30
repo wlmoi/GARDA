@@ -1,0 +1,29 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++clk tb_board_wrapper.clk
+@24
++core_done tb_board_wrapper.dut.policy.core_done
+@24
++mode tb_board_wrapper.dut.policy.mode[3:0]
+@24
++core_output_index tb_board_wrapper.dut.policy.core_output_index[1:0]
+@420
++core_output_value tb_board_wrapper.dut.policy.core_output_value[15:0]
+@420
++sample0 tb_board_wrapper.dut.policy.sample0[15:0]
+@420
++sample1 tb_board_wrapper.dut.policy.sample1[15:0]
+@420
++sample2 tb_board_wrapper.dut.policy.sample2[15:0]
+@22
++response_crc tb_board_wrapper.dut.policy.response_crc[7:0]
+@24
++result_valid tb_board_wrapper.dut.policy.result_valid
+@24
++response_valid tb_board_wrapper.dut.policy.response_valid
+@24
++safety_permit tb_board_wrapper.dut.policy.safety_permit

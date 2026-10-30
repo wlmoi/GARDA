@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\mock_ai_surge_cargo.py", line 110, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\mock_ai_surge_cargo.py", line 33, in main
+    hardware = HardwareInference(out, host)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\disturbance_hardware.py", line 15, in __init__
+    self.port = fpga_port()
+                ^^^^^^^^^^^
+  File "D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\usb_serial_roles.py", line 9, in fpga_port
+    raise RuntimeError(f'Expected one FPGA Prolific 067B:2303 adapter for {requested}; found {[p.device for p in candidates]}')
+RuntimeError: Expected one FPGA Prolific 067B:2303 adapter for auto; found []

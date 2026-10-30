@@ -1,0 +1,10 @@
+﻿timestamp_utc,timestamp_local,elapsed_s,read_duration_ms,location_label,latitude,longitude,event,unobserved_results,mode,stop,pin,accepted,rejected,error,cycles,seq,a0,a1,a2,action0_float,action1_float,action2_float
+2026-10-19T14:29:56.852+00:00,2026-10-19T21:29:56.852+07:00,1.047,562.0,Scenario runner - physical location unspecified,,,existing_result,,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:56.963+00:00,2026-10-19T21:29:56.963+07:00,1.157,110.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:57.216+00:00,2026-10-19T21:29:57.216+07:00,1.407,110.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:57.469+00:00,2026-10-19T21:29:57.469+07:00,1.672,125.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:57.705+00:00,2026-10-19T21:29:57.705+07:00,1.907,110.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:57.957+00:00,2026-10-19T21:29:57.957+07:00,2.157,110.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:58.211+00:00,2026-10-19T21:29:58.211+07:00,2.407,110.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:58.462+00:00,2026-10-19T21:29:58.462+07:00,2.657,110.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-19T14:29:58.715+00:00,2026-10-19T21:29:58.715+07:00,2.907,110.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,257,257,11,6916,257,-46,60,34,-0.1796875,0.234375,0.1328125

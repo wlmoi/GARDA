@@ -1,0 +1,8 @@
+db/
+incremental_db/
+__pycache__/
+*.vcd
+*.vvp
+*.qws
+*.smsg
+*.rdb

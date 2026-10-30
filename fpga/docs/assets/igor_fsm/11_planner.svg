@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1030" viewBox="0 0 1700 1030">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="1030" fill="white"/>
+<rect x="25" y="25" width="1650" height="980" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">LAMPIRAN — PLANNER TOP + FAIL-CLOSED</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state[2:0]  |  FSM eksplisit; busy/done Moore decode; gate input-dependent</text>
+<ellipse cx="413.31999999999994" cy="412.14" rx="190.9188" ry="62.8776" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="413.32" y="387.84" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">IDLE (0)</text>
+<text x="413.32" y="412.14" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tunggu start; belum ada hasil</text>
+<text x="413.32" y="436.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">aktif</text>
+<ellipse cx="1082.32" cy="412.14" rx="185.61599999999999" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1082.32" y="387.84" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">RUN (1)</text>
+<text x="1082.32" y="412.14" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">4 tile paralel; elapsed++;</text>
+<text x="1082.32" y="436.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">simpan snapshot config/map</text>
+<ellipse cx="463.31999999999994" cy="641.394" rx="200.99519999999998" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="463.32" y="617.09" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">RESULT (2)</text>
+<text x="463.32" y="641.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">done=1; gate mengecek hasil +</text>
+<text x="463.32" y="665.69" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">lease + map</text>
+<ellipse cx="1082.32" cy="641.394" rx="157.5072" ry="62.8776" fill="#FDE8E8" stroke="#6E8950" stroke-width="2"/>
+<text x="1082.32" y="617.09" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">FAULT (3)</text>
+<text x="1082.32" y="641.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Fault tersimpan; control</text>
+<text x="1082.32" y="665.69" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">fault/penyebab dilatch</text>
+<circle cx="413.31999999999994" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 413.31999999999994,262.25 C 413.31999999999994,274.69 413.31999999999994,306.33 413.31999999999994,337.26 L 413.31999999999994,348.59" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="392.31999999999994" y="290.94" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="450.82" y="305.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 352.76,351.58 C 318.756,331.46999999999997 318.756,295.89 413.31999999999994,295.89 C 498.28,295.89 506.90999999999997,324.60999999999996 483.13,345.03 L 473.88,351.58" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="309.81999999999994" y="273.57" width="207.0" height="28.9" rx="3" fill="white"/>
+<text x="413.32" y="288.02" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!start dan interlock sehat</text>
+<path d="M 605.03,412.14 C 692.51,412.14 796.03,412.14 884.26,412.14 L 895.78,412.14" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="616.97" y="352.16999999999996" width="267.0" height="66.69999999999999" rx="3" fill="white"/>
+<text x="750.47" y="366.62" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">start &amp;&amp; map_ok &amp;&amp; cfg_ok &amp;&amp; ready</text>
+<text x="750.47" y="385.52" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">&amp;&amp; !stop &amp;&amp; !control_fault /</text>
+<text x="750.47" y="404.42" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">tile_start=1</text>
+<path d="M 489.21999999999997,470.77 C 529.7,500.53999999999996 575.81,532.67 598.8199999999999,542.52 C 700.12,585.87 821.72,610.3679999999999 917.62,624.014 L 928.89,625.584" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="561.3199999999999" y="512.3199999999999" width="244.5" height="28.9" rx="3" fill="white"/>
+<text x="683.57" y="526.77" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">stop / !ready / start tidak sah</text>
+<path d="M 1073.6799999999998,475.7 C 1072.38,487.40999999999997 1071.25,499.57 1070.57,511.02 C 1069.49,529.02 1070.23,548.39 1071.76,566.53 L 1072.8400000000001,577.94" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1035.69" y="502.87" width="244.5" height="47.8" rx="3" fill="white"/>
+<text x="1157.94" y="517.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!map_ok || !cfg_ok || !ready ||</text>
+<text x="1157.94" y="536.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">stop || tile_fault</text>
+<path d="M 1212.4099999999999,457.90999999999997 C 1251.4,479.07 1278.9,507.46 1258.3000000000002,542.52 C 1246.4,562.81 1228.6,579.2 1208.75,592.3399999999999 L 1199.21,598.3299999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1260.5" y="502.87" width="222.0" height="47.8" rx="3" fill="white"/>
+<text x="1371.50" y="517.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">elapsed&gt;=DEADLINE_CYCLES-1 /</text>
+<text x="1371.50" y="536.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">timed_out=1; fault8</text>
+<path d="M 911.66,437.87 C 829.15,449.58 728.65,463.49 638.3199999999999,475.02 C 569.3599999999999,483.82 373.80999999999995,459.11 327.57,511.02 C 306.36699999999996,534.8199999999999 321.236,559.3399999999999 347.69,580.54 L 356.65,587.31" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="298.68999999999994" y="502.87" width="259.5" height="47.8" rx="3" fill="white"/>
+<text x="428.44" y="517.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">semua tile_done &amp;&amp; !tile_start &amp;&amp;</text>
+<text x="428.44" y="536.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">elapsed&gt;=2</text>
+<path d="M 1022.1899999999999,352.01 C 988.1899999999999,331.46999999999997 988.1899999999999,295.89 1082.32,295.89 C 1166.8899999999999,295.89 1175.48,324.60999999999996 1151.69,345.34 L 1142.4499999999998,352.01" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="960.0699999999999" y="273.57" width="244.5" height="28.9" rx="3" fill="white"/>
+<text x="1082.32" y="288.02" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">belum done; tidak fault/timeout</text>
+<path d="M 402.55999999999995,580.64 C 368.55999999999995,559.41 368.55999999999995,521.21 463.31999999999994,521.21 C 548.45,521.21 557.0999999999999,552.05 533.3199999999999,573.7 L 524.0799999999999,580.64" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="341.06999999999994" y="481.56" width="244.5" height="47.8" rx="3" fill="white"/>
+<text x="463.32" y="496.01" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!start dan interlock/map/config</text>
+<text x="463.32" y="514.91" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sehat</text>
+<path d="M 613.2,598.76 C 667.8399999999999,582.55 729.81,562.97 785.3199999999999,542.52 C 844.9399999999999,520.56 909.78,492.78 963.61,468.6 L 973.88,463.98" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="832.4" y="502.87" width="207.0" height="47.8" rx="3" fill="white"/>
+<text x="935.90" y="517.32" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">start sah / snapshot baru;</text>
+<text x="935.90" y="536.22" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">elapsed=0</text>
+<path d="M 665.15,641.394 C 745.18,641.394 836.18,641.394 912.73,641.394 L 923.91,641.394" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="664.81" y="598.744" width="259.5" height="47.8" rx="3" fill="white"/>
+<text x="794.56" y="613.19" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">stop / !ready / !map_ok / !cfg_ok</text>
+<text x="794.56" y="632.09" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">/ start tidak sah</text>
+<path d="M 1023.3299999999999,582.41 C 989.3299999999999,559.41 989.3299999999999,521.21 1082.32,521.21 C 1166.23,521.21 1174.42,552.3199999999999 1150.24,575.28 L 1141.31,582.41" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1031.32" y="498.87999999999994" width="102.0" height="28.9" rx="3" fill="white"/>
+<text x="1082.32" y="513.33" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sampai reset</text>
+<rect x="70" y="769.27" width="1560" height="200" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="799.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_top.v</text>
+<text x="90.00" y="825.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: IDLE; flag/control/timer0</text>
+<text x="90.00" y="851.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. stop=estop || protective_stop. Default state ilegal -&gt; FAULT, control_fault=1, latched_fault=4.</text>
+<text x="90.00" y="877.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. RESULT dapat tetap RESULT saat lease habis; safety gate tetap menutup motor. Jangan menggambar lease selalu mengubah state ke FAULT.</text>
+<text x="90.00" y="903.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. busy=(state==RUN), done=(state==RESULT). motor_enable/v/omega berasal dari safety gate kombinasi dengan default output0.</text>
+<text x="90.00" y="929.27" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">4. FAULT tidak pulih oleh start; perlu reset. Fault fisik aktif tetap punya prioritas live di fault_code.</text>
+</svg>

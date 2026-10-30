@@ -1,0 +1,237 @@
+{
+  "status": "FAIL",
+  "all_scenarios_passed": false,
+  "passed": 8,
+  "failed": 4,
+  "unresolved": 6,
+  "software_tests_run": 43,
+  "cases": [
+    {
+      "name": "laptop_sensor_preflight",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\laptop_sensor_preflight.py",
+        "--lidar-port",
+        "auto",
+        "--stm-port",
+        "auto",
+        "--output",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\sensors"
+      ],
+      "status": "FAIL",
+      "exit_code": 1,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\laptop_sensor_preflight.log",
+      "duration_s": 11.172
+    },
+    {
+      "name": "test_rectangle_route",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_rectangle_route.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 13,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\test_rectangle_route.log",
+      "duration_s": 2.094
+    },
+    {
+      "name": "test_uart_fabric",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_uart_fabric.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 3,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\test_uart_fabric.log",
+      "duration_s": 0.734
+    },
+    {
+      "name": "test_uart_q88",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_uart_q88.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 7,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\test_uart_q88.log",
+      "duration_s": 3.531
+    },
+    {
+      "name": "test_ethernet",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_ethernet.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 16,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\test_ethernet.log",
+      "duration_s": 5.516
+    },
+    {
+      "name": "test_security_auth",
+      "status": "BLOCKED",
+      "reason": "Required test/test_security_auth.py does not exist in this checkout"
+    },
+    {
+      "name": "laptop_fault_contracts",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_laptop_scenario_contracts.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 2,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\laptop_fault_contracts.log",
+      "duration_s": 1.421
+    },
+    {
+      "name": "laptop_sensor_decoder",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_laptop_sensor_decode.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 2,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\laptop_sensor_decoder.log",
+      "duration_s": 1.157
+    },
+    {
+      "name": "model_identity_oracle",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\verify_mock_inference.py",
+        "--self-test"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\model_identity_oracle.log",
+      "duration_s": 2.968
+    },
+    {
+      "name": "parallel8_rtl_256_vectors",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\verify_mock_inference.py",
+        "--rtl-sim"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\parallel8_rtl_256_vectors.log",
+      "duration_s": 143.985
+    },
+    {
+      "name": "physical_parallel8_256_vectors",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\verify_board_jtag.py",
+        "--port",
+        "COM16",
+        "--program"
+      ],
+      "status": "FAIL",
+      "exit_code": 1,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\physical_parallel8_256_vectors.log",
+      "duration_s": 5.813
+    },
+    {
+      "name": "physical_uart_return",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\verify_mock_inference.py",
+        "--port",
+        "COM16"
+      ],
+      "status": "FAIL",
+      "exit_code": 1,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\physical_uart_return.log",
+      "duration_s": 3.062
+    },
+    {
+      "name": "passive_datalogger",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\fpga_datalogger.py",
+        "--duration",
+        "3",
+        "--location",
+        "Scenario runner - physical location unspecified"
+      ],
+      "status": "FAIL",
+      "exit_code": 1,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T150425229773Z\\passive_datalogger.log",
+      "duration_s": 0.422
+    },
+    {
+      "name": "laptop_motion_readiness",
+      "status": "BLOCKED",
+      "reason": "See actual sensor stage logs. Physical pose, verified IMU units and a validated laptop motor-control session are still required; no motion is started by this runner."
+    },
+    {
+      "name": "A1_measured_rectangle",
+      "status": "BLOCKED",
+      "reason": "Requires fresh independently measured /pose, operator, clear 5x4m area, agreed geometry tolerances, bag and measured corners"
+    },
+    {
+      "name": "A2_command_estimated_rectangle",
+      "status": "BLOCKED",
+      "reason": "Route algorithm is tested on laptop; physical motion still needs real LiDAR, sensor preflight and supervision; not dimensional acceptance"
+    },
+    {
+      "name": "B_live_inputs_outputs_and_IMU_units",
+      "status": "BLOCKED",
+      "reason": "Requires real controller trace, calibrated IMU units, LiDAR, active robot run and measured deadline results"
+    },
+    {
+      "name": "C_link_disconnect_stop_reconnect",
+      "status": "BLOCKED",
+      "reason": "Requires supervised physical cable pull, active forward command, measured 5m, STOP trace, video/rest measurement and agreed stopping bound"
+    }
+  ]
+}

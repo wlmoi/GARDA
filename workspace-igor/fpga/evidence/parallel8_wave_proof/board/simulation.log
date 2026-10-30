@@ -1,0 +1,3 @@
+VCD info: dumpfile artifacts/board.vcd opened for output.
+PASS board_wrapper: 18 checkpoints, actual50MHz/921600 framing and KEY safety
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\board\tb_board_wrapper.sv:103: $finish called at 5523212000 (1ps)

@@ -1,0 +1,19 @@
+[size] 1400 720
+[pos] 0 0
+[sst_width] 200
+[signals_width] 400
+[timestart] 0
+@22
+tb_safety_top.core.rst_n
+tb_safety_top.core.estop
+tb_safety_top.core.motor_enable
+tb_safety_top.core.v_command[4:0]
+tb_safety_top.core.omega_command[6:0]
+tb_safety_top.core.fault_code[7:0]
+tb_safety_top.core.event_count[31:0]
+tb_safety_top.core.last_fault[7:0]
+tb_safety_top.core.busy
+tb_safety_top.core.done
+tb_safety_top.core.seq[31:0]
+tb_safety_top.core.run_map_sequence[31:0]
+tb_safety_top.core.result_map_matches

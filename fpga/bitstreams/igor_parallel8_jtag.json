@@ -1,0 +1,16 @@
+{
+  "sha256": "268149fbd1eb9bd2102c5a4b6dfc7ae4f13e60101ead04a1d9aaa10788ed9019",
+  "installed_utc": "2026-10-19T12:39:27.2758246Z",
+  "project": "fpga/experiments/parallel8_jtag/igor_jtag.qpf",
+  "minimum_reported_slack_ns": 0.119,
+  "core_sha256": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+  "console_sha256": "e3409fde8c378947ba41dd14aa13949b403152fe9ed782924ac245d9fec6536a",
+  "status_format_sha256": "965eaf75a6a5223dc17e90717aad64ff79e1aeb2120ea71a816bf6c41363b7f8",
+  "simulations": [
+    "200-byte Avalon backpressure/order test",
+    "Parallel8 inference",
+    "CRC rejection",
+    "pasted hex frame",
+    "E-stop"
+  ]
+}

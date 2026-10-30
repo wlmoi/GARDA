@@ -1,0 +1,370 @@
+{
+  "capture_method": "Microsoft Edge headless --screenshot of local report-reader HTML; not native Quartus UI",
+  "screenshots": [
+    {
+      "png": "01_fitted_resources.png",
+      "html": "01_fitted_resources.html",
+      "png_sha256": "b294857d0142c9c8d8bec6197ae0c7bc37a706ff45b86fb91e0815ec6bfe428e",
+      "html_sha256": "326ae0ee8eb87e80070cbf1a8c3b637a0afddb2c74c7ed0dd41677922f4983c5",
+      "sources": [
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.fit.summary",
+          "sha256": "f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b",
+          "lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "png": "02_core_uart_hierarchy.png",
+      "html": "02_core_uart_hierarchy.html",
+      "png_sha256": "90c9f87e8466944a9cda6e795bba3beece5de94b7fabe0bc360209e720308941",
+      "html_sha256": "8d470111cf6ea7b32c337e31f3d1c011b4d0f0c64e0cfef953a875f7b2d6fa48",
+      "sources": [
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.fit.rpt",
+          "sha256": "b6e8db415e22b6f4864afa7d317b036cb30ea8cb2dc56c9abcc393a9ca299132",
+          "lines": [
+            1441,
+            1442,
+            1411,
+            1412,
+            1413,
+            1438,
+            1439
+          ]
+        }
+      ]
+    },
+    {
+      "png": "03_memory_packing.png",
+      "html": "03_memory_packing.html",
+      "png_sha256": "d7e34394839008ebd41bd4a24666869fbc3a683c4cd87428d003aa1b925afda6",
+      "html_sha256": "bfc80a57709f00ee610acac39affe5cdb8ebd02bff1466814b141de8007d7541",
+      "sources": [
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.fit.rpt",
+          "sha256": "b6e8db415e22b6f4864afa7d317b036cb30ea8cb2dc56c9abcc393a9ca299132",
+          "lines": [
+            487,
+            488,
+            489,
+            490,
+            491,
+            492,
+            493,
+            494,
+            495
+          ]
+        },
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.fit.rpt",
+          "sha256": "b6e8db415e22b6f4864afa7d317b036cb30ea8cb2dc56c9abcc393a9ca299132",
+          "lines": [
+            554,
+            555,
+            556,
+            557,
+            558,
+            559,
+            560,
+            561,
+            562
+          ]
+        }
+      ]
+    },
+    {
+      "png": "04_timing_clock_fmax.png",
+      "html": "04_timing_clock_fmax.html",
+      "png_sha256": "a332dc7cf08a2cf18eacbd1e0485ffb9fb77f6c682ab8e9c44b7d9806b298bfb",
+      "html_sha256": "ef052a76962727f55a3041e7f6e50b8d8bd9bf1f37a1bb3a7cbbe7dc241744bf",
+      "sources": [
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.sta.summary",
+          "sha256": "5ea2b6eec3d1ba7fc6aa9a4f3f270ace1a33e87007c3625986db4786e4d88915",
+          "lines": [
+            5,
+            6,
+            9,
+            10,
+            25,
+            26,
+            29,
+            30,
+            45,
+            46,
+            49,
+            50,
+            65,
+            66,
+            69,
+            70
+          ]
+        },
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.sta.rpt",
+          "sha256": "868f265745a934b09dbdf0618b5792938d626dfc653db01dfcb8057d7dfff6fa",
+          "lines": [
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136
+          ]
+        },
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.sta.rpt",
+          "sha256": "868f265745a934b09dbdf0618b5792938d626dfc653db01dfcb8057d7dfff6fa",
+          "lines": [
+            205,
+            206,
+            207,
+            208,
+            209
+          ]
+        }
+      ]
+    },
+    {
+      "png": "05_power.png",
+      "html": "05_power.html",
+      "png_sha256": "34a9f87ef4706f98549cfaa748dd84aa458a31a353a46e71bbe5843adb48120f",
+      "html_sha256": "b7ccaf2a45be26f9cd66d665c9cb8c0750b6b2ce1de86f4da87f93491dfde6be",
+      "sources": [
+        {
+          "path": "fpga/experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary",
+          "sha256": "df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77",
+          "lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "path": "fpga/experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.summary",
+          "sha256": "c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4",
+          "lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "png": "06_latency_acceptance.png",
+      "html": "06_latency_acceptance.html",
+      "png_sha256": "6d28cc0c51ef346b68b2ad2b9a4a5fb16425fe2283f719b4ce53e8fc6cae0b9e",
+      "html_sha256": "b1f4e99760306128a7bd213a2f90092aaced0738115628aca5b68ba47ce21e48",
+      "sources": [
+        {
+          "path": "fpga/experiments/parallel8/artifacts/acceptance.json",
+          "sha256": "f025b1af91a04e1bd30f8eb5f75eeb98195149d0c7054d9cc0900196ba1479a2",
+          "lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        }
+      ]
+    },
+    {
+      "png": "07_asic_area_raw.png",
+      "html": "07_asic_area_raw.html",
+      "png_sha256": "50bce859f1748696e48116d4687beea039f57ee82f1b116e571abdfa079aa532",
+      "html_sha256": "c3f51fb05bf542a4dab69482863a3e40e561d7aeebdf354afdd2310ce2af5af9",
+      "sources": [
+        {
+          "path": "fpga/evidence/asic_import/gds_diagnostics_1/raw/runs/wokwi/final/metrics.json",
+          "sha256": "dcc3691d17a6cadaee4e63f6a0174b0dfe261cee488d91c899bff81e93b8acb0",
+          "lines": [
+            7,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            168
+          ]
+        },
+        {
+          "path": "info.yaml",
+          "sha256": "e278b481ea26157231fe667df07f8d4ff4ab35d8a8cca480f95f96df21f90dcb",
+          "lines": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "png": "08_calculations.png",
+      "html": "08_calculations.html",
+      "png_sha256": "e25d8a145dd59815ef4e59ed2e4b84fdca462fa5df13fa734b16de82549632cd",
+      "html_sha256": "4f2cf1b5e6ae6eb2c9f9b21a52de29e2bf29d894b05ad4c86982f07d963fc196",
+      "sources": [
+        {
+          "path": "fpga/evidence/area_analysis/parallel8_area.json",
+          "sha256": "5b2f4ec683fa7f6092560002912b0bfd9cd765fc61596f6cf91ef54a284bbb7e",
+          "lines": [
+            78,
+            79,
+            83,
+            92,
+            93,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "png": "09_pinplan.png",
+      "html": "09_pinplan.html",
+      "png_sha256": "7484e65137b862aa92b5304c1f91588e1bd8a6da26fd07564b30c873b6f686b5",
+      "html_sha256": "19b662c2dcd7dc61028c02a4a5736cd2b239232814f389f9f53ea74c4b3388c2",
+      "sources": [
+        {
+          "path": "fpga/experiments/parallel8/output_files/igor_src_policy.pin",
+          "sha256": "56a6db6f924d425b0c2087f18b88c33fb3c01f36e3f009fd93057b582e8594fe",
+          "lines": [
+            128,
+            129,
+            215,
+            243,
+            288,
+            289,
+            391,
+            690,
+            691,
+            694,
+            695,
+            718,
+            743
+          ]
+        },
+        {
+          "path": "fpga/experiments/parallel8/igor_src_policy.sdc",
+          "sha256": "a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c",
+          "lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "png": "10_programming.png",
+      "html": "10_programming.html",
+      "png_sha256": "c6ca944babae8145f3653dac2133f504a977840cbb649a7512df71dec2750627",
+      "html_sha256": "712ec78e2d20918675e38ceeb9268944c95ef012d8a8c440bb4b49ba3c26c64f",
+      "sources": [
+        {
+          "path": "fpga/evidence/current_programming/20261019T0245566102607Z/programming_from_cdf.log",
+          "sha256": "cf922820085ddde970e572eaa5295854f30831ceade1f999c98592639a9ddaa5",
+          "lines": [
+            26,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            38
+          ]
+        }
+      ]
+    }
+  ]
+}

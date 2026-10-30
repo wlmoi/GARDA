@@ -1,0 +1,27 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++uart_rx tb_board_wrapper.dut.policy.uart_rx
+@24
++rx_valid tb_board_wrapper.dut.policy.rx_valid
+@22
++rx_data tb_board_wrapper.dut.policy.rx_data[7:0]
+@24
++position tb_board_wrapper.dut.policy.position[7:0]
+@22
++crc tb_board_wrapper.dut.policy.crc[7:0]
+@24
++invalid_observation tb_board_wrapper.dut.policy.invalid_observation
+@24
++accepted_frames tb_board_wrapper.dut.policy.accepted_frames[31:0]
+@24
++mode tb_board_wrapper.dut.policy.mode[3:0]
+@24
++core_load tb_board_wrapper.dut.policy.core_load
+@24
++core_start tb_board_wrapper.dut.policy.core_start
+@24
++core_busy tb_board_wrapper.dut.policy.core_busy

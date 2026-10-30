@@ -1,0 +1,86 @@
+{
+  "scans": [
+    {
+      "received_monotonic": 17956.31356619,
+      "samples": 1080,
+      "valid_returns": 18,
+      "min_m": 0.4560000002384186,
+      "frame": "laser",
+      "stamp_sec": 1792319582
+    },
+    {
+      "received_monotonic": 17956.387986282,
+      "samples": 1080,
+      "valid_returns": 16,
+      "min_m": 0.4569999873638153,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.462401094,
+      "samples": 1080,
+      "valid_returns": 17,
+      "min_m": 0.4560000002384186,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.533062081,
+      "samples": 1080,
+      "valid_returns": 18,
+      "min_m": 0.4560000002384186,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.609100341,
+      "samples": 1080,
+      "valid_returns": 16,
+      "min_m": 0.4569999873638153,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.683393676,
+      "samples": 1080,
+      "valid_returns": 15,
+      "min_m": 0.460999995470047,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.757514078,
+      "samples": 1080,
+      "valid_returns": 14,
+      "min_m": 0.4620000123977661,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.829345409,
+      "samples": 1080,
+      "valid_returns": 16,
+      "min_m": 0.4569999873638153,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.903967908,
+      "samples": 1080,
+      "valid_returns": 16,
+      "min_m": 0.4569999873638153,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    },
+    {
+      "received_monotonic": 17956.97786059,
+      "samples": 1080,
+      "valid_returns": 12,
+      "min_m": 1.2259999513626099,
+      "frame": "laser",
+      "stamp_sec": 1792319583
+    }
+  ],
+  "physical_lidar": true,
+  "motors_commanded": false
+}

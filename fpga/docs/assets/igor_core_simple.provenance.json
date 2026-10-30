@@ -1,0 +1,97 @@
+{
+  "kind": "editable RTL bit-flow diagram; no RTL or hardware change",
+  "edges": [
+    {
+      "id": "input-data",
+      "source": "input",
+      "target": "storage",
+      "label": "input_value[15:0]\ninput_index[6:0]\nload_input (1-bit)"
+    },
+    {
+      "id": "operand",
+      "source": "storage",
+      "target": "multiply",
+      "label": "operand[15:0]\nbroadcast ×8"
+    },
+    {
+      "id": "weights",
+      "source": "memory",
+      "target": "multiply",
+      "label": "weight[lane][15:0]\nlane = 0..7"
+    },
+    {
+      "id": "bias",
+      "source": "memory",
+      "target": "accumulator",
+      "label": "weight[lane][15:0] (bias)\n→ acc[39:0], << 8\nlane = 0..7"
+    },
+    {
+      "id": "products",
+      "source": "multiply",
+      "target": "accumulator",
+      "label": "product[lane][31:0]\n+ 8 sign bits → 40-bit"
+    },
+    {
+      "id": "sum",
+      "source": "accumulator",
+      "target": "activation",
+      "label": "accumulator[lane][39:0]\nlane = 0..7"
+    },
+    {
+      "id": "acc-feedback",
+      "source": "accumulator",
+      "target": "accumulator",
+      "label": "acc[39:0]\nper lane"
+    },
+    {
+      "id": "final-actions",
+      "source": "activation",
+      "target": "actions",
+      "label": "activated[lane][15:0]\n→ actions[lane][15:0]\nlane = 0..2"
+    },
+    {
+      "id": "result",
+      "source": "actions",
+      "target": "output",
+      "label": "output_value[15:0]\nindex = 0, 1, 2"
+    },
+    {
+      "id": "hidden-feedback",
+      "source": "activation",
+      "target": "storage",
+      "label": "activated[lane][15:0] → hidden1 / hidden2\nhidden1[k][15:0] / hidden2[k][15:0] → operand[15:0]"
+    },
+    {
+      "id": "select-index",
+      "source": "select",
+      "target": "actions",
+      "label": "output_index[1:0]"
+    },
+    {
+      "id": "control-in",
+      "source": "control-input",
+      "target": "control",
+      "label": "clk, rst_n, start, abort\n(1-bit tiap sinyal)"
+    },
+    {
+      "id": "control-out",
+      "source": "control",
+      "target": "status",
+      "label": "busy, done, fault, saturated (1-bit)\nerror_code[3:0]; latency_cycles[31:0]"
+    },
+    {
+      "id": "output-valid",
+      "source": "control",
+      "target": "actions",
+      "label": "done, fault, abort\n(1-bit tiap sinyal)"
+    }
+  ],
+  "files": {
+    "docs/assets/igor_core_simple.drawio": "6840307527a69f6bb438a09a4bc0f89b56ff7336f24c13c670e25a55706fd792",
+    "docs/assets/igor_core_simple.svg": "358dbb92560eb99cc8e50a6241b943670e42077dfae58498811ee0cf17d6b408",
+    "docs/assets/igor_core_simple.png": "7083edddd4aef76dcd90f3877fc3b7749a90c682bdd9b09a142582583a8adbbc",
+    "scripts/render_igor_core_drawio.py": "8cd8454e23096f19954e4a679be00e47f5320e1201639ac61e319de399a2b3d3",
+    "experiments/parallel8/igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "experiments/parallel8/artifacts/acceptance.json": "f025b1af91a04e1bd30f8eb5f75eeb98195149d0c7054d9cc0900196ba1479a2"
+  }
+}

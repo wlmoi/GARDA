@@ -1,0 +1,25 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++uart_tx tb_board_wrapper.dut.policy.uart_tx
+@24
++tx_send tb_board_wrapper.dut.policy.tx_send
+@24
++tx_busy tb_board_wrapper.dut.policy.tx_busy
+@22
++tx_data tb_board_wrapper.dut.policy.tx_data[7:0]
+@24
++tx_index tb_board_wrapper.dut.policy.tx_index[3:0]
+@24
++mode tb_board_wrapper.dut.policy.mode[3:0]
+@24
++response_valid tb_board_wrapper.dut.policy.response_valid
+@24
++safety_permit tb_board_wrapper.dut.policy.safety_permit
+@22
++decoded_byte tb_board_wrapper.decoded_byte[7:0]
+@24
++received tb_board_wrapper.received

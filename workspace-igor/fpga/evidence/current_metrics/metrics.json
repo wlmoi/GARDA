@@ -1,0 +1,366 @@
+{
+  "generated_utc": "2026-10-17T01:47:50.390759+00:00",
+  "hardware_measured": false,
+  "main_model": [
+    74,
+    128,
+    64,
+    3
+  ],
+  "projects": {
+    "source_policy": {
+      "resources": {
+        "alm": {
+          "used": 3249,
+          "total": 41910,
+          "utilization_percent": 7.752326413743736
+        },
+        "registers": {
+          "used": 5996
+        },
+        "m10k": {
+          "used": 64,
+          "total": 553,
+          "utilization_percent": 11.573236889692586
+        },
+        "dsp": {
+          "used": 1,
+          "total": 112,
+          "utilization_percent": 0.8928571428571428
+        },
+        "memory_bits": {
+          "used": 524288,
+          "total": 5662720,
+          "utilization_percent": 9.258589511754069
+        },
+        "pins": {
+          "used": 13,
+          "total": 314,
+          "utilization_percent": 4.140127388535031
+        }
+      },
+      "sof_sha256": "fb9fcd28136b647492d2284fef82beca34b97f8300ce0579c25e0745fa88cf4a",
+      "setup_slack_ns": 6.019,
+      "hold_slack_ns": 0.116,
+      "power": {
+        "board_fixture_vcd": {
+          "total_mw": 458.93,
+          "dynamic_mw": 36.19,
+          "static_mw": 413.13,
+          "io_mw": 9.61,
+          "confidence": "Low: user provided insufficient toggle rate data",
+          "receipt": "evidence/current_metrics/power/source_policy_board_fixture_vcd/receipt.json",
+          "measured": false,
+          "profile": "board_fixture_vcd",
+          "critical_warnings": [
+            "Critical Warning (215050): HPS power is being analyzed for a device with an HPS without HPS power."
+          ],
+          "warnings": [
+            "Warning (215044): No board thermal model was selected.  Analyzing without board thermal modeling."
+          ],
+          "conditions_excerpt": [
+            "; Default Power Toggle Rate                                        ; 12.5%   ; 12.5%         ;",
+            "; Default Power Input I/O Toggle Rate                              ; 12.5%   ; 12.5%         ;",
+            "; Specified Junction Temperature                                   ; 25      ; 25            ;",
+            "; Enable HPS                                                       ; Off     ; Off           ;",
+            "; Device power characteristics                ; Typical                   ;",
+            "; Auto computed junction temperature          ; 27.8 degrees Celsius      ;",
+            ";     Ambient temperature                     ; 25.0 degrees Celsius      ;",
+            "; Board model used                            ; None                      ;"
+          ],
+          "activity_annotation_excerpt": [
+            ";     -- Simulation time nodes in unknown state                                          ; 0.0%          ;             ;              ;               ;",
+            ";     -- Number of signals with Toggle Rate from Simulation                              ; 256 (2.2%)    ; 13 (100.0%) ; 240 (4.0%)   ; 3 (0.1%)      ;"
+          ],
+          "actual_characteristics": "TYPICAL",
+          "actual_junction_c": 27.8,
+          "under_1000_mw_in_this_estimate": true
+        },
+        "maximum_tj100": {
+          "total_mw": 925.69,
+          "dynamic_mw": 38.51,
+          "static_mw": 865.8,
+          "io_mw": 21.38,
+          "confidence": "Low: user provided insufficient toggle rate data",
+          "receipt": "evidence/current_metrics/power/source_policy_maximum_tj100/receipt.json",
+          "measured": false,
+          "profile": "maximum_tj100",
+          "critical_warnings": [
+            "Critical Warning (215050): HPS power is being analyzed for a device with an HPS without HPS power."
+          ],
+          "warnings": [
+            "Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes"
+          ],
+          "conditions_excerpt": [
+            "; Specified Junction Temperature                                   ; 100     ; 25            ;",
+            "; Default Power Toggle Rate                                        ; 12.5%   ; 12.5%         ;",
+            "; Default Power Input I/O Toggle Rate                              ; 12.5%   ; 12.5%         ;",
+            "; Enable HPS                                                       ; Off     ; Off           ;",
+            "; Device power characteristics      ; Maximum               ;",
+            "; User entered junction temperature ; 100.0 degrees Celsius ;"
+          ],
+          "activity_annotation_excerpt": [
+            ";     -- Number of signals with Toggle Rate from Simulation                              ; 0 (0.0%)       ; 0 (0.0%)   ; 0 (0.0%)      ; 0 (0.0%)      ;"
+          ],
+          "actual_characteristics": "MAXIMUM",
+          "actual_junction_c": 100.0,
+          "under_1000_mw_in_this_estimate": true
+        },
+        "maximum_tj85": {
+          "total_mw": 812.05,
+          "dynamic_mw": 38.51,
+          "static_mw": 752.16,
+          "io_mw": 21.38,
+          "confidence": "Low: user provided insufficient toggle rate data",
+          "receipt": "evidence/current_metrics/power/source_policy_maximum_tj85/receipt.json",
+          "measured": false,
+          "profile": "maximum_tj85",
+          "critical_warnings": [
+            "Critical Warning (215050): HPS power is being analyzed for a device with an HPS without HPS power."
+          ],
+          "warnings": [
+            "Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes"
+          ],
+          "conditions_excerpt": [
+            "; Specified Junction Temperature                                   ; 85      ; 25            ;",
+            "; Default Power Toggle Rate                                        ; 12.5%   ; 12.5%         ;",
+            "; Default Power Input I/O Toggle Rate                              ; 12.5%   ; 12.5%         ;",
+            "; Enable HPS                                                       ; Off     ; Off           ;",
+            "; Device power characteristics      ; Maximum              ;",
+            "; User entered junction temperature ; 85.0 degrees Celsius ;"
+          ],
+          "activity_annotation_excerpt": [
+            ";     -- Number of signals with Toggle Rate from Simulation                              ; 0 (0.0%)       ; 0 (0.0%)   ; 0 (0.0%)      ; 0 (0.0%)      ;"
+          ],
+          "actual_characteristics": "MAXIMUM",
+          "actual_junction_c": 85.0,
+          "under_1000_mw_in_this_estimate": true
+        },
+        "vectorless": {
+          "total_mw": 464.21,
+          "dynamic_mw": 38.51,
+          "static_mw": 413.17,
+          "io_mw": 12.53,
+          "confidence": "Low: user provided insufficient toggle rate data",
+          "receipt": "evidence/current_metrics/power/source_policy_vectorless/receipt.json",
+          "measured": false,
+          "profile": "vectorless",
+          "critical_warnings": [
+            "Critical Warning (215050): HPS power is being analyzed for a device with an HPS without HPS power."
+          ],
+          "warnings": [
+            "Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes",
+            "Warning (215044): No board thermal model was selected.  Analyzing without board thermal modeling."
+          ],
+          "conditions_excerpt": [
+            "; Default Power Toggle Rate                                        ; 12.5%   ; 12.5%         ;",
+            "; Default Power Input I/O Toggle Rate                              ; 12.5%   ; 12.5%         ;",
+            "; Specified Junction Temperature                                   ; 25      ; 25            ;",
+            "; Enable HPS                                                       ; Off     ; Off           ;",
+            "; Device power characteristics                ; Typical                   ;",
+            "; Auto computed junction temperature          ; 27.9 degrees Celsius      ;",
+            ";     Ambient temperature                     ; 25.0 degrees Celsius      ;",
+            "; Board model used                            ; None                      ;"
+          ],
+          "activity_annotation_excerpt": [
+            ";     -- Number of signals with Toggle Rate from Simulation                              ; 0 (0.0%)       ; 0 (0.0%)   ; 0 (0.0%)      ; 0 (0.0%)      ;"
+          ],
+          "actual_characteristics": "TYPICAL",
+          "actual_junction_c": 27.9,
+          "under_1000_mw_in_this_estimate": true
+        }
+      }
+    },
+    "planner": {
+      "resources": {
+        "alm": {
+          "used": 5048,
+          "total": 41910,
+          "utilization_percent": 12.044858029109998
+        },
+        "registers": {
+          "used": 1650
+        },
+        "m10k": {
+          "used": 131,
+          "total": 553,
+          "utilization_percent": 23.688969258589513
+        },
+        "dsp": {
+          "used": 10,
+          "total": 112,
+          "utilization_percent": 8.928571428571429
+        },
+        "memory_bits": {
+          "used": 1051008,
+          "total": 5662720,
+          "utilization_percent": 18.56012658227848
+        },
+        "pins": {
+          "used": 17,
+          "total": 314,
+          "utilization_percent": 5.414012738853503
+        }
+      },
+      "sof_sha256": "84295ae937ab4a759efa1e4d21ebda09805559038bc4fef971894a8946d701d2",
+      "setup_slack_ns": 0.641,
+      "hold_slack_ns": 0.094,
+      "power": {
+        "vectorless": {
+          "total_mw": 504.77,
+          "dynamic_mw": 71.12,
+          "static_mw": 414.16,
+          "io_mw": 19.49,
+          "confidence": "Low: user provided insufficient toggle rate data",
+          "receipt": "evidence/current_metrics/power/planner_vectorless/receipt.json",
+          "measured": false,
+          "profile": "vectorless",
+          "critical_warnings": [
+            "Critical Warning (215050): HPS power is being analyzed for a device with an HPS without HPS power."
+          ],
+          "warnings": [
+            "Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes",
+            "Warning (215044): No board thermal model was selected.  Analyzing without board thermal modeling."
+          ],
+          "conditions_excerpt": [
+            "; Default Power Toggle Rate                                        ; 12.5%   ; 12.5%         ;",
+            "; Default Power Input I/O Toggle Rate                              ; 12.5%   ; 12.5%         ;",
+            "; Specified Junction Temperature                                   ; 25      ; 25            ;",
+            "; Enable HPS                                                       ; Off     ; Off           ;",
+            "; Device power characteristics                ; Typical                   ;",
+            "; Auto computed junction temperature          ; 28.1 degrees Celsius      ;",
+            ";     Ambient temperature                     ; 25.0 degrees Celsius      ;",
+            "; Board model used                            ; None                      ;"
+          ],
+          "activity_annotation_excerpt": [
+            ";     -- Number of signals with Toggle Rate from Simulation                              ; 0 (0.0%)      ; 0 (0.0%)   ; 0 (0.0%)      ; 0 (0.0%)      ;"
+          ],
+          "actual_characteristics": "TYPICAL",
+          "actual_junction_c": 28.1,
+          "under_1000_mw_in_this_estimate": true
+        }
+      }
+    }
+  },
+  "asic_area_mm2": null,
+  "asic_area_reason": "No technology-mapped current PPO netlist, standard-cell library/PDK and physical implementation; ALM usage is not die area.",
+  "quantization": {
+    "format": "signed int16 Q8.8",
+    "fraction_bits": 8,
+    "lsb": 0.00390625,
+    "round_to_nearest_max_error_without_clipping": 0.001953125,
+    "floor_requantization_error_interval_lsb": "(-1, 0], before activation/clipping",
+    "all_core_vectors": 236,
+    "normalized_vectors": 153,
+    "normalized_output_values": 459,
+    "max_abs_error": 0.014571763897103157,
+    "mae": 0.0036249842146914963,
+    "rmse": 0.004267868924756324,
+    "max_abs_error_lsb": 3.730371557658408,
+    "max_error_percent_of_two_unit_full_scale": 0.7285881948551578,
+    "axis_max_abs_error": {
+      "vx": 0.010486736069449464,
+      "vy": 0.014571763897103157,
+      "omega": 0.011942455292584864
+    },
+    "reference": "Python FP64 arithmetic using source FP32 coefficients on the SAME already-Q8.8 input; not ONNX execution or end-to-end sensor quantization.",
+    "claim": "Sample characterization only; not a formal all-input bound or robot trajectory accuracy.",
+    "parameter_stats": {
+      "w1": {
+        "count": 9472,
+        "max_abs_error": 0.0019530802965164185,
+        "mae": 0.0009772230134977825,
+        "rmse": 0.0011277299241126404,
+        "clipped_parameters": 0
+      },
+      "b1": {
+        "count": 128,
+        "max_abs_error": 0.001914888620376587,
+        "mae": 0.0008368519004955388,
+        "rmse": 0.0010298357136516994,
+        "clipped_parameters": 0
+      },
+      "w2": {
+        "count": 8192,
+        "max_abs_error": 0.0019528716802597046,
+        "mae": 0.000986148680131027,
+        "rmse": 0.001134684933247006,
+        "clipped_parameters": 0
+      },
+      "b2": {
+        "count": 64,
+        "max_abs_error": 0.0019479054026305676,
+        "mae": 0.0009474027304463561,
+        "rmse": 0.0010859648548623652,
+        "clipped_parameters": 0
+      },
+      "w3": {
+        "count": 192,
+        "max_abs_error": 0.0019386298954486847,
+        "mae": 0.000974890190870307,
+        "rmse": 0.0011492136042194816,
+        "clipped_parameters": 0
+      },
+      "b3": {
+        "count": 3,
+        "max_abs_error": 0.0007657669484615326,
+        "mae": 0.0006448811618611217,
+        "rmse": 0.0006558305102955592,
+        "clipped_parameters": 0
+      }
+    },
+    "active_parameter_words": 18051,
+    "padding_words": 14717
+  },
+  "latency": {
+    "clock_hz": 50000000,
+    "core_cycles": 54348,
+    "core_ms": 1.08696,
+    "nominal_baud": 921600,
+    "divider": 54,
+    "actual_baud": 925925.925925926,
+    "request_bytes": 153,
+    "response_bytes": 11,
+    "ideal_uart_ms_actual_divider": 1.7711999999999999,
+    "ideal_core_plus_uart_ms_actual_divider": 2.85816,
+    "physical_rtt_ms": null,
+    "notes": "Component budget excludes parser/load/TX handshakes, interbyte gaps, USB, OS and ROS; not a measured RTT.",
+    "layer_schedule_cycles": [
+      28928,
+      24832,
+      588
+    ],
+    "schedule_formula": "sum(output_neurons * (3 * input_neurons + 4))"
+  },
+  "rtl_equivalence": {
+    "core_passed": true,
+    "uart_passed": true,
+    "core_assertions": 54399,
+    "uart_transactions": 184,
+    "uart_assertions": 268,
+    "mismatches_observed_in_passing_suite": 0,
+    "hidden_values_compared": 45312,
+    "outputs_compared": 708,
+    "claim": "Exact against specified integer model on tested vectors, not bitwise equivalence with FP32 representation."
+  },
+  "source_sha256": {
+    "fpga/fpga_de10_nano/src_policy/output_files/igor_src_policy.fit.summary": "f4c3e002d867998aaa4d841c10a8fb30d71c21d4e6d079b9a97e772fdc3604d9",
+    "fpga/evidence/current_metrics/power/source_policy_board_fixture_vcd/igor_src_policy.pow.summary": "31463324d91f46a7e1c5179ad0989d6a280de85a3274fa8f207ca51cdb0c6749",
+    "fpga/evidence/current_metrics/power/source_policy_maximum_tj100/igor_src_policy.pow.summary": "1abba23a9ffea9d27883801dc07167c49c1e8e3d6076020e2cc72bc8a328e904",
+    "fpga/evidence/current_metrics/power/source_policy_maximum_tj85/igor_src_policy.pow.summary": "ecb7f7de6814bf24a6294056cc28ca8b968b9c7c96738b0f0e1ad48a27b866af",
+    "fpga/evidence/current_metrics/power/source_policy_vectorless/igor_src_policy.pow.summary": "7258915bc7b8fd1b9852abf5882c681d6988677ff43639fd06f55ad5d88259c4",
+    "fpga/fpga_de10_nano/quartus/output_files/igor.fit.summary": "3e05fa2b79701600eecb69432d291c74bd4770941c2bd0aa9d38d47c7260d0da",
+    "fpga/evidence/current_metrics/power/planner_vectorless/igor.pow.summary": "814a1522653f39948137411382bdf51bb837f50b8ef5fd0ffc3bfd899e1aef15",
+    "fpga/verification/src_policy/artifacts/vectors.json": "319b0ed148bb1b2d61a2724e03a62f5507c67923c9fb509f9aeb7f4fd5f8673a",
+    "fpga/evidence/current_metrics/quantization_outputs.csv": "8afa355ed45b00127e0c2580d837ae59b47e69b1da1d431fa0b15f6087d3ea20",
+    "src/igor_navigation/igor_navigation/weights/model_weights.json": "8428c5b84bec029c8340aa0f7b571c849c8ca65766ad6399332bb4b7cb53e22c",
+    "fpga/fpga_de10_nano/src_policy/igor_src_policy.sdc": "a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c",
+    "fpga/verification/src_policy/artifacts/results.json": "c9256acf2101a6ac02f54c4e1e364070179c52af458af88133b83f78ad8d4621",
+    "fpga/rtl/igor_src_policy/policy_weights.mem": "55a647207c0b670901fe8074716331ac2876886bbbe1ca44aff9bbb942426e2d",
+    "fpga/rtl/igor_src_policy/igor_src_policy_core.v": "3f566c285f468d7a148d3226eb3ff2344c3e617dc5f544b7f94994efb6973726",
+    "fpga/evidence/current_builds/source_policy.json": "2bbf7089ee6876969da62c55c904135821d3b63ccb392e98eec1fcdea11bd1d8",
+    "fpga/evidence/current_builds/planner.json": "7a0ffc8e24f4abefb7ce5bae709fe49579aba8bb87c5f37bc6ae70e9f1b9f1ff",
+    "fpga/verification/src_policy/artifacts/model_provenance.json": "59e79d103425c169179de60e25ad5483b9c177fc42a81806ebb74f9a823dd7ce",
+    "fpga/verification/src_policy/artifacts/core_checkpoints.csv": "f7d2678f624bcb61ab42d1f235820f13e73cf7894409104fe8e39b699c083183"
+  }
+}

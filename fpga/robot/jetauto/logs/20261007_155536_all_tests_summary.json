@@ -1,0 +1,37 @@
+{
+  "motion_requested": false,
+  "profile": "all",
+  "tests": [
+    {
+      "test": "Offline SDK CRC and packet checks",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "test": "RTL-captured four-speed packets",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "test": "Long individual/pair/group packet validation",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "test": "Diagonal, staged and one-ID packet validation",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "test": "Both Verilog RTL testbenches",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "test": "Source and SOF hashes",
+      "status": "PASS"
+    }
+  ],
+  "physical_motion_automatically_verified": false,
+  "console_log": "20261007_155536_all_tests_console.log"
+}

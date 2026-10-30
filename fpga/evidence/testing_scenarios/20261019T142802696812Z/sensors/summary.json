@@ -1,0 +1,48 @@
+{
+  "timestamp_utc": "2026-10-19T14:28:02.955218+00:00",
+  "motor_application_tx_bytes": 0,
+  "lidar": {
+    "port": "COM13",
+    "baud": 115200,
+    "identity_ok": false,
+    "health_ok": false,
+    "scan_ok": false,
+    "commands": [
+      {
+        "utc": "2026-10-19T14:28:02.956230+00:00",
+        "tx": "a5 25",
+        "bytes_written": 2
+      },
+      {
+        "utc": "2026-10-19T14:28:03.107355+00:00",
+        "tx": "a5 50",
+        "bytes_written": 2
+      },
+      {
+        "utc": "2026-10-19T14:28:05.121584+00:00",
+        "tx": "a5 25",
+        "bytes_written": 2
+      }
+    ],
+    "scan_count": 0,
+    "motor_commands_to_chassis": 0,
+    "info_hex": "",
+    "error": "No valid A1 device-info descriptor: received 0 bytes"
+  },
+  "stm": {
+    "port": "COM9",
+    "baud": 1000000,
+    "application_tx_bytes": 0,
+    "imu_ok": false,
+    "bytes_received": 1241,
+    "crc_valid_frames": 105,
+    "bad_crc_candidates": 0,
+    "frame_shapes": {
+      "type_8_length_7": 100,
+      "type_0_length_3": 5
+    },
+    "finite_imu_frames": 0
+  },
+  "passed": false,
+  "motion_permit": false
+}

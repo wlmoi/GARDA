@@ -1,0 +1,20 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.dut.policy.core.state[3:0] tb_board_wrapper.dut.policy.core.layer[1:0] tb_board_wrapper.dut.policy.core.neuron[7:0] tb_board_wrapper.dut.policy.core.k[7:0] tb_board_wrapper.dut.policy.core.input_count[7:0] tb_board_wrapper.dut.policy.core.output_count[7:0] tb_board_wrapper.dut.policy.core.bias_base[11:0] tb_board_wrapper.dut.policy.core.address[11:0] tb_board_wrapper.dut.policy.core.weight_address[11:0] tb_board_wrapper.dut.policy.core.operand[15:0] 
+VALUE 0 1
+VALUE 1 1
+VALUE 2 2
+VALUE 3 0
+VALUE 4 127
+VALUE 5 64
+VALUE 6 3
+VALUE 7 2296
+VALUE 8 2223
+VALUE 9 2232
+VALUE 10 335
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\10_layer2_transition.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/10_layer2_transition.png'

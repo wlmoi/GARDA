@@ -1,0 +1,33 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++clk tb_board_wrapper.clk
+@24
++key tb_board_wrapper.key[1:0]
+@24
++dut_rst_n tb_board_wrapper.dut.rst_n
+@24
++dut_reset_sync tb_board_wrapper.dut.reset_sync[1:0]
+@24
++dut_stop_latched tb_board_wrapper.dut.stop_latched
+@24
++dut_permit tb_board_wrapper.dut.permit
+@24
++dut_error_code tb_board_wrapper.dut.error_code[7:0]
+@22
++dut_error_flags tb_board_wrapper.dut.error_flags[15:0]
+@24
++dut_accepted tb_board_wrapper.dut.accepted[31:0]
+@24
++dut_rejected tb_board_wrapper.dut.rejected[31:0]
+@420
++dut_a0 tb_board_wrapper.dut.a0[15:0]
+@420
++dut_a1 tb_board_wrapper.dut.a1[15:0]
+@420
++dut_a2 tb_board_wrapper.dut.a2[15:0]
+@24
++tx tb_board_wrapper.tx

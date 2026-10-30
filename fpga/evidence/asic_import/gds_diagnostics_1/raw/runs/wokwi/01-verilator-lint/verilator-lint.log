@@ -1,0 +1,87 @@
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:4:19: Bits of signal are not used: 'ui_in'[7:3]
+                                                                                : ... note: In instance 'tt_um_igorchip'
+    4 |  input wire [7:0] ui_in,
+      |                   ^~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.046
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/program_host.v:10:12: Bits of signal are not used: 'cs_sync'[2]
+                                                                                 : ... note: In instance 'tt_um_igorchip.host'
+   10 |  reg [2:0] cs_sync, clock_sync;
+      |            ^~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/program_host.v:13:12: Bits of signal are not used: 'rx'[7]
+                                                                                 : ... note: In instance 'tt_um_igorchip.host'
+   13 |  reg [7:0] rx, tx;
+      |            ^~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:7:13: Signal is not used: 'A_CLK'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    7 |  input wire A_CLK, A_MEN, A_WEN, A_REN, A_DLY,
+      |             ^~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:7:20: Signal is not used: 'A_MEN'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    7 |  input wire A_CLK, A_MEN, A_WEN, A_REN, A_DLY,
+      |                    ^~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:7:27: Signal is not used: 'A_WEN'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    7 |  input wire A_CLK, A_MEN, A_WEN, A_REN, A_DLY,
+      |                           ^~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:7:34: Signal is not used: 'A_REN'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    7 |  input wire A_CLK, A_MEN, A_WEN, A_REN, A_DLY,
+      |                                  ^~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:7:41: Signal is not used: 'A_DLY'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    7 |  input wire A_CLK, A_MEN, A_WEN, A_REN, A_DLY,
+      |                                         ^~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:8:19: Signal is not used: 'A_ADDR'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    8 |  input wire [7:0] A_ADDR,
+      |                   ^~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:9:20: Signal is not used: 'A_DIN'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    9 |  input wire [15:0] A_DIN, A_BM,
+      |                    ^~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:9:27: Signal is not used: 'A_BM'
+                                                                                  : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+    9 |  input wire [15:0] A_DIN, A_BM,
+      |                           ^~~~
+%Warning-UNDRIVEN: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:10:21: Signal is not driven: 'A_DOUT'
+                                                                               : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   10 |  output wire [15:0] A_DOUT,
+      |                     ^~~~~~
+                   ... For warning description see https://verilator.org/warn/UNDRIVEN?v=5.046
+                   ... Use "/* verilator lint_off UNDRIVEN */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:11:13: Signal is not used: 'A_BIST_CLK'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   11 |  input wire A_BIST_CLK, A_BIST_EN, A_BIST_MEN, A_BIST_WEN, A_BIST_REN,
+      |             ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:11:25: Signal is not used: 'A_BIST_EN'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   11 |  input wire A_BIST_CLK, A_BIST_EN, A_BIST_MEN, A_BIST_WEN, A_BIST_REN,
+      |                         ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:11:36: Signal is not used: 'A_BIST_MEN'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   11 |  input wire A_BIST_CLK, A_BIST_EN, A_BIST_MEN, A_BIST_WEN, A_BIST_REN,
+      |                                    ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:11:48: Signal is not used: 'A_BIST_WEN'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   11 |  input wire A_BIST_CLK, A_BIST_EN, A_BIST_MEN, A_BIST_WEN, A_BIST_REN,
+      |                                                ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:11:60: Signal is not used: 'A_BIST_REN'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   11 |  input wire A_BIST_CLK, A_BIST_EN, A_BIST_MEN, A_BIST_WEN, A_BIST_REN,
+      |                                                            ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:12:19: Signal is not used: 'A_BIST_ADDR'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   12 |  input wire [7:0] A_BIST_ADDR,
+      |                   ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:13:20: Signal is not used: 'A_BIST_DIN'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   13 |  input wire [15:0] A_BIST_DIN, A_BIST_BM
+      |                    ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v:13:32: Signal is not used: 'A_BIST_BM'
+                                                                                   : ... note: In instance 'tt_um_igorchip.program_store.i_sram'
+   13 |  input wire [15:0] A_BIST_DIN, A_BIST_BM
+      |                                ^~~~~~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev v5.046
+- Verilator: Built from 0.371 MB sources in 111 modules, into 0.100 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.042 s (elab=0.003, cvt=0.024, bld=0.000); cpu 0.037 s on 1 threads; allocated 23.391 MB

@@ -1,0 +1,31 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++clk tb_board_wrapper.clk
+@24
++core_state tb_board_wrapper.dut.policy.core.state[3:0]
+@24
++core_layer tb_board_wrapper.dut.policy.core.layer[1:0]
+@24
++core_neuron tb_board_wrapper.dut.policy.core.neuron[7:0]
+@24
++core_k tb_board_wrapper.dut.policy.core.k[7:0]
+@420
++L0_activation_value tb_board_wrapper.dut.policy.core.lane0.activation.value[15:0]
+@420
++L1_activation_value tb_board_wrapper.dut.policy.core.lane1.activation.value[15:0]
+@420
++L2_activation_value tb_board_wrapper.dut.policy.core.lane2.activation.value[15:0]
+@420
++L3_activation_value tb_board_wrapper.dut.policy.core.lane3.activation.value[15:0]
+@420
++L4_activation_value tb_board_wrapper.dut.policy.core.lane4.activation.value[15:0]
+@420
++L5_activation_value tb_board_wrapper.dut.policy.core.lane5.activation.value[15:0]
+@420
++L6_activation_value tb_board_wrapper.dut.policy.core.lane6.activation.value[15:0]
+@420
++L7_activation_value tb_board_wrapper.dut.policy.core.lane7.activation.value[15:0]

@@ -1,0 +1,14 @@
+[
+  {
+    "port": "COM17",
+    "description": "USB-SERIAL CH340 (COM17)",
+    "vid": 6790,
+    "pid": 29987
+  },
+  {
+    "port": "COM18",
+    "description": "Prolific USB-to-Serial Comm Port (COM18)",
+    "vid": 1659,
+    "pid": 8963
+  }
+]

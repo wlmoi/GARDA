@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Sun Oct 18 14:32:29 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+Revision Name : igor_src_policy_9600
+Top-level Entity Name : igor_src_policy_de10_nano
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 6270
+Total pins : 13
+Total virtual pins : 0
+Total block memory bits : 524,288
+Total DSP Blocks : 8
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

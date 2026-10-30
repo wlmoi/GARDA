@@ -1,0 +1,1213 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.66 (git sha1 86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51, clang++ 21.1.8 -fPIC -O3)
+
+1. Executing Verilog-2005 frontend: /home/runner/work/igor_ws/igor_ws/runs/wokwi/tmp/8f091acee32f4e7e82939b1608b68053.bb.v
+Parsing SystemVerilog input from `/home/runner/work/igor_ws/igor_ws/runs/wokwi/tmp/8f091acee32f4e7e82939b1608b68053.bb.v' to AST representation.
+Generating RTLIL representation for module `\sg13cmos5l_a21o_1'.
+Generating RTLIL representation for module `\sg13cmos5l_a21o_2'.
+Generating RTLIL representation for module `\sg13cmos5l_a21oi_1'.
+Generating RTLIL representation for module `\sg13cmos5l_a21oi_2'.
+Generating RTLIL representation for module `\sg13cmos5l_a221oi_1'.
+Generating RTLIL representation for module `\sg13cmos5l_a22oi_1'.
+Generating RTLIL representation for module `\sg13cmos5l_and2_1'.
+Generating RTLIL representation for module `\sg13cmos5l_and2_2'.
+Generating RTLIL representation for module `\sg13cmos5l_and3_1'.
+Generating RTLIL representation for module `\sg13cmos5l_and3_2'.
+Generating RTLIL representation for module `\sg13cmos5l_and4_1'.
+Generating RTLIL representation for module `\sg13cmos5l_and4_2'.
+Generating RTLIL representation for module `\sg13cmos5l_antennanp'.
+Generating RTLIL representation for module `\sg13cmos5l_buf_1'.
+Generating RTLIL representation for module `\sg13cmos5l_buf_16'.
+Generating RTLIL representation for module `\sg13cmos5l_buf_2'.
+Generating RTLIL representation for module `\sg13cmos5l_buf_4'.
+Generating RTLIL representation for module `\sg13cmos5l_buf_8'.
+Generating RTLIL representation for module `\sg13cmos5l_decap_4'.
+Generating RTLIL representation for module `\sg13cmos5l_decap_8'.
+Generating RTLIL representation for module `\sg13cmos5l_dfrbp_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dfrbp_2'.
+Generating RTLIL representation for module `\sg13cmos5l_dfrbpq_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dfrbpq_2'.
+Generating RTLIL representation for module `\sg13cmos5l_dlhq_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dlhr_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dlhrq_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dllr_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dllrq_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dlygate4sd1_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dlygate4sd2_1'.
+Generating RTLIL representation for module `\sg13cmos5l_dlygate4sd3_1'.
+Generating RTLIL representation for module `\sg13cmos5l_ebufn_2'.
+Generating RTLIL representation for module `\sg13cmos5l_ebufn_4'.
+Generating RTLIL representation for module `\sg13cmos5l_ebufn_8'.
+Generating RTLIL representation for module `\sg13cmos5l_einvn_2'.
+Generating RTLIL representation for module `\sg13cmos5l_einvn_4'.
+Generating RTLIL representation for module `\sg13cmos5l_einvn_8'.
+Generating RTLIL representation for module `\sg13cmos5l_fill_1'.
+Generating RTLIL representation for module `\sg13cmos5l_fill_2'.
+Generating RTLIL representation for module `\sg13cmos5l_fill_4'.
+Generating RTLIL representation for module `\sg13cmos5l_fill_8'.
+Generating RTLIL representation for module `\sg13cmos5l_inv_1'.
+Generating RTLIL representation for module `\sg13cmos5l_inv_16'.
+Generating RTLIL representation for module `\sg13cmos5l_inv_2'.
+Generating RTLIL representation for module `\sg13cmos5l_inv_4'.
+Generating RTLIL representation for module `\sg13cmos5l_inv_8'.
+Generating RTLIL representation for module `\sg13cmos5l_lgcp_1'.
+Generating RTLIL representation for module `\sg13cmos5l_mux2_1'.
+Generating RTLIL representation for module `\sg13cmos5l_mux2_2'.
+Generating RTLIL representation for module `\sg13cmos5l_mux4_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nand2_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nand2_2'.
+Generating RTLIL representation for module `\sg13cmos5l_nand2b_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nand2b_2'.
+Generating RTLIL representation for module `\sg13cmos5l_nand3_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nand3b_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nand4_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nor2_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nor2_2'.
+Generating RTLIL representation for module `\sg13cmos5l_nor2b_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nor2b_2'.
+Generating RTLIL representation for module `\sg13cmos5l_nor3_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nor3_2'.
+Generating RTLIL representation for module `\sg13cmos5l_nor4_1'.
+Generating RTLIL representation for module `\sg13cmos5l_nor4_2'.
+Generating RTLIL representation for module `\sg13cmos5l_o21ai_1'.
+Generating RTLIL representation for module `\sg13cmos5l_or2_1'.
+Generating RTLIL representation for module `\sg13cmos5l_or2_2'.
+Generating RTLIL representation for module `\sg13cmos5l_or3_1'.
+Generating RTLIL representation for module `\sg13cmos5l_or3_2'.
+Generating RTLIL representation for module `\sg13cmos5l_or4_1'.
+Generating RTLIL representation for module `\sg13cmos5l_or4_2'.
+Generating RTLIL representation for module `\sg13cmos5l_sdfbbp_1'.
+Generating RTLIL representation for module `\sg13cmos5l_sdfrbp_1'.
+Generating RTLIL representation for module `\sg13cmos5l_sdfrbp_2'.
+Generating RTLIL representation for module `\sg13cmos5l_sdfrbpq_1'.
+Generating RTLIL representation for module `\sg13cmos5l_sdfrbpq_2'.
+Generating RTLIL representation for module `\sg13cmos5l_sighold'.
+Generating RTLIL representation for module `\sg13cmos5l_slgcp_1'.
+Generating RTLIL representation for module `\sg13cmos5l_tiehi'.
+Generating RTLIL representation for module `\sg13cmos5l_tielo'.
+Generating RTLIL representation for module `\sg13cmos5l_xnor2_1'.
+Generating RTLIL representation for module `\sg13cmos5l_xor2_1'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /home/runner/work/igor_ws/igor_ws/runs/wokwi/tmp/2b6f54db27d041db9040ce7b90ce7946.bb.v
+Parsing SystemVerilog input from `/home/runner/work/igor_ws/igor_ws/runs/wokwi/tmp/2b6f54db27d041db9040ce7b90ce7946.bb.v' to AST representation.
+Generating RTLIL representation for module `\sg13cmos5l_Corner'.
+Generating RTLIL representation for module `\sg13cmos5l_Filler1000'.
+Generating RTLIL representation for module `\sg13cmos5l_Filler10000'.
+Generating RTLIL representation for module `\sg13cmos5l_Filler200'.
+Generating RTLIL representation for module `\sg13cmos5l_Filler2000'.
+Generating RTLIL representation for module `\sg13cmos5l_Filler400'.
+Generating RTLIL representation for module `\sg13cmos5l_Filler4000'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadAnalog'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadIOVdd'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadIOVss'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadIn'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadInOut16mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadInOut30mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadInOut4mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadOut16mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadOut30mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadOut4mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadTriOut16mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadTriOut30mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadTriOut4mA'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadVdd'.
+Generating RTLIL representation for module `\sg13cmos5l_IOPadVss'.
+Successfully finished Verilog frontend.
+
+3. Executing Liberty frontend: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x16_c2_bm_bist_typ_1p20V_25C.lib
+Imported 1 cell types from liberty file.
+
+4. Executing Verilog-2005 frontend: /home/runner/work/igor_ws/igor_ws/src/defines.vh
+Parsing SystemVerilog input from `/home/runner/work/igor_ws/igor_ws/src/defines.vh' to AST representation.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v
+Parsing SystemVerilog input from `/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v' to AST representation.
+Storing AST representation for module `$abstract\tt_um_igorchip'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /home/runner/work/igor_ws/igor_ws/src/program_host.v
+Parsing SystemVerilog input from `/home/runner/work/igor_ws/igor_ws/src/program_host.v' to AST representation.
+Storing AST representation for module `$abstract\program_host'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: /home/runner/work/igor_ws/igor_ws/src/program_memory.v
+Parsing SystemVerilog input from `/home/runner/work/igor_ws/igor_ws/src/program_memory.v' to AST representation.
+Storing AST representation for module `$abstract\program_memory'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: /home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v
+Parsing SystemVerilog input from `/home/runner/work/igor_ws/igor_ws/src/sram_256x16_bb.v' to AST representation.
+Storing AST representation for module `$abstract\RM_IHPSG13_1P_256x16_c2_bm_bist'.
+Successfully finished Verilog frontend.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+10. Executing AST frontend in derive mode using pre-parsed AST for module `\tt_um_igorchip'.
+Generating RTLIL representation for module `\tt_um_igorchip'.
+Warning: Replacing memory \pin_mask with list of registers. See /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:91
+Warning: Replacing memory \wait_count with list of registers. See /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:91
+Warning: Replacing memory \received with list of registers. See /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:90
+Warning: Replacing memory \y with list of registers. See /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:90
+Warning: Replacing memory \x with list of registers. See /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:90
+Warning: Replacing memory \pc with list of registers. See /home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:90
+
+10.1. Analyzing design hierarchy..
+Top module:  \tt_um_igorchip
+
+10.2. Executing AST frontend in derive mode using pre-parsed AST for module `\program_memory'.
+Generating RTLIL representation for module `\program_memory'.
+
+10.3. Executing AST frontend in derive mode using pre-parsed AST for module `\program_host'.
+Generating RTLIL representation for module `\program_host'.
+
+10.4. Analyzing design hierarchy..
+Top module:  \tt_um_igorchip
+Used module:     \program_memory
+Used module:     \program_host
+
+10.5. Analyzing design hierarchy..
+Top module:  \tt_um_igorchip
+Used module:     \program_memory
+Used module:     \program_host
+Removing unused module `$abstract\program_memory'.
+Removing unused module `$abstract\program_host'.
+Removing unused module `$abstract\tt_um_igorchip'.
+Removed 3 unused modules.
+Renaming module tt_um_igorchip to tt_um_igorchip.
+
+11. Executing PROC pass (convert processes to netlists).
+
+11.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$1011 in module tt_um_igorchip.
+Marked 1 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$1011 in module tt_um_igorchip.
+Removed 1 dead cases from process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1008 in module tt_um_igorchip.
+Marked 1 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1008 in module tt_um_igorchip.
+Removed 1 dead cases from process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1005 in module tt_um_igorchip.
+Marked 1 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1005 in module tt_um_igorchip.
+Removed 1 dead cases from process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$1002 in module tt_um_igorchip.
+Marked 1 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$1002 in module tt_um_igorchip.
+Removed 8 dead cases from process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123 in module tt_um_igorchip.
+Marked 64 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123 in module tt_um_igorchip.
+Marked 1 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:80$117 in module tt_um_igorchip.
+Removed 6 dead cases from process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:57$83 in module tt_um_igorchip.
+Marked 8 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:57$83 in module tt_um_igorchip.
+Marked 5 switch rules as full_case in process $proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024 in module program_host.
+Removed a total of 18 dead cases.
+
+11.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 106 assignments to connections.
+
+11.4. Executing PROC_INIT pass (extract init attributes).
+
+11.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+Found async reset \rst_n in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:80$117'.
+Found async reset \rst_n in `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+
+11.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~90 debug messages>
+
+11.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$1011'.
+     1/1: $1$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$21_DATA[7:0]$1013
+Creating decoders for process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1008'.
+     1/1: $1$mem2reg_rd$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$20_DATA[15:0]$1010
+Creating decoders for process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1005'.
+     1/1: $1$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$19_DATA[15:0]$1007
+Creating decoders for process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$1002'.
+     1/1: $1$mem2reg_rd$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$18_DATA[7:0]$1004
+Creating decoders for process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+     1/628: $8$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$971
+     2/628: $8$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$969
+     3/628: $8$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$967
+     4/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR[1:0]$952
+     5/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA[15:0]$953
+     6/628: $22$lookahead\errors$119[3:0]$966
+     7/628: $7$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$965
+     8/628: $7$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR[1:0]$964
+     9/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA[15:0]$963
+    10/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR[1:0]$962
+    11/628: $7$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$961
+    12/628: $7$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR[1:0]$960
+    13/628: $7$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA[15:0]$959
+    14/628: $7$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR[1:0]$958
+    15/628: $7$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$957
+    16/628: $7$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR[1:0]$956
+    17/628: $7$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA[15:0]$955
+    18/628: $7$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR[1:0]$954
+    19/628: $7$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14[1:0]$951
+    20/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$942
+    21/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$943
+    22/628: $7$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR[1:0]$936
+    23/628: $7$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA[7:0]$937
+    24/628: $21$lookahead\errors$119[3:0]$940
+    25/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$939
+    26/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$938
+    27/628: $7$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13[1:0]$935
+    28/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$926
+    29/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$927
+    30/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$916
+    31/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$917
+    32/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$913
+    33/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$914
+    34/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$910
+    35/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$911
+    36/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$907
+    37/628: $8$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$908
+    38/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR[1:0]$892
+    39/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA[7:0]$893
+    40/628: $13$lookahead\halted$121[3:0]$905
+    41/628: $20$lookahead\errors$119[3:0]$904
+    42/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$903
+    43/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$902
+    44/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$901
+    45/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$900
+    46/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$899
+    47/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$898
+    48/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$897
+    49/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$896
+    50/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$895
+    51/628: $7$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$894
+    52/628: $7$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12[1:0]$891
+    53/628: $7$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11[1:0]$890
+    54/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR[1:0]$867
+    55/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA[15:0]$868
+    56/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA[15:0]$882
+    57/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR[1:0]$881
+    58/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA[15:0]$880
+    59/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR[1:0]$879
+    60/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA[15:0]$878
+    61/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR[1:0]$877
+    62/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA[15:0]$876
+    63/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR[1:0]$875
+    64/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA[15:0]$874
+    65/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR[1:0]$873
+    66/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA[15:0]$872
+    67/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR[1:0]$871
+    68/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA[15:0]$870
+    69/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR[1:0]$869
+    70/628: $0\output_oe_q[7:0] [7]
+    71/628: $7$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10[1:0]$843
+    72/628: $7$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR[1:0]$839
+    73/628: $7$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA[15:0]$840
+    74/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA[15:0]$842
+    75/628: $7$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR[1:0]$841
+    76/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA[15:0]$788
+    77/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR[1:0]$787
+    78/628: $6$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA[15:0]$786
+    79/628: $6$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR[1:0]$785
+    80/628: $12$lookahead\literal_y$122[3:0]$838
+    81/628: $12$lookahead\halted$121[3:0]$837
+    82/628: $12$lookahead\literal_pending$120[3:0]$836
+    83/628: $18$lookahead\errors$119[3:0]$835
+    84/628: $6$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$834
+    85/628: $6$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR[1:0]$833
+    86/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA[15:0]$832
+    87/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR[1:0]$831
+    88/628: $6$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$830
+    89/628: $6$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR[1:0]$829
+    90/628: $6$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA[15:0]$828
+    91/628: $6$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR[1:0]$827
+    92/628: $6$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$826
+    93/628: $6$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR[1:0]$825
+    94/628: $6$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA[15:0]$824
+    95/628: $6$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR[1:0]$823
+    96/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA[15:0]$822
+    97/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR[1:0]$821
+    98/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$820
+    99/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$819
+   100/628: $6$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA[7:0]$818
+   101/628: $6$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR[1:0]$817
+   102/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$816
+   103/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$815
+   104/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$814
+   105/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$813
+   106/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$812
+   107/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$811
+   108/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$810
+   109/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$809
+   110/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$808
+   111/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$807
+   112/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA[7:0]$806
+   113/628: $6$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR[1:0]$805
+   114/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA[15:0]$804
+   115/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR[1:0]$803
+   116/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA[15:0]$802
+   117/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR[1:0]$801
+   118/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA[15:0]$800
+   119/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR[1:0]$799
+   120/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA[15:0]$798
+   121/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR[1:0]$797
+   122/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA[15:0]$796
+   123/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR[1:0]$795
+   124/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA[15:0]$794
+   125/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR[1:0]$793
+   126/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA[15:0]$792
+   127/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR[1:0]$791
+   128/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA[15:0]$790
+   129/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR[1:0]$789
+   130/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:192$17[1:0]$784
+   131/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:190$16[1:0]$783
+   132/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:189$15[1:0]$782
+   133/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14[1:0]$781
+   134/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13[1:0]$780
+   135/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12[1:0]$779
+   136/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11[1:0]$778
+   137/628: $6$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10[1:0]$777
+   138/628: $6$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_ADDR[1:0]$766
+   139/628: $6$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_DATA[15:0]$767
+   140/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_DATA[15:0]$769
+   141/628: $6$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_ADDR[1:0]$768
+   142/628: $11$lookahead\literal_pending$120[3:0]$762
+   143/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:142$9[1:0]$698
+   144/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_DATA[15:0]$710
+   145/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_ADDR[1:0]$709
+   146/628: $5$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_DATA[15:0]$708
+   147/628: $5$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_ADDR[1:0]$707
+   148/628: $11$lookahead\literal_y$122[3:0]$764
+   149/628: $11$lookahead\halted$121[3:0]$763
+   150/628: $17$lookahead\errors$119[3:0]$761
+   151/628: $5$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$760
+   152/628: $5$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR[1:0]$759
+   153/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA[15:0]$758
+   154/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR[1:0]$757
+   155/628: $5$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$756
+   156/628: $5$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR[1:0]$755
+   157/628: $5$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA[15:0]$754
+   158/628: $5$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR[1:0]$753
+   159/628: $5$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$752
+   160/628: $5$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR[1:0]$751
+   161/628: $5$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA[15:0]$750
+   162/628: $5$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR[1:0]$749
+   163/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA[15:0]$748
+   164/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR[1:0]$747
+   165/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$746
+   166/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$745
+   167/628: $5$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA[7:0]$744
+   168/628: $5$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR[1:0]$743
+   169/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$742
+   170/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$741
+   171/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$740
+   172/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$739
+   173/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$738
+   174/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$737
+   175/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$736
+   176/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$735
+   177/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$734
+   178/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$733
+   179/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA[7:0]$732
+   180/628: $5$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR[1:0]$731
+   181/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA[15:0]$730
+   182/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR[1:0]$729
+   183/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA[15:0]$728
+   184/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR[1:0]$727
+   185/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA[15:0]$726
+   186/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR[1:0]$725
+   187/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA[15:0]$724
+   188/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR[1:0]$723
+   189/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA[15:0]$722
+   190/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR[1:0]$721
+   191/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA[15:0]$720
+   192/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR[1:0]$719
+   193/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA[15:0]$718
+   194/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR[1:0]$717
+   195/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA[15:0]$716
+   196/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR[1:0]$715
+   197/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA[15:0]$714
+   198/628: $5$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR[1:0]$713
+   199/628: $5$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA[15:0]$712
+   200/628: $5$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR[1:0]$711
+   201/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:192$17[1:0]$706
+   202/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:190$16[1:0]$705
+   203/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:189$15[1:0]$704
+   204/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14[1:0]$703
+   205/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13[1:0]$702
+   206/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12[1:0]$701
+   207/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11[1:0]$700
+   208/628: $5$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10[1:0]$699
+   209/628: $5$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_DATA[7:0]$694
+   210/628: $4$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_ADDR[1:0]$630
+   211/628: $4$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_DATA[7:0]$631
+   212/628: $4$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_DATA[7:0]$633
+   213/628: $4$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_ADDR[1:0]$632
+   214/628: $10$lookahead\literal_y$122[3:0]$693
+   215/628: $10$lookahead\halted$121[3:0]$692
+   216/628: $10$lookahead\literal_pending$120[3:0]$691
+   217/628: $16$lookahead\errors$119[3:0]$690
+   218/628: $4$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$689
+   219/628: $4$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR[1:0]$688
+   220/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA[15:0]$687
+   221/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR[1:0]$686
+   222/628: $4$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$685
+   223/628: $4$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR[1:0]$684
+   224/628: $4$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA[15:0]$683
+   225/628: $4$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR[1:0]$682
+   226/628: $4$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$681
+   227/628: $4$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR[1:0]$680
+   228/628: $4$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA[15:0]$679
+   229/628: $4$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR[1:0]$678
+   230/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA[15:0]$677
+   231/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR[1:0]$676
+   232/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$675
+   233/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$674
+   234/628: $4$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA[7:0]$673
+   235/628: $4$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR[1:0]$672
+   236/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$671
+   237/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$670
+   238/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$669
+   239/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$668
+   240/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$667
+   241/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$666
+   242/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$665
+   243/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$664
+   244/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$663
+   245/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$662
+   246/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA[7:0]$661
+   247/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR[1:0]$660
+   248/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA[15:0]$659
+   249/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR[1:0]$658
+   250/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA[15:0]$657
+   251/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR[1:0]$656
+   252/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA[15:0]$655
+   253/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR[1:0]$654
+   254/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA[15:0]$653
+   255/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR[1:0]$652
+   256/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA[15:0]$651
+   257/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR[1:0]$650
+   258/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA[15:0]$649
+   259/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR[1:0]$648
+   260/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA[15:0]$647
+   261/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR[1:0]$646
+   262/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA[15:0]$645
+   263/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR[1:0]$644
+   264/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA[15:0]$643
+   265/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR[1:0]$642
+   266/628: $4$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA[15:0]$641
+   267/628: $4$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR[1:0]$640
+   268/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_DATA[15:0]$639
+   269/628: $4$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_ADDR[1:0]$638
+   270/628: $4$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_DATA[15:0]$637
+   271/628: $4$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_ADDR[1:0]$636
+   272/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_DATA[7:0]$635
+   273/628: $4$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_ADDR[1:0]$634
+   274/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:192$17[1:0]$629
+   275/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:190$16[1:0]$628
+   276/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:189$15[1:0]$627
+   277/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14[1:0]$626
+   278/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13[1:0]$625
+   279/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12[1:0]$624
+   280/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11[1:0]$623
+   281/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10[1:0]$622
+   282/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:142$9[1:0]$621
+   283/628: $4$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_DATA[7:0]$619
+   284/628: $9$lookahead\literal_y$122[3:0]$618
+   285/628: $9$lookahead\halted$121[3:0]$617
+   286/628: $9$lookahead\literal_pending$120[3:0]$616
+   287/628: $15$lookahead\errors$119[3:0]$615
+   288/628: $3$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$614
+   289/628: $3$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR[1:0]$613
+   290/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA[15:0]$612
+   291/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR[1:0]$611
+   292/628: $3$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$610
+   293/628: $3$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR[1:0]$609
+   294/628: $3$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA[15:0]$608
+   295/628: $3$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR[1:0]$607
+   296/628: $3$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$606
+   297/628: $3$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR[1:0]$605
+   298/628: $3$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA[15:0]$604
+   299/628: $3$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR[1:0]$603
+   300/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA[15:0]$602
+   301/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR[1:0]$601
+   302/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$600
+   303/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$599
+   304/628: $3$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA[7:0]$598
+   305/628: $3$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR[1:0]$597
+   306/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$596
+   307/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$595
+   308/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$594
+   309/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$593
+   310/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$592
+   311/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$591
+   312/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$590
+   313/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$589
+   314/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$588
+   315/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$587
+   316/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA[7:0]$586
+   317/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR[1:0]$585
+   318/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA[15:0]$584
+   319/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR[1:0]$583
+   320/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA[15:0]$582
+   321/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR[1:0]$581
+   322/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA[15:0]$580
+   323/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR[1:0]$579
+   324/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA[15:0]$578
+   325/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR[1:0]$577
+   326/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA[15:0]$576
+   327/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR[1:0]$575
+   328/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA[15:0]$574
+   329/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR[1:0]$573
+   330/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA[15:0]$572
+   331/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR[1:0]$571
+   332/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA[15:0]$570
+   333/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR[1:0]$569
+   334/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA[15:0]$568
+   335/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR[1:0]$567
+   336/628: $3$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA[15:0]$566
+   337/628: $3$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR[1:0]$565
+   338/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_DATA[15:0]$564
+   339/628: $3$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_ADDR[1:0]$563
+   340/628: $3$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_DATA[15:0]$562
+   341/628: $3$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_ADDR[1:0]$561
+   342/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_DATA[7:0]$560
+   343/628: $3$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_ADDR[1:0]$559
+   344/628: $3$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_DATA[7:0]$558
+   345/628: $3$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_ADDR[1:0]$557
+   346/628: $3$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_DATA[7:0]$556
+   347/628: $3$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_ADDR[1:0]$555
+   348/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:192$17[1:0]$552
+   349/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:190$16[1:0]$551
+   350/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:189$15[1:0]$550
+   351/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14[1:0]$549
+   352/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13[1:0]$548
+   353/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12[1:0]$547
+   354/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11[1:0]$546
+   355/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10[1:0]$545
+   356/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:142$9[1:0]$544
+   357/628: $3$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_DATA[7:0]$554
+   358/628: $3$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_ADDR[1:0]$553
+   359/628: $8$lookahead\literal_y$122[3:0]$540
+   360/628: $8$lookahead\halted$121[3:0]$539
+   361/628: $8$lookahead\literal_pending$120[3:0]$538
+   362/628: $14$lookahead\errors$119[3:0]$537
+   363/628: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$536
+   364/628: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR[1:0]$535
+   365/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA[15:0]$534
+   366/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR[1:0]$533
+   367/628: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$532
+   368/628: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR[1:0]$531
+   369/628: $2$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA[15:0]$530
+   370/628: $2$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR[1:0]$529
+   371/628: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$528
+   372/628: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR[1:0]$527
+   373/628: $2$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA[15:0]$526
+   374/628: $2$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR[1:0]$525
+   375/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA[15:0]$524
+   376/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR[1:0]$523
+   377/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$522
+   378/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$521
+   379/628: $2$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA[7:0]$520
+   380/628: $2$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR[1:0]$519
+   381/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$518
+   382/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$517
+   383/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$516
+   384/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$515
+   385/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$514
+   386/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$513
+   387/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$512
+   388/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$511
+   389/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$510
+   390/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$509
+   391/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA[7:0]$508
+   392/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR[1:0]$507
+   393/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA[15:0]$506
+   394/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR[1:0]$505
+   395/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA[15:0]$504
+   396/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR[1:0]$503
+   397/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA[15:0]$502
+   398/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR[1:0]$501
+   399/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA[15:0]$500
+   400/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR[1:0]$499
+   401/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA[15:0]$498
+   402/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR[1:0]$497
+   403/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA[15:0]$496
+   404/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR[1:0]$495
+   405/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA[15:0]$494
+   406/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR[1:0]$493
+   407/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA[15:0]$492
+   408/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR[1:0]$491
+   409/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA[15:0]$490
+   410/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR[1:0]$489
+   411/628: $2$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA[15:0]$488
+   412/628: $2$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR[1:0]$487
+   413/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_DATA[15:0]$486
+   414/628: $2$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_ADDR[1:0]$485
+   415/628: $2$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_DATA[15:0]$484
+   416/628: $2$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_ADDR[1:0]$483
+   417/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_DATA[7:0]$482
+   418/628: $2$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_ADDR[1:0]$481
+   419/628: $2$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_DATA[7:0]$480
+   420/628: $2$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_ADDR[1:0]$479
+   421/628: $2$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_DATA[7:0]$478
+   422/628: $2$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_ADDR[1:0]$477
+   423/628: $2$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_DATA[7:0]$476
+   424/628: $2$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_ADDR[1:0]$475
+   425/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:192$17[1:0]$474
+   426/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:190$16[1:0]$473
+   427/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:189$15[1:0]$472
+   428/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14[1:0]$471
+   429/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13[1:0]$470
+   430/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12[1:0]$469
+   431/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11[1:0]$468
+   432/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10[1:0]$467
+   433/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:142$9[1:0]$466
+   434/628: $3$lookahead\literal_y$122[3:0]$331 [3]
+   435/628: $0\output_oe_q[7:0] [5]
+   436/628: $4$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_ADDR[1:0]$444
+   437/628: $4$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_ADDR[1:0]$442
+   438/628: $4$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_DATA[7:0]$443
+   439/628: $13$lookahead\errors$119[3:0]$446
+   440/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:127$8[1:0]$441
+   441/628: $5$lookahead\errors$119[3:0]$328 [1]
+   442/628: $0\output_oe_q[7:0] [3]
+   443/628: $0\output_oe_q[7:0] [2]
+   444/628: $0\output_oe_q[7:0] [1]
+   445/628: $0\output_oe_q[7:0] [0]
+   446/628: $0\output_oe_q[7:0] [6]
+   447/628: $19$lookahead\errors$119[3:0]$844
+   448/628: $4$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_DATA[7:0]$445
+   449/628: $7$lookahead\literal_pending$120[3:3]$376
+   450/628: $12$lookahead\errors$119[3:3]$375
+   451/628: $7$lookahead\halted$121[3:3]$377
+   452/628: $6$lookahead\literal_y$122[2:2]$374
+   453/628: $6$lookahead\literal_pending$120[2:2]$372
+   454/628: $11$lookahead\errors$119[2:2]$371
+   455/628: $6$lookahead\halted$121[2:2]$373
+   456/628: $5$lookahead\literal_y$122[1:1]$370
+   457/628: $5$lookahead\literal_pending$120[1:1]$368
+   458/628: $10$lookahead\errors$119[1:1]$367
+   459/628: $5$lookahead\halted$121[1:1]$369
+   460/628: $4$lookahead\literal_y$122[0:0]$366
+   461/628: $4$lookahead\literal_pending$120[0:0]$364
+   462/628: $9$lookahead\errors$119[0:0]$363
+   463/628: $4$lookahead\halted$121[0:0]$365
+   464/628: $3$lookahead\halted$121[3:0]$330 [3]
+   465/628: $3$lookahead\halted$121[3:0]$330 [2]
+   466/628: $3$lookahead\literal_pending$120[3:0]$329 [2]
+   467/628: $5$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_DATA[7:0]$447
+   468/628: $3$lookahead\literal_y$122[3:0]$331 [2]
+   469/628: $3$lookahead\halted$121[3:0]$330 [1]
+   470/628: $3$lookahead\literal_pending$120[3:0]$329 [1]
+   471/628: $0\output_oe_q[7:0] [4]
+   472/628: $3$lookahead\literal_y$122[3:0]$331 [1]
+   473/628: $3$lookahead\literal_pending$120[3:0]$329 [0]
+   474/628: $3$lookahead\literal_y$122[3:0]$331 [0]
+   475/628: $5$lookahead\errors$119[3:0]$328 [0]
+   476/628: $7$lookahead\literal_y$122[3:3]$378
+   477/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:110$7[1:0]$354
+   478/628: $0\byte_address[8:0] [8]
+   479/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:106$6[1:0]$343
+   480/628: $6$lookahead\errors$119[3:0]$334
+   481/628: $4$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:103$5[1:0]$333
+   482/628: $0\byte_address[8:0] [7:0]
+   483/628: $7$lookahead\errors$119[3:0]$344
+   484/628: $3$lookahead\literal_pending$120[3:0]$329 [3]
+   485/628: $5$lookahead\errors$119[3:0]$328 [3]
+   486/628: $8$lookahead\errors$119[3:0]$355
+   487/628: $3$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_DATA[7:0]$327
+   488/628: $3$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_ADDR[1:0]$326
+   489/628: $3$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_DATA[7:0]$325
+   490/628: $3$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_ADDR[1:0]$324
+   491/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:127$8[1:0]$323
+   492/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:110$7[1:0]$322
+   493/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:106$6[1:0]$321
+   494/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:103$5[1:0]$320
+   495/628: $3\i[31:0]
+   496/628: $2$lookahead\literal_y$122[3:0]$319
+   497/628: $2$lookahead\halted$121[3:0]$318
+   498/628: $2$lookahead\literal_pending$120[3:0]$317
+   499/628: $4$lookahead\errors$119[3:0]$316
+   500/628: $2$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_DATA[7:0]$315
+   501/628: $2$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_ADDR[1:0]$314
+   502/628: $2$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_DATA[7:0]$313
+   503/628: $2$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_ADDR[1:0]$312
+   504/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:127$8[1:0]$311
+   505/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:110$7[1:0]$310
+   506/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:106$6[1:0]$309
+   507/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:103$5[1:0]$308
+   508/628: $2\i[31:0]
+   509/628: $3$lookahead\errors$119[3:0]$299
+   510/628: $3$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:96$4[1:0]$298
+   511/628: $2$lookahead\errors$119[3:0]$296
+   512/628: $2$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:96$4[1:0]$295
+   513/628: $1$lookahead\literal_y$122[3:0]$292
+   514/628: $1$lookahead\halted$121[3:0]$291
+   515/628: $1$lookahead\literal_pending$120[3:0]$290
+   516/628: $1$lookahead\errors$119[3:0]$289
+   517/628: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA[15:0]$288
+   518/628: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR[1:0]$287
+   519/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA[15:0]$286
+   520/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR[1:0]$285
+   521/628: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA[15:0]$284
+   522/628: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR[1:0]$283
+   523/628: $1$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA[15:0]$282
+   524/628: $1$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR[1:0]$281
+   525/628: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA[15:0]$280
+   526/628: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR[1:0]$279
+   527/628: $1$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA[15:0]$278
+   528/628: $1$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR[1:0]$277
+   529/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA[15:0]$276
+   530/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR[1:0]$275
+   531/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA[7:0]$274
+   532/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR[1:0]$273
+   533/628: $1$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA[7:0]$272
+   534/628: $1$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR[1:0]$271
+   535/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA[7:0]$270
+   536/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR[1:0]$269
+   537/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA[7:0]$268
+   538/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR[1:0]$267
+   539/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA[7:0]$266
+   540/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR[1:0]$265
+   541/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA[7:0]$264
+   542/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR[1:0]$263
+   543/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA[7:0]$262
+   544/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR[1:0]$261
+   545/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA[7:0]$260
+   546/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR[1:0]$259
+   547/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA[15:0]$258
+   548/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR[1:0]$257
+   549/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA[15:0]$256
+   550/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR[1:0]$255
+   551/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA[15:0]$254
+   552/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR[1:0]$253
+   553/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA[15:0]$252
+   554/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR[1:0]$251
+   555/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA[15:0]$250
+   556/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR[1:0]$249
+   557/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA[15:0]$248
+   558/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR[1:0]$247
+   559/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA[15:0]$246
+   560/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR[1:0]$245
+   561/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA[15:0]$244
+   562/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR[1:0]$243
+   563/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA[15:0]$242
+   564/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR[1:0]$241
+   565/628: $1$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA[15:0]$240
+   566/628: $1$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR[1:0]$239
+   567/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_DATA[15:0]$238
+   568/628: $1$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_ADDR[1:0]$237
+   569/628: $1$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_DATA[15:0]$236
+   570/628: $1$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_ADDR[1:0]$235
+   571/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_DATA[7:0]$234
+   572/628: $1$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_ADDR[1:0]$233
+   573/628: $1$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_DATA[7:0]$232
+   574/628: $1$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_ADDR[1:0]$231
+   575/628: $1$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_DATA[7:0]$230
+   576/628: $1$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_ADDR[1:0]$229
+   577/628: $1$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_DATA[7:0]$228
+   578/628: $1$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_ADDR[1:0]$227
+   579/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:192$17[1:0]$222
+   580/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:190$16[1:0]$221
+   581/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:189$15[1:0]$220
+   582/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14[1:0]$219
+   583/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13[1:0]$218
+   584/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12[1:0]$217
+   585/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11[1:0]$216
+   586/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10[1:0]$215
+   587/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:142$9[1:0]$214
+   588/628: $1$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_DATA[7:0]$226
+   589/628: $1$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_ADDR[1:0]$225
+   590/628: $1$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_DATA[7:0]$224
+   591/628: $1$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_ADDR[1:0]$223
+   592/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:127$8[1:0]$213
+   593/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:110$7[1:0]$212
+   594/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:106$6[1:0]$211
+   595/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:103$5[1:0]$210
+   596/628: $1\i[31:0]
+   597/628: $1$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:96$4[1:0]$209
+   598/628: $0\pin_mask[3][7:0]
+   599/628: $0\pin_mask[2][7:0]
+   600/628: $0\pin_mask[1][7:0]
+   601/628: $0\pin_mask[0][7:0]
+   602/628: $0\wait_count[3][7:0]
+   603/628: $0\wait_count[2][7:0]
+   604/628: $0\wait_count[1][7:0]
+   605/628: $0\wait_count[0][7:0]
+   606/628: $0\received[3][15:0]
+   607/628: $0\received[2][15:0]
+   608/628: $0\received[1][15:0]
+   609/628: $0\received[0][15:0]
+   610/628: $0\y[3][15:0]
+   611/628: $0\y[2][15:0]
+   612/628: $0\y[1][15:0]
+   613/628: $0\y[0][15:0]
+   614/628: $0\x[3][15:0]
+   615/628: $0\x[2][15:0]
+   616/628: $0\x[1][15:0]
+   617/628: $0\x[0][15:0]
+   618/628: $0\pc[3][7:0]
+   619/628: $0\pc[2][7:0]
+   620/628: $0\pc[1][7:0]
+   621/628: $0\pc[0][7:0]
+   622/628: $0\entry_pc[7:0]
+   623/628: $5$lookahead\errors$119[3:0]$328 [2]
+   624/628: $0\core_enabled[0:0]
+   625/628: $3$lookahead\halted$121[3:0]$330 [0]
+   626/628: $0\output_q[7:0]
+   627/628: $0\host_tid[1:0]
+   628/628: $0\slot[1:0]
+Creating decoders for process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:80$117'.
+     1/2: $0\gpio_sync[7:0]
+     2/2: $0\gpio_meta[7:0]
+Creating decoders for process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:57$83'.
+     1/20: $2$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:75$27_DATA[15:0]$116
+     2/20: $2$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:74$26_DATA[15:0]$115
+     3/20: $2$mem2reg_rd$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:72$25_DATA[7:0]$114
+     4/20: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:71$24_DATA[15:0]$113
+     5/20: $2$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:70$23_DATA[15:0]$112
+     6/20: $2$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:68$22_DATA[7:0]$111
+     7/20: $2\host_read_data[7:0]
+     8/20: $1\host_read_data[7:0]
+     9/20: $1$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:75$27_DATA[15:0]$107
+    10/20: $1$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:75$27_ADDR[1:0]$106
+    11/20: $1$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:74$26_DATA[15:0]$105
+    12/20: $1$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:74$26_ADDR[1:0]$104
+    13/20: $1$mem2reg_rd$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:72$25_DATA[7:0]$103
+    14/20: $1$mem2reg_rd$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:72$25_ADDR[1:0]$102
+    15/20: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:71$24_DATA[15:0]$101
+    16/20: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:71$24_ADDR[1:0]$100
+    17/20: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:70$23_DATA[15:0]$99
+    18/20: $1$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:70$23_ADDR[1:0]$98
+    19/20: $1$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:68$22_DATA[7:0]$97
+    20/20: $1$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:68$22_ADDR[1:0]$96
+Creating decoders for process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+     1/13: $0\read_strobe[0:0]
+     2/13: $0\write_strobe[0:0]
+     3/13: $0\data_sync[1:0]
+     4/13: $0\clock_sync[2:0]
+     5/13: $0\cs_sync[2:0]
+     6/13: $0\first_fall[0:0]
+     7/13: $0\writing[0:0]
+     8/13: $0\command[0:0]
+     9/13: $0\tx[7:0]
+    10/13: $0\rx[7:0]
+    11/13: $0\count[2:0]
+    12/13: $0\write_data[7:0]
+    13/13: $0\address[6:0]
+
+11.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$21_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$1011'.
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$20_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1008'.
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$19_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1005'.
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$18_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$1002'.
+No latch inferred for signal `\tt_um_igorchip.\host_read_data' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:57$83'.
+
+11.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\tt_um_igorchip.\i' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8872' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\halted' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8877' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\errors' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8882' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\literal_pending' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8887' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\literal_y' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8892' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\slot' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8897' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\host_tid' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8902' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\output_q' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8907' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\output_oe_q' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8912' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\core_enabled' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8917' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\byte_address' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8922' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\entry_pc' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8927' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:96$4' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8932' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:103$5' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8937' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:106$6' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8942' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:110$7' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8947' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:127$8' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8952' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:142$9' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8957' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:154$10' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8962' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:172$11' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8967' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:174$12' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8972' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:179$13' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8977' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:186$14' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8982' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:189$15' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8987' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:190$16' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8992' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$bitselwrite$pos$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:192$17' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$8997' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pc[0]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9002' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pc[1]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9007' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pc[2]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9012' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pc[3]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9017' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\x[0]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9022' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\x[1]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9027' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\x[2]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9032' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\x[3]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9037' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\y[0]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9042' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\y[1]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9047' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\y[2]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9052' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\y[3]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9057' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\received[0]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9062' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\received[1]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9067' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\received[2]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9072' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\received[3]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9077' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\wait_count[0]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9082' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\wait_count[1]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9087' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\wait_count[2]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9092' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\wait_count[3]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9097' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pin_mask[0]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9102' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pin_mask[1]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9107' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pin_mask[2]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9112' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\pin_mask[3]' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9117' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9122' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:125$28_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9127' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9132' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:126$29_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9137' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9142' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$30_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9147' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9152' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$31_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9157' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9162' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:136$32_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9167' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9172' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:138$33_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9177' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9182' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:140$34_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9187' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9192' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:141$35_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9197' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9202' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$36_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9207' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9212' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:144$37_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9217' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9222' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:157$38_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9227' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9232' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:158$39_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9237' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9242' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:159$40_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9247' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9252' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:160$41_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9257' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9262' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:161$42_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9267' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9272' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:162$43_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9277' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9282' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:163$44_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9287' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9292' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:164$45_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9297' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9302' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:167$46_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9307' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9312' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:168$47_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9317' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9322' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:169$48_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9327' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9332' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:170$49_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9337' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9342' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:171$50_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9347' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9352' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:173$51_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9357' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9362' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\wait_count$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:177$52_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9367' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9372' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:178$53_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9377' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9382' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:182$54_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9387' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9392' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$55_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9397' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9402' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:183$56_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9407' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9412' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$57_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9417' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9422' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:184$58_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9427' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9432' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_wr$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$59_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9437' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_ADDR' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9442' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$mem2reg_rd$\received$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:185$60_DATA' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9447' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$lookahead\errors$119' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9452' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$lookahead\literal_pending$120' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9457' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$lookahead\halted$121' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9462' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.$lookahead\literal_y$122' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+  created $adff cell `$procdff$9467' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\gpio_meta' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:80$117'.
+  created $adff cell `$procdff$9472' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_igorchip.\gpio_sync' using process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:80$117'.
+  created $adff cell `$procdff$9477' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\write_strobe' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9482' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\read_strobe' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9487' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\address' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9492' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\write_data' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9497' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\cs_sync' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9502' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\clock_sync' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9507' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\data_sync' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9512' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\count' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9517' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\rx' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9522' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\tx' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9527' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\command' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9532' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\writing' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9537' with positive edge clock and positive level reset.
+Creating register for signal `\program_host.\first_fall' using process `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+  created $adff cell `$procdff$9542' with positive edge clock and positive level reset.
+
+11.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$1011'.
+Removing empty process `tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$1011'.
+Found and cleaned up 1 empty switch in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1008'.
+Removing empty process `tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1008'.
+Found and cleaned up 1 empty switch in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1005'.
+Removing empty process `tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1005'.
+Found and cleaned up 1 empty switch in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$1002'.
+Removing empty process `tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$1002'.
+Found and cleaned up 71 empty switches in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+Removing empty process `tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:84$123'.
+Removing empty process `tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:80$117'.
+Found and cleaned up 8 empty switches in `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:57$83'.
+Removing empty process `tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:57$83'.
+Found and cleaned up 7 empty switches in `\program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+Removing empty process `program_host.$proc$/home/runner/work/igor_ws/igor_ws/src/program_host.v:19$1024'.
+Cleaned up 90 empty switches.
+
+11.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_igorchip.
+<suppressed ~783 debug messages>
+Optimizing module program_host.
+<suppressed ~32 debug messages>
+Optimizing module program_memory.
+
+12. Executing FLATTEN pass (flatten design).
+Deleting now unused module program_host.
+Deleting now unused module program_memory.
+<suppressed ~2 debug messages>
+
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_igorchip..
+Removed 2136 unused cells and 4787 unused wires.
+<suppressed ~2162 debug messages>

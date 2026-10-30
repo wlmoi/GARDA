@@ -1,0 +1,43 @@
+137. Printing statistics.
+
+=== tt_um_igorchip ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     8364 wires
+     9042 wire bits
+       63 public wires
+      468 public wire bits
+        8 ports
+       43 port bits
+     8991 cells
+     2414   $_ANDNOT_
+      232   $_AND_
+       88   $_DFFE_PN0P_
+      309   $_DFF_PN0_
+        6   $_DFF_PN1_
+     3950   $_MUX_
+      156   $_NAND_
+      155   $_NOR_
+      432   $_NOT_
+      110   $_ORNOT_
+     1051   $_OR_
+       31   $_XNOR_
+       56   $_XOR_
+        1   RM_IHPSG13_1P_256x16_c2_bm_bist
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PN0P_ is unknown!
+   Area for cell type $_DFF_PN0_ is unknown!
+   Area for cell type $_DFF_PN1_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type \RM_IHPSG13_1P_256x16_c2_bm_bist is unknown!
+

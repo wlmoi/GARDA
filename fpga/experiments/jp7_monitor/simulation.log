@@ -1,0 +1,20 @@
+
+
+JP7 q=status e=echo i=infer
+
+mode=I stop=0 pin=1 edges=0000000E rxbytes=00000001 last=A5 framing=00000001 accepted=00000001 rejected=00000002 error=06 state=0 cycles=00001B04
+
+> 
+
+JP7 q=status e=echo i=infer
+
+mode=E stop=0 pin=1 edges=0000000E rxbytes=00000001 last=A5 framing=00000001 accepted=00000001 rejected=00000002 error=06 state=0 cycles=00001B04
+
+> 
+
+JP7 q=status e=echo i=infer
+
+mode=I stop=0 pin=1 edges=0000000E rxbytes=00000001 last=A5 framing=00000001 accepted=00000001 rejected=00000002 error=06 state=0 cycles=00001B04
+
+> PASS: physical UART decoding/counters, framing error, status snapshot, echo/inference selection
+tb_jp7_monitor.v:24: $finish called at 36610000 (1ps)

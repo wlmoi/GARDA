@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "passed_cases": 30,
+  "total_cases": 30,
+  "hardware_accessed": true,
+  "hardware": {
+    "passed": true,
+    "exchanges": 30,
+    "port": "COM18",
+    "evidence": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\mock_ai_surge_cargo\\20261020T022815467069Z\\physical_fpga_transactions.jsonl",
+    "motor_hardware_accessed": false
+  },
+  "groups": {
+    "CARGO_HARD_CAP_ALL_DISTANCES": {
+      "passed": 28,
+      "total": 28
+    },
+    "ZERO_COMMAND_STOP": {
+      "passed": 2,
+      "total": 2
+    }
+  },
+  "scope": "Physical FPGA inference verified against integer oracle; post-inference maximum-action injection tests host cargo cap; motors mocked.",
+  "source_sha256": {
+    "bitstreams\\..\\scripts\\mock_ai_surge_cargo.py": "fd94dcd42ee904899e022b5ece992a46fb3630e49f27e2db64b556f95e26ea84",
+    "verification\\run_host_regression.py": "4c95d3956971b7db20125ee9eb20010163f437a2a27fec70d56c2b3e5a1ff53c",
+    "software_integration\\src\\igor_controller\\igor_controller\\controller_node.py": "86f9853eac4a2e7decae5c42544e29f5207fb3a11946d2c265985f7ac4e837a9"
+  }
+}

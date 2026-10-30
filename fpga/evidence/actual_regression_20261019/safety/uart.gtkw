@@ -1,0 +1,15 @@
+[dumpfile] "uart.vcd"
+[timestart] 0
+[size] 1500 900
+@28
+tb_safety_uart.rx
+tb_safety_uart.tx
+tb_safety_uart.led[7:0]
+tb_safety_uart.dut.invalid_command
+tb_safety_uart.dut.protocol_fault
+tb_safety_uart.dut.enable
+tb_safety_uart.dut.vc[4:0]
+tb_safety_uart.dut.wc[6:0]
+tb_safety_uart.dut.fault[7:0]
+tb_safety_uart.dut.events[31:0]
+tb_safety_uart.dut.last[7:0]

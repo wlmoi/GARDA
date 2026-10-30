@@ -1,0 +1,7 @@
+__pycache__/
+tests/artifacts/
+reference-*.html
+*.tar.gz
+*.zip
+!dist/downloads/*.zip
+browser-qa*.png

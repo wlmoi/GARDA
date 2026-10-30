@@ -1,0 +1,2351 @@
+[
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "10",
+    "column": "17",
+    "object": "saturated",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core.lane*.activation"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "28",
+    "column": "30",
+    "object": "input_value[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "33",
+    "column": "22",
+    "object": "error_code[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "33",
+    "column": "22",
+    "object": "error_code[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "33",
+    "column": "22",
+    "object": "error_code[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "33",
+    "column": "22",
+    "object": "error_code[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[16]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[17]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[18]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[19]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[20]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[21]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[22]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[23]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[24]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[25]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[26]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[27]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[28]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[29]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[30]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "34",
+    "column": "23",
+    "object": "latency_cycles[31]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "35",
+    "column": "16",
+    "object": "saturated",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "40",
+    "column": "15",
+    "object": "state[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "42",
+    "column": "15",
+    "object": "neuron[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "42",
+    "column": "15",
+    "object": "neuron[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "42",
+    "column": "15",
+    "object": "neuron[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "42",
+    "column": "15",
+    "object": "neuron[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "42",
+    "column": "23",
+    "object": "k[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[0][3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][11]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][12]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][8]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "47",
+    "column": "23",
+    "object": "actions[2][9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "51",
+    "column": "16",
+    "object": "input_count[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "51",
+    "column": "16",
+    "object": "input_count[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "51",
+    "column": "16",
+    "object": "input_count[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "51",
+    "column": "16",
+    "object": "input_count[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "line": "517",
+    "column": "18",
+    "object": "if",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "line": "522",
+    "column": "13",
+    "object": "elsif",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "line": "523",
+    "column": "18",
+    "object": "elsif",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "line": "524",
+    "column": "18",
+    "object": "elsif",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "line": "525",
+    "column": "18",
+    "object": "if",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "line": "525",
+    "column": "19",
+    "object": "else",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "53",
+    "column": "16",
+    "object": "output_count[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "53",
+    "column": "16",
+    "object": "output_count[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "53",
+    "column": "16",
+    "object": "output_count[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "53",
+    "column": "16",
+    "object": "output_count[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "54",
+    "column": "17",
+    "object": "bias_base[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "54",
+    "column": "17",
+    "object": "bias_base[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "54",
+    "column": "17",
+    "object": "bias_base[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "54",
+    "column": "17",
+    "object": "bias_base[8]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "54",
+    "column": "17",
+    "object": "bias_base[9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_branch",
+    "line": "560",
+    "column": "21",
+    "object": "if",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "line": "574",
+    "column": "17",
+    "object": "case",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "58",
+    "column": "24",
+    "object": "activated[4][10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "58",
+    "column": "24",
+    "object": "activated[4][11]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "58",
+    "column": "24",
+    "object": "activated[4][12]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "58",
+    "column": "24",
+    "object": "activated[4][13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "58",
+    "column": "24",
+    "object": "activated[4][14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "58",
+    "column": "24",
+    "object": "activated[4][15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "58",
+    "column": "24",
+    "object": "activated[4][9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "line": "59",
+    "column": "16",
+    "object": "activation_saturated[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.core"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "16",
+    "column": "22",
+    "object": "error_code[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "16",
+    "column": "22",
+    "object": "error_code[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "16",
+    "column": "22",
+    "object": "error_code[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "16",
+    "column": "22",
+    "object": "error_code[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "17",
+    "column": "24",
+    "object": "error_flags[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "17",
+    "column": "24",
+    "object": "error_flags[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "17",
+    "column": "24",
+    "object": "error_flags[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "17",
+    "column": "24",
+    "object": "error_flags[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[16]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[17]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[18]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[19]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[20]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[21]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[22]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[23]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[24]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[25]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[26]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[27]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[28]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[29]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[30]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[31]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "18",
+    "column": "57",
+    "object": "last_latency_cycles[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "31",
+    "object": "action0[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[11]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[12]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[8]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "21",
+    "column": "49",
+    "object": "action2[9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_line",
+    "line": "237",
+    "column": "21",
+    "object": "case",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "80",
+    "column": "23",
+    "object": "core_input_value[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "83",
+    "column": "41",
+    "object": "core_saturated",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "84",
+    "column": "16",
+    "object": "core_error[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "84",
+    "column": "16",
+    "object": "core_error[1]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "84",
+    "column": "16",
+    "object": "core_error[2]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "84",
+    "column": "16",
+    "object": "core_error[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[16]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[17]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[18]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[19]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[20]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[21]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[22]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[23]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[24]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[25]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[26]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[27]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[28]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[29]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[30]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "85",
+    "column": "17",
+    "object": "core_latency[31]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "23",
+    "object": "sample0[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[0]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[11]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[12]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[8]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "91",
+    "column": "39",
+    "object": "sample2[9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[11]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[12]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[16]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[17]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[18]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[19]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[20]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[21]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[22]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[23]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[24]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[25]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[26]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[27]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[28]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[29]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[30]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[31]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[8]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "16",
+    "object": "rx_timer[9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[16]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[17]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[18]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[19]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[20]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[21]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[22]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[23]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[24]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[25]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[26]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[27]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[28]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[29]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[30]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "25",
+    "object": "infer_timer[31]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[17]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[18]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[19]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[20]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[21]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[22]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[23]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[24]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[25]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[26]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[27]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[28]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[29]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[30]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "line": "93",
+    "column": "37",
+    "object": "result_timer[31]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_line",
+    "line": "19",
+    "column": "2",
+    "object": "case",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[11]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[12]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[8]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "42",
+    "object": "count[9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.receiver"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[10]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[11]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[12]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[13]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[14]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[15]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[3]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[4]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[5]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[6]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[7]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[8]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  },
+  {
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "line": "7",
+    "column": "28",
+    "object": "count[9]",
+    "comment": null,
+    "hierarchy": "TOP.tb_src_policy_uart.dut.transmitter"
+  }
+]

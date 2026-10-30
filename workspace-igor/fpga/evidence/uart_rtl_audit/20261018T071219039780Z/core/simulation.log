@@ -1,0 +1,2 @@
+PASS core: 236 network vectors, 8364 activation cases, 54399 assertions; all 192 hidden activations and 3 outputs checked per vector
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\uart_rtl_audit\20261018T071219039780Z\core\tb_src_policy_core.sv:162: $finish called at 33315911000 (1ps)

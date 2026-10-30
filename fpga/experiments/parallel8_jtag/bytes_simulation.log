@@ -1,0 +1,2 @@
+PASS: 200 ordered bytes, FIFO-full retry, registered Avalon handshake, host RX
+tb_jtag_bytes.v:34: $finish called at 33550000 (1ps)

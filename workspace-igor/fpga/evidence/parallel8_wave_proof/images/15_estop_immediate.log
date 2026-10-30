@@ -1,0 +1,22 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.key[1:0] tb_board_wrapper.dut.stop_active tb_board_wrapper.dut.stop_sync[1:0] tb_board_wrapper.dut.stop_latched tb_board_wrapper.dut.permit tb_board_wrapper.dut.a0[15:0] tb_board_wrapper.dut.a1[15:0] tb_board_wrapper.dut.a2[15:0] tb_board_wrapper.dut.error_code[7:0] tb_board_wrapper.dut.rejected[31:0] tb_board_wrapper.tx tb_board_wrapper.led[7:0] 
+VALUE 0 0
+VALUE 1 1
+VALUE 2 1
+VALUE 3 0
+VALUE 4 0
+VALUE 5 0
+VALUE 6 0
+VALUE 7 0
+VALUE 8 0
+VALUE 9 0
+VALUE 10 0
+VALUE 11 1
+VALUE 12 10
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\15_estop_immediate.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/15_estop_immediate.png'

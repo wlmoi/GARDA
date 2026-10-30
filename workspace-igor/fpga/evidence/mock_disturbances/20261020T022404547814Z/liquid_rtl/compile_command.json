@@ -1,0 +1,31 @@
+{
+  "command": [
+    "C:\\iverilog\\bin\\iverilog.exe",
+    "-g2012",
+    "-s",
+    "tb_safety_uart",
+    "-o",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\mock_disturbances\\20261020T022404547814Z\\liquid_rtl\\uart.vvp",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_best_candidate_selector.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_candidate_generator.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_config_registers.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_costmap_bank.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_costmap_manager.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_de10_nano_wrapper.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_kinematic_step.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_neural_core.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_neural_rom.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_rollout_tile.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_safety_security_gate.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_score_accumulator.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_status_logger.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_top.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_trig_lut.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_uart_protocol.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_uart_rx.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_uart_top.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\rtl\\igor_uart_tx.v",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\verification\\tb_safety_uart.v"
+  ],
+  "exit_code": 0
+}

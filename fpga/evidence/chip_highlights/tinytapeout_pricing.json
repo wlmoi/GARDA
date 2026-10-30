@@ -1,0 +1,26 @@
+{
+  "retrieved_utc": "2026-10-17T09:45:37.383985+00:00",
+  "calculator_url": "https://app.tinytapeout.com/calculator?shuttle=ihp&tiles=24&pcbs=1",
+  "source_url": "https://app.tinytapeout.com/_build/assets/invoice-WoZjomWD.js",
+  "source_sha256": "fd9e3eabbe907d01998ea29e2ee4da5e935f93ab93137081d3dc8dd87fe848bb",
+  "currency": "EUR",
+  "shuttle": "ihp",
+  "design_type": "digital",
+  "tiles": 24,
+  "pcbs": 1,
+  "tile_price": 70,
+  "pcb_price_standard": 300,
+  "pcb_price_subsidized": 100,
+  "shipping_per_pcb": 15,
+  "standard_total_before_tax": 1995,
+  "individual_subsidized_total_before_tax": 1795,
+  "scope": "Calculator snapshot for existing 24-tile protocol engine; not a quotation, mass-production unit price, or integrated AI/safety ASIC estimate",
+  "idr_conversion": {
+    "eur_idr": "20222.11",
+    "rate_type": "BI selling rate; budget reference, not settlement quote",
+    "rate_date": "2026-10-16",
+    "source_url": "https://www.bi.go.id/id/statistik/informasi-kurs/transaksi-bi/default.aspx",
+    "standard_total_idr_rounded": 40343109,
+    "individual_subsidized_total_idr_rounded": 36298687
+  }
+}

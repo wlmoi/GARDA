@@ -1,0 +1,7 @@
+{
+  "command": [
+    "C:\\iverilog\\bin\\vvp.exe",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\mock_disturbances\\20261020T063321655492Z\\liquid_rtl\\uart.vvp"
+  ],
+  "exit_code": 0
+}

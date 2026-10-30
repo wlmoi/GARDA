@@ -1,0 +1,10 @@
+{
+  "location_label": "BELUM_DIISI",
+  "latitude": null,
+  "longitude": null,
+  "location_source": "not_provided",
+  "time_source": "laptop OS clock; not FPGA event time",
+  "transport": "USB-Blaster JTAG status query",
+  "interval_seconds": 0.25,
+  "scope": "Last completed inference snapshot; no UART writes, no programming, no GPS"
+}

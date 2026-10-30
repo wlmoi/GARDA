@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Sat Oct 17 09:23:26 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Standard Edition
+Revision Name : igor_src_policy
+Top-level Entity Name : igor_src_policy_de10_nano
+Family : Cyclone V
+Device : 5CSEBA6U23I7
+Power Models : Final
+Total Thermal Power Dissipation : 937.55 mW
+Core Dynamic Thermal Power Dissipation : 50.36 mW
+Core Static Thermal Power Dissipation : 865.80 mW
+I/O Thermal Power Dissipation : 21.40 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

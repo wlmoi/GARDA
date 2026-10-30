@@ -1,0 +1,12 @@
+[WARNING ORD-0039] .openroad ignored with -python
+[INFO ODB-0227] LEF file: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef, created 15 layers, 52 vias
+[INFO ODB-0227] LEF file: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef, created 84 library cells
+[INFO ODB-0227] LEF file: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef, created 22 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /home/runner/work/igor_ws/igor_ws/runs/wokwi/61-magic-writelef/tt_um_igorchip.lef at line 2.
+
+[INFO ODB-0227] LEF file: /home/runner/work/igor_ws/igor_ws/runs/wokwi/61-magic-writelef/tt_um_igorchip.lef, created 1 library cells
+[INFO ODB-0127] Reading DEF file: /tmp/tmpww1l1s8y
+[INFO ODB-0128] Design: empty
+[INFO ODB-0134] Finished DEF file: /tmp/tmpww1l1s8y
+[WARNING] Cell 'tt_um_igorchip' has (5) input pin(s) without antenna gate information. They might not be connected to a gate.

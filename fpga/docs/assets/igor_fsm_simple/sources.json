@@ -1,0 +1,298 @@
+{
+  "kind": "three simplified presentation diagrams; state names/topology follow existing RTL; no RTL change",
+  "pages": [
+    {
+      "key": "01_core",
+      "source": "experiments/parallel8/igor_src_policy_core.v",
+      "states": [
+        "IDLE",
+        "BIAS_ADDRESS",
+        "BIAS_WAIT",
+        "BIAS_TAKE",
+        "WEIGHT_ADDRESS",
+        "WEIGHT_WAIT",
+        "MAC",
+        "ACTIVATE"
+      ],
+      "transitions": [
+        {
+          "source": "IDLE",
+          "target": "IDLE",
+          "label": "!start / load_input sah menyimpan input",
+          "diagram_label": "S=0"
+        },
+        {
+          "source": "IDLE",
+          "target": "BIAS_ADDRESS",
+          "label": "start sah / busy=1; done=0; layer=0; neuron=0",
+          "diagram_label": "S=1"
+        },
+        {
+          "source": "BIAS_ADDRESS",
+          "target": "BIAS_WAIT",
+          "label": "1 clock / alamat bias terdaftar",
+          "diagram_label": "1"
+        },
+        {
+          "source": "BIAS_WAIT",
+          "target": "BIAS_TAKE",
+          "label": "1 clock / data bias siap",
+          "diagram_label": "1"
+        },
+        {
+          "source": "BIAS_TAKE",
+          "target": "WEIGHT_ADDRESS",
+          "label": "1 clock / bias masuk accumulator",
+          "diagram_label": "1"
+        },
+        {
+          "source": "WEIGHT_ADDRESS",
+          "target": "WEIGHT_WAIT",
+          "label": "1 clock / alamat dan operand terdaftar",
+          "diagram_label": "1"
+        },
+        {
+          "source": "WEIGHT_WAIT",
+          "target": "MAC",
+          "label": "1 clock / weights siap",
+          "diagram_label": "1"
+        },
+        {
+          "source": "MAC",
+          "target": "WEIGHT_ADDRESS",
+          "label": "k < input_count-1 / k++",
+          "diagram_label": "N=0"
+        },
+        {
+          "source": "MAC",
+          "target": "ACTIVATE",
+          "label": "k == input_count-1",
+          "diagram_label": "N=1"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "BIAS_ADDRESS",
+          "label": "neuron+8 < output_count / neuron+=8",
+          "diagram_label": "G=0"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "BIAS_ADDRESS",
+          "label": "neuron+8 >= output_count && layer!=2 / layer++; neuron=0",
+          "diagram_label": "G=1, L=0"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "IDLE",
+          "label": "neuron+8 >= output_count && layer==2 / busy=0; done=1",
+          "diagram_label": "G=1, L=1"
+        }
+      ]
+    },
+    {
+      "key": "02_policy",
+      "source": "rtl/igor_src_policy/igor_src_policy_uart.v",
+      "states": [
+        "RX",
+        "LOAD",
+        "START",
+        "RUN",
+        "CAP0",
+        "CAP1",
+        "CAP2",
+        "TX",
+        "TX_START_LAST",
+        "TX_END_LAST"
+      ],
+      "transitions": [
+        {
+          "source": "RX",
+          "target": "RX",
+          "label": "belum ada frame sah",
+          "diagram_label": "A=0"
+        },
+        {
+          "source": "RX",
+          "target": "LOAD",
+          "label": "CRC cocok && seluruh observasi valid / load_index=0",
+          "diagram_label": "A=1"
+        },
+        {
+          "source": "LOAD",
+          "target": "LOAD",
+          "label": "load_index<73 / load_index++",
+          "diagram_label": "I=0"
+        },
+        {
+          "source": "LOAD",
+          "target": "START",
+          "label": "load_index==73 / jadwalkan core_load terakhir",
+          "diagram_label": "I=1"
+        },
+        {
+          "source": "START",
+          "target": "RUN",
+          "label": "1 clock / core_start terdaftar",
+          "diagram_label": "1"
+        },
+        {
+          "source": "RUN",
+          "target": "RUN",
+          "label": "!core_done && tidak ada reject",
+          "diagram_label": "D=0"
+        },
+        {
+          "source": "RUN",
+          "target": "CAP0",
+          "label": "core_done / output_index=0; simpan core_latency",
+          "diagram_label": "D=1"
+        },
+        {
+          "source": "CAP0",
+          "target": "CAP1",
+          "label": "1 clock",
+          "diagram_label": "1"
+        },
+        {
+          "source": "CAP1",
+          "target": "CAP2",
+          "label": "1 clock",
+          "diagram_label": "1"
+        },
+        {
+          "source": "CAP2",
+          "target": "TX",
+          "label": "1 clock / tx_index=0",
+          "diagram_label": "1"
+        },
+        {
+          "source": "TX",
+          "target": "TX",
+          "label": "tx_busy || tx_send: tunggu; slot siap && index<10: index++",
+          "diagram_label": "R=0 atau F=0"
+        },
+        {
+          "source": "TX",
+          "target": "TX_START_LAST",
+          "label": "!tx_busy && !tx_send && tx_index==10 / tx_send=1",
+          "diagram_label": "R=1, F=1"
+        },
+        {
+          "source": "TX_START_LAST",
+          "target": "TX_START_LAST",
+          "label": "!tx_busy",
+          "diagram_label": "B=0"
+        },
+        {
+          "source": "TX_START_LAST",
+          "target": "TX_END_LAST",
+          "label": "tx_busy",
+          "diagram_label": "B=1"
+        },
+        {
+          "source": "TX_END_LAST",
+          "target": "TX_END_LAST",
+          "label": "tx_busy",
+          "diagram_label": "B=1"
+        },
+        {
+          "source": "TX_END_LAST",
+          "target": "RX",
+          "label": "!tx_busy",
+          "diagram_label": "B=0"
+        }
+      ]
+    },
+    {
+      "key": "03_uart_rx",
+      "source": "rtl/igor_uart_rx.v",
+      "states": [
+        "S0",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "transitions": [
+        {
+          "source": "S0",
+          "target": "S0",
+          "label": "sync=1",
+          "diagram_label": "sync=1"
+        },
+        {
+          "source": "S0",
+          "target": "S1",
+          "label": "sync=0 / count=CLKS_PER_BIT/2-1",
+          "diagram_label": "sync=0"
+        },
+        {
+          "source": "S1",
+          "target": "S1",
+          "label": "count!=0 / count--",
+          "diagram_label": "C=0"
+        },
+        {
+          "source": "S1",
+          "target": "S2",
+          "label": "count==0 && sync==0 / index=0; count=BIT-1",
+          "diagram_label": "C=1, sync=0"
+        },
+        {
+          "source": "S1",
+          "target": "S0",
+          "label": "count==0 && sync==1 / false start",
+          "diagram_label": "C=1, sync=1"
+        },
+        {
+          "source": "S2",
+          "target": "S2",
+          "label": "count!=0: count--; sample && index<7: index++",
+          "diagram_label": "C=0 atau K=0"
+        },
+        {
+          "source": "S2",
+          "target": "S3",
+          "label": "count==0 && bit_index==7 / sample bit terakhir",
+          "diagram_label": "C=1, K=1"
+        },
+        {
+          "source": "S3",
+          "target": "S3",
+          "label": "count!=0 / count--",
+          "diagram_label": "C=0"
+        },
+        {
+          "source": "S3",
+          "target": "S0",
+          "label": "count==0 && sync==1 / valid=1; data[7:0]=shift",
+          "diagram_label": "C=1, sync=1"
+        },
+        {
+          "source": "S3",
+          "target": "S0",
+          "label": "count==0 && sync==0 / error=1",
+          "diagram_label": "C=1, sync=0"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "experiments/parallel8/igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "rtl/igor_src_policy/igor_src_policy_uart.v": "8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a",
+    "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "scripts/igor_fsm_data.py": "a79e9e75c79a153b353381b71b25da5baa667629cd792d2e96bf8ef66161c333",
+    "scripts/render_igor_fsm_simple.py": "50748285aa17c547d113be0978fe043ee335a903b5393b7e860b87cc0e580b62"
+  },
+  "artifacts": {
+    "docs/assets/igor_fsm_simple/01_core.drawio": "06cf03702c4a6f5d07557e90bdc23708e39fb982d2432e28dd84dbd47301764a",
+    "docs/assets/igor_fsm_simple/01_core.png": "cc41399694df9555c456f4dbb7c3dd8383131e755d712aad194462a1eff94238",
+    "docs/assets/igor_fsm_simple/01_core.svg": "b37d38c5a0bef888d1f5091b2b1d63e1e41930fef8a7e85447368a9efd0bf9f3",
+    "docs/assets/igor_fsm_simple/02_policy.drawio": "58e8410e53d23b56ffcdfa6c95d212df9e6f68fa9f43a1a1e0f3a0cbd5382b43",
+    "docs/assets/igor_fsm_simple/02_policy.png": "93a8c957ea2dcf79edc550b838b2d06db353664b8a6de61ed3d990f30b5e0c06",
+    "docs/assets/igor_fsm_simple/02_policy.svg": "2697c6e5df38f31c6f4ab5133e9822940dc8cc81d47a5ae6626b349fb1ccc5ca",
+    "docs/assets/igor_fsm_simple/03_uart_rx.drawio": "e3591c5ee4602c486dbb5f96f095a522e8a5b2df91ff1d8516073ec37fa00238",
+    "docs/assets/igor_fsm_simple/03_uart_rx.png": "3bc68fe6b2e351c5ba5b3573521c090e939c5d6f506f71c04b7748c65b9b43c3",
+    "docs/assets/igor_fsm_simple/03_uart_rx.svg": "9e61ebd555c7b1e03fd52756cac622594b07b17c144971e62fa334c42ae54729"
+  },
+  "combined_sha256": "2b85ec3775ccbb995c2ac84baf774596b09f50c7ada7d2eb2e7a3c04b6463cb3"
+}

@@ -1,0 +1,51 @@
+{
+  "architecture": [
+    74,
+    128,
+    64,
+    3
+  ],
+  "words": 18051,
+  "storage_words": 32768,
+  "layout": {
+    "w1": [
+      0,
+      9471
+    ],
+    "b1": [
+      9472,
+      9599
+    ],
+    "w2": [
+      9600,
+      17791
+    ],
+    "b2": [
+      17792,
+      17855
+    ],
+    "w3": [
+      17856,
+      18047
+    ],
+    "b3": [
+      18048,
+      18050
+    ]
+  },
+  "source_metadata": {
+    "source_run": "run_20261016_023913_v3_residual_ppo_300k",
+    "total_timesteps": 303104,
+    "architecture": "74 -> 128 (ReLU) -> 64 (ReLU) -> 3"
+  },
+  "sha256": {
+    "src\\igor_navigation\\igor_navigation\\weights\\model_weights.json": "8428c5b84bec029c8340aa0f7b571c849c8ca65766ad6399332bb4b7cb53e22c",
+    "src\\igor_navigation\\igor_navigation\\weights\\hardware\\layer1_w.mem": "6dd9d5c26233d5b6d480c17d728c9f270f66040aabab51b5d32a6f961d8206c2",
+    "src\\igor_navigation\\igor_navigation\\weights\\hardware\\layer1_b.mem": "832ed50d03b5ee12aedcdbfa5b03d682cebfab20ca93212b1633e580f1291b2a",
+    "src\\igor_navigation\\igor_navigation\\weights\\hardware\\layer2_w.mem": "62c48f63a10c17dfc90e2871e821821d82836fbc005692850e7b73971c5bb50b",
+    "src\\igor_navigation\\igor_navigation\\weights\\hardware\\layer2_b.mem": "5ccae6a16c51f5cab9c9821265dc96f32aae4fde52912891fa1b3e4876fbf41e",
+    "src\\igor_navigation\\igor_navigation\\weights\\hardware\\layer3_w.mem": "460544b0ff02c8d050756a4c21181e4096bdf7f9100973a20202254f47ae68ec",
+    "src\\igor_navigation\\igor_navigation\\weights\\hardware\\layer3_b.mem": "b75b45fd7a42ea93ecc07fccaf3df4e494b71377d3b73a6d12bc0155869b8645",
+    "fpga\\rtl\\igor_src_policy\\policy_weights.mem": "55a647207c0b670901fe8074716331ac2876886bbbe1ca44aff9bbb942426e2d"
+  }
+}

@@ -1,0 +1,19 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.dut.policy.core.state[3:0] tb_board_wrapper.dut.policy.core.address[11:0] tb_board_wrapper.dut.policy.core.weight_address[11:0] tb_board_wrapper.dut.policy.core.operand[15:0] tb_board_wrapper.dut.policy.core.k[7:0] tb_board_wrapper.dut.policy.core.lane0.data[15:0] tb_board_wrapper.dut.policy.core.lane0.acc[39:0] tb_board_wrapper.dut.policy.core.lane1.data[15:0] tb_board_wrapper.dut.policy.core.lane1.acc[39:0] 
+VALUE 0 1
+VALUE 1 4
+VALUE 2 0
+VALUE 3 1
+VALUE 4 256
+VALUE 5 1
+VALUE 6 -18
+VALUE 7 -5120
+VALUE 8 28
+VALUE 9 5888
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\07_rom_bias_mac.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/07_rom_bias_mac.png'

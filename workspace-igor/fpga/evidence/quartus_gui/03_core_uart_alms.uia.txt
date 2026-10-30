@@ -1,0 +1,350 @@
+Window: "Quartus Prime", App: quartus.exe.
+	0 window (settable, string) Quartus Prime Secondary Actions: Raise ID: QUI_APP.QGQ_MAIN_WINDOW
+		1 title bar (settable, string) Value: Quartus Prime Standard Edition - D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy - igor_src_policy
+			2 menu bar System ID: MenuBar
+				3 menu item System
+			4 button Minimize
+			5 button Restore
+			6 button Close
+		7 menu bar (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar
+			8 menu item (settable, string) File ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			9 menu item (settable, string) Edit ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			10 menu item (settable, string) View ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			11 menu item (settable, string) Project ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			12 menu item (settable, string) Assignments ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			13 menu item (settable, string) Processing ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			14 menu item (settable, string) Tools ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			15 menu item (settable, string) Window ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+			16 menu item (settable, string) Help ID: QUI_APP.QGQ_MAIN_WINDOW.QMenuBar.QAction
+		17 status bar ID: QUI_APP.QGQ_MAIN_WINDOW.QStatusBar
+			19 text ID: QUI_APP.QGQ_MAIN_WINDOW.QStatusBar.QLabel
+			20 custom (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.QStatusBar.QUI_STATUS_DISPLAY
+				21 text 0% ID: QUI_APP.QGQ_MAIN_WINDOW.QStatusBar.QUI_STATUS_DISPLAY.QLabel
+				22 text ID: QUI_APP.QGQ_MAIN_WINDOW.QStatusBar.QUI_STATUS_DISPLAY.QLabel
+				23 text 00:00:00 ID: QUI_APP.QGQ_MAIN_WINDOW.QStatusBar.QUI_STATUS_DISPLAY.QLabel
+		24 tool bar (settable, string) Feedback ID: QUI_APP.QGQ_MAIN_WINDOW.Feedback
+			25 button (settable, string) Feedback ID: QUI_APP.QGQ_MAIN_WINDOW.Feedback.QToolButton
+		26 tool bar (settable, string) File ID: QUI_APP.QGQ_MAIN_WINDOW.File
+			27 button (settable, string) New ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+			28 button (settable, string) Open ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+			29 button (disabled, settable, string) Save ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+			30 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolBarSeparator
+			31 button (disabled, settable, string) Cut ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+			32 button (disabled, settable, string) Copy ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+			33 button (disabled, settable, string) Paste ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+			34 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolBarSeparator
+			35 button (disabled, settable, string) Undo ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+			36 button (disabled, settable, string) Redo ID: QUI_APP.QGQ_MAIN_WINDOW.File.QToolButton
+		37 tool bar (settable, string) Standard ID: QUI_APP.QGQ_MAIN_WINDOW.Standard
+			38 combo box (settable, string) Value: igor_src_policy ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QComboBox
+			39 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolBarSeparator
+			40 button (settable, string) Settings ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			41 button (settable, string) Assignment Editor ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			42 button (settable, string) Pin Planner ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			43 button (settable, string) Chip Planner ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			44 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolBarSeparator
+			45 button (disabled, settable, string) Stop Processing ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			46 button (settable, string) Start Compilation ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			47 button (settable, string) Start Analysis & Elaboration ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			48 button (settable, string) Start Analysis & Synthesis ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			49 button (settable, string) Compilation Report ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			50 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolBarSeparator
+			51 button (settable, string) Timing Analyzer ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			52 button (settable, string) Platform Designer ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			53 button (settable, string) Programmer ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+			54 check box (settable, string) IP Catalog ID: QUI_APP.QGQ_MAIN_WINDOW.Standard.QToolButton
+		55 custom (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA
+			272 window (settable, string) Compilation Report - igor_src_policy Secondary Actions: Raise ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq
+				273 window (settable, string) Report Secondary Actions: Raise ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND
+					274 window (settable, string) Table of Contents Secondary Actions: Raise ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget
+						275 tree (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							513 tree item (selectable, settable, string) Flow Summary ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							514 tree item (selectable, settable, string) Flow Settings ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							515 tree item (selectable, settable, string) Flow Non-Default Global Settings ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							516 tree item (selectable, settable, string) Flow Elapsed Time ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							517 tree item (selectable, settable, string) Flow OS Summary ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							518 tree item (selectable, settable, string) Flow Log ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							519 tree item (selectable, settable, string) Analysis & Synthesis ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							520 tree item (selectable, settable, string) Fitter ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							521 tree item (selectable, settable, string) Summary ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							522 tree item (selectable, settable, string) Settings ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							523 tree item (selectable, settable, string) Parallel Compilation ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							524 tree item (selectable, settable, string) Netlist Optimizations ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							525 tree item (selectable, settable, string) Incremental Compilation Section ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							526 tree item (selectable, settable, string) Pin-Out File ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							527 tree item (selectable, settable, string) Resource Section ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							528 tree item (selectable, settable, string) Resource Usage Summary ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							529 tree item (selectable, settable, string) Partition Statistics ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							530 tree item (selectable, settable, string) Input Pins ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							531 tree item (selectable, settable, string) Output Pins ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							532 tree item (selectable, settable, string) I/O Bank Usage ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							533 tree item (selectable, settable, string) All Package Pins ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							534 tree item (selectable, settable, string) Resource Utilization by Entity ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							535 tree item (selectable, settable, string) Delay Chain Summary ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							536 tree item (selectable, settable, string) Pad To Core Delay Chain Fanout ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							537 tree item (selectable, settable, string) Control Signals ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							538 tree item (selectable, settable, string) Global & Other Fast Signals ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							539 tree item (selectable, settable, string) Non-Global High Fan-Out Signals ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							540 tree item (selectable, settable, string) RAM Summary ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							541 tree item (selectable, settable, string) DSP Block Usage Summary ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							542 tree item (selectable, settable, string) DSP Block Details ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							543 tree item (selectable, settable, string) Logic and Routing Section ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							544 tree item (selectable, settable, string) I/O Rules Section ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+							545 tree item (selectable, settable, string) Device Options ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.rpwq_toc_treeview
+						302 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+							303 custom (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame
+								304 text Table of Contents ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_title
+								305 check box (settable, string) P ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_pin_button
+								306 button (settable, string) D ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.rpwq_toc_dock_widget.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_detach_button
+					307 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER
+						308 text Fitter Resource Utilization by Entity ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.QLabel
+						444 edit (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_PAGE_SEARCH_BOX
+							445 button (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_PAGE_SEARCH_BOX.search_button
+						546 text ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.QTextBrowser
+							547 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.QTextBrowser.qt_scrollarea_viewport
+						548 tree (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							549 header (selectable, settable, string) Compilation Hierarchy Node ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							550 header (selectable, settable, string) ALMs needed [=A-B+C] ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							551 header (selectable, settable, string) [A] ALMs used in final placement ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							552 header (selectable, settable, string) [B] Estimate of ALMs recoverable by dense packing ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							553 header (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							554 tree item (selectable, settable, string) |igor_src_policy_de10_nano ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							555 tree item (selectable, settable, string) 3303.0 (2.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							556 tree item (selectable, settable, string) 4111.5 (3.4) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							557 tree item (selectable, settable, string) 820.5 (1.1) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							558 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							559 tree item (selectable, settable, string) |igor_src_policy_uart:policy| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							560 tree item (selectable, settable, string) 3300.7 (838.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							561 tree item (selectable, settable, string) 4108.0 (1030.6) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							562 tree item (selectable, settable, string) 819.4 (199.6) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							563 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							564 tree item (selectable, settable, string) |igor_src_policy_core:core| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							565 tree item (selectable, settable, string) 2402.7 (2293.1) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							566 tree item (selectable, settable, string) 3016.0 (2883.7) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							567 tree item (selectable, settable, string) 617.8 (595.1) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							568 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							569 tree item (selectable, settable, string) |altsyncram:lane0.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							570 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							571 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							572 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							573 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							574 tree item (selectable, settable, string) |altsyncram_m9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							575 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							576 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							577 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							578 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							579 tree item (selectable, settable, string) |altsyncram:lane1.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							580 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							581 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							582 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							583 tree item (selectable, settable, string) 2 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							584 tree item (selectable, settable, string) |altsyncram_n9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							585 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							586 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							587 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							588 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							589 tree item (selectable, settable, string) |altsyncram:lane2.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							590 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							591 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							592 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							593 tree item (selectable, settable, string) 3 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							594 tree item (selectable, settable, string) |altsyncram_o9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							595 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							596 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							597 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							598 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							599 tree item (selectable, settable, string) |altsyncram:lane3.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							600 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							601 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							602 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							603 tree item (selectable, settable, string) 4 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							604 tree item (selectable, settable, string) |altsyncram_p9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							605 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							606 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							607 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							608 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							609 tree item (selectable, settable, string) |altsyncram:lane4.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							610 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							611 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							612 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							613 tree item (selectable, settable, string) 5 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							614 tree item (selectable, settable, string) |altsyncram_q9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							615 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							616 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							617 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							618 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							619 tree item (selectable, settable, string) |altsyncram:lane5.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							620 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							621 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							622 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							623 tree item (selectable, settable, string) 6 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							624 tree item (selectable, settable, string) |altsyncram_r9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							625 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							626 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							627 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							628 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							629 tree item (selectable, settable, string) |altsyncram:lane6.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							630 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							631 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							632 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							633 tree item (selectable, settable, string) 7 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							634 tree item (selectable, settable, string) |altsyncram_s9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							635 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							636 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							637 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							638 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							639 tree item (selectable, settable, string) |altsyncram:lane7.memory_rtl_0| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							640 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							641 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							642 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							643 tree item (selectable, settable, string) 8 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							644 tree item (selectable, settable, string) |altsyncram_t9h1:auto_generated| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							645 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							646 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							647 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							648 tree item (selectable, settable, string) 1 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							649 tree item (selectable, settable, string) |igor_src_policy_activation:lane0.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							650 tree item (selectable, settable, string) 14.3 (14.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							651 tree item (selectable, settable, string) 14.7 (14.7) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							652 tree item (selectable, settable, string) 0.3 (0.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							653 tree item (selectable, settable, string) 9 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							654 tree item (selectable, settable, string) |igor_src_policy_activation:lane1.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							655 tree item (selectable, settable, string) 12.7 (12.7) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							656 tree item (selectable, settable, string) 13.7 (13.7) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							657 tree item (selectable, settable, string) 1.0 (1.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							658 tree item (selectable, settable, string) 10 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							659 tree item (selectable, settable, string) |igor_src_policy_activation:lane2.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							660 tree item (selectable, settable, string) 14.3 (14.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							661 tree item (selectable, settable, string) 15.8 (15.8) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							662 tree item (selectable, settable, string) 1.5 (1.5) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							663 tree item (selectable, settable, string) 11 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							664 tree item (selectable, settable, string) |igor_src_policy_activation:lane3.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							665 tree item (selectable, settable, string) 13.8 (13.8) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							666 tree item (selectable, settable, string) 17.3 (17.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							667 tree item (selectable, settable, string) 3.5 (3.5) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							668 tree item (selectable, settable, string) 12 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							669 tree item (selectable, settable, string) |igor_src_policy_activation:lane4.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							670 tree item (selectable, settable, string) 13.1 (13.1) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							671 tree item (selectable, settable, string) 17.4 (17.4) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							672 tree item (selectable, settable, string) 4.3 (4.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							673 tree item (selectable, settable, string) 13 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							674 tree item (selectable, settable, string) |igor_src_policy_activation:lane5.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							675 tree item (selectable, settable, string) 13.8 (13.8) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							676 tree item (selectable, settable, string) 17.4 (17.4) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							677 tree item (selectable, settable, string) 3.6 (3.6) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							678 tree item (selectable, settable, string) 14 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							679 tree item (selectable, settable, string) |igor_src_policy_activation:lane6.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							680 tree item (selectable, settable, string) 13.6 (13.6) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							681 tree item (selectable, settable, string) 18.3 (18.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							682 tree item (selectable, settable, string) 4.7 (4.7) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							683 tree item (selectable, settable, string) 15 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							684 tree item (selectable, settable, string) |igor_src_policy_activation:lane7.activation| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							685 tree item (selectable, settable, string) 13.8 (13.8) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							686 tree item (selectable, settable, string) 17.6 (17.6) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							687 tree item (selectable, settable, string) 3.8 (3.8) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							688 tree item (selectable, settable, string) 16 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							689 tree item (selectable, settable, string) |igor_uart_rx:receiver| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							690 tree item (selectable, settable, string) 38.3 (38.3) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							691 tree item (selectable, settable, string) 40.4 (40.4) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							692 tree item (selectable, settable, string) 2.1 (2.1) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							693 tree item (selectable, settable, string) 2 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							694 tree item (selectable, settable, string) |igor_uart_tx:transmitter| ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							695 tree item (selectable, settable, string) 21.5 (21.5) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							696 tree item (selectable, settable, string) 21.0 (21.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							697 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+							698 tree item (selectable, settable, string) 3 ID: QUI_APP.QGQ_MAIN_WINDOW.AFCQ_MDI_AREA.QWidget.resr_rpwq.RPWQ_FRAME_WND.RPWQ_PAGE_CONTAINER.RPWQ_TABLE
+		94 window (settable, string) Project Navigator Secondary Actions: Raise ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator
+			95 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget
+				96 custom (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET
+					97 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy
+						98 tree (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							210 header (selectable, settable, string) Entity:Instance ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							211 header (selectable, settable, string) ALMs needed [=A-B+C] ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							212 header (selectable, settable, string) [A] ALMs used in final placement ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							213 header (selectable, settable, string) [B] Estimate of ALMs recoverable by dense packing ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							214 header (selectable, settable, string) [C] Estimate of ALMs unavailable ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							215 header (selectable, settable, string) ALMs used for memory ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							216 header (selectable, settable, string) Combinational ALUTs ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							217 header (selectable, settable, string) Dedicated Logic Registers ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							218 header (selectable, settable, string) I/O Registers ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							219 header (selectable, settable, string) Block Memory Bits ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							220 header (selectable, settable, string) M10Ks ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							221 header (selectable, settable, string) DSP Blocks ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							222 header (selectable, settable, string) Pins ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							223 header (selectable, settable, string) Virtual Pins ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							224 header (selectable, settable, string) Full Hierarchy Name ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							225 tree item (selectable, settable, string) Cyclone V: 5CSEBA6U23I7 ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							226 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							227 tree item (selectable, settable, string) igor_src_policy_de10_nano ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							228 tree item (selectable, settable, string) 3303.0 (2.3) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							229 tree item (selectable, settable, string) igor_src_policy_uart:policy ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							230 tree item (selectable, settable, string) 3300.7 (838.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							231 tree item (selectable, settable, string) igor_src_policy_core:core ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							232 tree item (selectable, settable, string) 2402.7 (2293.1) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							233 tree item (selectable, settable, string) igor_src_policy_activation:lane0.activation ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							234 tree item (selectable, settable, string) 14.3 (14.3) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							235 tree item (selectable, settable, string) altsyncram:lane0.memory_rtl_0 ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							236 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							237 tree item (selectable, settable, string) altsyncram_m9h1:auto_generated ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							238 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							239 tree item (selectable, settable, string) igor_src_policy_activation:lane1.activation ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							240 tree item (selectable, settable, string) 12.7 (12.7) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							241 tree item (selectable, settable, string) altsyncram:lane1.memory_rtl_0 ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							242 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							350 tree item (selectable, settable, string) altsyncram_n9h1:auto_generated ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							351 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							352 tree item (selectable, settable, string) igor_src_policy_activation:lane2.activation ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							353 tree item (selectable, settable, string) 14.3 (14.3) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							354 tree item (selectable, settable, string) altsyncram:lane2.memory_rtl_0 ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							355 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							356 tree item (selectable, settable, string) altsyncram_o9h1:auto_generated ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							357 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							358 tree item (selectable, settable, string) igor_src_policy_activation:lane3.activation ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							359 tree item (selectable, settable, string) 13.8 (13.8) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							360 tree item (selectable, settable, string) altsyncram:lane3.memory_rtl_0 ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							361 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							362 tree item (selectable, settable, string) altsyncram_p9h1:auto_generated ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+							363 tree item (selectable, settable, string) 0.0 (0.0) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.QWidget.PJNQ_TAB_WIDGET.Project Navigator Hierarchy.pjnq_hierarchy_tree_view
+			100 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+				101 custom (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame
+					102 text Project Navigator ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_title
+					103 check box (settable, string) S ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_search_button
+					104 check box (settable, string) P ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_pin_button
+					105 button (settable, string) D ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_detach_button
+					106 button (settable, string) C ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_close_button
+					107 combo box (settable, string) Value: Hierarchy ID: QUI_APP.QGQ_MAIN_WINDOW.Project Navigator.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.QComboBox
+		108 window (settable, string) Tasks Secondary Actions: Raise ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks
+			109 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET
+				110 tree (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					243 header (selectable, settable, string) Task ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					244 header (selectable, settable, string) Time ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					245 header (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					246 tree item (selectable, settable, string) Compile Design ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					247 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					248 tree item (selectable, settable, string) Analysis & Synthesis ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					249 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					250 tree item (selectable, settable, string) Fitter (Place & Route) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					251 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					252 tree item (selectable, settable, string) Assembler (Generate programming files) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					253 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					254 tree item (selectable, settable, string) Timing Analysis ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					255 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					256 tree item (selectable, settable, string) EDA Netlist Writer ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					257 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					258 tree item (selectable, settable, string) Edit Settings ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					259 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					364 tree item (selectable, settable, string) Program Device (Open Programmer) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+					365 tree item (selectable, settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.TMWQ_WIDGET.TMWQ_TREE
+			120 group (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+				121 custom (settable, string) ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame
+					122 text Tasks ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_title
+					123 button (settable, string) M ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_menu_button
+					124 check box (settable, string) P ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_pin_button
+					125 button (settable, string) D ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_detach_button
+					126 button (settable, string) C ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.m_close_button
+					127 combo box (settable, string) Value: Compilation ID: QUI_APP.QGQ_MAIN_WINDOW.Tasks.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame.TMWQ_CBOX
+
+Document text: ```
+0%
+00:00:00
+```

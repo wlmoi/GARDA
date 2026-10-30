@@ -1,0 +1,37 @@
+{
+  "core": {
+    "passed": true,
+    "log": "core.log",
+    "waveform": "core.vcd",
+    "assertions": 54399,
+    "elapsed_seconds": 119.219
+  },
+  "uart": {
+    "passed": true,
+    "log": "uart.log",
+    "waveform": "uart.vcd",
+    "assertions": 237,
+    "elapsed_seconds": 65.25,
+    "directed_transactions": 177
+  },
+  "model_words": 18051,
+  "storage_words": 32768,
+  "model_sha256": "55a647207c0b670901fe8074716331ac2876886bbbe1ca44aff9bbb942426e2d",
+  "rtl_and_testbench_sha256": {
+    "rtl\\igor_src_policy\\igor_src_policy_rom.v": "310f769eb8752d04920cebd8ac58c6ba2afcbfa5aabc442cca91dbb6e797c2f0",
+    "rtl\\igor_src_policy\\igor_src_policy_core.v": "3f566c285f468d7a148d3226eb3ff2344c3e617dc5f544b7f94994efb6973726",
+    "verification\\src_policy\\tb_src_policy_core.sv": "4bab662837943274ed3b00f57317327e4c4ee19f6673cf9fd6cef8e60ab5bd2f",
+    "rtl\\igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "rtl\\igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28",
+    "rtl\\igor_src_policy\\igor_src_policy_uart.v": "a3c595bcb6419668e88f07acfb5ceca44802d2fa875b459be6c999af4278e075",
+    "verification\\src_policy\\tb_src_policy_uart.sv": "3eceb485615b7cee629dd2106732ddf837724f3f58933f2f15c7b7af05cf6d57"
+  },
+  "core_vectors": 236,
+  "activation_cases": 8364,
+  "latency_cycles": 54348,
+  "latency_ms_at_50mhz": 1.08696,
+  "normalized_max_abs_error": 0.014571763897103157,
+  "board_measurement": false,
+  "claim": "Simulation equivalence to specified quantized source model; no formal all-input proof or physical FPGA measurement.",
+  "elapsed_seconds": 185.594
+}

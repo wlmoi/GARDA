@@ -1,0 +1,10 @@
+{
+  "active_image": "igor_src_policy_parallel8.sof",
+  "active_baud": 921600,
+  "adapter_TX": "JP1 pin 1 / FPGA RX V12",
+  "adapter_RX": "JP1 pin 2 / FPGA TX E8",
+  "adapter_GND": "JP1 pin 12",
+  "uart_921600_received_bytes": 0,
+  "uart_9600_received_bytes": 0,
+  "uart_verified": false
+}

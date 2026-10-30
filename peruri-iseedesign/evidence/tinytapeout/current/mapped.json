@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "team": "iSeeDesignITB",
+  "generated_date": "2026-10-15",
+  "timezone": "Asia/Jakarta",
+  "qualification": "Actual IHP post-CTS mapped netlist, unmodified functional cell models, zero delay. No SDF timing claim.",
+  "tests": 2,
+  "failures": 0,
+  "vectors": 1,
+  "outputs_checked": 4,
+  "parameter_words_read_back": 6020,
+  "latency_cycles": 3080,
+  "pin_interface_only": true,
+  "fault_cases": [
+    "unloaded_start",
+    "early_commit",
+    "missing_staged_byte",
+    "out_of_order_address",
+    "invalid_address_high_bits",
+    "invalid_input_index",
+    "invalid_output_index",
+    "invalid_diagnostic_page",
+    "undefined_register"
+  ],
+  "test_cases": [
+    {
+      "name": "full_model_validation_readback_and_inference",
+      "classname": "test",
+      "file": "/mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/test/test.py",
+      "lineno": "40",
+      "time": "550.5799481868744",
+      "sim_time_ns": "1511520.001",
+      "ratio_time": "2745.323373976143"
+    },
+    {
+      "name": "host_faults_are_visible_and_reset_recovers",
+      "classname": "test",
+      "file": "/mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/test/test.py",
+      "lineno": "108",
+      "time": "0.8026964664459229",
+      "sim_time_ns": "2920.001000000164",
+      "ratio_time": "3637.73994537309"
+    }
+  ],
+  "input_artifact": "11952133725",
+  "source_run": 38687725982,
+  "source_commit": "7ef7ab85b21b7e140da85bdc0f045a2bbca25faf",
+  "inputs": {
+    "netlist": {
+      "path": ".runtime/artifact-11952133725/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_wlmoi_igor_neural_logic.nl.v",
+      "sha256": "befa99eb817054e0788b943abca3d688685dca8e35d3bddb16293db344b96d39"
+    },
+    "stdcell_model": {
+      "path": ".runtime/pdk-models/sg13cmos5l_stdcell.v",
+      "sha256": "b0adbc84c8f78feb01c3d8d9d55e9818ee6502347d336f3a1f846e6a5d64e0a2"
+    },
+    "udp_model": {
+      "path": ".runtime/pdk-models/sg13cmos5l_udp.v",
+      "sha256": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055"
+    },
+    "testbench": {
+      "path": "verification/build/tt_mapped/tb.v",
+      "sha256": "084a731dc65cbcb17411b18cd9c93a015bc06a05bbda2a3005265d7a81083b86"
+    },
+    "pin_tests": {
+      "path": "test/test.py",
+      "sha256": "02bcc2affaeb054dcd2664b0c9d54e0a0f41f43885a907772c6bf0a92c451762"
+    },
+    "reference_model": {
+      "path": "reference_model/neural_reference.py",
+      "sha256": "4f82d8f5d4cc40dc31a235cfa9a9c9df8f2897af96b68700c3fad48aa2fd42fc"
+    },
+    "model_bram_b1": {
+      "path": "assets/neural_24_64_64_4/bram_b1.mem",
+      "sha256": "8d64c335ab813a9699c91e5cce6a738e7fb8a5439687f9945f014f48f461cdd8"
+    },
+    "model_bram_b2": {
+      "path": "assets/neural_24_64_64_4/bram_b2.mem",
+      "sha256": "0cab6f999d6b0c2a1799197b33f1f3239ca515eba167dffd4b2ae35e30778667"
+    },
+    "model_bram_b3": {
+      "path": "assets/neural_24_64_64_4/bram_b3.mem",
+      "sha256": "8252250b53d63f495ba2aee85e84b0b02604388c1086ff11e35294216f1bd451"
+    },
+    "model_bram_unified_weights": {
+      "path": "assets/neural_24_64_64_4/bram_unified_weights.mem",
+      "sha256": "e63854e8dd87aaf99bf96b418a623af917ad0ef1d0eef71b66300eb1a4bd4c89"
+    },
+    "model_bram_unified_weights_padded": {
+      "path": "assets/neural_24_64_64_4/bram_unified_weights_padded.mem",
+      "sha256": "445ec098ee5e46c1fd30cd1f3ea6a32dcbd5770fa723b13a82f5b8ddbc06d82f"
+    },
+    "model_bram_w1": {
+      "path": "assets/neural_24_64_64_4/bram_w1.mem",
+      "sha256": "82d7c0d1e8d2f98987e25a1a0940dee4a28cb89c8790e24d7ccae47fe50cd2a9"
+    },
+    "model_bram_w2": {
+      "path": "assets/neural_24_64_64_4/bram_w2.mem",
+      "sha256": "80cc4dc5f9158cb44567ee54b99efcc65356b66512ea8d76ce3681b1c64d987e"
+    },
+    "model_bram_w3": {
+      "path": "assets/neural_24_64_64_4/bram_w3.mem",
+      "sha256": "faf2f5f352737b4c81fd2da3d2384f4291e7d904ec9f67865efda501ade62ad9"
+    },
+    "model_test_inputs": {
+      "path": "assets/neural_24_64_64_4/test_inputs.mem",
+      "sha256": "4772a1549583d440b9ed0059470f0c816c0df49eb1a7be364665de7df1625aed"
+    },
+    "model_test_outputs": {
+      "path": "assets/neural_24_64_64_4/test_outputs.mem",
+      "sha256": "245405e4764b85de94c5ef9cb70d00a4115b7b0fe20d070e286fa1e41540ea2b"
+    }
+  },
+  "input_hashes_recorded_after_run": true,
+  "current_rtl_correspondence": [
+    {
+      "path": "src/igor_neural_logic_top.v",
+      "sha256": "edb71eb9dc321cc3e48963e0061a1fb45f67e92704517643cf252f6266febd17",
+      "matches_archived_functional_tokens": true
+    },
+    {
+      "path": "src/igor_parameter_logic.v",
+      "sha256": "73e6471e0da22d1dc9d11fdfd132261c512777a44aab88905761966e4468c7f5",
+      "matches_archived_functional_tokens": true
+    },
+    {
+      "path": "src/igor_neural_datapath_logic.v",
+      "sha256": "3b785dfa9d863893970e866d44edb03a47e66df275c22a8f1b7b9ea7b8e60a01",
+      "matches_archived_functional_tokens": true
+    },
+    {
+      "path": "src/igor_activation_logic.v",
+      "sha256": "1e67bdaefeb755c57605fc1f4db5c9e69c17865afb01fbdd4c6cd6290a3a6b1b",
+      "matches_archived_functional_tokens": true
+    }
+  ],
+  "xml": "cocotb_mapped.xml",
+  "xml_sha256": "00b35bb68ee65e6693d21ddedd742da02f9e9e78c106190b9cd79994ebce0a37",
+  "log": "cocotb_mapped.log",
+  "log_sha256": "21bab81dacc84fb3b28534f75605add9eb547eee454af2a087f3bc1e5955e894"
+}

@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at igor_src_policy_core.v(38): object "WEIGHT_ADDRESS" differs only in case from object "weight_address" in the same scope File: D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_core.v Line: 38

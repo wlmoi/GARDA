@@ -1,0 +1,5 @@
+NETWORK_ONLY PASS status=6; no FPGA inference; RTT=0.376 ms
+NETWORK_ONLY PASS status=6; no FPGA inference; RTT=0.196 ms
+NETWORK_ONLY PASS status=6; no FPGA inference; RTT=0.185 ms
+Requested=3 Attempted=3 Passed=3; mode=NETWORK TEST ONLY
+Mean RTT=0.252 ms; max=0.376 ms

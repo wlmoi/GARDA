@@ -1,0 +1,20 @@
+{
+  "core": {
+    "raw_sha256": "c39a29eedca4b7527d0335e761e8b259d8aeaaa1d8e564559288776a5a185443",
+    "compressed_sha256": "e8c2b41a7a9ba3000a66a7ef6f296e63618dd61c239235226a42e3a4c147bbee",
+    "raw_bytes": 4045912,
+    "compressed_bytes": 583578
+  },
+  "uart": {
+    "raw_sha256": "a74d19f7023c7ce7b8ae7dd87f5c161e993b9fab8da0fcbad2bb7ad53f66b262",
+    "compressed_sha256": "ba10e1df8b0c176d914f6ceb08997937ab80c8f9137a3e2499ca69b507256bf3",
+    "raw_bytes": 45343978,
+    "compressed_bytes": 5879650
+  },
+  "board": {
+    "raw_sha256": "e6b3f966cad865f0558c49481f164c2854059f21397b6732b522fbfd37d5058f",
+    "compressed_sha256": "16a83554b2f3dea1592b7a0100b67165316d6b146726693a3db16574b59c8086",
+    "raw_bytes": 12904441,
+    "compressed_bytes": 1878715
+  }
+}

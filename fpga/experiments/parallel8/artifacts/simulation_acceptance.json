@@ -1,0 +1,23 @@
+{
+  "status": "SIMULATION_PASS_FITTING_NOT_CHECKED",
+  "bank_words_verified": 18051,
+  "clock_hz": 50000000,
+  "cycles": 6916,
+  "latency_ms": 0.13832,
+  "target_ms": 0.16,
+  "hardware_measured": false,
+  "suites": {
+    "core": {
+      "assertions": 54399,
+      "passed": true
+    },
+    "uart": {
+      "assertions": 268,
+      "passed": true
+    },
+    "board": {
+      "checkpoints": 18,
+      "passed": true
+    }
+  }
+}

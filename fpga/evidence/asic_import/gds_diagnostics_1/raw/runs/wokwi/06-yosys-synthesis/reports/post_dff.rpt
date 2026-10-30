@@ -1,0 +1,42 @@
+143. Printing statistics.
+
+=== tt_um_igorchip ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     8464        - wires
+     9142        - wire bits
+       63        - public wires
+      468        - public wire bits
+        8        - ports
+       43        - port bits
+     9091 1.97E+04 cells
+     2414        -   $_ANDNOT_
+      232        -   $_AND_
+     4038        -   $_MUX_
+      156        -   $_NAND_
+      155        -   $_NOR_
+      444        -   $_NOT_
+      110        -   $_ORNOT_
+     1051        -   $_OR_
+       31        -   $_XNOR_
+       56        -   $_XOR_
+        1        -   RM_IHPSG13_1P_256x16_c2_bm_bist
+      403 1.97E+04   sg13cmos5l_dfrbpq_1
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type \RM_IHPSG13_1P_256x16_c2_bm_bist is unknown!
+
+   Chip area for module '\tt_um_igorchip': 19742.486400
+     of which used for sequential elements: 19742.486400 (100.00%)
+

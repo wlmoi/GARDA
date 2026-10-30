@@ -1,0 +1,15 @@
+test_corruption_truncation_opcode_and_markers_rejected (__main__.AcquisitionTests.test_corruption_truncation_opcode_and_markers_rejected) ... ok
+test_crc_reference (__main__.AcquisitionTests.test_crc_reference) ... ok
+test_current_fault_retained_cause_and_event_count_required (__main__.AcquisitionTests.test_current_fault_retained_cause_and_event_count_required) ... ok
+test_exact_request_and_response (__main__.AcquisitionTests.test_exact_request_and_response) ... ok
+test_logger_change_during_sampling_is_detected (__main__.AcquisitionTests.test_logger_change_during_sampling_is_detected) ... ok
+test_nonzero_outputs_and_enabled_zero_rejected (__main__.AcquisitionTests.test_nonzero_outputs_and_enabled_zero_rejected) ... ok
+test_short_write_rejected (__main__.AcquisitionTests.test_short_write_rejected) ... ok
+test_signed_omega_boundaries (__main__.AcquisitionTests.test_signed_omega_boundaries) ... ok
+test_stable_fault_and_logger_checked (__main__.AcquisitionTests.test_stable_fault_and_logger_checked) ... ok
+test_unstable_brackets_are_not_accepted (__main__.AcquisitionTests.test_unstable_brackets_are_not_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.003s
+
+OK

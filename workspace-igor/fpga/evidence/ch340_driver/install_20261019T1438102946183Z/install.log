@@ -1,0 +1,68 @@
+**********************
+PowerShell transcript start
+Start time: 20261019213810
+Username: DESKTOP-3S5LN80\William Anthony
+RunAs User: DESKTOP-3S5LN80\William Anthony
+Configuration Name: 
+Machine: DESKTOP-3S5LN80 (Microsoft Windows NT 10.0.26300.0)
+Host Application: C:\Users\William Anthony\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -NoProfile -ExecutionPolicy Bypass -File D:\LinkedinProjects\igor_ws\igor_ws\fpga\scripts\install_official_ch340.ps1 -Elevated
+Process ID: 9676
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26300
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Microsoft PnP Utility
+
+Exporting driver package:   oem60.inf (ch341ser.inf)
+Driver package exported successfully.
+
+Total driver packages:      1
+Exported driver packages:   1
+Microsoft PnP Utility
+
+Adding driver package:  CH341SER.INF
+Driver package added successfully.
+Published Name:         oem89.inf
+Driver package installed on device: USB\VID_1A86&PID_7523\6&32b4345b&0&2
+Driver package installed on device: USB\VID_1A86&PID_7523\6&32b4345b&0&3
+Driver package installed on device: USB\VID_1A86&PID_7523\6&32d7704f&0&4
+
+Total driver packages:  1
+Added driver packages:  1
+{
+  "source": "https://www.wch-ic.com/download/file?id=5",
+  "package_sha256": "59967D9CE371D0BF3DF02DEC0B66C8DFBF9CA576DA0572FF4404148A7C381807",
+  "expected_version": "4.0.2026.02",
+  "success": false,
+  "before": [
+    {
+      "DeviceName": "USB-SERIAL CH340",
+      "DeviceID": "USB\\VID_1A86&PID_7523\\6&32B4345B&0&2",
+      "DriverVersion": "3.9.2024.9",
+      "InfName": "oem60.inf",
+      "IsSigned": true
+    }
+  ],
+  "pnputil_exit_code": 0,
+  "after": [
+    {
+      "DeviceName": "USB-SERIAL CH340",
+      "DeviceID": "USB\\VID_1A86&PID_7523\\6&32B4345B&0&2",
+      "DriverVersion": "3.9.2024.9",
+      "InfName": "oem60.inf",
+      "IsSigned": true
+    }
+  ],
+  "reboot_required": false,
+  "note": "Package installed/staged; device has not yet reported expected version. Reconnect device and recheck before claiming updated."
+}
+**********************
+PowerShell transcript end
+End time: 20261019213817
+**********************

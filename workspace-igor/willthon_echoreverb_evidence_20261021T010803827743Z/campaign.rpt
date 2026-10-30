@@ -1,0 +1,16 @@
+WILLTHON ECHOREVERB - EXECUTED VERIFICATION CAMPAIGN
+The amount of software validation checks executed is 111200.
+Passed: 111200; Failed: 0
+Counting unit: one software input/result comparison.
+Q15_MULTIPLICATION: 40000
+SATURATION_BOUNDARIES: 20000
+SIGNED_DIVIDE_ROUNDING: 20000
+SOFTWARE_I2S_FRAME_ROUNDTRIP: 20000
+STATEFUL_SOFTWARE_ECHO_SAMPLE: 11200
+Additional RTL/UART/software regression exit: 0
+Additional regression suites are NOT included in the 111200 count.
+Training: NOT RUN. Physical UART: NOT RUN in this campaign.
+Selected software coverage only; no claim of full verification.
+References: scripts/reference_model.py; sw/Echoverb.py;
+scripts/verify_zcu104_rtl.py; sw/test_audio_formats.py; docs/Verification.md
+Evidence: checks.jsonl, manifest.json, script_inventory.json, existing_regression.log

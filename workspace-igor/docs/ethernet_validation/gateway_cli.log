@@ -1,0 +1,2 @@
+UDP ('127.0.0.1', 50940), backend=mock, RX=492 TX=50 bytes, Q8.8; cycles=unknown/0
+NETWORK TEST ONLY: status=6; production clients reject this response

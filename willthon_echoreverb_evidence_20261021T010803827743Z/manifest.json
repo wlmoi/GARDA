@@ -1,0 +1,24 @@
+{
+  "executed_checks": 111200,
+  "failed_checks": 0,
+  "categories": {
+    "Q15_MULTIPLICATION": 40000,
+    "SATURATION_BOUNDARIES": 20000,
+    "SIGNED_DIVIDE_ROUNDING": 20000,
+    "SOFTWARE_I2S_FRAME_ROUNDTRIP": 20000,
+    "STATEFUL_SOFTWARE_ECHO_SAMPLE": 11200
+  },
+  "failures": {
+    "Q15_MULTIPLICATION": 0,
+    "SATURATION_BOUNDARIES": 0,
+    "SIGNED_DIVIDE_ROUNDING": 0,
+    "SOFTWARE_I2S_FRAME_ROUNDTRIP": 0,
+    "STATEFUL_SOFTWARE_ECHO_SAMPLE": 0
+  },
+  "seed": 111200,
+  "counting_unit": "One software input/result comparison; not an RTL test or hardware transaction",
+  "rtl_uart_regression_exit": 0,
+  "training": "NOT RUN: no training workload identified",
+  "physical_uart": "NOT RUN: simulation is recorded separately",
+  "coverage": "Selected numeric, frame and echo checks; not complete software/reverb coverage"
+}

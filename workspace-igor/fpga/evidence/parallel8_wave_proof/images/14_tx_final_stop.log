@@ -1,0 +1,18 @@
+DISPLAYED tb_board_wrapper.clk tb_board_wrapper.tx tb_board_wrapper.received tb_board_wrapper.dut.policy.mode[3:0] tb_board_wrapper.dut.policy.tx_send tb_board_wrapper.dut.policy.tx_busy tb_board_wrapper.dut.policy.tx_index[3:0] tb_board_wrapper.dut.policy.transmitter.bit_index[3:0] tb_board_wrapper.dut.policy.transmitter.count[15:0] 
+VALUE 0 1
+VALUE 1 1
+VALUE 2 11
+VALUE 3 0
+VALUE 4 0
+VALUE 5 0
+VALUE 6 10
+VALUE 7 9
+VALUE 8 53
+Exiting.
+
+GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+
+[0] start time.
+[5523212000] end time.
+GTKWAVE | Executing Tcl script 'D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\parallel8_wave_proof\images\14_tx_final_stop.tcl'
+GTKWAVE | Filename 'D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/parallel8_wave_proof/images/14_tx_final_stop.png'

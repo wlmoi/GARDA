@@ -1,0 +1,606 @@
+{
+  "generated_utc": "2026-10-17T11:23:13.929974+00:00",
+  "source_document": {
+    "title": "IGOR: Kekuatan, Demo, dan To-do Menuju Top 3",
+    "version_date": "2026-10-15",
+    "attachment_id": "a41429a7-451c-4fe7-bdfd-9df66c5bcc4a",
+    "sha256": "cf84fca92bfe080080c431dc528a3b51f44d63a79f90aad2e236d57a63daa41a",
+    "encoding": "utf-8-sig",
+    "offset_units": "Python decoded Unicode codepoints"
+  },
+  "preserved_original": {
+    "bytes": 4449,
+    "sha256": "c674570fc37202a7e78c3ae68f7cc3bdafc390c70f090ea565e4cee196bc119b",
+    "prefix_preserved": true
+  },
+  "required_ids": [
+    "K1",
+    "K2",
+    "K3",
+    "K4",
+    "K5",
+    "K6",
+    "K7",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "answers": [
+    {
+      "id": "K1",
+      "answer_anchor": "textfield-k1",
+      "source_character_offset": 3457,
+      "source_excerpt": "K1. AI driver yang\r\ntangguh\r\n50 episode acak: 0 tabrakan, 68% sampai tujuan, 32% habis waktu\r\n[Terbukti]. Lulus 5/5 skenario ekstrem (labirin rapat, celah 0,75 ",
+      "answer_table_row": "| <a id=\"textfield-k1\"></a>**K1 — AI driver tangguh** | IGOR membawa kebijakan neural ke datapath yang dapat diulang: PPO 74→128→64→3, delapan lane MAC, dan pemeriksaan terhadap model integer dengan bobot yang sama. Ketangguhan navigasi per episode dilaporkan dari simulator, seed dan dataset studi yang dibekukan. | RTL/model tersedia; hasil episode mengikuti raw studi | S01, S02, S22, S23 |",
+      "evidence_ids": [
+        "S01",
+        "S02",
+        "S22",
+        "S23"
+      ]
+    },
+    {
+      "id": "K2",
+      "answer_anchor": "textfield-k2",
+      "source_character_offset": 3820,
+      "source_excerpt": "K2. AI yang bisa\r\ndipercaya: AI\r\nmengemudi, chip\r\nmemutuskan\r\nStudi B, dengan gangguan sengaja: tabrakan atau perintah tidak\r\naman yang lolos, AI saja [ ] vs AI",
+      "answer_table_row": "| <a id=\"textfield-k2\"></a>**K2 — AI mengemudi, chip memutuskan** | Prinsip produk: AI mengusulkan koreksi, aturan kendali menjaga pelepasan keluaran. Core neural menghasilkan residual; jalur planner memiliki checker dan gate. Studi B mengukur dampak penyatuan jalur pada gangguan yang ditentukan. | Arsitektur blok dan RTL; integrasi sistem mempunyai acceptance | S01, S07, S11, S25 |",
+      "evidence_ids": [
+        "S01",
+        "S07",
+        "S11",
+        "S25"
+      ]
+    },
+    {
+      "id": "K3",
+      "answer_anchor": "textfield-k3",
+      "source_character_offset": 4098,
+      "source_excerpt": "K3. Fail-closed: kalau\r\nragu, berhenti\r\n9/9 injeksi gangguan menghasilkan output nol [Terbukti]. 13.078\r\nkasus safety gate, 12/12 jenis hasil tercapai [Terbukti",
+      "answer_table_row": "| <a id=\"textfield-k3\"></a>**K3 — fail-closed** | Pada jalur planner yang diuji, E-stop dan kondisi invalid menutup izin serta menolkan keluaran. Safety regression mencakup 111.210 vektor dan outcome 0–11; host fixture memeriksa penghentian pada kegagalan transport. | RTL dan host PASS | S05, S06, S07, S09 |",
+      "evidence_ids": [
+        "S05",
+        "S06",
+        "S07",
+        "S09"
+      ]
+    },
+    {
+      "id": "K4",
+      "answer_anchor": "textfield-k4",
+      "source_character_offset": 4454,
+      "source_excerpt": "K4. Waktu selalu\r\nsama, hasil identik\r\n512 jalur × 20 langkah dalam 7.938 siklus (0,16 ms); inferensi AI\r\n18.192 siklus (0,36 ms), sama di setiap skenario [Terb",
+      "answer_table_row": "| <a id=\"textfield-k4\"></a>**K4 — waktu terdefinisi, hasil dapat diulang** | Parallel8 mempunyai jadwal 6.916 clock pada 50 MHz, yaitu 138,32 µs. Fase bias, baca bobot, MAC dan aktivasi memiliki urutan eksplisit; kecocokan numerik merujuk model integer dan bobot yang sama. | Simulasi serta timing FPGA PASS | S01, S02, S04, S22 |",
+      "evidence_ids": [
+        "S01",
+        "S02",
+        "S04",
+        "S22"
+      ]
+    },
+    {
+      "id": "K5",
+      "answer_anchor": "textfield-k5",
+      "source_character_offset": 4994,
+      "source_excerpt": "K5. Jejak audit Setiap penolakan menghasilkan kode alasan dan penghitung\r\nkejadian 32-bit [Terbukti]. Log kurir Jetson dengan timestamp [Jumat].\r\n29.382 pemerik",
+      "answer_table_row": "| <a id=\"textfield-k5\"></a>**K5 — jejak audit** | Penolakan planner dapat dijelaskan lewat fault_code, counter kejadian 32-bit dan last_fault. CSV mengikat nama kasus, waktu simulasi dan nilai output sehingga jejak dapat ditelusuri sampai RTL/waveform. | Trace digital tersedia | S06, S08, S10 |",
+      "evidence_ids": [
+        "S06",
+        "S08",
+        "S10"
+      ]
+    },
+    {
+      "id": "K6",
+      "answer_anchor": "textfield-k6",
+      "source_character_offset": 5282,
+      "source_excerpt": "K6. Nyata, bukan\r\nhanya slide\r\nDikompilasi untuk DE10-Nano dan DE10-Lite, lolos timing 50 MHz\r\n[Terbukti]. Berjalan di board [Jumat]. Robot menempuh lintasan de",
+      "answer_table_row": "| <a id=\"textfield-k6\"></a>**K6 — implementasi konkret** | Paket fpga berisi Verilog, bobot, proyek Quartus, pin planning, laporan compile/timing, SOF dan waveform. Proyek DE10-Nano dapat dibuka; penerimaan gerak robot dilengkapi log serta video run fisik. | Build FPGA PASS; acceptance fisik A1–A11 | S02, S03, S04, S19, S20, S21 |",
+      "evidence_ids": [
+        "S02",
+        "S03",
+        "S04",
+        "S19",
+        "S20",
+        "S21"
+      ]
+    },
+    {
+      "id": "K7",
+      "answer_anchor": "textfield-k7",
+      "source_character_offset": 5657,
+      "source_excerpt": "K7. Hemat dan siap\r\njadi chip lokal\r\n4.964 ALM (12%), 10/112 DSP, 131/553 M10K [Terbukti]. Daya\r\nFPGA ±0,51 W [Estimasi] vs modul Jetson 5–15 W (datasheet). Saf",
+      "answer_table_row": "| <a id=\"textfield-k7\"></a>**K7 — efisien dan jalur silicon lokal** | Core FPGA memakai 3.303 ALM, 8 DSP dan 64 M10K. Protocol engine ASIC menyediakan empat context, SRAM program 512 byte dan estimasi Typical 2,037372 mW. IP mencakup RTL, firmware, model serta bukti verifikasi. | Fitted FPGA dan estimasi ASIC | S02, S03, S12, S13, S15 |",
+      "evidence_ids": [
+        "S02",
+        "S03",
+        "S12",
+        "S13",
+        "S15"
+      ]
+    },
+    {
+      "id": "D1",
+      "answer_anchor": "textfield-d1",
+      "source_character_offset": 8666,
+      "source_excerpt": "D1 Robot menempuh lintasan berlakban (start dan tujuan sama\r\ndengan uji Jumat). Perintah gerak dihitung FPGA; Jetson hanya\r\nkurir. Layar menampilkan output FPGA",
+      "answer_table_row": "| <a id=\"textfield-d1\"></a>**D1 — lintasan robot** | Overlay output FPGA, permit dan fault pada video start–tujuan; rekam payload menuju aktuator. Sebut model serta peran host yang benar-benar dipakai. | Run fisik dengan log/video satu identitas; S10, S11, S25 |",
+      "evidence_ids": [
+        "S10",
+        "S11",
+        "S25"
+      ]
+    },
+    {
+      "id": "D2",
+      "answer_anchor": "textfield-d2",
+      "source_character_offset": 9041,
+      "source_excerpt": "D2 Replay: data sensor dari run Jetson diputar ulang ke FPGA.\r\nPerintah FPGA ditampilkan berdampingan dengan perintah Jetson,\r\nbeserta timer siklus.\r\nK4, K6 Per",
+      "answer_table_row": "| <a id=\"textfield-d2\"></a>**D2 — replay dan timer** | Replay observasi dengan bobot sama; tampilkan expected/actual, mismatch dan cycles. Parallel8: 6.916 siklus; 18.192/400 output tetap berlabel legacy. | Bukti simulasi S02/S16; replay board memakai raw run dan S22 |",
+      "evidence_ids": [
+        "S02",
+        "S16",
+        "S22"
+      ]
+    },
+    {
+      "id": "D3",
+      "answer_anchor": "textfield-d3",
+      "source_character_offset": 9290,
+      "source_excerpt": "D3 Tombol darurat ditekan saat roda berputar (roda diangkat). K3, K5 Output FPGA nol, roda berhenti, kode\r\ngangguan 2 (E-stop) tampil, penghitung\r\nkejadian naik",
+      "answer_table_row": "| <a id=\"textfield-d3\"></a>**D3 — E-stop** | Tampilkan baseline nonnol, assertion E-stop, keluaran nol, fault 2, lalu update counter/last_fault. Untuk robot, roda dan terminal masuk video yang sama. | RTL PASS, checkpoint tepat pada S06; board memakai S10 |",
+      "evidence_ids": [
+        "S06",
+        "S10"
+      ]
+    },
+    {
+      "id": "D4",
+      "answer_anchor": "textfield-d4",
+      "source_character_offset": 9453,
+      "source_excerpt": "D4 Kirim peta usang/tidak sah, lalu perintah di luar batas (terlalu\r\ncepat atau belok mendadak).\r\nK3, K5 Setiap kasus: output nol, roda tidak\r\nbergerak, kode se",
+      "answer_table_row": "| <a id=\"textfield-d4\"></a>**D4 — peta/perintah invalid** | Tampilkan motor_enable/v/omega nol, kode sesuai penyebab dan logger. Peta invalid memakai fault 5; batas kecepatan/perubahan mengikuti test gate dan fault 10/11. | S05, S06, S07; akuisisi S10 |",
+      "evidence_ids": [
+        "S05",
+        "S06",
+        "S07",
+        "S10"
+      ]
+    },
+    {
+      "id": "D5",
+      "answer_anchor": "textfield-d5",
+      "source_character_offset": 9655,
+      "source_excerpt": "D5 Cabut kabel FPGA–Jetson saat roda berputar. K3 Roda berhenti dalam [ ] s (rekaman\r\nslow-motion); Jetson tidak meneruskan\r\nperintah lama.\r\nD6 Slide bukti: gra",
+      "answer_table_row": "| <a id=\"textfield-d5\"></a>**D5 — cabut komunikasi** | Ukur dari putus link sampai STOP dan roda berhenti; simpan timestamp serta frame video. Host fixture mendukung pemeriksaan watchdog/transport. | S09 adalah fixture; stop time fisik diukur dengan S10/S11 |",
+      "evidence_ids": [
+        "S09",
+        "S10",
+        "S11"
+      ]
+    },
+    {
+      "id": "D6",
+      "answer_anchor": "textfield-d6",
+      "source_character_offset": 9796,
+      "source_excerpt": "D6 Slide bukti: grafik waktu (FPGA garis datar vs sebaran Jetson),\r\nStudi A, Studi B, ringkasan 400/400 dan 9/9.\r\nK1, K2, K4 Setiap angka berlabel dan bisa dije",
+      "answer_table_row": "| <a id=\"textfield-d6\"></a>**D6 — slide bukti** | Tampilkan waveform core, tabel siklus, hasil model serta checkpoint safety. Grafik host, Studi A/B dan RTT menggunakan raw data pengukuran terkait. | S02, S05, S11, S21, S23 |",
+      "evidence_ids": [
+        "S02",
+        "S05",
+        "S11",
+        "S21",
+        "S23"
+      ]
+    },
+    {
+      "id": "D7",
+      "answer_anchor": "textfield-d7",
+      "source_character_offset": 10009,
+      "source_excerpt": "D7 Slide PERURI dan bisnis: logistik internal, jejak audit, model\r\npendapatan, jalur ke chip lokal.\r\nK5, K7 Satu kalimat jelas untuk: siapa\r\npengguna, apa yang ",
+      "answer_table_row": "| <a id=\"textfield-d7\"></a>**D7 — PERURI dan bisnis** | Jelaskan pengguna integrator AGV/AMR, manfaat integritas kendali/audit, paket pilot berbayar dan langkah menuju silicon. Contoh biaya shuttle Rp40,34 juta dan jasa pilot Rp75 juta diberi label estimasi/skenario. | Rumus dan kondisi biaya S14, S15 |",
+      "evidence_ids": [
+        "S14",
+        "S15"
+      ]
+    },
+    {
+      "id": "A1",
+      "answer_anchor": "textfield-a1",
+      "source_character_offset": 10442,
+      "source_excerpt": "A1 Jalankan bitstream di board; uji 100 vektor AI dan 6 skenario\r\nDWA.\r\nK4, K6 Log menunjukkan 400/400 dan 6/6\r\ncocok di board; video dan hash file\r\ntercatat.\r\n",
+      "answer_table_row": "| <a id=\"textfield-a1\"></a>**A1 — program dan uji vektor** | Pilih model/SOF, program board, simpan identitas board, hash, expected/actual dan mismatch. Dataset 400 output berlaku pada legacy; enam scene DWA disertakan bila planner didemokan. | S02, S16, S17, S19, S20 |",
+      "evidence_ids": [
+        "S02",
+        "S16",
+        "S17",
+        "S19",
+        "S20"
+      ]
+    },
+    {
+      "id": "A2",
+      "answer_anchor": "textfield-a2",
+      "source_character_offset": 10602,
+      "source_excerpt": "A2 Baca timer siklus dari board untuk setiap keputusan. K4 18.192 (AI) dan 7.938 (DWA) siklus,\r\nsama di setiap run.\r\nA3 Uji safety gate di board: tombol darurat",
+      "answer_table_row": "| <a id=\"textfield-a2\"></a>**A2 — timer board** | Catat cycles per keputusan dan clock Hz. Acuan Parallel8 6.916 siklus; DWA legacy 7.938. Pisahkan kernel, serial dan end-to-end. | S02, S10, S17 |",
+      "evidence_ids": [
+        "S02",
+        "S10",
+        "S17"
+      ]
+    },
+    {
+      "id": "A3",
+      "answer_anchor": "textfield-a3",
+      "source_character_offset": 10719,
+      "source_excerpt": "A3 Uji safety gate di board: tombol darurat, peta tidak sah, batas\r\nkecepatan/perubahan, batas waktu.\r\nK3, K5 Setiap kasus output nol dan kode benar;\r\nterekam v",
+      "answer_table_row": "| <a id=\"textfield-a3\"></a>**A3 — safety di board** | E-stop, peta invalid, batas kecepatan/perubahan dan deadline harus menutup permit, menolkan output dan merekam kode/counter. Simpan raw frame, timestamp, SOF hash dan video. | S05, S06, S07, S10 |",
+      "evidence_ids": [
+        "S05",
+        "S06",
+        "S07",
+        "S10"
+      ]
+    },
+    {
+      "id": "A4",
+      "answer_anchor": "textfield-a4",
+      "source_character_offset": 10886,
+      "source_excerpt": "A4 Jadikan Jetson kurir: hanya meneruskan pesan FPGA (kecepatan\r\nroda, izin, kode gangguan), log bertimestamp, STOP otomatis jika\r\npesan terputus.\r\nK2, K3, K5 T",
+      "answer_table_row": "| <a id=\"textfield-a4\"></a>**A4 — Jetson sebagai kurir** | Mode kurir membuktikan payload FPGA diteruskan utuh, timestamp tercatat dan STOP saat lease/link gagal. Pada PPO residual, blending/kinematika yang masih dikerjakan host tetap disebut sebagai fungsi host. | S09, S11, S25 |",
+      "evidence_ids": [
+        "S09",
+        "S11",
+        "S25"
+      ]
+    },
+    {
+      "id": "A5",
+      "answer_anchor": "textfield-a5",
+      "source_character_offset": 11110,
+      "source_excerpt": "A5 Pastikan saat demo sabotase, perintah ke roda berasal dari output\r\nsafety gate, bukan keputusan Jetson.\r\nK3 Roda berhenti karena output FPGA nol,\r\ndan hal in",
+      "answer_table_row": "| <a id=\"textfield-a5\"></a>**A5 — asal perintah motor** | Telusuri stimulus, gate output, permit, fault, payload motor dan roda dalam satu run; ini acceptance yang menunjukkan jalur aktuator mengikuti keluaran yang dijaga. | S06, S10, S11 |",
+      "evidence_ids": [
+        "S06",
+        "S10",
+        "S11"
+      ]
+    },
+    {
+      "id": "A6",
+      "answer_anchor": "textfield-a6",
+      "source_character_offset": 11290,
+      "source_excerpt": "A6 Empat roda berjalan bersamaan. K6 Maju, mundur, geser, dan putar dengan\r\nempat roda, terekam.\r\nA7 Ukur waktu inferensi di Jetson (AI yang sama, juga DWA vers",
+      "answer_table_row": "| <a id=\"textfield-a6\"></a>**A6 — empat roda** | Uji maju/mundur/geser/putar, label channel dan rekam payload, telemetry serta video tiap pola. | Paket motor offline S24; acceptance S11 |",
+      "evidence_ids": [
+        "S11",
+        "S24"
+      ]
+    },
+    {
+      "id": "A7",
+      "answer_anchor": "textfield-a7",
+      "source_character_offset": 11388,
+      "source_excerpt": "A7 Ukur waktu inferensi di Jetson (AI yang sama, juga DWA versi C)\r\n10.000×, saat idle dan saat sibuk.\r\nK4 File data berisi median, p99, dan waktu\r\nterburuk.\r\nA",
+      "answer_table_row": "| <a id=\"textfield-a7\"></a>**A7 — benchmark Jetson** | Jalankan 10.000 iterasi per kondisi idle/sibuk dengan model yang sama. Simpan raw timing, median, p99, maksimum, konfigurasi mesin dan beban. | Protokol S11, provenance S22 |",
+      "evidence_ids": [
+        "S11",
+        "S22"
+      ]
+    },
+    {
+      "id": "A8",
+      "answer_anchor": "textfield-a8",
+      "source_character_offset": 11547,
+      "source_excerpt": "A8 Ukur waktu bolak-balik Jetson–FPGA per keputusan. K6 File data; total di bawah 0,1 s per\r\nlangkah AI.\r\nA9 Run lintasan: 3× AI di Jetson, 3× AI di FPGA, start",
+      "answer_table_row": "| <a id=\"textfield-a8\"></a>**A8 — round-trip** | Ukur observasi sampai respons dan end-to-end motor secara terpisah memakai sequence/timestamp monotonic; evaluasi raw distribusi terhadap anggaran kontrol 0,1 s. | S10, S11 |",
+      "evidence_ids": [
+        "S10",
+        "S11"
+      ]
+    },
+    {
+      "id": "A9",
+      "answer_anchor": "textfield-a9",
+      "source_character_offset": 11653,
+      "source_excerpt": "A9 Run lintasan: 3× AI di Jetson, 3× AI di FPGA, start dan tujuan\r\nsama; simpan data sensor.\r\nK1, K6 Video dan log tiap run; robot sampai\r\ntujuan tanpa tabrakan",
+      "answer_table_row": "| <a id=\"textfield-a9\"></a>**A9 — run lintasan** | Tiga run tiap konfigurasi pada start/tujuan sama, dengan log sensor, model, bobot, event tabrakan/timeout dan video. | S11, S22 |",
+      "evidence_ids": [
+        "S11",
+        "S22"
+      ]
+    },
+    {
+      "id": "A10",
+      "answer_anchor": "textfield-a10",
+      "source_character_offset": 11816,
+      "source_excerpt": "A10 Replay data sensor run Jetson ke FPGA. K4, K6 Laporan kecocokan perintah langkah\r\ndemi langkah.\r\nA11 Rekam video demo, stop slow-motion, dan footage tambaha",
+      "answer_table_row": "| <a id=\"textfield-a10\"></a>**A10 — replay fisik** | Bekukan log observasi dan bandingkan setiap output terhadap model integer yang sama; catat indeks keputusan, cycles dan mismatch. | S02, S11, S22 |",
+      "evidence_ids": [
+        "S02",
+        "S11",
+        "S22"
+      ]
+    },
+    {
+      "id": "A11",
+      "answer_anchor": "textfield-a11",
+      "source_character_offset": 11917,
+      "source_excerpt": "A11 Rekam video demo, stop slow-motion, dan footage tambahan. Semua Folder video lengkap, dicadangkan di\r\ndua tempat.\r\nA12 Putuskan perlu tidaknya latih ulang A",
+      "answer_table_row": "| <a id=\"textfield-a11\"></a>**A11 — video dan cadangan** | Rekam lintasan, fault injection, slow-motion stop dan terminal; setiap video mengacu ke run_id serta hash rilis, dicadangkan dua salinan. | S10, S11, S19 |",
+      "evidence_ids": [
+        "S10",
+        "S11",
+        "S19"
+      ]
+    },
+    {
+      "id": "A12",
+      "answer_anchor": "textfield-a12",
+      "source_character_offset": 12036,
+      "source_excerpt": "A12 Putuskan perlu tidaknya latih ulang AI: hanya jika ukuran jaringan\r\ntetap 24-64-64-4 dan jelas mengurangi timeout.\r\nK1 Diputuskan sebelum pembekuan; jika ya",
+      "answer_table_row": "| <a id=\"textfield-a12\"></a>**A12 — keputusan retraining** | Bekukan kontrak model dahulu: PPO source 74→128→64→3; target 24→64→64→4 pada text field adalah jalur legacy. Perubahan bobot memerlukan ekspor dan pengujian ulang. | S16, S22, S23 |",
+      "evidence_ids": [
+        "S16",
+        "S22",
+        "S23"
+      ]
+    },
+    {
+      "id": "A13",
+      "answer_anchor": "textfield-a13",
+      "source_character_offset": 12239,
+      "source_excerpt": "A13 Bekukan versi final: bitstream, bobot AI, skrip, beserta hash. K4, K6 Satu folder FINAL; tidak ada perubahan\r\nsetelahnya.\r\nA14 (Opsional) Ukur daya board de",
+      "answer_table_row": "| <a id=\"textfield-a13\"></a>**A13 — freeze versi** | Manifest mengikat RTL, bobot, SOF, laporan dan script; periksa hash sebelum programming dan kaitkan log/video pada identitas rilis. | S19 |",
+      "evidence_ids": [
+        "S19"
+      ]
+    },
+    {
+      "id": "A14",
+      "answer_anchor": "textfield-a14",
+      "source_character_offset": 12366,
+      "source_excerpt": "A14 (Opsional) Ukur daya board dengan USB meter. K7 Angka watt saat idle vs aktif.\r\nB. Cukup laptop\r\nB1 Studi A: AI vs DWA di simulator yang sama, minimal 100 e",
+      "answer_table_row": "| <a id=\"textfield-a14\"></a>**A14 — pengukuran daya** | Catat rail/input board, tegangan, arus, instrumen, idle/aktif dan cakupan HPS/periferal. Pisahkan pengukuran tersebut dari estimasi Quartus atau ASIC. | Metode S11; estimasi S13, S26 |",
+      "evidence_ids": [
+        "S11",
+        "S13",
+        "S26"
+      ]
+    },
+    {
+      "id": "B1",
+      "answer_anchor": "textfield-b1",
+      "source_character_offset": 12467,
+      "source_excerpt": "B1 Studi A: AI vs DWA di simulator yang sama, minimal 100 episode\r\ndengan seed sama, plus 5 skenario ekstrem.\r\nK1 Tabel: sampai tujuan, tabrakan, timeout,\r\nwakt",
+      "answer_table_row": "| <a id=\"textfield-b1\"></a>**B1 — Studi A** | Minimal 100 episode dengan seed berpasangan, simulator/sensor sama, plus lima skenario ekstrem; laporkan sukses, tabrakan, timeout, waktu dan kehalusan. Hasil numerik memakai raw episode studi. | S11, S22 |",
+      "evidence_ids": [
+        "S11",
+        "S22"
+      ]
+    },
+    {
+      "id": "B2",
+      "answer_anchor": "textfield-b2",
+      "source_character_offset": 12655,
+      "source_excerpt": "B2 Studi B: AI saja vs AI + aturan safety gate, dengan gangguan:\r\nsensor beku, sensor hilang, peta usang, perintah ekstrem,\r\nrintangan yang tidak terlihat AI.\r\n",
+      "answer_table_row": "| <a id=\"textfield-b2\"></a>**B2 — Studi B** | Uji sensor beku/hilang, peta usang, perintah ekstrem dan obstacle; hitung unsafe command lolos, tabrakan serta stop yang tidak diperlukan. RTL fault coverage menjadi bukti blok; outcome robot/simulator dilaporkan dari studi tersendiri. | S05, S06, S11 |",
+      "evidence_ids": [
+        "S05",
+        "S06",
+        "S11"
+      ]
+    },
+    {
+      "id": "B3",
+      "answer_anchor": "textfield-b3",
+      "source_character_offset": 13010,
+      "source_excerpt": "B3 Grafik waktu dari data Jumat: FPGA vs Jetson, plus rincian waktu\r\nbolak-balik.\r\nK4 Dua grafik siap di slide.\r\nB4 Isi tabel angka kunci (Bagian 5) dan ganti s",
+      "answer_table_row": "| <a id=\"textfield-b3\"></a>**B3 — grafik waktu** | Gunakan raw A7/A8 dan counter A2; tampilkan core, serial dan host sebagai kategori waktu terpisah dengan satuan serta identitas model. | S02, S11 |",
+      "evidence_ids": [
+        "S02",
+        "S11"
+      ]
+    },
+    {
+      "id": "B4",
+      "answer_anchor": "textfield-b4",
+      "source_character_offset": 13123,
+      "source_excerpt": "B4 Isi tabel angka kunci (Bagian 5) dan ganti semua [ ]. Semua Tidak ada [ ] tersisa, atau ditandai\r\n“tidak diklaim”.\r\nB5 Slide dan naskah mengikuti urutan D1–D",
+      "answer_table_row": "| <a id=\"textfield-b4\"></a>**B4 — tabel angka final** | Pakai ledger di atas: model, nilai, unit, kondisi dan file bukti. Field fisik yang belum diukur diberi status pengukuran, tidak diisi angka ilustrasi. | S02, S05, S13, S14, S19 |",
+      "evidence_ids": [
+        "S02",
+        "S05",
+        "S13",
+        "S14",
+        "S19"
+      ]
+    },
+    {
+      "id": "B5",
+      "answer_anchor": "textfield-b5",
+      "source_character_offset": 13242,
+      "source_excerpt": "B5 Slide dan naskah mengikuti urutan D1–D7. Semua Tiga kali latihan penuh tanpa berhenti.\r\nB6 Video cadangan 3–5 menit dari rekaman Jumat. K6 Bisa diputar offli",
+      "answer_table_row": "| <a id=\"textfield-b5\"></a>**B5 — slide dan latihan** | Naskah D1–D7: fungsi → replay → E-stop → input invalid → link loss → bukti → nilai bisnis; tiga latihan penuh memakai rilis yang sama. | S11, S15, S19 |",
+      "evidence_ids": [
+        "S11",
+        "S15",
+        "S19"
+      ]
+    },
+    {
+      "id": "B6",
+      "answer_anchor": "textfield-b6",
+      "source_character_offset": 13333,
+      "source_excerpt": "B6 Video cadangan 3–5 menit dari rekaman Jumat. K6 Bisa diputar offline dari laptop dan\r\nflashdisk.\r\n5. Angka kunci\r\nAngka Nilai Label Sumber\r\nKandidat gerak pe",
+      "answer_table_row": "| <a id=\"textfield-b6\"></a>**B6 — video offline** | Susun 3–5 menit dari rekaman run teridentifikasi; beri judul skenario, simpan di laptop dan flashdisk, uji pemutaran offline. | S11, S19 |",
+      "evidence_ids": [
+        "S11",
+        "S19"
+      ]
+    }
+  ],
+  "evidence": {
+    "S01": {
+      "path": "experiments/parallel8/igor_src_policy_core.v",
+      "title": "Verilog core Parallel8",
+      "sha256": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34"
+    },
+    "S02": {
+      "path": "experiments/parallel8/artifacts/acceptance.json",
+      "title": "Acceptance Parallel8",
+      "sha256": "f025b1af91a04e1bd30f8eb5f75eeb98195149d0c7054d9cc0900196ba1479a2"
+    },
+    "S03": {
+      "path": "experiments/parallel8/output_files/igor_src_policy.fit.summary",
+      "title": "Fitter DE10-Nano",
+      "sha256": "f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b"
+    },
+    "S04": {
+      "path": "experiments/parallel8/output_files/igor_src_policy.sta.summary",
+      "title": "STA semua corner FPGA",
+      "sha256": "5ea2b6eec3d1ba7fc6aa9a4f3f270ace1a33e87007c3625986db4786e4d88915"
+    },
+    "S05": {
+      "path": "evidence/current_safety/summary.json",
+      "title": "Safety summary dan hash source",
+      "sha256": "653d54904b16bb78a449ed9fbd571c8dd4461819500e3084a6c4f0628780b55e"
+    },
+    "S06": {
+      "path": "evidence/current_safety/cases.csv",
+      "title": "CSV checkpoint safety",
+      "sha256": "544b46bcc48d3916468756ba5fce6fe2a47538587cf352430f37ae1720f099b8"
+    },
+    "S07": {
+      "path": "rtl/igor_safety_security_gate.v",
+      "title": "RTL safety gate",
+      "sha256": "17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6"
+    },
+    "S08": {
+      "path": "rtl/igor_status_logger.v",
+      "title": "RTL logger",
+      "sha256": "3d6c24cf9355084f200b20d22fabf236527787f308a06550b36ab16769972de7"
+    },
+    "S09": {
+      "path": "evidence/current_host/results.json",
+      "title": "Hasil host fixture",
+      "sha256": "31bb49a0fed8d9ab8ebbd356cd7ef6465ad31e92796d899c9471d17575c72dd7"
+    },
+    "S10": {
+      "path": "verification/capture_hardware_safety.py",
+      "title": "Alat akuisisi board safety",
+      "sha256": "238e60ca35a9c96eeae9004483324dd7663fdba9dafc7e46784ea6dd617971ea"
+    },
+    "S11": {
+      "path": "docs/IMPLEMENTATION_READINESS.md",
+      "title": "Matriks acceptance A/B/D",
+      "sha256": "46670be91462cab2d3e12067f16c77ff5e95ba33845f9c3b806c4536ea206008"
+    },
+    "S12": {
+      "path": "evidence/chip_highlights/results.json",
+      "title": "42 tes protocol engine PASS",
+      "sha256": "64254c2eabe7377c55fc87d0261c262edd10f519477cf9ff4e56d2acc012d28f"
+    },
+    "S13": {
+      "path": "power.md",
+      "title": "Power ASIC dan sumber laporan",
+      "sha256": "4d694d3f4061c52a7f8a80fede19978dfc68af6ab9e3970f4c28c5063a7afa43"
+    },
+    "S14": {
+      "path": "evidence/chip_highlights/tinytapeout_pricing.json",
+      "title": "Tarif dan kurs IDR",
+      "sha256": "d2377be167efb81d8be141d250554c47b3bf4af5eedde5bbe882bbaa056fbb6c"
+    },
+    "S15": {
+      "path": "CHIP_ADVANTAGES.md",
+      "title": "Arsitektur, parameter, bisnis dan fabrikasi",
+      "sha256": "b43818fb767b07784278ae256b78acd98b766a9a5c81961b07dd5274651fe43c"
+    },
+    "S16": {
+      "path": "verification/neural_cocotb_results.json",
+      "title": "Hasil neural legacy",
+      "sha256": "55983ec683db276ac68545e7f904c0bfa433c8b283fd649f5f2d7717facad120"
+    },
+    "S17": {
+      "path": "verification/scene_cocotb_results.json",
+      "title": "Hasil enam scene DWA legacy",
+      "sha256": "761debfc5a9f8d71e5f09d6d21404c61360a27807796852602bdbb9f06e50d33"
+    },
+    "S18": {
+      "path": "verification/gate_functional_coverage.json",
+      "title": "Coverage gate legacy",
+      "sha256": "890b5e6bf792506fd2f9ab59fa74ba7e27da3bf293e1ddb6635dbb293919d59f"
+    },
+    "S19": {
+      "path": "evidence/current_release/manifest.json",
+      "title": "Manifest rilis dan hash artefak",
+      "hash_policy": "Generated release manifest is updated after append; consult its file hashes."
+    },
+    "S20": {
+      "path": "experiments/parallel8/igor_src_policy.qpf",
+      "title": "Proyek Quartus Parallel8",
+      "sha256": "ebc0446cac9ec52e23f6751309881e00212eab5298b745212e17b5dbc7a1ab18"
+    },
+    "S21": {
+      "path": "experiments/parallel8/artifacts/core_latency.png",
+      "title": "Screenshot GTKWave core",
+      "sha256": "97392798a0e0a500f45b15a731fa96f5661cb66c4ecb0e41c04fc42126f3a20b"
+    },
+    "S22": {
+      "path": "verification/src_policy/artifacts/model_provenance.json",
+      "title": "Provenance model source",
+      "sha256": "59e79d103425c169179de60e25ad5483b9c177fc42a81806ebb74f9a823dd7ce"
+    },
+    "S23": {
+      "path": "verification/src_policy/artifacts/results.json",
+      "title": "Karakterisasi numerik model source",
+      "sha256": "c9256acf2101a6ac02f54c4e1e364070179c52af458af88133b83f78ad8d4621"
+    },
+    "S24": {
+      "path": "robot/jetauto/offline_verification.json",
+      "title": "Verifikasi motor offline",
+      "sha256": "eafb5bd567e2831e09f42ebe1b627887b02ac1a05e503389a5e059b8cd2fd7cc"
+    },
+    "S25": {
+      "path": "software_integration/src/igor_controller/igor_controller/controller_node.py",
+      "title": "Controller host integrasi",
+      "sha256": "e25345be152f525a651985b57da0d71ae7b6605bd6c039d56bb1ab1df4aef55b"
+    },
+    "S26": {
+      "path": "experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary",
+      "title": "Power FPGA Parallel8 Typical",
+      "sha256": "df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77"
+    },
+    "S27": {
+      "path": "evidence/asic_import/gatelevel_test_results/raw/results.xml",
+      "title": "Functional gate-level ASIC terlampir",
+      "sha256": "0f380ae1419e10ae5b9ec298b92c29c5ca51918ff94a4cc0fdf6025bbea88ac8"
+    }
+  },
+  "scope": "Publication answers use each block evidence; physical acceptance and study figures require matching raw runs."
+}

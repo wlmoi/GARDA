@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "test": "Browser behavior model vs actual Icarus Verilog RTL",
+  "vectors": 3084,
+  "fault_codes_covered": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "rtl_source": "rtl/igor_safety_security_gate.v",
+  "rtl_sha256": "17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6",
+  "browser_model_sha256": "baff789d33c5acc7d4992fecfffd39fa4b8be42cd1aacadaed749307868ac93b",
+  "text_hash_normalization": "CRLF to LF",
+  "simulation_in_browser": false,
+  "seed": 15102026
+}

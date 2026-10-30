@@ -1,0 +1,66 @@
+{
+  "scope": "Measured RTL simulation coverage; no physical sign-off or ISO certification",
+  "suites": {
+    "core": {
+      "status": "PASS",
+      "raw_coverage_sha256": "027521f47eb2cf6700abc2a807514b4f06b1518b9a464978605f133098fc014c"
+    },
+    "uart": {
+      "status": "PASS",
+      "raw_coverage_sha256": "250adc337beab5c9e86b543124616e12fb98cd0ded6ceed15e6c576ee538ed55"
+    },
+    "board": {
+      "status": "PASS",
+      "raw_coverage_sha256": "6a1b9210053aaf3acabe2487dc59deb18296a4f6d51a2b95f3039507460ef69a"
+    },
+    "gate": {
+      "status": "PASS",
+      "raw_coverage_sha256": "16fdfa9f13086ce9c11ca416e0b2e1d761e9fcc44db9880e1413b24443adca06"
+    }
+  },
+  "files": {
+    "fpga/evidence/rtl_coverage/.gitignore": "a338ee1c736e612605563b19a3f83b8332ec87fd89e7b197e42087eebb1a39e1",
+    "fpga/evidence/rtl_coverage/board/artifacts/checkpoints.csv": "4b446aa8ba00721e68e53da5e89af26264c5ed2113769f3ac2e4a741642fc68c",
+    "fpga/evidence/rtl_coverage/board/build.log": "04d84e32150b674d56718163a8592fcee67d08f1baa2d4ebc93ed301bfda0ef2",
+    "fpga/evidence/rtl_coverage/board/coverage.dat": "6a1b9210053aaf3acabe2487dc59deb18296a4f6d51a2b95f3039507460ef69a",
+    "fpga/evidence/rtl_coverage/board/main.cpp": "8aae3ea77a2be94d59d8f263bc3f75434d673debb6802248bdbfeae133fa363e",
+    "fpga/evidence/rtl_coverage/board/receipt.json": "8c94dbd9ca7386aa90b74d72baaf35025a7bc809b174aee8b981f5f4432d994d",
+    "fpga/evidence/rtl_coverage/board/simulation.log": "49a7cd334d1cf1e247553282110e7f81376894d364b0bae9ca265edb0e33ee5c",
+    "fpga/evidence/rtl_coverage/board/tb_board_wrapper.sv": "fffe70f33a2a53a6b911cd8f2ae8bd04b231af1adcdecf4947f50eb5700d455d",
+    "fpga/evidence/rtl_coverage/board/uncovered.json": "c705c902ac3aa8b2d4fec8d8768b4314c83e6490b6b8195ad2a28198a58b8b49",
+    "fpga/evidence/rtl_coverage/core/build.log": "f8622716ed5a608129d76f9ef3d841ad529e87aea6e06f3855342bfcbbcf23a2",
+    "fpga/evidence/rtl_coverage/core/core_checkpoints.csv": "734830c6b420a4dbafa74402937a05f6fd96f5b116ac896daa5ec0392583fed0",
+    "fpga/evidence/rtl_coverage/core/coverage.dat": "027521f47eb2cf6700abc2a807514b4f06b1518b9a464978605f133098fc014c",
+    "fpga/evidence/rtl_coverage/core/main.cpp": "499caad557473f1b3ca89459cced78909a3cc08e45d708cbf58da7fa4ccb47ca",
+    "fpga/evidence/rtl_coverage/core/receipt.json": "7f6123f2c20ad8e516f456846dbc68f4e17e26f2ea04d9a21c1712086c9ab251",
+    "fpga/evidence/rtl_coverage/core/simulation.log": "7f538dc4cc6c2da47bd74dc92401fbeee858bb02011d753f2cb3725d432d79f4",
+    "fpga/evidence/rtl_coverage/core/tb_src_policy_core.sv": "2c3d3e49099bf2a27ea86a25126142cfe89f57e11ef6632396f6f60663811c32",
+    "fpga/evidence/rtl_coverage/core/uncovered.json": "1cb3f6648f6d914d3fc6bc2bb57834279a03fa99fc3263074f05a7c086cab2a4",
+    "fpga/evidence/rtl_coverage/COVERAGE_RESULTS.md": "27aa5f70cd56263ca882d92728d3565b0f810585a0dc593e532f522ca00d25a1",
+    "fpga/evidence/rtl_coverage/coverage_summary.csv": "a6b814efed8182cf4f4351a573dbdb98c50b7f806f476ff05360335948817666",
+    "fpga/evidence/rtl_coverage/coverage_summary.json": "a4a9f047b45928d9092b5dc534ec7e6340b075258a0d6a72887076e1b3829db8",
+    "fpga/evidence/rtl_coverage/coverage_summary.png": "beb56855fd644170dbc015e1646567e511df8a30e38332db43697c70059fa5c5",
+    "fpga/evidence/rtl_coverage/fsm_observation.json": "7c9c68c1e6b7ed27539df2d1e42eea1eb2e2ec083b96e0907696d31d531524f8",
+    "fpga/evidence/rtl_coverage/GAP_REVIEW.md": "c42e1ddaa3867046f21a6c2fed25facc151c4b519d67b73383356a4cc8ab5519",
+    "fpga/evidence/rtl_coverage/gate/build.log": "e8dbf794869f554006fd37c27907807213635a9316ecb1cd4e81fba8dd6199d3",
+    "fpga/evidence/rtl_coverage/gate/coverage.dat": "16fdfa9f13086ce9c11ca416e0b2e1d761e9fcc44db9880e1413b24443adca06",
+    "fpga/evidence/rtl_coverage/gate/gate_checkpoints.csv": "1048ec763498921e4ca0596d6adb79187c210915857676aafaa7048331a68dee",
+    "fpga/evidence/rtl_coverage/gate/gate_vectors.hex": "1fc0371b6a79f186268674701731cd1f65c723fab1843968092f964a637b086e",
+    "fpga/evidence/rtl_coverage/gate/main.cpp": "d7a23c39b03ff3331221efb7096f64ac27dc7760c9053e25c036f74d7f3e62a4",
+    "fpga/evidence/rtl_coverage/gate/receipt.json": "d024a4d41ae35c6539a65512eea1cfb178dfbe2fb9d60327ca70aa47bb6be5da",
+    "fpga/evidence/rtl_coverage/gate/simulation.log": "aa5f2af33f62f8c9f2219e0b112b48016e10a40ec0066df425dff740878b995b",
+    "fpga/evidence/rtl_coverage/gate/tb_safety_gate.sv": "6b7619e5b41fc1bcd61dcb9ca2b25af90952bf0c4b58472ec301a31004c685f7",
+    "fpga/evidence/rtl_coverage/gate/uncovered.json": "14b63d7d2f4b7664b9c27136c9ac1a2be63cc5a029cf4a92cbe307ed4010200d",
+    "fpga/evidence/rtl_coverage/gate_decision_model.json": "6446d6e691836ad95f8619a392bc8a7a077503da8d0f6bd2a25784dc5ae46ee6",
+    "fpga/evidence/rtl_coverage/test_inventory.csv": "a731ea7059a1462b35038ae9a277e4f854893f708c96599791bd6b0705e93503",
+    "fpga/evidence/rtl_coverage/TEST_INVENTORY.md": "7a68795c4f854bc6066cc7e51f93da856dcee322cccad5506d5e4e01eb11510e",
+    "fpga/evidence/rtl_coverage/uart/build.log": "17b2a1ba21c7e615196eb98b18c710cd35af64779ed097b0238d49a8db2373f6",
+    "fpga/evidence/rtl_coverage/uart/coverage.dat": "250adc337beab5c9e86b543124616e12fb98cd0ded6ceed15e6c576ee538ed55",
+    "fpga/evidence/rtl_coverage/uart/main.cpp": "36489fb63f5b47333f5e82e02fab901d18bcc79a67758b08076a65be5648eb30",
+    "fpga/evidence/rtl_coverage/uart/receipt.json": "cfe0b0c5e8d023ec208f2f91f891a2c4818329055d14a73578f40a79af41abc0",
+    "fpga/evidence/rtl_coverage/uart/simulation.log": "9a722fe33e2570d72293f07adc0be0379d1ab33a4950239e40513acbda6d1a7e",
+    "fpga/evidence/rtl_coverage/uart/tb_src_policy_uart.sv": "fac72f55552dafc7375ea67dd95b98f2bd8f57d12f3bed180c428a92ce97052d",
+    "fpga/evidence/rtl_coverage/uart/uart_checkpoints.csv": "d80385a443f4a63bf5be42858f2ea2373569e4690273208dbabd90c49d7e7cfa",
+    "fpga/evidence/rtl_coverage/uart/uncovered.json": "67389a99c1cff6b21a911a89548fd81153228d1825963d0bedb081d182a11f7d"
+  }
+}

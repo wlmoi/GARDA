@@ -1,0 +1,10 @@
+﻿timestamp_utc,timestamp_local,elapsed_s,read_duration_ms,location_label,latitude,longitude,event,unobserved_results,mode,stop,pin,accepted,rejected,error,cycles,seq,a0,a1,a2,action0_float,action1_float,action2_float
+2026-10-20T01:58:51.416+00:00,2026-10-20T08:58:51.416+07:00,1.141,641.0,Scenario runner - physical location unspecified,,,existing_result,,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:51.526+00:00,2026-10-20T08:58:51.526+07:00,1.25,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:51.775+00:00,2026-10-20T08:58:51.775+07:00,1.5,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:52.028+00:00,2026-10-20T08:58:52.028+07:00,1.75,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:52.278+00:00,2026-10-20T08:58:52.278+07:00,2.0,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:52.531+00:00,2026-10-20T08:58:52.531+07:00,2.266,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:52.781+00:00,2026-10-20T08:58:52.781+07:00,2.516,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:53.034+00:00,2026-10-20T08:58:53.034+07:00,2.766,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125
+2026-10-20T01:58:53.287+00:00,2026-10-20T08:58:53.287+07:00,3.016,109.0,Scenario runner - physical location unspecified,,,unchanged,0,I,0,1,517,521,11,6916,517,-46,60,34,-0.1796875,0.234375,0.1328125

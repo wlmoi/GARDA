@@ -1,0 +1,96 @@
+{
+  "scope": "Functional FSM observation from bound existing Icarus waveform; sampled transitions, no self-loop or reset-arc denominator",
+  "source_sha256": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+  "waveform_sha256": "ab58e69faa523f0961e6f77cbc2750af690e0b8ebb9a9e3c5e26beda60b923d2",
+  "waveform": "fpga/evidence/parallel8_wave_proof/core/core.vcd",
+  "state_coverage": {
+    "hit": 8,
+    "total": 8,
+    "percent": 100.0
+  },
+  "normal_arc_coverage": {
+    "hit": 10,
+    "total": 10,
+    "percent": 100.0
+  },
+  "normal_arc_bins": [
+    {
+      "from": "IDLE",
+      "to": "BIAS_ADDRESS",
+      "hit": true
+    },
+    {
+      "from": "BIAS_ADDRESS",
+      "to": "BIAS_WAIT",
+      "hit": true
+    },
+    {
+      "from": "BIAS_WAIT",
+      "to": "BIAS_TAKE",
+      "hit": true
+    },
+    {
+      "from": "BIAS_TAKE",
+      "to": "WEIGHT_ADDRESS",
+      "hit": true
+    },
+    {
+      "from": "WEIGHT_ADDRESS",
+      "to": "WEIGHT_WAIT",
+      "hit": true
+    },
+    {
+      "from": "WEIGHT_WAIT",
+      "to": "MAC",
+      "hit": true
+    },
+    {
+      "from": "MAC",
+      "to": "WEIGHT_ADDRESS",
+      "hit": true
+    },
+    {
+      "from": "MAC",
+      "to": "ACTIVATE",
+      "hit": true
+    },
+    {
+      "from": "ACTIVATE",
+      "to": "IDLE",
+      "hit": true
+    },
+    {
+      "from": "ACTIVATE",
+      "to": "BIAS_ADDRESS",
+      "hit": true
+    }
+  ],
+  "observed_other_changes": [
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      6,
+      0
+    ]
+  ],
+  "limitations": [
+    "Waveform intentionally omits vectors 2..235; only observed segments counted.",
+    "Other observed changes may be reset/abort/fault; they are not classified as normal arcs.",
+    "Illegal-state recovery is verified separately by the instrumented supplemental test.",
+    "Not MC/DC, native FSM extraction, or 100% of all temporal interleavings."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "passed": 98,
+  "fixed": 50,
+  "matrix": 48,
+  "fixture_cases": 16,
+  "mean_ms": 4.594083622392571,
+  "max_ms": 5.920224000874441,
+  "over_20ms": 0,
+  "scope": "Physical Jetson FPGABridge to FPGA UART; no motors"
+}

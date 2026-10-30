@@ -1,0 +1,46 @@
+{
+  "scope": "Eight-lane candidate; no physical hardware measurement",
+  "latency_cycles": 6916,
+  "latency_ms_at_50mhz": 0.13832,
+  "target_ms": 0.16,
+  "baseline_cycles": 54348,
+  "suites": {
+    "core": {
+      "passed": true,
+      "assertions": 54399
+    },
+    "uart": {
+      "passed": true,
+      "assertions": 268
+    },
+    "board": {
+      "passed": true,
+      "checkpoints": 18
+    }
+  },
+  "sha256": {
+    "experiments/parallel8/bank0.mem": "9ca680c769894f074db1d50acf09075c35a4e58b02fbdcb6a944dbb4624c6768",
+    "experiments/parallel8/bank1.mem": "33c88dc96045e1bf3e7b34d111eb103825f57fa396f303c8bff9ee22a984dd88",
+    "experiments/parallel8/bank2.mem": "348c2f8536b441b7ce15fa98b75570755815f2b694d108b5465226a882d5d466",
+    "experiments/parallel8/bank3.mem": "2789b0cb6dddfe29e7d013112a3217cf735bb64c4a3a7556d67a0dcbdaa5ca53",
+    "experiments/parallel8/bank4.mem": "f3e93047fa7e1f31e972e921fd908ac683e760ecf3f8407d550d62dcc6c6f1bf",
+    "experiments/parallel8/bank5.mem": "8d638f6cf3912a7afb6642ff4755194bd919ffa840f7ccfd283571a8e048ee0b",
+    "experiments/parallel8/bank6.mem": "30f0a7ea491c625fedd633b30d9d1ff2638649ae08261f48029db8e889b25e87",
+    "experiments/parallel8/bank7.mem": "af74fd8bb339ee678cb556752ef358a20c185708af8decbac8534fc873ff8071",
+    "experiments/parallel8/igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "experiments/parallel8/igor_src_policy_de10_nano.v": "74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81",
+    "experiments/parallel8/tb_board_wrapper.sv": "cf6afed010b93ce39a91f3337607298f02bf57853e5d3c66575d0ee5afa1543e",
+    "experiments/parallel8/tb_src_policy_core.sv": "2548d3ed6b3173a973bb12335b90dcb41f86910b72dd5c754236977ee4ca8715",
+    "experiments/parallel8/tb_src_policy_uart.sv": "ec4f484abd225661298c55f9692a4e9c2e6693ef0910f8dcb4e003847b951ca5",
+    "rtl/igor_src_policy/igor_src_policy_uart.v": "8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a",
+    "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "rtl/igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28",
+    "verification/src_policy/artifacts/activation_expected.hex": "875d7acd9fafa754ada452ffafe04d14d9a103b93efe0f5ae60e9e625e89f67b",
+    "verification/src_policy/artifacts/activation_inputs.hex": "e2d6767848e5e130b538f695717c09e274b179fb39dfae05c9e74abe5d71b417",
+    "verification/src_policy/artifacts/expected.hex": "7e658f000d3debcfd80469429dec1db5155cfe6bb2346a46ae0fca2585d6e4a4",
+    "verification/src_policy/artifacts/hidden1.hex": "bb69f69e3296fc3f4119090243196a08ab31f6200ae4615076d9458db34d37c8",
+    "verification/src_policy/artifacts/hidden2.hex": "3562cf279d08039b8688e88c015fa3d83ff63214a29078b2b25bff42003e48e2",
+    "verification/src_policy/artifacts/observations.hex": "558331b4b29da0c029184fb1772f0027ef05164aa694995fe367869b6d291a76",
+    "verification/src_policy/artifacts/saturated.hex": "0aa2d7c0e5411971ff874b7b51530f3b3b1ccf3731ad0025cf3cd5b994aefe6f"
+  }
+}

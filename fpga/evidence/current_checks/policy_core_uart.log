@@ -1,0 +1,7 @@
+VCD info: dumpfile verification/src_policy/artifacts/core.vcd opened for output.
+PASS core: 236 network vectors, 8364 activation cases, 54399 assertions; all 192 hidden activations and 3 outputs checked per vector
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\src_policy\tb_src_policy_core.sv:162: $finish called at 259092231000 (1ps)
+VCD info: dumpfile verification/src_policy/artifacts/uart.vcd opened for output.
+PASS uart: 184 directed transactions, 268 assertions, all 74 field range boundaries, independent wire decode, E-stop/parser/inference/TX/reset/stale/watchdog recovery
+D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\src_policy\tb_src_policy_uart.sv:254: $finish called at 64366191000 (1ps)
+PASS source-policy regression; artifacts: D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\src_policy\artifacts

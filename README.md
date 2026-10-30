@@ -1,6 +1,6 @@
 # GARDA
 
-GARDA adalah salinan proyek IGOR dengan identitas dan dashboard baru. Nama modul, source RTL, dan bukti teknis tetap menggunakan IGOR agar kompatibilitas dan keterlacakan terjaga. Dashboard statis tersedia di `dashboard/dist`; konfigurasi Vercel ada di `vercel.json`.
+GARDA adalah salinan proyek IGOR dengan identitas dan dashboard baru. Salinan struktur workspace asal tersedia di `workspace-igor/`, dan proyek explorer asal tersedia di `peruri-iseedesign/`. Nama modul, source RTL, dan bukti teknis tetap menggunakan IGOR agar kompatibilitas dan keterlacakan terjaga. Dashboard statis tersedia di `dashboard/dist`; konfigurasi Vercel ada di `vercel.json`.
 
 > **Implementasi workspace 16 Oktober 2026.** Software `../src` menggunakan
 > **74 → 128 → 64 → 3**, berbeda dari model legacy 24 → 64 → 64 → 4 yang
@@ -46,15 +46,15 @@ GARDA adalah salinan proyek IGOR dengan identitas dan dashboard baru. Nama modul
   <a href="#hasil-eksperimen-model-ai-cl-drl-dan-akselerator-q88">Eksperimen AI</a>
 </p>
 
-## Mengapa IGOR
+## Mengapa GARDA
 
-Robot pengangkut material perlu mengambil keputusan cepat sekaligus menjaga pekerja dan barang di sekitarnya. Usulan gerak dapat menjadi tidak layak ketika peta belum lengkap, informasi sudah kedaluwarsa, atau pengaturan berubah. IGOR dirancang sebagai prosesor pendamping yang memeriksa pilihan gerak dan menentukan izin pada rangkaian FPGA.
+Robot pengangkut material perlu mengambil keputusan cepat sekaligus menjaga pekerja dan barang di sekitarnya. Usulan gerak dapat menjadi tidak layak ketika peta belum lengkap, informasi sudah kedaluwarsa, atau pengaturan berubah. GARDA dirancang sebagai prosesor pendamping yang memeriksa pilihan gerak dan menentukan izin pada rangkaian FPGA.
 
 Proposal tim menempatkan logistik internal PERURI sebagai penerapan awal yang diusulkan. Repository ini memuat fondasi teknisnya: pemeriksa lintasan, pemilih gerak, gerbang izin, inti inferensi, serta perangkat pengujian yang dapat ditelusuri dari source hingga hasil. Pilot pada rute nyata merupakan tahap pengembangan berikutnya.
 
 ## Dari peta menjadi keputusan yang bisa diperiksa
 
-IGOR mengevaluasi kandidat gerak pada costmap 128 × 128 menggunakan empat evaluator paralel. Setiap evaluator menangani 128 kandidat dengan 20 pose per kandidat. Hasil terbaik melewati `igor_safety_security_gate`, lalu tersedia sebagai izin, kode kecepatan, kode kecepatan sudut, dan status kesalahan.
+GARDA mengevaluasi kandidat gerak pada costmap 128 × 128 menggunakan empat evaluator paralel. Setiap evaluator menangani 128 kandidat dengan 20 pose per kandidat. Hasil terbaik melewati `igor_safety_security_gate`, lalu tersedia sebagai izin, kode kecepatan, kode kecepatan sudut, dan status kesalahan.
 
 Repository ini menyatukan RTL, model numerik, bobot BRAM, testbench, proyek Quartus, bitstream `.sof`, diagram, dan bukti implementasi. Neural core **24 → 64 → 64 → 4** tersedia sebagai jalur inferensi terpisah. Top TinyTapeout aktif adalah `tt_um_wlmoi_igor_neural_logic`, yaitu inferensi neural lengkap dengan dua MAC, model tetap, dan aktivasi register tanpa SRAM fisik. Eksperimen subset gerbang sebelumnya merupakan arsip.
 
@@ -79,7 +79,7 @@ Paket [JetAuto](docs/JETAUTO.md) menyediakan pengujian motor dan referensi UART 
 
 ## Jelajahi board dan RTL secara interaktif
 
-[IGOR RTL Explorer](dashboard/README.md) menampilkan DE10-Nano 3D, 20 deklarasi modul FPGA dari 19 berkas asli, serta empat modul neural TinyTapeout aktif. Klik blok untuk menelusuri fungsi, port, ukuran bit, hierarchy, dan source Verilog. Panel bukti membaca hasil verifikasi repository, sementara demo gerbang memakai model yang dibandingkan terhadap RTL pada 3.084 vektor.
+[GARDA RTL Explorer](dashboard/README.md) menampilkan DE10-Nano 3D, 20 deklarasi modul FPGA dari 19 berkas asli, serta empat modul neural TinyTapeout aktif. Klik blok untuk menelusuri fungsi, port, ukuran bit, hierarchy, dan source Verilog. Panel bukti membaca hasil verifikasi repository, sementara demo gerbang memakai model yang dibandingkan terhadap RTL pada 3.084 vektor.
 
 Jalankan [START_DASHBOARD.bat](dashboard/START_DASHBOARD.bat) untuk membuka di laptop. Distribusi publik berada di `dashboard/dist` dan konfigurasi Vercel tersedia pada repository root. Panduan regenerasi, pengujian, batas model 3D, serta deployment tersedia pada [Interactive Explorer](docs/INTERACTIVE_EXPLORER.md).
 
@@ -98,7 +98,7 @@ Jalankan [START_DASHBOARD.bat](dashboard/START_DASHBOARD.bat) untuk membuka di l
 | Implementasi FPGA | **DE10-Nano dan DE10-Lite** | [Resource dan timing](docs/PERFORMANCE.md) |
 | Diagram modul | **1 file `.io` dengan 28 halaman** | [Buka sumber diagram](docs/flowcharts/IGOR_RTL_Flowchart.io) |
 
-Angka waktu pada tabel adalah hasil kernel simulasi. Evaluasi DWA lengkap memerlukan 7.938 siklus (158,76 µs) pada keenam scene yang direkam. Berdasarkan pemodelan timing kode C yang ditranslasikan dari model referensi Python, kecepatan kernel 4-tile IGOR diperkirakan sekitar **1,2–1,7× lebih cepat** dibanding prosesor ARM sekelas HPS DE10-Nano (estimasi model, belum diukur langsung pada board), sedangkan prosesor desktop x86 mengeksekusinya dalam **21–37 µs**. Oleh karena itu, nilai jual utama IGOR bukan sekadar kecepatan mentah tunggal, melainkan **waktu eksekusi deterministik (*fixed timing*)**, **beban CPU nol (*zero CPU load*)** pada prosesor utama, serta **skalabilitas arsitektur hingga 16 tile** (diproyeksikan **~40 µs** atau **5–7× lebih cepat**, belum diimplementasikan). Cakupan pengukuran, asumsi daya, dan tahapan integrasi dijelaskan pada [catatan hasil](docs/RESULTS_AND_SCOPE.md).
+Angka waktu pada tabel adalah hasil kernel simulasi. Evaluasi DWA lengkap memerlukan 7.938 siklus (158,76 µs) pada keenam scene yang direkam. Berdasarkan pemodelan timing kode C yang ditranslasikan dari model referensi Python, kecepatan kernel 4-tile GARDA diperkirakan sekitar **1,2–1,7× lebih cepat** dibanding prosesor ARM sekelas HPS DE10-Nano (estimasi model, belum diukur langsung pada board), sedangkan prosesor desktop x86 mengeksekusinya dalam **21–37 µs**. Oleh karena itu, nilai jual utama GARDA bukan sekadar kecepatan mentah tunggal, melainkan **waktu eksekusi deterministik (*fixed timing*)**, **beban CPU nol (*zero CPU load*)** pada prosesor utama, serta **skalabilitas arsitektur hingga 16 tile** (diproyeksikan **~40 µs** atau **5–7× lebih cepat**, belum diimplementasikan). Cakupan pengukuran, asumsi daya, dan tahapan integrasi dijelaskan pada [catatan hasil](docs/RESULTS_AND_SCOPE.md).
 
 Implementasi DE10-Nano memakai **4.964 ALM, 131 M10K, dan 10 DSP**, dengan timing memenuhi clock **50 MHz**. Power Analyzer menghasilkan estimasi **506,69 mW** secara vectorless dengan confidence rendah. Ini estimasi rangkaian FPGA, bukan pengukuran konsumsi seluruh board dan HPS. Laporan asli serta hasil DE10-Lite tersedia pada [resource, timing, dan daya](docs/PERFORMANCE.md).
 
@@ -110,7 +110,7 @@ Lihat [breakdown seluruh modul RTL](docs/RTL_MODULES.md), [bit flow](docs/ARCHIT
 
 ## Hasil Eksperimen Model AI: CL-DRL dan Akselerator Q8.8
 
-Sebagai pelengkap evaluasi lintasan deterministik DWA, arsitektur IGOR mengintegrasikan modul kendali otonom berbasis **Curriculum-based Deep Reinforcement Learning (CL-DRL)** menggunakan algoritma **Soft Actor-Critic (SAC)** untuk robot holonomik Mecanum. Model ini dilatih melalui kurikulum 4-tahap progresif dan dikuantisasi penuh ke representasi fixed-point **Q8.8 bit-true signed 16-bit** agar kompatibel langsung dengan akselerator Block RAM (M10K) pada FPGA Cyclone V DE10-Nano.
+Sebagai pelengkap evaluasi lintasan deterministik DWA, arsitektur GARDA mengintegrasikan modul kendali otonom berbasis **Curriculum-based Deep Reinforcement Learning (CL-DRL)** menggunakan algoritma **Soft Actor-Critic (SAC)** untuk robot holonomik Mecanum. Model ini dilatih melalui kurikulum 4-tahap progresif dan dikuantisasi penuh ke representasi fixed-point **Q8.8 bit-true signed 16-bit** agar kompatibel langsung dengan akselerator Block RAM (M10K) pada FPGA Cyclone V DE10-Nano.
 
 Seluruh eksperimen pelatihan, komparasi numerik PyTorch FP32 vs Hardware Q8.8, serta pembuatan visualisasi dan ekspor bobot hardware terdokumentasi lengkap dalam notebook [notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb](notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb).
 
@@ -203,7 +203,7 @@ Selain pengujian pada 5 skenario OOD terkurasi di atas, model dievaluasi secara 
 | **Collision Rate (Tabrakan)** | **0 / 50 (0,0%)** | Tidak ada satupun insiden tabrakan dengan rintangan |
 | **Action Delta Avg (*Smoothness Index*)** | **0,1655** | Sedikit di atas batas ideal $< 0,15$ akibat manuver reaktif jarak dekat |
 
-Temuan **68% keberhasilan dan 32% *timeout* dengan 0% tabrakan** menunjukkan bahwa kebijakan CL-DRL yang dilatih memiliki karakteristik konservatif (*safety-biased*): ketika berhadapan dengan konfigurasi rintangan acak yang menyulitkan penyelarasan sudut akhir ($\pm 20^\circ$), agen memprioritaskan penghindaran tabrakan sehingga waktu habis sebelum *docking* terpenuhi. Hal ini memperkuat alasan arsitektural IGOR untuk memosisikan jaringan saraf sebagai pengusul gerak pendamping yang tetap dikawal oleh evaluator lintasan deterministik **DWA** dan gerbang keselamatan **`igor_safety_security_gate`** pada FPGA.
+Temuan **68% keberhasilan dan 32% *timeout* dengan 0% tabrakan** menunjukkan bahwa kebijakan CL-DRL yang dilatih memiliki karakteristik konservatif (*safety-biased*): ketika berhadapan dengan konfigurasi rintangan acak yang menyulitkan penyelarasan sudut akhir ($\pm 20^\circ$), agen memprioritaskan penghindaran tabrakan sehingga waktu habis sebelum *docking* terpenuhi. Hal ini memperkuat alasan arsitektural GARDA untuk memosisikan jaringan saraf sebagai pengusul gerak pendamping yang tetap dikawal oleh evaluator lintasan deterministik **DWA** dan gerbang keselamatan **`igor_safety_security_gate`** pada FPGA.
 
 ## Pilih jalur yang ingin dijalankan
 

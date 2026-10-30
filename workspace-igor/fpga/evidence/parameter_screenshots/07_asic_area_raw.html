@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><style>
+        *{box-sizing:border-box}body{margin:0;background:#edf2f8;color:#13223a;font:20px Segoe UI,Arial;padding:38px}
+        header{border-top:9px solid #146b83;background:white;padding:24px 30px;border-radius:12px}h1{font-size:33px;margin:8px 0 14px}
+        .badge{color:#166076;font-weight:700;letter-spacing:1px;font-size:15px}p{line-height:1.45;margin:12px 0}
+        .source{font:15px Consolas,monospace;background:#dfedf4;padding:14px;overflow-wrap:anywhere;margin-top:20px}
+        pre{font:18px/1.5 Consolas,monospace;background:white;border:1px solid #c2d0dd;margin:0;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+        table{width:100%;border-collapse:collapse;background:white;margin-top:20px;font-size:21px}td,th{padding:14px;border:1px solid #bfd0de;text-align:left}th{background:#163f57;color:white}
+        footer{font-size:15px;margin-top:20px;color:#43566b}.note{background:#fff2ce;padding:15px;border-left:5px solid #c08a12}
+        </style><header><div class="badge">IGOR PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>07 | Tiny Tapeout: allocated area, standard cells and SRAM</h1><p>Original physical metrics, in um^2. 1 mm^2 = 1,000,000 um^2. Standard cells + macro = 97,957.9 um^2; allocated die rectangle = 916,214 um^2.</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header><div class="source">SOURCE: fpga\evidence\asic_import\gds_diagnostics_1\raw\runs\wokwi\final\metrics.json<br>SHA256: dcc3691d17a6cadaee4e63f6a0174b0dfe261cee488d91c899bff81e93b8acb0</div><pre>   7 |     &quot;design__instance__area&quot;: 895165,
+  85 |     &quot;design__die__area&quot;: 916214,
+  86 |     &quot;design__core__area&quot;: 902417,
+  87 |     &quot;design__instance__count__stdcell&quot;: 5316,
+  88 |     &quot;design__instance__area__stdcell&quot;: 69830.8,
+  89 |     &quot;design__instance__count__macros&quot;: 1,
+  90 |     &quot;design__instance__area__macros&quot;: 28127.1,
+ 168 |     &quot;design__instance__area__class:fill_cell&quot;: 797207,</pre><div class="source">SOURCE: info.yaml<br>SHA256: e278b481ea26157231fe667df07f8d4ff4ab35d8a8cca480f95f96df21f90dcb</div><pre>   2 | project:
+   3 |   title:        &quot;IgorChip Programmable Protocol Engine&quot;
+   4 |   author:       &quot;wlmoi&quot;
+   5 |   discord:      &quot;icdesignboi&quot;
+   6 |   description:  &quot;Four-thread programmable digital protocol engine&quot;
+   7 |   language:     &quot;Verilog&quot; # other examples include SystemVerilog, Amaranth, VHDL, etc
+   8 |   clock_hz:     50000000
+   9 | 
+  10 |   # How many tiles your design occupies? A single tile is about 167x108 uM.
+  11 |   tiles: &quot;6x4&quot;
+  12 | 
+  13 |   # Your top module name must start with &quot;tt_um_&quot;. Make it unique by including your github username:
+  14 |   top_module:  &quot;tt_um_igorchip&quot;
+  15 | 
+  16 |   # List your project&#x27;s source files here.
+  17 |   # Source files must be in ./src and you must list each source file separately, one per line.</pre><footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_igorchip protocol engine, not a mapped PPO neural ASIC.</footer>

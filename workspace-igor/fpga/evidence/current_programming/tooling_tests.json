@@ -1,0 +1,25 @@
+﻿{
+    "cases":  [
+                  "inspect_detects_fpga_at_2_and_bypasses_hps_at_1_without_programming",
+                  "whatif_does_not_program",
+                  "hps_selection_rejected",
+                  "missing_cable_rejected",
+                  "missing_device_index_rejected",
+                  "tampered_sof_hash_rejected",
+                  "failed_full_source_build_release_check_rejected",
+                  "explicit_program_reaches_only_fake_tool_with_correct_arguments",
+                  "autoselect_rejects_unattached",
+                  "autoselect_rejects_empty",
+                  "autoselect_rejects_multiple",
+                  "autoselect_whatif_does_not_program",
+                  "parallel8_selects_exact_handoff_and_generates_detected_cdf",
+                  "parallel8_handoff_mismatch_rejected",
+                  "zero_exit_program_error_is_not_success"
+              ],
+    "physical_hardware_accessed":  false,
+    "schema":  1,
+    "evidence_kind":  "isolated fake executable fixture; not hardware evidence",
+    "count":  15,
+    "utc":  "2026-10-18T06:00:25.9861747Z",
+    "status":  "PASS"
+}

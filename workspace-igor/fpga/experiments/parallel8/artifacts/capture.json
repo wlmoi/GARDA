@@ -1,0 +1,69 @@
+{
+  "name": "core_latency",
+  "waveform": "experiments/parallel8/core.vcd",
+  "checkpoint_file": "experiments/parallel8/core_checkpoints.csv",
+  "time_ps": 148294000,
+  "radius_ps": 150000000,
+  "end_ps": 149000000,
+  "markers": [
+    [
+      9970000,
+      "START"
+    ],
+    [
+      148290000,
+      "DONE"
+    ]
+  ],
+  "signals": [
+    "tb_src_policy_core.start",
+    "tb_src_policy_core.busy",
+    "tb_src_policy_core.done",
+    "tb_src_policy_core.fault",
+    "tb_src_policy_core.error_code",
+    "tb_src_policy_core.latency_cycles",
+    "tb_src_policy_core.dut.state",
+    "tb_src_policy_core.dut.layer",
+    "tb_src_policy_core.dut.neuron",
+    "tb_src_policy_core.dut.k"
+  ],
+  "checkpoint": {
+    "cycle": "7415",
+    "time_ps": "148295000",
+    "test_id": "0",
+    "event": "bit_exact_complete",
+    "busy": "0",
+    "done": "1",
+    "fault": "0",
+    "error_code": "0",
+    "output_q8_8": "0",
+    "latency_cycles": "6916"
+  },
+  "sampled_vcd_values": {
+    "tb_src_policy_core.start": 0,
+    "tb_src_policy_core.busy": 0,
+    "tb_src_policy_core.done": 1,
+    "tb_src_policy_core.fault": 0,
+    "tb_src_policy_core.error_code": 0,
+    "tb_src_policy_core.latency_cycles": 6916,
+    "tb_src_policy_core.dut.state": 0,
+    "tb_src_policy_core.dut.layer": 2,
+    "tb_src_policy_core.dut.neuron": 0,
+    "tb_src_policy_core.dut.k": 63
+  },
+  "marker_values_match_checkpoint": true,
+  "kind": "native GTKWave Grab_To_File screenshot, unmodified",
+  "image": "experiments/parallel8/artifacts/core_latency.png",
+  "image_sha256": "97392798a0e0a500f45b15a731fa96f5661cb66c4ecb0e41c04fc42126f3a20b",
+  "waveform_sha256": "c39a29eedca4b7527d0335e761e8b259d8aeaaa1d8e564559288776a5a185443",
+  "checkpoint_sha256": "beba4fb6c983a4c89dedf38a2cae7266c3609525d6bd2d2002582385aae0acf3",
+  "command": [
+    "C:\\iverilog\\gtkwave\\bin\\gtkwave.exe",
+    "-S",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\experiments\\parallel8\\artifacts\\core_latency.tcl",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\experiments\\parallel8\\core.vcd",
+    "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\experiments\\parallel8\\artifacts\\core_latency.gtkw"
+  ],
+  "exit_code": 0,
+  "capture_log": "experiments/parallel8/artifacts/core_latency.log"
+}

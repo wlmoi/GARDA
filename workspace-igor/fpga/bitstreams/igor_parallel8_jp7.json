@@ -1,0 +1,11 @@
+{
+  "sha256": "01310dfbcf0e907385d5a1795a4e3373bf2927f324b29f5dcaf3f296b00a0292",
+  "installed_utc": "2026-10-19T12:57:27.1798427Z",
+  "project": "fpga/experiments/parallel8_jp7/igor_parallel8_jp7.qpf",
+  "minimum_reported_slack_ns": 0.117,
+  "rx": "JP7 pin 1 / Y15",
+  "tx": "JP7 pin 2 / AC24",
+  "ground": "JP7 pin 12",
+  "baud": 921600,
+  "source_identity": "Copied core, top, SDC and eight banks match original Parallel8 by SHA256"
+}

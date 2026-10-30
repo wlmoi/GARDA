@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "Existing check_parallel8 source/report/acceptance hashes plus compiled and handoff SOF equality",
+  "sof_sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
+  "checked_mapping_files": 76,
+  "global_release_check": "FAILED: unrelated changed files; manifest not altered"
+}

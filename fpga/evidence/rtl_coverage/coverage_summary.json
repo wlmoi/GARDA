@@ -1,0 +1,258 @@
+[
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_branch",
+    "hit": 95,
+    "total": 96,
+    "percent": 98.95833333333333
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "hit": 60,
+    "total": 68,
+    "percent": 88.23529411764706
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "hit": 789,
+    "total": 908,
+    "percent": 86.89427312775331
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_de10_nano.v",
+    "metric": "v_branch",
+    "hit": 6,
+    "total": 6,
+    "percent": 100.0
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_de10_nano.v",
+    "metric": "v_line",
+    "hit": 4,
+    "total": 4,
+    "percent": 100.0
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_de10_nano.v",
+    "metric": "v_toggle",
+    "hit": 51,
+    "total": 194,
+    "percent": 26.288659793814432
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_branch",
+    "hit": 35,
+    "total": 46,
+    "percent": 76.08695652173913
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_line",
+    "hit": 37,
+    "total": 47,
+    "percent": 78.72340425531915
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "hit": 214,
+    "total": 517,
+    "percent": 41.3926499032882
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_branch",
+    "hit": 13,
+    "total": 14,
+    "percent": 92.85714285714286
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_line",
+    "hit": 8,
+    "total": 10,
+    "percent": 80.0
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "hit": 33,
+    "total": 44,
+    "percent": 75.0
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_branch",
+    "hit": 4,
+    "total": 4,
+    "percent": 100.0
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_line",
+    "hit": 5,
+    "total": 5,
+    "percent": 100.0
+  },
+  {
+    "suite": "board",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "hit": 33,
+    "total": 43,
+    "percent": 76.74418604651163
+  },
+  {
+    "suite": "core",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_branch",
+    "hit": 96,
+    "total": 96,
+    "percent": 100.0
+  },
+  {
+    "suite": "core",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "hit": 68,
+    "total": 68,
+    "percent": 100.0
+  },
+  {
+    "suite": "core",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "hit": 870,
+    "total": 908,
+    "percent": 95.81497797356828
+  },
+  {
+    "suite": "gate",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+    "metric": "v_line",
+    "hit": 13,
+    "total": 13,
+    "percent": 100.0
+  },
+  {
+    "suite": "gate",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v",
+    "metric": "v_toggle",
+    "hit": 102,
+    "total": 107,
+    "percent": 95.32710280373831
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_branch",
+    "hit": 95,
+    "total": 96,
+    "percent": 98.95833333333333
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_line",
+    "hit": 61,
+    "total": 68,
+    "percent": 89.70588235294117
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+    "metric": "v_toggle",
+    "hit": 829,
+    "total": 908,
+    "percent": 91.29955947136564
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_branch",
+    "hit": 46,
+    "total": 46,
+    "percent": 100.0
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_line",
+    "hit": 46,
+    "total": 47,
+    "percent": 97.87234042553192
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v",
+    "metric": "v_toggle",
+    "hit": 371,
+    "total": 517,
+    "percent": 71.76015473887814
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_branch",
+    "hit": 14,
+    "total": 14,
+    "percent": 100.0
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_line",
+    "hit": 9,
+    "total": 10,
+    "percent": 90.0
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_rx.v",
+    "metric": "v_toggle",
+    "hit": 31,
+    "total": 44,
+    "percent": 70.45454545454545
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_branch",
+    "hit": 4,
+    "total": 4,
+    "percent": 100.0
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_line",
+    "hit": 5,
+    "total": 5,
+    "percent": 100.0
+  },
+  {
+    "suite": "uart",
+    "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_uart_tx.v",
+    "metric": "v_toggle",
+    "hit": 30,
+    "total": 43,
+    "percent": 69.76744186046511
+  }
+]

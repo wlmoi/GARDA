@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2721" height="1304" viewBox="0 0 2721 1304">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="2721" height="1304" fill="white"/>
+<rect x="25" y="25" width="2671" height="1254" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="2601" height="75" rx="10" fill="#78638C"/>
+<text x="1360.50" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">LAMPIRAN — SEQUENCER DEMO BOARD</text>
+<text x="1360.50" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">demo_state[3:0]  |  FSM eksplisit numerik; cfg/map/start decode bergantung state</text>
+<ellipse cx="257.26" cy="543.53" rx="187.2072" ry="48.0276" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="257.26" y="531.38" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=8 | RESET_WAIT1</text>
+<text x="257.26" y="555.68" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tidak menerbitkan command</text>
+<ellipse cx="767.26" cy="543.53" rx="187.2072" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="767.26" y="531.38" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=9 | RESET_WAIT2</text>
+<text x="767.26" y="555.68" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tidak menerbitkan command</text>
+<ellipse cx="1243.25" cy="543.53" rx="153.26639999999998" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1243.25" y="531.38" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=0 | CFG_WRITE</text>
+<text x="1243.25" y="555.68" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">cfg_write=1</text>
+<ellipse cx="1243.25" cy="727.33" rx="184.554" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1243.25" y="715.18" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=1 | CFG_LOCK</text>
+<text x="1243.25" y="739.48" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">cfg_lock=1; sample scenario</text>
+<ellipse cx="1731.25" cy="727.33" rx="167.5836" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1731.25" y="715.18" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=2 | MAP_BEGIN</text>
+<text x="1731.25" y="739.48" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">map_begin=1; address=0</text>
+<ellipse cx="2217.25" cy="727.33" rx="182.96280000000002" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="2217.25" y="715.18" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=3 | MAP_WRITE</text>
+<text x="2217.25" y="739.48" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">map_write=1; tulis byte map</text>
+<ellipse cx="1532.25" cy="941.734" rx="164.4012" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1532.25" y="929.58" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=4 | MAP_COMMIT</text>
+<text x="1532.25" y="953.88" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">map_commit=1</text>
+<ellipse cx="1986.25" cy="941.734" rx="153.7956" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="1986.25" y="929.58" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=5 | START</text>
+<text x="1986.25" y="953.88" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">start=1; delay_count=0</text>
+<ellipse cx="2463.25" cy="941.734" rx="187.7364" ry="62.8776" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="2463.25" y="917.43" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=6 | WAIT</text>
+<text x="2463.25" y="941.73" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tunggu counter delay; bukan</text>
+<text x="2463.25" y="966.03" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">tunggu done</text>
+<ellipse cx="541.26" cy="359.72" rx="210.5424" ry="48.0276" fill="#FDE8E8" stroke="#6E8950" stroke-width="2"/>
+<text x="541.26" y="347.57" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">state=7 | DEFAULT_TRAP</text>
+<text x="541.26" y="371.87" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">Tidak ada decode command aktif</text>
+<circle cx="257.26" cy="359.72" r="5.76" fill="#506A89"/>
+<path d="M 257.26,366.37 C 257.26,383.97 257.26,439.36 257.26,483.39 L 257.26,494.88" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="236.26" y="437.18" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="294.76" y="451.63" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 445.34999999999997,543.53 C 485.30999999999995,543.53 527.6299999999999,543.53 567.99,543.53 L 579.3199999999999,543.53" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="480.01" y="518.2" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="512.26" y="532.65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 955.38,543.53 C 995.8,543.53 1038.2199999999998,543.53 1077.65,543.53 L 1089.05,543.53" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="989.9799999999999" y="518.2" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="1022.23" y="532.65" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 1243.25,592.29 C 1243.25,615.27 1243.25,643.04 1243.25,667.3199999999999 L 1243.25,678.5699999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1232.0" y="620.98" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="1264.25" y="635.43" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 1428.75,727.33 C 1468.95,727.33 1511.45,727.33 1551.35,727.33 L 1562.85,727.33" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1463.5" y="702.01" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="1495.75" y="716.46" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 1899.55,727.33 C 1939.05,727.33 1981.45,727.33 2021.95,727.33 L 2033.35,727.33" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1934.3" y="702.01" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="1966.55" y="716.46" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 2170.05,680.1600000000001 C 2136.05,663.99 2136.05,633.35 2217.25,633.35 C 2289.55,633.35 2297.45,657.6500000000001 2274.3500000000004,674.39 L 2264.45,680.1600000000001" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="2083.75" y="611.03" width="267.0" height="28.9" rx="3" fill="white"/>
+<text x="2217.25" y="625.48" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">address belum terakhir / address++</text>
+<path d="M 2169.95,774.4200000000001 C 2142.05,798.84 2104.75,826.99 2066.25,842.86 C 1955.1499999999999,888.6800000000001 1916.45,857.22 1798.25,878.86 C 1755.45,886.69 1709.1499999999999,896.87 1667.35,906.693 L 1656.25,909.317" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="2099.8999999999996" y="803.21" width="259.5" height="47.8" rx="3" fill="white"/>
+<text x="2229.65" y="817.66" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">address==16383 || (scenario==3 &amp;&amp;</text>
+<text x="2229.65" y="836.56" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">address==100)</text>
+<path d="M 1697.45,941.734 C 1737.45,941.734 1780.25,941.734 1820.25,941.734 L 1831.75,941.734" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1732.3" y="916.409" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="1764.55" y="930.86" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 2140.75,941.734 C 2179.8500000000004,941.734 2222.3500000000004,941.734 2263.25,941.734 L 2274.75,941.734" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="2175.5" y="916.409" width="64.5" height="28.9" rx="3" fill="white"/>
+<text x="2207.75" y="930.86" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">1 clock</text>
+<path d="M 2402.75,881.23 C 2368.75,859.75 2368.75,821.55 2463.25,821.55 C 2548.55,821.55 2556.8500000000004,852.6600000000001 2532.6499999999996,874.51 L 2523.75,881.23" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="2348.5" y="799.22" width="229.5" height="28.9" rx="3" fill="white"/>
+<text x="2463.25" y="813.67" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">delay_count!=900000 / count++</text>
+<path d="M 2309.75,904.635 C 2266.1499999999996,895.26 2218.45,885.85 2174.25,878.86 C 2097.1499999999996,866.6700000000001 1893.75,879.84 1825.05,842.86 C 1800.25,829.54 1779.55,806.69 1763.95,784.9 L 1757.55,775.65" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="1807.3999999999999" y="803.21" width="259.5" height="47.8" rx="3" fill="white"/>
+<text x="1937.15" y="817.66" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">delay_count==900000 / sequence++;</text>
+<text x="1937.15" y="836.56" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">sample scenario</text>
+<path d="M 493.56999999999994,312.03 C 459.56999999999994,296.38 459.56999999999994,265.75 541.26,265.75 C 614.01,265.75 621.9699999999999,290.05000000000007 598.8199999999999,306.41999999999996 L 588.9499999999999,312.03" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="475.26" y="243.42000000000002" width="132.0" height="28.9" rx="3" fill="white"/>
+<text x="541.26" y="257.87" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">default case -&gt;7</text>
+<rect x="70" y="1069.6100000000001" width="2581" height="174" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="1099.61" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: rtl/igor_de10_nano_wrapper.v</text>
+<text x="90.00" y="1125.61" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: demo_state=8</text>
+<text x="90.00" y="1151.61" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. Semua kode selain0..6,8,9 masuk default -&gt;7; state7 juga mengikuti default sehingga tersangkut sampai reset.</text>
+<text x="90.00" y="1177.61" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. Nama state adalah alias penjelas. Source memakai angka; tidak ada fault latch tambahan pada sequencer demo.</text>
+<text x="90.00" y="1203.61" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. Ini demo planner terpisah, bukan wrapper Parallel8 UART.</text>
+</svg>

@@ -1,0 +1,83 @@
+{
+  "suite": "core",
+  "status": "PASS",
+  "commands": [
+    [
+      "verilator",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "2",
+      "--compiler",
+      "gcc",
+      "-MAKEFLAGS",
+      "CXX=g++ LINK=g++ CFG_CXXFLAGS_NO_UNUSED= CFG_CXXFLAGS_STD=-std=c++20 CFG_CXXFLAGS_PCH_I=-include CFG_GCH_IF_CLANG=",
+      "--timing",
+      "--coverage",
+      "--assert",
+      "-Wno-fatal",
+      "--top-module",
+      "tb_src_policy_core",
+      "--Mdir",
+      "obj_dir",
+      "-DVECTOR_COUNT=236",
+      "-DACTIVATION_COUNT=8364",
+      "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+      "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/core/tb_src_policy_core.sv",
+      "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/rtl_coverage/core/main.cpp"
+    ],
+    [
+      "./obj_dir/Vtb_src_policy_core"
+    ]
+  ],
+  "recorded_utc": "2026-10-18T15:09:01.289076+00:00",
+  "scope": "RTL instrumented simulation; no hardware, no structural waivers",
+  "sha256": {
+    "fpga\\experiments\\parallel8\\igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "fpga\\experiments\\parallel8\\tb_src_policy_core.sv": "2548d3ed6b3173a973bb12335b90dcb41f86910b72dd5c754236977ee4ca8715",
+    "fpga\\evidence\\rtl_coverage\\core\\tb_src_policy_core.sv": "2c3d3e49099bf2a27ea86a25126142cfe89f57e11ef6632396f6f60663811c32",
+    "fpga\\evidence\\rtl_coverage\\core\\main.cpp": "499caad557473f1b3ca89459cced78909a3cc08e45d708cbf58da7fa4ccb47ca",
+    "fpga\\experiments\\parallel8\\bank0.mem": "9ca680c769894f074db1d50acf09075c35a4e58b02fbdcb6a944dbb4624c6768",
+    "fpga\\experiments\\parallel8\\bank1.mem": "33c88dc96045e1bf3e7b34d111eb103825f57fa396f303c8bff9ee22a984dd88",
+    "fpga\\experiments\\parallel8\\bank2.mem": "348c2f8536b441b7ce15fa98b75570755815f2b694d108b5465226a882d5d466",
+    "fpga\\experiments\\parallel8\\bank3.mem": "2789b0cb6dddfe29e7d013112a3217cf735bb64c4a3a7556d67a0dcbdaa5ca53",
+    "fpga\\experiments\\parallel8\\bank4.mem": "f3e93047fa7e1f31e972e921fd908ac683e760ecf3f8407d550d62dcc6c6f1bf",
+    "fpga\\experiments\\parallel8\\bank5.mem": "8d638f6cf3912a7afb6642ff4755194bd919ffa840f7ccfd283571a8e048ee0b",
+    "fpga\\experiments\\parallel8\\bank6.mem": "30f0a7ea491c625fedd633b30d9d1ff2638649ae08261f48029db8e889b25e87",
+    "fpga\\experiments\\parallel8\\bank7.mem": "af74fd8bb339ee678cb556752ef358a20c185708af8decbac8534fc873ff8071",
+    "fpga\\verification\\src_policy\\coverage_illegal_state.svh": "43c6a9843236b871d9a38dcc359bb2bd80369ecdacfe02407f65c3ff539d9ee2"
+  },
+  "unavailable": [
+    "expression",
+    "condition/MC-DC",
+    "native FSM state/arc",
+    "gate-level coverage"
+  ],
+  "supplemental_test": "verification/src_policy/coverage_illegal_state.svh",
+  "simulator": "Verilator 5.018 2023-10-30 rev UNKNOWN.REV",
+  "coverage": [
+    {
+      "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+      "metric": "v_branch",
+      "hit": 96,
+      "total": 96,
+      "percent": 100.0
+    },
+    {
+      "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+      "metric": "v_line",
+      "hit": 68,
+      "total": 68,
+      "percent": 100.0
+    },
+    {
+      "file": "/mnt/d/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v",
+      "metric": "v_toggle",
+      "hit": 870,
+      "total": 908,
+      "percent": 95.81497797356828
+    }
+  ],
+  "denominator": "All emitted DUT counters; no testbench counters; hit count > 0"
+}

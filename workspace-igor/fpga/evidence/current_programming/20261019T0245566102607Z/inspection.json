@@ -1,0 +1,68 @@
+﻿{
+    "schema":  1,
+    "utc":  "2026-10-19T02:45:56.6265904Z",
+    "project":  "source_policy_parallel8",
+    "sof":  "experiments/parallel8/output_files/igor_src_policy.sof",
+    "sof_sha256":  "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
+    "expected_device":  "5CSEBA6U23I7",
+    "requested_cable":  "",
+    "quartus_bin":  "D:\\Quartus-Program\\quartus\\bin64",
+    "requested_device_index":  0,
+    "manifest":  "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\current_release\\manifest.json",
+    "manifest_verified":  true,
+    "full_release_verified":  false,
+    "ready_to_program":  true,
+    "mode":  "inspection",
+    "hardware_available":  true,
+    "hardware_programmed":  false,
+    "uart_function_verified":  false,
+    "auto_select":  true,
+    "programming_image":  "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\bitstreams\\igor_src_policy_parallel8.sof",
+    "chains":  [
+                   {
+                       "index":  1,
+                       "name":  "DE-SoC [USB-1]",
+                       "devices":  [
+                                       {
+                                           "index":  1,
+                                           "idcode":  "4BA00477",
+                                           "name":  "SOCVHPS"
+                                       },
+                                       {
+                                           "index":  2,
+                                           "idcode":  "02D020DD",
+                                           "name":  "5CSEBA6(.|ES)/5CSEMA6/.."
+                                       }
+                                   ]
+                   }
+               ],
+    "fpga_detected":  true,
+    "selected_chain":  {
+                           "index":  1,
+                           "name":  "DE-SoC [USB-1]",
+                           "devices":  [
+                                           {
+                                               "index":  1,
+                                               "idcode":  "4BA00477",
+                                               "name":  "SOCVHPS"
+                                           },
+                                           {
+                                               "index":  2,
+                                               "idcode":  "02D020DD",
+                                               "name":  "5CSEBA6(.|ES)/5CSEMA6/.."
+                                           }
+                                       ]
+                       },
+    "program_arguments":  [
+                              "-c",
+                              "1",
+                              "-m",
+                              "JTAG",
+                              "-o",
+                              "S;SOCVHPS@1",
+                              "-o",
+                              "P;D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\bitstreams\\igor_src_policy_parallel8.sof@2"
+                          ],
+    "detected_chain_cdf":  "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\current_programming\\20261019T0245566102607Z\\detected_board.cdf",
+    "error":  "release_check.log failed with exit 1. See D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\current_programming\\20261019T0245566102607Z"
+}

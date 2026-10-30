@@ -1,0 +1,16 @@
+nios2-terminal: connected to hardware target using JTAG UART on cable
+nios2-terminal: "DE-SoC [USB-1]", device 2, instance 0
+nios2-terminal: (Use the IDE stop button or Ctrl-C to terminate)
+
+
+
+IGOR Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
+
+RX count=0xB FPGA bytes: 5A A5 02 06 D2 FF 3C 00 22 00 61
+
+cycles=0x00001B04 accepted=0x00000001 rejected=0x00000000 error=0x00 CHECK=PASS
+
+> 
+
+nios2-terminal: exiting due to user timeout
+nios2-terminal: fatal error: restoring console attributes failed

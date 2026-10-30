@@ -1,0 +1,148 @@
+{
+  "generated_date": "2026-10-15",
+  "timezone": "Asia/Jakarta",
+  "team": "iSeeDesignITB",
+  "top": "tt_um_wlmoi_igor_neural_logic",
+  "scope": "TinyTapeout fixed-model neural accelerator. Full FPGA DWA and safety gate are separate designs.",
+  "rtl": {
+    "status": "PASS",
+    "vectors": 100,
+    "outputs_checked": 400,
+    "parameter_words_read_back": 6020,
+    "latency_cycles": 3080,
+    "clock_target_hz": 50000000,
+    "latency_us_at_target_clock": 61.6,
+    "log": "rtl.log"
+  },
+  "generic": {
+    "status": "PASS",
+    "vectors": 1,
+    "outputs_checked": 4,
+    "log": "generic.log"
+  },
+  "cocotb": {
+    "status": "PASS",
+    "tests": 2,
+    "pin_interface_only": true,
+    "fault_cases": [
+      "unloaded_start",
+      "early_commit",
+      "missing_staged_byte",
+      "out_of_order_address",
+      "invalid_address_high_bits",
+      "invalid_input_index",
+      "invalid_output_index",
+      "invalid_diagnostic_page",
+      "undefined_register"
+    ],
+    "append_after_commit_checked": true,
+    "ena_command_gating_checked": true,
+    "reset_recovery_checked": true,
+    "all_fault_outputs_zero": true,
+    "xml": "cocotb_rtl.xml",
+    "log": "cocotb_rtl.log"
+  },
+  "mapped": {
+    "status": "PASS",
+    "tests": 2,
+    "vectors": 1,
+    "outputs_checked": 4,
+    "parameter_words_read_back": 6020,
+    "latency_cycles": 3080,
+    "pin_interface_only": true,
+    "fault_cases": [
+      "unloaded_start",
+      "early_commit",
+      "missing_staged_byte",
+      "out_of_order_address",
+      "invalid_address_high_bits",
+      "invalid_input_index",
+      "invalid_output_index",
+      "invalid_diagnostic_page",
+      "undefined_register"
+    ],
+    "report": "mapped.json",
+    "log": "cocotb_mapped.log",
+    "xml": "cocotb_mapped.xml",
+    "qualification": "Actual IHP post-CTS mapped netlist, unmodified functional cell models, zero delay. No SDF timing claim.",
+    "source_run": 38687725982,
+    "source_commit": "7ef7ab85b21b7e140da85bdc0f045a2bbca25faf",
+    "input_artifact": "11952133725"
+  },
+  "global_routing": {
+    "status": "PASS",
+    "overflows": {
+      "Metal1": {
+        "horizontal": 0,
+        "vertical": 0,
+        "total": 0
+      },
+      "Metal2": {
+        "horizontal": 0,
+        "vertical": 0,
+        "total": 0
+      },
+      "Metal3": {
+        "horizontal": 0,
+        "vertical": 0,
+        "total": 0
+      },
+      "Metal4": {
+        "horizontal": 0,
+        "vertical": 0,
+        "total": 0
+      }
+    },
+    "signal_layers": "Metal1-Metal4",
+    "clock_layers": "Metal2-Metal4",
+    "track_reserve": 0.1,
+    "log": "global_routing.log",
+    "input_artifact": "11952133725",
+    "source_commit": "7ef7ab85b21b7e140da85bdc0f045a2bbca25faf",
+    "source_run": 38687725982,
+    "qualification": "Replay from the archived placement at 45 percent target density. Current config targets 40 percent. Neural functional RTL and model coefficients are unchanged."
+  },
+  "detailed_routing": {
+    "status": "RUNNING",
+    "qualification": "Resumed detailed routing from the saved zero-overflow post-CTS checkpoint at 45 percent target density after WSL restarted. Not full physical signoff.",
+    "log": ".runtime/tinytapeout-current-detailed/openroad.log",
+    "checkpoint": ".runtime/logic-metal1-global.odb"
+  },
+  "physical_signoff": {
+    "status": "NOT_RUN",
+    "pending": [
+      "Complete corrected TinyTapeout flow",
+      "GDS KLayout DRC",
+      "Layout versus schematic",
+      "Extracted multicorner STA",
+      "TinyTapeout precheck",
+      "Published OASIS identity"
+    ]
+  },
+  "repair": {
+    "before": "Signals Metal2-Metal4 leave Metal3 as the only horizontal routing layer. Existing full run and 100-iteration zero-reserve replay fail congestion.",
+    "after": "Allow Metal1-Metal4 signals, retain Metal2-Metal4 clocks and a 10 percent routing reserve. Real cell obstructions are honored.",
+    "strict_checks_retained": [
+      "GRT_ALLOW_CONGESTION=0",
+      "ERROR_ON_TR_DRC=true",
+      "ERROR_ON_KLAYOUT_DRC=true",
+      "ERROR_ON_LVS_ERROR=true",
+      "ERROR_ON_ILLEGAL_OVERLAPS=true"
+    ]
+  },
+  "source_sha256": {
+    "info.yaml": "3cd641ed5f5de6661d80883f69e6e43285173cdb9b8f8631558537986c4e1105",
+    "src/config.json": "eb7c88af94260d8da6502fcb0bb835d2145e8b41c7ec73ed9ddb6de46cf29941",
+    "src/igor_neural_logic_top.v": "edb71eb9dc321cc3e48963e0061a1fb45f67e92704517643cf252f6266febd17",
+    "src/igor_parameter_logic.v": "73e6471e0da22d1dc9d11fdfd132261c512777a44aab88905761966e4468c7f5",
+    "src/igor_neural_datapath_logic.v": "3b785dfa9d863893970e866d44edb03a47e66df275c22a8f1b7b9ea7b8e60a01",
+    "src/igor_activation_logic.v": "1e67bdaefeb755c57605fc1f4db5c9e69c17865afb01fbdd4c6cd6290a3a6b1b",
+    "test/test.py": "02bcc2affaeb054dcd2664b0c9d54e0a0f41f43885a907772c6bf0a92c451762",
+    "test/tb.v": "c7efec5f7a770e106645c58a12d2796fa32f47db446e6f667fe583e79250ab71"
+  },
+  "limitations": [
+    "Windows native Icarus process failed with 3221225477 in this environment. Working Linux/WSL Icarus simulation supplies the PASS evidence.",
+    "No board or fabricated-silicon validation is inferred from these tests.",
+    "The 50 MHz clock is a design target until complete extracted timing acceptance."
+  ]
+}

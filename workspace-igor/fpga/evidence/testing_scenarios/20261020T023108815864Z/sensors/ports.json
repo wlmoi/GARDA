@@ -1,0 +1,10 @@
+[
+  {
+    "port": "COM18",
+    "description": "Prolific USB-to-Serial Comm Port (COM18)",
+    "vid": 1659,
+    "pid": 8963,
+    "serial": "",
+    "hwid": "USB VID:PID=067B:2303 SER= LOCATION=1-3.4"
+  }
+]

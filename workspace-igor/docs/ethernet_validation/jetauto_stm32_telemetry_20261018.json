@@ -1,0 +1,12 @@
+{
+  "capture_seconds": 5,
+  "bytes": 17190,
+  "valid_functions": {
+    "7": 550,
+    "8": 100,
+    "0": 5
+  },
+  "imu_frames": 550,
+  "bad_crc_candidates": 0,
+  "motors_commanded": false
+}

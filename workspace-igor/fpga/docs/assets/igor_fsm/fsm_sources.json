@@ -1,0 +1,2034 @@
+{
+  "kind": "documentation of current RTL; no refactor, synthesis, or new hardware acceptance",
+  "pages": [
+    {
+      "key": "00_overview",
+      "title": "PETA FSM — JALUR PARALLEL8 AKTIF",
+      "source": "experiments/parallel8/igor_src_policy.qsf",
+      "register": "Hierarchy proyek Parallel8",
+      "kind": "OVERVIEW: kotak adalah modul/controller, bukan state satu FSM",
+      "states": [
+        {
+          "id": "RX",
+          "label": "UART RX",
+          "action": "state[1:0]: page04"
+        },
+        {
+          "id": "PARSER",
+          "label": "FRAME PARSER",
+          "action": "position[7:0]: page03"
+        },
+        {
+          "id": "MODE",
+          "label": "POLICY CONTROLLER",
+          "action": "mode[3:0]: page02"
+        },
+        {
+          "id": "CORE",
+          "label": "CORE PARALLEL8",
+          "action": "state[3:0]: page01"
+        },
+        {
+          "id": "TX",
+          "label": "UART TX",
+          "action": "busy + bit_index/count: page05"
+        },
+        {
+          "id": "STOP",
+          "label": "RESET / E-STOP",
+          "action": "Synchronizer + latch: page06/07"
+        },
+        {
+          "id": "LEASE",
+          "label": "RESULT LEASE",
+          "action": "result_valid + timer: page08"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "RX",
+          "target": "PARSER",
+          "label": "rx_data[7:0]; rx_valid / rx_error (1-bit)"
+        },
+        {
+          "source": "PARSER",
+          "target": "MODE",
+          "label": "CRC + domain sah -> mode LOAD"
+        },
+        {
+          "source": "MODE",
+          "target": "CORE",
+          "label": "core_load/core_start/core_abort; index[6:0]; value[15:0]"
+        },
+        {
+          "source": "CORE",
+          "target": "MODE",
+          "label": "core_done/core_fault; output_value[15:0]; latency[31:0]"
+        },
+        {
+          "source": "MODE",
+          "target": "TX",
+          "label": "tx_data[7:0]; tx_send (1-bit)"
+        },
+        {
+          "source": "TX",
+          "target": "MODE",
+          "label": "tx_busy (1-bit)"
+        },
+        {
+          "source": "STOP",
+          "target": "MODE",
+          "label": "rst_n / estop_active (1-bit)"
+        },
+        {
+          "source": "MODE",
+          "target": "LEASE",
+          "label": "CAP2 -> result_valid=1; timeout/reject ->0"
+        }
+      ],
+      "reset": "",
+      "notes": [
+        "Mulai page01 untuk FSM core. Page02..08 mencakup controller pendukung yang aktif pada proyek Parallel8.",
+        "Page09..17 adalah source serial / planner / neural legacy: arsip penjelasan, bukan semuanya terinstansiasi pada Parallel8.",
+        "Lingkaran/oval pada halaman FSM = state. Kotak halaman overview/struktur = blok fungsi, bukan enum state.",
+        "Semua transisi memakai clock edge kecuali reset asinkron dan mask stop kombinasi yang disebutkan eksplisit.",
+        "Tidak ada modifikasi RTL, bobot, pin, atau SOF dari dokumentasi ini."
+      ],
+      "ranks": [
+        [
+          "RX",
+          "PARSER",
+          "MODE"
+        ],
+        [
+          "CORE",
+          "TX",
+          "LEASE"
+        ],
+        [
+          "STOP"
+        ]
+      ],
+      "width": 1700,
+      "height": 997
+    },
+    {
+      "key": "01_core_parallel8",
+      "title": "CORE PARALLEL8 — 8 STATE",
+      "source": "experiments/parallel8/igor_src_policy_core.v",
+      "register": "state[3:0]",
+      "kind": "FSM eksplisit; kontrol sinkron + datapath register; output gating kombinasi",
+      "states": [
+        {
+          "id": "IDLE",
+          "label": "IDLE (0)",
+          "action": "Terima start bila 74 input lengkap"
+        },
+        {
+          "id": "BIAS_ADDRESS",
+          "label": "BIAS_ADDRESS (1)",
+          "action": "address[11:0] = bias_base + (neuron >> 3)"
+        },
+        {
+          "id": "BIAS_WAIT",
+          "label": "BIAS_WAIT (2)",
+          "action": "Tunggu data ROM sinkron"
+        },
+        {
+          "id": "BIAS_TAKE",
+          "label": "BIAS_TAKE (3)",
+          "action": "acc[39:0] = sign-extend(bias) << 8; k=0"
+        },
+        {
+          "id": "WEIGHT_ADDRESS",
+          "label": "WEIGHT_ADDRESS (4)",
+          "action": "Set address[11:0] dan operand[15:0]"
+        },
+        {
+          "id": "WEIGHT_WAIT",
+          "label": "WEIGHT_WAIT (5)",
+          "action": "Tunggu weight[lane][15:0]"
+        },
+        {
+          "id": "MAC",
+          "label": "MAC (6)",
+          "action": "8 accumulator += sign-extended product; weight_address++"
+        },
+        {
+          "id": "ACTIVATE",
+          "label": "ACTIVATE (7)",
+          "action": "Simpan 8 hidden atau 3 actions; catat saturation"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "IDLE",
+          "target": "IDLE",
+          "label": "!start / load_input sah menyimpan input"
+        },
+        {
+          "source": "IDLE",
+          "target": "BIAS_ADDRESS",
+          "label": "start sah / busy=1; done=0; layer=0; neuron=0"
+        },
+        {
+          "source": "BIAS_ADDRESS",
+          "target": "BIAS_WAIT",
+          "label": "1 clock / alamat bias terdaftar"
+        },
+        {
+          "source": "BIAS_WAIT",
+          "target": "BIAS_TAKE",
+          "label": "1 clock / data bias siap"
+        },
+        {
+          "source": "BIAS_TAKE",
+          "target": "WEIGHT_ADDRESS",
+          "label": "1 clock / bias masuk accumulator"
+        },
+        {
+          "source": "WEIGHT_ADDRESS",
+          "target": "WEIGHT_WAIT",
+          "label": "1 clock / alamat dan operand terdaftar"
+        },
+        {
+          "source": "WEIGHT_WAIT",
+          "target": "MAC",
+          "label": "1 clock / weights siap"
+        },
+        {
+          "source": "MAC",
+          "target": "WEIGHT_ADDRESS",
+          "label": "k < input_count-1 / k++"
+        },
+        {
+          "source": "MAC",
+          "target": "ACTIVATE",
+          "label": "k == input_count-1"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "BIAS_ADDRESS",
+          "label": "neuron+8 < output_count / neuron+=8"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "BIAS_ADDRESS",
+          "label": "neuron+8 >= output_count && layer!=2 / layer++; neuron=0"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "IDLE",
+          "label": "neuron+8 >= output_count && layer==2 / busy=0; done=1"
+        }
+      ],
+      "reset": "IDLE; semua flag/counter utama=0",
+      "notes": [
+        "Prioritas sebelum case: !rst_n > abort > fault tersimpan > protokol load/start tidak sah > case(state).",
+        "Abort: state=IDLE, loaded=0, busy=done=0, actions=0; fault sticky tidak dihapus. Fault hanya dihapus reset.",
+        "Pelanggaran: input_index>=74: code1; load saat busy:2; start saat busy:3; input belum lengkap:4; load+start:5 (sesuai prioritas if).",
+        "Default state ilegal: IDLE, busy=done=0, loaded=0, fault=1, error_code=6. Tidak ada state FAULT terpisah.",
+        "output_value[15:0] = actions[output_index] hanya bila done && !fault && !abort && output_index<3; selain itu nol.",
+        "busy/done/fault dan datapath adalah register; output mask kombinasi bergantung input. Bukan klaim seluruh core Moore murni.",
+        "6.916 clock / 138,32 us @50 MHz; waktu ROM WAIT sudah termasuk. Diagram tidak menambah siklus baru."
+      ],
+      "ranks": [
+        [
+          "IDLE",
+          "BIAS_ADDRESS",
+          "BIAS_WAIT",
+          "BIAS_TAKE"
+        ],
+        [
+          "ACTIVATE",
+          "MAC",
+          "WEIGHT_WAIT",
+          "WEIGHT_ADDRESS"
+        ]
+      ],
+      "width": 2540,
+      "height": 1753
+    },
+    {
+      "key": "02_policy_mode",
+      "title": "TRANSAKSI POLICY — LOAD, RUN, CAPTURE, TX",
+      "source": "rtl/igor_src_policy/igor_src_policy_uart.v",
+      "register": "mode[3:0]",
+      "kind": "FSM eksplisit; pulse/output register; safety_permit kombinasi",
+      "states": [
+        {
+          "id": "RX",
+          "label": "RX (0)",
+          "action": "Tunggu frame observasi sah"
+        },
+        {
+          "id": "LOAD",
+          "label": "LOAD (1)",
+          "action": "core_load=1; index[6:0]=load_index; value[15:0]"
+        },
+        {
+          "id": "START",
+          "label": "START (2)",
+          "action": "core_start=1; infer_timer=0"
+        },
+        {
+          "id": "RUN",
+          "label": "RUN (3)",
+          "action": "Tunggu core_done; watchdog aktif"
+        },
+        {
+          "id": "CAP0",
+          "label": "CAP0 (4)",
+          "action": "sample0=core_output_value; output_index=1"
+        },
+        {
+          "id": "CAP1",
+          "label": "CAP1 (5)",
+          "action": "sample1=core_output_value; output_index=2"
+        },
+        {
+          "id": "CAP2",
+          "label": "CAP2 (6)",
+          "action": "sample2; CRC; result_valid=1; response_valid=1"
+        },
+        {
+          "id": "TX",
+          "label": "TX (7)",
+          "action": "Kirim 11 byte; tx_send=1 pada slot siap"
+        },
+        {
+          "id": "TX_START_LAST",
+          "label": "TX_START_LAST (8)",
+          "action": "Tunggu transmitter menerima byte CRC terakhir"
+        },
+        {
+          "id": "TX_END_LAST",
+          "label": "TX_END_LAST (9)",
+          "action": "Tunggu byte terakhir selesai"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "RX",
+          "target": "RX",
+          "label": "belum ada frame sah"
+        },
+        {
+          "source": "RX",
+          "target": "LOAD",
+          "label": "CRC cocok && seluruh observasi valid / load_index=0"
+        },
+        {
+          "source": "LOAD",
+          "target": "LOAD",
+          "label": "load_index<73 / load_index++"
+        },
+        {
+          "source": "LOAD",
+          "target": "START",
+          "label": "load_index==73 / jadwalkan core_load terakhir"
+        },
+        {
+          "source": "START",
+          "target": "RUN",
+          "label": "1 clock / core_start terdaftar"
+        },
+        {
+          "source": "RUN",
+          "target": "RUN",
+          "label": "!core_done && tidak ada reject"
+        },
+        {
+          "source": "RUN",
+          "target": "CAP0",
+          "label": "core_done / output_index=0; simpan core_latency"
+        },
+        {
+          "source": "CAP0",
+          "target": "CAP1",
+          "label": "1 clock"
+        },
+        {
+          "source": "CAP1",
+          "target": "CAP2",
+          "label": "1 clock"
+        },
+        {
+          "source": "CAP2",
+          "target": "TX",
+          "label": "1 clock / tx_index=0"
+        },
+        {
+          "source": "TX",
+          "target": "TX",
+          "label": "tx_busy || tx_send: tunggu; slot siap && index<10: index++"
+        },
+        {
+          "source": "TX",
+          "target": "TX_START_LAST",
+          "label": "!tx_busy && !tx_send && tx_index==10 / tx_send=1"
+        },
+        {
+          "source": "TX_START_LAST",
+          "target": "TX_START_LAST",
+          "label": "!tx_busy"
+        },
+        {
+          "source": "TX_START_LAST",
+          "target": "TX_END_LAST",
+          "label": "tx_busy"
+        },
+        {
+          "source": "TX_END_LAST",
+          "target": "TX_END_LAST",
+          "label": "tx_busy"
+        },
+        {
+          "source": "TX_END_LAST",
+          "target": "RX",
+          "label": "!tx_busy"
+        }
+      ],
+      "reset": "RX; position=0; hasil/flag/pulse=0",
+      "notes": [
+        "Prioritas: estop > core_fault saat mode!=RX > rx_error > rx_valid saat mode!=RX > infer timeout > inter-byte timeout > stale result > parser + case(mode).",
+        "reject(code): mode=RX, position=0, result_valid=0, core_abort=1, tx_cancel=1; counter rejected saturating + history fault.",
+        "E-stop: mode=RX; result_valid=0; core_abort=1; tx_cancel=1. Error1 dicatat pada rising event stop, bukan setiap clock.",
+        "Default mode ilegal: reject(10). RX parser fault codes: framing2, header3, opcode4, length5, CRC6, timeout7, range8, busy9, core10, stale11, watchdog12.",
+        "core_load/core_start/core_abort/tx_send/tx_cancel/response_valid diberi default 0 tiap clock; state dapat menjadikannya 1.",
+        "Nonblocking assignment: LOAD terakhir diterima core pada clock START; core_start dari START diterima core pada clock RUN berikutnya.",
+        "response_valid pulse pada CAP2, bukan saat stop bit terakhir selesai. safety_permit=result_valid && !estop_active && !core_fault.",
+        "debug_state F saat E-stop dan E saat core_fault adalah overlay debug; bukan tambahan state mode=F/E."
+      ],
+      "ranks": [
+        [
+          "RX",
+          "LOAD",
+          "START"
+        ],
+        [
+          "RUN",
+          "CAP0",
+          "CAP1"
+        ],
+        [
+          "CAP2",
+          "TX"
+        ],
+        [
+          "TX_START_LAST",
+          "TX_END_LAST"
+        ]
+      ],
+      "width": 3140,
+      "height": 1779
+    },
+    {
+      "key": "03_frame_parser",
+      "title": "PARSER OBSERVASI — HEADER, PAYLOAD, CRC",
+      "source": "rtl/igor_src_policy/igor_src_policy_uart.v",
+      "register": "position[7:0] + parity payload_index[0]",
+      "kind": "Kontrol parser berbasis counter; nama fase adalah alias penjelas",
+      "states": [
+        {
+          "id": "P0",
+          "label": "position=0",
+          "action": "Cari header 0x5A"
+        },
+        {
+          "id": "P1",
+          "label": "position=1",
+          "action": "Cari header 0xA5"
+        },
+        {
+          "id": "P2",
+          "label": "position=2",
+          "action": "Opcode harus 0x01; mulai CRC"
+        },
+        {
+          "id": "P3",
+          "label": "position=3",
+          "action": "Length harus 0x94 (148 byte)"
+        },
+        {
+          "id": "LOW",
+          "label": "position=4,6,...,150",
+          "action": "Simpan low_byte[7:0]; CRC update"
+        },
+        {
+          "id": "HIGH",
+          "label": "position=5,7,...,151",
+          "action": "Simpan received_word[15:0]; cek domain; CRC update"
+        },
+        {
+          "id": "CRC",
+          "label": "position=152",
+          "action": "Bandingkan byte CRC; invalid_observation diperiksa"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "P0",
+          "target": "P0",
+          "label": "rx_data!=0x5A"
+        },
+        {
+          "source": "P0",
+          "target": "P1",
+          "label": "rx_data==0x5A / result_valid=0"
+        },
+        {
+          "source": "P1",
+          "target": "P1",
+          "label": "rx_data==0x5A"
+        },
+        {
+          "source": "P1",
+          "target": "P2",
+          "label": "rx_data==0xA5"
+        },
+        {
+          "source": "P1",
+          "target": "P0",
+          "label": "byte lain / reject(3)"
+        },
+        {
+          "source": "P2",
+          "target": "P3",
+          "label": "rx_data==0x01"
+        },
+        {
+          "source": "P2",
+          "target": "P0",
+          "label": "opcode salah / reject(4)"
+        },
+        {
+          "source": "P3",
+          "target": "LOW",
+          "label": "rx_data==0x94 / invalid_observation=0"
+        },
+        {
+          "source": "P3",
+          "target": "P0",
+          "label": "length salah / reject(5)"
+        },
+        {
+          "source": "LOW",
+          "target": "HIGH",
+          "label": "rx_valid / low_byte=rx_data; position++"
+        },
+        {
+          "source": "HIGH",
+          "target": "LOW",
+          "label": "position<151 / position++; domain salah: flag invalid"
+        },
+        {
+          "source": "HIGH",
+          "target": "CRC",
+          "label": "position==151 / seluruh 74 word selesai"
+        },
+        {
+          "source": "CRC",
+          "target": "P0",
+          "label": "CRC salah: reject(6); range salah: reject(8)"
+        },
+        {
+          "source": "CRC",
+          "target": "P0",
+          "label": "CRC && domain sah / mode=LOAD; accepted++ saturating"
+        }
+      ],
+      "reset": "position=0; crc=0; invalid_observation=0",
+      "notes": [
+        "Setiap panah konsumsi byte hanya pada rx_valid=1, mode=RX, dan tidak dikalahkan prioritas reject/E-stop. Tanpa byte: fase ditahan.",
+        "payload_index=position-4; received_word={rx_data,low_byte}; urutan little-endian. LiDAR0..63:0..256; field64..73:-256..256.",
+        "Parser global reset/reject mengembalikan position=0. Inter-byte timeout hanya ketika position!=0 dan tidak ada rx_valid.",
+        "Default case(position) di source berarti pemrosesan payload, bukan guard illegal-position tersendiri. Alias LOW/HIGH hanya menjelaskan rentang posisi legal.",
+        "CRC8 Maxim reflected 0x8C; opcode, length dan payload masuk CRC, dua header tidak. mode tidak menjadi LOAD sebelum CRC+domain sah."
+      ],
+      "ranks": [
+        [
+          "P0",
+          "P1",
+          "P2"
+        ],
+        [
+          "P3",
+          "LOW",
+          "HIGH"
+        ],
+        [
+          "CRC"
+        ]
+      ],
+      "width": 2418,
+      "height": 1240
+    },
+    {
+      "key": "04_uart_rx",
+      "title": "UART RX — SAMPLE START, DATA, STOP",
+      "source": "rtl/igor_uart_rx.v",
+      "register": "state[1:0]",
+      "kind": "FSM eksplisit numerik; valid/error/data register",
+      "states": [
+        {
+          "id": "S0",
+          "label": "state=0 | IDLE",
+          "action": "Tunggu sync=0; idle line tinggi"
+        },
+        {
+          "id": "S1",
+          "label": "state=1 | START_CHECK",
+          "action": "Tunggu setengah bit; validasi start"
+        },
+        {
+          "id": "S2",
+          "label": "state=2 | DATA",
+          "action": "shift[bit_index]=sync; sample delapan bit"
+        },
+        {
+          "id": "S3",
+          "label": "state=3 | STOP",
+          "action": "Tunggu satu bit; validasi stop"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "S0",
+          "target": "S0",
+          "label": "sync=1"
+        },
+        {
+          "source": "S0",
+          "target": "S1",
+          "label": "sync=0 / count=CLKS_PER_BIT/2-1"
+        },
+        {
+          "source": "S1",
+          "target": "S1",
+          "label": "count!=0 / count--"
+        },
+        {
+          "source": "S1",
+          "target": "S2",
+          "label": "count==0 && sync==0 / index=0; count=BIT-1"
+        },
+        {
+          "source": "S1",
+          "target": "S0",
+          "label": "count==0 && sync==1 / false start"
+        },
+        {
+          "source": "S2",
+          "target": "S2",
+          "label": "count!=0: count--; sample && index<7: index++"
+        },
+        {
+          "source": "S2",
+          "target": "S3",
+          "label": "count==0 && bit_index==7 / sample bit terakhir"
+        },
+        {
+          "source": "S3",
+          "target": "S3",
+          "label": "count!=0 / count--"
+        },
+        {
+          "source": "S3",
+          "target": "S0",
+          "label": "count==0 && sync==1 / valid=1; data[7:0]=shift"
+        },
+        {
+          "source": "S3",
+          "target": "S0",
+          "label": "count==0 && sync==0 / error=1"
+        }
+      ],
+      "reset": "state=0; valid=error=0; data=0; meta=sync=1",
+      "notes": [
+        "meta/sync adalah dua flop sinkronisasi RX asinkron. Sample dipakai dari sync, bukan langsung rx.",
+        "valid dan error default0 tiap clock; pulse hanya pada penyelesaian STOP. Default case(state): state=0.",
+        "Pada proyek Parallel8 BIT_CYCLES=(50.000.000+921600/2)/921600=54. Nominal921600, aktual50MHz/54.",
+        "IDLE/START_CHECK/DATA/STOP adalah alias diagram; RTL memakai angka0..3, bukan enum bernama."
+      ],
+      "ranks": [
+        [
+          "S0",
+          "S1"
+        ],
+        [
+          "S3",
+          "S2"
+        ]
+      ],
+      "width": 1700,
+      "height": 1030
+    },
+    {
+      "key": "05_uart_tx",
+      "title": "UART TX — CONTROLLER BERBASIS BUSY/COUNTER",
+      "source": "rtl/igor_uart_tx.v",
+      "register": "busy + bit_index[3:0] + count[15:0]",
+      "kind": "Fase implisit; bukan register enum empat state",
+      "states": [
+        {
+          "id": "IDLE",
+          "label": "busy=0 | IDLE",
+          "action": "tx=1; tunggu send"
+        },
+        {
+          "id": "START",
+          "label": "busy=1, bit_index=0",
+          "action": "shift={1,data[7:0],0}; tx=start bit0"
+        },
+        {
+          "id": "DATA",
+          "label": "busy=1, bit_index=1..8",
+          "action": "tx=shift[0]; kirim data LSB-first"
+        },
+        {
+          "id": "STOP",
+          "label": "busy=1, bit_index=9",
+          "action": "tx=stop bit1"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "IDLE",
+          "target": "IDLE",
+          "label": "!send"
+        },
+        {
+          "source": "IDLE",
+          "target": "START",
+          "label": "send / busy=1; count=BIT-1; index=0"
+        },
+        {
+          "source": "START",
+          "target": "START",
+          "label": "count!=0 / count--"
+        },
+        {
+          "source": "START",
+          "target": "DATA",
+          "label": "count==0 / shift right; index=1; reload count"
+        },
+        {
+          "source": "DATA",
+          "target": "DATA",
+          "label": "count!=0: count--; count==0 && index<8: shift; index++"
+        },
+        {
+          "source": "DATA",
+          "target": "STOP",
+          "label": "count==0 && bit_index==8 / shift; index=9"
+        },
+        {
+          "source": "STOP",
+          "target": "STOP",
+          "label": "count!=0 / count--"
+        },
+        {
+          "source": "STOP",
+          "target": "IDLE",
+          "label": "count==0 && bit_index==9 / busy=0"
+        }
+      ],
+      "reset": "busy=0; shift=10'h3ff; bit_index=count=0",
+      "notes": [
+        "tx=busy ? shift[0] : 1. Tidak ada variabel state eksplisit; diagram memecah fase counter untuk penjelasan.",
+        "send saat busy diabaikan. Wrapper hanya memberi pulse saat !tx_busy && !tx_send.",
+        "Reset transmitter dari policy: rst_n && !estop_active && !tx_cancel; stop/cancel dapat membatalkan transmisi.",
+        "Tidak menambahkan default state atau illegal-counter recovery yang tidak tertulis pada source."
+      ],
+      "ranks": [
+        [
+          "IDLE",
+          "START"
+        ],
+        [
+          "STOP",
+          "DATA"
+        ]
+      ],
+      "width": 1700,
+      "height": 1030
+    },
+    {
+      "key": "06_reset_sync",
+      "title": "BOARD RESET — ASSERT ASINKRON, RELEASE SINKRON",
+      "source": "experiments/parallel8/igor_src_policy_de10_nano.v",
+      "register": "reset_sync[1:0]",
+      "kind": "Fase implisit shift-register; bukan enum",
+      "states": [
+        {
+          "id": "R0",
+          "label": "reset_sync=00",
+          "action": "rst_n=0"
+        },
+        {
+          "id": "R1",
+          "label": "reset_sync=01",
+          "action": "rst_n masih0"
+        },
+        {
+          "id": "R2",
+          "label": "reset_sync=11",
+          "action": "rst_n=1"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "R0",
+          "target": "R1",
+          "label": "KEY[0]=1; posedge FPGA_CLK1_50"
+        },
+        {
+          "source": "R1",
+          "target": "R2",
+          "label": "KEY[0]=1; posedge berikutnya"
+        },
+        {
+          "source": "R2",
+          "target": "R2",
+          "label": "KEY[0]=1"
+        },
+        {
+          "source": "R2",
+          "target": "R0",
+          "label": "KEY[0]=0 (asinkron)"
+        },
+        {
+          "source": "R1",
+          "target": "R0",
+          "label": "KEY[0]=0 (asinkron)"
+        },
+        {
+          "source": "R0",
+          "target": "R0",
+          "label": "KEY[0]=0"
+        }
+      ],
+      "reset": "KEY0 ditekan -> 00 tanpa menunggu clock",
+      "notes": [
+        "rst_n=reset_sync[1]. Pelepasan memerlukan dua rising edge, tidak langsung mengikuti tombol.",
+        "Nilai10 akibat gangguan bukan fase normal; operasi shift berikutnya menghasilkan01. Ini bukan klaim proteksi SEU.",
+        "Clock50MHz. Seluruh kontrol menggunakan domain clock yang sama; gambar bukan bukti MTBF/CDC sign-off."
+      ],
+      "ranks": [],
+      "width": 1700,
+      "height": 1112
+    },
+    {
+      "key": "07_estop_latch",
+      "title": "BOARD E-STOP — RAW INHIBIT + STICKY LATCH",
+      "source": "experiments/parallel8/igor_src_policy_de10_nano.v",
+      "register": "stop_latched + stop_sync[1:0]",
+      "kind": "Flag sticky + synchronizer; bukan enum",
+      "states": [
+        {
+          "id": "CLEAR",
+          "label": "stop_latched=0",
+          "action": "stop_active tetap bisa1 dari raw/sync"
+        },
+        {
+          "id": "LATCH",
+          "label": "stop_latched=1",
+          "action": "stop_active=1; tetap sampai reset"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "CLEAR",
+          "target": "CLEAR",
+          "label": "KEY[1]=1"
+        },
+        {
+          "source": "CLEAR",
+          "target": "LATCH",
+          "label": "KEY[1]=0 pada rising edge"
+        },
+        {
+          "source": "LATCH",
+          "target": "LATCH",
+          "label": "KEY1 dilepas/ditekan"
+        },
+        {
+          "source": "LATCH",
+          "target": "CLEAR",
+          "label": "!rst_n (asinkron)"
+        }
+      ],
+      "reset": "stop_latched=0; stop_sync=00",
+      "notes": [
+        "stop_active = !KEY[1] | stop_sync[1] | stop_latched. Tekanan raw langsung menginhibit tanpa menunggu latch.",
+        "stop_sync <= {stop_sync[0],!KEY[1]}; jalur sampled memakai dua flop. Lepaskan KEY1 lalu reset KEY0 untuk recovery.",
+        "Raw stop masih aktif jika KEY1 ditahan saat reset. CLEAR bukan jaminan permit aktif.",
+        "Di policy ada synchronizer estop lagi; estop_active=estop | estop_sync. Jangan menyebut seluruh jalur stop Moore murni."
+      ],
+      "ranks": [],
+      "width": 1700,
+      "height": 1014
+    },
+    {
+      "key": "08_result_lease",
+      "title": "HASIL POLICY — VALIDITY, LEASE, DAN MASK",
+      "source": "rtl/igor_src_policy/igor_src_policy_uart.v",
+      "register": "result_valid + result_timer[31:0]",
+      "kind": "Kontrol implisit flag/counter; permit kombinasi",
+      "states": [
+        {
+          "id": "INVALID",
+          "label": "result_valid=0",
+          "action": "safety_permit=0; action0/1/2=0"
+        },
+        {
+          "id": "VALID",
+          "label": "result_valid=1",
+          "action": "Permit juga memerlukan !estop_active && !core_fault"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "INVALID",
+          "target": "VALID",
+          "label": "mode==CAP2 / result_timer=0; response_valid pulse"
+        },
+        {
+          "source": "VALID",
+          "target": "INVALID",
+          "label": "header awal5A diterima pada RX / mulai frame baru"
+        },
+        {
+          "source": "VALID",
+          "target": "INVALID",
+          "label": "stale timeout / reject(11)"
+        },
+        {
+          "source": "VALID",
+          "target": "INVALID",
+          "label": "reject lain atau E-stop"
+        },
+        {
+          "source": "INVALID",
+          "target": "INVALID",
+          "label": "belum ada hasil baru sah"
+        },
+        {
+          "source": "VALID",
+          "target": "VALID",
+          "label": "timer belum habis; tidak ada invalidasi"
+        }
+      ],
+      "reset": "result_valid=0; result_timer=0",
+      "notes": [
+        "Timer bertambah ketika result_valid=1. Default RESULT_TIMEOUT_CYCLES=1.000.000 (20ms @50MHz).",
+        "safety_permit=result_valid && !estop_active && !core_fault; core_fault sendiri menutup permit meskipun flag validity belum diubah.",
+        "Action mask kombinasi mengeluarkan0 saat permit0. Residual nol bukan perintah motor nol; host masih bertanggung jawab stop.",
+        "Pulse response_valid di CAP2 terpisah dari result_valid yang ditahan dan dari selesainya UART TX."
+      ],
+      "ranks": [],
+      "width": 1700,
+      "height": 1000
+    },
+    {
+      "key": "09_baseline_serial",
+      "title": "LAMPIRAN — CORE SOURCE SERIAL (BUKAN PARALLEL8)",
+      "source": "rtl/igor_src_policy/igor_src_policy_core.v",
+      "register": "state[3:0]",
+      "kind": "FSM eksplisit baseline terpisah; satu MAC",
+      "states": [
+        {
+          "id": "IDLE",
+          "label": "IDLE (0)",
+          "action": "Terima start bila 74 input lengkap"
+        },
+        {
+          "id": "BIAS_ADDRESS",
+          "label": "BIAS_ADDRESS (1)",
+          "action": "address[14:0]=bias_base+neuron"
+        },
+        {
+          "id": "BIAS_WAIT",
+          "label": "BIAS_WAIT (2)",
+          "action": "Tunggu data ROM sinkron"
+        },
+        {
+          "id": "BIAS_TAKE",
+          "label": "BIAS_TAKE (3)",
+          "action": "acc[39:0] = sign-extend(bias) << 8; k=0"
+        },
+        {
+          "id": "WEIGHT_ADDRESS",
+          "label": "WEIGHT_ADDRESS (4)",
+          "action": "Set address[11:0] dan operand[15:0]"
+        },
+        {
+          "id": "WEIGHT_WAIT",
+          "label": "WEIGHT_WAIT (5)",
+          "action": "Tunggu weight[15:0] dari ROM"
+        },
+        {
+          "id": "MAC",
+          "label": "MAC (6)",
+          "action": "Satu accumulator += product; weight_address++"
+        },
+        {
+          "id": "ACTIVATE",
+          "label": "ACTIVATE (7)",
+          "action": "Simpan satu hidden/action; catat saturation"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "IDLE",
+          "target": "IDLE",
+          "label": "!start / load_input sah menyimpan input"
+        },
+        {
+          "source": "IDLE",
+          "target": "BIAS_ADDRESS",
+          "label": "start sah / busy=1; done=0; layer=0; neuron=0"
+        },
+        {
+          "source": "BIAS_ADDRESS",
+          "target": "BIAS_WAIT",
+          "label": "1 clock / alamat bias terdaftar"
+        },
+        {
+          "source": "BIAS_WAIT",
+          "target": "BIAS_TAKE",
+          "label": "1 clock / data bias siap"
+        },
+        {
+          "source": "BIAS_TAKE",
+          "target": "WEIGHT_ADDRESS",
+          "label": "1 clock / bias masuk accumulator"
+        },
+        {
+          "source": "WEIGHT_ADDRESS",
+          "target": "WEIGHT_WAIT",
+          "label": "1 clock / alamat dan operand terdaftar"
+        },
+        {
+          "source": "WEIGHT_WAIT",
+          "target": "MAC",
+          "label": "1 clock / weights siap"
+        },
+        {
+          "source": "MAC",
+          "target": "WEIGHT_ADDRESS",
+          "label": "k < input_count-1 / k++"
+        },
+        {
+          "source": "MAC",
+          "target": "ACTIVATE",
+          "label": "k == input_count-1"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "BIAS_ADDRESS",
+          "label": "neuron != output_count-1 / neuron++"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "BIAS_ADDRESS",
+          "label": "neuron==output_count-1 && layer!=2 / layer++; neuron=0"
+        },
+        {
+          "source": "ACTIVATE",
+          "target": "IDLE",
+          "label": "neuron==output_count-1 && layer==2 / busy=0; done=1"
+        }
+      ],
+      "reset": "IDLE; flag utama0",
+      "notes": [
+        "Prioritas sebelum case: !rst_n > abort > fault tersimpan > protokol load/start tidak sah > case(state).",
+        "Abort: state=IDLE, loaded=0, busy=done=0, actions=0; fault sticky tidak dihapus. Fault hanya dihapus reset.",
+        "Pelanggaran: input_index>=74: code1; load saat busy:2; start saat busy:3; input belum lengkap:4; load+start:5 (sesuai prioritas if).",
+        "Default state ilegal: IDLE, busy=done=0, loaded=0, fault=1, error_code=6. Tidak ada state FAULT terpisah.",
+        "output_value[15:0] = actions[output_index] hanya bila done && !fault && !abort && output_index<3; selain itu nol.",
+        "Baseline54.348 clock; angka6.916 clock milik Parallel8, bukan FSM serial ini."
+      ],
+      "ranks": [
+        [
+          "IDLE",
+          "BIAS_ADDRESS",
+          "BIAS_WAIT",
+          "BIAS_TAKE"
+        ],
+        [
+          "ACTIVATE",
+          "MAC",
+          "WEIGHT_WAIT",
+          "WEIGHT_ADDRESS"
+        ]
+      ],
+      "width": 2540,
+      "height": 1727
+    },
+    {
+      "key": "10_legacy_neural",
+      "title": "LAMPIRAN — NEURAL LEGACY 24→64→64→4",
+      "source": "rtl/igor_neural_core.v",
+      "register": "igor_neural_datapath.state[3:0]",
+      "kind": "FSM eksplisit numerik; alias state pada diagram",
+      "states": [
+        {
+          "id": "N0",
+          "label": "state=0 | IDLE",
+          "action": "Start hanya jika24 input lengkap + weights_ready"
+        },
+        {
+          "id": "N1",
+          "label": "state=1 | BIAS_ADDRESS",
+          "action": "address[12:0]=bias_base+neuron"
+        },
+        {
+          "id": "N2",
+          "label": "state=2 | BIAS_WAIT",
+          "action": "Tunggu ROM"
+        },
+        {
+          "id": "N3",
+          "label": "state=3 | BIAS_TAKE",
+          "action": "accumulator=bias<<8; k=0"
+        },
+        {
+          "id": "N4",
+          "label": "state=4 | WEIGHT_ADDRESS",
+          "action": "address=base+neuron*input_count+k; operand"
+        },
+        {
+          "id": "N5",
+          "label": "state=5 | WEIGHT_WAIT",
+          "action": "Tunggu ROM"
+        },
+        {
+          "id": "N6",
+          "label": "state=6 | MAC",
+          "action": "accumulator=sum"
+        },
+        {
+          "id": "N7",
+          "label": "state=7 | ACTIVATE",
+          "action": "Simpan hidden/output; hidden positive saturation -> fault"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "N0",
+          "target": "N0",
+          "label": "!start; start tidak sah -> fault=1"
+        },
+        {
+          "source": "N0",
+          "target": "N1",
+          "label": "start && loaded==24'hffffff && weights_ready && !fault && !load_input"
+        },
+        {
+          "source": "N1",
+          "target": "N2",
+          "label": "1 clock"
+        },
+        {
+          "source": "N2",
+          "target": "N3",
+          "label": "1 clock"
+        },
+        {
+          "source": "N3",
+          "target": "N4",
+          "label": "1 clock"
+        },
+        {
+          "source": "N4",
+          "target": "N5",
+          "label": "1 clock"
+        },
+        {
+          "source": "N5",
+          "target": "N6",
+          "label": "1 clock"
+        },
+        {
+          "source": "N6",
+          "target": "N4",
+          "label": "k<input_count-1 / k++"
+        },
+        {
+          "source": "N6",
+          "target": "N7",
+          "label": "k==input_count-1"
+        },
+        {
+          "source": "N7",
+          "target": "N1",
+          "label": "neuron<output_count-1 / neuron++"
+        },
+        {
+          "source": "N7",
+          "target": "N1",
+          "label": "neuron terakhir && layer!=2 / layer++; neuron=0"
+        },
+        {
+          "source": "N7",
+          "target": "N0",
+          "label": "neuron terakhir && layer==2 / busy=0; done=1; loaded=0"
+        }
+      ],
+      "reset": "state=0; flags=0",
+      "notes": [
+        "Default state: busy=done=0; fault=1; state=0. Fault sticky sampai reset; output dimask oleh fault dan weights_ready.",
+        "load_input salah atau start saat busy mengeset fault, tetapi source ini tidak memiliki global abort/fault-return seperti Parallel8; komputasi bisa berlanjut.",
+        "Nama alias bukan enum RTL. Ini blok legacy terpisah; bukan core74input yang saat ini diprogram."
+      ],
+      "ranks": [
+        [
+          "N0",
+          "N1",
+          "N2",
+          "N3"
+        ],
+        [
+          "N7",
+          "N6",
+          "N5",
+          "N4"
+        ]
+      ],
+      "width": 2540,
+      "height": 1649
+    },
+    {
+      "key": "11_planner",
+      "title": "LAMPIRAN — PLANNER TOP + FAIL-CLOSED",
+      "source": "rtl/igor_top.v",
+      "register": "state[2:0]",
+      "kind": "FSM eksplisit; busy/done Moore decode; gate input-dependent",
+      "states": [
+        {
+          "id": "IDLE",
+          "label": "IDLE (0)",
+          "action": "Tunggu start; belum ada hasil aktif"
+        },
+        {
+          "id": "RUN",
+          "label": "RUN (1)",
+          "action": "4 tile paralel; elapsed++; simpan snapshot config/map"
+        },
+        {
+          "id": "RESULT",
+          "label": "RESULT (2)",
+          "action": "done=1; gate mengecek hasil + lease + map"
+        },
+        {
+          "id": "FAULT",
+          "label": "FAULT (3)",
+          "action": "Fault tersimpan; control fault/penyebab dilatch"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "IDLE",
+          "target": "IDLE",
+          "label": "!start dan interlock sehat"
+        },
+        {
+          "source": "IDLE",
+          "target": "RUN",
+          "label": "start && map_ok && cfg_ok && ready && !stop && !control_fault / tile_start=1"
+        },
+        {
+          "source": "IDLE",
+          "target": "FAULT",
+          "label": "stop / !ready / start tidak sah"
+        },
+        {
+          "source": "RUN",
+          "target": "FAULT",
+          "label": "!map_ok || !cfg_ok || !ready || stop || tile_fault"
+        },
+        {
+          "source": "RUN",
+          "target": "FAULT",
+          "label": "elapsed>=DEADLINE_CYCLES-1 / timed_out=1; fault8"
+        },
+        {
+          "source": "RUN",
+          "target": "RESULT",
+          "label": "semua tile_done && !tile_start && elapsed>=2"
+        },
+        {
+          "source": "RUN",
+          "target": "RUN",
+          "label": "belum done; tidak fault/timeout"
+        },
+        {
+          "source": "RESULT",
+          "target": "RESULT",
+          "label": "!start dan interlock/map/config sehat"
+        },
+        {
+          "source": "RESULT",
+          "target": "RUN",
+          "label": "start sah / snapshot baru; elapsed=0"
+        },
+        {
+          "source": "RESULT",
+          "target": "FAULT",
+          "label": "stop / !ready / !map_ok / !cfg_ok / start tidak sah"
+        },
+        {
+          "source": "FAULT",
+          "target": "FAULT",
+          "label": "sampai reset"
+        }
+      ],
+      "reset": "IDLE; flag/control/timer0",
+      "notes": [
+        "stop=estop || protective_stop. Default state ilegal -> FAULT, control_fault=1, latched_fault=4.",
+        "RESULT dapat tetap RESULT saat lease habis; safety gate tetap menutup motor. Jangan menggambar lease selalu mengubah state ke FAULT.",
+        "busy=(state==RUN), done=(state==RESULT). motor_enable/v/omega berasal dari safety gate kombinasi dengan default output0.",
+        "FAULT tidak pulih oleh start; perlu reset. Fault fisik aktif tetap punya prioritas live di fault_code."
+      ],
+      "ranks": [
+        [
+          "IDLE",
+          "RUN"
+        ],
+        [
+          "FAULT",
+          "RESULT"
+        ]
+      ],
+      "width": 1700,
+      "height": 1030
+    },
+    {
+      "key": "12_rollout",
+      "title": "LAMPIRAN — ROLLOUT TILE (4 INSTANCE)",
+      "source": "rtl/igor_rollout_tile.v",
+      "register": "state[2:0]",
+      "kind": "FSM eksplisit; hasil dan fault register",
+      "states": [
+        {
+          "id": "IDLE",
+          "label": "IDLE (0)",
+          "action": "Tunggu start"
+        },
+        {
+          "id": "INIT",
+          "label": "INIT (1)",
+          "action": "Reset pose/biaya; x=y=16384; cek window"
+        },
+        {
+          "id": "STEP",
+          "label": "STEP (2)",
+          "action": "Integrasi x/y/heading; legal &= !outside && !overflow"
+        },
+        {
+          "id": "WAIT_RAM",
+          "label": "WAIT_RAM (3)",
+          "action": "Tunggu baca costmap sinkron"
+        },
+        {
+          "id": "SCORE",
+          "label": "SCORE (4)",
+          "action": "Tambah map_data; cek obstacle/overflow"
+        },
+        {
+          "id": "FINISH",
+          "label": "FINISH (5)",
+          "action": "Hitung score; update best dengan tie-break index"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "IDLE",
+          "target": "IDLE",
+          "label": "!start"
+        },
+        {
+          "source": "IDLE",
+          "target": "INIT",
+          "label": "start / candidate_index=TILE_ID; reset hasil"
+        },
+        {
+          "source": "INIT",
+          "target": "STEP",
+          "label": "1 clock"
+        },
+        {
+          "source": "STEP",
+          "target": "WAIT_RAM",
+          "label": "1 clock"
+        },
+        {
+          "source": "WAIT_RAM",
+          "target": "SCORE",
+          "label": "1 clock"
+        },
+        {
+          "source": "SCORE",
+          "target": "STEP",
+          "label": "pose<HORIZON-1 / pose++"
+        },
+        {
+          "source": "SCORE",
+          "target": "FINISH",
+          "label": "pose==HORIZON-1"
+        },
+        {
+          "source": "FINISH",
+          "target": "INIT",
+          "label": "candidate_index<508 / candidate_index+=4"
+        },
+        {
+          "source": "FINISH",
+          "target": "IDLE",
+          "label": "candidate_index>=508 / done=1"
+        }
+      ],
+      "reset": "IDLE; done/best_valid/arithmetic_fault0",
+      "notes": [
+        "Prioritas !rst_n > abort_run > case(state). abort_run -> IDLE, done=best_valid=0.",
+        "Default ilegal -> IDLE, done=best_valid=0, arithmetic_fault=1. Tidak ada state FAULT lokal.",
+        "HORIZON default20. Masing-masing tile mengerjakan128 index dengan langkah4; empat tile mencakup512 kandidat.",
+        "done ditahan di IDLE sampai start/reset/abort, bukan otomatis pulse satu clock."
+      ],
+      "ranks": [
+        [
+          "IDLE",
+          "INIT",
+          "STEP"
+        ],
+        [
+          "FINISH",
+          "SCORE",
+          "WAIT_RAM"
+        ]
+      ],
+      "width": 1858,
+      "height": 1030
+    },
+    {
+      "key": "13_demo",
+      "title": "LAMPIRAN — SEQUENCER DEMO BOARD",
+      "source": "rtl/igor_de10_nano_wrapper.v",
+      "register": "demo_state[3:0]",
+      "kind": "FSM eksplisit numerik; cfg/map/start decode bergantung state",
+      "states": [
+        {
+          "id": "D8",
+          "label": "state=8 | RESET_WAIT1",
+          "action": "Tidak menerbitkan command"
+        },
+        {
+          "id": "D9",
+          "label": "state=9 | RESET_WAIT2",
+          "action": "Tidak menerbitkan command"
+        },
+        {
+          "id": "D0",
+          "label": "state=0 | CFG_WRITE",
+          "action": "cfg_write=1"
+        },
+        {
+          "id": "D1",
+          "label": "state=1 | CFG_LOCK",
+          "action": "cfg_lock=1; sample scenario"
+        },
+        {
+          "id": "D2",
+          "label": "state=2 | MAP_BEGIN",
+          "action": "map_begin=1; address=0"
+        },
+        {
+          "id": "D3",
+          "label": "state=3 | MAP_WRITE",
+          "action": "map_write=1; tulis byte map"
+        },
+        {
+          "id": "D4",
+          "label": "state=4 | MAP_COMMIT",
+          "action": "map_commit=1"
+        },
+        {
+          "id": "D5",
+          "label": "state=5 | START",
+          "action": "start=1; delay_count=0"
+        },
+        {
+          "id": "D6",
+          "label": "state=6 | WAIT",
+          "action": "Tunggu counter delay; bukan tunggu done"
+        },
+        {
+          "id": "D7",
+          "label": "state=7 | DEFAULT_TRAP",
+          "action": "Tidak ada decode command aktif"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "D8",
+          "target": "D9",
+          "label": "1 clock"
+        },
+        {
+          "source": "D9",
+          "target": "D0",
+          "label": "1 clock"
+        },
+        {
+          "source": "D0",
+          "target": "D1",
+          "label": "1 clock"
+        },
+        {
+          "source": "D1",
+          "target": "D2",
+          "label": "1 clock"
+        },
+        {
+          "source": "D2",
+          "target": "D3",
+          "label": "1 clock"
+        },
+        {
+          "source": "D3",
+          "target": "D3",
+          "label": "address belum terakhir / address++"
+        },
+        {
+          "source": "D3",
+          "target": "D4",
+          "label": "address==16383 || (scenario==3 && address==100)"
+        },
+        {
+          "source": "D4",
+          "target": "D5",
+          "label": "1 clock"
+        },
+        {
+          "source": "D5",
+          "target": "D6",
+          "label": "1 clock"
+        },
+        {
+          "source": "D6",
+          "target": "D6",
+          "label": "delay_count!=900000 / count++"
+        },
+        {
+          "source": "D6",
+          "target": "D2",
+          "label": "delay_count==900000 / sequence++; sample scenario"
+        },
+        {
+          "source": "D7",
+          "target": "D7",
+          "label": "default case ->7"
+        }
+      ],
+      "reset": "demo_state=8",
+      "notes": [
+        "Semua kode selain0..6,8,9 masuk default ->7; state7 juga mengikuti default sehingga tersangkut sampai reset.",
+        "Nama state adalah alias penjelas. Source memakai angka; tidak ada fault latch tambahan pada sequencer demo.",
+        "Ini demo planner terpisah, bukan wrapper Parallel8 UART."
+      ],
+      "ranks": [
+        [
+          "D8",
+          "D9",
+          "D0"
+        ],
+        [
+          "D1",
+          "D2",
+          "D3"
+        ],
+        [
+          "D4",
+          "D5",
+          "D6"
+        ],
+        [
+          "D7"
+        ]
+      ],
+      "width": 2721,
+      "height": 1304
+    },
+    {
+      "key": "14_legacy_parser",
+      "title": "LAMPIRAN — PARSER UART LEGACY",
+      "source": "rtl/igor_uart_protocol.v",
+      "register": "pos[3:0]",
+      "kind": "Kontrol parser numerik + protocol_fault sticky",
+      "states": [
+        {
+          "id": "P0",
+          "label": "pos=0 | HEADER",
+          "action": "Cari 0xA5; init CRC"
+        },
+        {
+          "id": "P1",
+          "label": "pos=1 | OPCODE",
+          "action": "Simpan opcode[7:0]; CRC"
+        },
+        {
+          "id": "PAY",
+          "label": "pos=2..5 | PAYLOAD",
+          "action": "Simpan4 byte payload[31:0]; CRC"
+        },
+        {
+          "id": "CRC",
+          "label": "pos=6 | CRC",
+          "action": "received_crc=rx_data"
+        },
+        {
+          "id": "END",
+          "label": "pos=7 | TAIL",
+          "action": "Tail harus0x5A; cek CRC dan !protocol_fault"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "P0",
+          "target": "P0",
+          "label": "rx_data!=0xA5"
+        },
+        {
+          "source": "P0",
+          "target": "P1",
+          "label": "rx_valid && 0xA5"
+        },
+        {
+          "source": "P1",
+          "target": "PAY",
+          "label": "rx_valid / pos=2"
+        },
+        {
+          "source": "PAY",
+          "target": "PAY",
+          "label": "rx_valid && pos<5 / pos++"
+        },
+        {
+          "source": "PAY",
+          "target": "CRC",
+          "label": "rx_valid && pos==5"
+        },
+        {
+          "source": "CRC",
+          "target": "END",
+          "label": "rx_valid"
+        },
+        {
+          "source": "END",
+          "target": "P0",
+          "label": "tail/CRC sah && !protocol_fault / command_valid=1; respond_delay=4"
+        },
+        {
+          "source": "END",
+          "target": "P0",
+          "label": "tail/CRC salah / protocol_fault=1"
+        }
+      ],
+      "reset": "pos=0; protocol_fault=0",
+      "notes": [
+        "Tanpa rx_valid posisi ditahan kecuali timeout/rx_error. rx saat sending atau respond_delay!=0 -> fault dan pos0.",
+        "Timeout saat pos!=0 dan timer>=RX_TIMEOUT_CYCLES -> pos0,fault1. rx_error juga mengeset fault dan pos0.",
+        "Source memakai beberapa if berurutan dalam satu always, bukan satu prioritas else-if global: assignment terakhir ke register yang sama menang.",
+        "Default pos ilegal -> pos0,fault1. protocol_fault sticky; command_valid default0 tiap clock; CRC MSB-first0x07.",
+        "Opcode/payload diperiksa lagi oleh igor_uart_top; invalid_command sticky bukan FSM enum."
+      ],
+      "ranks": [
+        [
+          "P0",
+          "P1",
+          "PAY"
+        ],
+        [
+          "END",
+          "CRC"
+        ]
+      ],
+      "width": 1703,
+      "height": 1026
+    },
+    {
+      "key": "15_legacy_response",
+      "title": "LAMPIRAN — SNAPSHOT DAN RESPONSE UART LEGACY",
+      "source": "rtl/igor_uart_protocol.v",
+      "register": "respond_delay[3:0] + sending + out_pos[3:0]",
+      "kind": "Kontrol implisit counter/flag; fase bukan enum",
+      "states": [
+        {
+          "id": "IDLE",
+          "label": "IDLE",
+          "action": "respond_delay=0; sending=0"
+        },
+        {
+          "id": "WAIT",
+          "label": "respond_delay=4..3",
+          "action": "Delay core side effect"
+        },
+        {
+          "id": "SNAP",
+          "label": "respond_delay=2",
+          "action": "response_sample[31:0]=response_data"
+        },
+        {
+          "id": "BUILD",
+          "label": "respond_delay=1",
+          "action": "Build out_frame[63:0]; sending=1; out_pos=0"
+        },
+        {
+          "id": "SEND",
+          "label": "sending=1",
+          "action": "Kirim8 byte via tx_send ketika transmitter siap"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "IDLE",
+          "target": "WAIT",
+          "label": "command diterima / respond_delay=4"
+        },
+        {
+          "source": "WAIT",
+          "target": "WAIT",
+          "label": "delay=4 / decrement"
+        },
+        {
+          "source": "WAIT",
+          "target": "SNAP",
+          "label": "delay=3 / decrement"
+        },
+        {
+          "source": "SNAP",
+          "target": "BUILD",
+          "label": "1 clock / decrement"
+        },
+        {
+          "source": "BUILD",
+          "target": "SEND",
+          "label": "1 clock / delay=0"
+        },
+        {
+          "source": "SEND",
+          "target": "SEND",
+          "label": "tx_busy || tx_send: tunggu; byte index<7: kirim lalu index++"
+        },
+        {
+          "source": "SEND",
+          "target": "IDLE",
+          "label": "!tx_busy && !tx_send && out_pos==7 / byte terakhir dijadwalkan; sending=0"
+        }
+      ],
+      "reset": "delay=0; sending=0; tx_send=0",
+      "notes": [
+        "sending=0 bukan bukti UART stop bit terakhir sudah selesai; berbeda dengan TX_START_LAST/TX_END_LAST di policy baru.",
+        "tx_send default0 tiap clock. Frame LSB-byte-first dari out_frame={A5,response_crc,response_sample,opcode,5A}.",
+        "Diagram mengelompokkan kombinasi counter yang normal; tidak menambah enum atau guard illegal-counter baru."
+      ],
+      "ranks": [],
+      "width": 1700,
+      "height": 1539
+    },
+    {
+      "key": "16_costmap",
+      "title": "LAMPIRAN — COSTMAP ATOMIC COMMIT",
+      "source": "rtl/igor_costmap_manager.v",
+      "register": "loading + fault + valid + count[14:0]",
+      "kind": "Kontrol implisit flags; map lama bisa tetap valid saat loading",
+      "states": [
+        {
+          "id": "READY",
+          "label": "loading=0, fault=0",
+          "action": "valid bisa0 atau1; age terus bertambah"
+        },
+        {
+          "id": "LOAD",
+          "label": "loading=1, fault=0",
+          "action": "Tulis inactive bank; alamat harus count"
+        },
+        {
+          "id": "FAULT",
+          "label": "fault=1",
+          "action": "loading=0; gate map_ok tertutup"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "READY",
+          "target": "LOAD",
+          "label": "begin_frame sah / sequence>committed_sequence; count=0"
+        },
+        {
+          "source": "LOAD",
+          "target": "LOAD",
+          "label": "write_byte && ram_wr / count++"
+        },
+        {
+          "source": "LOAD",
+          "target": "READY",
+          "label": "commit_frame && count==16384 && !busy && !fault / bank flip; valid=1; age=0"
+        },
+        {
+          "source": "READY",
+          "target": "FAULT",
+          "label": "conflict atau write/commit tidak sah atau begin sequence tidak sah"
+        },
+        {
+          "source": "LOAD",
+          "target": "FAULT",
+          "label": "conflict / begin ulang / write salah / commit belum lengkap atau busy"
+        },
+        {
+          "source": "FAULT",
+          "target": "FAULT",
+          "label": "fault sticky; reset untuk pulih"
+        }
+      ],
+      "reset": "READY; valid=0; age=0xffffffff; bank0",
+      "notes": [
+        "Prioritas conflict > begin_frame > write_byte > commit_frame; tanpa command register kontrol ditahan.",
+        "ram_wr=write_byte && loading && !fault && !conflict && count<16384 && frame_addr==count.",
+        "fresh=valid && age<FRESH_CYCLES. Kadaluarsa tidak otomatis mengganti loading/fault; gate tetap melihat fresh0.",
+        "valid lama tidak harus0 saat LOAD/FAULT; map_ok di top juga mensyaratkan !map_fault. Diagram bukan enum RTL."
+      ],
+      "ranks": [],
+      "width": 1700,
+      "height": 1261
+    },
+    {
+      "key": "17_config",
+      "title": "LAMPIRAN — CONFIG WRITE, LOCK, FAULT",
+      "source": "rtl/igor_config_registers.v",
+      "register": "locked + valid + fault",
+      "kind": "Pengelompokan flags; bukan enum",
+      "states": [
+        {
+          "id": "EMPTY",
+          "label": "locked=0, valid=0, fault=0",
+          "action": "Belum ada config sah"
+        },
+        {
+          "id": "VALID",
+          "label": "locked=0, valid=1, fault=0",
+          "action": "Config bisa ditulis ulang"
+        },
+        {
+          "id": "LOCK",
+          "label": "locked=1, valid=1, fault=0",
+          "action": "Config terkunci"
+        },
+        {
+          "id": "FAULT",
+          "label": "fault=1",
+          "action": "cfg_ok tertutup sampai reset"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "EMPTY",
+          "target": "VALID",
+          "label": "wr sah / simpan batas; valid=1"
+        },
+        {
+          "source": "VALID",
+          "target": "VALID",
+          "label": "wr sah ulang"
+        },
+        {
+          "source": "VALID",
+          "target": "LOCK",
+          "label": "lock_request && !busy / locked=1"
+        },
+        {
+          "source": "EMPTY",
+          "target": "FAULT",
+          "label": "lock_request tanpa config sah / valid=0"
+        },
+        {
+          "source": "EMPTY",
+          "target": "FAULT",
+          "label": "wr tidak sah / valid=0"
+        },
+        {
+          "source": "VALID",
+          "target": "FAULT",
+          "label": "wr tidak sah atau lock saat busy / valid=0"
+        },
+        {
+          "source": "LOCK",
+          "target": "FAULT",
+          "label": "wr apa pun / valid=0"
+        },
+        {
+          "source": "LOCK",
+          "target": "LOCK",
+          "label": "tidak ada wr; lock_request sah tetap locked"
+        },
+        {
+          "source": "FAULT",
+          "target": "FAULT",
+          "label": "fault sticky; tidak dibersihkan oleh wr"
+        }
+      ],
+      "reset": "EMPTY; seluruh batas0",
+      "notes": [
+        "wr lebih diprioritaskan daripada lock_request; keduanya bersamaan ditolak. Validasi reserved bits dan rentang dilakukan sebelum simpan.",
+        "Guard wr: !locked && !busy && !lock_request && format/range sah. Tidak ada unlock selain reset.",
+        "fault dapat tetap1 ketika write berikutnya mengubah valid/data jika belum locked; label FAULT berarti fault sticky, bukan semua register dibekukan.",
+        "cfg_ok di top=cfg_valid && locked && !cfg_fault. Tidak ada state enum baru pada source."
+      ],
+      "ranks": [
+        [
+          "EMPTY",
+          "VALID"
+        ],
+        [
+          "FAULT",
+          "LOCK"
+        ]
+      ],
+      "width": 1700,
+      "height": 970
+    },
+    {
+      "key": "18_three_process",
+      "title": "ACUAN STRUKTUR THREE-PROCESS — BUKAN REFACTOR LIVE",
+      "source": "rtl/igor_src_policy/igor_src_policy_uart.v",
+      "register": "Model struktur rekomendasi, bukan nama state RTL",
+      "kind": "STRUCTURE: pembagian tugas kode untuk kandidat berikutnya",
+      "states": [
+        {
+          "id": "SEQ",
+          "label": "1. STATE REGISTER",
+          "action": "always @(posedge clk / reset)\ncurrent_state <= next_state"
+        },
+        {
+          "id": "NEXT",
+          "label": "2. NEXT-STATE LOGIC",
+          "action": "always @*\nnext_state=current_state; case + default"
+        },
+        {
+          "id": "OUT",
+          "label": "3. OUTPUT LOGIC / REGISTER",
+          "action": "Decode state + input/datapath\nPulse default0; output penting diregister"
+        }
+      ],
+      "transitions": [
+        {
+          "source": "SEQ",
+          "target": "NEXT",
+          "label": "current_state[N-1:0]"
+        },
+        {
+          "source": "NEXT",
+          "target": "SEQ",
+          "label": "next_state[N-1:0]"
+        },
+        {
+          "source": "SEQ",
+          "target": "OUT",
+          "label": "current_state[N-1:0] + input/data yang diperlukan"
+        }
+      ],
+      "reset": "",
+      "notes": [
+        "RTL core/policy sekarang menggabungkan state update, next-state dan register datapath dalam always clocked; ini gaya sequential yang sah.",
+        "Moore: output=f(state). Mealy: output=f(state,input). Mealy yang diregister menunggu clock; tidak selalu berarti respons tanpa latensi.",
+        "Moore decode kombinasi tidak otomatis bebas glitch. Registrasi output + CDC/reset yang benar menentukan kestabilan fisik.",
+        "Assignment tidak lengkap dalam always @* dapat membentuk latch; tidak menulis register dalam always posedge berarti hold flip-flop.",
+        "Default case membantu perilaku RTL ilegal; proteksi state fisik tetap perlu verifikasi encoding/safe-FSM di synthesis, bukan sekadar gambar.",
+        "Enum/localparam bernama membantu review. Nilai state di halaman lain disalin dari source, bukan janji encoding hasil Fitter.",
+        "Refactor three-process harus menjaga timing pulse, prioritas reject, nonblocking pipeline, oracle integer, safety, dan hasil build sebelum mengganti SOF."
+      ],
+      "ranks": [
+        [
+          "SEQ",
+          "NEXT",
+          "OUT"
+        ]
+      ],
+      "width": 1700,
+      "height": 862
+    }
+  ],
+  "source_sha256": {
+    "experiments/parallel8/igor_src_policy.qsf": "b17742702027826ec0491971959a2ecd6deff9a64a82443d87d03f52d40b5f61",
+    "experiments/parallel8/igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "experiments/parallel8/igor_src_policy_de10_nano.v": "74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81",
+    "rtl/igor_best_candidate_selector.v": "0728b4f7f142c3596298693137b1be92777f6e270a5d20377ec84721cd09a18b",
+    "rtl/igor_candidate_generator.v": "32996ce0186033ab076ff33f9fa5ceda140bd98ad8d91644893ddba9cec15f71",
+    "rtl/igor_config_registers.v": "8c318768bc696c2a99b22ad26fd6444f4816eef542253def4660b42d9f634662",
+    "rtl/igor_costmap_bank.v": "9e75536ca0997c57c3a1199ed1b315f52b6a0658412a6fdf7edc40bef846b91b",
+    "rtl/igor_costmap_manager.v": "5d58ee1bc90873f1c226ee0308c32fda351fdd97e23f8db6d7598c356fa58e94",
+    "rtl/igor_de10_nano_wrapper.v": "48daf163ae3ef2fc2a7ee2b1ed55b9f43252da6aecb372238a8c5e133d8fbd0f",
+    "rtl/igor_kinematic_step.v": "66481ded5c0e5d00004e1b67ca2278e6f2b4f67c53c0100038a10d8a464f6c76",
+    "rtl/igor_neural_core.v": "6698cc94f22c9a3c8392175adf07f07683a3b57884e360f3fe1cd794c3876d8f",
+    "rtl/igor_neural_rom.v": "e9e8df074fd56e886e064004dcf099034f8bfcbf53da46b833ed1ec13823bbc3",
+    "rtl/igor_rollout_tile.v": "7b87b0f126177996be3b6be8970535727590e597941c124cc331485eed2f0a94",
+    "rtl/igor_safety_security_gate.v": "17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6",
+    "rtl/igor_score_accumulator.v": "d3a52ae41b8a35a4c2a751840065f6fcdab9291ba237dc308c34d901290a2e2c",
+    "rtl/igor_src_policy/igor_src_policy_core.v": "3f566c285f468d7a148d3226eb3ff2344c3e617dc5f544b7f94994efb6973726",
+    "rtl/igor_src_policy/igor_src_policy_rom.v": "310f769eb8752d04920cebd8ac58c6ba2afcbfa5aabc442cca91dbb6e797c2f0",
+    "rtl/igor_src_policy/igor_src_policy_uart.v": "8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a",
+    "rtl/igor_status_logger.v": "3d6c24cf9355084f200b20d22fabf236527787f308a06550b36ab16769972de7",
+    "rtl/igor_top.v": "dafbcf718d713441fbbf5a7f1bc806768895f6431488a0aea22dd95d88e572e0",
+    "rtl/igor_trig_lut.v": "51c87caf83927ce2f6a14e27c69874ada9e91a77a47ee311b97c446dd7667d7e",
+    "rtl/igor_uart_protocol.v": "835b3f8faec0fe0b550c28dd520c386fe51cbcf9d30e4d1a6bb087a75e267e4a",
+    "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "rtl/igor_uart_top.v": "6d7ba12b44e3cd5555d418a4c99658f9860db71a1e87d2251af54de1d6cf21be",
+    "rtl/igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28",
+    "scripts/igor_fsm_data.py": "a79e9e75c79a153b353381b71b25da5baa667629cd792d2e96bf8ef66161c333",
+    "scripts/render_igor_fsm.py": "cd1d1670fff8422b80c9296400f2c07f9628d8d2753c4f186e21f46775712223"
+  },
+  "drawio_sha256": "03aecaf869103eabdb99879f620da107572ba0929fe907bf1d4cfb8e467ab5c6",
+  "artifact_sha256": {
+    "docs/assets/igor_fsm/00_overview.png": "109be23b47e412f3b1af39c64be060c060b10d6bee0ec31b33be5c65e1982e70",
+    "docs/assets/igor_fsm/00_overview.svg": "41820b06e03a09d9e07265cba27e2299bad16157b78aa9121fa147fe7d847d03",
+    "docs/assets/igor_fsm/01_core_parallel8.png": "e09eb534c674175e64c876f10001e6057da54584b4a22190d32579ce7555a34d",
+    "docs/assets/igor_fsm/01_core_parallel8.svg": "1ffe005eba2c3ff82ce86d88f3205b30f06cb632345b3ac7795e64ded477ce8c",
+    "docs/assets/igor_fsm/02_policy_mode.png": "62e331e53b8aa0d7d1f8f8b2f4871f0cc66fd5f88b71f6b485ecec2da6e4022f",
+    "docs/assets/igor_fsm/02_policy_mode.svg": "c3f7a8b5e66ff7b37eaa46165a475e350192676aaa3a0937fec3ca7774d964b7",
+    "docs/assets/igor_fsm/03_frame_parser.png": "141b4a4644a6c061bf3aeac71c2a78f71e37adffad295641c941f1b72beec1bf",
+    "docs/assets/igor_fsm/03_frame_parser.svg": "d37ef789ad5e6b780a153083351d2dc9981a141e9321750eec2eb3377494a07d",
+    "docs/assets/igor_fsm/04_uart_rx.png": "d46206059f43af330ac386483ef60fd2d9381161ee53bb713e41b0bb8906d23f",
+    "docs/assets/igor_fsm/04_uart_rx.svg": "5b3d790591305036f7960184317eea7e0e70b16416efd1def15ed698d1431d20",
+    "docs/assets/igor_fsm/05_uart_tx.png": "fe2a8cda31b9fc2594ef7e9e8d60fe9b6f086a23cfd139f5cc48fb8c50ba7056",
+    "docs/assets/igor_fsm/05_uart_tx.svg": "48914c8897dc095dd16ee1f582c96f0f3c85e5780327d3d128ff6b7f077206ee",
+    "docs/assets/igor_fsm/06_reset_sync.png": "8c6af6c1d6614ade6a5e76dfd2a451a642558aa25e9d4d61def296446e5e7c5c",
+    "docs/assets/igor_fsm/06_reset_sync.svg": "0e222198876becb32790f568ff29e3adf169137f9861cf4ad789a186130cb4c8",
+    "docs/assets/igor_fsm/07_estop_latch.png": "20eb3eafe20027d8092b7d44371ee98bf7608eaaf6264870c87809291983738f",
+    "docs/assets/igor_fsm/07_estop_latch.svg": "c55c06d3969ee775450691587df7b8254791c31267a72ff6163366b2b10f3e97",
+    "docs/assets/igor_fsm/08_result_lease.png": "6a96b7bda387975cf32fc7e161a682b2f602ee498370b8d3bb1891793527c51e",
+    "docs/assets/igor_fsm/08_result_lease.svg": "7f33c23d2e045ba4a6b7bc94b44aa9dae27e5158c8fc7a34f0dbc60f2a94da28",
+    "docs/assets/igor_fsm/09_baseline_serial.png": "3e6cd0ace1f632d527d4799d82a7e9cb00efb2f3b65a77019001d0c6c4121f60",
+    "docs/assets/igor_fsm/09_baseline_serial.svg": "55fd9f8649b027f185b91e449d19d63dad475b0ac5404679a143597b86db269f",
+    "docs/assets/igor_fsm/10_legacy_neural.png": "8feb139d86b485c14e47af12a1c04c856c76b2ab657c83623aae8225a8723a76",
+    "docs/assets/igor_fsm/10_legacy_neural.svg": "43c9f11f7930830c829b2310bc7a27074de8d96b3178cb9e7770ba81cafb6e6e",
+    "docs/assets/igor_fsm/11_planner.png": "20f3a81ab12ae25d62f9d703cabd934226356c6e54ded05d5c5f8b752f5df4e4",
+    "docs/assets/igor_fsm/11_planner.svg": "e36563631ea7f3785bd42c5c8b502a55ef5ef0beb0094990c6d9ed2d4cf72793",
+    "docs/assets/igor_fsm/12_rollout.png": "dc3a08002ba06f9fcf9744e307da3ebee995d87e3b3bff79c0171fac73702cc1",
+    "docs/assets/igor_fsm/12_rollout.svg": "747cde7c6d34e090ff9d59b5d89d5086351a8dc01f8e2cab8b85cd91fe76918c",
+    "docs/assets/igor_fsm/13_demo.png": "6d53ab7d3b9dbe21b7e48b861aaff68f4a35fefc4f52a43261e7f425a7151c9e",
+    "docs/assets/igor_fsm/13_demo.svg": "6b14270e744746d795e73b672a6f5b9c0ba830c9c4f7f829f5eccc958f77c0ed",
+    "docs/assets/igor_fsm/14_legacy_parser.png": "c77ac5122cf3cf02529c49c868a7cb56af304d00488ee6f1d650164b74d0db30",
+    "docs/assets/igor_fsm/14_legacy_parser.svg": "7747a77529e623a05d18da9c26eb63d61d267837e661314b42ae9469d6b09644",
+    "docs/assets/igor_fsm/15_legacy_response.png": "7209730b30f0ed7c90e9c2d95171e31e0a3023d5379a036007aff2d62562789c",
+    "docs/assets/igor_fsm/15_legacy_response.svg": "4f059764aae90ab2324901cbded4e4225d2bed493a912223acc44f9136f04552",
+    "docs/assets/igor_fsm/16_costmap.png": "2ec7b6232a7bf7b6cec85e4ae52797be2a143ef52e647a8f0e951a2aea3550ed",
+    "docs/assets/igor_fsm/16_costmap.svg": "8b06e8cf8d9653d6828ac403381c0d42b6024c356e56f1934b83b79ba06b2ef1",
+    "docs/assets/igor_fsm/17_config.png": "350695a0fb2b96e7ce4a6b2c228b9e67411f988d973c6f8d3f7b5d8a3e3653f5",
+    "docs/assets/igor_fsm/17_config.svg": "636fcc4e276125974fd0c457161de1b1b9a5822725d414c8ead048acb258d7e4",
+    "docs/assets/igor_fsm/18_three_process.png": "c7aaecff5737213f1c58f0293fb2e7a05053c681c114999e3f870cb680b3fc26",
+    "docs/assets/igor_fsm/18_three_process.svg": "1e891458b7d5899b6d39c3a8347546109e6b9c688da1d14a2990a351a808f328",
+    "docs/assets/igor_fsm/contact_sheet.png": "c6bedaf350f6f7595d59d1d5914c59c92e9b05324d6dc3e249d45fe91e5af14f"
+  }
+}

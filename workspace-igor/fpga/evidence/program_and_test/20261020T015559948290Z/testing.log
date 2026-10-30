@@ -1,0 +1,44 @@
+Evidence: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\program_and_test\20261020T015559948290Z\scenario
+RUN: laptop_sensor_preflight
+FAIL: laptop_sensor_preflight
+Failure details (full output in log):
+LIDAR: {"port": "COM17", "baud": 115200, "identity_ok": true, "health_ok": true, "scan_ok": true, "commands": [{"utc": "2026-10-20T01:56:09.929452+00:00", "tx": "a5 25", "bytes_written": 2}, {"utc": "2026-10-20T01:56:10.080245+00:00", "tx": "a5 50", "bytes_written": 2}, {"utc": "2026-10-20T01:56:10.084026+00:00", "tx": "a5 52", "bytes_written": 2}, {"utc": "2026-10-20T01:56:10.086565+00:00", "tx": "a5 82 05 00 00 00 00 00 22", "bytes_written": 9}, {"utc": "2026-10-20T01:56:40.080070+00:00", "tx": "a5 25", "bytes_written": 2}], "scan_count": 392, "motor_commands_to_chassis": 0, "scan_mode": "express", "info_hex": "a5 5a 14 00 00 00 04 18 1d 01 07 9c a2 ec f0 c3 e0 9e d2 a0 ea 98 f3 0f 7a 41 10", "model": 24, "firmware_minor": 29, "firmware_major": 1, "hardware": 7, "serial_hex": "9ca2ecf0c3e09ed2a0ea98f30f7a4110", "health_hex": "a5 5a 03 00 00 00 06 00 00 00", "scan_descriptor_hex": "a5 5a 54 00 00 40 82", "good_scan_count": 55, "invalid_alignment_bytes": 0, "scan_transport_ok": true, "min_valid_points_per_rotation": 21, "max_valid_points_per_rotation": 137, "minimum_observed_distance_m": 0.104, "maximum_period_ms": 93.00000000803266, "supervised_150ms_lease_met": true, "minimum_distance_m": 0.114}
+STM: {"error": "Expected exactly one USB 1a86:55d4 for auto; found []"}
+Evidence: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\program_and_test\20261020T015559948290Z\scenario\sensors
+RUN: test_rectangle_route
+PASS: test_rectangle_route (13 tests)
+RUN: test_uart_fabric
+PASS: test_uart_fabric (3 tests)
+RUN: test_uart_q88
+PASS: test_uart_q88 (7 tests)
+RUN: test_ethernet
+PASS: test_ethernet (16 tests)
+BLOCKED: test_security_auth: Required test/test_security_auth.py does not exist in this checkout
+RUN: laptop_fault_contracts
+PASS: laptop_fault_contracts (2 tests)
+RUN: laptop_sensor_decoder
+PASS: laptop_sensor_decoder (2 tests)
+RUN: lidar_ai_features
+PASS: lidar_ai_features (5 tests)
+RUN: lidar_express_decoder
+PASS: lidar_express_decoder (5 tests)
+RUN: model_identity_oracle
+PASS: model_identity_oracle
+RUN: parallel8_rtl_256_vectors
+PASS: parallel8_rtl_256_vectors
+Detected FPGA UART: COM18
+RUN: physical_parallel8_256_vectors
+PASS: physical_parallel8_256_vectors
+RUN: physical_uart_return
+PASS: physical_uart_return
+RUN: passive_datalogger
+PASS: passive_datalogger
+BLOCKED: laptop_motion_readiness: See actual sensor stage logs. Physical pose, verified IMU units and a validated laptop motor-control session are still required; no motion is started by this runner.
+BLOCKED: A1_measured_rectangle: Requires fresh independently measured /pose, operator, clear 5x4m area, agreed geometry tolerances, bag and measured corners
+BLOCKED: A2_command_estimated_rectangle: Route algorithm is tested on laptop; physical motion still needs real LiDAR, sensor preflight and supervision; not dimensional acceptance
+BLOCKED: B_live_inputs_outputs_and_IMU_units: Requires real controller trace, calibrated IMU units, LiDAR, active robot run and measured deadline results
+BLOCKED: C_link_disconnect_stop_reconnect: Requires supervised physical cable pull, active forward command, measured 5m, STOP trace, video/rest measurement and agreed stopping bound
+
+Overall: FAIL; PASS=13 FAIL=1 unresolved=6
+Robot motion is never started by this Windows launcher. See testing_scenario.md and TESTING_SCENARIO_RUNNER.md.
+Evidence: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\program_and_test\20261020T015559948290Z\scenario

@@ -1,0 +1,9 @@
+{
+  "target": "fpga/Bennaya.md",
+  "operation": "append only",
+  "original_bytes": 32104,
+  "original_sha256": "14cadaaaf7e1de7bc1a368aefe05cb88167ae7c7ac7d1daa3071835991b48d30",
+  "appended_bytes": 26996,
+  "final_sha256": "94a124acdfe7f4631d67287baffd99cd7af3249a7225b3dd949ff1057c400e08",
+  "coverage_source": "fpga/evidence/rtl_coverage/coverage_summary.json"
+}

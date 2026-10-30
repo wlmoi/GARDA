@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "project": "source_policy",
+  "profile": "maximum_tj85",
+  "status": "PASS",
+  "started_utc": "2026-10-17T01:41:14.433283+00:00",
+  "command": [
+    "D:\\Quartus-Program\\quartus\\bin64\\quartus_pow.exe",
+    "igor_src_policy",
+    "--read_settings_files=on",
+    "--write_settings_files=off",
+    "--estimate_power=on",
+    "--use_vectorless_estimation=on",
+    "--set=POWER_USE_DEVICE_CHARACTERISTICS=MAXIMUM",
+    "--set=POWER_AUTO_COMPUTE_TJ=OFF",
+    "--set=POWER_TJ_VALUE=85",
+    "--no_input_file"
+  ],
+  "cwd": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\fpga_de10_nano\\src_policy",
+  "kind": "post-fit Quartus estimated device thermal power, not measured board power",
+  "build_receipt_sha256": "2bbf7089ee6876969da62c55c904135821d3b63ccb392e98eec1fcdea11bd1d8",
+  "sof_sha256": "fb9fcd28136b647492d2284fef82beca34b97f8300ce0579c25e0745fa88cf4a",
+  "source_sha256": {
+    "fpga_de10_nano/src_policy/igor_src_policy.qpf": "ebc0446cac9ec52e23f6751309881e00212eab5298b745212e17b5dbc7a1ab18",
+    "fpga_de10_nano/src_policy/igor_src_policy.qsf": "17ab47770fb3a204122ede58084199297ac21bd15594d43b9162f3d3d27a4853",
+    "fpga_de10_nano/src_policy/igor_src_policy.sdc": "a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c",
+    "fpga_de10_nano/src_policy/igor_src_policy_de10_nano.v": "74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81",
+    "fpga_de10_nano/src_policy/pin_assignment.tcl": "9c72ec63fee5d7064273212ed614b288ade217b8709944068ea7c99ebac03e20",
+    "rtl/igor_src_policy/igor_src_policy_core.v": "3f566c285f468d7a148d3226eb3ff2344c3e617dc5f544b7f94994efb6973726",
+    "rtl/igor_src_policy/igor_src_policy_rom.v": "310f769eb8752d04920cebd8ac58c6ba2afcbfa5aabc442cca91dbb6e797c2f0",
+    "rtl/igor_src_policy/igor_src_policy_uart.v": "8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a",
+    "rtl/igor_src_policy/policy_weights.mem": "55a647207c0b670901fe8074716331ac2876886bbbe1ca44aff9bbb942426e2d",
+    "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "rtl/igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28"
+  },
+  "hardware_measured": false,
+  "requested_characteristics": "MAXIMUM",
+  "requested_junction_c": 85,
+  "exit_code": 0,
+  "post_power_flow_sha256": "67a9773a6d508b5bd792665486c61d16517d34de993456ffd7a2678fcd086bcd",
+  "original_compile_flow_restored": true,
+  "release_inputs_unchanged": true,
+  "reports": {
+    "evidence/current_metrics/power/source_policy_maximum_tj85/igor_src_policy.pow.rpt": "1751006db027eba3bb4cea425fd6d7c0b714d7fdf2da44ca2720c113562bd960",
+    "evidence/current_metrics/power/source_policy_maximum_tj85/igor_src_policy.pow.summary": "ecb7f7de6814bf24a6294056cc28ca8b968b9c7c96738b0f0e1ad48a27b866af"
+  },
+  "finished_utc": "2026-10-17T01:41:29.121254+00:00",
+  "ignored_settings": false
+}

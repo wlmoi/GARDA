@@ -1,0 +1,2587 @@
+[
+  {
+    "path": "tools/append_professor_feedback.py",
+    "sha256": "c3b60d32da059832021630a4b315ea75f684db66bb6a2d6ca8baee2d2f63e361",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/assembler.py",
+    "sha256": "28bfb7c205f3bba827f1f0e76fffe49ca3033fde6e4216ada8ffb3cdef9cba06",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/build_demo.py",
+    "sha256": "785bda0ead3ea883cb6a0f8d956e4c011ce02bb9e70d1d252e15f35c519c83e4",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/build_parallel8_wave_proof.py",
+    "sha256": "08c2696b446fea22d0f2bd5d0f92ee534d4d9a4a869ef5fa71da4d553e999dcc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/build_verification_inventory.py",
+    "sha256": "c2a53a7ed66f569e86054adaf6d3a16e961f79eb910d35e87ec88e1ae5a570cc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/check_uart_rtl.py",
+    "sha256": "918b80f5eda2f615a932623aa8d04a0f68cade3829e15c211a480589980fc77d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/config.py",
+    "sha256": "bc270c227f7faf8c599e078cda6a962b5a5c9a3bb093cd94c27ae11dc2ab9a13",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/connect_de10.py",
+    "sha256": "ca46777fad658fa42e20b2d40f86c4a4bcacb48d8955b7d10ab7bc1174a75ab1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/de10_connect.py",
+    "sha256": "3cb9062383e85c1faab9ee546c715357fa7586d3a2b74f028c40e8ebf6521ccc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/finalize_verification_evidence.py",
+    "sha256": "c4e2c28d4201099bfad8d51d66c64df56ebee1cc3fe22b2ea5ebf826012d5793",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/generate_uart_expected.py",
+    "sha256": "b5bde494ab73d3fd5a4565deb02ec0cf0237ddffc501cd3382bcb984691ba2ff",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/generate_uart_q88_vectors.py",
+    "sha256": "16deb529ac3a7fed9e575ad9dca6317ec2c6af422dd57e862c2c2978dfb71695",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/host.py",
+    "sha256": "dd7ea9eb6c25d3f4c96b8b19f9067b3ff059e531c2b9ef172508197a97b12419",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/inspect_lidar_clearance.py",
+    "sha256": "290da8b78b37946a87d2ea872ec4c15f81823b21003e8ff8f2b8538c6b1bb419",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/install_igor_uart.py",
+    "sha256": "cea5b0e4f36fdc05df4f45ff45b05db4730cc22dc7e69877ab58c62b001a44b2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/install_igor_uart_9600.py",
+    "sha256": "cea5b0e4f36fdc05df4f45ff45b05db4730cc22dc7e69877ab58c62b001a44b2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/install_igor_uart_q88.py",
+    "sha256": "a33a3992e00a66968c835505713cf1d0596645fb4212e007ea57b9e91ecf76aa",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/measure_core_fsm.py",
+    "sha256": "5de0765756e2badb47b2c0483aa6c71d6a35bdba4b2f6d7b18f71170b790bd93",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/measure_gate_decisions.py",
+    "sha256": "960034d039078c67ffc79841774f1c5ae06882aeff4fbb32860e17368d823913",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/netgen_json.py",
+    "sha256": "181a2bb1b2359c9634143763c751b130d3dfa547fe88f480bb007aa7ca82802e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/package_de10_connect.py",
+    "sha256": "e6f5614946148f5ea37f98b27adb49aa4f6f8f594c6bd9a428513ce823b9bdbf",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/package_ethernet.py",
+    "sha256": "275c2926a7db451aee0dea3d18dcd1d7c07a7e3934a6ecc778e1403ee98b4f22",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/package_uart_q88.py",
+    "sha256": "dc2b384d2f64d2212dd3d78008cb9347256b97c83de3eb30bae23ed41d1f5062",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/program_uart9600.py",
+    "sha256": "7138ca7303c1ab7ebe351bde938e151e83029839faac28bdc62b26ff1fe62c09",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/protocols.py",
+    "sha256": "84a8b364a62401ee3d3097059e8d358b9e599c56003f47fabfef177cbb7ef160",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/reference_model.py",
+    "sha256": "6851fd3d637eb76178bc843e51f4a902ac4c848a7567ccf3667df65f2aa305bc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/run_cocotb.py",
+    "sha256": "c1ee2f203cb42173d091b631e6ca9a37765449d173688a727bb0818963a91096",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/run_rtl_coverage.py",
+    "sha256": "b4384f14af5895d413a5183c31f120ae9062f901cb355408490db10726e9978f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/run_timed_rectangle.py",
+    "sha256": "e5776305e973e941e5a7a4de9d4b24c0befc5a78a3e87a7ee69192a3a4c75387",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/synth_area.py",
+    "sha256": "480c952a33a4493ac6924889c00340c038563ec1d6b534ed95b0ee5f0c84f5f6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/test_jetauto_wheels.py",
+    "sha256": "82cfa6b77732450149e8fe327a967f8399205a635bbff29f296ba78143dd6904",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/uart_diagnose.py",
+    "sha256": "c1ad04047aa42650530360a66af669de2e516bd05bfe1e2e975358bca05a5396",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "tools/verify_ethernet.py",
+    "sha256": "42b948446f181aaada81ce7ed88bfb85182eb1a0e11252c818d0abd721d0c89f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test.py",
+    "sha256": "15c18f7f0ec3bd702592e5028315789013119bd1e8129fd8c7995fb13b4be36b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_connect_de10.py",
+    "sha256": "15898de88c35e1ba3935f46903c533712ce43b2ac7d17d8de1c7b72c0d36f1d3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_ethernet.py",
+    "sha256": "4fe1d744dc7e4037e8aa49af3ae8a26d59c267dc702d82abbc68a3f67dc996db",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_netgen_json.py",
+    "sha256": "2cb939c6f4b7e0ac674badd20473c4f47a8dc7a9dce284bd6f212e1007a25431",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_rectangle_route.py",
+    "sha256": "65902bd8916ee6e59a4736bcc5a4538831df14518f6dc6a2c583e6ce457a575b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_reference_model.py",
+    "sha256": "4d9fbd860bfc72dcc5753cfea8009e5b7c5de23bc19fe4d904942ea04756baef",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_rtl.py",
+    "sha256": "f78b2f98f9e95900b04be0de2f153d098d72c5d191723dec2072db5ba69dab82",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_sram.py",
+    "sha256": "f427afb39e6504039db09b2238ac6ad384cda088a8736e4828e7ab3c7c08b45a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_uart_diagnose.py",
+    "sha256": "3b834ddc348308107df60a43a04734cc61975b7dc0e8bbb86839b1b8fd0be691",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_uart_fabric.py",
+    "sha256": "4fe96305952865d3b8a6924ca1d2768c70d613106e7266e24fc30cce70239a6c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "test/test_uart_q88.py",
+    "sha256": "d768e462d260881d066b792db1fe59472072e3b1f72d8aa96e77e172cb9d3a11",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/audit_parallel8_docs.py",
+    "sha256": "c20a6db3175ab87c40477215484851a5d052eb0741185351a8d43e87984a6df3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/complete_lfs_upload.py",
+    "sha256": "64130faeb86c42aebe1ec1de6d9fe9e9cccfff340a11b08eb55202ef1185a307",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/diagnose_lfs_dns.py",
+    "sha256": "918e7f0e5ff5a25080b1cfa5a31fb09c7dab004a3ccd24947df1113eb06fd933",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/diagram_renderer/resvg_py/__init__.py",
+    "sha256": "ccb2c67bd2004dffd81719c3a9b6f61fb434adbed9d58706821feefdb7c27ca7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/fitz/__init__.py",
+    "sha256": "cbba4a6a76e5433965ff904738df8ffd2a8da513b937eea7a8ff829bb09cb8b5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/fitz/table.py",
+    "sha256": "4b2ead855e5fbd219f8cc178947a8df94187472b240b0d629f52d9bb162284c3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/fitz/utils.py",
+    "sha256": "8166d2683974fb4d0e86d90e45c0c6f500ffea2c74fffcd5dff9d394277dae3e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/__init__.py",
+    "sha256": "3ea4e34c0b6659532e5b500cdec63d4a5c4ace403f14e5ce8aa974ba7bbce0e2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/__main__.py",
+    "sha256": "ee1f25bdcb8cd50ddc945a8c4a9730f68bca779b72bc4cd9a1167cb75df967a7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/_apply_pages.py",
+    "sha256": "54021791461ca5933353084fce8b0782224edd1a5f31df605c98600472e5ef8d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/_build.py",
+    "sha256": "fba0130b4d80555a1e2f0df01440c5fdccd1f5a12558b17834e4db5926e77d73",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/_wxcolors.py",
+    "sha256": "9a390772c82e36869c636ba0b0e6227c6f45d4d1a265c33de112ee46b97935c4",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/extra.py",
+    "sha256": "3bed85a100f562ba4bbdc35ff376183ab2a0f8183c4f990d9e729b25aa9a2ed7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/mupdf.py",
+    "sha256": "d2bdd544b86eb42c5c58a3a5845044a92408325e00f48b13f6e9be9b27374b1a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/pymupdf.py",
+    "sha256": "69cb0911ce3252c940335a64aa01c53170a59488fca880f0867de18af69d9f6f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/table.py",
+    "sha256": "3baec23531938d376555b32707fc99186dc2dbf3f5d6807e164eed80fbc33ccd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/evidence_tools/pymupdf/utils.py",
+    "sha256": "7bf09b85e3d72b718deb33c7807a1f12cf3b4b36c9fbb9df5acab45152dba81e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/programmer_fixture_20261016T1055131419136/scripts/freeze_release.py",
+    "sha256": "3a925f45c2628933f207b6c4df4e96aaa2b4fe2b71d6b65dd62b08838d8bc06b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/programmer_fixture_20261016T1056001059138/scripts/freeze_release.py",
+    "sha256": "3a925f45c2628933f207b6c4df4e96aaa2b4fe2b71d6b65dd62b08838d8bc06b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/programmer_fixture_20261018T0549181832145/scripts/freeze_release.py",
+    "sha256": "3a925f45c2628933f207b6c4df4e96aaa2b4fe2b71d6b65dd62b08838d8bc06b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/programmer_fixture_20261018T0549285049386/scripts/freeze_release.py",
+    "sha256": "3a925f45c2628933f207b6c4df4e96aaa2b4fe2b71d6b65dd62b08838d8bc06b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/programmer_fixture_20261018T0559549675712/scripts/freeze_release.py",
+    "sha256": "3a925f45c2628933f207b6c4df4e96aaa2b4fe2b71d6b65dd62b08838d8bc06b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/push_git_api.py",
+    "sha256": "234751efba89854eb8bb77debdd8e2d25d6bd17c70f9753f01fba4d4d7656a1b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/__init__.py",
+    "sha256": "e087512619d6e571b62a568990ec67e7f4c2f56790e6d5c3485eed6dbe2f12ca",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_argcomplete.py",
+    "sha256": "821d299daebaa782d56f60fc493e39ebc586c6f7489c64f8de6eac95886a36a5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_code/__init__.py",
+    "sha256": "e61ed1f8b14834a87ba7c411d4781d8ef486a35cac549cf6f0c43d87b8a91cae",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_code/code.py",
+    "sha256": "ba63dda8bc6af1481628022d4c4bc5e993aae5d17ae66cc224715a647cd33466",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_code/source.py",
+    "sha256": "db0f4e6453ab469895683fd47544b54f65c2edcd88b361999f4890cbe9597f09",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_io/__init__.py",
+    "sha256": "a642c5dbd54416be8396bdde3ad24bf2c7f8ed12c5b7525fe17d436413e56267",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_io/pprint.py",
+    "sha256": "0427bc2bb65cd1dad80b9fc9299041315ae12bce0046598fa64f6f4963d885a1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_io/saferepr.py",
+    "sha256": "1e1c7917eef98b3d3785d93e58ef3a066cbd441b911ecb898fe614ce8cdfae0a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_io/terminalwriter.py",
+    "sha256": "750d3bcc9d7ebe5a45a96041bbf734707c53d325dc192bbba3b2f10c2132077b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_io/wcwidth.py",
+    "sha256": "714109ef8521c1e202c1b2af536aba9e865c3600f442504407d09f6a41986aa0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_py/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_py/error.py",
+    "sha256": "4b505195f5d20f6e3c38537302e6793bdc3d5ba7ebd8d527d17f3060518c364d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_py/path.py",
+    "sha256": "5e5e14b29bebc302983652d90c66e3854ae70fa7ee066171c5c86096d9b019e9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/_version.py",
+    "sha256": "2790f102ec850536796920181dde89b3807b268ae2d87603449f6d07aad00c7d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/assertion/__init__.py",
+    "sha256": "94ad5834d024d55a822be6390b984c24ca89432c504f5d47b831f7c3ce5add97",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/assertion/rewrite.py",
+    "sha256": "31153ac42973232d4f5ff1638b22db8c8e1f0b69f1d4ae122e504032fe028046",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/assertion/truncate.py",
+    "sha256": "1989798aa0d752e2901e077f9ad856977663c416c355096206192cd53cb4d241",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/assertion/util.py",
+    "sha256": "e958397590ee2176a4f4e2eea6f2b26af2c3ae801382953a8a591c95cd0e9496",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/cacheprovider.py",
+    "sha256": "0454159276b9ead94efaff6a68d2551c8705df4848546acff52b7fbcca78c3df",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/capture.py",
+    "sha256": "6aeccaa9aad32011fd63bf8d42015b2ca524036c611731ff6dad9581d6f59a4e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/compat.py",
+    "sha256": "b0f7154303dde3919aaac8086446c24d1d3818a86456621f7ede909ca8f7866a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/config/__init__.py",
+    "sha256": "0a1e588b3691ac27ccca412e65d1c5d11688cafb56be84972f8bfa1350aef856",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/config/argparsing.py",
+    "sha256": "74d8c4bc58760b7e17328884fd1ee5889bf972bc97533d9647656cc5d9d0763a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/config/compat.py",
+    "sha256": "fa6f06e3e2cb7b309de0a64ee8942e7c4cfb7110ea5123a32300ad88a5a926f6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/config/exceptions.py",
+    "sha256": "9542a73ada51a8afaa34be897ce3fef2d46aa661d4df8095c60b91e72d107dbc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/config/findpaths.py",
+    "sha256": "878ceae406cb6991a991e11c0f65e0fab2629a1f48e69134e36a90393653ecd3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/debugging.py",
+    "sha256": "c919a639ec6c683785932dfb22b0f67bdb2fcfc09679b07b2f67d2532e0bbee1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/deprecated.py",
+    "sha256": "b0ef548aa11dcbd67e342bc3a18600d10b5a7d8a2001bee53f933d37f1e99da9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/doctest.py",
+    "sha256": "ed6269ac91988fbffd2f2afe2f8f7027bab96700d58f5141840f7f097ec974b7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/faulthandler.py",
+    "sha256": "753d07f8c2e2eb64977a22a32d02741153eec644e534ec695ad371039b8124fb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/fixtures.py",
+    "sha256": "239b77a56da51da54f6cdd6b010f6c757d1add0ae9a16fd4e553fe5717a3c668",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/freeze_support.py",
+    "sha256": "d447f3bb13ddda857d22b6b6e8ae49e2bf69a456639c68bec4acec0577bc0788",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/helpconfig.py",
+    "sha256": "89b9d93712b34e82e6c7ed99ad92823fdb7a8c9be9008966a9d7fd6b4ae13a82",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/hookspec.py",
+    "sha256": "f8470414250fc81f6abbdf31c975bc421128412419133b8d6d9258cd09441dd8",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/junitxml.py",
+    "sha256": "167630ab4c004780a2c738fe6bdaa1cae954484a4cca35fd00b6e3cdafd67bbe",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/legacypath.py",
+    "sha256": "fe5eaff1a90d31f4dce53023bdb73a33efedd79ee9f5013afb5d7c58cd0346df",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/logging.py",
+    "sha256": "41f694531f93d0588a0490416f76c3965b7c3bc79313b3298a0abbc2f0dea517",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/main.py",
+    "sha256": "3a8c1ecf7e9490ec095e44d1ab8ad5b89451af5f08b419f3fd80e3800985095f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/mark/__init__.py",
+    "sha256": "6c7391c8202c1a7189abb4e99bb036b0d417df58f05354e0b9f33d0d872b4df4",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/mark/expression.py",
+    "sha256": "1fa2e65f43169717b4b819ae5c8a50127b6b2edcaa221109bf4ed8bc0efd7834",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/mark/structures.py",
+    "sha256": "ea1888477778cf1cb7e588b0f7ad6bf6c62b365f93e564bcff46ae4a6a5d881d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/monkeypatch.py",
+    "sha256": "48a82d795273d69baa610dde97afa3bb966c34006aa68314b910ba9e7ded1697",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/nodes.py",
+    "sha256": "1eaca9968c3df616fe673d0a2b32f42b7710d2b0a00d72bae6f069e9abdedeef",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/outcomes.py",
+    "sha256": "49e5b5e2b44a9c64adecafcdc58ec71a779da096b0147c108b66a701862e824f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/pastebin.py",
+    "sha256": "25ad73dd9e9c5cd125a1ba70cbdec58b24790c37b166b0c407abee7e636f138a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/pathlib.py",
+    "sha256": "0fcf9acc270e92a5ff24bc4a9ed8216a561a771e33193077c36ca7b60634e13a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/pytester.py",
+    "sha256": "f83fd234b7e9fc041130fec63a8e8db1795e92d898a1defda71058fb645d513d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/pytester_assertions.py",
+    "sha256": "1081de6f596537d4d545f049a909f0be329e1be2a9cd444dabc9ad6caeef7320",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/python.py",
+    "sha256": "9a425e93886aa7b18c23293ab8f356725236758960efcb538f299d7195624c93",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/python_api.py",
+    "sha256": "2b220fe310b2776069345958fb6f1ad04e745f1317cbb1d2422e99682c37a998",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/python_path.py",
+    "sha256": "7c63fb891fd730544f8a38389e220ba38e2059458b943eb7e5f60ee406dde883",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/recwarn.py",
+    "sha256": "33fc59c3510c8ab78df0264c9a523fb02895b2e9fc45cab41659d190f7967584",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/reports.py",
+    "sha256": "e4e33f3b2407212d3d3d6e93ffc90024d4baec6bdca6f3fe94a7276b62dc499d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/runner.py",
+    "sha256": "2c358a7e1888cd63645eaaf5c707b1fa5d7286c5a4756089928e1b60cf9eb50f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/scope.py",
+    "sha256": "332cea5d4b963f5f8181b6c207327220b892fe389c64ed8b3543148efeef861d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/setuponly.py",
+    "sha256": "1cd63d12b9fec1ec7d896487c4953a383034cb36081fae500a480d67f0666ee0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/setupplan.py",
+    "sha256": "97ec9c14dc4364fc98e76c21e1fef26aa87367b496d628d22a740b9aacc36560",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/skipping.py",
+    "sha256": "5db64a0cf7a4f5ec7c6915c4a04cb98afd3f7b56f4b148b43d9ad6a8b05aa5e9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/stash.py",
+    "sha256": "e69137903c78abce794d6f5a56f61376b9242a530353afb1897e25b8aa491202",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/stepwise.py",
+    "sha256": "958166ea4834d349ff58418e110021a348fa75108a26f80acf561ad99cfed197",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/terminal.py",
+    "sha256": "fb14f5ef1489b3d6eef74c2a44173759c91a5933533ce99591994ed57d7a5b2a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/threadexception.py",
+    "sha256": "1872d8c0260ae88d775efe9b2123b672bbcf8fd6790032a0567503ee6d4e6b5e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/timing.py",
+    "sha256": "511c1ad8910d5d890837ff4b160126278ae273b496f0ee9af30a12fd337a8d72",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/tmpdir.py",
+    "sha256": "6e8e34aff829c52ec0741fc100da52821fdf7a31e25da196ac1c47a5ac7dc2dc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/unittest.py",
+    "sha256": "c1ec3bc36ab94aa81d3e9a45cefd1ebf0ad32d698c0b028542f494c845f60b44",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/unraisableexception.py",
+    "sha256": "f8bea59fc9919eaa8f06c9336abb9ae3db2de22a17a0a825959de832646e08a5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/warning_types.py",
+    "sha256": "9b6fd8df3c9d5193733e9bbcf27f303cd5aa6b17da01330a128ff30205ccab26",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_pytest/warnings.py",
+    "sha256": "131c9774cf59b08517e28e460ade377d1f985a12074ae51b57a19b2845577a20",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/_yaml/__init__.py",
+    "sha256": "d3801eff9a2cc5a8692476b75c165401fe308ba5d7df6811f03e97ea9eb81840",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/__init__.py",
+    "sha256": "8f50c97826e06b8ae26e4bf9bb2bc8033234a05375ddf5bd99ebc32928457a5a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/_compat.py",
+    "sha256": "2062a1fc9e5075f2842e2b6745f4c61e779e8d6c680b0fcd5fdb5f31b75c837c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/_termui_impl.py",
+    "sha256": "6b9cfb23d80e15e326bbb19bebf44fc90f063ee54fd4479b962c5c5923d240f9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/_textwrap.py",
+    "sha256": "d747d0eb839c05432e2bb985be1f37eb7feea0ec4f95122d64198acd12438286",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/_winconsole.py",
+    "sha256": "e63bb78d091c643d16dbb584306aa610fe32fdcad45733c2aac5ff1586fb04ed",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/core.py",
+    "sha256": "4359c455d72d670bc83ce96de2f7c7928d136271c2784e3450412e97c5a9cafb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/decorators.py",
+    "sha256": "eede85f905a8c2d2e1e85ffa97ee18578638c8d4dca85404bbd8b7ef3233ebcb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/exceptions.py",
+    "sha256": "57bcc34fa7a6a89f22365d241753f99291662cc590d53d4beda34d28ce18474c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/formatting.py",
+    "sha256": "16b7f4fb95b7dfe968c98fe2f6aaf05d1f3e4939d6de6e60bf2c4b554772c729",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/globals.py",
+    "sha256": "72e27a05ba34ef79601049a18ebdfde0f78cf901665ccf828bec267ec77b1f98",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/parser.py",
+    "sha256": "878b2775ca45e4e1eb65037cbc3f0859be4e072bd6ec005b8514e8c68beba92f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/shell_completion.py",
+    "sha256": "4d1d1d5c419cbd66fd128dda6901171a19ef352dc51781f841cb8b9ef02f628e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/termui.py",
+    "sha256": "74bc624bbd143af21805d6bf9c411968f0053950d5991b35b043ccb8b0e8c10a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/testing.py",
+    "sha256": "dd103c6a709fed367cfb94401798add937be6965c100be552dab109cc882d994",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/types.py",
+    "sha256": "043e50aaae21fbc91ac0198e2332659aae31cd38407f8c02bda38b652043371d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/click/utils.py",
+    "sha256": "71ef88acef6294823be8b1a4537e78a4e7476dea4cf147ed7cd1fb49f314ff6f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/__init__.py",
+    "sha256": "2f4d8782cafca2dfe2e0f7ecf94de0472f72407b5b2b6964b3624bbd05fbc808",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/_deprecation.py",
+    "sha256": "fb209adbff66ffaf8d5f845920a89ba552a52256fb7837579e620daa8c5e19c0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/_py_compat.py",
+    "sha256": "5e7899d2a8e4032605c5a0846679f2d1933cca2ece200269f5513757738c1eea",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/_sim_versions.py",
+    "sha256": "9db5246ae07b44abab7b416b533e76b07909ce801e12b10a6507947e1af2aef6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/_vendor/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/_vendor/distutils_version.py",
+    "sha256": "b0948f1f853437c03e90394b9d693aae6615729d054396ac983af8dcd2e406e9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/_version.py",
+    "sha256": "83c45fdf8d3c30edb565191dea1ec4f0b3f3f1367a7080c0c2e88f6e337bb9f8",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/ANSI.py",
+    "sha256": "7089b5ae2e6f584f8414a653cd7643fca2f084344b264bf9880a35b0e6c8e6b1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/binary.py",
+    "sha256": "a6f94120a200d604296aea09e0f3fd151d35810cefd5a49008d1b7a65dee665e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/clock.py",
+    "sha256": "b586c36792bd9839aa2d330c5adbc7ff8b7ff2f54f59019332af7a895d4d11ad",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/config.py",
+    "sha256": "06def31e0413ada36534d1fffe3934e55d61afd59df533129ed6b1dce6004940",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/decorators.py",
+    "sha256": "640bef5d763026ed64947f4677b1bbff000d52aced0a5ef85dba18900919af24",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/handle.py",
+    "sha256": "1e1db73cf7bcb96c11dd0b42327329094bba60f3e6d0e91e2a903023cf97ef26",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/ipython_support.py",
+    "sha256": "073b98cc37cd620b23a8bf880ad0b1687137322e21634db57eaccce5c516c7c6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/log.py",
+    "sha256": "c9db78645a358aebc5469f6ebb4e4a061375f9b2be807d21b826c4f316c6e8f6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/memdebug.py",
+    "sha256": "6aa0131e8be575bf2caa286a79be24d2da8ead460abc8381c71b9ea3feb17cf7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/outcomes.py",
+    "sha256": "515364b857143a14f3ea5536cc9ccd71347815c73fb6146bd336183bbd98834a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/queue.py",
+    "sha256": "64769a77b44c2a56b436a0b6934e8399557bc17aedaed791571d7d884fb4ff9c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/regression.py",
+    "sha256": "3a6219d7111d220445397bb377c3dcafbfe2455b356035e5ae0f6708a26554eb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/result.py",
+    "sha256": "248014d3d8f1492c3df7159c634488ec8337d6f931eb81bd22976e8d386f99c2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/runner.py",
+    "sha256": "b0fed84bb82cf265ef3fdfacaa829d244d829b9b7afa102e0eadec16c9c9880b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/scheduler.py",
+    "sha256": "9346211fa3d7a43ff7f9add9a484bdd900d274b171308375108c587a753d7f96",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/task.py",
+    "sha256": "e13bc9dd81e30d5ebe6614d57b6c491c4d5d2e3731f2b0298427c37290ce74b5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/triggers.py",
+    "sha256": "8c675b384a2360aa17992dabad902c3cf788213d293c901c75c1b318a63ff39e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/types/__init__.py",
+    "sha256": "ca90aaa927fb6a057a5e827a3f49d5bd1030da6f361b9931e80db28a2566aebd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/types/array.py",
+    "sha256": "a48f0e60be9663a23d9d9930ab29fd4bdf1b58d06512ac0cf13b9e640d8e6967",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/types/logic.py",
+    "sha256": "3d4393024a5c3389c5196e246aa03e65ad410b7b98cf1666abb4aa0253d648da",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/types/logic_array.py",
+    "sha256": "0bc8078d49a87f83fd858c153a714c8c1807d312b3d178e65a3b55bc28ac05b5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/types/range.py",
+    "sha256": "31b3bbe8b608c51d6bd1e922f9248fdd73adca9bb8fdeb575075a63428b880dc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/utils.py",
+    "sha256": "64ca4e4d663af257056b1df1c0ae4f34d215e715026c1b701c21bdf16bc222dd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/wavedrom.py",
+    "sha256": "c5685e7ece46e4befd5aeb30f29a18d61f31fd515e4a5b275db46b7e3dd53618",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/cocotb/xunit_reporter.py",
+    "sha256": "fbeadb5224d7323a89c3c5dd706fb8f537c5ff3c2a755008bda391974768869d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/__init__.py",
+    "sha256": "c1e3d0038536d2d2a060047248b102d38eee70d5fe83ca512e9601ba21e52dbf",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/ansi.py",
+    "sha256": "4e8a7811e12e69074159db5e28c11c18e4de29e175f50f96a3febf0a3e643b34",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/ansitowin32.py",
+    "sha256": "bcf3586b73996f18dbb85c9a568d139a19b2d4567594a3160a74fba1d5e922d9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/initialise.py",
+    "sha256": "fa1227cbce82957a37f62c61e624827d421ad9ffe1fdb80a4435bb82ab3e28b5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/tests/__init__.py",
+    "sha256": "32480f004cc641df91ab4c343d95d25f62da7515a150409c8ac258f254ab9b84",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/tests/ansi_test.py",
+    "sha256": "15e5620eb50834865caf9d393c0c6f5380235f3d5ab048802ecf465cc87045a1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/tests/ansitowin32_test.py",
+    "sha256": "44dec0221309e44a83b186828d5a3ea38bbc2730c3e2e9096e67af58a4bbd2b6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/tests/initialise_test.py",
+    "sha256": "05b3f2f977f21f027accaa33b903af36f419cecc7dbdd6ffd1b6179fb86c0537",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/tests/isatty_test.py",
+    "sha256": "3e0dba2d1a6fd3240307901cfacc605571bb86c035358bdaa45800a597d8cd98",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/tests/utils.py",
+    "sha256": "d48211ca51b7f73e7e773ab4f51fe782e7f1c8f67182574d6ebc4ac541b018a1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/tests/winterm_test.py",
+    "sha256": "aa85853c48f29b9826d91b8cc297f7a4e8acddae6bfcf259142ccadb9e092fc0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/win32.py",
+    "sha256": "61038ac0c4f0b4605bb18e1d2f91d84efc1378ff70210adae4cbcf35d769c59b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/colorama/winterm.py",
+    "sha256": "5c24050c78cf8ba00760d759c32d2d034d87f89878f09a7e1ef0a378b78ba775",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/find_libpython/__init__.py",
+    "sha256": "e52c42508dc406ecf0e45a14b8b971142968982af979f421918712cc320a17ed",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/find_libpython/__main__.py",
+    "sha256": "a447a6af2382d8c46448d80cc7198064d1bc229070dc2b58b4a7bda09856d5e5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/find_libpython/_version.py",
+    "sha256": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/iniconfig/__init__.py",
+    "sha256": "00b25235e9c08130fb44d8fcdb436080442ec9a669d90b1e4c24e11893dabe4d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/iniconfig/_parse.py",
+    "sha256": "39618b6e613c1a3c5ca0c593be719b724d51a0db139b96ede5f89c21166a589f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/iniconfig/_version.py",
+    "sha256": "58cf2b397a0be6ddb968c409a78a9b5365cfd3d9eb0ed9839eb0068474a4d169",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/iniconfig/exceptions.py",
+    "sha256": "dd5d894b9ae7770898521f383cd612ff5cddf07f0807e45aafcd4044003b13db",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/__init__.py",
+    "sha256": "764e136bfbe67552716070dc7f286f40dc3c5773e0481a2628d5ea83e0f62436",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/_elffile.py",
+    "sha256": "71f940400904db9b738589aafda0a2ef641f6d3fed9fcf75b4fcdfa5b7873b01",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/_manylinux.py",
+    "sha256": "be5e4e0a8cf8931f341f9af05ca7975a397d58d2121a6af86604e94cff6553d7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/_musllinux.py",
+    "sha256": "a7d66a35888e22d19e7bc29c64578717f61c76157018774aeabfbc9608b1bc64",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/_parser.py",
+    "sha256": "b3f4ef4ef0cd2b436b336401dd529385d58533835cd0fe899e439b925dcc8e93",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/_structures.py",
+    "sha256": "ab77953666d62461bf4b40e2b7f4b7028f2a42acffe4f6135c500a0597b9cabe",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/_tokenizer.py",
+    "sha256": "27abf91fb273bdbfa0f35c69ff640008ac0eecbc47400ea292bc8c53bcd7c0df",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/licenses/__init__.py",
+    "sha256": "d71e4cd671188dc83011b2edd1d5f0cf6ba48ebd7c0e20b30b4b2b690a89f96c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/licenses/_spdx.py",
+    "sha256": "a009b5ced3c5c25b2608a7bb94002cbff38839f4b57160eef5b34191ebbeda7b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/markers.py",
+    "sha256": "73cf5337307b65d198864a2f9ba3d89aa1b21f15e561568b5b9f753c750d283f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/metadata.py",
+    "sha256": "60989b33b1987b8adef3ed1adce9579864be5c38131283b8b6506ddaadb90678",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/requirements.py",
+    "sha256": "818c9148075bac8c8a0d8ebaba02035108d132fc641f600b8a84e65f7b672faa",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/specifiers.py",
+    "sha256": "186d703cd31c2f47cc24eebcbc5e77c0a31dc277de84371a23eafd3694df8a50",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/tags.py",
+    "sha256": "085aab2730337365cd19ec5eac7fff4fe639230abb59bb185ec88b1112d6c58d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/utils.py",
+    "sha256": "d05dc787d385b9182b8538066549792b6d85bf560fdad665d73ff680eea42620",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/packaging/version.py",
+    "sha256": "a257f2ba4fc33db7e5364278c0159eb57435edcef8c770c1e74d5d7a052fec36",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/__init__.py",
+    "sha256": "99509f32604ce2adb896aeb7dfa5775499dc77168e7a0238a904a64028e44791",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/__main__.py",
+    "sha256": "1e7b14407a6205a893c70726c15c3e9c568f755359b5021d8b57960ed23e3332",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/android.py",
+    "sha256": "915e682f75770d9e9664abbdc85890ba9bf5f32a7f8e5495d82847d5398f71db",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/api.py",
+    "sha256": "d9d7d40cd6c45de0e10ca6abaad479358ee852291467845986cde8cecb668414",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/macos.py",
+    "sha256": "5256f2159f11ceedf19dd0aa4041eb7ec613787c187456a9d48a33fb2c6f793e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/unix.py",
+    "sha256": "b913c9591c9012dbfbc8e4af53de2b526b1b968e572832c0d52cc5839e646cad",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/version.py",
+    "sha256": "a07e0a8137cae009256d3615715ff2ca7bc9f492c8de9caf0d56b2d2146c2c2b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/platformdirs/windows.py",
+    "sha256": "205a62a21501c313ed0b39722b036dc725b8264f2169ae96f28e7d99fac35d5a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/__init__.py",
+    "sha256": "53caad2119a6af449175bc4017c54926cd358cc51880a01cf6802361808b833e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/_callers.py",
+    "sha256": "f24f22dc65414ff82d71c08f16937c5b0d2da305929d26b3ae5d2f6cff545d26",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/_hooks.py",
+    "sha256": "9bedea54b0dd9f84bdcb7a5f7cb3a93107832383c3c3c86b0132b5482f2b4245",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/_manager.py",
+    "sha256": "ca5203170ad43ff98c006a5d44f8fdcf0c6e906ee758901f635cb2957c9700ca",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/_result.py",
+    "sha256": "7846a4fbb21ef3c6d193296c81b2f007a88ca20a2020c6617aaf16ddb22699cb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/_tracing.py",
+    "sha256": "91206bdb917facd9255764212c3ea1d63c7a67591c28345bb98bc5e63bf7e695",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/_version.py",
+    "sha256": "398cea80c1207c51b46aee21cdb11d81823e73b1f1a37c1d06dae91232b54686",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pluggy/_warnings.py",
+    "sha256": "b5dd00bd90697da9ab8820b73aab0bc31321f92cc03237e399ce7c4f9bcfde5c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/py.py",
+    "sha256": "b71675b5d9845ba0814e9e88767f88dac3b3cc0d3128da028bd45edbb523e871",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pygpi/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pygpi/entry.py",
+    "sha256": "0d836e5915f287ad2f8f233de49165b49485ebb5ed1a48aa043ef7f8edfb8977",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pytest/__init__.py",
+    "sha256": "8e6ea1d1910225d0d7957d22e45db498ddf2a55fbe4fba2c9ad307cf3cd8f2e8",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/pytest/__main__.py",
+    "sha256": "a150eb186a3b3744cdcb35e7b546e57204ca6e11c65ad8af717e530bbb4470aa",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/__init__.py",
+    "sha256": "7144ce0ed9c21597f1d2f21fb517530ef93e4def6de4408b66aeb7153260d5db",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_bindings.py",
+    "sha256": "c6bae339bdccc5438c7cd48e21c95ef5cfb5acfcb7de9a94b9c79da8ed41fd93",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_config.py",
+    "sha256": "1fa86563e1aabcc622dad10258dbe497e2981a14c31011848366ed16b3590802",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_engine.py",
+    "sha256": "02ab2ebf00c03289fffd12e677b4236af17a4bc8ca951ebe651bebb75b48f1ee",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_error.py",
+    "sha256": "2375d3fbafb18a152dd8ec638901b02c0ab3e51fc0375ec8fe44c1bc6934ca76",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_exportable.py",
+    "sha256": "57be5bcc047dd03c7edde037fcefe4128d8c54ad4609f983f443e6e6d08c2a97",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_extern.py",
+    "sha256": "3ea06e22de01ba140bc8ceab4c9a5c60ca6d6af8e3ea927f02f457f506c80a8d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_ffi.py",
+    "sha256": "a0162b616973273dbb16d3499ff72b356eabdeb5e77788c029d4574cbc5caf4e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_func.py",
+    "sha256": "38e8ce24f26dc108e03eec1d2454188e500930295b24c45a61f89fa32dd5b8ea",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_globals.py",
+    "sha256": "eec111a68ffb42adb2292bc56861a733d4cd349f3df0b9f0b5c657d2726cc0be",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_instance.py",
+    "sha256": "3eb3fad12a3ee3936ed7cf9109b8e2eba61041a67ca327b50ea64472fec628dc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_linker.py",
+    "sha256": "2a162938b0468cc6379a8eaaf46c132342727581e3f9a7249711fb3b3a3c1e5a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_managed.py",
+    "sha256": "eb0355aff974f446c0da3ce35d87aabe53844c77990ec4115edc0cb47e4475b9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_memory.py",
+    "sha256": "ffe31bb6296f640e2fad4b7717075df8d1e60d2b946d7ebd98629ef5c3e27763",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_module.py",
+    "sha256": "1fa29ee6a63fccf6b5fd783f149d2a3924e873dc86f92bde11ad791f7f081ad3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_sharedmemory.py",
+    "sha256": "1ae2c696fa1e94870830641d0330fce8f0827b23ae6f9ca1462e76d5cc4cded0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_slab.py",
+    "sha256": "433da4c51d44aef4f48cbc5fb12b2f6b59f3218515190947e8364b83999db4de",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_store.py",
+    "sha256": "c65fe0cc39227841b8e46969ab0a6df2c55b988a9c45bb30bc905d9c328addc0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_table.py",
+    "sha256": "b3944099df01a2f3e9cc2694b8441419197cb7f36040cc667e961d19b7113ab4",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_trap.py",
+    "sha256": "63fbb4576ebed3deee8feb337bdae1a5b0ac375ad611225f3113fe6466634f88",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_types.py",
+    "sha256": "b6038755e0a8f00a0288dc014519fc7f0e125855b7d96bb8fd9eead0be97b681",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_value.py",
+    "sha256": "bda6c04cebe3c6b4ecb8c307a074a4f5380d74ad771fec9e0d3f861fc0670c73",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_wasi.py",
+    "sha256": "56f5c66992b73d6f0632f5bce623322de6eddf9fda789fa4758a51dec591ac5c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/_wat2wasm.py",
+    "sha256": "fc25e79eb06f4fd66fdbb659bfc7485c749acb1a48557ae33fe68e02dd741f9d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/__init__.py",
+    "sha256": "9083779d881974fa1cc9cb78561cc128dba8b2d117c62d4e0dd4c3cb11ed8c10",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_component.py",
+    "sha256": "5dec270461e1f2dcc0340cb110b573a3565427c12fccf39700292940a9347b92",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_enter.py",
+    "sha256": "213fd2bb17eebb1a83f86816c719b052ecfbc2eee062ff7eb45feb5b5199d9d7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_func.py",
+    "sha256": "9cb353d9ef0d9cc79b4c3b9e31ec02098506583f2e3fefc0d317af06c0224132",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_instance.py",
+    "sha256": "8ab4014012c9b59b393586e72f7887228aada13bb2a2b70cda637919a98a4325",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_linker.py",
+    "sha256": "bbd918285990a1471b09d273c9789d193dbae082292b4fc0fe81b82e719a07ba",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_resource_type.py",
+    "sha256": "5b31131e846cf95f8a7a01da9889b9ab21897812a45c5843ee937036ab112350",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_resources.py",
+    "sha256": "2cd6724f60b6ae7f1dc5a7c3ad5b22c0b1bc816922947dc8e56efa70ce323068",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/wasmtime/component/_types.py",
+    "sha256": "7e54ca888cad3017ac61bbeed8645e47fea7d5534510786961e0c43f39741ea3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/__init__.py",
+    "sha256": "377e52d351cc7ac1537b469144c5a43e3d0f6bc2046c7a44f452bb72be4176dc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/composer.py",
+    "sha256": "fcaa37d16afa783594794a5ab94193dcb720f503c19ce3d59539c8311189f453",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/constructor.py",
+    "sha256": "90d8247da78b524c10618fd0e857f54f3d97570fe91b5c5513d024ef3faf88b0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/cyaml.py",
+    "sha256": "e99ac01bd7c062f7557b614aff0d21997a06ed962ca185306a91bc0a20bbd87d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/dumper.py",
+    "sha256": "3cb72d66563064ba7b5e679477046ebf89d8399d940670c8532f3e94a7cb17ea",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/emitter.py",
+    "sha256": "8e086d694ede170837d5b1b407b45979aff6f40762f422a65eafd08e04290a44",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/error.py",
+    "sha256": "021f73fada072546c4f63f8cf18a7181244ce4280b09cc15cc980b2d1176171a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/events.py",
+    "sha256": "e74fd392c810884e2ea7e94aa3f57e9c1cbeb402319083d0c58e6a0e1282787c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/loader.py",
+    "sha256": "5156becc8aa6905482218abf3e04869b835226db4763645fff3438fdbd5f1cdd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/nodes.py",
+    "sha256": "80f28d8fca4a09d87677882bde021820d9cf39a3b11a12405226211919cf13ce",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/parser.py",
+    "sha256": "8a55a9e6fbe0a07146cef3990c8b45a068c3e83e369e1959ad9ca30306b4a09a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/reader.py",
+    "sha256": "d1d9b38ab3a20c6e17a38d519ee412ecaf6b918df18c78956ac7c330d4ea08dc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/representer.py",
+    "sha256": "22e58ff9c016f6c1ca1274b4802a926bcf78935060e1c813c5a0f021c6d143e6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/resolver.py",
+    "sha256": "f4bf9561f9b89961f1503d558385fbae30d12bfed565de9bf76c33abb63620a6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/scanner.py",
+    "sha256": "60433788b652690c17710460da5d91e0c753d3318fd85f5e1e42862a71f25906",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/serializer.py",
+    "sha256": "0a1b85826854d35863e31808f0668abfabdf33606e8f06bd8bb7761401e3edc0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yaml/tokens.py",
+    "sha256": "953408cd2570f0c83dc2fe39f7e4e388e41eeb05738aa69196a5f6ffcf6ba79e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_runtime/__init__.py",
+    "sha256": "0b41b11a1c94e8630baa473455f4bc51415b3e4523a998c1ad8cc0cac62f29c1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/__init__.py",
+    "sha256": "731bba6cc959eb34690b32a9db0745b3b2cdb79f9bb67243ea086f7640ece98d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/sby.py",
+    "sha256": "f915f9d9bd717a36cf127270a791d0a054699ec87c404a6f4fd1aa330192bebb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_autotune.py",
+    "sha256": "11d3f849bf7b75ce9fab41e36e3f42cfbac2ef50932dae2e620af74d89b77948",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_cmdline.py",
+    "sha256": "78cbf93b798372a0140c149a671a85d1756abfe9d09c237fbb9a753e235576c3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_core.py",
+    "sha256": "a1979d53809941a0105a28c7e20a1e692bd57159af15751bc3b4484ecd62cfa8",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_design.py",
+    "sha256": "60b59491dadbbcd5a979acd8d68b2160f91e7a94a55dcac8a783a3d379a2978b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_engine_abc.py",
+    "sha256": "84019808db4668425a42d8600b2e7ab05cef0d3539e67217d2bbd1414d4513e5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_engine_aiger.py",
+    "sha256": "60c9ddfa7e97e9824aa60e5c38cc16f270618c7377a256c81a140a7fcabf59a3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_engine_btor.py",
+    "sha256": "9d072b8bdfc85d5c828efa583e036c4e9c5b679a4d38d01c72a5e9f1b8f0528d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_engine_itp.py",
+    "sha256": "bd6d71a02f23223a76f70bc35dd8bff6f50cd32ceddb5b9fc61f51d3c57869a9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_engine_smtbmc.py",
+    "sha256": "e6b27b7806528431dc980bd12aa913e92c65e92f2895626a45cf801b12f30a89",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_jobserver.py",
+    "sha256": "66ff7b8bac7b5a7d0d43483a1290bd42f6ce92cfd2db9b7283f983ec1d18d79d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_mode_bmc.py",
+    "sha256": "0304d57d681290f1b9b151205c1d9c39b3a1f3a871f8ae4173938fad066da6e8",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_mode_cover.py",
+    "sha256": "247b753436a870afa3d24906b897f8a26e3b98c271ac45476b95cc8f2c899218",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_mode_live.py",
+    "sha256": "8e920dcde0f8b4464386c54e45b7e0ded21765b039cfe6c6afe2f61c78bcdcad",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_mode_prove.py",
+    "sha256": "931967c2de52fa5e3f63a92203038224b5255cf908348ed659d9d0dd378ddf4e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_sim.py",
+    "sha256": "2bf848ba341071adddedb882fe5de3b5caba53b404c1fd1186ecf32d175f9d8e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/sby_status.py",
+    "sha256": "6505c8548fcca855a8de9ba5d0617ab205ba12a8b30be9ac5ddb915bf43158fc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/smtio.py",
+    "sha256": "3ab59d7fa9808e8f529870868dca27477b5d61f727508c94310e4c19cb59f75e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/share/python3/ywio.py",
+    "sha256": "537d38a17af01d67c4ff4c5e6fb88f01b4dad7d0f9f6cb5cd13e2429036d5cfb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/smtbmc.py",
+    "sha256": "5509a929b1cee195e0fe3eb1c740632b3e734c0628565e7968e4df69cdff199f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/python/yowasp_yosys/witness.py",
+    "sha256": "2bac2211f30cb64ed05e90ced082111df5167b44c7fdbb56b206941ef7aeb585",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/test_blob_api.py",
+    "sha256": "0207cffcd5cdbd8ca019a4cf14bf9d3da3ba938454883e1f2a04bc5e4eab725e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/.runtime/test_git_api.py",
+    "sha256": "94b0aeab1109953d085d832f659a77e8c86738122d55f08d75b12d95935ce423",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/evidence/parallel8_wave_proof/open_wave.py",
+    "sha256": "daa85c4d8d55665c19ca78c8af48d50304be1bc27bc1fff6350b457d9aebfbec",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/experiments/parallel8/archive.py",
+    "sha256": "9687e77390d09418853bc5196a722143dc50a728889e7d526370d6d1a3b54325",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/experiments/parallel8/capture.py",
+    "sha256": "384b64aee1c63ccfd632a716af068454b3d5635aef1ea097f0f661e9b58b2d84",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/experiments/parallel8/collect.py",
+    "sha256": "105dc7d2ca88b0b437768ea60b2a0c985103ae782afdf27d903e6c6fbca2efd6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/experiments/parallel8/power.py",
+    "sha256": "140ea741491ea3b3bebb79adab6d6b810c9414e6b5237677060a66ea7dc6876e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/experiments/parallel8/prepare.py",
+    "sha256": "a8cfb5085c38242ba194ef7a2b7421f8aeec1f9bd38b2c99e6bdbe4dd915b294",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/experiments/parallel8/run.py",
+    "sha256": "5eea522108d0d9507061044d5597bb96f8017113d96ca0f55f11563247e0718d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/fpga_de10_nano/host/igor_uart.py",
+    "sha256": "073beaabc5d19e04ac6cebc8e8bce202b2c9c0d19a56912362127761440c50d1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/reference_model/neural_reference.py",
+    "sha256": "88b45034827c71b00ca049b2284a1be64e5f34c070216edae3af7ebc3df1a347",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/reference_model/reference.py",
+    "sha256": "1d4f94045dd4422d745647b8952cc7ea0010a9188c9ca3639b0bc1fbc203fe6f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/analyze_logs.py",
+    "sha256": "5c765a9898018c0b46fcffa40ad37090d6ff5b7287364819a8fb62999aeab001",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/capture_telemetry.py",
+    "sha256": "05e495989e34d61594582f218517ebe6023ff91bd367a97967849d3f01be86e9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/raw_serial_test.py",
+    "sha256": "2d61071fe40f54914eeab437ada3a8a52675d71ecd7e787eaa0313dccebbfc50",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/run_all_tests.py",
+    "sha256": "de14a965f13ed6e9d19d80b6e968c25cda2f4eb6298a3df29012cd3f2f6db61c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/run_driver.py",
+    "sha256": "e445fac472b52e1c47ec777cba6fdaab6b97e0079bc36674644418f7234e1c6d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/sdk_original.py",
+    "sha256": "03ebbf421944b926f5054b254b0a5248ec57d76511fd56ebf9e2b4015990d87d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/test_diagonal_and_staged.py",
+    "sha256": "2f8323e29e9d968d3c0a4c36ed7190f03acc082529402268e50fa9951e4cff41",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/test_rtl_packets_on_stm.py",
+    "sha256": "4c996751b08ce9d7073bd9caae8edf85bc84d3c6172c32b6e1c1ca236b62adf0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/test_wheel_channels.py",
+    "sha256": "7c4e8874468641759eadfa8584ac4af414358ed50508a40dff41f3998fca48db",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/__init__.py",
+    "sha256": "5dec897fdef45a0eaf63eacda1e01d62e1e75490302584ae0238f75376592344",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/__main__.py",
+    "sha256": "a12a559270d2d98aa7d89757943b39164d04f1c71d88b209697bcf5948b3423d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/rfc2217.py",
+    "sha256": "9dc1bfe53b38d8cfd39bfed737743b884db8cbe946730bb68c2dcc15212fe817",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/rs485.py",
+    "sha256": "f6deb2b8672d7b7ea093c1b553a3606e82951ad25416ab5ba403978fbbd8c4cd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/serialcli.py",
+    "sha256": "bb94271bdd14c6db6ab061bd9d88248f4194c9bd3020ec739548312788027338",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/serialjava.py",
+    "sha256": "01c1cba760ffb008a1bbb2ffc02720f26b64edeb5feb30320782ffb6eb61568f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/serialposix.py",
+    "sha256": "5d56f98513391e1766a1847a04e2e1202ced4172a152803ba1c823a149a9b6f9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/serialutil.py",
+    "sha256": "3c84f8c7c319f161a85d6f8db5bedc4f65255714589bdcbeee6f2daf65a17c0a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/serialwin32.py",
+    "sha256": "17681ea9a650120c71db1aae9b8881301a40d38c47b34bb0da050e3f5bfbbe00",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/threaded/__init__.py",
+    "sha256": "8a45e52987a3465cf30b37bd930c51fee00129ad587ee4f2a9c3e3c375515752",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/hexlify_codec.py",
+    "sha256": "1512523bca5f8cce8047dfd206a2f7e1ee742d592f9737c529d98249c1a7e34f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/list_ports.py",
+    "sha256": "7830e8c888684b77fd0f7095a6d86a95052a891da5f97d154c618e063b8ce1ec",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/list_ports_common.py",
+    "sha256": "c791c88211b8348cfe5dfe625fa1a4ef165f75e69db36b6a0ac7f226187721fb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/list_ports_linux.py",
+    "sha256": "5275355583f534923b27c667ee063e03699b8b596e81b159495ced7d7f0fd695",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/list_ports_osx.py",
+    "sha256": "7a879f3068ae26a0be382bbd6805aaa895fbe701a5073a2a67a91d98c03cd8b3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/list_ports_posix.py",
+    "sha256": "118a83e6445b9347f66b9b1c6914b8b605860729e4a551fbee36bf1ba4b75211",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/list_ports_windows.py",
+    "sha256": "53813370e02253ae8b5a83dd317236a0e3382c2779bcac0edc381e4d3e8cdea7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/tools/miniterm.py",
+    "sha256": "7d7be4114f4513253b1cf48d13c6dd5f638282219880279ed3aeb2179f27a2db",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/protocol_alt.py",
+    "sha256": "fa46280a0cbd1b231637ac02f0e7b0f052f4e0b8cbe0db71dc71d5a924ca19c4",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/protocol_cp2110.py",
+    "sha256": "8942ce4f855dc36d0fff0da37d259db74ae8518d4abbcc495471d873a7772266",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/protocol_hwgrep.py",
+    "sha256": "19d29d43db44c4a447273b223dc43d13199a2daebe03bd6ae768b88d0c66a019",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/protocol_loop.py",
+    "sha256": "e5b6abaeefe17f03646b28e3073e30dec9c1267d06ec2f9f1bbf9098769e4d6a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/protocol_rfc2217.py",
+    "sha256": "20f3bcaf7a4537ac840e5d59bf68e05277c86b4b50d2263466c0fcff184051e4",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/protocol_socket.py",
+    "sha256": "428b5a1c23ddeadf74dd6ffd7dad8bbffe6e125ab49e88abd828b5d1af7ced73",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/urlhandler/protocol_spy.py",
+    "sha256": "15d51a538dfe6e5d4a5d3cbf4b81e1cf2195e61a54b28a66f08a93ad7d955fee",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/vendor/serial/win32.py",
+    "sha256": "964eaba1df661e4ab381c8666aa077ca08939260164cd434d0827df39663bd32",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/robot/jetauto/verify_driver.py",
+    "sha256": "b843d179f1381641d38c47008a0624558961b477988d7b8c904f033ae8da7633",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/build_agent_project_pack.py",
+    "sha256": "cecf545d93ea4b294043d5cd087d66a905ae4f29b3faa5779aeaec60c035c29b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/build_jtag_variant.py",
+    "sha256": "4da4b5c8b9fb9667810632ba1fc6cd3270cb170ab57bb8e82a466bfa4250402e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/build_quartus.py",
+    "sha256": "2053acbb7393dc06a08f4492df1ff05d4614a1cbaf97a83d03d616a8a992847f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/capture_parameter_evidence.py",
+    "sha256": "bf8cb464a8b8b9a58d7bf37b2addf883492f508b0908d6efcfd7b443e3e3eec7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/capture_visual_evidence.py",
+    "sha256": "ec7b1dfce68dd1baf2721dfe85bd7383b0cd5409424cad13b1b5d1f9c04fe362",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/check_igor_fsm.py",
+    "sha256": "a035cd07381be6c48626b37176550564c5f3fefdadd5eed165b1729ba65672e8",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/check_neural_logic_layout.py",
+    "sha256": "f8d0a1b9792c0759eceb059804f30f4fb1da2aa9f1f770708261e0eee30a8d40",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/check_sram_layout.py",
+    "sha256": "9bd0c34667bd9c646a84b3002dc60a2276e74fb28157e23eefd0c3626c4061a7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/collect_design_funfacts.py",
+    "sha256": "c8a7ee340a4c857bf89c9c86d182e7cf3097b12015187e78bf63ef54181bf522",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/collect_design_metrics.py",
+    "sha256": "d72313128a886a7331927fc8f910454b7c7870ca416d77abde3f506c4b5ed91f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/create_manifest.py",
+    "sha256": "080df0e7e4de11f2f62a135cb31189581e63edadd61a529514a7e43bc0506583",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/diagnose_jp7_monitor.py",
+    "sha256": "3260cdf0e274af0302817cc023f54772f18f40eab6bb59c16ed8ff1347793cbd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/disturbance_hardware.py",
+    "sha256": "ca304efac4a74ad1b4dc8346214f5d78c1ffc980b9934e89995f2e6db6debb51",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/fpga_datalogger.py",
+    "sha256": "62e380bd8803881477ab7542c191ddf60678fdf5d70e142ccd2df8143977e063",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/fpga_live_check.py",
+    "sha256": "0cf9ff5420a6d336b4cd459c5ac8ddbf773bd02e7c6b0db1642a70bc794e6775",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/freeze_release.py",
+    "sha256": "bb63de3da75874e34fc3fac752e9f59a30f81e6dc198b31d869645b012801b70",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/generate_neural_logic_rom.py",
+    "sha256": "f9e5027dc46f499c28b0bf10fed09ee26615912ed3ddaee47ec24fd03156be7a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/igor_fsm_data.py",
+    "sha256": "a79e9e75c79a153b353381b71b25da5baa667629cd792d2e96bf8ef66161c333",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/igor_trace_controller.py",
+    "sha256": "0d16942e7178f869431a6c1849c1d4cc31b1aa37d85353f9dd2d3b3fe2d0b2f2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/import_asic_diagnostics.py",
+    "sha256": "a9656f3f9232c79398ac833303e26bd9c84a8c06b4d6c36ec082c591ee4f22a9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/import_gatelevel_results.py",
+    "sha256": "b31dd2bae064b9e558f6929cdee1724b5dfc54f6503b0d5a23cdf97cfb1f7c95",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/laptop_sensor_preflight.py",
+    "sha256": "09b7e6c4d6c19bb3127e228e73a370dc944947f2b2afe5ac4f0c9a3ca9afbbc6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/lidar_ai_reader.py",
+    "sha256": "730dc0f054143c68a291710b68bf9f6919963e3dba7a05df43427287e1adb30a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/lidar_express.py",
+    "sha256": "d74ff27170fd85cdff4aa40bd5a9fbcf9f471dd88bc8ffa2039dea3d9bfba0bd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/mock_ai_surge_cargo.py",
+    "sha256": "fd94dcd42ee904899e022b5ece992a46fb3630e49f27e2db64b556f95e26ea84",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/mock_dashboard.py",
+    "sha256": "1d9d1df53aec5ae2ca2df4c36b8e44839c5fe8a5d7925cefe1917fc7b5909b29",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/mock_worker_and_corrupt_frames.py",
+    "sha256": "402f2042a1515b7bec196ca84c6e876d89f6c75c28b574172302cbc24835a1b8",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/prepare_jp7_monitor.py",
+    "sha256": "5d6cc8bacbd8aab7c3c384f43aacc1c705ac77d0401e1898c52d532e1e2a38c7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/prepare_jp7_variant.py",
+    "sha256": "82d14ab6c78771ac869037632cfe99d8c47e15a5199fe23fafa43d08e98c6377",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/program_and_test.py",
+    "sha256": "698ebec1eb17651809d305792e04434c80694ae815d5256f637ecc9a01ea8f06",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/release_integrity.py",
+    "sha256": "7c0fc051e754e0d416e872a0008c31ab151770da82e39c4a5c2839d597f550ef",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/render_igor_core_drawio.py",
+    "sha256": "8cd8454e23096f19954e4a679be00e47f5320e1201639ac61e319de399a2b3d3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/render_igor_fsm.py",
+    "sha256": "cd1d1670fff8422b80c9296400f2c07f9628d8d2753c4f186e21f46775712223",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/render_igor_fsm_simple.py",
+    "sha256": "50748285aa17c547d113be0978fe043ee335a903b5393b7e860b87cc0e580b62",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/replay_tinytapeout_routing.py",
+    "sha256": "9d6d915c8337d7aafed0ef693fd5462ab11603fff1c744031d2d36b886bb0739",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/report_parallel8_area.py",
+    "sha256": "cf7a695514661166d4f942cd3c0c1961f5643599329c6f00013ec408034c1550",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/run_all_checks.py",
+    "sha256": "5e7b03382c64288c125a793c796525b9668a29c08ba828d57d68952b793ad965",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/run_laptop_abc.py",
+    "sha256": "435b8d50248d80d6581cdb171e987e29dd03c0aff46e46a5fde2c1b0320afcd2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/run_power_analysis.py",
+    "sha256": "92471b2a5a0a3de491c8ab7c75fc22609d84e56d4c8427036dbe150dc2d9f8c2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/run_testing_scenarios.py",
+    "sha256": "1b5b5e6581c981f0730a8a078ef5c5fbdac8aae198d399f82e5fc6b38b79eadd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/synth_asic.py",
+    "sha256": "92a63da199923fce0b873a2275cd24967d1ea4e256010cc247bb1be27fea6362",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/synth_neural_logic.py",
+    "sha256": "cefb55fc3524a374a0c90d2116cfcd44ebc413232be244b7dff1cbe7ba1215d5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/synth_neural_sram.py",
+    "sha256": "e86173596a08079c1b943df7a761783562b0a2792bf3e32b81f240f63e99ffe9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/test_neural_logic_layout.py",
+    "sha256": "e99e694cc613bf59e6e9fc1069226e93262835254e10cb6b19d2fe3e1dbe8c17",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/test_release_integrity.py",
+    "sha256": "5febc247970db79400fd574765acc2eaa31acdef890cb38ad5b265c04f21a889",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/test_sram_layout.py",
+    "sha256": "439559ccd12ce0b28db34dc0c6185e54e140e1d907f0883b69ec83590e0230ef",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/test_ttl_loopback.py",
+    "sha256": "709719055db60da625a497139d5ab26e6bd5a86926ee1b3cf9eca0c4e366d565",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/unpack_current_waveforms.py",
+    "sha256": "50e1df3646726c06361dd0ed9362d0cebffc56544406b4f37bec1c66dcf3c36d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/unpack_waveforms.py",
+    "sha256": "c66bf4425d05709ba42c2a4c1cb594fc45313dd544f42e1736cc35071e6d9ffb",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/usb_serial_roles.py",
+    "sha256": "e3c73f9aa3f8d2812a3cbdafc606afec8c0991895f5c2d35a05c74133966e922",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/validate_jtag_hardware.py",
+    "sha256": "aa77e57934aca89085570fa0e08fffb0e7c4d2d9e92c6c667381f471e1bfa46b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/validate_repository.py",
+    "sha256": "f9fe54d0eb0b5e43e084d9d4c3960310f9308993bdb531e060a34e356f671668",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_board_jtag.py",
+    "sha256": "46c80ba18ff051ddbf557d69c016d581ef738ee908bfdbc8e9d699b9ce17aac9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_chip_highlights.py",
+    "sha256": "485012593969fae500b0b7e53dae4d7dfd0ccb9efa7f5e8d47927d6893be1583",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_mock_inference.py",
+    "sha256": "ee50a85630c62b31f1c0711bf9a7093b5ce620e5206a5c3b02481f7d16649e94",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_neural_logic.py",
+    "sha256": "9601ea099dd7ddd6ce2bfe3875ff934cec3f84442d09878898b7b9e65cd0400a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_neural_sram.py",
+    "sha256": "3b8b5b941eae993e99e454f0f65fbd762a55ea941e99b43f1ab2d68afc6652fe",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_neural_sram_integration.py",
+    "sha256": "a750d1fdd5b0c53791593e94bdc3280577608027fe0b8d0111e534b924307f79",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_published_neural_logic.py",
+    "sha256": "04d00d3aa86567635824e5e4f26e234ef9035666c3d86a2435ccfcd083e907a7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_published_sram.py",
+    "sha256": "dd1e0ea7f05e936354e31e135c276bc5b6918a08dfefc2e2a2cea82c67202d9f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_serial_links.py",
+    "sha256": "97e5f3a7b8ba89e11591a0cb20d1a39a950b483b188486363a39c534a35ab69a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_sram_example.py",
+    "sha256": "ebca5a5a6b930864e1c5e2e31f360c8f891723d58f9879aa92c0aa6b28b8970f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/scripts/verify_tinytapeout_pin_netlist.py",
+    "sha256": "859d306e00eddfc20e5934147d2b54b54b03ed7dce6beb68e100313501875f14",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_bringup/igor_bringup/__init__.py",
+    "sha256": "7a8ba6b61f888520e502404fa83708f5cab704a2b3efa00818da1c76116fa75b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_bringup/igor_bringup/rplidar_driver_node.py",
+    "sha256": "359d863646a7ac941abb89e01748adafe5d57a5d1096834a9680a07f8a1d33bd",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_bringup/launch/bringup.launch.py",
+    "sha256": "4b4bd03d2535e42f3742b59f012a50173f8f970befb2e95c9d0fe9631384d9fe",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_bringup/setup.py",
+    "sha256": "419e7322912649ba4cf09211c851ec6b7de110664c3180dd7502d63557b1627d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_controller/igor_controller/__init__.py",
+    "sha256": "193ebb463856d04f55eb163e152f46f7981f1efcc6c563f845c4e4f723e733d5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_controller/igor_controller/controller_node.py",
+    "sha256": "86f9853eac4a2e7decae5c42544e29f5207fb3a11946d2c265985f7ac4e837a9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_controller/igor_controller/ethernet_protocol.py",
+    "sha256": "95b188d057e6b9cc97cdb5cb7a1b6c73ced290acc8086d418f2b9c1b3a541a7f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_controller/igor_controller/fpga_bridge.py",
+    "sha256": "06cb8d5df6a31680ab9d2e2cad8bb6bb1a4561e4087db9b68f2653354143a3cc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_controller/igor_controller/heading_estimator.py",
+    "sha256": "a5e605242363ea50356a1d88e5245c26358780a3f421cb61bb00b5251193e1c2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_controller/igor_controller/mcu_driver.py",
+    "sha256": "4a5c5699952083afd96047fc9a4adf73693931da889a5eae18d04ef358249c6b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_controller/setup.py",
+    "sha256": "87a41ea0ccbbe87b7fcb335162b82bda31eb2884af8338aaa163012bed0fa5c2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/__init__.py",
+    "sha256": "ef5d81f50743eb03f1d081cfa84da3d53904ae30b571bbae9ca4d88b84de994d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/controllers/__init__.py",
+    "sha256": "345793d833383774a8b9b326360e2ebd7277a76ed336a877c2ed5069fa4e59c5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/controllers/apf_controller.py",
+    "sha256": "f9d5ef300808f7f95ac6b0e5e63c11cdddfb4a44cb89f0cd8f4473fc77e33b84",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/controllers/base_controller.py",
+    "sha256": "2059dd06d380b634e01d82cc503411a2c2cdb4d9a1dbeb22e31dae7096bd1acc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/controllers/cbf_safety_filter.py",
+    "sha256": "9fa53953647c9e05e9db4c7e18febe69f174ec0caa0fe065456ba0ec61b7991c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/controllers/drl_controller.py",
+    "sha256": "8bf8069567655035caa6dc80b56ab8dd9b1a19e76a8cafd28f72419a37c919f2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/controllers/dwa_controller.py",
+    "sha256": "8d25186aa8394ac1d319f887e4e62d46ed3af50796d017f2cc1fde1bd8ad546b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/controllers/mini_dwa_shield.py",
+    "sha256": "2892469ac5650ff81a168a33e7d0b594257769336c2289c988d88b5f84202e39",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/drivers/__init__.py",
+    "sha256": "65b0fe76cd4b36a27bc29c561bbb068041c8e7a1a1b22d0c10ff39a1996c92ca",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py",
+    "sha256": "a6970937a41af8f246115e80daafaa9df2464b3568e5e619651175bd1284ad3b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/drivers/serial_jetauto_driver.py",
+    "sha256": "df55af084d79238d0ffc00a52b80d28645781af22d51e50d257fe0300c1212e0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/retrain_ai.py",
+    "sha256": "e3196b2cde0f54bb4c91a0ccf8bd638af58bae6810466b65234f7cb0380012c0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/utils/__init__.py",
+    "sha256": "bf2abb3a85ba746ed756ff5bb17a37e338b95de8848114723fad26ff625896f3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/utils/kinematics.py",
+    "sha256": "d5a62ec97a18fab01decfa218143bff9ac9b64765272744e668379dec887b4b5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/utils/metrics.py",
+    "sha256": "3c3ee470a1e9eb5797b07719fc6b76b1aca8dcc55b636f33b09b616be15bb162",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/igor_navigation/utils/path_tracker.py",
+    "sha256": "9587f5f184a80b77fc52414ae6a3296a49926d223c7113210d2cb8649f6d5519",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/retrain_ai.py",
+    "sha256": "887b24c10649a2974fdbdf3de289ea9e974ba597ceb03959d2ea869a93dbf026",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/software_integration/src/igor_navigation/setup.py",
+    "sha256": "8bb0d7ce80a664d074a2123107e4e4541e2ced5465e381bf0bc868dcc868c24b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/test/test.py",
+    "sha256": "6483a08149cc4277b83e556259495de066862aa3e722f4f06cc6dec3924b8d7f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/audit_acceptance.py",
+    "sha256": "9a9fbc85860420967681a00f6489bc72205e70bd9d4b395660bcdfd79d28f718",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/capture_hardware_safety.py",
+    "sha256": "238e60ca35a9c96eeae9004483324dd7663fdba9dafc7e46784ea6dd617971ea",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/run.py",
+    "sha256": "540d378e3de9f4d150c57898442c0528787c249d353efff196909707e4b7125c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/run_board_wrapper.py",
+    "sha256": "4afee96b2e8af84170334d10439b8b3aaf10533e0e53ed92d929965cd9e68af6",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/run_host_regression.py",
+    "sha256": "4c95d3956971b7db20125ee9eb20010163f437a2a27fec70d56c2b3e5a1ff53c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/run_lidar_regression.py",
+    "sha256": "6d9d846e5c57d78eb11db38d5c8d4f265314cfb12ec6180ff5a9602ba8ac69b7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/run_safety_regression.py",
+    "sha256": "86a7a6865b2392f8080ccd9441c77e67e2f17520540c1be13a7f287417547aa3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/src_policy/run.py",
+    "sha256": "d8741f218f09fba490b15e033e4ccba6c60aef0de618f6b926d3063bfbbf1e46",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_capture_hardware_safety.py",
+    "sha256": "3a35748e3d4c0d2eeaccb463ee3e62cdf683beffb3a59cd3c156db0f746c6415",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_gate.py",
+    "sha256": "1d1c6b8de07b7417cd5313d7a6a8bdd34708bb29490df3fe320f3b7eba5c4a1d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_laptop_scenario_contracts.py",
+    "sha256": "27afab8abe3945b0439d1b2ea081f4c72ae424b0c26e5f14a179d3d095168168",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_laptop_sensor_decode.py",
+    "sha256": "0920ed3beb8ccf30c2cdf096b1353c5a42fe47b062061ab4125f9e620c1377b7",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_lidar_ai_features.py",
+    "sha256": "d828b01722e914e312609af4e32d9b6c305e1dd01bec580aac2505192b67d6a3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_lidar_express.py",
+    "sha256": "6b40a22a9c26da126612f92248ae6663826be4a634e2367ecc0f21db3407436e",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_mock_dashboard.py",
+    "sha256": "283c73e94561beb6ef78bf24e1d0868fe23fbca7fed8c1c7a364a07f4af24a8a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_neural.py",
+    "sha256": "624c767f1e62b9add193a40b0e0210369a9e44407aea65d1710358e3727e1410",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_top.py",
+    "sha256": "4c1af4a3d0bdf39320e25112485f704853e9e326e566c2e298667da9ac3c0005",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_tt_gate.py",
+    "sha256": "a8834c182917eac7ef93cdf8b87ddebf8924e955d47a4d9f6e4d79e9763631e9",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "fpga/verification/test_uart.py",
+    "sha256": "7493914b5ca3ca7b152bcdbf7a649bae88029af75ef99560a1170a6b36ccb99a",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_bringup/igor_bringup/__init__.py",
+    "sha256": "7a8ba6b61f888520e502404fa83708f5cab704a2b3efa00818da1c76116fa75b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_bringup/igor_bringup/rplidar_driver_node.py",
+    "sha256": "15b5bf581d2d642374c76196f1dcd66b35d5daf14094c3f25b60499f86468bd0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_bringup/launch/bringup.launch.py",
+    "sha256": "77903fccaa6dbaa0d34e9c42f6b7cefc88921c1bd7b87a4ce2b06bd395d84672",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_bringup/launch/rectangle_route.launch.py",
+    "sha256": "b31ecd9023b781af69725cb0b6bb239440b3b10ee76817cdd15a199893034b46",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_bringup/setup.py",
+    "sha256": "419e7322912649ba4cf09211c851ec6b7de110664c3180dd7502d63557b1627d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/__init__.py",
+    "sha256": "193ebb463856d04f55eb163e152f46f7981f1efcc6c563f845c4e4f723e733d5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/controller_node.py",
+    "sha256": "f8b2d17ff0539685da8ef2ebfb6a3af55e9f21f49322889c4c2a313c7092fde1",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/ethernet_protocol.py",
+    "sha256": "95b188d057e6b9cc97cdb5cb7a1b6c73ced290acc8086d418f2b9c1b3a541a7f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/fpga_bridge.py",
+    "sha256": "06cb8d5df6a31680ab9d2e2cad8bb6bb1a4561e4087db9b68f2653354143a3cc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/heading_estimator.py",
+    "sha256": "a5e605242363ea50356a1d88e5245c26358780a3f421cb61bb00b5251193e1c2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/mcu_driver.py",
+    "sha256": "632db6fd2fdf1b721337448e4ba1fde617b01792c502adf0361d00a7f87a3f27",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/rectangle_path.py",
+    "sha256": "b2a5f7376a5eaae94be17315c7f4556be0acb26c7a5dfb1d5709ce93c5b06c12",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/rectangle_route_node.py",
+    "sha256": "1887bce60eb5e4540a6e090edad99e668e70a42c9456c5598dd80c6faa35aa98",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/timed_rectangle_node.py",
+    "sha256": "d7f50dc249cf63bf3d0142d279df9519c0a747a24d04b2fde431430323fa0aee",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/timed_rectangle_path.py",
+    "sha256": "19f7e7e5cb3b440e5dc1a3f584e9da329294ef2d98468b607abcc08c25fa1359",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/igor_controller/waypoint_global_planner_node.py",
+    "sha256": "5d946677f1c1ec87d49ca48be90652227b94fd7df258e5bd1a9e8ca1b431da7f",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_controller/setup.py",
+    "sha256": "126175a3b2ef1015f13cfc3688dc002101e3d8b89f0c703ef1e431d6273ef5dc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/__init__.py",
+    "sha256": "ef5d81f50743eb03f1d081cfa84da3d53904ae30b571bbae9ca4d88b84de994d",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/controllers/__init__.py",
+    "sha256": "345793d833383774a8b9b326360e2ebd7277a76ed336a877c2ed5069fa4e59c5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/controllers/apf_controller.py",
+    "sha256": "f9d5ef300808f7f95ac6b0e5e63c11cdddfb4a44cb89f0cd8f4473fc77e33b84",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/controllers/base_controller.py",
+    "sha256": "2059dd06d380b634e01d82cc503411a2c2cdb4d9a1dbeb22e31dae7096bd1acc",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/controllers/cbf_safety_filter.py",
+    "sha256": "9fa53953647c9e05e9db4c7e18febe69f174ec0caa0fe065456ba0ec61b7991c",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/controllers/drl_controller.py",
+    "sha256": "8bf8069567655035caa6dc80b56ab8dd9b1a19e76a8cafd28f72419a37c919f2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/controllers/dwa_controller.py",
+    "sha256": "8d25186aa8394ac1d319f887e4e62d46ed3af50796d017f2cc1fde1bd8ad546b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/controllers/mini_dwa_shield.py",
+    "sha256": "2892469ac5650ff81a168a33e7d0b594257769336c2289c988d88b5f84202e39",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/drivers/__init__.py",
+    "sha256": "65b0fe76cd4b36a27bc29c561bbb068041c8e7a1a1b22d0c10ff39a1996c92ca",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py",
+    "sha256": "a6970937a41af8f246115e80daafaa9df2464b3568e5e619651175bd1284ad3b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/drivers/serial_jetauto_driver.py",
+    "sha256": "df55af084d79238d0ffc00a52b80d28645781af22d51e50d257fe0300c1212e0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/retrain_ai.py",
+    "sha256": "e3196b2cde0f54bb4c91a0ccf8bd638af58bae6810466b65234f7cb0380012c0",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/utils/__init__.py",
+    "sha256": "bf2abb3a85ba746ed756ff5bb17a37e338b95de8848114723fad26ff625896f3",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/utils/kinematics.py",
+    "sha256": "d5a62ec97a18fab01decfa218143bff9ac9b64765272744e668379dec887b4b5",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/utils/metrics.py",
+    "sha256": "3c3ee470a1e9eb5797b07719fc6b76b1aca8dcc55b636f33b09b616be15bb162",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/igor_navigation/utils/path_tracker.py",
+    "sha256": "9587f5f184a80b77fc52414ae6a3296a49926d223c7113210d2cb8649f6d5519",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/retrain_ai.py",
+    "sha256": "887b24c10649a2974fdbdf3de289ea9e974ba597ceb03959d2ea869a93dbf026",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_navigation/setup.py",
+    "sha256": "8bb0d7ce80a664d074a2123107e4e4541e2ced5465e381bf0bc868dcc868c24b",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_pipeline/hps_de10/de10_udp_gateway.py",
+    "sha256": "0bd9ec984262b6ea4d554e3c221ee14ff99ec2796f83f00d2389c842d5984633",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_pipeline/scripts/benchmark_latency.py",
+    "sha256": "4d2ed70a179b064a19335280ae2699dbdcc000001ee361d9d42a82e079dedfa2",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_pipeline/scripts/ethernet_test.py",
+    "sha256": "331f7b2f09de78410c1fc9c42f97eeff3c4cf90eee140e7e05a75f2c2fb53643",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_pipeline/scripts/uart_test.py",
+    "sha256": "9a052c0b394eb441ce782529a57238d1b66617fd9eaab49e36073aad0daa5636",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_pipeline/scripts/uart_validate_hardware_q88.py",
+    "sha256": "bafd6593ee7365bdf7eb81f2b7a6dea6aa98ca6d3ad65e9da6f00b71ee59fa04",
+    "status": "INVENTORIED; not executed by this audit"
+  },
+  {
+    "path": "src/igor_pipeline/scripts/uart_validate_q88.py",
+    "sha256": "bbb78b8c1e1e854f9df1b5cf9c9f6e15718ba02f6dc2857529e55c3118d0e3a9",
+    "status": "INVENTORIED; not executed by this audit"
+  }
+]

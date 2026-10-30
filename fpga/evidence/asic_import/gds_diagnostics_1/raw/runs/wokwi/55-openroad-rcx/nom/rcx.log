@@ -1,0 +1,42 @@
+Reading technology LEF file at '/home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef'…
+[INFO ODB-0227] LEF file: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_tech.lef, created 15 layers, 52 vias
+Reading cell LEF file at '/home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef'…
+[INFO ODB-0227] LEF file: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef, created 84 library cells
+Reading macro LEF file at '/home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_256x16_c2_bm_bist.lef'…
+[INFO ODB-0227] LEF file: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_256x16_c2_bm_bist.lef, created 1 library cells
+Reading gpio pad LEF file at '/home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef'…
+[INFO ODB-0227] LEF file: /home/runner/pdk/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef, created 22 library cells
+[INFO ODB-0127] Reading DEF file: /home/runner/work/igor_ws/igor_ws/runs/wokwi/54-odb-cellfrequencytables/tt_um_igorchip.def
+[INFO ODB-0128] Design: tt_um_igorchip
+[INFO ODB-0130]     Created 45 pins.
+[INFO ODB-0131]     Created 71108 components and 160194 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 142217 connections.
+[INFO ODB-0133]     Created 5280 nets and 17949 connections.
+[INFO ODB-0134] Finished DEF file: /home/runner/work/igor_ws/igor_ws/runs/wokwi/54-odb-cellfrequencytables/tt_um_igorchip.def
+Using RCX ruleset '/home/runner/pdk/ihp-sg13cmos5l/libs.tech/librelane/IHP_rcx_patterns.rules'…
+[INFO RCX-0431] Defined process_corner CURRENT_CORNER with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner CURRENT_CORNER
++ extract_parasitics  -ext_model_file /home/runner/pdk/ihp-sg13cmos5l/libs.tech/librelane/IHP_rcx_patterns.rules -lef_res
+[INFO RCX-0435] Reading extraction model file /home/runner/pdk/ihp-sg13cmos5l/libs.tech/librelane/IHP_rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation tt_um_igorchip (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 30898 rc segments
+[INFO RCX-0439] Coupling Cap extraction tt_um_igorchip ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 46% of 49282 wires extracted
+[INFO RCX-0442] 78% of 49282 wires extracted
+[INFO RCX-0442] 100% of 49282 wires extracted
+[INFO RCX-0045] Extract 5280 nets, 36173 rsegs, 36173 caps, 61195 ccs
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+program_store\.i_sram matched with program_store.i_sram
+program_store\.i_sram matched with program_store.i_sram
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                     1   28127.10
+  Fill cell                             65791  797207.44
+  Antenna cell                             43     234.06
+  Standard cell                          5273   69596.76
+  Total                                 71108  895165.36
+Writing extracted parasitics to '/home/runner/work/igor_ws/igor_ws/runs/wokwi/55-openroad-rcx/nom/tt_um_igorchip.nom.spef'…
+[INFO RCX-0443] 5280 nets finished

@@ -1,0 +1,130 @@
+Window: "Programmer", App: quartus_pgmw.exe.
+	0 window (settable, string) Programmer Secondary Actions: Raise ID: QUI_APP.PGMWQ_FRAME_WND
+		1 title bar (settable, string) Value: Quartus Prime Programmer Standard Edition - [igor_parallel8_jtag.cdf]
+			2 menu bar System ID: MenuBar
+				3 menu item System
+			4 button Minimize
+			5 button Maximize
+			6 button Close
+		7 menu bar (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar
+			8 menu item (settable, string) File ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar.QAction
+			9 menu item (settable, string) Edit ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar.QAction
+			10 menu item (settable, string) View ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar.QAction
+			11 menu item (settable, string) Processing ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar.QAction
+			12 menu item (settable, string) Tools ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar.QAction
+			13 menu item (settable, string) Window ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar.QAction
+			14 menu item (settable, string) Help ID: QUI_APP.PGMWQ_FRAME_WND.QMenuBar.QAction
+		15 status bar ID: QUI_APP.PGMWQ_FRAME_WND.QStatusBar
+			16 thumb (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QStatusBar.QSizeGrip
+			17 text ID: QUI_APP.PGMWQ_FRAME_WND.QStatusBar.QLabel
+		18 tool bar (settable, string) Feedback ID: QUI_APP.PGMWQ_FRAME_WND.Feedback
+			19 button (settable, string) Feedback ID: QUI_APP.PGMWQ_FRAME_WND.Feedback.QToolButton
+		20 window (settable, string) Messages Secondary Actions: Raise ID: QUI_APP.PGMWQ_FRAME_WND.Messages
+			21 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq
+				22 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget
+					23 custom (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget
+						24 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW
+							25 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget
+								26 check box (settable, string) All ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.MSWQ_MASTER_FILTER_BUTTON
+								27 custom (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.QFrame
+									28 check box (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.QFrame.MSWQ_FILTER_BUTTON
+									29 check box (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.QFrame.MSWQ_FILTER_BUTTON
+									30 check box (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.QFrame.MSWQ_FILTER_BUTTON
+								31 check box (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.MSWQ_FLAG_FILTER_BUTTON
+								32 edit (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.m_line_edit
+									33 button (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.m_line_edit.QToolButton
+									34 button (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.m_line_edit.m_actions_button
+								35 button (settable, string) Find... ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.QPushButton
+								36 button (settable, string) Find Next ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.QWidget.QPushButton
+							37 tree (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								178 header (selectable, settable, string) Type ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								179 header (selectable, settable, string) ID ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								180 header (selectable, settable, string) Flag ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								181 header (selectable, settable, string) Time ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								182 header (selectable, settable, string) Source ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								183 header (selectable, settable, string) File ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								184 header (selectable, settable, string) Line ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								185 header (selectable, settable, string) Partition ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								186 header (selectable, settable, string) Message ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								187 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								188 tree item (selectable, settable, string) 209017 ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								189 tree item (selectable, settable, string) Device 2 contains JTAG ID code 0x02D020DD ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								190 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								191 tree item (selectable, settable, string) 209007 ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								192 tree item (selectable, settable, string) Configuration succeeded -- 1 device(s) configured ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								193 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								194 tree item (selectable, settable, string) 209011 ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								195 tree item (selectable, settable, string) Successfully performed operation(s) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								196 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								197 tree item (selectable, settable, string) 209061 ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+								198 tree item (selectable, settable, string) Ended Programmer operation at Mon Oct 19 19:26:57 2026 ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_stackedwidget.MSWQ_FILTER_VIEW.MSWQ_VIEW
+					47 tab (settable, string) System (6) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_tabbar
+						48 tab item (selectable, settable, string) System (6) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_tabbar
+						49 tab item (selectable, settable, string) Processing ID: QUI_APP.PGMWQ_FRAME_WND.Messages.mswq.tabWidget.qt_tabwidget_tabbar
+			50 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET
+				51 custom (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.Messages.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v
+					52 button (settable, string) C ID: QUI_APP.PGMWQ_FRAME_WND.Messages.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_close_button_v
+					53 button (settable, string) D ID: QUI_APP.PGMWQ_FRAME_WND.Messages.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_detach_button_v
+					54 check box (settable, string) P ID: QUI_APP.PGMWQ_FRAME_WND.Messages.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_pin_button_v
+					55 button (settable, string) M ID: QUI_APP.PGMWQ_FRAME_WND.Messages.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_menu_button_v
+					56 text Messages ID: QUI_APP.PGMWQ_FRAME_WND.Messages.AFCQ_DOCK_WIDGET_TITLEBAR_WIDGET.m_frame_v.m_title_v
+		57 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget
+			58 custom (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame
+				59 button (settable, string) Hardware Setup... ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				60 edit Value: DE-SoC [USB-1] ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QLineEdit
+				61 text Mode: ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QLabel
+				62 combo box (settable, string) Value: JTAG ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QComboBox
+				63 text Progress: ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QLabel
+				64 progress bar Value: 100 ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.PGMWQ_PROGRESS_BAR
+				65 check box (settable, string) Enable real-time ISP to allow background programming when available ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QCheckBox
+			66 custom (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame
+				67 button (settable, string) Start ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				68 button (disabled, settable, string) Stop ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				69 button (settable, string) Auto Detect ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				70 button (disabled, settable, string) Delete ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				71 button (settable, string) Add File... ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				72 button (disabled, settable, string) Change File... ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				73 button (disabled, settable, string) Save File ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				74 button (settable, string) Add Device... ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				75 button (disabled, settable, string) Up ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+				76 button (disabled, settable, string) Down ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QFrame.QPushButton
+			77 custom (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter
+				78 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.QGraphicsView
+					79 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.QGraphicsView.QWidget
+					97 group (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.QGraphicsView.qt_scrollarea_vcontainer
+						98 scroll bar (settable, float) Value: 30 ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.QGraphicsView.qt_scrollarea_vcontainer.QScrollBar
+				80 tree (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					99 header (selectable, settable, string) File ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					100 header (selectable, settable, string) Device ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					101 header (selectable, settable, string) Checksum ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					102 header (selectable, settable, string) Usercode ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					103 header (selectable, settable, string) Program/ Configure ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					104 header (selectable, settable, string) Verify ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					105 header (selectable, settable, string) Blank- Check ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					106 header (selectable, settable, string) Examine ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					107 header (selectable, settable, string) Security Bit ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					108 header (selectable, settable, string) Erase ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					109 header (selectable, settable, string) Read Checksum ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					110 header (selectable, settable, string) ISP CLAMP ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					111 header (selectable, settable, string) IPS File ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					112 header (selectable, settable, string) EKP File ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					113 header (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					114 tree item (selectable, settable, string) <none> ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					115 tree item (selectable, settable, string) SOCVHPS ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					116 tree item (selectable, settable, string) 00000000 ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					117 tree item (selectable, settable, string) <none> ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					118 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					119 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					120 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					121 tree item (selectable, settable, string) ./igor_parallel8_jtag.sof ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					122 tree item (selectable, settable, string) 5CSEBA6U23 ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					123 tree item (selectable, settable, string) 0249DBDE ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					124 tree item (selectable, settable, string) 0249DBDE ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					125 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					126 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+					127 tree item (selectable, settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.PGMWQ_DEVICE_TREE
+				96 thumb (settable, string) ID: QUI_APP.PGMWQ_FRAME_WND.QWidget.QSplitter.qt_splithandle_
+
+Document text: ```
+DE-SoC [USB-1]
+```

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "raw_magic_overlap_count": 252,
+  "qualified_sram_abstraction_count": 252,
+  "unqualified_count": 0,
+  "instances": {
+    "parameter_store.i_sram": 166,
+    "neural.activation_store.banks[0].i_sram": 44,
+    "neural.activation_store.banks[1].i_sram": 42
+  },
+  "feedback_sha256": "0133c5a480f3d814d04fc373793cfeb6800ef34b628408a15b491131f1d52fd7",
+  "qualification": "Only obsm4/metal4 rectangles within SRAM supply stripes; actual GDS DRC and LVS must pass separately",
+  "source_run": "https://github.com/sundaysiagian/peruri-iseedesign/actions/runs/38653087038",
+  "assembled_gds_klayout_drc_errors": 0
+}

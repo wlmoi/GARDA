@@ -1,0 +1,26 @@
+[
+  {
+    "name": "stop",
+    "tx": "a5 25",
+    "rx": ""
+  },
+  {
+    "name": "info",
+    "tx": "a5 50",
+    "rx": ""
+  },
+  {
+    "name": "health",
+    "tx": "a5 52",
+    "rx": ""
+  },
+  {
+    "name": "scan",
+    "tx": "a5 20",
+    "rx": ""
+  },
+  {
+    "scan_bytes": 0,
+    "scan_hex": ""
+  }
+]

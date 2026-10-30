@@ -1,0 +1,14 @@
+{
+  "port": "COM9",
+  "baud": 1000000,
+  "application_tx_bytes": 0,
+  "imu_ok": false,
+  "bytes_received": 2481,
+  "crc_valid_frames": 210,
+  "bad_crc_candidates": 0,
+  "frame_shapes": {
+    "type_8_length_7": 200,
+    "type_0_length_3": 10
+  },
+  "finite_imu_frames": 0
+}

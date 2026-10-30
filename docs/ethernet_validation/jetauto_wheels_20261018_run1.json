@@ -1,0 +1,55 @@
+{
+  "port": "/dev/ttyACM0",
+  "baud": 1000000,
+  "rps": 0.5,
+  "seconds": 0.75,
+  "physical_observation": "User confirmed all four wheels moved individually in expected order and all stopped.",
+  "events": [
+    {
+      "wheel": "M1 front-left",
+      "speeds": [
+        0.5,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "start_monotonic": 17895.025736503,
+      "stop_monotonic": 17895.837087847
+    },
+    {
+      "wheel": "M2 rear-left",
+      "speeds": [
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "start_monotonic": 17896.588143262,
+      "stop_monotonic": 17897.399748822
+    },
+    {
+      "wheel": "M3 front-right",
+      "speeds": [
+        0.0,
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "start_monotonic": 17898.15084059,
+      "stop_monotonic": 17898.962535881
+    },
+    {
+      "wheel": "M4 rear-right",
+      "speeds": [
+        0.0,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "start_monotonic": 17899.713638561,
+      "stop_monotonic": 17900.52485457
+    }
+  ],
+  "final_stop_sent": true,
+  "physical_result": "PASS, user-observed"
+}

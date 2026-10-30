@@ -1,0 +1,253 @@
+{
+  "status": "INCOMPLETE",
+  "all_scenarios_passed": false,
+  "passed": 11,
+  "failed": 0,
+  "unresolved": 10,
+  "software_tests_run": 53,
+  "cases": [
+    {
+      "name": "lidar_communication_and_feature_format",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\lidar_ai_reader.py",
+        "--port",
+        "auto",
+        "--seconds",
+        "15",
+        "--output",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\lidar_ai"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\lidar_communication_and_feature_format.log",
+      "duration_s": 15.641
+    },
+    {
+      "name": "STM_telemetry",
+      "status": "NOT_RUN",
+      "reason": "LiDAR-only profile; STM not accessed"
+    },
+    {
+      "name": "test_rectangle_route",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_rectangle_route.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 13,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\test_rectangle_route.log",
+      "duration_s": 0.562
+    },
+    {
+      "name": "test_uart_fabric",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_uart_fabric.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 3,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\test_uart_fabric.log",
+      "duration_s": 0.234
+    },
+    {
+      "name": "test_uart_q88",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_uart_q88.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 7,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\test_uart_q88.log",
+      "duration_s": 1.625
+    },
+    {
+      "name": "test_ethernet",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_ethernet.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 16,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\test_ethernet.log",
+      "duration_s": 2.547
+    },
+    {
+      "name": "test_security_auth",
+      "status": "BLOCKED",
+      "reason": "Required test/test_security_auth.py does not exist in this checkout"
+    },
+    {
+      "name": "laptop_fault_contracts",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_laptop_scenario_contracts.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 2,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\laptop_fault_contracts.log",
+      "duration_s": 0.484
+    },
+    {
+      "name": "laptop_sensor_decoder",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_laptop_sensor_decode.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 2,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\laptop_sensor_decoder.log",
+      "duration_s": 0.297
+    },
+    {
+      "name": "lidar_ai_features",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_lidar_ai_features.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 5,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\lidar_ai_features.log",
+      "duration_s": 0.625
+    },
+    {
+      "name": "lidar_express_decoder",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "fpga/verification",
+        "-p",
+        "test_lidar_express.py",
+        "-q"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 5,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\lidar_express_decoder.log",
+      "duration_s": 0.219
+    },
+    {
+      "name": "model_identity_oracle",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\verify_mock_inference.py",
+        "--self-test"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\model_identity_oracle.log",
+      "duration_s": 2.125
+    },
+    {
+      "name": "parallel8_rtl_256_vectors",
+      "command": [
+        "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\scripts\\verify_mock_inference.py",
+        "--rtl-sim"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\evidence\\testing_scenarios\\20261019T184544294342Z\\parallel8_rtl_256_vectors.log",
+      "duration_s": 52.766
+    },
+    {
+      "name": "physical_parallel8_256_vectors",
+      "status": "NOT_RUN",
+      "reason": "Explicit --skip-board or --lidar-only selection"
+    },
+    {
+      "name": "physical_uart_return",
+      "status": "NOT_RUN",
+      "reason": "Explicit --skip-board or --lidar-only selection"
+    },
+    {
+      "name": "passive_datalogger",
+      "status": "NOT_RUN",
+      "reason": "Explicit --skip-board or --lidar-only selection"
+    },
+    {
+      "name": "laptop_motion_readiness",
+      "status": "BLOCKED",
+      "reason": "See actual sensor stage logs. Physical pose, verified IMU units and a validated laptop motor-control session are still required; no motion is started by this runner."
+    },
+    {
+      "name": "A1_measured_rectangle",
+      "status": "BLOCKED",
+      "reason": "Requires fresh independently measured /pose, operator, clear 5x4m area, agreed geometry tolerances, bag and measured corners"
+    },
+    {
+      "name": "A2_command_estimated_rectangle",
+      "status": "BLOCKED",
+      "reason": "Route algorithm is tested on laptop; physical motion still needs real LiDAR, sensor preflight and supervision; not dimensional acceptance"
+    },
+    {
+      "name": "B_live_inputs_outputs_and_IMU_units",
+      "status": "BLOCKED",
+      "reason": "Requires real controller trace, calibrated IMU units, LiDAR, active robot run and measured deadline results"
+    },
+    {
+      "name": "C_link_disconnect_stop_reconnect",
+      "status": "BLOCKED",
+      "reason": "Requires supervised physical cable pull, active forward command, measured 5m, STOP trace, video/rest measurement and agreed stopping bound"
+    }
+  ]
+}

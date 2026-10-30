@@ -1,0 +1,2 @@
+PASS: four speed selections, latched direction/speed, refresh, lease STOP and arm-clear STOP
+tb/tb_multispeed_control.v:38: $finish called at 21082890000 (1ps)

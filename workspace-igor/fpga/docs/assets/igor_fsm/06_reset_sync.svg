@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1112" viewBox="0 0 1700 1112">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#374151"/></marker></defs>
+<rect width="1700" height="1112" fill="white"/>
+<rect x="25" y="25" width="1650" height="1062" rx="45" fill="#F8FAFC" stroke="#20233F" stroke-width="3"/>
+<rect x="60" y="55" width="1580" height="75" rx="10" fill="#78638C"/>
+<text x="850.00" y="92.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">BOARD RESET — ASSERT ASINKRON, RELEASE SINKRON</text>
+<text x="850.00" y="175.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">reset_sync[1:0]  |  Fase implisit shift-register; bukan enum</text>
+<ellipse cx="885.6600000000001" cy="397.29999999999995" rx="107.658" ry="48.0276" fill="#DDEAF7" stroke="#6E8950" stroke-width="2"/>
+<text x="885.66" y="385.15" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">reset_sync=00</text>
+<text x="885.66" y="409.45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">rst_n=0</text>
+<ellipse cx="803.6600000000001" cy="581.0999999999999" rx="107.658" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="803.66" y="568.95" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">reset_sync=01</text>
+<text x="803.66" y="593.25" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">rst_n masih0</text>
+<ellipse cx="925.6600000000001" cy="764.9029999999999" rx="107.12519999999999" ry="48.0276" fill="#E6F3CF" stroke="#6E8950" stroke-width="2"/>
+<text x="925.66" y="752.75" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">reset_sync=11</text>
+<text x="925.66" y="777.05" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="#172033">rst_n=1</text>
+<circle cx="885.6600000000001" cy="255.76" r="5.76" fill="#506A89"/>
+<path d="M 885.6600000000001,262.4 C 885.6600000000001,275.19999999999993 885.6600000000001,307.60999999999996 885.6600000000001,337.34 L 885.6600000000001,348.55999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="864.6600000000001" y="290.93999999999994" width="117.0" height="28.9" rx="3" fill="white"/>
+<text x="923.16" y="305.39" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">!rst_n / reset</text>
+<path d="M 782.7,412.56999999999994 C 703.5600000000001,425.88999999999993 603.662,448.65999999999997 578.6590000000001,481.31999999999994 C 541.9090000000001,529.3299999999999 614.8080000000001,554.4599999999999 687.21,567.3199999999999 L 698.3500000000001,569.2099999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="571.1600000000001" y="474.74999999999994" width="237.0" height="28.9" rx="3" fill="white"/>
+<text x="689.66" y="489.20" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[0]=1; posedge FPGA_CLK1_50</text>
+<path d="M 800.1500000000001,629.98 C 800.8700000000001,646.98 804.07,665.66 812.6600000000001,680.8799999999999 C 821.2,696.01 833.76,709.15 847.44,720.2449999999999 L 856.5600000000001,727.2389999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="793.1600000000001" y="658.55" width="222.0" height="28.9" rx="3" fill="white"/>
+<text x="904.16" y="673.00" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[0]=1; posedge berikutnya</text>
+<path d="M 881.01,720.2579999999999 C 847.01,701.56 847.01,670.93 925.6600000000001,670.93 C 996.01,670.93 1003.4300000000001,695.4399999999999 979.8700000000001,713.9939999999999 L 970.3000000000001,720.2579999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="889.6600000000001" y="648.5999999999999" width="72.0" height="28.9" rx="3" fill="white"/>
+<text x="925.66" y="663.05" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[0]=1</text>
+<path d="M 979.2700000000001,722.8129999999999 C 991.19,710.73 1002.19,696.51 1008.6600000000001,680.8799999999999 C 1011.3400000000001,674.41 1009.0900000000001,672.1099999999999 1008.6600000000001,665.1299999999999 C 1003.5400000000001,582.9599999999999 1025.21,553.53 985.6600000000001,481.31999999999994 C 978.24,467.78999999999996 967.6500000000001,455.55999999999995 956.1100000000001,444.9 L 947.57,437.42999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="993.5800000000002" y="566.6499999999999" width="154.5" height="28.9" rx="3" fill="white"/>
+<text x="1070.83" y="581.10" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[0]=0 (asinkron)</text>
+<path d="M 824.8500000000001,533.1199999999999 C 835.5300000000001,509.43999999999994 848.57,480.5199999999999 859.8400000000001,455.54999999999995 L 864.5400000000001,445.11999999999995" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="830.6200000000001" y="474.74999999999994" width="154.5" height="28.9" rx="3" fill="white"/>
+<text x="907.87" y="489.20" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[0]=0 (asinkron)</text>
+<path d="M 841.2,352.8299999999999 C 807.2,333.94999999999993 807.2,303.31999999999994 885.6600000000001,303.31999999999994 C 955.8500000000001,303.31999999999994 963.25,327.8299999999999 939.69,346.5199999999999 L 930.1200000000001,352.8299999999999" fill="none" stroke="#374151" stroke-width="1.7" marker-end="url(#arr)"/>
+<rect x="849.6600000000001" y="280.98999999999995" width="72.0" height="28.9" rx="3" fill="white"/>
+<text x="885.66" y="295.44" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172033">KEY[0]=0</text>
+<rect x="70" y="877.93" width="1560" height="174" rx="14" fill="#F2EDF7" stroke="#C2B1D3"/>
+<text x="90.00" y="907.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">SOURCE: experiments/parallel8/igor_src_policy_de10_nano.v</text>
+<text x="90.00" y="933.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">RESET: KEY0 ditekan -&gt; 00 tanpa menunggu clock</text>
+<text x="90.00" y="959.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">1. rst_n=reset_sync[1]. Pelepasan memerlukan dua rising edge, tidak langsung mengikuti tombol.</text>
+<text x="90.00" y="985.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">2. Nilai10 akibat gangguan bukan fase normal; operasi shift berikutnya menghasilkan01. Ini bukan klaim proteksi SEU.</text>
+<text x="90.00" y="1011.93" text-anchor="start" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172033">3. Clock50MHz. Seluruh kontrol menggunakan domain clock yang sama; gambar bukan bukti MTBF/CDC sign-off.</text>
+</svg>

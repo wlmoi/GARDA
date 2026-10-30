@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-10-19T14:42:20.9432663Z",
+  "active": [
+    {
+      "DeviceName": "USB-SERIAL CH340 (COM14)",
+      "DeviceID": "USB\\VID_1A86&PID_7523\\6&32B4345B&0&2",
+      "DriverVersion": "4.0.2026.2",
+      "InfName": "oem89.inf",
+      "ProblemCode": 0
+    }
+  ],
+  "success": true,
+  "method": "Live PnP device properties; avoids stale Win32_PnPSignedDriver cache"
+}

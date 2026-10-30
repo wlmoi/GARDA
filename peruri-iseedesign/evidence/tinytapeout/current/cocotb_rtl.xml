@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792054375" />
+    <testcase name="full_model_validation_readback_and_inference" classname="test" file="/mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/test/test.py" lineno="40" time="21.895148754119873" sim_time_ns="1511520.001" ratio_time="69034.47051098873" />
+    <testcase name="host_faults_are_visible_and_reset_recovers" classname="test" file="/mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/test/test.py" lineno="108" time="0.030533790588378906" sim_time_ns="2920.001000000164" ratio_time="95631.78838042828" />
+  </testsuite>
+</testsuites>

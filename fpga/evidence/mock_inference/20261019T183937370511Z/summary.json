@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "scope": "Verilog simulation, not physical hardware",
+  "vectors": 256,
+  "exact_output_checks": 768,
+  "core_cycles_each": 6916,
+  "clock_hz": 50000000,
+  "max_abs_error_lsb": 0
+}

@@ -1,0 +1,7 @@
+
+21. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\pin_mask$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$21_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:49$1011'.
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\y$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$20_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1008'.
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\x$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$19_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:33$1005'.
+No latch inferred for signal `\tt_um_igorchip.$mem2reg_rd$\pc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$18_DATA' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:32$1002'.
+No latch inferred for signal `\tt_um_igorchip.\host_read_data' from process `\tt_um_igorchip.$proc$/home/runner/work/igor_ws/igor_ws/src/igorchip_top.v:57$83'.

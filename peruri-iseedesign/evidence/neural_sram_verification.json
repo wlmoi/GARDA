@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "suites": {
+    "memory": "PASS",
+    "activation": "PASS",
+    "neural_sram": "PASS",
+    "generic": "PASS"
+  },
+  "physical_macro_banks": 3,
+  "parameter_banks": 1,
+  "activation_banks": 2,
+  "weights": 5888,
+  "biases": 132,
+  "words": 6020,
+  "readback_words": 6020,
+  "vectors": 100,
+  "outputs_checked": 400,
+  "latency_cycles": 3080,
+  "model": "Unmodified pinned IHP behavioral models",
+  "hidden_overflow_vectors_checked": 1,
+  "activation_words_checked": 152,
+  "generic_netlist_vectors": 1,
+  "physical_qualification": "NOT RUN: requires CMOS5L PDK and LibreLane"
+}

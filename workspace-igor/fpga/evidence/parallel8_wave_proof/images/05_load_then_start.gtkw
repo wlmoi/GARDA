@@ -1,0 +1,23 @@
+[size] 1480 720
+[pos] 0 0
+[sst_width] 160
+[signals_width] 370
+[timestart] 0
+@24
++clk tb_board_wrapper.clk
+@24
++mode tb_board_wrapper.dut.policy.mode[3:0]
+@24
++core_load tb_board_wrapper.dut.policy.core_load
+@24
++core_input_index tb_board_wrapper.dut.policy.core_input_index[6:0]
+@420
++core_input_value tb_board_wrapper.dut.policy.core_input_value[15:0]
+@24
++core_start tb_board_wrapper.dut.policy.core_start
+@24
++core_busy tb_board_wrapper.dut.policy.core_busy
+@22
++core_loaded tb_board_wrapper.dut.policy.core.loaded[73:0]
+@24
++core_state tb_board_wrapper.dut.policy.core.state[3:0]

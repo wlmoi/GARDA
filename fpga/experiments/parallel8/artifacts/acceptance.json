@@ -1,0 +1,222 @@
+{
+  "status": "PASS",
+  "bank_words_verified": 18051,
+  "clock_hz": 50000000,
+  "cycles": 6916,
+  "latency_ms": 0.13832,
+  "target_ms": 0.16,
+  "hardware_measured": false,
+  "suites": {
+    "core": {
+      "assertions": 54399,
+      "passed": true
+    },
+    "uart": {
+      "assertions": 268,
+      "passed": true
+    },
+    "board": {
+      "checkpoints": 18,
+      "passed": true
+    }
+  },
+  "fitter_summary": "Fitter Status : Successful - Sat Oct 17 09:22:01 2026\nQuartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Standard Edition\nRevision Name : igor_src_policy\nTop-level Entity Name : igor_src_policy_de10_nano\nFamily : Cyclone V\nDevice : 5CSEBA6U23I7\nTiming Models : Final\nLogic utilization (in ALMs) : 3,303 / 41,910 ( 8 % )\nTotal registers : 6277\nTotal pins : 13 / 314 ( 4 % )\nTotal virtual pins : 0\nTotal block memory bits : 524,288 / 5,662,720 ( 9 % )\nTotal RAM Blocks : 64 / 553 ( 12 % )\nTotal DSP Blocks : 8 / 112 ( 7 % )\nTotal HSSI RX PCSs : 0\nTotal HSSI PMA RX Deserializers : 0\nTotal HSSI TX PCSs : 0\nTotal HSSI PMA TX Serializers : 0\nTotal PLLs : 0 / 6 ( 0 % )\nTotal DLLs : 0 / 4 ( 0 % )\n",
+  "timing_slack_ns": {
+    "Slow 1100mV 100C Model Setup 'FPGA_CLK1_50'": 5.647,
+    "Slow 1100mV 100C Model Hold 'FPGA_CLK1_50'": 0.251,
+    "Slow 1100mV 100C Model Recovery 'FPGA_CLK1_50'": 14.279,
+    "Slow 1100mV 100C Model Removal 'FPGA_CLK1_50'": 0.585,
+    "Slow 1100mV 100C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.85,
+    "Slow 1100mV -40C Model Setup 'FPGA_CLK1_50'": 6.253,
+    "Slow 1100mV -40C Model Hold 'FPGA_CLK1_50'": 0.241,
+    "Slow 1100mV -40C Model Recovery 'FPGA_CLK1_50'": 14.52,
+    "Slow 1100mV -40C Model Removal 'FPGA_CLK1_50'": 0.455,
+    "Slow 1100mV -40C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.796,
+    "Fast 1100mV 100C Model Setup 'FPGA_CLK1_50'": 11.19,
+    "Fast 1100mV 100C Model Hold 'FPGA_CLK1_50'": 0.133,
+    "Fast 1100mV 100C Model Recovery 'FPGA_CLK1_50'": 16.766,
+    "Fast 1100mV 100C Model Removal 'FPGA_CLK1_50'": 0.305,
+    "Fast 1100mV 100C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.537,
+    "Fast 1100mV -40C Model Setup 'FPGA_CLK1_50'": 12.85,
+    "Fast 1100mV -40C Model Hold 'FPGA_CLK1_50'": 0.119,
+    "Fast 1100mV -40C Model Recovery 'FPGA_CLK1_50'": 17.281,
+    "Fast 1100mV -40C Model Removal 'FPGA_CLK1_50'": 0.253,
+    "Fast 1100mV -40C Model Minimum Pulse Width 'FPGA_CLK1_50'": 8.462
+  },
+  "pins": {
+    "LED[7]": {
+      "location": "AA23",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[1]": {
+      "location": "AA24",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[5]": {
+      "location": "AE26",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[4]": {
+      "location": "AF26",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "KEY[1]": {
+      "location": "AH16",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "KEY[0]": {
+      "location": "AH17",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "UART_TX": {
+      "location": "E8",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "FPGA_CLK1_50": {
+      "location": "V11",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "UART_RX": {
+      "location": "V12",
+      "direction": "input",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[3]": {
+      "location": "V15",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[2]": {
+      "location": "V16",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[0]": {
+      "location": "W15",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    },
+    "LED[6]": {
+      "location": "Y16",
+      "direction": "output",
+      "io_standard": "3.3-V LVTTL"
+    }
+  },
+  "resources": {
+    "alm": 3303,
+    "registers": 6277,
+    "m10k": 64,
+    "dsp": 8,
+    "memory_bits": 524288
+  },
+  "power": {
+    "typical": {
+      "total": 476.18,
+      "dynamic": 50.36,
+      "static": 413.27,
+      "io": 12.55,
+      "confidence": "Low",
+      "hardware_measured": false
+    },
+    "maximum_tj100": {
+      "total": 937.55,
+      "dynamic": 50.36,
+      "static": 865.8,
+      "io": 21.4,
+      "confidence": "Low",
+      "hardware_measured": false
+    }
+  },
+  "compile_warnings": {
+    "10030": 24,
+    "10037": 24,
+    "10230": 1
+  },
+  "sof_sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
+  "sha256": {
+    "experiments/parallel8/archive.py": "9687e77390d09418853bc5196a722143dc50a728889e7d526370d6d1a3b54325",
+    "experiments/parallel8/artifacts/acceptance_audit.log": "9c21e5e6d1b806cae2f7b2ecfb0326adf64ddf413e9a92ae1c8ae93f8b45a1ab",
+    "experiments/parallel8/artifacts/banked_hidden_elaboration_interrupted.log": "21dc4633a301e54056be02e7677bbd421b74b4f812ed2382a0ad6386b31e5c9c",
+    "experiments/parallel8/artifacts/board.log": "8e8e483893c7721a7a0aa8f32aba20bc74df878691289a463f8a4455a6d8c970",
+    "experiments/parallel8/artifacts/board.vcd.gz": "16a83554b2f3dea1592b7a0100b67165316d6b146726693a3db16574b59c8086",
+    "experiments/parallel8/artifacts/board_compile.log": "a5ab37e321a2f3f5ba12d8b7072461cb86b624818acf1d738ba8b953eb7e49c5",
+    "experiments/parallel8/artifacts/capture.json": "e03749a4710534b512d9f297ca99d8e3b511841afead4e2bae15d96ad966b4aa",
+    "experiments/parallel8/artifacts/checkpoints.csv": "913c94e768a18f21b0753ad3b664b6e38dd198242b75626a914895cf8ec3d696",
+    "experiments/parallel8/artifacts/compile.log": "73f1f7b2dbfd8f7d12f0b906134bbce5c3cf12995e6fe67ab03a85867e218b0d",
+    "experiments/parallel8/artifacts/core.log": "aa073f213c7de2674f8e18df02713f279c60ca158b76dafa5dab8d5ec491f2ba",
+    "experiments/parallel8/artifacts/core.vcd.gz": "e8c2b41a7a9ba3000a66a7ef6f296e63618dd61c239235226a42e3a4c147bbee",
+    "experiments/parallel8/artifacts/core_compile.log": "a5ab37e321a2f3f5ba12d8b7072461cb86b624818acf1d738ba8b953eb7e49c5",
+    "experiments/parallel8/artifacts/core_latency.gtkw": "34f38fcc1b63e8a5b5d16b2ed046f963fac72e7f1617a9b4cbd76ab6c678e181",
+    "experiments/parallel8/artifacts/core_latency.log": "c63f1b3b0fbac5db1714938acaa3f53cc7b80578cc88f94b227af917b8b63e8e",
+    "experiments/parallel8/artifacts/core_latency.png": "97392798a0e0a500f45b15a731fa96f5661cb66c4ecb0e41c04fc42126f3a20b",
+    "experiments/parallel8/artifacts/core_latency.tcl": "1718fadd7df13ef91ceafb0d187047334f9aeabbfda0566dc631e0164f6335ac",
+    "experiments/parallel8/artifacts/initial_elaboration_interrupted.log": "09b4b4456163a0951bc8f3f5810a226f2ea201cff021b31c0e30d573bd770f46",
+    "experiments/parallel8/artifacts/local_register_elaboration_interrupted.log": "401bf627fffef4ad1532903362b7e76f34f34a5fbb1c695c272a235679f9da6f",
+    "experiments/parallel8/artifacts/metric_evidence.csv": "702e366df3ab01f27fdb5201c25d7c843bc25424d582537ccbb31d6885cfd24a",
+    "experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.rpt": "8443592f623163c6a039615242e52bc1f207e22b6deccb2f04cd38b8df2971ca",
+    "experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.summary": "c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4",
+    "experiments/parallel8/artifacts/power/maximum_tj100/post_power.flow.rpt": "f283c25f36005fbf91d1ee57204f7339e4d6655ee3b5f16cde28ccff19d8e5d0",
+    "experiments/parallel8/artifacts/power/maximum_tj100/receipt.json": "979e9e598d637b43946f328b10b6819d58ea504783b9552979ef80b2930be292",
+    "experiments/parallel8/artifacts/power/maximum_tj100/run.log": "9631087675ce6a01ca81f9c3e0e7cfefb798888a0b60f68e7b83beff0f6b379e",
+    "experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.rpt": "19e5f5306510877e72e442c68159f94ddadbad9ad2cbcbbaafcd148279e7a568",
+    "experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary": "df298a8928a7e5705b5f25f567ceb8a79edc2f06b772f2196770fd31be43eb77",
+    "experiments/parallel8/artifacts/power/typical/post_power.flow.rpt": "25af3b8ef8a96a56e43681e4c61055d31b1407aeeea9ca140f1388ed66a394d4",
+    "experiments/parallel8/artifacts/power/typical/receipt.json": "2334816ffe66f4c3e2f248682149bc595a229333a0b36db63bf59fed918db591",
+    "experiments/parallel8/artifacts/power/typical/run.log": "106499e7dd621dde102893eaeba749aa28ede0eac9aa91f6352fc12e9ec16bc4",
+    "experiments/parallel8/artifacts/results.json": "1da7eb2141b8d66da3d97803bbf304133752ed294092ea6cd07a56a1d437519e",
+    "experiments/parallel8/artifacts/simulation_acceptance.json": "2f0912540a432872b3b11a7e427480fb35f68744f78651c736c0a2da5b61c8d8",
+    "experiments/parallel8/artifacts/simulation_audit.log": "9cbf412677cd0bf29537c24571399bf6f2ba12b40013c316fd079f6766e55696",
+    "experiments/parallel8/artifacts/uart.log": "0f767567fa91993c4c8cf213b3d6d07a480cb4da1590a45b5d248d5ee3a963f3",
+    "experiments/parallel8/artifacts/uart.vcd.gz": "ba10e1df8b0c176d914f6ceb08997937ab80c8f9137a3e2499ca69b507256bf3",
+    "experiments/parallel8/artifacts/uart_compile.log": "a5ab37e321a2f3f5ba12d8b7072461cb86b624818acf1d738ba8b953eb7e49c5",
+    "experiments/parallel8/artifacts/waveforms.json": "2429fa2d54e7f563abf5007ba9ccb556d8f8cbd8c0a78ada69ecefbc99a7ac34",
+    "experiments/parallel8/bank0.mem": "9ca680c769894f074db1d50acf09075c35a4e58b02fbdcb6a944dbb4624c6768",
+    "experiments/parallel8/bank1.mem": "33c88dc96045e1bf3e7b34d111eb103825f57fa396f303c8bff9ee22a984dd88",
+    "experiments/parallel8/bank2.mem": "348c2f8536b441b7ce15fa98b75570755815f2b694d108b5465226a882d5d466",
+    "experiments/parallel8/bank3.mem": "2789b0cb6dddfe29e7d013112a3217cf735bb64c4a3a7556d67a0dcbdaa5ca53",
+    "experiments/parallel8/bank4.mem": "f3e93047fa7e1f31e972e921fd908ac683e760ecf3f8407d550d62dcc6c6f1bf",
+    "experiments/parallel8/bank5.mem": "8d638f6cf3912a7afb6642ff4755194bd919ffa840f7ccfd283571a8e048ee0b",
+    "experiments/parallel8/bank6.mem": "30f0a7ea491c625fedd633b30d9d1ff2638649ae08261f48029db8e889b25e87",
+    "experiments/parallel8/bank7.mem": "af74fd8bb339ee678cb556752ef358a20c185708af8decbac8534fc873ff8071",
+    "experiments/parallel8/capture.py": "384b64aee1c63ccfd632a716af068454b3d5635aef1ea097f0f661e9b58b2d84",
+    "experiments/parallel8/collect.py": "105dc7d2ca88b0b437768ea60b2a0c985103ae782afdf27d903e6c6fbca2efd6",
+    "experiments/parallel8/core_checkpoints.csv": "beba4fb6c983a4c89dedf38a2cae7266c3609525d6bd2d2002582385aae0acf3",
+    "experiments/parallel8/igor_src_policy.qpf": "ebc0446cac9ec52e23f6751309881e00212eab5298b745212e17b5dbc7a1ab18",
+    "experiments/parallel8/igor_src_policy.qsf": "b17742702027826ec0491971959a2ecd6deff9a64a82443d87d03f52d40b5f61",
+    "experiments/parallel8/igor_src_policy.sdc": "a75382dd17998f0f8c8f4f9e6d2b52f85af9172d80509fc2d97cf0d76994a65c",
+    "experiments/parallel8/igor_src_policy_core.v": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34",
+    "experiments/parallel8/igor_src_policy_de10_nano.v": "74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81",
+    "experiments/parallel8/output_files/igor_src_policy.asm.rpt": "dc581446de66589fae528aee204d79ba9a63435410e05e90932f0b64180633b8",
+    "experiments/parallel8/output_files/igor_src_policy.fit.rpt": "b6e8db415e22b6f4864afa7d317b036cb30ea8cb2dc56c9abcc393a9ca299132",
+    "experiments/parallel8/output_files/igor_src_policy.fit.summary": "f53bcdfb0a5e8c1af5ac1149ac72fce4e8a9b8949290c5ed0b827da3f6feb23b",
+    "experiments/parallel8/output_files/igor_src_policy.flow.rpt": "86c7b55d4f03dc3ab3aa5127c6d2d1a1d11c7b1ddd05273d69b7cbd9260cdc58",
+    "experiments/parallel8/output_files/igor_src_policy.map.rpt": "916756f8bbbc43538d9085913ee5ca7496e73eb301d9fa8fcf1299a0f2f8e8bd",
+    "experiments/parallel8/output_files/igor_src_policy.map.summary": "339fe1af49484c17eddb68e4c59030d9b3a158dd6f3151a63d1494b828677743",
+    "experiments/parallel8/output_files/igor_src_policy.pin": "56a6db6f924d425b0c2087f18b88c33fb3c01f36e3f009fd93057b582e8594fe",
+    "experiments/parallel8/output_files/igor_src_policy.pow.rpt": "8443592f623163c6a039615242e52bc1f207e22b6deccb2f04cd38b8df2971ca",
+    "experiments/parallel8/output_files/igor_src_policy.pow.summary": "c3aa04ba79457372b6c4f4b98d7f3453e1dd4fd90087b6bb717441bf5c1b50e4",
+    "experiments/parallel8/output_files/igor_src_policy.sta.rpt": "868f265745a934b09dbdf0618b5792938d626dfc653db01dfcb8057d7dfff6fa",
+    "experiments/parallel8/output_files/igor_src_policy.sta.summary": "5ea2b6eec3d1ba7fc6aa9a4f3f270ace1a33e87007c3625986db4786e4d88915",
+    "experiments/parallel8/pin_assignment.tcl": "9c72ec63fee5d7064273212ed614b288ade217b8709944068ea7c99ebac03e20",
+    "experiments/parallel8/power.py": "140ea741491ea3b3bebb79adab6d6b810c9414e6b5237677060a66ea7dc6876e",
+    "experiments/parallel8/prepare.py": "a8cfb5085c38242ba194ef7a2b7421f8aeec1f9bd38b2c99e6bdbe4dd915b294",
+    "experiments/parallel8/README.md": "1f78711e3ae687199cdbea5dd0dd614ef5b5ed1ab77a7ee471949c3e3d24ff5c",
+    "experiments/parallel8/run.py": "5eea522108d0d9507061044d5597bb96f8017113d96ca0f55f11563247e0718d",
+    "experiments/parallel8/tb_board_wrapper.sv": "cf6afed010b93ce39a91f3337607298f02bf57853e5d3c66575d0ee5afa1543e",
+    "experiments/parallel8/tb_src_policy_core.sv": "2548d3ed6b3173a973bb12335b90dcb41f86910b72dd5c754236977ee4ca8715",
+    "experiments/parallel8/tb_src_policy_uart.sv": "ec4f484abd225661298c55f9692a4e9c2e6693ef0910f8dcb4e003847b951ca5",
+    "experiments/parallel8/uart_checkpoints.csv": "f590469127a1a2cae15f2c3b648279d747616f65660f3b6f8ab75f7fd9290376",
+    "rtl/igor_src_policy/igor_src_policy_uart.v": "8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a",
+    "rtl/igor_src_policy/policy_weights.mem": "55a647207c0b670901fe8074716331ac2876886bbbe1ca44aff9bbb942426e2d",
+    "rtl/igor_uart_rx.v": "4197e40b03ff6bf2db0c7381d372ad500b1bea2f287a879bcadee67ea628fe39",
+    "rtl/igor_uart_tx.v": "1856fd56edcdd3c0528eb7bbd5c8aa8acdd2d0053d993cf14b2c31bc5d282d28"
+  }
+}

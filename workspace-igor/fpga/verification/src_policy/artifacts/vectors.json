@@ -1,0 +1,3788 @@
+{
+  "seed": "0x1A0A74128",
+  "vector_count": 236,
+  "activation_cases": 8364,
+  "normalized_vector_count": 153,
+  "normalized_max_abs_error": 0.014571763897103157,
+  "normalized_mean_max_abs_error": 0.0053312318963958626,
+  "numerical_claim": "RTL equals the specified integer model; FP32 equivalence is not claimed.",
+  "fp_reference_precision": "Python double on source FP32 coefficients; not ONNX execution.",
+  "tests": [
+    {
+      "name": "zeros",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029369753734853608,
+        -0.007414432183215367,
+        0.026863753053283947
+      ],
+      "max_abs_quantization_error": 0.004304317816784633
+    },
+    {
+      "name": "clear_front_neutral",
+      "q8_8_actions": [
+        -57,
+        76,
+        42
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.2219650561740509,
+        0.3103799301994684,
+        0.1637556986768458
+      ],
+      "max_abs_quantization_error": 0.013504930199468412
+    },
+    {
+      "name": "all_plus_one",
+      "q8_8_actions": [
+        52,
+        130,
+        34
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.2037397027863564,
+        0.519029458713438,
+        0.12779143410723184
+      ],
+      "max_abs_quantization_error": 0.011216958713437974
+    },
+    {
+      "name": "signed_minus_one",
+      "q8_8_actions": [
+        -139,
+        -26,
+        76
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.53713641415086,
+        -0.09797789398686636,
+        0.30881745529258486
+      ],
+      "max_abs_quantization_error": 0.011942455292584864
+    },
+    {
+      "name": "alternating_lsb",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0033923023366529827,
+        -0.004960198385994817,
+        0.025546914259583976
+      ],
+      "max_abs_quantization_error": 0.006758551614005183
+    },
+    {
+      "name": "all_int16_max",
+      "q8_8_actions": [
+        256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "all_int16_min",
+      "q8_8_actions": [
+        -256,
+        -256,
+        -256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "alternating_int16_extremes",
+      "q8_8_actions": [
+        -256,
+        -256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 2.0
+    },
+    {
+      "name": "walking_0_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003066202191702352,
+        -0.007832942256804408,
+        0.026725483632742207
+      ],
+      "max_abs_quantization_error": 0.0038858077431955917
+    },
+    {
+      "name": "walking_0_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002657870924513762,
+        -0.007196023629058782,
+        0.02704795022037016
+      ],
+      "max_abs_quantization_error": 0.004522726370941218
+    },
+    {
+      "name": "walking_1_-1",
+      "q8_8_actions": [
+        1,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003017106661677011,
+        -0.007493725611137911,
+        0.026901005011540947
+      ],
+      "max_abs_quantization_error": 0.004225024388862089
+    },
+    {
+      "name": "walking_1_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0028246356722583235,
+        -0.0074829659753975954,
+        0.026748519141128337
+      ],
+      "max_abs_quantization_error": 0.0042357840246024046
+    },
+    {
+      "name": "walking_2_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0030667481820642974,
+        -0.007280252760639174,
+        0.027183895153069113
+      ],
+      "max_abs_quantization_error": 0.0037463951530691125
+    },
+    {
+      "name": "walking_2_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0028342478559381565,
+        -0.007600588588433462,
+        0.02653636972242085
+      ],
+      "max_abs_quantization_error": 0.004118161411566538
+    },
+    {
+      "name": "walking_3_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003111761879007193,
+        -0.007187137145616583,
+        0.02706357123530535
+      ],
+      "max_abs_quantization_error": 0.004531612854383417
+    },
+    {
+      "name": "walking_3_+1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002595606418524111,
+        -0.007805225285699562,
+        0.02663215491755238
+      ],
+      "max_abs_quantization_error": 0.003913524714300438
+    },
+    {
+      "name": "walking_4_-1",
+      "q8_8_actions": [
+        1,
+        -2,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0035214143633751993,
+        -0.0072443308038502765,
+        0.02729071888622428
+      ],
+      "max_abs_quantization_error": 0.0005681691961497235
+    },
+    {
+      "name": "walking_4_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002349001380342686,
+        -0.007620344049453094,
+        0.026371032395796905
+      ],
+      "max_abs_quantization_error": 0.004098405950546906
+    },
+    {
+      "name": "walking_5_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003289800591772782,
+        -0.007639863522667854,
+        0.0269156736196184
+      ],
+      "max_abs_quantization_error": 0.0034781736196183993
+    },
+    {
+      "name": "walking_5_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002728427385931908,
+        -0.007367497672476506,
+        0.02680377846154495
+      ],
+      "max_abs_quantization_error": 0.004351252327523494
+    },
+    {
+      "name": "walking_6_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0029334726478162,
+        -0.007030114587033162,
+        0.026734506684906623
+      ],
+      "max_abs_quantization_error": 0.004688635412966838
+    },
+    {
+      "name": "walking_6_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029212534169099254,
+        -0.007872236563770743,
+        0.02697633864380626
+      ],
+      "max_abs_quantization_error": 0.003846513436229257
+    },
+    {
+      "name": "walking_7_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0031857354613544584,
+        -0.0075766179093853855,
+        0.026891316021722653
+      ],
+      "max_abs_quantization_error": 0.0041421320906146145
+    },
+    {
+      "name": "walking_7_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0026712452730317917,
+        -0.007366502093131819,
+        0.026842859921551186
+      ],
+      "max_abs_quantization_error": 0.004352247906868181
+    },
+    {
+      "name": "walking_8_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0027580382553290305,
+        -0.0069302910305268535,
+        0.027302299217460482
+      ],
+      "max_abs_quantization_error": 0.0027580382553290305
+    },
+    {
+      "name": "walking_8_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029956934975581134,
+        -0.00797096945084893,
+        0.026538181883347955
+      ],
+      "max_abs_quantization_error": 0.0037477805491510693
+    },
+    {
+      "name": "walking_9_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0031106297755535326,
+        -0.00714766279477194,
+        0.027185056360119957
+      ],
+      "max_abs_quantization_error": 0.00457108720522806
+    },
+    {
+      "name": "walking_9_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0027888479890944575,
+        -0.00777499217590031,
+        0.026578425280256883
+      ],
+      "max_abs_quantization_error": 0.00394375782409969
+    },
+    {
+      "name": "walking_10_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0028400065382009777,
+        -0.007457394701350562,
+        0.027343805005819663
+      ],
+      "max_abs_quantization_error": 0.004261355298649438
+    },
+    {
+      "name": "walking_10_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0030875919713967723,
+        -0.0075357581717191615,
+        0.026357450227691093
+      ],
+      "max_abs_quantization_error": 0.0041829918282808385
+    },
+    {
+      "name": "walking_11_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003060206060766348,
+        -0.00758639637051676,
+        0.027156460982584285
+      ],
+      "max_abs_quantization_error": 0.00413235362948324
+    },
+    {
+      "name": "walking_11_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002829701477598634,
+        -0.007413034078362971,
+        0.026635702906375874
+      ],
+      "max_abs_quantization_error": 0.004305715921637029
+    },
+    {
+      "name": "walking_12_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0028433838370575536,
+        -0.007670915663261731,
+        0.027115641059510233
+      ],
+      "max_abs_quantization_error": 0.003678141059510233
+    },
+    {
+      "name": "walking_12_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0031332139081196248,
+        -0.007337755585398117,
+        0.026739523885831316
+      ],
+      "max_abs_quantization_error": 0.004380994414601883
+    },
+    {
+      "name": "walking_13_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0029351092226699476,
+        -0.007630271208099721,
+        0.027210862286304163
+      ],
+      "max_abs_quantization_error": 0.004088478791900279
+    },
+    {
+      "name": "walking_13_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0028348379836586604,
+        -0.007307789387701552,
+        0.026534423360436765
+      ],
+      "max_abs_quantization_error": 0.004410960612298448
+    },
+    {
+      "name": "walking_14_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002888835956931128,
+        -0.007288856852680508,
+        0.027098838825655943
+      ],
+      "max_abs_quantization_error": 0.004429893147319492
+    },
+    {
+      "name": "walking_14_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002981866391522349,
+        -0.007932656860019817,
+        0.026631700125822045
+      ],
+      "max_abs_quantization_error": 0.0037860931399801828
+    },
+    {
+      "name": "walking_15_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0026727758984218114,
+        -0.00704107308576536,
+        0.026976003068172712
+      ],
+      "max_abs_quantization_error": 0.00467767691423464
+    },
+    {
+      "name": "walking_15_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003154408089459651,
+        -0.007750378496450008,
+        0.026703349899359647
+      ],
+      "max_abs_quantization_error": 0.003968371503549992
+    },
+    {
+      "name": "walking_16_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0032420245553493013,
+        -0.007669688740144351,
+        0.026587067709838826
+      ],
+      "max_abs_quantization_error": 0.004049061259855649
+    },
+    {
+      "name": "walking_16_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002565397491793339,
+        -0.0072711708362309686,
+        0.027094572992041925
+      ],
+      "max_abs_quantization_error": 0.0044475791637690314
+    },
+    {
+      "name": "walking_17_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0024765808493761557,
+        -0.0071856609375702245,
+        0.026660032332044364
+      ],
+      "max_abs_quantization_error": 0.0045330890624297755
+    },
+    {
+      "name": "walking_17_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003442445653526865,
+        -0.007870530903279643,
+        0.027049127689850835
+      ],
+      "max_abs_quantization_error": 0.003442445653526865
+    },
+    {
+      "name": "walking_18_-1",
+      "q8_8_actions": [
+        1,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003609805541548947,
+        -0.007039191613260524,
+        0.026825185061495952
+      ],
+      "max_abs_quantization_error": 0.003387685061495952
+    },
+    {
+      "name": "walking_18_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002312596956773643,
+        -0.008023333490233646,
+        0.026870495058525734
+      ],
+      "max_abs_quantization_error": 0.003695416509766354
+    },
+    {
+      "name": "walking_19_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0030883118633841943,
+        -0.0074514241827905465,
+        0.026931223466642666
+      ],
+      "max_abs_quantization_error": 0.0042673258172094535
+    },
+    {
+      "name": "walking_19_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0027646230837813503,
+        -0.007536605496265997,
+        0.026871954191517652
+      ],
+      "max_abs_quantization_error": 0.004182144503734003
+    },
+    {
+      "name": "walking_20_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002469837664809184,
+        -0.007386405730749425,
+        0.026497644639358976
+      ],
+      "max_abs_quantization_error": 0.004332344269250575
+    },
+    {
+      "name": "walking_20_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003289932194139308,
+        -0.007472396223798038,
+        0.027084556052125418
+      ],
+      "max_abs_quantization_error": 0.004246353776201962
+    },
+    {
+      "name": "walking_21_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002801779009999565,
+        -0.0074808561745786165,
+        0.02675769569393767
+      ],
+      "max_abs_quantization_error": 0.0042378938254213835
+    },
+    {
+      "name": "walking_21_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0031224782111336988,
+        -0.007458630309107586,
+        0.026896082465639425
+      ],
+      "max_abs_quantization_error": 0.004260119690892414
+    },
+    {
+      "name": "walking_22_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003234782462980921,
+        -0.0072884538972241165,
+        0.02692269190572383
+      ],
+      "max_abs_quantization_error": 0.0034851919057238313
+    },
+    {
+      "name": "walking_22_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0028846742769943917,
+        -0.007644494458471523,
+        0.026759373137256078
+      ],
+      "max_abs_quantization_error": 0.004074255541528477
+    },
+    {
+      "name": "walking_23_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0028790445740732467,
+        -0.0071771172902371436,
+        0.02650547139208276
+      ],
+      "max_abs_quantization_error": 0.0045416327097628564
+    },
+    {
+      "name": "walking_23_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029886327645859993,
+        -0.007773655475766755,
+        0.02732559412799264
+      ],
+      "max_abs_quantization_error": 0.003945094524233245
+    },
+    {
+      "name": "walking_24_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0024426204067520777,
+        -0.007614856103506377,
+        0.026790485364244145
+      ],
+      "max_abs_quantization_error": 0.004103893896493623
+    },
+    {
+      "name": "walking_24_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0033503263673374563,
+        -0.007401140385739699,
+        0.026805554965436643
+      ],
+      "max_abs_quantization_error": 0.004317609614260301
+    },
+    {
+      "name": "walking_25_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002626228424674358,
+        -0.007476127763499296,
+        0.02692989359695
+      ],
+      "max_abs_quantization_error": 0.004242622236500704
+    },
+    {
+      "name": "walking_25_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.00334151341970718,
+        -0.007456915490120144,
+        0.026820628504614294
+      ],
+      "max_abs_quantization_error": 0.003383128504614294
+    },
+    {
+      "name": "walking_26_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002688200047265545,
+        -0.007540315571360961,
+        0.026841798413079057
+      ],
+      "max_abs_quantization_error": 0.003404298413079057
+    },
+    {
+      "name": "walking_26_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0031907642687526716,
+        -0.007460651110929327,
+        0.026928046649039847
+      ],
+      "max_abs_quantization_error": 0.004258098889070673
+    },
+    {
+      "name": "walking_27_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0026246479046611332,
+        -0.007543717952454232,
+        0.02669343204821498
+      ],
+      "max_abs_quantization_error": 0.004175032047545768
+    },
+    {
+      "name": "walking_27_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0032237909702418632,
+        -0.007361205357205939,
+        0.026925678142097814
+      ],
+      "max_abs_quantization_error": 0.004357544642794061
+    },
+    {
+      "name": "walking_28_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002726047197075372,
+        -0.007470768357943509,
+        0.026717674853421018
+      ],
+      "max_abs_quantization_error": 0.004247981642056491
+    },
+    {
+      "name": "walking_28_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003309950472664001,
+        -0.007479355127698787,
+        0.026958672992320354
+      ],
+      "max_abs_quantization_error": 0.004239394872301213
+    },
+    {
+      "name": "walking_29_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002678292133317152,
+        -0.007580075046490078,
+        0.027055106185325837
+      ],
+      "max_abs_quantization_error": 0.004138674953509922
+    },
+    {
+      "name": "walking_29_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003351744510206677,
+        -0.0073454953141378395,
+        0.026769166325220913
+      ],
+      "max_abs_quantization_error": 0.003351744510206677
+    },
+    {
+      "name": "walking_30_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002237104312676628,
+        -0.007332301381045885,
+        0.026931340914402246
+      ],
+      "max_abs_quantization_error": 0.004386448618954115
+    },
+    {
+      "name": "walking_30_+1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0038167870530414184,
+        -0.007586523150439178,
+        0.026779674209051172
+      ],
+      "max_abs_quantization_error": 0.004132226849560822
+    },
+    {
+      "name": "walking_31_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.00267239013485674,
+        -0.0073997524653324955,
+        0.026925896927070467
+      ],
+      "max_abs_quantization_error": 0.0043189975346675045
+    },
+    {
+      "name": "walking_31_+1",
+      "q8_8_actions": [
+        1,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0033579408052423466,
+        -0.007652549849629828,
+        0.026806569686994484
+      ],
+      "max_abs_quantization_error": 0.004066200150370172
+    },
+    {
+      "name": "walking_32_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002797648569664001,
+        -0.007095908650434994,
+        0.02648036260938449
+      ],
+      "max_abs_quantization_error": 0.004622841349565006
+    },
+    {
+      "name": "walking_32_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003108831992796752,
+        -0.007796042513002479,
+        0.027125628507973988
+      ],
+      "max_abs_quantization_error": 0.003922707486997521
+    },
+    {
+      "name": "walking_33_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002648189580696115,
+        -0.007600305140822628,
+        0.026744415715033512
+      ],
+      "max_abs_quantization_error": 0.004118444859177372
+    },
+    {
+      "name": "walking_33_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0030890841387726676,
+        -0.007246355194518508,
+        0.026965844239999752
+      ],
+      "max_abs_quantization_error": 0.003528344239999752
+    },
+    {
+      "name": "walking_34_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002408458291636875,
+        -0.007459980719900295,
+        0.02680449701090925
+      ],
+      "max_abs_quantization_error": 0.0033669970109092492
+    },
+    {
+      "name": "walking_34_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003348622665445763,
+        -0.007414374965232293,
+        0.026980922547410073
+      ],
+      "max_abs_quantization_error": 0.004304375034767707
+    },
+    {
+      "name": "walking_35_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002974290591264227,
+        -0.007270104212431142,
+        0.027107415729935525
+      ],
+      "max_abs_quantization_error": 0.004448645787568858
+    },
+    {
+      "name": "walking_35_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029709933982005393,
+        -0.007794896159403725,
+        0.026522928363879823
+      ],
+      "max_abs_quantization_error": 0.003923853840596275
+    },
+    {
+      "name": "walking_36_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0032705888166965737,
+        -0.00762870126243826,
+        0.026710929142264084
+      ],
+      "max_abs_quantization_error": 0.00409004873756174
+    },
+    {
+      "name": "walking_36_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0026212227293786533,
+        -0.0073948048817706405,
+        0.026759757259049735
+      ],
+      "max_abs_quantization_error": 0.0043239451182293595
+    },
+    {
+      "name": "walking_37_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.00234619605114853,
+        -0.007480788195154657,
+        0.026720824941398227
+      ],
+      "max_abs_quantization_error": 0.004237961804845343
+    },
+    {
+      "name": "walking_37_+1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0033807471148606786,
+        -0.007475372047457636,
+        0.02692792387974074
+      ],
+      "max_abs_quantization_error": 0.004243377952542364
+    },
+    {
+      "name": "walking_38_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0026104136645872375,
+        -0.007837133282195756,
+        0.026522092313708286
+      ],
+      "max_abs_quantization_error": 0.003881616717804244
+    },
+    {
+      "name": "walking_38_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003104769676627363,
+        -0.0071182284615579315,
+        0.027227872019984098
+      ],
+      "max_abs_quantization_error": 0.003104769676627363
+    },
+    {
+      "name": "walking_39_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0025694639687036287,
+        -0.007964894368313546,
+        0.026705703611031695
+      ],
+      "max_abs_quantization_error": 0.0037538556316864535
+    },
+    {
+      "name": "walking_39_+1",
+      "q8_8_actions": [
+        1,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0032424220217190857,
+        -0.00683763666917526,
+        0.02699657539264446
+      ],
+      "max_abs_quantization_error": 0.0035590753926444604
+    },
+    {
+      "name": "walking_40_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0029998254897687904,
+        -0.007949500509497682,
+        0.02677176007383305
+      ],
+      "max_abs_quantization_error": 0.003769249490502318
+    },
+    {
+      "name": "walking_40_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002765961576498464,
+        -0.006974240043174505,
+        0.02684530926470565
+      ],
+      "max_abs_quantization_error": 0.002765961576498464
+    },
+    {
+      "name": "walking_41_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0029333122988321816,
+        -0.007752754958531751,
+        0.02702937132110616
+      ],
+      "max_abs_quantization_error": 0.003965995041468249
+    },
+    {
+      "name": "walking_41_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002710304123582648,
+        -0.007278822747914349,
+        0.02671018954123511
+      ],
+      "max_abs_quantization_error": 0.004439927252085651
+    },
+    {
+      "name": "walking_42_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0026232635925254317,
+        -0.0078847001338417,
+        0.02650228165562492
+      ],
+      "max_abs_quantization_error": 0.0038340498661583004
+    },
+    {
+      "name": "walking_42_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003289376777273588,
+        -0.007258139450288531,
+        0.02704456555115234
+      ],
+      "max_abs_quantization_error": 0.004460610549711469
+    },
+    {
+      "name": "walking_43_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002487429156553774,
+        -0.007841166067603763,
+        0.026869464104130776
+      ],
+      "max_abs_quantization_error": 0.003877583932396237
+    },
+    {
+      "name": "walking_43_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003390185691360053,
+        -0.007173058047107904,
+        0.026849330218482244
+      ],
+      "max_abs_quantization_error": 0.004545691952892096
+    },
+    {
+      "name": "walking_44_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0028278645669035708,
+        -0.007323673238122334,
+        0.02704991685618042
+      ],
+      "max_abs_quantization_error": 0.004395076761877666
+    },
+    {
+      "name": "walking_44_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002923143677826327,
+        -0.007677523176185667,
+        0.026601396031244173
+      ],
+      "max_abs_quantization_error": 0.004041226823814333
+    },
+    {
+      "name": "walking_45_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003102992567851993,
+        -0.007872460187296513,
+        0.026906824061846756
+      ],
+      "max_abs_quantization_error": 0.003469324061846756
+    },
+    {
+      "name": "walking_45_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0027885586786936195,
+        -0.007105933364470721,
+        0.026663439043991446
+      ],
+      "max_abs_quantization_error": 0.004612816635529279
+    },
+    {
+      "name": "walking_46_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002837664620841585,
+        -0.007480655210181732,
+        0.026195934364161226
+      ],
+      "max_abs_quantization_error": 0.004238094789818268
+    },
+    {
+      "name": "walking_46_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003013565386265541,
+        -0.007476647768273687,
+        0.02752361568940215
+      ],
+      "max_abs_quantization_error": 0.004242102231726313
+    },
+    {
+      "name": "walking_47_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0033155332265650686,
+        -0.007941442860713577,
+        0.02670835472469643
+      ],
+      "max_abs_quantization_error": 0.0037773071392864233
+    },
+    {
+      "name": "walking_47_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0025935255263196413,
+        -0.007099516221321166,
+        0.027060171831753903
+      ],
+      "max_abs_quantization_error": 0.004619233778678834
+    },
+    {
+      "name": "walking_48_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003127722784001077,
+        -0.007679573853542438,
+        0.026761032866875978
+      ],
+      "max_abs_quantization_error": 0.004039176146457562
+    },
+    {
+      "name": "walking_48_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002789059306840685,
+        -0.007255079949481597,
+        0.027025385014975034
+      ],
+      "max_abs_quantization_error": 0.004463670050518403
+    },
+    {
+      "name": "walking_49_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0031630932730854384,
+        -0.007674538293607938,
+        0.026293956281921785
+      ],
+      "max_abs_quantization_error": 0.004044211706392062
+    },
+    {
+      "name": "walking_49_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002593320971020058,
+        -0.007241172535421791,
+        0.027357007208266736
+      ],
+      "max_abs_quantization_error": 0.004477577464578209
+    },
+    {
+      "name": "walking_50_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0031155414172303678,
+        -0.007731163238697681,
+        0.027070689799098546
+      ],
+      "max_abs_quantization_error": 0.003987586761302319
+    },
+    {
+      "name": "walking_50_+1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.00270040811482176,
+        -0.00723252832858731,
+        0.02677945965412782
+      ],
+      "max_abs_quantization_error": 0.00448622167141269
+    },
+    {
+      "name": "walking_51_-1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003573949893276617,
+        -0.007961078424006071,
+        0.02712782889669809
+      ],
+      "max_abs_quantization_error": 0.0037576715759939285
+    },
+    {
+      "name": "walking_51_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002290617007234651,
+        -0.00693381295608579,
+        0.026662527609355856
+      ],
+      "max_abs_quantization_error": 0.003225027609355856
+    },
+    {
+      "name": "walking_52_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002971477450334714,
+        -0.00809494654819139,
+        0.026690815530809934
+      ],
+      "max_abs_quantization_error": 0.0036238034518086097
+    },
+    {
+      "name": "walking_52_+1",
+      "q8_8_actions": [
+        1,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0030489121383843747,
+        -0.006795367475621674,
+        0.027038401964731014
+      ],
+      "max_abs_quantization_error": 0.003600901964731014
+    },
+    {
+      "name": "walking_53_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.002910859204554565,
+        -0.00732003961419667,
+        0.026713336549047353
+      ],
+      "max_abs_quantization_error": 0.00439871038580333
+    },
+    {
+      "name": "walking_53_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029535741398787705,
+        -0.007605887612610088,
+        0.026900569582287454
+      ],
+      "max_abs_quantization_error": 0.004112862387389912
+    },
+    {
+      "name": "walking_54_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003303730568615623,
+        -0.007684183301186321,
+        0.026829302209053198
+      ],
+      "max_abs_quantization_error": 0.004034566698813679
+    },
+    {
+      "name": "walking_54_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0025857492364214944,
+        -0.0073410408360167715,
+        0.02681083318737057
+      ],
+      "max_abs_quantization_error": 0.0043777091639832285
+    },
+    {
+      "name": "walking_55_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0028937453619243985,
+        -0.007287106593186009,
+        0.02714859993155031
+      ],
+      "max_abs_quantization_error": 0.004431643406813991
+    },
+    {
+      "name": "walking_55_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003046680879854086,
+        -0.00757563571472864,
+        0.026685852229276746
+      ],
+      "max_abs_quantization_error": 0.00414311428527136
+    },
+    {
+      "name": "walking_56_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0032211935431842942,
+        -0.008069192012171987,
+        0.026958180945620403
+      ],
+      "max_abs_quantization_error": 0.0036495579878280133
+    },
+    {
+      "name": "walking_56_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0026000312419420532,
+        -0.006905608115924848,
+        0.02669678069977778
+      ],
+      "max_abs_quantization_error": 0.004813141884075152
+    },
+    {
+      "name": "walking_57_-1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0036640592403060367,
+        -0.007710338636393969,
+        0.02649254736043247
+      ],
+      "max_abs_quantization_error": 0.004008411363606031
+    },
+    {
+      "name": "walking_57_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002330334024338739,
+        -0.007184296548802873,
+        0.02719580228630432
+      ],
+      "max_abs_quantization_error": 0.0037583022863043186
+    },
+    {
+      "name": "walking_58_-1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003110304257112942,
+        -0.007557133216445404,
+        0.026474649349018567
+      ],
+      "max_abs_quantization_error": 0.004161616783554596
+    },
+    {
+      "name": "walking_58_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0027555942393490893,
+        -0.007359379173667215,
+        0.027236351481997448
+      ],
+      "max_abs_quantization_error": 0.003798851481997448
+    },
+    {
+      "name": "walking_59_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0029822033076652914,
+        -0.007202828919248587,
+        0.026622917068551882
+      ],
+      "max_abs_quantization_error": 0.004515921080751413
+    },
+    {
+      "name": "walking_59_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002803464907518429,
+        -0.0077316421338634415,
+        0.02710814831331016
+      ],
+      "max_abs_quantization_error": 0.0039871078661365585
+    },
+    {
+      "name": "walking_60_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.003221965121898083,
+        -0.0072308312346137955,
+        0.026598453948164152
+      ],
+      "max_abs_quantization_error": 0.0044879187653862045
+    },
+    {
+      "name": "walking_60_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0025701474079641053,
+        -0.00775737307707957,
+        0.027234700261242833
+      ],
+      "max_abs_quantization_error": 0.00396137692292043
+    },
+    {
+      "name": "walking_61_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0028952142609491426,
+        -0.007558562458473627,
+        0.026476184189822557
+      ],
+      "max_abs_quantization_error": 0.004160187541526373
+    },
+    {
+      "name": "walking_61_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003021472941206608,
+        -0.007256636026727586,
+        0.027269705354321952
+      ],
+      "max_abs_quantization_error": 0.004462113973272414
+    },
+    {
+      "name": "walking_62_-1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0029408229438925835,
+        -0.007711332369125808,
+        0.02676900054988248
+      ],
+      "max_abs_quantization_error": 0.004007417630874192
+    },
+    {
+      "name": "walking_62_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.00287090117264341,
+        -0.007459149042440924,
+        0.02682529324287057
+      ],
+      "max_abs_quantization_error": 0.004259600957559076
+    },
+    {
+      "name": "walking_63_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        0.0029882587043640503,
+        -0.007861114268971854,
+        0.027066581145792523
+      ],
+      "max_abs_quantization_error": 0.003857635731028146
+    },
+    {
+      "name": "walking_63_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0028988509912367022,
+        -0.007118705268551871,
+        0.026603726892358976
+      ],
+      "max_abs_quantization_error": 0.004600044731448129
+    },
+    {
+      "name": "walking_64_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0030273560090691245,
+        -0.007714077557510846,
+        0.02638754258615365
+      ],
+      "max_abs_quantization_error": 0.004004672442489154
+    },
+    {
+      "name": "walking_64_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002909781658511133,
+        -0.007260393864800705,
+        0.027416058957003248
+      ],
+      "max_abs_quantization_error": 0.004458356135199295
+    },
+    {
+      "name": "walking_65_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0030365012354325203,
+        -0.008010391894114672,
+        0.026964902221483945
+      ],
+      "max_abs_quantization_error": 0.0037083581058853284
+    },
+    {
+      "name": "walking_65_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029153232566662534,
+        -0.006892362585915968,
+        0.026733749192454213
+      ],
+      "max_abs_quantization_error": 0.004826387414084032
+    },
+    {
+      "name": "walking_66_-1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003113657588712842,
+        -0.007053161244254293,
+        0.026935609519744746
+      ],
+      "max_abs_quantization_error": 0.0034981095197447465
+    },
+    {
+      "name": "walking_66_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.00279369361916441,
+        -0.007867154824142044,
+        0.026863866197217288
+      ],
+      "max_abs_quantization_error": 0.003851595175857956
+    },
+    {
+      "name": "walking_67_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0028542850054335965,
+        -0.007610277278269824,
+        0.02666206022696254
+      ],
+      "max_abs_quantization_error": 0.004108472721730176
+    },
+    {
+      "name": "walking_67_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0030150599992907453,
+        -0.007329473902471628,
+        0.02705433009436468
+      ],
+      "max_abs_quantization_error": 0.004389276097528372
+    },
+    {
+      "name": "walking_68_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002932081276964453,
+        -0.00763247523701777,
+        0.026895893546581146
+      ],
+      "max_abs_quantization_error": 0.00408627476298223
+    },
+    {
+      "name": "walking_68_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002919019286281914,
+        -0.007150446224564441,
+        0.02677204432142861
+      ],
+      "max_abs_quantization_error": 0.004568303775435559
+    },
+    {
+      "name": "walking_69_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0029537380938386344,
+        -0.007794022268726249,
+        0.02691389518447674
+      ],
+      "max_abs_quantization_error": 0.003924727731273751
+    },
+    {
+      "name": "walking_69_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0028156942568563744,
+        -0.007158160148237726,
+        0.026825551428726828
+      ],
+      "max_abs_quantization_error": 0.0028156942568563744
+    },
+    {
+      "name": "walking_70_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0025508983785710237,
+        -0.007431996774436518,
+        0.027168667777600585
+      ],
+      "max_abs_quantization_error": 0.004286753225563482
+    },
+    {
+      "name": "walking_70_+1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0032741655587732003,
+        -0.007553351897515518,
+        0.02669575571054563
+      ],
+      "max_abs_quantization_error": 0.004165398102484482
+    },
+    {
+      "name": "walking_71_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0025272011340551036,
+        -0.007979056889652529,
+        0.02729670964848848
+      ],
+      "max_abs_quantization_error": 0.0038592096484884805
+    },
+    {
+      "name": "walking_71_+1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0033793727500837823,
+        -0.006941021106784918,
+        0.0264825293567143
+      ],
+      "max_abs_quantization_error": 0.004777728893215082
+    },
+    {
+      "name": "walking_72_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0030334121582264615,
+        -0.007934626898322604,
+        0.026687960934247162
+      ],
+      "max_abs_quantization_error": 0.003784123101677396
+    },
+    {
+      "name": "walking_72_+1",
+      "q8_8_actions": [
+        0,
+        -2,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.002928860452984917,
+        -0.007039394070291111,
+        0.02712338918444982
+      ],
+      "max_abs_quantization_error": 0.0036858891844498212
+    },
+    {
+      "name": "walking_73_-1",
+      "q8_8_actions": [
+        0,
+        -3,
+        7
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0032098209489609705,
+        -0.007185436761220174,
+        0.027299755951190222
+      ],
+      "max_abs_quantization_error": 0.004533313238779826
+    },
+    {
+      "name": "walking_73_+1",
+      "q8_8_actions": [
+        1,
+        -3,
+        6
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0026344603939529596,
+        -0.007683438132990494,
+        0.02631434102320263
+      ],
+      "max_abs_quantization_error": 0.004035311867009506
+    },
+    {
+      "name": "normalized_random_0",
+      "q8_8_actions": [
+        2,
+        87,
+        47
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.011997333213215505,
+        0.34501170491109046,
+        0.18688343772262533
+      ],
+      "max_abs_quantization_error": 0.0051679549110904555
+    },
+    {
+      "name": "normalized_random_1",
+      "q8_8_actions": [
+        50,
+        133,
+        71
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.1999639871469213,
+        0.5233120835386784,
+        0.273244022970342
+      ],
+      "max_abs_quantization_error": 0.00465148714692129
+    },
+    {
+      "name": "normalized_random_2",
+      "q8_8_actions": [
+        7,
+        -36,
+        12
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.028736043164537862,
+        -0.14683241691391943,
+        0.05246063374924791
+      ],
+      "max_abs_quantization_error": 0.0062074169139194335
+    },
+    {
+      "name": "normalized_random_3",
+      "q8_8_actions": [
+        -12,
+        45,
+        30
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.04540525538493754,
+        0.1827231233286693,
+        0.12275696890747322
+      ],
+      "max_abs_quantization_error": 0.006941873328669301
+    },
+    {
+      "name": "normalized_random_4",
+      "q8_8_actions": [
+        -77,
+        55,
+        72
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.30053084139023206,
+        0.2220992599828673,
+        0.28703171984352166
+      ],
+      "max_abs_quantization_error": 0.007255509982867309
+    },
+    {
+      "name": "normalized_random_5",
+      "q8_8_actions": [
+        69,
+        110,
+        129
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.26517295337553654,
+        0.43383628985215095,
+        0.5087190483223042
+      ],
+      "max_abs_quantization_error": 0.00481279832230419
+    },
+    {
+      "name": "normalized_random_6",
+      "q8_8_actions": [
+        0,
+        -13,
+        9
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003676775447474162,
+        -0.05035430198147835,
+        0.03880006200189244
+      ],
+      "max_abs_quantization_error": 0.003676775447474162
+    },
+    {
+      "name": "normalized_random_7",
+      "q8_8_actions": [
+        -40,
+        88,
+        110
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.1567225811613684,
+        0.3495663634584352,
+        0.4293997991318141
+      ],
+      "max_abs_quantization_error": 0.005816363458435225
+    },
+    {
+      "name": "normalized_random_8",
+      "q8_8_actions": [
+        -42,
+        36,
+        -29
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.16222416682467658,
+        0.14426018609432537,
+        -0.10797262316736271
+      ],
+      "max_abs_quantization_error": 0.005308626832637289
+    },
+    {
+      "name": "normalized_random_9",
+      "q8_8_actions": [
+        -36,
+        40,
+        75
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.13852084017805621,
+        0.15472726025087952,
+        0.3025052504241093
+      ],
+      "max_abs_quantization_error": 0.009536500424109307
+    },
+    {
+      "name": "normalized_random_10",
+      "q8_8_actions": [
+        -22,
+        32,
+        106
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.09034814320921519,
+        0.13041448095160516,
+        0.42169051544838454
+      ],
+      "max_abs_quantization_error": 0.00762801544838454
+    },
+    {
+      "name": "normalized_random_11",
+      "q8_8_actions": [
+        -43,
+        48,
+        13
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.16452931264795104,
+        0.1936543735005012,
+        0.05445533894224767
+      ],
+      "max_abs_quantization_error": 0.006154373500501187
+    },
+    {
+      "name": "normalized_random_12",
+      "q8_8_actions": [
+        -73,
+        11,
+        46
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.2801237321772837,
+        0.047024240844118104,
+        0.18645057651455066
+      ],
+      "max_abs_quantization_error": 0.006763076514550659
+    },
+    {
+      "name": "normalized_random_13",
+      "q8_8_actions": [
+        -2,
+        -61,
+        1
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.0038703382436642807,
+        -0.22912170158091505,
+        0.011366129617023678
+      ],
+      "max_abs_quantization_error": 0.00915954841908495
+    },
+    {
+      "name": "normalized_random_14",
+      "q8_8_actions": [
+        -1,
+        69,
+        14
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.005723295394672754,
+        0.27380135269338945,
+        0.05559024991673534
+      ],
+      "max_abs_quantization_error": 0.004270102693389455
+    },
+    {
+      "name": "normalized_random_15",
+      "q8_8_actions": [
+        -29,
+        13,
+        -53
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.10620769314899485,
+        0.05824009290075839,
+        -0.19861272396457505
+      ],
+      "max_abs_quantization_error": 0.00841852603542495
+    },
+    {
+      "name": "normalized_random_16",
+      "q8_8_actions": [
+        -69,
+        57,
+        25
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.27183049863775954,
+        0.23016139085877774,
+        0.0988237742584638
+      ],
+      "max_abs_quantization_error": 0.007505140858777737
+    },
+    {
+      "name": "normalized_random_17",
+      "q8_8_actions": [
+        76,
+        144,
+        84
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.29592800482292736,
+        0.5635251062304826,
+        0.3267977089835206
+      ],
+      "max_abs_quantization_error": 0.0013272910164793816
+    },
+    {
+      "name": "normalized_random_18",
+      "q8_8_actions": [
+        5,
+        -23,
+        38
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.02305190550231932,
+        -0.07527198610289684,
+        0.15089423821125833
+      ],
+      "max_abs_quantization_error": 0.014571763897103157
+    },
+    {
+      "name": "normalized_random_19",
+      "q8_8_actions": [
+        -5,
+        -76,
+        65
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.021938787043232818,
+        -0.30287980087769306,
+        0.2563675990822466
+      ],
+      "max_abs_quantization_error": 0.006004800877693062
+    },
+    {
+      "name": "normalized_random_20",
+      "q8_8_actions": [
+        107,
+        121,
+        131
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.42146384427390443,
+        0.46742113782261174,
+        0.5131244392517638
+      ],
+      "max_abs_quantization_error": 0.005235112177388257
+    },
+    {
+      "name": "normalized_random_21",
+      "q8_8_actions": [
+        -44,
+        137,
+        92
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.17310790488026778,
+        0.5452806229918807,
+        0.36018627920980606
+      ],
+      "max_abs_quantization_error": 0.010124372991880737
+    },
+    {
+      "name": "normalized_random_22",
+      "q8_8_actions": [
+        -31,
+        70,
+        140
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.12444510209836213,
+        0.2773719451809491,
+        0.5486069101479774
+      ],
+      "max_abs_quantization_error": 0.003934445180949098
+    },
+    {
+      "name": "normalized_random_23",
+      "q8_8_actions": [
+        86,
+        38,
+        63
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.338617502538332,
+        0.1519444039272278,
+        0.2518563795837337
+      ],
+      "max_abs_quantization_error": 0.005762629583733692
+    },
+    {
+      "name": "normalized_random_24",
+      "q8_8_actions": [
+        -22,
+        45,
+        17
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.08228776185308329,
+        0.1892114523518166,
+        0.06944911678571764
+      ],
+      "max_abs_quantization_error": 0.013430202351816606
+    },
+    {
+      "name": "normalized_random_25",
+      "q8_8_actions": [
+        -56,
+        79,
+        33
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.21267267881355933,
+        0.31694921938658493,
+        0.13084600851891262
+      ],
+      "max_abs_quantization_error": 0.008355469386584935
+    },
+    {
+      "name": "normalized_random_26",
+      "q8_8_actions": [
+        -15,
+        -72,
+        50
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.059300982985293,
+        -0.2822763944873724,
+        0.1945627162905258
+      ],
+      "max_abs_quantization_error": 0.0010263944873724062
+    },
+    {
+      "name": "normalized_random_27",
+      "q8_8_actions": [
+        40,
+        94,
+        13
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.16647499348194467,
+        0.37798290447087,
+        0.054013104074733566
+      ],
+      "max_abs_quantization_error": 0.010795404470870018
+    },
+    {
+      "name": "normalized_random_28",
+      "q8_8_actions": [
+        2,
+        76,
+        86
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.009784093152927213,
+        0.29838669206579327,
+        0.3358690623835751
+      ],
+      "max_abs_quantization_error": 0.001971593152927213
+    },
+    {
+      "name": "normalized_random_29",
+      "q8_8_actions": [
+        0,
+        -5,
+        62
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.003733131752485394,
+        -0.021438035150086868,
+        0.2473842589847823
+      ],
+      "max_abs_quantization_error": 0.005196758984782307
+    },
+    {
+      "name": "normalized_random_30",
+      "q8_8_actions": [
+        -30,
+        -17,
+        9
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.11627346231165206,
+        -0.06817108586087445,
+        0.033480069227666165
+      ],
+      "max_abs_quantization_error": 0.0017648358608744474
+    },
+    {
+      "name": "normalized_random_31",
+      "q8_8_actions": [
+        -42,
+        42,
+        105
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.16448184741567337,
+        0.16888266226796972,
+        0.4194562307653419
+      ],
+      "max_abs_quantization_error": 0.009299980765341886
+    },
+    {
+      "name": "normalized_random_32",
+      "q8_8_actions": [
+        -41,
+        23,
+        -44
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.1601340069431288,
+        0.09347759594420224,
+        -0.17332095502150774
+      ],
+      "max_abs_quantization_error": 0.003633845944202241
+    },
+    {
+      "name": "normalized_random_33",
+      "q8_8_actions": [
+        0,
+        20,
+        40
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.0022873492704686693,
+        0.08648875068552009,
+        0.15932627733888227
+      ],
+      "max_abs_quantization_error": 0.008363750685520088
+    },
+    {
+      "name": "normalized_random_34",
+      "q8_8_actions": [
+        14,
+        105,
+        152
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.058391853826108966,
+        0.4188924396503325,
+        0.5955486363449957
+      ],
+      "max_abs_quantization_error": 0.008736189650332515
+    },
+    {
+      "name": "normalized_random_35",
+      "q8_8_actions": [
+        27,
+        82,
+        41
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.10768570858733707,
+        0.32684192732948647,
+        0.16794944211749255
+      ],
+      "max_abs_quantization_error": 0.007793192117492548
+    },
+    {
+      "name": "normalized_random_36",
+      "q8_8_actions": [
+        -42,
+        107,
+        90
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.15574832318489115,
+        0.4231506893522091,
+        0.3589532412427899
+      ],
+      "max_abs_quantization_error": 0.008314176815108848
+    },
+    {
+      "name": "normalized_random_37",
+      "q8_8_actions": [
+        42,
+        -84,
+        128
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.1611580444076015,
+        -0.3305925072439907,
+        0.49992974642661453
+      ],
+      "max_abs_quantization_error": 0.0029044555923984916
+    },
+    {
+      "name": "normalized_random_38",
+      "q8_8_actions": [
+        -52,
+        46,
+        87
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.19533943536739887,
+        0.1850216784611112,
+        0.3457725558055219
+      ],
+      "max_abs_quantization_error": 0.007785564632601133
+    },
+    {
+      "name": "normalized_random_39",
+      "q8_8_actions": [
+        67,
+        40,
+        56
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.2651871137437428,
+        0.15821493767899888,
+        0.2226281604710746
+      ],
+      "max_abs_quantization_error": 0.0038781604710745876
+    },
+    {
+      "name": "normalized_random_40",
+      "q8_8_actions": [
+        18,
+        58,
+        113
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.07351803624950883,
+        0.2242801599241164,
+        0.4470307082516758
+      ],
+      "max_abs_quantization_error": 0.00562445825167579
+    },
+    {
+      "name": "normalized_random_41",
+      "q8_8_actions": [
+        -6,
+        12,
+        60
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.017321173706160015,
+        0.05321023276835274,
+        0.24456926859087424
+      ],
+      "max_abs_quantization_error": 0.010194268590874245
+    },
+    {
+      "name": "normalized_random_42",
+      "q8_8_actions": [
+        25,
+        123,
+        148
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.09898342221244508,
+        0.48457570595219,
+        0.5863739904666405
+      ],
+      "max_abs_quantization_error": 0.008248990466640516
+    },
+    {
+      "name": "normalized_random_43",
+      "q8_8_actions": [
+        -79,
+        11,
+        18
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.30110789403732874,
+        0.0521915031445965,
+        0.07285890387503187
+      ],
+      "max_abs_quantization_error": 0.009222753144596502
+    },
+    {
+      "name": "normalized_random_44",
+      "q8_8_actions": [
+        -54,
+        -63,
+        35
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.21070616239272838,
+        -0.248568131959632,
+        0.14046691445094642
+      ],
+      "max_abs_quantization_error": 0.0037481644509464174
+    },
+    {
+      "name": "normalized_random_45",
+      "q8_8_actions": [
+        -51,
+        15,
+        89
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.2031594394128679,
+        0.0620834766248253,
+        0.3506396519612837
+      ],
+      "max_abs_quantization_error": 0.003940689412867904
+    },
+    {
+      "name": "normalized_random_46",
+      "q8_8_actions": [
+        10,
+        47,
+        39
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.03577428494279021,
+        0.19253010159248563,
+        0.15161072235470777
+      ],
+      "max_abs_quantization_error": 0.008936351592485625
+    },
+    {
+      "name": "normalized_random_47",
+      "q8_8_actions": [
+        28,
+        34,
+        30
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.1190579216568681,
+        0.1349784476110277,
+        0.11438259569254997
+      ],
+      "max_abs_quantization_error": 0.009682921656868099
+    },
+    {
+      "name": "normalized_random_48",
+      "q8_8_actions": [
+        55,
+        145,
+        123
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.21777820940648948,
+        0.5737527482203704,
+        0.48505561284972776
+      ],
+      "max_abs_quantization_error": 0.007346498220370368
+    },
+    {
+      "name": "normalized_random_49",
+      "q8_8_actions": [
+        -25,
+        2,
+        71
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.0940081495224402,
+        0.00793510137426802,
+        0.2846864529403257
+      ],
+      "max_abs_quantization_error": 0.007342702940325685
+    },
+    {
+      "name": "normalized_random_50",
+      "q8_8_actions": [
+        -48,
+        -116,
+        21
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.18070017895200427,
+        -0.4565944004099756,
+        0.09215197865665826
+      ],
+      "max_abs_quantization_error": 0.010120728656658265
+    },
+    {
+      "name": "normalized_random_51",
+      "q8_8_actions": [
+        27,
+        129,
+        72
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.10300511029803877,
+        0.5049295710949943,
+        0.284670135505274
+      ],
+      "max_abs_quantization_error": 0.00342013550527398
+    },
+    {
+      "name": "normalized_random_52",
+      "q8_8_actions": [
+        109,
+        110,
+        124
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.42401780355120583,
+        0.43448354233566955,
+        0.48983076300724426
+      ],
+      "max_abs_quantization_error": 0.005455763007244263
+    },
+    {
+      "name": "normalized_random_53",
+      "q8_8_actions": [
+        98,
+        81,
+        154
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.3850158925653,
+        0.3182929798851466,
+        0.60665784248049
+      ],
+      "max_abs_quantization_error": 0.005095342480490039
+    },
+    {
+      "name": "normalized_random_54",
+      "q8_8_actions": [
+        27,
+        46,
+        147
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        0.09999943457674743,
+        0.17475463175002448,
+        0.575771838351063
+      ],
+      "max_abs_quantization_error": 0.005469315423252574
+    },
+    {
+      "name": "normalized_random_55",
+      "q8_8_actions": [
+        -18,
+        47,
+        27
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.059825763930550536,
+        0.18714839753382828,
+        0.10524851283517418
+      ],
+      "max_abs_quantization_error": 0.010486736069449464
+    },
+    {
+      "name": "normalized_random_56",
+      "q8_8_actions": [
+        -116,
+        46,
+        -5
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.4522166942983949,
+        0.1869623394734866,
+        -0.01369221510482424
+      ],
+      "max_abs_quantization_error": 0.0072748394734865884
+    },
+    {
+      "name": "normalized_random_57",
+      "q8_8_actions": [
+        -24,
+        -93,
+        8
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.0845477764507185,
+        -0.35428753415492464,
+        0.03568074912421488
+      ],
+      "max_abs_quantization_error": 0.009202223549281505
+    },
+    {
+      "name": "normalized_random_58",
+      "q8_8_actions": [
+        -59,
+        -38,
+        61
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.2266949425002349,
+        -0.14728724821104627,
+        0.24443467782581502
+      ],
+      "max_abs_quantization_error": 0.006153427825815017
+    },
+    {
+      "name": "normalized_random_59",
+      "q8_8_actions": [
+        -40,
+        -2,
+        1
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.15353326428246516,
+        -0.0031748010414693953,
+        0.008109143029830266
+      ],
+      "max_abs_quantization_error": 0.004637698958530605
+    },
+    {
+      "name": "normalized_random_60",
+      "q8_8_actions": [
+        -90,
+        2,
+        109
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.35377920031752297,
+        0.009522049207393864,
+        0.4305206881391795
+      ],
+      "max_abs_quantization_error": 0.004739438139179486
+    },
+    {
+      "name": "normalized_random_61",
+      "q8_8_actions": [
+        -12,
+        -21,
+        115
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.04875271710328577,
+        -0.0770567256959883,
+        0.4533296612810265
+      ],
+      "max_abs_quantization_error": 0.004974524304011699
+    },
+    {
+      "name": "normalized_random_62",
+      "q8_8_actions": [
+        -32,
+        -35,
+        20
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.11916633746714064,
+        -0.13800415400656826,
+        0.08016636981750082
+      ],
+      "max_abs_quantization_error": 0.005833662532859357
+    },
+    {
+      "name": "normalized_random_63",
+      "q8_8_actions": [
+        -17,
+        8,
+        -31
+      ],
+      "hidden_saturated": false,
+      "normalized_contract": true,
+      "fp64_source_reference": [
+        -0.06351902099350035,
+        0.03946691154799434,
+        -0.1177423429340369
+      ],
+      "max_abs_quantization_error": 0.008216911547994338
+    },
+    {
+      "name": "fullrange_random_0",
+      "q8_8_actions": [
+        -256,
+        -256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_1",
+      "q8_8_actions": [
+        -256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_2",
+      "q8_8_actions": [
+        256,
+        -256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        -1.0,
+        -1.0
+      ],
+      "max_abs_quantization_error": 2.0
+    },
+    {
+      "name": "fullrange_random_3",
+      "q8_8_actions": [
+        256,
+        -256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        -1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_4",
+      "q8_8_actions": [
+        -256,
+        -256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_5",
+      "q8_8_actions": [
+        256,
+        -256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        -1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_6",
+      "q8_8_actions": [
+        256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_7",
+      "q8_8_actions": [
+        256,
+        -74,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 1.2890625
+    },
+    {
+      "name": "fullrange_random_8",
+      "q8_8_actions": [
+        256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_9",
+      "q8_8_actions": [
+        256,
+        256,
+        -256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        1.0,
+        -1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_10",
+      "q8_8_actions": [
+        -256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_11",
+      "q8_8_actions": [
+        -256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_12",
+      "q8_8_actions": [
+        256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_13",
+      "q8_8_actions": [
+        256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_14",
+      "q8_8_actions": [
+        -256,
+        256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        -1.0,
+        1.0,
+        1.0
+      ],
+      "max_abs_quantization_error": 0.0
+    },
+    {
+      "name": "fullrange_random_15",
+      "q8_8_actions": [
+        256,
+        -256,
+        256
+      ],
+      "hidden_saturated": true,
+      "normalized_contract": false,
+      "fp64_source_reference": [
+        1.0,
+        -1.0,
+        -1.0
+      ],
+      "max_abs_quantization_error": 2.0
+    }
+  ]
+}
