@@ -1,6 +1,12 @@
 name: TinyTapeout physical flow
 on:
   push:
+    # Documentation/UI and the unrelated HPS prototype do not change this GDS.
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - 'dashboard/**'
+      - 'src/igor_pipeline/fpga_pl/ai_accel_wrapper.v'
   workflow_dispatch:
 permissions:
   contents: read

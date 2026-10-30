@@ -33,7 +33,15 @@
 
 > **Status yang dapat ditelusuri.** Dashboard adalah situs statis; animasi clock memakai model jadwal FSM. Hasil RTL, build FPGA historis, dan status fisik ASIC ditampilkan sesuai buktinya. Target pengembangan SKY130 dan SRAM ada pada [rencana ASIC](asic/sky130_garda/README.md); kelulusan DRC, LVS, timing, dan precheck memerlukan laporan dari build yang sama.
 
-## RTL GARDA aktif
+## GARDA sesuai proposal
+
+**Gerbang AI Robot Deterministik & Aman**: policy PPO **74 → 128 → 64 → 3**, delapan MAC, Q8.8 dan gerbang keselamatan pada FPGA DE10-Nano. Jadwal inti **6.916 clock / 138,32 µs pada 50 MHz**, dengan UART acuan **921.600 baud**. Host ROS 2 mengolah sensor; STM32 menjalankan aktuasi dengan watchdog.
+
+[Implementasi Parallel8](fpga/experiments/parallel8/README.md) · [Pemetaan ke GARDA.pdf](docs/PROPOSAL_ALIGNMENT.md) · [Hasil run GitHub Actions](https://github.com/wlmoi/GARDA/actions)
+
+Angka fitted dan daya pada proposal adalah snapshot eksperimen FPGA. Estimasi **50,36 mW dinamis / 476,18 mW total** bersifat vectorless dengan confidence Low, bukan pengukuran board.
+
+## Eksperimen TinyTapeout neural terpisah
 
 **100 vektor · 400 keluaran cocok · 6.020 kata model · 3.080 clock inferensi.** [Regresi terbaru](evidence/neural_logic_activity.json) mengikat hasil ke hash empat source RTL aktif. Koefisien MAC signed 12-bit mempertahankan nilai model tepat; operand nol diisolasi.
 
@@ -212,7 +220,7 @@ Temuan **68% keberhasilan dan 32% *timeout* dengan 0% tabrakan** menunjukkan bah
 |---|---|---|
 | Simulasi RTL dan pemeriksaan numerik | [Quickstart](docs/QUICKSTART.md) | `garda_top`, neural core, UART, dan wrapper |
 | FPGA utama DE10-Nano | [Proyek Nano](fpga_de10_nano/README.md) | `garda_uart_top` |
-| FPGA lab DE10-Lite MAX 10 | [Proyek Lite](fpga_de10_lite/README.md) | `igor_de10_lite_top` |
+| FPGA lab DE10-Lite MAX 10 | [Paket Lite historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/README_MULAI_DI_SINI.md) | `igor_de10_lite_top` |
 | ASIC aktif: inferensi neural lengkap tanpa SRAM | [TinyTapeout](docs/TINYTAPEOUT.md) | `tt_um_wlmoi_garda_neural_logic` |
 | Neural ASIC aktif: model tetap, aktivasi register | [Implementasi dan acceptance](asic/neural_logic/README.md) | `tt_um_wlmoi_garda_neural_logic` (8x4) |
 | Percobaan SRAM tersimpan sebagai arsip | [Implementasi SRAM](asic/neural_sram/README.md) | `b70b1ec`, tidak dipilih manifest aktif |
@@ -243,7 +251,7 @@ Perintah `all` menjalankan tujuh test case. Suite `tt_generic` menambahkan test 
 | Board | Proyek yang dibuka | Image yang diprogram |
 |---|---|---|
 | DE10-Nano · `5CSEBA6U23I7` | [garda.qpf](fpga_de10_nano/quartus/garda.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
-| DE10-Lite · `10M50DAF484C7G` | [igor_max10.qpf](fpga_de10_lite/quartus/igor_max10.qpf) | [igor_max10.sof](fpga_de10_lite/quartus/output_files/igor_max10.sof) |
+| DE10-Lite · `10M50DAF484C7G` | [Paket MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/igor_max10.qpf) | [Bitstream MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/output_files/igor_max10.sof) |
 
 Gunakan Quartus Standard 25.1 beserta device support yang sesuai. [Panduan programming](docs/FPGA_PROGRAMMING.md) memuat urutan JTAG, pin UART, reset, dan pemeriksaan hasil. Hash image tercatat di [build evidence](evidence/build_evidence.json).
 
@@ -278,7 +286,7 @@ GARDA/
 ├── test/                 Harness standar TinyTapeout
 ├── dashboard/            Explorer 3D, snapshot RTL, bukti, dan distribusi Vercel
 ├── fpga_de10_nano/       Proyek Cyclone V yang berdiri sendiri
-├── fpga_de10_lite/       Proyek MAX 10 yang berdiri sendiri
+├── ImplementationReadyQuartus/  Paket board dan bitstream historis
 ├── robot/                SDK, BAT, UART RTL, dan transport HPS
 ├── notebook/             Notebook pelatihan CL-DRL & aset visualisasi
 ├── docs/                 Panduan, laporan teknis, diagram, dan demo

@@ -1,11 +1,11 @@
 // ai_accel_wrapper.v
-// Avalon-MM Slave / DMA Master Hardware Wrapper for Project IGOR
-// Integrates igor_src_policy_core (74 -> 128 -> 64 -> 3 MLP) with Cyclone V HPS
+// Avalon-MM Slave / DMA Master Hardware Wrapper for Project GARDA
+// Integrates garda_src_policy_core (74 -> 128 -> 64 -> 3 MLP) with Cyclone V HPS
 `timescale 1ns/1ps
 `default_nettype none
 
 module ai_accel_wrapper #(
-    parameter ROM_FILE = "rtl/igor_src_policy/policy_weights.mem"
+    parameter ROM_FILE = "rtl/garda_src_policy/policy_weights.mem"
 )(
     input  wire        clk,
     input  wire        rst_n,
@@ -101,8 +101,8 @@ module ai_accel_wrapper #(
     wire [31:0] core_latency_cycles;
     wire core_saturated;
 
-    // Instantiation of the verified IGOR neural core
-    igor_src_policy_core #(.ROM_FILE(ROM_FILE)) u_core (
+    // Instantiation of the GARDA source-policy neural core
+    garda_src_policy_core #(.ROM_FILE(ROM_FILE)) u_core (
         .clk(clk),
         .rst_n(rst_n && !(reg_control[1])), // bit 1 = soft reset
         .load_input(core_load_input),

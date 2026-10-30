@@ -46,7 +46,7 @@ function setMode(next,fromScene=false){
 function renderLegend(){
   const query=$('module-search').value.toLowerCase().trim();
   const list=available().filter(m=>[m.id,m.title,...m.ports.map(p=>p.name)].join(' ').toLowerCase().includes(query));
-  $('legend').innerHTML=list.map(m=>`<button type="button" data-block="${esc(m.id)}" aria-current="${m.id===selected?.id}"><span class="swatch" style="background:${m.color}"></span><span>${esc(m.title)}</span><small>${esc(m.module.replace('garda_',''))}</small></button>`).join('')||(query?'<p class="empty-search">Tidak ada modul atau port yang cocok.</p>':'');
+  $('legend').innerHTML=list.map(m=>`<button type="button" data-block="${esc(m.id)}" aria-current="${m.id===selected?.id}"><span class="swatch" style="background:${m.color}"></span><span>${esc(m.title)}</span><small>${esc(m.module.startsWith('garda_') ? m.module.slice(6) : m.module)}</small></button>`).join('')||(query?'<p class="empty-search">Tidak ada modul atau port yang cocok.</p>':'');
   $('legend').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{if(mode==='board')setMode('die');selectBlock(b.dataset.block);}));
 }
 function selectBlock(id){

@@ -5,15 +5,15 @@
 | Parameter | DE10-Nano | DE10-Lite |
 |---|---|---|
 | FPGA | Cyclone V SE `5CSEBA6U23I7` | MAX 10 `10M50DAF484C7G` |
-| Top entity | `igor_uart_top` | `igor_de10_lite_top` |
-| Project | [igor.qpf](../fpga_de10_nano/quartus/igor.qpf) | [igor_max10.qpf](../fpga_de10_lite/quartus/igor_max10.qpf) |
-| Image | [igor.sof](../fpga_de10_nano/quartus/output_files/igor.sof) | [igor_max10.sof](../fpga_de10_lite/quartus/output_files/igor_max10.sof) |
+| Top entity | `garda_uart_top` | `igor_de10_lite_top` (paket historis) |
+| Project | [garda.qpf](../fpga_de10_nano/quartus/garda.qpf) | [Paket MAX 10 historis](../ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/igor_max10.qpf) |
+| Image | [igor.sof](../fpga_de10_nano/quartus/output_files/igor.sof) | [Bitstream MAX 10 historis](../ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/output_files/igor_max10.sof) |
 | Clock | 50 MHz, FPGA pin V11 | 50 MHz, FPGA pin P11 |
 | Programmer | USB-Blaster II onboard | USB-Blaster onboard |
 
 Gunakan Quartus Standard 25.1 dengan device support sesuai FPGA. Folder board harus tetap utuh karena QSF mengacu ke RTL dan ROM melalui path relatif. `.sof` adalah konfigurasi SRAM sementara yang perlu dimuat lagi setelah power-off.
 
-Folder [ImplementationReadyQuartus](../ImplementationReadyQuartus/README_MULAI_DI_SINI.md) menyediakan salinan portable kedua project. Launcher `BUKA_PROJECT_QUARTUS.bat` tersedia dalam masing-masing folder. Image dan source pada paket ini disinkronkan dengan project canonical di atas.
+Folder [ImplementationReadyQuartus](../ImplementationReadyQuartus/README_MULAI_DI_SINI.md) menyediakan salinan portable kedua project. Launcher `BUKA_PROJECT_QUARTUS.bat` tersedia dalam masing-masing folder. Paket dan bitstream ini menyimpan build historis. Build GARDA dari source aktif perlu dikompilasi dan diperiksa kembali; nama baru pada source tidak membuktikan bitstream historis telah dibangun ulang.
 
 ## Langkah programming
 
@@ -48,13 +48,13 @@ Jalankan dari root repository. Ganti `COM_FPGA` dengan port adapter UART FPGA ya
 
 ```powershell
 py -m pip install -r fpga_de10_nano\host\requirements.txt
-py fpga_de10_nano\host\igor_uart.py --port COM_FPGA status
-py fpga_de10_nano\host\igor_uart.py --port COM_FPGA rom-check
-py fpga_de10_nano\host\igor_uart.py --port COM_FPGA nn-test
-py fpga_de10_nano\host\igor_uart.py --port COM_FPGA dwa-demo --map empty
+py fpga_de10_nano\host\garda_uart.py --port COM_FPGA status
+py fpga_de10_nano\host\garda_uart.py --port COM_FPGA rom-check
+py fpga_de10_nano\host\garda_uart.py --port COM_FPGA nn-test
+py fpga_de10_nano\host\garda_uart.py --port COM_FPGA dwa-demo --map empty
 ```
 
-Untuk Lite, ganti prefix menjadi `fpga_de10_lite/host`. Monitor grafis tersedia pada [uart_monitor.py](../fpga_de10_lite/host/uart_monitor.py).
+Paket Lite historis memakai `ImplementationReadyQuartus/MAX10_10M50DAF484C7G/host/igor_uart.py`. [Monitor grafis paket](../ImplementationReadyQuartus/MAX10_10M50DAF484C7G/host/uart_monitor.py) tersedia pada folder yang sama.
 
 Reset KEY0 sebelum setiap `dwa-demo`, kemudian ulangi dengan `--map blocked` dan `--map unknown`. Upload 16.384 cell memakai transaksi satu per byte, sehingga transport berlangsung puluhan detik. Readback neural diharapkan memeriksa 100 vektor dan 400 output. Readback DWA memberikan index, v, omega, fault, dan siklus.
 
