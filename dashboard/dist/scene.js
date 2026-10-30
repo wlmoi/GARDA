@@ -2,11 +2,11 @@ import * as THREE from './vendor/three.module.min.js';
 
 // The package and board are explanatory models. RTL placement is deliberately
 // independent of the FPGA fitter and of an ASIC place-and-route result.
-const BG = '#061858';
+const BG = '#050684';
 const INK = '#102b43';
 const PALETTE = {
   control: '#638ee1', dwa: '#26adc4', memory: '#7693d7', gate: '#edac48',
-  neural: '#9b85da', uart: '#4bb9c7', tt: '#bd8cce', default: '#77a7d4',
+  neural: '#38b9d7', uart: '#4bb9c7', tt: '#9bfd08', default: '#77a7d4',
 };
 
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
@@ -416,7 +416,7 @@ export class GardaScene {
     // A 3D explanatory package: this must never be mistaken for physical GDS.
     this._box(root, 0, 1.4, 0, 106, 3.1, 78, tiny ? '#e1e6eb' : '#dce5ec', { metal: .27, roughness: .48 });
     this._box(root, 0, 3.4, 0, 97, 1.4, 69, '#284b65', { metal: .44, roughness: .39 });
-    this._box(root, 0, 4.3, 0, 92, .65, 64, tiny ? '#e8e2ef' : '#d5e7f0', { metal: .23, roughness: .52 });
+    this._box(root, 0, 4.3, 0, 92, .65, 64, tiny ? '#d8edf5' : '#d5e7f0', { metal: .23, roughness: .52 });
 
     // Peripheral bond pads emphasize the concept-package boundary.
     const padMat = this._mat('#c8ac69', .72, .3);
