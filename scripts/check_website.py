@@ -31,7 +31,7 @@ def check(base: str) -> dict:
             raise RuntimeError(f'Page missing {marker}; login/error page or incomplete deployment')
     assets = {
         'app.js': b'rtl-catalog.json', 'scene.js': b'GardaScene',
-        'clock-explorer.js': b'6916', 'gate-model.js': b'evaluateGate',
+        'clock-explorer.js': b'describeClock', 'gate-model.js': b'evaluateGate',
         'style.css': b'@font-face',
     }
     for path, marker in assets.items():
