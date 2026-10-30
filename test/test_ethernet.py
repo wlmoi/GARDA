@@ -162,7 +162,7 @@ class EthernetTests(unittest.TestCase):
 
     def test_source_and_packaged_clients_identical(self):
         for name in ('fpga_bridge.py','ethernet_protocol.py'):
-            self.assertEqual((PACKAGE/name).read_bytes(),(ROOT/'fpga/software_integration/src/igor_controller/igor_controller'/name).read_bytes())
+            self.assertEqual((PACKAGE/name).read_bytes(),(ROOT/'fpga/software_integration/src/garda_controller/garda_controller'/name).read_bytes())
 
     def test_coarse_clock_still_produces_unique_transactions(self):
         backend,fixture=self.uart_backend();server=self.server(backend);link=self.link(server)

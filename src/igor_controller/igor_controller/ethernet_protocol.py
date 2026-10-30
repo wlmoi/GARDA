@@ -1,4 +1,4 @@
-﻿"""IGOR Protocol V2: packed little endian UDP, 492-byte request / 50-byte response.
+﻿"""GARDA Protocol V2: packed little endian UDP, 492-byte request / 50-byte response.
 
 Q8.8 is authoritative. Redundant float fields must agree with its quantization.
 No retries, mock fallback, or unverified zero actions are permitted.

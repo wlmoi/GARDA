@@ -16,15 +16,16 @@ from unittest.mock import patch
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / 'src/igor_controller/igor_controller'
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE_TREE = ROOT / 'fpga/software_integration/src'
+SOURCE = SOURCE_TREE / 'garda_controller/garda_controller'
 spec = importlib.util.spec_from_file_location('tested_fpga_bridge', SOURCE / 'fpga_bridge.py')
 bridge = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bridge)
 spec = importlib.util.spec_from_file_location('tested_mcu_driver', SOURCE / 'mcu_driver.py')
 mcu_driver = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mcu_driver)
-spec = importlib.util.spec_from_file_location('tested_lidar_subsampler', ROOT / 'src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py')
+spec = importlib.util.spec_from_file_location('tested_lidar_subsampler', SOURCE_TREE / 'garda_navigation/garda_navigation/drivers/lidar_subsampler.py')
 lidar = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(lidar)
 
@@ -150,12 +151,12 @@ class Float32:
 # Compile the actual controller methods with ROS message fixtures. This checks
 # production control flow without pretending a ROS installation or robot exists.
 tree=ast.parse((SOURCE/'controller_node.py').read_text(encoding='utf-8'))
-klass=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='IgorControllerNode')
+klass=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='GardaControllerNode')
 methods=[n for n in klass.body if isinstance(n,ast.FunctionDef) and n.name in {'_control_loop','_stop_for_fault','_scan_callback','_cmd_vel_callback'}]
 context=dict(np=np,math=math,time=time,json=json,Twist=Twist,String=String,Float32=Float32,
              LaserScan=SimpleNamespace,FPGACommunicationError=bridge.FPGACommunicationError)
 exec(compile(ast.Module(body=methods,type_ignores=[]),str(SOURCE/'controller_node.py'),'exec'),context)
-cbf_path=ROOT/'src/igor_navigation/igor_navigation/controllers/cbf_safety_filter.py'
+cbf_path=SOURCE_TREE/'garda_navigation/garda_navigation/controllers/cbf_safety_filter.py'
 cbf_class=next(n for n in ast.parse(cbf_path.read_text(encoding='utf-8')).body if isinstance(n,ast.ClassDef))
 cbf_method=next(n for n in cbf_class.body if isinstance(n,ast.FunctionDef) and n.name=='filter_cbf')
 cbf_context=dict(np=np,Tuple=Tuple,List=List,Any=Any)
@@ -287,10 +288,10 @@ class ControllerTests(unittest.TestCase):
 if __name__=='__main__':
     suite=unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__])
     result=unittest.TextTestRunner(verbosity=2).run(suite)
-    output=ROOT/'peruri-iseedesign/evidence/current_host'
+    output=ROOT/'evidence/current_host'
     output.mkdir(parents=True,exist_ok=True)
     tested=[SOURCE/'fpga_bridge.py',SOURCE/'controller_node.py',SOURCE/'mcu_driver.py',cbf_path,
-            ROOT/'src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py',Path(__file__).resolve()]
+            SOURCE_TREE/'garda_navigation/garda_navigation/drivers/lidar_subsampler.py',Path(__file__).resolve()]
     (output/'results.json').write_text(json.dumps({'scope':'software fixtures; no physical hardware',
         'sha256':{str(p.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in tested},
         'tests':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),

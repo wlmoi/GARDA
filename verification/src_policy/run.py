@@ -15,8 +15,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-WORKSPACE = ROOT.parent
-SOURCE = WORKSPACE / "src/igor_navigation/igor_navigation/weights"
+WORKSPACE = ROOT
+SOURCE = ROOT / "fpga/software_integration/src/garda_navigation/garda_navigation/weights"
 RTL = ROOT / "rtl/garda_src_policy"
 ARTIFACTS = HERE / "artifacts"
 SHAPES = {"w1": (128, 74), "b1": (128,), "w2": (64, 128), "b2": (64,),
@@ -122,7 +122,7 @@ def vectors(model, q):
              ("alternating_lsb", [i % 2 for i in range(74)]),
              ("all_int16_max", [32767]*74), ("all_int16_min", [-32768]*74),
              ("alternating_int16_extremes", [32767 if i % 2 else -32768 for i in range(74)])]
-    # Walking ±1 LSB validates every input address and signed contribution.
+    # Walking Â±1 LSB validates every input address and signed contribution.
     for i in range(74):
         for polarity in (-1, 1):
             value = [0]*74

@@ -16,8 +16,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 WORKSPACE = ROOT.parent
-# Existing source-model dependency in the enclosing workspace; not the rebranded FPGA package.
-SOURCE = WORKSPACE / "src/igor_navigation/igor_navigation/weights"
+# The packaged software is versioned with this hardware, so clean CI checkouts
+# verify exactly the same coefficients without an external mutable workspace.
+SOURCE = ROOT / "software_integration/src/garda_navigation/garda_navigation/weights"
 RTL = ROOT / "rtl/garda_src_policy"
 ARTIFACTS = HERE / "artifacts"
 SHAPES = {"w1": (128, 74), "b1": (128,), "w2": (64, 128), "b2": (64,),

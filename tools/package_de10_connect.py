@@ -53,11 +53,18 @@ if __name__=='__main__':main()
 '''
 
 def main():
-    manifest={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in NAMES}
+    # Git checks these text assets out with LF on Linux. Build the same bundle
+    # from a Windows CRLF checkout, with fixed ZIP metadata for reproducibility.
+    contents={name:(ROOT/name).read_bytes().replace(b'\r\n',b'\n') for name in NAMES}
+    manifest={name:hashlib.sha256(content).hexdigest() for name,content in contents.items()}
     version=hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()[:16]
     stream=io.BytesIO()
     with zipfile.ZipFile(stream,'w',zipfile.ZIP_DEFLATED) as archive:
-        for name in NAMES:archive.write(ROOT/name,name)
+        for name,content in contents.items():
+            entry=zipfile.ZipInfo(name,date_time=(1980,1,1,0,0,0))
+            entry.compress_type=zipfile.ZIP_DEFLATED
+            entry.external_attr=0o644 << 16
+            archive.writestr(entry,content)
     data=stream.getvalue()
     text=TEMPLATE.replace('__PAYLOAD__',repr(base64.b64encode(data).decode()))
     text=text.replace('__SHA__',repr(hashlib.sha256(data).hexdigest())).replace('__MANIFEST__',repr(manifest)).replace('__VERSION__',repr(version))

@@ -4,10 +4,6 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
-      software_ref:
-        description: 'Published 40-character karolyangqian/igor_ws commit; falls back to IGOR_WORKSPACE_REF repository variable'
-        required: false
-        type: string
       archive_snapshot:
         description: 'Also validate historical release manifest and both archived board packages'
         required: false
@@ -17,34 +13,14 @@ permissions:
   contents: read
 jobs:
   src-policy-safety-host:
-    name: Paired current software policy, hardware safety and host
+    name: Current bundled software policy, hardware safety and host
     runs-on: ubuntu-24.04
     timeout-minutes: 25
-    env:
-      IGOR_SOFTWARE_REF: ${{ inputs.software_ref || vars.IGOR_WORKSPACE_REF }}
-    defaults:
-      run:
-        working-directory: software/peruri-iseedesign
     steps:
-      - name: Require an explicit reproducible software revision
-        working-directory: .
-        shell: bash
-        run: |
-          if [[ ! "$IGOR_SOFTWARE_REF" =~ ^[0-9a-fA-F]{40}$ ]]; then
-            echo '::error::Publish the matching igor_ws source and set IGOR_WORKSPACE_REF, or supply software_ref with its immutable 40-character commit. Current source checks cannot be skipped.'
-            exit 1
-          fi
-      - name: Checkout matching software workspace
+      - name: Checkout the paired hardware and software at this revision
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          repository: karolyangqian/igor_ws
-          ref: ${{ env.IGOR_SOFTWARE_REF }}
-          path: software
-          persist-credentials: false
-      - name: Checkout this hardware revision beside software src
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          path: software/peruri-iseedesign
+          lfs: true
           persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
@@ -68,11 +44,11 @@ jobs:
         with:
           name: garda-paired-current-${{ github.sha }}
           path: |
-            software/peruri-iseedesign/verification/src_policy/artifacts/
-            software/peruri-iseedesign/verification/src_policy/*.gtkw
-            software/peruri-iseedesign/evidence/current_board_wrapper/
-            software/peruri-iseedesign/evidence/current_safety/
-            software/peruri-iseedesign/evidence/current_host/
+            verification/src_policy/artifacts/
+            verification/src_policy/*.gtkw
+            evidence/current_board_wrapper/
+            evidence/current_safety/
+            evidence/current_host/
           if-no-files-found: error
           retention-days: 30
   archive-snapshot:
@@ -99,7 +75,7 @@ jobs:
       - name: Install Icarus and dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y iverilog
+          sudo apt-get install -y iverilog yosys
           python -m pip install -r requirements.txt
       - name: Check release hashing implementation
         run: |
@@ -120,10 +96,10 @@ jobs:
       - name: Run motor serializer and controller RTL tests
         working-directory: robot/jetauto/FPGA_UART_TTL_MULTISPEED
         run: |
-          iverilog -g2012 -s tb_multispeed -o /tmp/igor_motor_packets rtl/stm_packet_tx_multispeed.v tb/tb_multispeed.v
-          vvp /tmp/igor_motor_packets
-          iverilog -g2012 -s tb_multispeed_control -o /tmp/igor_motor_control rtl/stm_packet_tx_multispeed.v rtl/stm_uart_multispeed_top.v tb/tb_multispeed_control.v
-          vvp /tmp/igor_motor_control
+          iverilog -g2012 -s tb_multispeed -o /tmp/garda_motor_packets rtl/stm_packet_tx_multispeed.v tb/tb_multispeed.v
+          vvp /tmp/garda_motor_packets
+          iverilog -g2012 -s tb_multispeed_control -o /tmp/garda_motor_control rtl/stm_packet_tx_multispeed.v rtl/stm_uart_multispeed_top.v tb/tb_multispeed_control.v
+          vvp /tmp/garda_motor_control
       - name: Check motor packet encoding without serial access
         run: |
           python robot/jetauto/verify_driver.py

@@ -117,7 +117,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y iverilog
-          python -m pip install -r requirements.txt pyserial==3.5
+          python -m pip install -r requirements.txt -r ../requirements-asic.txt pyserial==3.5
       - name: Run legacy RTL suites against source
         run: |
           python verification/run.py all
@@ -126,10 +126,10 @@ jobs:
       - name: Verify four-wheel serializer and arm, refresh and timeout STOP control
         working-directory: fpga/robot/jetauto/FPGA_UART_TTL_MULTISPEED
         run: |
-          iverilog -g2012 -s tb_multispeed -o /tmp/igor_motor_packets rtl/stm_packet_tx_multispeed.v tb/tb_multispeed.v
-          vvp /tmp/igor_motor_packets
-          iverilog -g2012 -s tb_multispeed_control -o /tmp/igor_motor_control rtl/stm_packet_tx_multispeed.v rtl/stm_uart_multispeed_top.v tb/tb_multispeed_control.v
-          vvp /tmp/igor_motor_control
+          iverilog -g2012 -s tb_multispeed -o /tmp/garda_motor_packets rtl/stm_packet_tx_multispeed.v tb/tb_multispeed.v
+          vvp /tmp/garda_motor_packets
+          iverilog -g2012 -s tb_multispeed_control -o /tmp/garda_motor_control rtl/stm_packet_tx_multispeed.v rtl/stm_uart_multispeed_top.v tb/tb_multispeed_control.v
+          vvp /tmp/garda_motor_control
       - name: Independently decode motor bytes without opening any serial device
         run: |
           python robot/jetauto/verify_driver.py

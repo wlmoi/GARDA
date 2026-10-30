@@ -33,7 +33,7 @@ jobs:
           make clean
           make
           # make will return success even if the tests fail, so check results.xml for failed tests
-          python -m cocotb_tools.check_results results.xml
+          python ../tools/check_cocotb_results.py results.xml
 
       - name: Verify FPGA execution against the cycle model
         env:

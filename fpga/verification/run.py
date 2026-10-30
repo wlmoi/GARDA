@@ -1,4 +1,4 @@
-import argparse,json,os,sys
+import argparse,json,os,subprocess,sys
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 runtime=root/('.runtime/python' if os.name=='nt' else '.runtime/linux-python')
@@ -15,7 +15,12 @@ for suite in (['gate','neural','top','uart','tt'] if args.suite=='all' else [arg
     elif suite=='neural':sources=[root/'rtl/garda_neural_core.v',root/'rtl/garda_neural_rom.v',root/'verification/tb_neural.v'];top='tb_neural';module='test_neural';testdir=root/'verification'
     elif suite=='top':sources=[p for p in (root/'rtl').glob('*.v')]+[root/'verification/tb_top.v'];top='tb_top';module='test_top';testdir=root/'verification'
     elif suite=='uart':sources=[root/'rtl/garda_uart_protocol.v',root/'rtl/garda_uart_rx.v',root/'rtl/garda_uart_tx.v',root/'verification/tb_uart.v'];top='tb_uart';module='test_uart';testdir=root/'verification'
-    elif suite=='tt_generic':sources=[root/'evidence/asic_generic_netlist.v',root/'verification/tb_gate_wrapper.v'];top='tb';module='test_tt_gate';testdir=root/'verification'
+    elif suite=='tt_generic':
+        # Always verify a netlist synthesized from this checkout. Committed
+        # evidence can describe an earlier top name or an older RTL revision.
+        generated=root/'verification/build/tt_generic/netlist'
+        subprocess.run([sys.executable,str(root/'scripts/synth_asic.py'),'--output-dir',str(generated)],check=True)
+        sources=[generated/'asic_generic_netlist.v',root/'verification/tb_gate_wrapper.v'];top='tb';module='test_tt_gate';testdir=root/'verification'
     elif suite=='tt_logic':
         sources=[root/'src'/n for n in ['garda_neural_logic_top.v','garda_parameter_logic.v','garda_neural_datapath_logic.v','garda_activation_logic.v']]+[root/'test/tb.v'];top='tb';module='test';testdir=root/'test'
     elif suite=='tt_sram':

@@ -3,7 +3,7 @@
 """
 fpga_bridge.py - Terasic DE10-Nano UART / HPS Ethernet Accelerator Bridge
 Target Platform: DE10-Nano Cyclone V FPGA via UART (/dev/fpga @ 115200 / 921600 bps)
-PERURI Chip Hackathon 2026 - Project IGOR
+PERURI Chip Hackathon 2026 - Project GARDA
 
 Frame Framing Protocol:
 TX Packet (Host -> FPGA, 153 Bytes):
@@ -23,7 +23,7 @@ except ImportError:
     # Standalone regression tools load this module directly by filename.
     import importlib.util
     from pathlib import Path
-    _spec = importlib.util.spec_from_file_location('igor_udp_protocol', Path(__file__).with_name('ethernet_protocol.py'))
+    _spec = importlib.util.spec_from_file_location('garda_udp_protocol', Path(__file__).with_name('ethernet_protocol.py'))
     _udp_protocol = importlib.util.module_from_spec(_spec)
     _spec.loader.exec_module(_udp_protocol)
     UDPLink = _udp_protocol.UDPLink

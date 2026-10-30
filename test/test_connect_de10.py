@@ -174,6 +174,8 @@ class ConnectTests(unittest.TestCase):
             self.assertEqual(len(caches),1)
             for name in connect.ASSETS+['tools/connect_de10.py','src/igor_pipeline/scripts/ethernet_test.py',
                                          'src/igor_pipeline/scripts/uart_q88_vectors.json']:
-                self.assertEqual((caches[0]/name).read_bytes(),(ROOT/name).read_bytes())
+                # The standalone package uses Git's canonical LF text bytes on
+                # both Windows and Linux; executable content must still match.
+                self.assertEqual((caches[0]/name).read_bytes(),(ROOT/name).read_bytes().replace(b'\r\n',b'\n'))
 
 if __name__=='__main__':unittest.main()

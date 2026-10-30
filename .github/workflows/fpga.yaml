@@ -1,4 +1,4 @@
-name: fpga
+name: GARDA DE10-Nano FPGA verification
 
 on:
   push:
@@ -7,41 +7,55 @@ on:
 
 jobs:
   fpga:
+    name: Parallel8 RTL and Cyclone V synthesis
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v6
+      - name: Checkout the current GARDA source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           lfs: true
 
-      - name: Select FPGA block RAM
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Icarus and Cyclone V synthesis tools
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          header = Path('src/defines.vh')
-          header.write_text(header.read_text() + '\n`define JP_FPGA_SYNC_MEMORY\n')
-          PY
+          sudo apt-get update
+          sudo apt-get install -y iverilog yosys
 
-      - name: FPGA bitstream for TT ASIC Sim (ICE40UP5K)
-        uses: TinyTapeout/tt-gds-action/fpga/ice40up5k@ihp-cmos5l
-        env:
-          TT_FPGA_FREQ: '12'
-          TT_FPGA_SEED: '10'
+      - name: Independently verify the bundled source model and generate vectors
+        working-directory: fpga
+        run: python verification/src_policy/run.py --check
 
-      - name: Verify FPGA deliverables
+      - name: Verify Parallel8 core, UART and actual board wrapper
+        run: python fpga/experiments/parallel8/run.py
+
+      - name: Synthesize the active DE10-Nano project to Cyclone V cells
+        run: python fpga/scripts/synth_de10_parallel8.py
+
+      - name: Summarize source-current synthesis
         run: |
           python3 - <<'PY'
           import json
           import os
           from pathlib import Path
-          prefix = Path('build/tt_um_gardachip')
-          bitstream = prefix.with_suffix('.bin')
-          assert bitstream.is_file() and bitstream.stat().st_size > 0, 'FPGA bitstream required'
-          netlist = json.loads(prefix.with_suffix('.json').read_text())
-          cells = netlist['modules']['tt_fpga_top']['cells'].values()
-          ram_count = sum(cell['type'].startswith('SB_RAM40_4K') for cell in cells)
-          assert ram_count == 1, 'Expected one FPGA program block RAM'
+          report = json.loads(Path('fpga/verification/build/de10_parallel8/summary.json').read_text())
           with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as summary:
-              summary.write(f'FPGA bitstream generated with {ram_count} program block RAM.\n')
-              summary.write(f'Bitstream size: {bitstream.stat().st_size} bytes.\n')
+              summary.write('GARDA Parallel8 core, UART and board-wrapper RTL regressions passed.\n\n')
+              summary.write(f"Target: {report['target']}; clock reference: 50 MHz.\n\n")
+              summary.write(report['scope'] + '.\n')
           PY
+
+      - name: Preserve real synthesis and regression evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: garda-de10-parallel8-${{ github.sha }}
+          path: |
+            fpga/verification/build/de10_parallel8/
+            fpga/experiments/parallel8/artifacts/*.log
+            fpga/experiments/parallel8/artifacts/results.json
+            fpga/verification/src_policy/artifacts/
+          if-no-files-found: error
