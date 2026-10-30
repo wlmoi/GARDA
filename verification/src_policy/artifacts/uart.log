@@ -1,0 +1,3 @@
+VCD info: dumpfile verification/src_policy/artifacts/uart.vcd opened for output.
+PASS uart: 177 directed transactions, 237 assertions, all 74 field range boundaries, independent wire decode, E-stop/parser/inference/TX/reset/stale/watchdog recovery
+D:\LinkedinProjects\igor_ws\igor_ws\peruri-iseedesign\verification\src_policy\tb_src_policy_uart.sv:224: $finish called at 59804591000 (1ps)

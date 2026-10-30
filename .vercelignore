@@ -1,0 +1,7 @@
+# Upload only the curated static distribution when using Vercel CLI.
+*
+!vercel.json
+!dashboard/
+dashboard/*
+!dashboard/dist/
+!dashboard/dist/**

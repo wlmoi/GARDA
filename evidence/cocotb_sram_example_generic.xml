@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792019247" />
+    <testcase name="parameter_image_and_memory_controls" classname="test" file="C:\Users\William Anthony\Documents\Codex\2026-09-30\files-mentioned-by-the-user-draft\outputs\peruri-iseedesign\asic\sram_example\test.py" lineno="40" time="0.5662379264831543" sim_time_ns="72281.001" ratio_time="127651.28865339326" />
+  </testsuite>
+</testsuites>

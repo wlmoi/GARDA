@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792128922" />
+    <testcase name="neural_export_and_latency" classname="test_neural" file="C:\Users\William Anthony\Documents\Codex\2026-09-30\files-mentioned-by-the-user-draft\outputs\peruri-iseedesign\verification\test_neural.py" lineno="9" time="19.42840313911438" sim_time_ns="36434055.001" ratio_time="1875298.4864540342" />
+    <testcase name="neural_incomplete_input_rejected" classname="test_neural" file="C:\Users\William Anthony\Documents\Codex\2026-09-30\files-mentioned-by-the-user-draft\outputs\peruri-iseedesign\verification\test_neural.py" lineno="33" time="0.0010025501251220703" sim_time_ns="66.0" ratio_time="65832.11985731272" />
+  </testsuite>
+</testsuites>

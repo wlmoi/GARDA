@@ -1,0 +1,1492 @@
+
+-- Running command `read_verilog src/igor_neural_datapath.v src/igor_neural_sram_top.v src/igor_parameter_sram.v src/igor_activation_sram.v src/sram_2048x64_bb.v src/sram_256x16_bb.v; synth -top tt_um_wlmoi_igor_neural_sram -flatten -noabc; check -assert; stat; write_json evidence/neural_sram_netlist.json; write_verilog -noattr evidence/neural_sram_netlist.v' --
+
+1. Executing Verilog-2005 frontend: src/igor_neural_datapath.v
+Parsing Verilog input from `src/igor_neural_datapath.v' to AST representation.
+Generating RTLIL representation for module `\igor_neural_datapath'.
+Warning: Replacing memory \outputs with list of registers. See src/igor_neural_datapath.v:115
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: src/igor_neural_sram_top.v
+Parsing Verilog input from `src/igor_neural_sram_top.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_wlmoi_igor_neural_sram'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: src/igor_parameter_sram.v
+Parsing Verilog input from `src/igor_parameter_sram.v' to AST representation.
+Generating RTLIL representation for module `\igor_parameter_sram'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: src/igor_activation_sram.v
+Parsing Verilog input from `src/igor_activation_sram.v' to AST representation.
+Generating RTLIL representation for module `\igor_activation_sram'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: src/sram_2048x64_bb.v
+Parsing Verilog input from `src/sram_2048x64_bb.v' to AST representation.
+Generating RTLIL representation for module `\RM_IHPSG13_1P_2048x64_c2_bm_bist'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: src/sram_256x16_bb.v
+Parsing Verilog input from `src/sram_256x16_bb.v' to AST representation.
+Generating RTLIL representation for module `\RM_IHPSG13_1P_256x16_c2_bm_bist'.
+Successfully finished Verilog frontend.
+
+7. Executing SYNTH pass.
+
+7.1. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1.1. Analyzing design hierarchy..
+Top module:  \tt_um_wlmoi_igor_neural_sram
+Used module:     \igor_neural_datapath
+Used module:         \igor_activation_sram
+Used module:     \igor_parameter_sram
+Reprocessing module igor_activation_sram because instantiated module RM_IHPSG13_1P_256x16_c2_bm_bist has become available.
+Generating RTLIL representation for module `\igor_activation_sram'.
+
+7.1.2. Analyzing design hierarchy..
+Top module:  \tt_um_wlmoi_igor_neural_sram
+Used module:     \igor_neural_datapath
+Used module:         \igor_activation_sram
+Used module:     \igor_parameter_sram
+
+7.1.3. Analyzing design hierarchy..
+Top module:  \tt_um_wlmoi_igor_neural_sram
+Used module:     \igor_neural_datapath
+Used module:         \igor_activation_sram
+Used module:     \igor_parameter_sram
+Removed 0 unused modules.
+Mapping positional arguments of cell tt_um_wlmoi_igor_neural_sram.neural (igor_neural_datapath).
+Mapping positional arguments of cell tt_um_wlmoi_igor_neural_sram.parameter_store (igor_parameter_sram).
+Mapping positional arguments of cell igor_neural_datapath.activation_store (igor_activation_sram).
+
+7.2. Executing PROC pass (convert processes to netlists).
+
+7.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$src/igor_activation_sram.v:11$275 in module igor_activation_sram.
+Marked 1 switch rules as full_case in process $proc$src/igor_parameter_sram.v:15$214 in module igor_parameter_sram.
+Removed 1 dead cases from process $proc$src/igor_neural_sram_top.v:75$207 in module tt_um_wlmoi_igor_neural_sram.
+Marked 2 switch rules as full_case in process $proc$src/igor_neural_sram_top.v:75$207 in module tt_um_wlmoi_igor_neural_sram.
+Marked 15 switch rules as full_case in process $proc$src/igor_neural_sram_top.v:35$138 in module tt_um_wlmoi_igor_neural_sram.
+Removed 1 dead cases from process $proc$src/igor_neural_datapath.v:30$129 in module igor_neural_datapath.
+Marked 1 switch rules as full_case in process $proc$src/igor_neural_datapath.v:30$129 in module igor_neural_datapath.
+Marked 10 switch rules as full_case in process $proc$src/igor_neural_datapath.v:58$72 in module igor_neural_datapath.
+Removed a total of 2 dead cases.
+
+7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 9 assignments to connections.
+
+7.2.4. Executing PROC_INIT pass (extract init attributes).
+
+7.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\igor_activation_sram.$proc$src/igor_activation_sram.v:11$275'.
+Found async reset \rst_n in `\igor_parameter_sram.$proc$src/igor_parameter_sram.v:15$214'.
+Found async reset \rst_n in `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+Found async reset \rst_n in `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+
+7.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~37 debug messages>
+
+7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\igor_activation_sram.$proc$src/igor_activation_sram.v:22$296'.
+Creating decoders for process `\igor_activation_sram.$proc$src/igor_activation_sram.v:22$295'.
+Creating decoders for process `\igor_activation_sram.$proc$src/igor_activation_sram.v:11$275'.
+     1/1: $0\read_valid[0:0]
+Creating decoders for process `\igor_parameter_sram.$proc$src/igor_parameter_sram.v:15$214'.
+     1/2: $0\read_valid[0:0]
+     2/2: $0\read_quarter[1:0]
+Creating decoders for process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:75$207'.
+     1/2: $2\uo_out[7:0]
+     2/2: $1\uo_out[7:0]
+Creating decoders for process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+     1/18: $0\staged_bytes[1:0] [1]
+     2/18: $0\host_address[12:0] [7:0]
+     3/18: $0\staged_data[15:0] [7:0]
+     4/18: $0\host_address[12:0] [12:8]
+     5/18: $0\load_input[0:0]
+     6/18: $0\memory_write[0:0]
+     7/18: $0\diagnostic_page[2:0]
+     8/18: $0\write_word[15:0]
+     9/18: $0\write_address[12:0]
+    10/18: $0\host_fault[0:0]
+    11/18: $0\loading[0:0]
+    12/18: $0\staged_data[15:0] [15:8]
+    13/18: $0\staged_bytes[1:0] [0]
+    14/18: $0\loaded_words[12:0]
+    15/18: $0\start[0:0]
+    16/18: $0\weights_ready[0:0]
+    17/18: $0\output_index[1:0]
+    18/18: $0\input_index[4:0]
+Creating decoders for process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:30$129'.
+     1/1: $1$mem2reg_rd$\outputs$src/igor_neural_datapath.v:30$2_DATA[15:0]$131
+Creating decoders for process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+     1/37: $5$lookahead\loaded$71[23:0]$126
+     2/37: $3$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_ADDR[1:0]$121
+     3/37: $3$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_DATA[15:0]$122
+     4/37: $4$lookahead\loaded$71[23:0]$98
+     5/37: $2$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_DATA[15:0]$97
+     6/37: $2$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_ADDR[1:0]$96
+     7/37: $3$lookahead\loaded$71[23:0]$87
+     8/37: $3$bitselwrite$pos$src/igor_neural_datapath.v:68$1[4:0]$86
+     9/37: $2$lookahead\loaded$71[23:0]$83
+    10/37: $2$bitselwrite$pos$src/igor_neural_datapath.v:68$1[4:0]$82
+    11/37: $1$lookahead\loaded$71[23:0]$81
+    12/37: $1$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_DATA[15:0]$80
+    13/37: $1$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_ADDR[1:0]$79
+    14/37: $1$bitselwrite$pos$src/igor_neural_datapath.v:68$1[4:0]$78
+    15/37: $0\outputs[3][15:0]
+    16/37: $0\outputs[2][15:0]
+    17/37: $0\outputs[1][15:0]
+    18/37: $0\outputs[0][15:0]
+    19/37: $0\pipe_valid[0:0]
+    20/37: $0\bias_q[15:0]
+    21/37: $0\weight1_q[15:0]
+    22/37: $0\weight0_q[15:0]
+    23/37: $0\operand1_q[15:0]
+    24/37: $0\operand0_q[15:0]
+    25/37: $0\next_operand1[15:0]
+    26/37: $0\next_operand0[15:0]
+    27/37: $0\activation_address[7:0]
+    28/37: $0\accumulator[39:0]
+    29/37: $0\k[6:0]
+    30/37: $0\neuron[6:0]
+    31/37: $0\layer[1:0]
+    32/37: $0\state[2:0]
+    33/37: $0\address[12:0]
+    34/37: $0\latency_cycles[31:0]
+    35/37: $0\fault[0:0]
+    36/37: $0\done[0:0]
+    37/37: $0\busy[0:0]
+
+7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\igor_activation_sram.\bank_data[1]' from process `\igor_activation_sram.$proc$src/igor_activation_sram.v:22$296'.
+No latch inferred for signal `\igor_activation_sram.\bank_data[0]' from process `\igor_activation_sram.$proc$src/igor_activation_sram.v:22$295'.
+No latch inferred for signal `\tt_um_wlmoi_igor_neural_sram.\uo_out' from process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:75$207'.
+No latch inferred for signal `\igor_neural_datapath.$mem2reg_rd$\outputs$src/igor_neural_datapath.v:30$2_DATA' from process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:30$129'.
+
+7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\igor_activation_sram.\read_valid' using process `\igor_activation_sram.$proc$src/igor_activation_sram.v:11$275'.
+  created $adff cell `$procdff$1005' with positive edge clock and positive level reset.
+Creating register for signal `\igor_parameter_sram.\read_quarter' using process `\igor_parameter_sram.$proc$src/igor_parameter_sram.v:15$214'.
+  created $adff cell `$procdff$1010' with positive edge clock and positive level reset.
+Creating register for signal `\igor_parameter_sram.\read_valid' using process `\igor_parameter_sram.$proc$src/igor_parameter_sram.v:15$214'.
+  created $adff cell `$procdff$1015' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\load_input' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1020' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\start' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1025' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\input_index' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1030' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\output_index' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1035' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\weights_ready' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1040' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\host_address' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1045' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\loaded_words' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1050' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\staged_data' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1055' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\staged_bytes' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1060' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\loading' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1065' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\host_fault' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1070' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\memory_write' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1075' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\write_address' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1080' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\write_word' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1085' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_wlmoi_igor_neural_sram.\diagnostic_page' using process `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+  created $adff cell `$procdff$1090' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\busy' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1095' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\done' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1100' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\fault' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1105' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\latency_cycles' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1110' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\address' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1115' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\loaded' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1120' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\state' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1125' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\layer' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1130' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\neuron' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1135' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\k' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1140' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\accumulator' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1145' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\activation_address' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1150' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\next_operand0' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1155' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\next_operand1' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1160' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\operand0_q' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1165' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\operand1_q' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1170' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\weight0_q' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1175' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\weight1_q' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1180' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\bias_q' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1185' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\pipe_valid' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1190' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.$bitselwrite$pos$src/igor_neural_datapath.v:68$1' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1195' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.\outputs[0]' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $dff cell `$procdff$1202' with positive edge clock.
+Creating register for signal `\igor_neural_datapath.\outputs[1]' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $dff cell `$procdff$1209' with positive edge clock.
+Creating register for signal `\igor_neural_datapath.\outputs[2]' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $dff cell `$procdff$1216' with positive edge clock.
+Creating register for signal `\igor_neural_datapath.\outputs[3]' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $dff cell `$procdff$1223' with positive edge clock.
+Creating register for signal `\igor_neural_datapath.$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_ADDR' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1228' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.$mem2reg_wr$\outputs$src/igor_neural_datapath.v:115$3_DATA' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1233' with positive edge clock and positive level reset.
+Creating register for signal `\igor_neural_datapath.$lookahead\loaded$71' using process `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+  created $adff cell `$procdff$1238' with positive edge clock and positive level reset.
+
+7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `igor_activation_sram.$proc$src/igor_activation_sram.v:22$296'.
+Removing empty process `igor_activation_sram.$proc$src/igor_activation_sram.v:22$295'.
+Found and cleaned up 1 empty switch in `\igor_activation_sram.$proc$src/igor_activation_sram.v:11$275'.
+Removing empty process `igor_activation_sram.$proc$src/igor_activation_sram.v:11$275'.
+Found and cleaned up 1 empty switch in `\igor_parameter_sram.$proc$src/igor_parameter_sram.v:15$214'.
+Removing empty process `igor_parameter_sram.$proc$src/igor_parameter_sram.v:15$214'.
+Found and cleaned up 2 empty switches in `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:75$207'.
+Removing empty process `tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:75$207'.
+Found and cleaned up 15 empty switches in `\tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+Removing empty process `tt_um_wlmoi_igor_neural_sram.$proc$src/igor_neural_sram_top.v:35$138'.
+Found and cleaned up 1 empty switch in `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:30$129'.
+Removing empty process `igor_neural_datapath.$proc$src/igor_neural_datapath.v:30$129'.
+Found and cleaned up 17 empty switches in `\igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+Removing empty process `igor_neural_datapath.$proc$src/igor_neural_datapath.v:58$72'.
+Cleaned up 37 empty switches.
+
+7.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module igor_activation_sram.
+<suppressed ~4 debug messages>
+Optimizing module igor_parameter_sram.
+<suppressed ~4 debug messages>
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~35 debug messages>
+Optimizing module igor_neural_datapath.
+<suppressed ~83 debug messages>
+
+7.3. Executing CHECK pass (checking for obvious problems).
+Checking module igor_activation_sram...
+Checking module igor_parameter_sram...
+Checking module tt_um_wlmoi_igor_neural_sram...
+Checking module igor_neural_datapath...
+Found and reported 0 problems.
+
+7.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module igor_activation_sram.
+Deleting now unused module igor_parameter_sram.
+Deleting now unused module igor_neural_datapath.
+<suppressed ~3 debug messages>
+
+7.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~5 debug messages>
+
+7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 71 unused cells and 385 unused wires.
+<suppressed ~73 debug messages>
+
+7.7. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_wlmoi_igor_neural_sram...
+Found and reported 0 problems.
+
+7.8. Executing OPT pass (performing simple optimizations).
+
+7.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 582 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 433 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 424 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 420 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~486 debug messages>
+Removed a total of 162 cells.
+
+7.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\neural.$procmux$680.
+    dead port 2/2 on $mux $flatten\neural.$procmux$707.
+    dead port 2/2 on $mux $procmux$310.
+Removed 3 multiplexer ports.
+<suppressed ~362 debug messages>
+
+7.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+    New ctrl vector for $pmux cell $flatten\neural.$procmux$946: { $flatten\neural.$procmux$681_CMP $auto$opt_reduce.cc:137:opt_pmux$1243 $flatten\neural.$procmux$865_CMP }
+    New ctrl vector for $pmux cell $flatten\neural.$procmux$971: { $flatten\neural.$procmux$681_CMP $auto$opt_reduce.cc:137:opt_pmux$1245 $flatten\neural.$procmux$865_CMP }
+    New ctrl vector for $pmux cell $flatten\neural.$procmux$988: { $flatten\neural.$procmux$681_CMP $auto$opt_reduce.cc:137:opt_pmux$1247 $flatten\neural.$procmux$865_CMP }
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 3 changes.
+
+7.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 420 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 417 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+7.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 0 unused cells and 168 unused wires.
+<suppressed ~1 debug messages>
+
+7.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~343 debug messages>
+
+7.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+    New ctrl vector for $pmux cell $procmux$487: { $procmux$446_CMP $procmux$492_CMP $procmux$496_CMP $procmux$329_CMP $procmux$504_CMP $procmux$341_CMP $auto$opt_reduce.cc:137:opt_pmux$1249 $procmux$410_CMP $procmux$370_CMP }
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 1 changes.
+
+7.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 418 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~340 debug messages>
+
+7.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 418 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.8.23. Finished fast OPT passes. (There is nothing left to do.)
+
+7.9. Executing FSM pass (extract and optimize FSM).
+
+7.9.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register tt_um_wlmoi_igor_neural_sram.neural.state.
+
+7.9.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\neural.state' from module `\tt_um_wlmoi_igor_neural_sram'.
+  found $adff cell for state register: $flatten\neural.$procdff$1125
+  root of input selection tree: $flatten\neural.$0\state[2:0]
+  found reset state: 3'000 (from async reset)
+  found ctrl input: $flatten\neural.$eq$src/igor_neural_datapath.v:47$57_Y
+  found ctrl input: $flatten\neural.$procmux$772_CMP
+  found ctrl input: $flatten\neural.$procmux$765_CMP
+  found ctrl input: $flatten\neural.$procmux$830_CMP
+  found ctrl input: $flatten\neural.$procmux$831_CMP
+  found ctrl input: $flatten\neural.$procmux$766_CMP
+  found ctrl input: $flatten\neural.$procmux$1000_CMP
+  found ctrl input: \neural.final_neuron
+  found state code: 3'100
+  found state code: 3'110
+  found ctrl input: $flatten\neural.$eq$src/igor_neural_datapath.v:89$107_Y
+  found state code: 3'101
+  found state code: 3'011
+  found state code: 3'010
+  found ctrl input: \start
+  found ctrl input: $flatten\neural.$logic_and$src/igor_neural_datapath.v:73$104_Y
+  found state code: 3'001
+  found ctrl output: $flatten\neural.$procmux$1000_CMP
+  found ctrl output: $flatten\neural.$procmux$831_CMP
+  found ctrl output: $flatten\neural.$procmux$830_CMP
+  found ctrl output: $flatten\neural.$procmux$772_CMP
+  found ctrl output: $flatten\neural.$procmux$766_CMP
+  found ctrl output: $flatten\neural.$procmux$765_CMP
+  found ctrl output: $flatten\neural.$eq$src/igor_neural_datapath.v:47$57_Y
+  found ctrl output: $flatten\neural.$ne$src/igor_neural_datapath.v:55$67_Y
+  ctrl inputs: { \neural.final_neuron $flatten\neural.$logic_and$src/igor_neural_datapath.v:73$104_Y $flatten\neural.$eq$src/igor_neural_datapath.v:89$107_Y \start }
+  ctrl outputs: { $flatten\neural.$eq$src/igor_neural_datapath.v:47$57_Y $flatten\neural.$ne$src/igor_neural_datapath.v:55$67_Y $flatten\neural.$0\state[2:0] $flatten\neural.$procmux$765_CMP $flatten\neural.$procmux$766_CMP $flatten\neural.$procmux$772_CMP $flatten\neural.$procmux$830_CMP $flatten\neural.$procmux$831_CMP $flatten\neural.$procmux$1000_CMP }
+  transition:      3'000 4'---0 ->      3'000 11'01000000001
+  transition:      3'000 4'-0-1 ->      3'000 11'01000000001
+  transition:      3'000 4'-1-1 ->      3'001 11'01001000001
+  transition:      3'100 4'--0- ->      3'100 11'01100100000
+  transition:      3'100 4'--1- ->      3'101 11'01101100000
+  transition:      3'010 4'---- ->      3'011 11'01011000010
+  transition:      3'110 4'0--- ->      3'100 11'10100000000
+  transition:      3'110 4'1--- ->      3'000 11'10000000000
+  transition:      3'001 4'---- ->      3'010 11'01010010000
+  transition:      3'101 4'---- ->      3'110 11'01110001000
+  transition:      3'011 4'---- ->      3'100 11'01100000100
+
+7.9.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\neural.state$1250' from module `\tt_um_wlmoi_igor_neural_sram'.
+
+7.9.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 14 unused cells and 14 unused wires.
+<suppressed ~15 debug messages>
+
+7.9.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\neural.state$1250' from module `\tt_um_wlmoi_igor_neural_sram'.
+  Removing unused output signal $flatten\neural.$0\state[2:0] [0].
+  Removing unused output signal $flatten\neural.$0\state[2:0] [1].
+  Removing unused output signal $flatten\neural.$0\state[2:0] [2].
+
+7.9.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\neural.state$1250' from module `\tt_um_wlmoi_igor_neural_sram' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  000 -> ------1
+  100 -> -----1-
+  010 -> ----1--
+  110 -> ---1---
+  001 -> --1----
+  101 -> -1-----
+  011 -> 1------
+
+7.9.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\neural.state$1250' from module `tt_um_wlmoi_igor_neural_sram':
+-------------------------------------
+
+  Information on FSM $fsm$\neural.state$1250 (\neural.state):
+
+  Number of input signals:    4
+  Number of output signals:   8
+  Number of state bits:       7
+
+  Input signals:
+    0: \start
+    1: $flatten\neural.$eq$src/igor_neural_datapath.v:89$107_Y
+    2: $flatten\neural.$logic_and$src/igor_neural_datapath.v:73$104_Y
+    3: \neural.final_neuron
+
+  Output signals:
+    0: $flatten\neural.$procmux$1000_CMP
+    1: $flatten\neural.$procmux$831_CMP
+    2: $flatten\neural.$procmux$830_CMP
+    3: $flatten\neural.$procmux$772_CMP
+    4: $flatten\neural.$procmux$766_CMP
+    5: $flatten\neural.$procmux$765_CMP
+    6: $flatten\neural.$ne$src/igor_neural_datapath.v:55$67_Y
+    7: $flatten\neural.$eq$src/igor_neural_datapath.v:47$57_Y
+
+  State encoding:
+    0:  7'------1  <RESET STATE>
+    1:  7'-----1-
+    2:  7'----1--
+    3:  7'---1---
+    4:  7'--1----
+    5:  7'-1-----
+    6:  7'1------
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 4'---0   ->     0 8'01000001
+      1:     0 4'-0-1   ->     0 8'01000001
+      2:     0 4'-1-1   ->     4 8'01000001
+      3:     1 4'--0-   ->     1 8'01100000
+      4:     1 4'--1-   ->     5 8'01100000
+      5:     2 4'----   ->     6 8'01000010
+      6:     3 4'1---   ->     0 8'10000000
+      7:     3 4'0---   ->     1 8'10000000
+      8:     4 4'----   ->     2 8'01010000
+      9:     5 4'----   ->     3 8'01001000
+     10:     6 4'----   ->     1 8'01000100
+
+-------------------------------------
+
+7.9.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\neural.state$1250' from module `\tt_um_wlmoi_igor_neural_sram'.
+
+7.10. Executing OPT pass (performing simple optimizations).
+
+7.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~5 debug messages>
+
+7.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 420 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~334 debug messages>
+
+7.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 420 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1090 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \uio_in [2:0], Q = \diagnostic_page).
+Adding EN signal on $procdff$1070 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$487_Y, Q = \host_fault).
+Adding EN signal on $procdff$1030 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \uio_in [4:0], Q = \input_index).
+Adding EN signal on $procdff$1035 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \uio_in [1:0], Q = \output_index).
+Adding EN signal on $procdff$1085 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \staged_data, Q = \write_word).
+Adding EN signal on $procdff$1040 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$640_Y, Q = \weights_ready).
+Adding EN signal on $procdff$1045 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$365_Y, Q = \host_address [7:0]).
+Adding EN signal on $procdff$1045 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$405_Y, Q = \host_address [12:8]).
+Adding EN signal on $procdff$1050 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$610_Y, Q = \loaded_words).
+Adding EN signal on $procdff$1055 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \uio_in, Q = \staged_data [15:8]).
+Adding EN signal on $procdff$1055 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \uio_in, Q = \staged_data [7:0]).
+Adding EN signal on $procdff$1080 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \host_address, Q = \write_address).
+Adding EN signal on $procdff$1060 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$328_Y, Q = \staged_bytes [1]).
+Adding EN signal on $procdff$1060 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$579_Y, Q = \staged_bytes [0]).
+Adding EN signal on $procdff$1065 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $procmux$548_Y, Q = \loading).
+Adding EN signal on $flatten\parameter_store.$procdff$1010 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \parameter_store.address [1:0], Q = \parameter_store.read_quarter).
+Adding EN signal on $flatten\parameter_store.$procdff$1015 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \parameter_store.valid, Q = \parameter_store.read_valid).
+Adding EN signal on $flatten\neural.\activation_store.$procdff$1005 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \neural.activation_store.valid, Q = \neural.activation_store.read_valid).
+Adding EN signal on $flatten\neural.$procdff$1185 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \memory_data, Q = \neural.bias_q).
+Adding EN signal on $flatten\neural.$procdff$1223 ($dff) from module tt_um_wlmoi_igor_neural_sram (D = \neural.nonlinear, Q = \neural.outputs[3]).
+Adding EN signal on $flatten\neural.$procdff$1180 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\weight1_q[15:0], Q = \neural.weight1_q).
+Adding EN signal on $flatten\neural.$procdff$1175 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\weight0_q[15:0], Q = \neural.weight0_q).
+Adding EN signal on $flatten\neural.$procdff$1170 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\operand1_q[15:0], Q = \neural.operand1_q).
+Adding EN signal on $flatten\neural.$procdff$1165 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\operand0_q[15:0], Q = \neural.operand0_q).
+Adding EN signal on $flatten\neural.$procdff$1216 ($dff) from module tt_um_wlmoi_igor_neural_sram (D = \neural.nonlinear, Q = \neural.outputs[2]).
+Adding EN signal on $flatten\neural.$procdff$1160 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \neural.activation_odd, Q = \neural.next_operand1).
+Adding EN signal on $flatten\neural.$procdff$1155 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = \neural.activation_even, Q = \neural.next_operand0).
+Adding EN signal on $flatten\neural.$procdff$1190 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\pipe_valid[0:0], Q = \neural.pipe_valid).
+Adding EN signal on $flatten\neural.$procdff$1150 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\activation_address[7:0], Q = \neural.activation_address).
+Adding EN signal on $flatten\neural.$procdff$1145 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\accumulator[39:0], Q = \neural.accumulator).
+Adding EN signal on $flatten\neural.$procdff$1209 ($dff) from module tt_um_wlmoi_igor_neural_sram (D = \neural.nonlinear, Q = \neural.outputs[1]).
+Adding EN signal on $flatten\neural.$procdff$1140 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\k[6:0], Q = \neural.k).
+Adding EN signal on $flatten\neural.$procdff$1135 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\neuron[6:0], Q = \neural.neuron).
+Adding EN signal on $flatten\neural.$procdff$1130 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\layer[1:0], Q = \neural.layer).
+Adding EN signal on $flatten\neural.$procdff$1202 ($dff) from module tt_um_wlmoi_igor_neural_sram (D = \neural.nonlinear, Q = \neural.outputs[0]).
+Adding EN signal on $flatten\neural.$procdff$1115 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\address[12:0], Q = \neural.address).
+Adding EN signal on $flatten\neural.$procdff$1095 ($adff) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\busy[0:0], Q = \neural.busy).
+
+7.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 59 unused cells and 68 unused wires.
+<suppressed ~60 debug messages>
+
+7.10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~19 debug messages>
+
+7.10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~242 debug messages>
+
+7.10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 479 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 435 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 427 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~156 debug messages>
+Removed a total of 52 cells.
+
+7.10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 0 unused cells and 52 unused wires.
+<suppressed ~1 debug messages>
+
+7.10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.10.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.10.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~252 debug messages>
+
+7.10.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.10.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 427 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.10.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.10.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.10.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.10.23. Finished fast OPT passes. (There is nothing left to do.)
+
+7.11. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell tt_um_wlmoi_igor_neural_sram.$auto$fsm_map.cc:77:implement_pattern_cache$1269 ($eq).
+Removed top 19 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$lt$src/igor_neural_sram_top.v:56$174 ($lt).
+Removed top 27 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$lt$src/igor_neural_sram_top.v:65$191 ($lt).
+Removed top 29 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$lt$src/igor_neural_sram_top.v:68$205 ($lt).
+Removed top 29 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$lt$src/igor_neural_sram_top.v:69$206 ($lt).
+Removed top 1 bits (of 3) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$306_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$307_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$308_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$317_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$318_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$319_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$531_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$569_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$580_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$596_CMP0 ($eq).
+Removed top 6 bits (of 8) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$611_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$627_CMP0 ($eq).
+Removed top 6 bits (of 8) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$641_CMP0 ($eq).
+Removed top 7 bits (of 8) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$645_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$647_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tt_um_wlmoi_igor_neural_sram.$procmux$668_CMP0 ($eq).
+Removed top 25 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\parameter_store.$shiftx$src/igor_parameter_sram.v:21$219 ($shiftx).
+Removed top 48 bits (of 64) from port A of cell tt_um_wlmoi_igor_neural_sram.$flatten\parameter_store.$shl$src/igor_parameter_sram.v:12$213 ($shl).
+Removed top 1 bits (of 2) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$procmux$743_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$procmux$674_CMP0 ($eq).
+Removed top 29 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:123$127 ($add).
+Removed top 19 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:123$127 ($add).
+Removed top 16 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$gt$src/igor_neural_datapath.v:116$124 ($gt).
+Removed top 29 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:110$119 ($add).
+Removed top 24 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:110$119 ($add).
+Removed top 30 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:110$118 ($add).
+Removed top 19 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:110$118 ($add).
+Removed top 30 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:102$116 ($add).
+Removed top 24 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:102$116 ($add).
+Removed top 30 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:102$115 ($add).
+Removed top 19 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:102$115 ($add).
+Removed top 6 bits (of 13) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:99$114 ($add).
+Removed top 29 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$sub$src/igor_neural_datapath.v:97$111 ($sub).
+Removed top 24 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$sub$src/igor_neural_datapath.v:97$111 ($sub).
+Removed top 30 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:96$110 ($add).
+Removed top 25 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:96$110 ($add).
+Removed top 30 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:92$109 ($add).
+Removed top 24 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:92$109 ($add).
+Removed top 30 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$sub$src/igor_neural_datapath.v:89$106 ($sub).
+Removed top 24 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$sub$src/igor_neural_datapath.v:89$106 ($sub).
+Removed top 6 bits (of 13) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:77$105 ($add).
+Removed top 8 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$or$src/igor_neural_datapath.v:68$94 ($or).
+Removed top 8 bits (of 32) from port A of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$or$src/igor_neural_datapath.v:68$94 ($or).
+Removed top 8 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$or$src/igor_neural_datapath.v:68$94 ($or).
+Converting cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$neg$src/igor_neural_datapath.v:68$92 ($neg) from signed to unsigned.
+Removed top 1 bits (of 6) from port A of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$neg$src/igor_neural_datapath.v:68$92 ($neg).
+Removed top 8 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$and$src/igor_neural_datapath.v:68$91 ($and).
+Removed top 8 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$and$src/igor_neural_datapath.v:68$91 ($and).
+Removed top 8 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$not$src/igor_neural_datapath.v:68$90 ($not).
+Removed top 8 bits (of 32) from port A of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$not$src/igor_neural_datapath.v:68$90 ($not).
+Removed top 27 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ge$src/igor_neural_datapath.v:67$84 ($ge).
+Removed top 1 bits (of 8) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:50$64 ($add).
+Removed top 1 bits (of 8) from mux cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:50$63 ($mux).
+Removed top 27 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$lt$src/igor_neural_datapath.v:46$55 ($lt).
+Removed top 31 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$lt$src/igor_neural_datapath.v:44$49 ($lt).
+Removed top 1 bits (of 8) from mux cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:43$47 ($mux).
+Removed top 1 bits (of 2) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$eq$src/igor_neural_datapath.v:43$46 ($eq).
+Removed top 2 bits (of 13) from port A of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:40$39 ($add).
+Removed top 3 bits (of 13) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:40$39 ($add).
+Removed top 1 bits (of 13) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:40$39 ($add).
+Removed top 4 bits (of 13) from mux cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:38$34 ($mux).
+Removed top 4 bits (of 13) from mux cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:37$30 ($mux).
+Removed top 1 bits (of 2) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$eq$src/igor_neural_datapath.v:37$29 ($eq).
+Removed top 23 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$lt$src/igor_neural_datapath.v:29$9 ($lt).
+Removed top 22 bits (of 32) from port B of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$gt$src/igor_neural_datapath.v:28$8 ($gt).
+Removed top 8 bits (of 32) from port Y of cell tt_um_wlmoi_igor_neural_sram.$flatten\neural.$shift$src/igor_neural_datapath.v:68$93 ($shift).
+Removed top 19 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:102$115_Y.
+Removed top 24 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:102$116_Y.
+Removed top 1 bits (of 8) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:50$63_Y.
+Removed top 19 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:110$118_Y.
+Removed top 24 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:110$119_Y.
+Removed top 1 bits (of 8) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:43$47_Y.
+Removed top 1 bits (of 13) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:40$39_Y.
+Removed top 19 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:123$127_Y.
+Removed top 4 bits (of 13) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:38$34_Y.
+Removed top 4 bits (of 13) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$ternary$src/igor_neural_datapath.v:37$30_Y.
+Removed top 8 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$or$src/igor_neural_datapath.v:68$94_Y.
+Removed top 8 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$and$src/igor_neural_datapath.v:68$91_Y.
+Removed top 8 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$not$src/igor_neural_datapath.v:68$90_Y.
+Removed top 8 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$shift$src/igor_neural_datapath.v:68$89_Y.
+Removed top 24 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:92$109_Y.
+Removed top 25 bits (of 32) from wire tt_um_wlmoi_igor_neural_sram.$flatten\neural.$add$src/igor_neural_datapath.v:96$110_Y.
+
+7.12. Executing PEEPOPT pass (run peephole optimizers).
+shiftpow2 pattern in tt_um_wlmoi_igor_neural_sram: shift=$flatten\parameter_store.$shiftx$src/igor_parameter_sram.v:21$219, index=\parameter_store.read_quarter, stride=16, width=16, ways=4
+
+7.13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 0 unused cells and 16 unused wires.
+<suppressed ~1 debug messages>
+
+7.14. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module tt_um_wlmoi_igor_neural_sram:
+  creating $macc model for $flatten\neural.$neg$src/igor_neural_datapath.v:68$92 ($neg).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:50$64 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:70$95 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:41$43 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:40$39 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:36$26 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:25$6 ($add).
+  creating $macc model for $flatten\neural.$mul$src/igor_neural_datapath.v:24$5 ($mul).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:35$24 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:25$7 ($add).
+  creating $macc model for $flatten\neural.$sub$src/igor_neural_datapath.v:33$20 ($sub).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:77$105 ($add).
+  creating $macc model for $flatten\neural.$sub$src/igor_neural_datapath.v:89$106 ($sub).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:92$109 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:96$110 ($add).
+  creating $macc model for $flatten\neural.$sub$src/igor_neural_datapath.v:97$111 ($sub).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:99$114 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:102$115 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:102$116 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:110$118 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:110$119 ($add).
+  creating $macc model for $add$src/igor_neural_sram_top.v:58$177 ($add).
+  creating $macc model for $add$src/igor_neural_sram_top.v:58$176 ($add).
+  creating $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:123$127 ($add).
+  creating $macc model for $flatten\neural.$mul$src/igor_neural_datapath.v:23$4 ($mul).
+  merging $macc model for $flatten\neural.$add$src/igor_neural_datapath.v:25$6 into $flatten\neural.$add$src/igor_neural_datapath.v:25$7.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:123$127.
+  creating $alu model for $macc $add$src/igor_neural_sram_top.v:58$176.
+  creating $alu model for $macc $add$src/igor_neural_sram_top.v:58$177.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:110$119.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:110$118.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:102$116.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:102$115.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:99$114.
+  creating $alu model for $macc $flatten\neural.$sub$src/igor_neural_datapath.v:97$111.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:96$110.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:92$109.
+  creating $alu model for $macc $flatten\neural.$sub$src/igor_neural_datapath.v:89$106.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:77$105.
+  creating $alu model for $macc $flatten\neural.$sub$src/igor_neural_datapath.v:33$20.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:35$24.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:36$26.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:40$39.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:41$43.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:70$95.
+  creating $alu model for $macc $flatten\neural.$add$src/igor_neural_datapath.v:50$64.
+  creating $alu model for $macc $flatten\neural.$neg$src/igor_neural_datapath.v:68$92.
+  creating $macc cell for $flatten\neural.$add$src/igor_neural_datapath.v:25$7: $auto$alumacc.cc:399:replace_macc$1579
+  creating $macc cell for $flatten\neural.$mul$src/igor_neural_datapath.v:24$5: $auto$alumacc.cc:399:replace_macc$1580
+  creating $macc cell for $flatten\neural.$mul$src/igor_neural_datapath.v:23$4: $auto$alumacc.cc:399:replace_macc$1581
+  creating $alu model for $flatten\neural.$lt$src/igor_neural_datapath.v:46$55 ($lt): new $alu
+  creating $alu model for $flatten\neural.$lt$src/igor_neural_datapath.v:44$49 ($lt): new $alu
+  creating $alu model for $flatten\neural.$gt$src/igor_neural_datapath.v:28$8 ($gt): new $alu
+  creating $alu model for $flatten\neural.$lt$src/igor_neural_datapath.v:29$9 ($lt): new $alu
+  creating $alu model for $flatten\neural.$ge$src/igor_neural_datapath.v:67$84 ($ge): merged with $flatten\neural.$lt$src/igor_neural_datapath.v:46$55.
+  creating $alu model for $flatten\neural.\activation_store.$lt$src/igor_activation_sram.v:8$274 ($lt): new $alu
+  creating $alu model for $lt$src/igor_neural_sram_top.v:69$206 ($lt): new $alu
+  creating $alu model for $lt$src/igor_neural_sram_top.v:68$205 ($lt): new $alu
+  creating $alu model for $lt$src/igor_neural_sram_top.v:65$191 ($lt): new $alu
+  creating $alu model for $lt$src/igor_neural_sram_top.v:56$174 ($lt): new $alu
+  creating $alu model for $flatten\neural.$gt$src/igor_neural_datapath.v:116$124 ($gt): new $alu
+  creating $alu model for $flatten\parameter_store.$lt$src/igor_parameter_sram.v:10$212 ($lt): new $alu
+  creating $alu model for $eq$src/igor_neural_sram_top.v:60$178 ($eq): merged with $lt$src/igor_neural_sram_top.v:56$174.
+  creating $alu cell for $flatten\parameter_store.$lt$src/igor_parameter_sram.v:10$212: $auto$alumacc.cc:548:replace_alu$1593
+  creating $alu cell for $flatten\neural.$gt$src/igor_neural_datapath.v:116$124: $auto$alumacc.cc:548:replace_alu$1598
+  creating $alu cell for $lt$src/igor_neural_sram_top.v:56$174, $eq$src/igor_neural_sram_top.v:60$178: $auto$alumacc.cc:548:replace_alu$1611
+  creating $alu cell for $lt$src/igor_neural_sram_top.v:65$191: $auto$alumacc.cc:548:replace_alu$1618
+  creating $alu cell for $lt$src/igor_neural_sram_top.v:68$205: $auto$alumacc.cc:548:replace_alu$1623
+  creating $alu cell for $lt$src/igor_neural_sram_top.v:69$206: $auto$alumacc.cc:548:replace_alu$1628
+  creating $alu cell for $flatten\neural.\activation_store.$lt$src/igor_activation_sram.v:8$274: $auto$alumacc.cc:548:replace_alu$1633
+  creating $alu cell for $flatten\neural.$lt$src/igor_neural_datapath.v:29$9: $auto$alumacc.cc:548:replace_alu$1638
+  creating $alu cell for $flatten\neural.$gt$src/igor_neural_datapath.v:28$8: $auto$alumacc.cc:548:replace_alu$1645
+  creating $alu cell for $flatten\neural.$lt$src/igor_neural_datapath.v:44$49: $auto$alumacc.cc:548:replace_alu$1658
+  creating $alu cell for $flatten\neural.$lt$src/igor_neural_datapath.v:46$55, $flatten\neural.$ge$src/igor_neural_datapath.v:67$84: $auto$alumacc.cc:548:replace_alu$1665
+  creating $alu cell for $flatten\neural.$neg$src/igor_neural_datapath.v:68$92: $auto$alumacc.cc:548:replace_alu$1678
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:50$64: $auto$alumacc.cc:548:replace_alu$1681
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:70$95: $auto$alumacc.cc:548:replace_alu$1684
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:41$43: $auto$alumacc.cc:548:replace_alu$1687
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:40$39: $auto$alumacc.cc:548:replace_alu$1690
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:36$26: $auto$alumacc.cc:548:replace_alu$1693
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:35$24: $auto$alumacc.cc:548:replace_alu$1696
+  creating $alu cell for $flatten\neural.$sub$src/igor_neural_datapath.v:33$20: $auto$alumacc.cc:548:replace_alu$1699
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:77$105: $auto$alumacc.cc:548:replace_alu$1702
+  creating $alu cell for $flatten\neural.$sub$src/igor_neural_datapath.v:89$106: $auto$alumacc.cc:548:replace_alu$1705
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:92$109: $auto$alumacc.cc:548:replace_alu$1708
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:96$110: $auto$alumacc.cc:548:replace_alu$1711
+  creating $alu cell for $flatten\neural.$sub$src/igor_neural_datapath.v:97$111: $auto$alumacc.cc:548:replace_alu$1714
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:99$114: $auto$alumacc.cc:548:replace_alu$1717
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:102$115: $auto$alumacc.cc:548:replace_alu$1720
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:102$116: $auto$alumacc.cc:548:replace_alu$1723
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:110$118: $auto$alumacc.cc:548:replace_alu$1726
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:110$119: $auto$alumacc.cc:548:replace_alu$1729
+  creating $alu cell for $add$src/igor_neural_sram_top.v:58$177: $auto$alumacc.cc:548:replace_alu$1732
+  creating $alu cell for $add$src/igor_neural_sram_top.v:58$176: $auto$alumacc.cc:548:replace_alu$1735
+  creating $alu cell for $flatten\neural.$add$src/igor_neural_datapath.v:123$127: $auto$alumacc.cc:548:replace_alu$1738
+  created 32 $alu and 3 $macc cells.
+
+7.15. Executing SHARE pass (SAT-based resource sharing).
+
+7.16. Executing OPT pass (performing simple optimizations).
+
+7.16.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~7 debug messages>
+
+7.16.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 450 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.16.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~252 debug messages>
+
+7.16.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.16.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 450 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.16.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.16.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 3 unused cells and 21 unused wires.
+<suppressed ~5 debug messages>
+
+7.16.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.16.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.16.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~252 debug messages>
+
+7.16.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.16.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 446 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.16.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.16.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.16.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.16.16. Finished fast OPT passes. (There is nothing left to do.)
+
+7.17. Executing MEMORY pass.
+
+7.17.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.17.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.17.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.17.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.17.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+7.17.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.17.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.17.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.17.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.17.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.19. Executing OPT pass (performing simple optimizations).
+
+7.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~113 debug messages>
+
+7.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 425 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 412 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~39 debug messages>
+Removed a total of 13 cells.
+
+7.19.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:337:slice$1481 ($adffe) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\activation_address[7:0] [0], Q = \neural.activation_address [0]).
+Adding EN signal on $auto$ff.cc:337:slice$1504 ($adffe) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\k[6:0] [0], Q = \neural.k [0]).
+Adding EN signal on $auto$ff.cc:337:slice$1538 ($adffe) from module tt_um_wlmoi_igor_neural_sram (D = $flatten\neural.$0\address[12:0] [0], Q = \neural.address [0]).
+
+7.19.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 11 unused cells and 93 unused wires.
+<suppressed ~12 debug messages>
+
+7.19.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.19.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~3 debug messages>
+
+7.19.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 409 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 408 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+7.19.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.19.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+7.19.10. Finished fast OPT passes.
+
+7.20. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7.21. Executing OPT pass (performing simple optimizations).
+
+7.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 408 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~132 debug messages>
+
+7.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+    New input vector for $reduce_and cell $auto$simple.cc:211:make_patterns_logic$1815: { $auto$simple.cc:193:make_patterns_logic$1482 $auto$simple.cc:193:make_patterns_logic$1484 $auto$simple.cc:193:make_patterns_logic$1486 $auto$simple.cc:193:make_patterns_logic$1488 $auto$simple.cc:193:make_patterns_logic$1812 }
+    New input vector for $reduce_and cell $auto$simple.cc:211:make_patterns_logic$1821: { $auto$simple.cc:193:make_patterns_logic$1434 $auto$simple.cc:193:make_patterns_logic$1505 $auto$simple.cc:193:make_patterns_logic$1509 $auto$simple.cc:193:make_patterns_logic$1818 }
+    New input vector for $reduce_and cell $auto$simple.cc:211:make_patterns_logic$1827: { $auto$simple.cc:193:make_patterns_logic$1434 $auto$simple.cc:193:make_patterns_logic$1482 $auto$simple.cc:193:make_patterns_logic$1484 $auto$simple.cc:193:make_patterns_logic$1486 $auto$simple.cc:193:make_patterns_logic$1547 $auto$simple.cc:193:make_patterns_logic$1812 }
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:50$63:
+      Old ports: A=7'1011000, B=7'0011000, Y=$auto$wreduce.cc:513:run$1564 [6:0]
+      New ports: A=1'1, B=1'0, Y=$auto$wreduce.cc:513:run$1564 [6]
+      New connections: $auto$wreduce.cc:513:run$1564 [5:0] = 6'011000
+    New ctrl vector for $pmux cell $flatten\neural.$procmux$988: \neural.state [0]
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:43$48:
+      Old ports: A={ 1'0 $auto$wreduce.cc:513:run$1567 [6:0] }, B=8'00000000, Y=\neural.next_activation_base
+      New ports: A=$auto$wreduce.cc:513:run$1567 [6:0], B=7'0000000, Y=\neural.next_activation_base [6:0]
+      New connections: \neural.next_activation_base [7] = 1'0
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:43$47:
+      Old ports: A=7'1011000, B=7'0011000, Y=$auto$wreduce.cc:513:run$1567 [6:0]
+      New ports: A=1'1, B=1'0, Y=$auto$wreduce.cc:513:run$1567 [6]
+      New connections: $auto$wreduce.cc:513:run$1567 [5:0] = 6'011000
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:41$41:
+      Old ports: A=13'1011010000000, B=13'0011001000000, Y={ $flatten\neural.$ternary$src/igor_neural_datapath.v:41$41_Y [12:6] $auto$alumacc.cc:564:replace_alu$1688 [5:0] }
+      New ports: A=2'10, B=2'01, Y=$flatten\neural.$ternary$src/igor_neural_datapath.v:41$41_Y [7:6]
+      New connections: { $flatten\neural.$ternary$src/igor_neural_datapath.v:41$41_Y [12:8] $auto$alumacc.cc:564:replace_alu$1688 [5:0] } = { $flatten\neural.$ternary$src/igor_neural_datapath.v:41$41_Y [7] 10'0110000000 }
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:38$35:
+      Old ports: A={ 4'1011 $auto$wreduce.cc:513:run$1570 [8:0] }, B=13'0011000000000, Y=\neural.next_bias_base
+      New ports: A={ 1'1 $auto$wreduce.cc:513:run$1570 [8:0] }, B=10'0000000000, Y={ \neural.next_bias_base [12] \neural.next_bias_base [8:0] }
+      New connections: \neural.next_bias_base [11:9] = 3'011
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:38$34:
+      Old ports: A=9'110000000, B=9'001000000, Y=$auto$wreduce.cc:513:run$1570 [8:0]
+      New ports: A=2'10, B=2'01, Y=$auto$wreduce.cc:513:run$1570 [7:6]
+      New connections: { $auto$wreduce.cc:513:run$1570 [8] $auto$wreduce.cc:513:run$1570 [5:0] } = { $auto$wreduce.cc:513:run$1570 [7] 6'000000 }
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:37$31:
+      Old ports: A={ 4'1011 $auto$wreduce.cc:513:run$1571 [8:0] }, B=13'0011000000000, Y=\neural.bias_base
+      New ports: A={ 1'1 $auto$wreduce.cc:513:run$1571 [8:0] }, B=10'0000000000, Y={ \neural.bias_base [12] \neural.bias_base [8:0] }
+      New connections: \neural.bias_base [11:9] = 3'011
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:37$30:
+      Old ports: A=9'110000000, B=9'001000000, Y=$auto$wreduce.cc:513:run$1571 [8:0]
+      New ports: A=2'10, B=2'01, Y=$auto$wreduce.cc:513:run$1571 [7:6]
+      New connections: { $auto$wreduce.cc:513:run$1571 [8] $auto$wreduce.cc:513:run$1571 [5:0] } = { $auto$wreduce.cc:513:run$1571 [7] 6'000000 }
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:31$17:
+      Old ports: A=7'1000000, B=7'0011000, Y=\neural.input_count
+      New ports: A=2'10, B=2'01, Y={ \neural.input_count [6] \neural.input_count [3] }
+      New connections: { \neural.input_count [5:4] \neural.input_count [2:0] } = { 1'0 \neural.input_count [3] 3'000 }
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:32$19:
+      Old ports: A=7'1000000, B=7'0000100, Y=\neural.output_count
+      New ports: A=2'10, B=2'01, Y={ \neural.output_count [6] \neural.output_count [2] }
+      New connections: { \neural.output_count [5:3] \neural.output_count [1:0] } = 5'00000
+    New ctrl vector for $pmux cell $flatten\neural.$procmux$763: $auto$opt_reduce.cc:137:opt_pmux$1830
+    New ctrl vector for $pmux cell $procmux$579: $auto$opt_reduce.cc:137:opt_pmux$1832
+    New ctrl vector for $pmux cell $procmux$509: $procmux$340_CMP
+    New ctrl vector for $pmux cell $procmux$487: $procmux$341_CMP
+    New ctrl vector for $pmux cell $flatten\neural.$procmux$836: { \neural.state [3] $auto$opt_reduce.cc:137:opt_pmux$1834 }
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:43$48:
+      Old ports: A=$auto$wreduce.cc:513:run$1567 [6:0], B=7'0000000, Y=\neural.next_activation_base [6:0]
+      New ports: A={ $auto$wreduce.cc:513:run$1567 [6] 1'1 }, B=2'00, Y={ \neural.next_activation_base [6] \neural.next_activation_base [3] }
+      New connections: { \neural.next_activation_base [5:4] \neural.next_activation_base [2:0] } = { 1'0 \neural.next_activation_base [3] 3'000 }
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:39$44:
+      Old ports: A={ $flatten\neural.$add$src/igor_neural_datapath.v:41$43_Y [12:6] $auto$alumacc.cc:564:replace_alu$1688 [5:0] }, B={ 1'0 $auto$wreduce.cc:513:run$1568 [11:4] \neural.next_neuron [0] 3'000 }, Y=\neural.next_row
+      New ports: A={ $flatten\neural.$add$src/igor_neural_datapath.v:41$43_Y [12:6] 3'000 }, B={ 1'0 $auto$wreduce.cc:513:run$1568 [11:4] \neural.next_neuron [0] }, Y=\neural.next_row [12:3]
+      New connections: \neural.next_row [2:0] = 3'000
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:38$35:
+      Old ports: A={ 1'1 $auto$wreduce.cc:513:run$1570 [8:0] }, B=10'0000000000, Y={ \neural.next_bias_base [12] \neural.next_bias_base [8:0] }
+      New ports: A={ 1'1 $auto$wreduce.cc:513:run$1570 [7:6] }, B=3'000, Y={ \neural.next_bias_base [12] \neural.next_bias_base [7:6] }
+      New connections: { \neural.next_bias_base [8] \neural.next_bias_base [5:0] } = { \neural.next_bias_base [7] 6'000000 }
+    Consolidated identical input bits for $mux cell $flatten\neural.$ternary$src/igor_neural_datapath.v:37$31:
+      Old ports: A={ 1'1 $auto$wreduce.cc:513:run$1571 [8:0] }, B=10'0000000000, Y={ \neural.bias_base [12] \neural.bias_base [8:0] }
+      New ports: A={ 1'1 $auto$wreduce.cc:513:run$1571 [7:6] }, B=3'000, Y={ \neural.bias_base [12] \neural.bias_base [7:6] }
+      New connections: { \neural.bias_base [8] \neural.bias_base [5:0] } = { \neural.bias_base [7] 6'000000 }
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 23 changes.
+
+7.21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 411 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 410 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+7.21.6. Executing OPT_SHARE pass.
+
+7.21.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.21.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+7.21.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~57 debug messages>
+
+7.21.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.21.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~125 debug messages>
+
+7.21.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.21.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 408 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 405 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~15 debug messages>
+Removed a total of 3 cells.
+
+7.21.14. Executing OPT_SHARE pass.
+
+7.21.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.21.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 0 unused cells and 29 unused wires.
+<suppressed ~2 debug messages>
+
+7.21.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.21.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.21.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_wlmoi_igor_neural_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~128 debug messages>
+
+7.21.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_wlmoi_igor_neural_sram.
+Performed a total of 0 changes.
+
+7.21.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 404 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.21.22. Executing OPT_SHARE pass.
+
+7.21.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.21.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+
+7.21.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+
+7.21.26. Finished fast OPT passes. (There is nothing left to do.)
+
+7.22. Executing TECHMAP pass (map to technology primitives).
+
+7.22.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+7.22.2. Continuing TECHMAP pass.
+Using template $paramod$00298f3f8094950cb9a5ff2fda48d0d8bde8806c\_90_alu for cells of type $alu.
+Using template $paramod$b18e16801adf491a64caa0542270798e5d4ac6b6\_90_alu for cells of type $alu.
+Using template $paramod$fc972a7a46956c1788f3cb5257b53c8f1df2d0cc\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod$215440792383f7884e57d9c95f84e9552d0bf4ac\_90_alu for cells of type $alu.
+Using template $paramod$103b4016182df467cceab67bcf3e18e6361ec0fd\_90_alu for cells of type $alu.
+Using template $paramod$8f780356cb6cdb52f6a744190131b65634639c4e\_90_alu for cells of type $alu.
+Using template $paramod$32efbfac1c4dc57230cf86180788fdfd12e3b511\_90_alu for cells of type $alu.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using template $paramod$7ef5df9e753d3f8c692994a58e47039e65e856ea\_90_alu for cells of type $alu.
+Using template $paramod$dbcdc7e8aa1a4080cea2deda6fdc8772064f4d90\_90_alu for cells of type $alu.
+Using template $paramod$6a42b6fefed750f8a1c58eab59479d960557103c\_90_alu for cells of type $alu.
+Using template $paramod$83dd457849c736323edf2edb15923eb27f99c683\_90_alu for cells of type $alu.
+Using template $paramod$9f3f81d189a6b1d5c738a580270bbb92e45c5c71\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$7e708ae28ab761f11d0fb59d3ffc72f6a4baf5d9\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$b429cffabeb32207ee0b356f1f47c8ecd0af65f3\_90_alu for cells of type $alu.
+Using template $paramod$ab14aab76fb0d3dd16c8515c4fa00f62972cf0a7\_90_alu for cells of type $alu.
+Using template $paramod$4504179771182265d0fe43701f70377fc04ca361\_90_alu for cells of type $alu.
+Using template $paramod$a04dd9d4d8b430140c4ff94b50470fb380fda2a0\_90_alu for cells of type $alu.
+Using template $paramod$eae5c6d909a05153739c7821f34da2cbc0422532\_90_alu for cells of type $alu.
+Using template $paramod$ec32b97001540459632a2df9accd677d3703ea0f\_90_alu for cells of type $alu.
+Using template $paramod$776f90c6247cc9f5d649c7ef2bea25df44696e58\_90_alu for cells of type $alu.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \neural.operand0_q * \neural.weight0_q (16x16 bits, signed)
+  add \neural.operand1_q * \neural.weight1_q (16x16 bits, signed)
+  add \neural.accumulator (40 bits, unsigned)
+  add { \neural.product1 [31] \neural.product1 [31] \neural.product1 [31] \neural.product1 [31] \neural.product1 [31] \neural.product1 [31] \neural.product1 [31] \neural.product1 [31] \neural.product1 } (40 bits, unsigned)
+  add { \neural.product0 [31] \neural.product0 [31] \neural.product0 [31] \neural.product0 [31] \neural.product0 [31] \neural.product0 [31] \neural.product0 [31] \neural.product0 [31] \neural.product0 } (40 bits, unsigned)
+Using extmapper simplemap for cells of type $bmux.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $pmux.
+Using template $paramod$constmap:b5c6ca8cef16ef9d18de78b93d162fbf6e5a9df6$paramod$1a91c7d645b409e9e7e55d37d7b017b171bbc5c3\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using extmapper simplemap for cells of type $logic_or.
+Using template $paramod$constmap:c723eb51ff1c1212eeb585794b91632091d9be9b$paramod$fa3517860859eb4f19e532c425a65f7ab9f313fb\_90_shift_shiftx for cells of type $shift.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000100000 for cells of type $fa.
+Using template $paramod$fbc7873bff55778c0b3173955b7e4bce1d9d6834\_90_alu for cells of type $alu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000101000 for cells of type $fa.
+Using template $paramod$445c63d4194be6438b67f4f941870a6ab959ba80\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000101 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000111 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000111 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000110 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001011 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001100 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001101 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001101 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000001 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000101000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~5209 debug messages>
+
+7.23. Executing OPT pass (performing simple optimizations).
+
+7.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~5138 debug messages>
+
+7.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 8874 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 8323 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 8096 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7935 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7855 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7753 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7703 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7677 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7669 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7661 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7657 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7653 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7649 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7647 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+<suppressed ~3681 debug messages>
+Removed a total of 1227 cells.
+
+7.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$2000 ($_DFFE_PN0P_) from module tt_um_wlmoi_igor_neural_sram.
+
+7.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 516 unused cells and 2668 unused wires.
+<suppressed ~517 debug messages>
+
+7.23.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.23.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_wlmoi_igor_neural_sram.
+<suppressed ~10 debug messages>
+
+7.23.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_wlmoi_igor_neural_sram'.
+Computing hashes of 7120 cells of `\tt_um_wlmoi_igor_neural_sram'.
+Finding duplicate cells in `\tt_um_wlmoi_igor_neural_sram'.
+Removed a total of 0 cells.
+
+7.23.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.23.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_wlmoi_igor_neural_sram..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+7.23.10. Finished fast OPT passes.
+
+7.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `tt_um_wlmoi_igor_neural_sram'. Setting top module to tt_um_wlmoi_igor_neural_sram.
+
+7.24.1. Analyzing design hierarchy..
+Top module:  \tt_um_wlmoi_igor_neural_sram
+
+7.24.2. Analyzing design hierarchy..
+Top module:  \tt_um_wlmoi_igor_neural_sram
+Removed 0 unused modules.
+
+7.25. Printing statistics.
+
+=== tt_um_wlmoi_igor_neural_sram ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1717 wires
+    11042 wire bits
+      123 public wires
+     1311 public wire bits
+        8 ports
+       43 port bits
+     7120 cells
+     2792   $_AND_
+        3   $_DFFE_PN0N_
+      277   $_DFFE_PN0P_
+       64   $_DFFE_PP_
+       67   $_DFF_PN0_
+        1   $_DFF_PN1_
+      870   $_MUX_
+      250   $_NOT_
+     1204   $_OR_
+     1586   $_XOR_
+        3   $scopeinfo
+        1   RM_IHPSG13_1P_2048x64_c2_bm_bist
+        2   RM_IHPSG13_1P_256x16_c2_bm_bist
+
+7.26. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_wlmoi_igor_neural_sram...
+Found and reported 0 problems.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_wlmoi_igor_neural_sram...
+Found and reported 0 problems.
+
+9. Printing statistics.
+
+=== tt_um_wlmoi_igor_neural_sram ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1717 wires
+    11042 wire bits
+      123 public wires
+     1311 public wire bits
+        8 ports
+       43 port bits
+     7120 cells
+     2792   $_AND_
+        3   $_DFFE_PN0N_
+      277   $_DFFE_PN0P_
+       64   $_DFFE_PP_
+       67   $_DFF_PN0_
+        1   $_DFF_PN1_
+      870   $_MUX_
+      250   $_NOT_
+     1204   $_OR_
+     1586   $_XOR_
+        3   $scopeinfo
+        1   RM_IHPSG13_1P_2048x64_c2_bm_bist
+        2   RM_IHPSG13_1P_256x16_c2_bm_bist
+
+10. Executing JSON backend.
+
+11. Executing Verilog backend.
+
+11.1. Executing BMUXMAP pass.
+
+11.2. Executing DEMUXMAP pass.
+Dumping module `\tt_um_wlmoi_igor_neural_sram'.

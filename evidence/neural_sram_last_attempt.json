@@ -1,0 +1,13 @@
+{
+  "status": "FALLBACK_REQUESTED",
+  "source_commit": "b70b1ec",
+  "source_run": "https://github.com/sundaysiagian/peruri-iseedesign/actions/runs/38680155187",
+  "gds_acceptance": "PASS",
+  "gate_level_inference": "PASS",
+  "precheck": "FAIL",
+  "failed_check": "Supply pin geometry",
+  "details": "VGND and VDPWR are 56.48 um from bottom edge; maximum 10 um",
+  "decision": "User limited SRAM to one last attempt; activate full on-chip inference without hard SRAM",
+  "latency_cycles": 3080,
+  "qualification": "Historical SRAM attempt only; not physical evidence for the neural logic fallback"
+}

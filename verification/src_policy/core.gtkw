@@ -1,0 +1,30 @@
+[dumpfile] "artifacts/core.vcd"
+[savefile] "core.gtkw"
+[timestart] 0
+[size] 1600 900
+@28
+tb_src_policy_core.clk
+tb_src_policy_core.rst_n
+tb_src_policy_core.start
+tb_src_policy_core.abort
+tb_src_policy_core.load_input
+tb_src_policy_core.busy
+tb_src_policy_core.done
+tb_src_policy_core.fault
+tb_src_policy_core.saturated
+@22
+tb_src_policy_core.test_id
+tb_src_policy_core.input_index
+tb_src_policy_core.input_value
+tb_src_policy_core.output_index
+tb_src_policy_core.output_value
+tb_src_policy_core.error_code
+tb_src_policy_core.latency_cycles
+tb_src_policy_core.dut.state
+tb_src_policy_core.dut.layer
+tb_src_policy_core.dut.neuron
+tb_src_policy_core.dut.k
+tb_src_policy_core.dut.address
+tb_src_policy_core.dut.accumulator
+[pattern_trace] 1
+[pattern_trace] 0

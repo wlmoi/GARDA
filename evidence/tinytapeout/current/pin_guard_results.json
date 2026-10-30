@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "fault_cases": [
+    "unloaded_start",
+    "early_commit",
+    "missing_staged_byte",
+    "out_of_order_address",
+    "invalid_address_high_bits",
+    "invalid_input_index",
+    "invalid_output_index",
+    "invalid_diagnostic_page",
+    "undefined_register"
+  ],
+  "ena_command_gating_checked": true,
+  "reset_recovery_checked": true,
+  "all_fault_outputs_zero": true,
+  "interface": "Submission pins only"
+}

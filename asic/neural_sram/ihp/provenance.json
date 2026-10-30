@@ -1,0 +1,57 @@
+[
+  {
+    "file": "RM_IHPSG13_1P_core_behavioral_bm_bist.v",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_core_behavioral_bm_bist.v",
+    "sha256": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  {
+    "file": "RM_IHPSG13_1P_256x16_c2_bm_bist.v",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_256x16_c2_bm_bist.v",
+    "sha256": "645c475787b077da4dbd15856c68bbae46aa9846a155239eb895ed2de7511053"
+  },
+  {
+    "file": "RM_IHPSG13_1P_256x16_c2_bm_bist.lef",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_256x16_c2_bm_bist.lef",
+    "sha256": "bea0d602296a03ea2020420501767ff321f53186d7444ea0faefa4d49dac047b"
+  },
+  {
+    "file": "RM_IHPSG13_1P_4096x16_c3_bm_bist.v",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_4096x16_c3_bm_bist.v",
+    "sha256": "f23322db3e3d577a64f40f27e48c261af0f03d3fa74aa8ddc1e42cb0789f930d"
+  },
+  {
+    "file": "RM_IHPSG13_1P_4096x16_c3_bm_bist.lef",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_4096x16_c3_bm_bist.lef",
+    "sha256": "5c6de4b6ca251e3fc9c14b9f1db877af60f5c3f39d07dcfb82993a38c28d1410"
+  },
+  {
+    "file": "RM_IHPSG13_1P_512x16_c2_bm_bist.v",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_512x16_c2_bm_bist.v",
+    "sha256": "fc8a03068bc692d3db8e836446b0376a7bbf97ef1cbfda8fd1f29d77255eba01"
+  },
+  {
+    "file": "RM_IHPSG13_1P_512x16_c2_bm_bist.lef",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_512x16_c2_bm_bist.lef",
+    "sha256": "845c080938b5e9d1200774190430dad67eea7f1e209fb3094488614e70bb1c2c"
+  },
+  {
+    "file": "RM_IHPSG13_1P_1024x16_c2_bm_bist.v",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_1024x16_c2_bm_bist.v",
+    "sha256": "c02a559c25515dc90f7a2266ef4b1eb2dc50d8a779f1853b2ca698fe980acc11"
+  },
+  {
+    "file": "RM_IHPSG13_1P_1024x16_c2_bm_bist.lef",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_1024x16_c2_bm_bist.lef",
+    "sha256": "a3eb8384eb52222fddc36d042a2fef81deb6f048fd7b825ad91e3cae00179d0a"
+  },
+  {
+    "file": "RM_IHPSG13_1P_2048x64_c2_bm_bist.lef",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_2048x64_c2_bm_bist.lef",
+    "sha256": "630e1f2efcf0c4c512fa53760bb7451f4fcf7155e6265d887c936dcf65be4bea"
+  },
+  {
+    "file": "RM_IHPSG13_1P_2048x64_c2_bm_bist.v",
+    "source": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/2bbec755dc67ca3db0261c3d6163e15735d66710/ihp-sg13g2/libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_2048x64_c2_bm_bist.v",
+    "sha256": "298a0f8f7e4417b0c2db1c4b6e21351a3d561d6222a6099e70f733c23b4fb179"
+  }
+]

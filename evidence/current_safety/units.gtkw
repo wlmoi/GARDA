@@ -1,0 +1,14 @@
+[dumpfile] "units.vcd"
+[timestart] 0
+[size] 1500 900
+@28
+tb_safety_units.rst_n
+tb_safety_units.begin_frame
+tb_safety_units.write_byte
+tb_safety_units.commit_frame
+tb_safety_units.valid
+tb_safety_units.map_fault
+tb_safety_units.fresh
+tb_safety_units.cfg_fault
+tb_safety_units.event_count[31:0]
+tb_safety_units.last_fault[7:0]

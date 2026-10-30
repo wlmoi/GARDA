@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792129269" />
+    <testcase name="six_scene_oracle_and_determinism" classname="test_top" file="C:\Users\William Anthony\Documents\Codex\2026-09-30\files-mentioned-by-the-user-draft\outputs\peruri-iseedesign\verification\test_top.py" lineno="21" time="23.15769052505493" sim_time_ns="2920692.001" ratio_time="126121.9031250126" />
+    <testcase name="upload_fault_injection" classname="test_top" file="C:\Users\William Anthony\Documents\Codex\2026-09-30\files-mentioned-by-the-user-draft\outputs\peruri-iseedesign\verification\test_top.py" lineno="37" time="0.008999347686767578" sim_time_ns="829.0" ratio_time="92117.78773909819" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "generated_utc": "2026-10-16T05:45:50.180405+00:00",
+  "evidence_kind": "RTL simulation of actual DE10-Nano wrapper; no physical hardware run",
+  "hardware_tests_executed": false,
+  "checkpoints": 18,
+  "clock_hz": 50000000,
+  "requested_baud": 921600,
+  "divider_cycles": 54,
+  "effective_baud": 925925.925925926,
+  "serial_frame_bytes": 153,
+  "reply_bytes": 11,
+  "expected_core_latency_cycles": 54348,
+  "waveform": "board.vcd",
+  "saved_view": "board.gtkw",
+  "source_sha256": {
+    "fpga_de10_nano/src_policy/igor_src_policy_de10_nano.v": "74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81",
+    "rtl/igor_uart_rx.v": "c03c8ec8c50ec822aceb743b73f62f907926402716ec8c68b4c0776290450b4e",
+    "rtl/igor_uart_tx.v": "2c60e05dc1815857832d4ddb09e4b8b16b53a18706f11b377ec6ed1d195cb0d0",
+    "rtl/igor_src_policy/igor_src_policy_core.v": "3f566c285f468d7a148d3226eb3ff2344c3e617dc5f544b7f94994efb6973726",
+    "rtl/igor_src_policy/igor_src_policy_rom.v": "310f769eb8752d04920cebd8ac58c6ba2afcbfa5aabc442cca91dbb6e797c2f0",
+    "rtl/igor_src_policy/igor_src_policy_uart.v": "a3c595bcb6419668e88f07acfb5ceca44802d2fa875b459be6c999af4278e075",
+    "verification/tb_board_wrapper.sv": "3b357105c561d9b54ceb376cbdcdd8b8e70deda46092ef77167a73bbc054aa9e",
+    "rtl/igor_src_policy/policy_weights.mem": "96103ba9d9d658be1662e05592e959f55089295f744afdebdfd703b991dc4469",
+    "verification/src_policy/artifacts/observations.hex": "558331b4b29da0c029184fb1772f0027ef05164aa694995fe367869b6d291a76",
+    "verification/src_policy/artifacts/expected.hex": "7e658f000d3debcfd80469429dec1db5155cfe6bb2346a46ae0fca2585d6e4a4",
+    "verification/src_policy/artifacts/model_provenance.json": "b5c82ea6e9a1f3ef6ee20318a593484758a69a9766083b34f0a391504ae9e929",
+    "verification/run_board_wrapper.py": "4afee96b2e8af84170334d10439b8b3aaf10533e0e53ed92d929965cd9e68af6"
+  }
+}

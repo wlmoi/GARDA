@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "readback_words": 6020,
+  "vectors": 1,
+  "outputs_checked": 4,
+  "latency_cycles": 3080,
+  "interface": "Submission pins only, valid for RTL and GL"
+}

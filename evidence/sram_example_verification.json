@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "top": "tt_um_wlmoi_igor_sram_example",
+  "instances": {
+    "parameter_store.i_sram": "RM_IHPSG13_1P_256x16_c2_bm_bist"
+  },
+  "physical_sram_instances": 1,
+  "register_bits": 24,
+  "tested_addresses": 256,
+  "weight_image": "W3 addresses 5760..6015",
+  "tests": [
+    "RTL pin-only",
+    "generic-netlist pin-only",
+    "all-address readback",
+    "all-bit patterns",
+    "read-output hold",
+    "enable",
+    "reset retention"
+  ],
+  "qualification": "Generic synthesis and simulation; physical routing, DRC, LVS and timing are separate checks"
+}
