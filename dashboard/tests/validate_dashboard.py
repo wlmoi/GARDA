@@ -35,7 +35,7 @@ for m in catalog['modules']+catalog['asic_modules']:
 for path in (D/'downloads').glob('*.zip'):
     with zipfile.ZipFile(path) as z:assert z.testzip() is None,path
 with zipfile.ZipFile(D/'downloads/TINYTAPEOUT_SOURCE.zip') as z:
-    for path in ['info.yaml','src/garda_neural_logic_top.v','test/test.py','test/Makefile','reference_model/neural_reference.py','assets/neural_24_64_64_4/bram_unified_weights.mem','requirements.txt']:
+    for path in ['info.yaml','src/config.json','src/garda_neural_logic_top.v','test/test.py','test/Makefile','reference_model/neural_reference.py','assets/neural_24_64_64_4/bram_unified_weights.mem','requirements.txt']:
         assert path in z.namelist(),'Incomplete TinyTapeout source bundle: '+path
 report=json.loads((D/'data/tinytapeout-report.json').read_text(encoding='utf-8'))
 assert report['functional_pass'] is True

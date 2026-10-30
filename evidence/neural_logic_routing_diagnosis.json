@@ -1,0 +1,61 @@
+{
+  "status": "DIAGNOSED_CORRECTION_PENDING_PHYSICAL_VALIDATION",
+  "run_id": 41050845336,
+  "job_id": 124046209667,
+  "source_commit": "275763f33c918603a4e6f560a5ea5d522423505d",
+  "source_job_url": "https://github.com/wlmoi/GARDA/actions/runs/41050845336/job/124046209667",
+  "pdk": "ihp-sg13cmos5l",
+  "librelane_version": "3.1.0.dev3",
+  "failing_step": "OpenROAD.RepairDesignPostGRT",
+  "error_code": "GRT-0116",
+  "error": "Global routing finished with congestion",
+  "before_postgrt_design_repair": {
+    "log_timestamp_utc": "2026-10-30T11:58:31Z",
+    "global_route_overflow": 0,
+    "routed_nets": 28817,
+    "wirelength_um": 3375842
+  },
+  "repair": {
+    "forced_max_wire_length_um": 150,
+    "slew_margin_percent": 50,
+    "capacitance_margin_percent": 25,
+    "warning_code": "RSZ-0065",
+    "warning_minimum_delay_wire_length_um": 4286,
+    "inserted_buffers": 13434,
+    "repaired_nets": 3990,
+    "area_increase_percent": 26.5
+  },
+  "after_postgrt_design_repair": {
+    "log_timestamp_utc": "2026-10-30T12:11:54Z",
+    "global_route_overflow": 529,
+    "overflow_by_layer": {
+      "Metal1": 163,
+      "Metal2": 2,
+      "Metal3": 363,
+      "Metal4": 1
+    },
+    "routed_nets": 42251,
+    "wirelength_um": 3944232
+  },
+  "corrective_change": {
+    "file": "src/config.json",
+    "key": "GRT_DESIGN_REPAIR_MAX_WIRE_LENGTH",
+    "before": 150,
+    "after": 0,
+    "reason": "Restore documented default and remove forced wire-length subdivision that regressed a zero-overflow route"
+  },
+  "strict_checks_preserved": [
+    "GRT_ALLOW_CONGESTION=0",
+    "ERROR_ON_TR_DRC=true",
+    "ERROR_ON_KLAYOUT_DRC=true",
+    "ERROR_ON_LVS_ERROR=true",
+    "ERROR_ON_ILLEGAL_OVERLAPS=true",
+    "RUN_POST_GRT_DESIGN_REPAIR=true",
+    "RUN_POST_GRT_RESIZER_TIMING=true"
+  ],
+  "primary_references": [
+    "https://librelane.readthedocs.io/en/latest/reference/step_config_vars.html",
+    "https://github.com/The-OpenROAD-Project/OpenROAD/blob/master/src/rsz/src/Resizer.tcl"
+  ],
+  "qualification": "Diagnosis from the failed run's actual job log. Correction requires a fresh complete physical flow; no GDS, precheck, timing, power, or SKY130 signoff is claimed."
+}

@@ -42,7 +42,7 @@ downloads.mkdir(exist_ok=True)
 ready = REPO / 'ImplementationReadyQuartus/IGOR_DE10_NANO'
 write_bundle(downloads / 'IGOR_DE10_NANO_READY.zip', collect(ready, 'IGOR_DE10_NANO/'))
 shutil.copyfile(ready / 'quartus/output_files/igor.sof', downloads / 'igor.sof')
-entries = {}
+entries = {'src/config.json': REPO / 'src/config.json'}
 for name in ('garda_neural_logic_top.v', 'garda_parameter_logic.v', 'garda_neural_datapath_logic.v', 'garda_activation_logic.v'):
     entries['src/' + name] = REPO / 'src' / name
 for part in ('test', 'reference_model', 'assets', 'scripts', 'asic/neural_logic'):
