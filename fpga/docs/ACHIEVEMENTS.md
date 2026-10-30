@@ -12,7 +12,7 @@ Bukti: [scene latency](../evidence/audit/scene_latency.csv), [arsitektur](ARCHIT
 
 Pada top planner, permit, v, dan omega berasal dari gerbang pemeriksaan. Sembilan skenario fault menghasilkan izin nol. Gerbang sendiri mempunyai 13.078 kasus regresi dengan 12/12 bin hasil fungsional.
 
-Bukti: [gate RTL](../rtl/igor_safety_security_gate.v), [fault table](../evidence/audit/fault_status.csv), dan [functional coverage](../verification/gate_functional_coverage.json).
+Bukti: [gate RTL](../rtl/garda_safety_security_gate.v), [fault table](../evidence/audit/fault_status.csv), dan [functional coverage](../verification/gate_functional_coverage.json).
 
 ## Neural core diperiksa sampai output integer
 
@@ -24,11 +24,11 @@ Bukti: [model Python](../reference_model/neural_reference.py), [hasil](../verifi
 
 DE10-Nano dan DE10-Lite mempunyai project, pin assignment, report, dan SOF masing-masing. Target lab dan onsite dipisahkan agar pemilihan board tidak ambigu.
 
-Bukti: [Nano](../fpga_de10_nano/quartus/igor.qpf), [Lite](../fpga_de10_lite/quartus/igor_max10.qpf), dan [tabel resource](PERFORMANCE.md).
+Bukti: [Nano](../fpga_de10_nano/quartus/garda.qpf), [Lite](../fpga_de10_lite/quartus/garda_max10.qpf), dan [tabel resource](PERFORMANCE.md).
 
 ## Jalur menuju chip dibuat konkret
 
-Target aktif `tt_um_wlmoi_igor_neural_logic` mempertahankan inferensi neural lengkap pada chip, dengan model tetap dalam standard-cell logic dan aktivasi flip-flop. SRAM diarsipkan setelah precheck port suplai masih gagal. Wrapper gerbang `tt_um_wlmoi_igor_gate` dan hasil generiknya tetap tersedia sebagai regresi historis. Kelulusan fisik target aktif harus dibuktikan oleh run barunya.
+Target aktif `tt_um_wlmoi_garda_neural_logic` mempertahankan inferensi neural lengkap pada chip, dengan model tetap dalam standard-cell logic dan aktivasi flip-flop. SRAM diarsipkan setelah precheck port suplai masih gagal. Wrapper gerbang `tt_um_wlmoi_garda_gate` dan hasil generiknya tetap tersedia sebagai regresi historis. Kelulusan fisik target aktif harus dibuktikan oleh run barunya.
 
 Bukti: [wrapper](../src/project.v), [metadata](../info.yaml), [generic synthesis](../evidence/asic_generic_synthesis_noabc.log), dan [jalur TinyTapeout](TINYTAPEOUT.md).
 
@@ -36,7 +36,7 @@ Bukti: [wrapper](../src/project.v), [metadata](../info.yaml), [generic synthesis
 
 Screenshot Quartus, screenshot GTKWave, trace, saved view, dan laporan asli saling melengkapi. Satu file `.io` berisi 28 halaman diagram level 0, level 1, bit flow, dan breakdown modul.
 
-Bukti: [indeks evidence](EVIDENCE.md) dan [diagram `.io`](flowcharts/IGOR_RTL_Flowchart.io).
+Bukti: [indeks evidence](EVIDENCE.md) dan [diagram `.io`](flowcharts/GARDA_RTL_Flowchart.io).
 
 ## UART motor diuji melalui dua implementasi
 

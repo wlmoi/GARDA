@@ -8,14 +8,14 @@ root=Path(__file__).resolve().parents[1]
 base=root/'experiments/parallel8'
 out=root/'experiments/parallel8_jp7'
 out.mkdir(exist_ok=True)
-names=['igor_src_policy_core.v','igor_src_policy_de10_nano.v','igor_src_policy.sdc']+[f'bank{i}.mem' for i in range(8)]
+names=['garda_src_policy_core.v','garda_src_policy_de10_nano.v','garda_src_policy.sdc']+[f'bank{i}.mem' for i in range(8)]
 for name in names:
     shutil.copyfile(base/name,out/name)
 pins=(base/'pin_assignment.tcl').read_text().replace('PIN_V12 -to UART_RX','PIN_Y15 -to UART_RX').replace('PIN_E8 -to UART_TX','PIN_AC24 -to UART_TX')
 (out/'pin_assignment.tcl').write_text('# UART: JP7 pin 1 RX/Y15, pin 2 TX/AC24; GND pin 12.\n'+pins)
-qsf=(base/'igor_src_policy.qsf').read_text().split('set_global_assignment -name LAST_QUARTUS_VERSION')[0]
-(out/'igor_parallel8_jp7.qsf').write_text(qsf)
-(out/'igor_parallel8_jp7.qpf').write_text('QUARTUS_VERSION = "25.1"\nPROJECT_REVISION = "igor_parallel8_jp7"\n')
+qsf=(base/'garda_src_policy.qsf').read_text().split('set_global_assignment -name LAST_QUARTUS_VERSION')[0]
+(out/'garda_parallel8_jp7.qsf').write_text(qsf)
+(out/'garda_parallel8_jp7.qpf').write_text('QUARTUS_VERSION = "25.1"\nPROJECT_REVISION = "garda_parallel8_jp7"\n')
 (out/'source_manifest.json').write_text(json.dumps({
  'source_project':'fpga/experiments/parallel8',
  'unchanged_files':{n:hashlib.sha256((out/n).read_bytes()).hexdigest() for n in names},

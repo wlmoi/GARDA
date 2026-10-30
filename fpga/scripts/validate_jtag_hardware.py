@@ -19,7 +19,7 @@ close_uart=bind('?jtagatlantic_close@@YAXPEAUJTAGATLANTIC@@@Z',None,[C.c_void_p]
 read_uart=bind('?jtagatlantic_read@@YAHPEAUJTAGATLANTIC@@PEADI@Z',C.c_int,[C.c_void_p,C.c_void_p,C.c_uint])
 write_uart=bind('?jtagatlantic_write@@YAHPEAUJTAGATLANTIC@@PEBDI@Z',C.c_int,[C.c_void_p,C.c_char_p,C.c_uint])
 flush_uart=bind('?jtagatlantic_flush@@YAHPEAUJTAGATLANTIC@@@Z',C.c_int,[C.c_void_p])
-handle=open_uart(b'DE-SoC [USB-1]',2,0,b'IGOR hardware validation')
+handle=open_uart(b'DE-SoC [USB-1]',2,0,b'GARDA hardware validation')
 if not handle:
     raise SystemExit('Cannot open physical JTAG UART device 2, instance 0. Close other terminals.')
 raw=[]
@@ -78,5 +78,5 @@ try:
 finally:
     close_uart(handle)
     (evidence/'physical_commands.log').write_text('\n'.join(raw))
-    image=json.loads((root/'bitstreams/igor_parallel8_jtag.json').read_text(encoding='utf-8-sig'))
+    image=json.loads((root/'bitstreams/garda_parallel8_jtag.json').read_text(encoding='utf-8-sig'))
     (evidence/'physical_commands.json').write_text(json.dumps({'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'image_sha256':image['sha256'],'cable':'DE-SoC [USB-1]','device':2,'instance':0,'results':results},indent=2)+'\n')

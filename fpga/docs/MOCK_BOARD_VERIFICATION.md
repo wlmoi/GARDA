@@ -1,6 +1,6 @@
 # Uji numerik Parallel8 pada board
 
-Klik shortcut Desktop **IGOR - Uji Numerik FPGA 256 Pola**. Launcher berada di `fpga/bitstreams/TEST_MOCK_INFERENCE_COM12.bat` dan menjalankan `fpga/scripts/verify_board_jtag.py --port COM12 --program`.
+Klik shortcut Desktop **GARDA - Uji Numerik FPGA 256 Pola**. Launcher berada di `fpga/bitstreams/TEST_MOCK_INFERENCE_COM12.bat` dan menjalankan `fpga/scripts/verify_board_jtag.py --port COM12 --program`.
 
 ## Sambungan dan alur pengujian
 

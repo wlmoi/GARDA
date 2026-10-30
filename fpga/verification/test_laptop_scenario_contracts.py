@@ -13,9 +13,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 class LaptopFaultContracts(unittest.TestCase):
     def test_real_controller_fault_handler_only_sends_four_zeros_and_returns(self):
-        source = ROOT / 'src/igor_controller/igor_controller/controller_node.py'
+        source = ROOT / 'src/garda_controller/garda_controller/controller_node.py'
         tree = ast.parse(source.read_text(encoding='utf-8'))
-        node = next(n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == 'IgorControllerNode')
+        node = next(n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == 'GardaControllerNode')
         control = next(n for n in node.body if isinstance(n, ast.FunctionDef) and n.name == '_control_loop')
         handler = next(n for n in ast.walk(control) if isinstance(n, ast.ExceptHandler) and isinstance(n.type, ast.Name) and n.type.id == 'FPGACommunicationError')
         wrapper = ast.parse('def exercise(self):\n try:\n  raise FPGACommunicationError("injected link loss")\n except FPGACommunicationError as exc:\n  pass\n self.nonzero_path()\n')
@@ -43,7 +43,7 @@ class LaptopFaultContracts(unittest.TestCase):
         self.assertTrue(report['fault'].startswith('FPGA_TRANSPORT'))
 
     def test_transport_latch_rejects_retries_before_serial_access(self):
-        source = ROOT / 'src/igor_controller/igor_controller/fpga_bridge.py'
+        source = ROOT / 'src/garda_controller/garda_controller/fpga_bridge.py'
         spec = importlib.util.spec_from_file_location('laptop_bridge', source)
         bridge = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(bridge)

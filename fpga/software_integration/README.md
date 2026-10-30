@@ -1,18 +1,18 @@
 # Software integrasi di dalam paket FPGA
 
 Folder ini adalah workspace ROS 2 yang memuat salinan software referensi beserta
-perbaikan integrasi hardware. Source asli `igor_ws/src` tetap menjadi referensi.
+perbaikan integrasi hardware. Source asli `garda_ws/src` tetap menjadi referensi.
 Model neural tetap **74 → 128 → 64 → 3**, sesuai RTL source-policy. Tidak ada
 pelatihan ulang atau penggantian bobot pada penyiapan ini.
 
 Pada Jetson dengan ROS 2 Humble, NumPy, pyserial dan dependensi paket terpasang:
 
 ```bash
-cd igor_ws/fpga/software_integration
+cd garda_ws/fpga/software_integration
 source /opt/ros/humble/setup.bash
 colcon build --symlink-install
 source install/setup.bash
-ros2 launch igor_bringup bringup.launch.py algorithm:=cl_drl_cbf use_fpga:=true fpga_port:=/dev/fpga fpga_baudrate:=921600
+ros2 launch garda_bringup bringup.launch.py algorithm:=cl_drl_cbf use_fpga:=true fpga_port:=/dev/fpga fpga_baudrate:=921600
 ```
 
 Command tersebut memakai bitstream **source_policy**, bukan planner legacy.

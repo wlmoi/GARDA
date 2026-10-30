@@ -11,7 +11,7 @@ wire signed [6:0] omega_command;
 wire [7:0] fault_code,last_fault;
 wire [8:0] selected_index;
 wire [31:0] latency_cycles,selected_score,selected_cost,selected_goal,selected_velocity,event_count;
-igor_top #(.DEADLINE_CYCLES(10000),.FRESH_CYCLES(250000)) core(clk,rst_n,ready,estop,protective_stop,start,cfg_write,cfg_lock,cfg_data,map_begin,map_write,map_commit,map_sequence,map_address,map_byte,motor_enable,v_command,omega_command,fault_code,busy,done,latency_cycles,selected_index,selected_score,selected_cost,selected_goal,selected_velocity,event_count,last_fault);
+garda_top #(.DEADLINE_CYCLES(10000),.FRESH_CYCLES(250000)) core(clk,rst_n,ready,estop,protective_stop,start,cfg_write,cfg_lock,cfg_data,map_begin,map_write,map_commit,map_sequence,map_address,map_byte,motor_enable,v_command,omega_command,fault_code,busy,done,latency_cycles,selected_index,selected_score,selected_cost,selected_goal,selected_velocity,event_count,last_fault);
 // Executable HDL assertions. These are simulation assertions, not formal proof.
 always @(negedge clk) if(rst_n) begin
  if(!motor_enable && (v_command!==0 || omega_command!==0)) $fatal(1,"FAIL zero-command invariant");

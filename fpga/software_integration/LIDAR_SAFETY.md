@@ -1,7 +1,7 @@
 # LiDAR produksi: freshness dan fail-closed
 
 Implementasi yang diubah berada di
-`software_integration/src/igor_bringup/igor_bringup/rplidar_driver_node.py`.
+`software_integration/src/garda_bringup/garda_bringup/rplidar_driver_node.py`.
 `../src` di root workspace merupakan referensi software asli. Gunakan overlay
 ini pada workspace ROS 2 untuk integrasi hardware; jangan menganggap driver
 referensi telah memperoleh perbaikan ini.

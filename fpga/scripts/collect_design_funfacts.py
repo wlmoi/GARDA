@@ -15,7 +15,7 @@ def main():
     p=FPGA/'experiments/parallel8'
     source=json.loads((FPGA/'evidence/current_metrics/metrics.json').read_text())
     b=source['projects']['source_policy']
-    fit=(p/'output_files/igor_src_policy.fit.summary').read_text()
+    fit=(p/'output_files/garda_src_policy.fit.summary').read_text()
     def metric(label):
         m=re.search(r'^'+re.escape(label)+r'\s*:\s*([\d,]+)',fit,re.M)
         assert m,label
@@ -36,7 +36,7 @@ def main():
         banks.extend(v-65536 if v>=32768 else v for v in words)
     assert (min(banks),max(banks))==(-123,129)
     def power(profile):
-        txt=(p/f'artifacts/power/{profile}/igor_src_policy.pow.summary').read_text()
+        txt=(p/f'artifacts/power/{profile}/garda_src_policy.pow.summary').read_text()
         result={}
         for key,label in [('total','Total Thermal Power Dissipation'),('dynamic','Core Dynamic Thermal Power Dissipation'),('static','Core Static Thermal Power Dissipation'),('io','I/O Thermal Power Dissipation')]:
             result[key+'_mw']=float(re.search(re.escape(label)+r'\s*:\s*([\d.]+)',txt).group(1))
@@ -76,12 +76,12 @@ def main():
                  'typical_static_share_percent':typical['static_mw']/typical['total_mw']*100,
                  'typical_total_delta_vs_serial_mw':typical['total_mw']-464.21,
                  'typical_total_delta_vs_serial_percent':(typical['total_mw']/464.21-1)*100}}
-    sources=[p/'artifacts/acceptance.json',p/'core_checkpoints.csv',p/'output_files/igor_src_policy.fit.summary',
-             p/'igor_src_policy_core.v',p/'igor_src_policy_de10_nano.v',FPGA/'rtl/igor_src_policy/igor_src_policy_uart.v',
+    sources=[p/'artifacts/acceptance.json',p/'core_checkpoints.csv',p/'output_files/garda_src_policy.fit.summary',
+             p/'garda_src_policy_core.v',p/'garda_src_policy_de10_nano.v',FPGA/'rtl/garda_src_policy/garda_src_policy_uart.v',
              FPGA/'evidence/current_metrics/metrics.json',
-             FPGA/'fpga_de10_nano/src_policy/output_files/igor_src_policy.fit.summary',
-             p/'artifacts/power/typical/igor_src_policy.pow.summary',
-             p/'artifacts/power/maximum_tj100/igor_src_policy.pow.summary']+[p/f'bank{i}.mem' for i in range(8)]
+             FPGA/'fpga_de10_nano/src_policy/output_files/garda_src_policy.fit.summary',
+             p/'artifacts/power/typical/garda_src_policy.pow.summary',
+             p/'artifacts/power/maximum_tj100/garda_src_policy.pow.summary']+[p/f'bank{i}.mem' for i in range(8)]
     report['source_sha256']={str(s.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(s.read_bytes()).hexdigest() for s in sources}
     out=FPGA/'evidence/design_funfacts';out.mkdir(parents=True,exist_ok=True)
     (out/'design_funfacts.json').write_text(json.dumps(report,indent=2)+'\n')

@@ -20,7 +20,7 @@ Seluruh corner setup/hold/recovery/removal/minimum-pulse-width yang dilaporkan n
 
 Tiga warning policy berasal dari port tulis internal ROM (`data_a`, `waddr_a`, `we_a`) yang tidak memiliki driver karena memori digunakan read-only. Model parameter diinisialisasi dari MEM, dibandingkan dengan source, dan diuji melalui oracle integer. Ini bukan warning bahwa bobot aktif tidak terisi.
 
-Planner juga mencatat RAM read-during-write pass-through logic dan dua input SW0/SW1 yang tidak mempengaruhi output. Referensi lengkap adalah warning pada `compile_current.log` dan `igor.map.rpt`. Tidak ada warning missing drive/slew sesudah pinplan eksplisit. Tidak ada critical warning atau timing gagal pada flow kompilasi rilis yang diterima. Pernyataan ini tidak mencakup Power Analyzer; analisis power terpisah mempunyai Critical Warning HPS dan confidence Low yang dijelaskan pada [METRICS_AND_POWER.md](docs/METRICS_AND_POWER.md).
+Planner juga mencatat RAM read-during-write pass-through logic dan dua input SW0/SW1 yang tidak mempengaruhi output. Referensi lengkap adalah warning pada `compile_current.log` dan `garda.map.rpt`. Tidak ada warning missing drive/slew sesudah pinplan eksplisit. Tidak ada critical warning atau timing gagal pada flow kompilasi rilis yang diterima. Pernyataan ini tidak mencakup Power Analyzer; analisis power terpisah mempunyai Critical Warning HPS dan confidence Low yang dijelaskan pada [METRICS_AND_POWER.md](docs/METRICS_AND_POWER.md).
 
 ## Pemeriksaan paket
 

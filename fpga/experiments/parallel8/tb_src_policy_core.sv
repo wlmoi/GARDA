@@ -10,7 +10,7 @@ module tb_src_policy_core;
     wire busy,done,fault,saturated;
     wire [3:0] error_code;
     wire [31:0] latency_cycles;
-    igor_src_policy_core dut(clk,rst_n,load_input,input_index,input_value,
+    garda_src_policy_core dut(clk,rst_n,load_input,input_index,input_value,
         start,abort,output_index,output_value,busy,done,fault,error_code,
         latency_cycles,saturated);
     reg signed [15:0] observations[0:N*74-1];
@@ -23,7 +23,7 @@ module tb_src_policy_core;
     reg activation_output;
     wire signed [15:0] activation_value;
     wire activation_saturated;
-    igor_src_policy_activation activation(activation_accumulator,activation_output,
+    garda_src_policy_activation activation(activation_accumulator,activation_output,
         activation_value,activation_saturated);
     integer test_id=0,cycle=0,checkpoints,checks=0,vector_id,i,j,phase;
     always @(posedge clk) cycle<=cycle+1;

@@ -6,7 +6,7 @@ reg clk=0;always #10 clk=~clk;
 reg rst_n=0,ena=1;
 reg [7:0] ui=0,di=0;
 wire [7:0] qo,uio_out,uio_oe;
-tt_um_wlmoi_igor_neural_sram dut(ui,qo,di,uio_out,uio_oe,ena,clk,rst_n);
+tt_um_wlmoi_garda_neural_sram dut(ui,qo,di,uio_out,uio_oe,ena,clk,rst_n);
 reg [15:0] image[0:6019],inputs[0:2399],gold[0:399];
 integer i,n,j,cycles;
 reg [15:0] actual;

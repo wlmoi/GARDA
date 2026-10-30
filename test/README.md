@@ -1,7 +1,7 @@
-# Active neural SRAM submission tests
+# Active neural logic submission tests
 
-`tb.v` instantiates `tt_um_wlmoi_igor_neural_sram`. `test.py` uses submission pins only and applies to both RTL and the generated gate netlist. It verifies rejected unloaded START, full 6,020-word upload/readback, one inference against the independent Python model, the 3,080-cycle latency, I/O direction, and result invalidation on BEGIN.
+`tb.v` instantiates `tt_um_wlmoi_garda_neural_logic`. `test.py` exercises the submission pins: model verification using the 6,020 supplied words, an inference against the independent Python model, and command and reset behavior. The model is fixed in logic; the current submission does not instantiate SRAM.
 
-The Makefile includes the official IHP core and 4096x16 and 256x16 SRAM models with SIM/FUNCTIONAL. Gate mode additionally includes the CMOS5L cells and their UDP definitions. Run `make` or `make GATES=yes` with the matching PDK and exported gate netlist.
+Run `make` for RTL simulation. Gate simulation (`make GATES=yes`) requires the matching IHP PDK models and a netlist generated from this revision. The existing IHP configuration is not a SKY130 physical-flow result.
 
-The previous safety-gate tests are preserved in `verification/test_tt_gate.py` and `verification/tb_gate_wrapper.v`. Use `python verification/run.py tt` and `tt_generic` for those legacy regressions.
+The safety-gate tests are in `verification/test_tt_gate.py` and `verification/tb_gate_wrapper.v`.

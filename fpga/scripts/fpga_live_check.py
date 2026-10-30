@@ -30,7 +30,7 @@ def main():
     error = None
     stopped = False
     started = time.monotonic()
-    print('IGOR - LIVE INPUT / OUTPUT CHECK', flush=True)
+    print('GARDA - LIVE INPUT / OUTPUT CHECK', flush=True)
     print(f'{args.port} input -> real FPGA -> JTAG output. Repeat timer: {args.interval}s; Ctrl+C stops.\nLog: {directory}', flush=True)
     print('Inputs are SYNTHETIC bench observations. This script does not command STM32/motors or program the board.', flush=True)
     fields = ['timestamp_utc', 'timestamp_local', 'location', 'test', 'case', 'communication', 'numeric_match',
@@ -43,7 +43,7 @@ def main():
         _, q = model.load_model()
         identity = model.identity(q)
         project = root / 'experiments/jp1_1_2_monitor'
-        for name in ['igor_src_policy_core.v'] + [f'bank{i}.mem' for i in range(8)]:
+        for name in ['garda_src_policy_core.v'] + [f'bank{i}.mem' for i in range(8)]:
             if model.sha(project / name) != model.sha(model.BASE / name):
                 raise RuntimeError('Observer core/bank mismatch: ' + name)
         identity.update(active_image_note='Logger queries already programmed observer; no programming is performed',
@@ -52,7 +52,7 @@ def main():
                         location=args.location, port=args.port, baud=921600, interval_s=args.interval, input_source='synthetic fixed/seeded vectors',
                         output_source='actual FPGA response_valid latch, verified fresh per request')
         (directory / 'session.json').write_text(json.dumps(identity, indent=2) + '\n', encoding='utf-8')
-        ref = model.load_module('live_uart_reference', root.parent / 'src/igor_pipeline/scripts/uart_test.py')
+        ref = model.load_module('live_uart_reference', root.parent / 'src/garda_pipeline/scripts/uart_test.py')
         cases = model.vectors()
         connection = PassiveJtag()
         port = serial.Serial(args.port, 921600, timeout=.02, write_timeout=1, xonxoff=False, rtscts=False, dsrdtr=False)

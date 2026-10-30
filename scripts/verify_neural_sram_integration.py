@@ -188,7 +188,7 @@ lappend ::events legalize reroute write_views
 
     def test_active_manifest_and_submission_sources_use_sram(self):
         manifest = (ROOT / 'info.yaml').read_text()
-        self.assertIn('top_module: tt_um_wlmoi_igor_neural_sram', manifest)
+        self.assertIn('top_module: tt_um_wlmoi_garda_neural_sram', manifest)
         self.assertIn('tiles: 8x4', manifest)
         active = json.loads((ROOT / 'src/config.json').read_text())
         fragment = json.loads((TARGET / 'config.fragment.json').read_text())
@@ -202,14 +202,14 @@ lappend ::events legalize reroute write_views
                               if re.fullmatch(pattern, name)},
                              set(EXPECTED_INSTANCES))
             self.assertIsNone(re.fullmatch(pattern, 'other_store.banks[0].i_sram'))
-        for old, new in [('project.v', 'igor_neural_sram_top.v'),
-                         ('igor_parameter_sram.v', 'igor_parameter_sram.v'),
-                         ('igor_activation_sram.v','igor_activation_sram.v'),
+        for old, new in [('project.v', 'garda_neural_sram_top.v'),
+                         ('garda_parameter_sram.v', 'garda_parameter_sram.v'),
+                         ('garda_activation_sram.v','garda_activation_sram.v'),
                          ('sram_2048x64_bb.v','sram_2048x64_bb.v'),
                          ('sram_256x16_bb.v','sram_256x16_bb.v')]:
             self.assertEqual((TARGET / old).read_bytes(), (ROOT / 'src' / new).read_bytes())
-        active_core = (ROOT / 'src/igor_neural_datapath.v').read_text()
-        self.assertEqual((TARGET / 'igor_neural_datapath.v').read_text(), active_core)
+        active_core = (ROOT / 'src/garda_neural_datapath.v').read_text()
+        self.assertEqual((TARGET / 'garda_neural_datapath.v').read_text(), active_core)
         self.assertIn('clock_hz: 50000000', manifest)
         self.assertEqual(active['CLOCK_PERIOD'], 20)
         self.assertEqual(active['CTS_APPLY_NDR'],'root_only')

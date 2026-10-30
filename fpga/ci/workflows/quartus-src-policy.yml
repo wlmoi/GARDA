@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: igor-quartus-src-policy
+  group: garda-quartus-src-policy
   cancel-in-progress: false
 
 jobs:
@@ -28,19 +28,19 @@ jobs:
       - name: Find Quartus and record tool and source identity
         run: |
           $ErrorActionPreference = 'Stop'
-          $igorQuartus = $env:QUARTUS_SH
-          if (-not $igorQuartus -and $env:QUARTUS_ROOTDIR) {
-            $igorQuartus = Join-Path $env:QUARTUS_ROOTDIR 'bin64/quartus_sh.exe'
+          $gardaQuartus = $env:QUARTUS_SH
+          if (-not $gardaQuartus -and $env:QUARTUS_ROOTDIR) {
+            $gardaQuartus = Join-Path $env:QUARTUS_ROOTDIR 'bin64/quartus_sh.exe'
           }
-          if (-not $igorQuartus) {
-            $igorQuartus = (Get-Command quartus_sh.exe -ErrorAction Stop).Source
+          if (-not $gardaQuartus) {
+            $gardaQuartus = (Get-Command quartus_sh.exe -ErrorAction Stop).Source
           }
-          if (-not (Test-Path -LiteralPath $igorQuartus -PathType Leaf)) {
+          if (-not (Test-Path -LiteralPath $gardaQuartus -PathType Leaf)) {
             throw 'Quartus unavailable: set QUARTUS_SH or QUARTUS_ROOTDIR on the trusted runner.'
           }
-          "IGOR_QUARTUS_SH=$igorQuartus" >> $env:GITHUB_ENV
+          "GARDA_QUARTUS_SH=$gardaQuartus" >> $env:GITHUB_ENV
           New-Item -ItemType Directory -Force -Path evidence/current_builds | Out-Null
-          & $igorQuartus --version | Tee-Object -FilePath evidence/current_builds/ci_quartus_version.txt
+          & $gardaQuartus --version | Tee-Object -FilePath evidence/current_builds/ci_quartus_version.txt
           if ($LASTEXITCODE -ne 0) { throw 'Cannot read Quartus version.' }
           if (-not (Select-String -LiteralPath evidence/current_builds/ci_quartus_version.txt -Pattern 'Version 25\.1' -Quiet)) {
             throw 'This build is specified for Quartus 25.1.'
@@ -50,7 +50,7 @@ jobs:
       - name: Compile and validate source provenance, timing, assigned pins and SOF
         run: |
           $ErrorActionPreference = 'Stop'
-          python scripts/build_quartus.py source_policy --quartus-sh "$env:IGOR_QUARTUS_SH"
+          python scripts/build_quartus.py source_policy --quartus-sh "$env:GARDA_QUARTUS_SH"
           if ($LASTEXITCODE -ne 0) { throw "Validated Quartus build failed: $LASTEXITCODE" }
       - name: Save build reports and programming image
         if: always()

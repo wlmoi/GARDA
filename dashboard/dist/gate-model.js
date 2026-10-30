@@ -1,4 +1,4 @@
-// Behavioral companion for rtl/igor_safety_security_gate.v, not a browser RTL simulator.
+// Behavioral companion for rtl/garda_safety_security_gate.v, not a browser RTL simulator.
 export function evaluateGate(state = {}) {
   const s = {rst_n:1,ready:1,estop:0,protective_stop:0,map_ok:1,cfg_ok:1,result_valid:1,all_done:1,arithmetic_fault:0,timeout:0,candidate_v:12,previous_v:12,max_v:20,max_dv:8,candidate_w:4,previous_w:4,max_w:20,max_dw:12,...state};
   const v = Number(s.candidate_v) & 31;

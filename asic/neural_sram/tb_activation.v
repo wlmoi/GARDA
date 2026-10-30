@@ -4,7 +4,7 @@ reg clk=1,rst_n=1,en=1,we=0;
 reg [7:0] address=0;
 reg [15:0] data=0;
 wire signed [15:0] even_data,odd_data;
-igor_activation_sram dut(clk,rst_n,en,we,address,data,even_data,odd_data);
+garda_activation_sram dut(clk,rst_n,en,we,address,data,even_data,odd_data);
 task tick;begin #5;clk=0;#5;clk=1;#1;end endtask
 integer i;
 reg [15:0] saved_even,saved_odd;

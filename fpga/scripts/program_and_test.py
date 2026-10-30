@@ -51,7 +51,7 @@ def main():
         result['programming_exit_code'] = code
         if code:
             raise RuntimeError('Programming failed; tests were not started')
-        image = FPGA/'bitstreams/igor_parallel8_jp1_1_2_monitor.sof'
+        image = FPGA/'bitstreams/garda_parallel8_jp1_1_2_monitor.sof'
         result['sof_sha256'] = hashlib.sha256(image.read_bytes()).hexdigest()
         print('STEP 2: FULL SCENARIO TESTS', flush=True)
         code = execute([sys.executable, '-u', str(FPGA/'scripts/run_testing_scenarios.py'),

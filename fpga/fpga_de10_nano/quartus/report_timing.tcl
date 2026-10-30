@@ -1,4 +1,4 @@
-project_open igor
+project_open garda
 create_timing_netlist
 read_sdc
 update_timing_netlist

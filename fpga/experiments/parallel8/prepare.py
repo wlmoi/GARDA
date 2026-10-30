@@ -4,7 +4,7 @@ import hashlib
 import json
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-RTL = ROOT / 'rtl/igor_src_policy'
+RTL = ROOT / 'rtl/garda_src_policy'
 (HERE/'artifacts').mkdir(exist_ok=True)
 words = (RTL/'policy_weights.mem').read_text().split()
 for lane in range(8):
@@ -17,7 +17,7 @@ for lane in range(8):
         bank.extend(words[bbase+group*8+lane] if group*8+lane<rows else '0000' for group in range(groups))
     assert len(bank)==2297
     (HERE/f'bank{lane}.mem').write_text('\n'.join(bank+['0000']*(4096-len(bank)))+'\n')
-text = (RTL/'igor_src_policy_core.v').read_text()
+text = (RTL/'garda_src_policy_core.v').read_text()
 text = text.replace('reg signed [39:0] accumulator;', 'reg signed [39:0] accumulator [0:7];\n    integer lane;')
 begin = text.index('    reg [14:0] address, weight_address;')
 end = text.index('    assign output_value', begin)
@@ -43,7 +43,7 @@ text = text[:begin]+'''    reg [11:0] address, weight_address;
         assign weight[g] = data;
         assign product[g] = operand * weight[g];
         assign mac_sum[g] = accumulator[g] + {{8{product[g][31]}},product[g]};
-        igor_src_policy_activation activation(accumulator[g],layer==2,
+        garda_src_policy_activation activation(accumulator[g],layer==2,
                                                activated[g],activation_saturated[g]);
     end endgenerate
 ''' + text[end:]
@@ -115,7 +115,7 @@ body=re.sub(r'        for\(n=0;n<8;n=n\+1\) begin: h2_view\n.*?        end',
             '\n'.join(f'        assign hidden2[{n}*8+g]=h2[{n}];' for n in range(8)),body,flags=re.S)
 expanded='    generate\n'+''.join('    begin: lane'+str(i)+re.sub(r'\bg\b',str(i),body)+'    end\n' for i in range(8))+'    endgenerate'
 text=text[:begin]+expanded+text[end:]
-(HERE/'igor_src_policy_core.v').write_text(text)
+(HERE/'garda_src_policy_core.v').write_text(text)
 # Same numerical and fault assertions, with only the declared scheduling contract changed.
 for suite in ['core','uart']:
     tb = (ROOT/f'verification/src_policy/tb_src_policy_{suite}.sv').read_text().replace('54348','6916')
@@ -128,13 +128,13 @@ tb=(ROOT/'verification/tb_board_wrapper.sv').read_text().replace('54348','6916')
 tb=tb.replace('../../evidence/current_board_wrapper/','artifacts/')
 (HERE/'tb_board_wrapper.sv').write_text(tb)
 board = ROOT/'fpga_de10_nano/src_policy'
-for name in ['igor_src_policy.qpf','igor_src_policy.sdc','pin_assignment.tcl','igor_src_policy_de10_nano.v']:
+for name in ['garda_src_policy.qpf','garda_src_policy.sdc','pin_assignment.tcl','garda_src_policy_de10_nano.v']:
     (HERE/name).write_bytes((board/name).read_bytes())
-qsf = (board/'igor_src_policy.qsf').read_text()
-qsf = qsf.replace('../../rtl/igor_src_policy/igor_src_policy_core.v','igor_src_policy_core.v')
-(HERE/'igor_src_policy.qsf').write_text(qsf)
+qsf = (board/'garda_src_policy.qsf').read_text()
+qsf = qsf.replace('../../rtl/garda_src_policy/garda_src_policy_core.v','garda_src_policy_core.v')
+(HERE/'garda_src_policy.qsf').write_text(qsf)
 manifest = {'expected_cycles':6916,'latency_ms_at_50mhz':0.13832,
             'scope':'Isolated candidate; not substituted for baseline',
-            'baseline_sha256':hashlib.sha256((RTL/'igor_src_policy_core.v').read_bytes()).hexdigest()}
+            'baseline_sha256':hashlib.sha256((RTL/'garda_src_policy_core.v').read_bytes()).hexdigest()}
 (HERE/'candidate.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print('Prepared candidate: 8 MAC lanes, 6916 cycles, 138.32 us at 50 MHz')

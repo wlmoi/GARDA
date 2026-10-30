@@ -1,6 +1,6 @@
-// Tiny Tapeout prototype of the actual IGOR safety gate, with a register front end.
+// Tiny Tapeout prototype of the actual GARDA safety gate, with a register front end.
 `default_nettype none
-module tt_um_wlmoi_igor_gate(
+module tt_um_wlmoi_garda_gate(
  input wire [7:0] ui_in, output reg [7:0] uo_out,
  input wire [7:0] uio_in,output wire [7:0] uio_out,output wire [7:0] uio_oe,
  input wire ena,clk,rst_n);
@@ -31,7 +31,7 @@ always @(posedge clk) begin
   default:begin end
  endcase
 end
-igor_safety_security_gate gate(rst_n,flags[0] && ena,flags[1],flags[2],flags[3],flags[4],flags[5],flags[6],flags[7],timeout,candidate_v,previous_v,max_v,max_dv,candidate_w,previous_w,max_w,max_dw,motor_enable,v_command,omega_command,fault_code);
+garda_safety_security_gate gate(rst_n,flags[0] && ena,flags[1],flags[2],flags[3],flags[4],flags[5],flags[6],flags[7],timeout,candidate_v,previous_v,max_v,max_dv,candidate_w,previous_w,max_w,max_dw,motor_enable,v_command,omega_command,fault_code);
 always @(*) begin
  case(ui_in[7:5])
   0:uo_out={7'd0,motor_enable};

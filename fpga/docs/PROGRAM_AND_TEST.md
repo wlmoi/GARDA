@@ -1,6 +1,6 @@
 # Program FPGA lalu test — satu double-click
 
-Shortcut Desktop: **IGOR - Program FPGA dan Test**.
+Shortcut Desktop: **GARDA - Program FPGA dan Test**.
 
 Target: `fpga/bitstreams/PROGRAM_AND_TEST.bat`, menjalankan `fpga/scripts/program_and_test.py`.
 

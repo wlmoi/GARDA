@@ -6,8 +6,8 @@ source build aktual berada di `fpga/rtl`.
 
 | Profil | Project | Top | Host UART |
 |---|---|---|---|
-| PPO dari software 74-128-64-3 | [src_policy/igor_src_policy.qpf](src_policy/igor_src_policy.qpf) | igor_src_policy_de10_nano | 921600, request 153/respons 11 byte, CRC8 Maxim |
-| Planner peta + gate + neural legacy 24-64-64-4 | [quartus/igor.qpf](quartus/igor.qpf) | igor_uart_top | 115200, frame 8 byte, CRC8 0x07 |
+| PPO dari software 74-128-64-3 | [src_policy/garda_src_policy.qpf](src_policy/garda_src_policy.qpf) | garda_src_policy_de10_nano | 921600, request 153/respons 11 byte, CRC8 Maxim |
+| Planner peta + gate + neural legacy 24-64-64-4 | [quartus/garda.qpf](quartus/garda.qpf) | garda_uart_top | 115200, frame 8 byte, CRC8 0x07 |
 
 Kedua profil memakai 5CSEBA6U23I7 dan clock 50 MHz. Pin planning dan SDC
 sudah disertakan. Buka QPF, lalu Assignments > Pin Planner untuk melihat
@@ -25,7 +25,7 @@ Hasil terbaru, warnings dan hash:
 [release manifest](../evidence/current_release/manifest.json).
 Programming: [BOARD_PROGRAMMING.md](../docs/BOARD_PROGRAMMING.md).
 
-Host legacy [igor_uart.py](host/igor_uart.py) menyediakan status, ROM readback,
+Host legacy [garda_uart.py](host/garda_uart.py) menyediakan status, ROM readback,
 100-vector neural check dan DWA demo. RESET KEY0 sebelum setiap scene. Map
 freshness dan command lease 20 ms harus diperhitungkan. Transport motor memiliki
 protokol terpisah; SOF planner ini belum langsung menserialkan pesan motor.

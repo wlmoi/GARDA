@@ -1,9 +1,9 @@
 {
-  "schema": "igor-dashboard-evidence-1",
+  "schema": "garda-dashboard-evidence-1",
   "checked_date": "2026-10-15",
   "functional_pass": true,
   "top": "tt_um_wlmoi_igor_neural_logic",
-  "summary": "Model tetap 6.020 kata diuji melalui RTL dan antarmuka pin TinyTapeout. Netlist sel IHP juga lolos simulasi fungsional tanpa SDF. Global routing telah lolos tanpa overflow. DRC, LVS dan timing signoff dinilai terpisah sesuai bukti yang tersedia.",
+  "summary": "Bukti historis IHP berasal dari revisi sebelum perubahan nama GARDA; bukan hasil verifikasi SKY130 atau GDS baru. Model tetap 6.020 kata diuji melalui RTL dan antarmuka pin TinyTapeout. Netlist sel IHP juga lolos simulasi fungsional tanpa SDF. Global routing telah lolos tanpa overflow. DRC, LVS dan timing signoff dinilai terpisah sesuai bukti yang tersedia.",
   "checks": [
     {
       "label": "RTL / 100 vektor, 400 keluaran",

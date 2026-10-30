@@ -4,7 +4,7 @@ module tb_uart_board_stress;
   reg [1:0] key=2'b10;
   reg rx=1;
   wire tx; wire [7:0] led;
-  igor_src_policy_de10_nano dut(clk,key,rx,tx,led);
+  garda_src_policy_de10_nano dut(clk,key,rx,tx,led);
   localparam real HOST_BIT_NS=1000000000.0/9600.0;
   real drive_bit_ns=HOST_BIT_NS;
   reg signed [15:0] obs[0:236*74-1], gold[0:236*3-1];

@@ -1,6 +1,6 @@
-# IGOR RTL Explorer
+# GARDA RTL Explorer
 
-**iSeeDesignITB** memvisualisasikan RTL IGOR yang sudah ada melalui model 3D DE10-Nano, blok FPGA, dan neural core TinyTapeout. Setiap modul memiliki source Verilog, port, arah data, ukuran bit, hierarchy, dan bukti yang dapat dibuka.
+**iSeeDesignITB** memvisualisasikan RTL GARDA yang sudah ada melalui model 3D DE10-Nano, blok FPGA, dan neural core TinyTapeout. Setiap modul memiliki source Verilog, port, arah data, ukuran bit, hierarchy, dan bukti yang dapat dibuka.
 
 ## Jalankan di laptop
 
@@ -20,18 +20,19 @@ Jalankan melalui HTTP. Pembukaan langsung dengan `file://` tidak dapat memuat mo
 | DE10-Nano | Model prosedural board, Cyclone V SoC, GPIO, clock, LED, dan periferal |
 | Isi RTL | 20 deklarasi modul pada 19 berkas Verilog FPGA asli |
 | TinyTapeout | Empat modul neural aktif 24 → 64 → 64 → 4 dengan dua MAC |
+| Jadwal Parallel8 | Visualisasi 6.916 clock FPGA untuk 74 → 128 → 64 → 3; model edukasi |
 | Demo gerbang | Model JavaScript dibandingkan dengan RTL Icarus pada 3.084 vektor |
 | Bukti | Angka kernel, hasil Quartus, status simulasi dan implementasi fisik |
-| Unduhan | Source Verilog, proyek Quartus portabel, `.sof`, source dan test TinyTapeout |
+| Unduhan | Source Verilog, proyek Quartus portabel dan `.sof` historis, source dan test TinyTapeout |
 
-Top FPGA adalah `igor_uart_top`. Planner berada di `igor_top`. Inferensi neural FPGA serial memerlukan 18.192 siklus dan merupakan jalur terpisah dari DWA.
+Top FPGA adalah `garda_uart_top`. Planner berada di `garda_top`. Inferensi neural FPGA serial memerlukan 18.192 siklus dan merupakan jalur terpisah dari DWA.
 
-Top ASIC aktif adalah `tt_um_wlmoi_igor_neural_logic`. Jadwal inferensinya 3.080 siklus. Target 50 MHz setara 61,6 µs secara aritmetis, dengan kelayakan timing fisik mengikuti laporan signoff. Model tetap 6.020 kata 16 bit direalisasikan sebagai logic ROM dan aktivasi memakai register. Tidak ada SRAM fisik pada top aktif. Core TinyTapeout ini memuat inferensi neural, sedangkan DWA dan gerbang motor merupakan desain FPGA tersendiri.
+Top ASIC aktif adalah `tt_um_wlmoi_garda_neural_logic`. Jadwal inferensinya 3.080 siklus. Target 50 MHz setara 61,6 µs secara aritmetis, dengan kelayakan timing fisik mengikuti laporan signoff. Model tetap 6.020 kata 16 bit direalisasikan sebagai logic ROM dan aktivasi memakai register. Tidak ada SRAM fisik pada top aktif. Core TinyTapeout ini memuat inferensi neural, sedangkan DWA dan gerbang motor merupakan desain FPGA tersendiri.
 
 ## Folder dan sumber kebenaran
 
 ```text
-peruri-iseedesign/
+GARDA/
 ├── rtl/                       Source FPGA kanonis
 ├── src/                       Source dan config TinyTapeout kanonis
 ├── evidence/tinytapeout/       Bukti verifikasi dan implementasi fisik
@@ -64,7 +65,7 @@ python tests/verify_gate_model.py
 
 Pengujian gerbang memerlukan Node.js dan Icarus Verilog. Windows menggunakan Icarus Linux melalui WSL bila WSL tersedia. Linux memakai Icarus pada PATH. Hasil 3.084 vektor tercatat pada `dist/data/gate-model-verification.json`. Browser menjalankan model perilaku JavaScript yang diuji terhadap RTL, bukan simulator Verilog dan bukan pengendali motor.
 
-Status TinyTapeout dibaca dari `../evidence/tinytapeout/current/verification.json`. Simulasi RTL, netlist generik, netlist sel IHP, global routing, detailed routing, DRC, LVS, dan timing signoff tetap memiliki status masing-masing.
+Bukti TinyTapeout berikut merupakan hasil revisi historis dan tidak membuktikan hasil setelah rebranding atau signoff SKY130. Status TinyTapeout dibaca dari `../evidence/tinytapeout/current/verification.json`. Simulasi RTL, netlist generik, netlist sel IHP, global routing, detailed routing, DRC, LVS, dan timing signoff tetap memiliki status masing-masing.
 
 ## Deploy Vercel
 
@@ -85,7 +86,7 @@ Workflow `dashboard-pages.yml` memublikasikan `dashboard/dist` sebagai GitHub Pa
 | Clock | V11 | 50 MHz |
 | UART RX | V12 | JP1 pin 1 |
 | UART TX | E8 | JP1 pin 2 |
-| UART host IGOR | 115200 baud | 8N1, frame 8 byte, CRC8 |
+| UART host GARDA | 115200 baud | 8N1, frame 8 byte, CRC8 |
 
 UART GPIO memakai TTL 3,3 V dengan TX adapter ke RX FPGA, RX adapter ke TX FPGA, serta ground bersama. Protokol host planner 115200 baud berbeda dari protokol STM 1 Mbps. Proyek buzzer referensi memiliki penggunaan E8 berbeda. Ikuti QSF proyek yang diprogram.
 
@@ -93,7 +94,7 @@ Model 3D merupakan ilustrasi penjelas arsitektur. Posisi dan luas blok bukan flo
 
 ## Referensi dan lisensi
 
-- [Repository IGOR](https://github.com/sundaysiagian/peruri-iseedesign)
+- [Repository GARDA](https://github.com/wlmoi/GARDA)
 - [Produk DE10-Nano dari Terasic](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=167&No=1046)
 - [Referensi interaksi GEMBOK](https://gembok-dashboard.vercel.app)
 - [Konfigurasi Vercel resmi](https://vercel.com/docs/project-configuration/vercel-json)

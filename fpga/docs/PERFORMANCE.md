@@ -14,7 +14,7 @@ DWA memproses 10.240 pose per run. Angka turunan adalah sekitar **64,5 juta eval
 
 ## Resource implementasi
 
-| Resource | DE10-Nano IGOR | DE10-Lite IGOR | Nano motor empat speed |
+| Resource | DE10-Nano GARDA | DE10-Lite GARDA | Nano motor empat speed |
 |---|---:|---:|---:|
 | Logic | 4.964 ALM | 18.984 LE | 194 ALM |
 | Register | 1.554 | 1.539 | 176 |
@@ -29,7 +29,7 @@ Sumber: [laporan Quartus](../evidence/quartus/reports), [screenshot Nano](../evi
 
 ## Model biaya UART
 
-Protokol IGOR memakai request 8 byte dan response 8 byte pada 115200 baud 8N1. Satu transaksi nominal membutuhkan `16 × 10 / 115200 ≈ 1,389 ms`. Script DWA mengirim sel map satu per satu. Model untuk 16.392 transaksi sekitar **22,77 detik**, sebelum overhead host, USB, parser, dan retry.
+Protokol GARDA memakai request 8 byte dan response 8 byte pada 115200 baud 8N1. Satu transaksi nominal membutuhkan `16 × 10 / 115200 ≈ 1,389 ms`. Script DWA mengirim sel map satu per satu. Model untuk 16.392 transaksi sekitar **22,77 detik**, sebelum overhead host, USB, parser, dan retry.
 
 Karena itu, latency kernel 158,76 µs berbeda dari waktu demo keseluruhan. [Model transport](../evidence/quartus/PERHITUNGAN_LATENSI.json) mencatat asumsi dan target integrasi. Sensor-to-motor belum menjadi hasil terukur.
 
@@ -42,7 +42,7 @@ Karena itu, latency kernel 158,76 µs berbeda dari waktu demo keseluruhan. [Mode
 | IO | 20,55 mW |
 | Total thermal estimate | **506,69 mW** |
 
-Sumber: [igor.pow.summary](../evidence/audit/power/igor.pow.summary). Report bersifat **vectorless dengan confidence Low** karena informasi toggle terbatas. Estimate tidak memodelkan aktivitas Linux HPS dan bukan pengukuran daya seluruh board atau robot.
+Sumber: [garda.pow.summary](../evidence/audit/power/garda.pow.summary). Report bersifat **vectorless dengan confidence Low** karena informasi toggle terbatas. Estimate tidak memodelkan aktivitas Linux HPS dan bukan pengukuran daya seluruh board atau robot.
 
 RTL memiliki pembaruan register kondisional. Tidak ada implementasi explicit clock gating yang mematikan clock tile idle. Strategi lanjutan dapat memanfaatkan clock enable dan aktivitas switching yang terukur, kemudian mengulang Power Analyzer.
 

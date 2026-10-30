@@ -19,8 +19,8 @@ memiliki kontrak lain yang dijelaskan pada arsitektur planner.
 | 10 | Batas absolut v/omega terlampaui | nol |
 | 11 | Batas perubahan v/omega terlampaui | nol |
 
-Prioritas evaluasi mengikuti urutan pada `igor_safety_security_gate.v`, dengan
-reset/E-stop/protective-stop lebih tinggi. `igor_top` mempertahankan penyebab
+Prioritas evaluasi mengikuti urutan pada `garda_safety_security_gate.v`, dengan
+reset/E-stop/protective-stop lebih tinggi. `garda_top` mempertahankan penyebab
 abort awal agar keadaan FAULT tidak menyamarkan penyebab menjadi ready=0.
 Logger menaikkan `event_count` hanya pada perubahan ke fault nonnol dan
 menjenuhkan counter pada `0xffffffff`. `last_fault` menyimpan penyebab terbaru

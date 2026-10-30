@@ -1,6 +1,6 @@
-# IGOR FPGA Test Dashboard
+# GARDA FPGA Test Dashboard
 
-Double-click **IGOR - FPGA Test Dashboard** on Desktop, or `fpga/bitstreams/OPEN_MOCK_DASHBOARD.bat`. A local Python server opens the dashboard in your browser. Keep its terminal open. No new packages are needed beyond the existing numpy/pyserial installation.
+Double-click **GARDA - FPGA Test Dashboard** on Desktop, or `fpga/bitstreams/OPEN_MOCK_DASHBOARD.bat`. A local Python server opens the dashboard in your browser. Keep its terminal open. No new packages are needed beyond the existing numpy/pyserial installation.
 
 The buttons invoke the same Python entry points and hardware flags used by the test BAT launchers. They avoid BAT `pause` so the browser can collect the result. Cargo and worker/liquid require real FPGA UART. Numeric tests run 256 vectors plus four invalid/recovery cases. The separate JTAG button explicitly programs the observer image, matching TEST_MOCK_INFERENCE_COM12.bat; other buttons do not program the board. Use the JTAG button only when you want that image loaded.
 

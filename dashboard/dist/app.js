@@ -1,4 +1,4 @@
-import { IgorScene } from './scene.js';
+import { GardaScene } from './scene.js';
 import { evaluateGate, faultDescriptions } from './gate-model.js';
 
 const $ = id => document.getElementById(id);
@@ -16,14 +16,14 @@ async function init(){
     catalog=await response.json();
     modules=catalog.modules.map(m=>({...m,name:m.module,color:colors[m.group]||'#7d9fbd'}));
     ttModules=catalog.asic_modules.map(m=>({...m,name:m.module,color:colors.asic,group:'tt'}));
-    try{scene=new IgorScene(canvas,{onSelect:id=>selectBlock(id),onModeChange:m=>setMode(m,true)});scene.setBlocks(modules);}catch(error){$('scene-error').hidden=false;console.warn('WebGL unavailable',error.message);}
+    try{scene=new GardaScene(canvas,{onSelect:id=>selectBlock(id),onModeChange:m=>setMode(m,true)});scene.setBlocks(modules);}catch(error){$('scene-error').hidden=false;console.warn('WebGL unavailable',error.message);}
     setMode('board');
     const requested=new URLSearchParams(location.search).get('module');
     if(requested){if(ttModules.some(m=>m.id===requested))setMode('tt');else setMode('die');selectBlock(requested);}
-    else selectBlock('igor_uart_top');
+    else selectBlock('garda_uart_top');
     renderFlow();
     document.documentElement.dataset.appReady='true';
-    window.igorExplorer={get mode(){return mode;},get selected(){return selected?.id;},setMode,selectBlock,evaluateGate,get scene(){return scene?.state;}};
+    window.gardaExplorer={get mode(){return mode;},get selected(){return selected?.id;},setMode,selectBlock,evaluateGate,get scene(){return scene?.state;}};
   }catch(error){$('block-description').textContent='Katalog belum berhasil dimuat. Jalankan server lokal dengan START_DASHBOARD.bat atau buka website yang sudah diterbitkan.';$('scene-error').hidden=false;console.error(error);}
   loadEvidence();
 }
@@ -41,12 +41,12 @@ function setMode(next,fromScene=false){
   $('model-scale').textContent=tt?'Susunan logis, bukan GDS signoff':mode==='die'?'Ukuran dan posisi blok bersifat konseptual':'DE10-Nano / bentuk konseptual';
   $('block-count').textContent=tt?'4 modul': '20 modul / 19 berkas';
   renderLegend();
-  if(!selected||!available().some(m=>m.id===selected.id))selectBlock(tt?'tt_um_wlmoi_igor_neural_logic':'igor_uart_top');
+  if(!selected||!available().some(m=>m.id===selected.id))selectBlock(tt?'tt_um_wlmoi_garda_neural_logic':'garda_uart_top');
 }
 function renderLegend(){
   const query=$('module-search').value.toLowerCase().trim();
   const list=available().filter(m=>[m.id,m.title,...m.ports.map(p=>p.name)].join(' ').toLowerCase().includes(query));
-  $('legend').innerHTML=list.map(m=>`<button type="button" data-block="${esc(m.id)}" aria-current="${m.id===selected?.id}"><span class="swatch" style="background:${m.color}"></span><span>${esc(m.title)}</span><small>${esc(m.module.replace('igor_',''))}</small></button>`).join('')||(query?'<p class="empty-search">Tidak ada modul atau port yang cocok.</p>':'');
+  $('legend').innerHTML=list.map(m=>`<button type="button" data-block="${esc(m.id)}" aria-current="${m.id===selected?.id}"><span class="swatch" style="background:${m.color}"></span><span>${esc(m.title)}</span><small>${esc(m.module.replace('garda_',''))}</small></button>`).join('')||(query?'<p class="empty-search">Tidak ada modul atau port yang cocok.</p>':'');
   $('legend').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{if(mode==='board')setMode('die');selectBlock(b.dataset.block);}));
 }
 function selectBlock(id){
@@ -86,13 +86,13 @@ async function openDetail(scroll=true){
   }catch(error){if(serial===sourceRequest)$('code-content').textContent='Source belum tersedia. Gunakan repository atau paket unduhan.';}
 }
 function renderFlow(){
-  const nodes=[['01','Masukan host','igor_uart_protocol','8 byte / CRC8'],['02','Peta & konfigurasi','igor_costmap_manager','128 × 128 / 8 bit'],['03','Empat rollout tile','igor_rollout_tile','4 × 128 kandidat'],['04','Pilih kandidat','igor_best_candidate_selector','skor 32 bit / indeks 9 bit'],['05','Gerbang izin','igor_safety_security_gate','permit 1 bit / fault 8 bit']];
+  const nodes=[['01','Masukan host','garda_uart_protocol','8 byte / CRC8'],['02','Peta & konfigurasi','garda_costmap_manager','128 × 128 / 8 bit'],['03','Empat rollout tile','garda_rollout_tile','4 × 128 kandidat'],['04','Pilih kandidat','garda_best_candidate_selector','skor 32 bit / indeks 9 bit'],['05','Gerbang izin','garda_safety_security_gate','permit 1 bit / fault 8 bit']];
   $('flow').innerHTML=nodes.map(([n,t,id,width])=>`<button type="button" data-flow="${id}"><span>${n}</span><h3>${t}</h3><code>${id}</code><small>${width}</small></button>`).join('');
   document.querySelectorAll('[data-flow]').forEach(b=>b.addEventListener('click',()=>{setMode('die');selectBlock(b.dataset.flow);$('explorer').scrollIntoView({behavior:'smooth'});}));
 }
 async function loadEvidence(){
   try{const r=await fetch('data/tinytapeout-report.json');if(!r.ok)throw Error(r.status);report=await r.json();
-    $('tt-functional').textContent=report.functional_pass?'RTL neural lulus pengujian':'Status RTL perlu ditinjau';
+    $('tt-functional').textContent=report.functional_pass?'RTL historis lulus pengujian':'Status RTL perlu ditinjau';
     $('tt-summary').textContent=report.summary||'Hasil RTL dan implementasi fisik memiliki cakupan terpisah.';
     $('evidence-date').textContent=`Diperiksa ${report.checked_date||'15 Oktober 2026'}`;
     $('tt-checks').innerHTML=(report.checks||[]).map(c=>`<div class="tt-check ${c.status==='pass'?'':'pending'}"><span>${esc(c.label)}</span><strong>${esc(c.result)}</strong></div>`).join('');
@@ -104,7 +104,7 @@ $('module-search').addEventListener('input',renderLegend);
 $('reset-camera').addEventListener('click',()=>scene?.reset());
 $('explode').addEventListener('click',e=>{const b=e.currentTarget,yes=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(yes));scene?.setExploded(yes);});
 $('rotate').addEventListener('click',e=>{const b=e.currentTarget,yes=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(yes));scene?.setAutoRotate(yes);});
-$('select-gate').addEventListener('click',()=>{setMode('die');selectBlock('igor_safety_security_gate');});
+$('select-gate').addEventListener('click',()=>{setMode('die');selectBlock('garda_safety_security_gate');});
 const faults=[['estop','Emergency stop',0],['protective_stop','Protective stop',0],['map_ok','Peta tidak valid',1],['cfg_ok','Konfigurasi tidak valid',1],['ready','Belum ready',1],['arithmetic_fault','Fault aritmetika',0],['timeout','Timeout',0],['result_valid','Hasil tidak valid',1]];
 $('fault-toggles').innerHTML=faults.map(([id,label])=>`<label><input type="checkbox" data-fault="${id}"><span>${label}</span></label>`).join('');
 function updateGate(){

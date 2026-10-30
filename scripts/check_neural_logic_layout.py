@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.runtime/layout-python'))
 import klayout.db as db
 
-TOP='tt_um_wlmoi_igor_neural_logic'
+TOP='tt_um_wlmoi_garda_neural_logic'
 REQUIRED=['design__lvs_error__count','klayout__drc_error__count','route__drc_errors',
           'design__power_grid_violation__count','magic__illegal_overlap__count',
           'timing__setup_vio__count','timing__hold_vio__count',

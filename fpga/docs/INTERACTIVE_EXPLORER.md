@@ -1,4 +1,4 @@
-# IGOR Interactive RTL Explorer
+# GARDA Interactive RTL Explorer
 
 Dashboard **iSeeDesignITB** menghubungkan model board 3D dengan RTL, ukuran bit, hierarchy, dan bukti verifikasi dari repository yang sama. Berkas implementasi berada pada [dashboard](../dashboard/README.md).
 
@@ -16,11 +16,11 @@ Pilih mode board, RTL, atau TinyTapeout. Klik blok untuk deskripsi fungsi dan so
 
 | Tampilan | Source utama | Top |
 |---|---|---|
-| DE10-Nano dan Isi RTL | [rtl](../rtl) | `igor_uart_top` |
-| Planner empat tile | [igor_top.v](../rtl/igor_top.v) | Diinstansiasi oleh top UART |
-| TinyTapeout aktif | [src](../src), [info.yaml](../info.yaml) | `tt_um_wlmoi_igor_neural_logic` |
+| DE10-Nano dan Isi RTL | [rtl](../rtl) | `garda_uart_top` |
+| Planner empat tile | [garda_top.v](../rtl/garda_top.v) | Diinstansiasi oleh top UART |
+| TinyTapeout aktif | [src](../src), [info.yaml](../info.yaml) | `tt_um_wlmoi_garda_neural_logic` |
 
-FPGA memiliki 19 berkas dan 20 deklarasi modul. `igor_neural_datapath` didefinisikan pada berkas `igor_neural_core.v`. Dashboard juga menjelaskan wrapper scene alternatif yang bukan top aktif proyek Quartus.
+FPGA memiliki 19 berkas dan 20 deklarasi modul. `garda_neural_datapath` didefinisikan pada berkas `garda_neural_core.v`. Dashboard juga menjelaskan wrapper scene alternatif yang bukan top aktif proyek Quartus.
 
 Neural FPGA serial dan neural ASIC dual MAC memiliki implementasi berbeda. Core TinyTapeout menjalankan model tetap 24 → 64 → 64 → 4 tanpa SRAM fisik. DWA, costmap, gerbang motor, dan UART board merupakan bagian FPGA. Eksperimen TinyTapeout gerbang atau SRAM terdahulu tetap merupakan arsip.
 
@@ -81,6 +81,6 @@ Workflow `dashboard-pages.yml` menyusun situs dari `dashboard/dist` dan menjadi 
 
 Semua URL aset dashboard relatif terhadap halaman, sehingga situs dapat berjalan pada path project seperti `https://sundaysiagian.github.io/peruri-iseedesign/`. File `.nojekyll` disertakan pada distribusi. Publikasi Pages ini merupakan frontend yang sama dengan distribusi Vercel.
 
-Workflow fisik menghasilkan artifact `igor-physical-viewer` setelah GDS, precheck, dan gate-level test berhasil. Pembentuk Pages memeriksa hash source serta konfigurasi sebelum memasukkan layout tersebut ke situs. Viewer tersedia pada `layout/`, sedangkan OASIS dan GDS memiliki alias pada root untuk verifikasi. Layout dari source berbeda ditolak. Jika belum ada artifact yang memenuhi pemeriksaan, halaman layout menjelaskan statusnya dan dashboard tetap tersedia.
+Workflow fisik menghasilkan artifact `garda-physical-viewer` setelah GDS, precheck, dan gate-level test berhasil. Pembentuk Pages memeriksa hash source serta konfigurasi sebelum memasukkan layout tersebut ke situs. Viewer tersedia pada `layout/`, sedangkan OASIS dan GDS memiliki alias pada root untuk verifikasi. Layout dari source berbeda ditolak. Jika belum ada artifact yang memenuhi pemeriksaan, halaman layout menjelaskan statusnya dan dashboard tetap tersedia.
 
 Hash source Verilog pada katalog dan bukti model gerbang menormalkan CRLF menjadi LF. Dengan demikian checkout Windows dan Linux memverifikasi source yang sama. Berkas bitstream dan ZIP tetap memakai hash biner tanpa normalisasi.

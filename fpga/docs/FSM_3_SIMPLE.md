@@ -1,15 +1,15 @@
 # Tiga FSM sederhana
 
-**[Buka file draw.io: tiga halaman](assets/igor_fsm_3_simple.drawio)**.
+**[Buka file draw.io: tiga halaman](assets/garda_fsm_3_simple.drawio)**.
 Pilih tab Core, Controller Transaksi, atau UART RX di bawah kanvas diagrams.net.
 Gaya mengikuti contoh: lingkaran putih, garis hitam, nama state di atas garis,
 aksi di bawah garis, kondisi di panah, dan loop ketika state tetap.
 
 | FSM | Draw.io terpisah | PNG |
 |---|---|---|
-| Core Parallel8: 8 state | [01_core.drawio](assets/igor_fsm_simple/01_core.drawio) | [Core](assets/igor_fsm_simple/01_core.png) |
-| Controller transaksi: 10 state | [02_policy.drawio](assets/igor_fsm_simple/02_policy.drawio) | [Controller](assets/igor_fsm_simple/02_policy.png) |
-| UART RX: 4 state | [03_uart_rx.drawio](assets/igor_fsm_simple/03_uart_rx.drawio) | [UART RX](assets/igor_fsm_simple/03_uart_rx.png) |
+| Core Parallel8: 8 state | [01_core.drawio](assets/garda_fsm_simple/01_core.drawio) | [Core](assets/garda_fsm_simple/01_core.png) |
+| Controller transaksi: 10 state | [02_policy.drawio](assets/garda_fsm_simple/02_policy.drawio) | [Controller](assets/garda_fsm_simple/02_policy.png) |
+| UART RX: 4 state | [03_uart_rx.drawio](assets/garda_fsm_simple/03_uart_rx.drawio) | [UART RX](assets/garda_fsm_simple/03_uart_rx.png) |
 
 Ini **tiga FSM**, dengan jumlah state asli masing-masing tetap dipertahankan.
 Bagian bawah lingkaran adalah ringkasan aksi register ketika state dijalankan,
@@ -31,11 +31,11 @@ Ringkasan prioritas dan aksi tambahan ada di bawah masing-masing gambar;
 detail lengkap tersedia pada [panduan FSM](FSM_CORE_AND_CONTROLLERS.md).
 Loop pada state berarti state tetap; datapath/counter masih bisa diperbarui.
 
-![FSM UART RX dengan lingkaran terpisah nama/aksi](assets/igor_fsm_simple/03_uart_rx.png)
+![FSM UART RX dengan lingkaran terpisah nama/aksi](assets/garda_fsm_simple/03_uart_rx.png)
 
-Sumber asli: [core](../experiments/parallel8/igor_src_policy_core.v),
-[controller transaksi](../rtl/igor_src_policy/igor_src_policy_uart.v), dan
-[UART RX](../rtl/igor_uart_rx.v). Source dan hash gambar tersimpan di
-[sources.json](assets/igor_fsm_simple/sources.json).
-Pembuatan ulang: `python fpga/scripts/render_igor_fsm_simple.py`.
+Sumber asli: [core](../experiments/parallel8/garda_src_policy_core.v),
+[controller transaksi](../rtl/garda_src_policy/garda_src_policy_uart.v), dan
+[UART RX](../rtl/garda_uart_rx.v). Source dan hash gambar tersimpan di
+[sources.json](assets/garda_fsm_simple/sources.json).
+Pembuatan ulang: `python fpga/scripts/render_garda_fsm_simple.py`.
 Dokumentasi ini tidak mengubah RTL, bobot atau bitstream board.

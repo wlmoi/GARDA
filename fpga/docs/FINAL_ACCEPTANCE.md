@@ -1,4 +1,4 @@
-# Penerimaan final paket FPGA IGOR
+# Penerimaan final paket FPGA GARDA
 
 Audit kebutuhan: **16 Oktober 2026, Asia/Jakarta**. Lampiran terbaru
 “Kekuatan yang ingin kami tonjolkan” dipakai sebagai daftar kebutuhan
@@ -15,8 +15,8 @@ sampai tujuan. Tidak ada pengukuran fisik baru yang diklaim dokumen ini.
 
 | Profil | Project Quartus | Kontrak yang benar |
 |---|---|---|
-| Policy dari software workspace | [`igor_src_policy.qpf`](../fpga_de10_nano/src_policy/igor_src_policy.qpf), top `igor_src_policy_de10_nano` | PPO residual **74→128→64→3**; observasi 74 nilai Q8.8 → tiga residual twist. UART 921600, frame request 153 byte/respons 11 byte. Hasil bukan setpoint roda. |
-| Planner dan safety gate | [`igor.qpf`](../fpga_de10_nano/quartus/igor.qpf), top `igor_uart_top` | Planner peta 128×128 dan neural legacy **24→64→64→4** dengan protokol UART tersendiri, 115200. Kode E-stop planner adalah **2**; pada policy kode E-stop adalah **1**. |
+| Policy dari software workspace | [`garda_src_policy.qpf`](../fpga_de10_nano/src_policy/garda_src_policy.qpf), top `garda_src_policy_de10_nano` | PPO residual **74→128→64→3**; observasi 74 nilai Q8.8 → tiga residual twist. UART 921600, frame request 153 byte/respons 11 byte. Hasil bukan setpoint roda. |
+| Planner dan safety gate | [`garda.qpf`](../fpga_de10_nano/quartus/garda.qpf), top `garda_uart_top` | Planner peta 128×128 dan neural legacy **24→64→64→4** dengan protokol UART tersendiri, 115200. Kode E-stop planner adalah **2**; pada policy kode E-stop adalah **1**. |
 
 Keduanya memakai DE10-Nano **Cyclone V 5CSEBA6U23I7**, clock **50 MHz**.
 Pilih profil pada manifest setiap run dan gunakan host yang sesuai.
@@ -96,7 +96,7 @@ E-stop di antara clock → nol segera, edge logger berikutnya → last_fault 2
 dan counter bertambah, write peta tanpa begin → fault 5, deadline tepat batas
 → fault 8, sequence peta berubah → hasil lama dicabut. Titik dan sinyal detail
 ada pada [checklist implementasi](IMPLEMENTATION_READINESS.md) dan
-[README RTL policy](../rtl/igor_src_policy/README.md).
+[README RTL policy](../rtl/garda_src_policy/README.md).
 
 ## K1–K7: klaim yang boleh dan belum boleh dibuat
 

@@ -7,7 +7,7 @@ Status ini membatasi klaim sesuai jenis bukti. Halaman utama menampilkan pencapa
 | RTL planner | Scene, counter, fault scenario, serta assertion/invariant yang dijalankan | Tambahkan scene baru dan pengujian batas |
 | Neural | 400 output cocok tepat pada 100 vektor | Integrasikan ke ranking dan ulangi regresi |
 | FPGA Nano dan Lite | Map, fit, assembler, timing, serta SOF | Program board dan rekam readback UART |
-| Output gate | Pada `igor_top`, tiga command output didorong instance gate | Pertahankan invariant pada bridge motor |
+| Output gate | Pada `garda_top`, tiga command output didorong instance gate | Pertahankan invariant pada bridge motor |
 | Daya | Estimate Quartus 506,69 mW, vectorless Low confidence | Tambahkan activity trace dan ukur daya board |
 | ASIC | Wrapper, metadata, generic synthesis, serta tes netlist generik | Jalankan PDK flow, tile fit, DRC, LVS, STA, dan gate-level test |
 | JetAuto | UART protocol, paket RTL, buzzer, dan observasi setiap roda bekerja individual | Rekam acceptance terbaru semua roda bersamaan |

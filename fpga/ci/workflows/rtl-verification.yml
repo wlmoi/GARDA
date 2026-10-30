@@ -1,4 +1,4 @@
-name: IGOR RTL and host verification
+name: GARDA RTL and host verification
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: igor-rtl-${{ github.workflow }}-${{ github.ref }}
+  group: garda-rtl-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 defaults:

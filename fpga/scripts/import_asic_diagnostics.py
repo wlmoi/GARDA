@@ -67,7 +67,7 @@ def main():
              'design_name':config['DESIGN_NAME'],'pdk':config['PDK'],'clock_period_ns':config['CLOCK_PERIOD'],
              'macros':list(config['MACROS']),'power_postroute_total_rows':final_power,
              'source_configuration':{'ERROR_ON_ILLEGAL_OVERLAPS':docs['src/config.json'].get('ERROR_ON_ILLEGAL_OVERLAPS'), 'RUN_MAGIC_DRC':docs['src/config.json'].get('RUN_MAGIC_DRC')},
-             'rtl_binding':'Results attributed to archive top tt_um_igorchip; source commit/equivalence to local Parallel8 not established by this archive.',
+             'rtl_binding':'Results attributed to archive top tt_um_gardachip; source commit/equivalence to local Parallel8 not established by this archive.',
              'silicon_measurement':False,'precheck_or_gl_job_success_proven':False,
              'nonzero_signoff_metrics':{k:metrics[k] for k in ['timing__setup__ws','timing__setup__tns','timing__setup_vio__count','design__max_slew_violation__count','design__max_cap_violation__count','design__max_fanout_violation__count','magic__illegal_overlap__count']},
              'final_metrics_raw':metrics}

@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,subprocess,random,shutil,hashlib,os,shlex
 R=Path(__file__).resolve().parents[1]
-repo=R.parent;rtl=repo/'rtl/igor_safety_security_gate.v'
+repo=R.parent;rtl=repo/'rtl/garda_safety_security_gate.v'
 out=R/'tests/artifacts';out.mkdir(parents=True,exist_ok=True)
 defaults=dict(rst_n=1,ready=1,estop=0,protective_stop=0,map_ok=1,cfg_ok=1,result_valid=1,all_done=1,arithmetic_fault=0,timeout=0,candidate_v=12,previous_v=12,max_v=20,max_dv=8,candidate_w=4,previous_w=4,max_w=20,max_dw=12)
 vectors=[defaults.copy()]
@@ -26,7 +26,7 @@ subprocess.run(['node',str(out/'run-model.mjs')],check=True)
 names=list(defaults)
 decl='reg rst_n,ready,estop,protective_stop,map_ok,cfg_ok,result_valid,all_done,arithmetic_fault,timeout;\nreg [4:0] candidate_v,previous_v,max_v,max_dv;\nreg signed [6:0] candidate_w,previous_w;\nreg [6:0] max_w,max_dw;\nwire motor_enable; wire [4:0] v_command;wire signed [6:0] omega_command;wire [7:0] fault_code;'
 ports=names+['motor_enable','v_command','omega_command','fault_code']
-tb='`timescale 1ns/1ps\nmodule tb;\n'+decl+'\nigor_safety_security_gate dut('+','.join('.'+n+'('+n+')' for n in ports)+');\ninitial begin\n'
+tb='`timescale 1ns/1ps\nmodule tb;\n'+decl+'\ngarda_safety_security_gate dut('+','.join('.'+n+'('+n+')' for n in ports)+');\ninitial begin\n'
 for i,v in enumerate(vectors):
     tb+=' '.join(k+'='+str(v[k])+';' for k in names)+' #1; $display("CHECK '+str(i)+' %0d %0d %0d %0d",motor_enable,v_command,omega_command,fault_code);\n'
 tb+='$finish;end\nendmodule\n'
@@ -44,6 +44,6 @@ assert len(actual)==len(vectors)
 for i,(a,b) in enumerate(zip(actual,expected)):
     if a!=b:raise AssertionError({'index':i,'input':vectors[i],'rtl':a,'browser':b})
 codes=sorted(set(x[-1] for x in actual));assert codes==list(range(12)),codes
-report={'status':'PASS','test':'Browser behavior model vs actual Icarus Verilog RTL','vectors':len(vectors),'fault_codes_covered':codes,'rtl_source':'rtl/igor_safety_security_gate.v','rtl_sha256':hashlib.sha256(rtl.read_bytes().replace(b'\r\n',b'\n')).hexdigest(),'browser_model_sha256':hashlib.sha256((R/'dist/gate-model.js').read_bytes().replace(b'\r\n',b'\n')).hexdigest(),'text_hash_normalization':'CRLF to LF','simulation_in_browser':False,'seed':15102026}
+report={'status':'PASS','test':'Browser behavior model vs actual Icarus Verilog RTL','vectors':len(vectors),'fault_codes_covered':codes,'rtl_source':'rtl/garda_safety_security_gate.v','rtl_sha256':hashlib.sha256(rtl.read_bytes().replace(b'\r\n',b'\n')).hexdigest(),'browser_model_sha256':hashlib.sha256((R/'dist/gate-model.js').read_bytes().replace(b'\r\n',b'\n')).hexdigest(),'text_hash_normalization':'CRLF to LF','simulation_in_browser':False,'seed':15102026}
 (R/'dist/data/gate-model-verification.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report))

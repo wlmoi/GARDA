@@ -1,10 +1,10 @@
-# IGOR Chip — estimasi daya dan efisiensi desain
+# GARDA Chip — estimasi daya dan efisiensi desain
 
-**IGOR Chip menunjukkan profil daya yang menarik untuk pengembangan
+**GARDA Chip menunjukkan profil daya yang menarik untuk pengembangan
 pengendali protokol industri yang ringkas dan hemat energi.** Laporan ASIC
 post-route mencatat total daya **2,037372 mW** pada kondisi Typical.
 
-Dokumen ini merangkum hasil desain **`tt_um_igorchip`**, PDK
+Dokumen ini merangkum hasil desain **`tt_um_gardachip`**, PDK
 **`ihp-sg13cmos5l`**, dari arsip implementasi yang diberikan pengguna.
 Angka pada tabel merupakan **estimasi EDA post-route**.
 
@@ -90,13 +90,13 @@ dan **8 DSP**. Estimasi Quartus Typical adalah **50,36 mW dynamic** dan
 **476,18 mW total**, berlabel **confidence Low / HPS Off** pada report.
 
 Sumber: [README Parallel8](experiments/parallel8/README.md) dan
-[Power Analyzer summary](experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary).
+[Power Analyzer summary](experiments/parallel8/artifacts/power/typical/garda_src_policy.pow.summary).
 Identitas desain tetap dicantumkan pada setiap tabel agar hasil ASIC
-`tt_um_igorchip` dan prototipe neural Parallel8 mudah digunakan secara tepat.
+`tt_um_gardachip` dan prototipe neural Parallel8 mudah digunakan secara tepat.
 
 ## Narasi untuk presentasi
 
-> IGOR Chip menggabungkan estimasi daya Typical sekitar **2,04 mW**,
+> GARDA Chip menggabungkan estimasi daya Typical sekitar **2,04 mW**,
 > empat context eksekusi, penyimpanan program SRAM, dan proteksi operasi
 > I/O langsung di hardware. Hasil ini menjadikannya prototipe yang
 > menarik untuk pengembangan pengendali protokol industri dengan fokus

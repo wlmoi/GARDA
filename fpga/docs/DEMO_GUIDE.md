@@ -8,7 +8,7 @@ Tampilkan alur kerja hardware yang mudah diikuti: input, proses RTL, hasil numer
 
 | Waktu | Tampilan | Narasi dan bukti |
 |---|---|---|
-| 00:00–00:25 | Board, nama tim, diagram | IGOR mengubah costmap menjadi keputusan lokal yang dapat diperiksa |
+| 00:00–00:25 | Board, nama tim, diagram | GARDA mengubah costmap menjadi keputusan lokal yang dapat diperiksa |
 | 00:25–01:05 | Diagram empat tile | 512 kandidat, 20 pose tiap kandidat, 4 evaluator, gate output |
 | 01:05–01:40 | Quartus dan SOF | Top entity, device, resource, timing, serta image target |
 | 01:40–02:20 | GTKWave DWA | Tunjukkan start, busy, done, permit, dan 7.938 siklus |
@@ -37,7 +37,7 @@ Jika board tersedia, masukkan programming JTAG dan UART readback pada segmen 01:
 - Board dan kabel apabila demonstrasi fisik dilakukan.
 - STOP dan roda bebas berputar jika segmen motor ditambahkan.
 
-Demo motor memakai jalur [JetAuto](JETAUTO.md), yang berbeda dari UART planner. Labelkan segmen tersebut sebagai transport/controller test sampai command IGOR terintegrasi.
+Demo motor memakai jalur [JetAuto](JETAUTO.md), yang berbeda dari UART planner. Labelkan segmen tersebut sebagai transport/controller test sampai command GARDA terintegrasi.
 
 ## Menambahkan video ke repository
 

@@ -1,4 +1,4 @@
-# Pusat dokumentasi IGOR
+# Pusat dokumentasi GARDA
 
 Dokumentasi ini disusun untuk pembaca yang ingin menilai hasil, menjalankan simulasi, membuka Quartus, atau mengambil alih pengembangan hardware.
 
@@ -24,6 +24,6 @@ Dokumentasi ini disusun untuk pembaca yang ingin menilai hasil, menjalankan simu
 | Memahami cakupan hasil dan acceptance | [Hasil dan cakupan](RESULTS_AND_SCOPE.md) |
 | Melacak sumber desain | [Referensi](REFERENCES.md) |
 
-Diagram lengkap: [IGOR_RTL_Flowchart.io](flowcharts/IGOR_RTL_Flowchart.io), 28 halaman dalam satu file yang dapat dibuka di diagrams.net.
+Diagram lengkap: [GARDA_RTL_Flowchart.io](flowcharts/GARDA_RTL_Flowchart.io), 28 halaman dalam satu file yang dapat dibuka di diagrams.net.
 
 Kembali ke [README utama](../README.md).

@@ -3,7 +3,7 @@ module tb_board_wrapper;
  localparam BIT_CYCLES=54, BIT_NS=1080;
  reg clk=0;always #10 clk=~clk;
  reg [1:0] key=2'b00;reg rx=1;wire tx;wire [7:0] led;
- igor_src_policy_de10_nano dut(clk,key,rx,tx,led);
+ garda_src_policy_de10_nano dut(clk,key,rx,tx,led);
  reg signed [15:0] observation[0:236*74-1],expected[0:236*3-1];
  reg [7:0] response[0:255],monitored_byte;
  integer received=0,bit_number,fd,checkpoints=0;

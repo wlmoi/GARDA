@@ -1,13 +1,13 @@
 # DE10-Nano: RTL dari software `./src`
 
-Buka **`igor_src_policy.qpf`**, top **`igor_src_policy_de10_nano`**, device
+Buka **`garda_src_policy.qpf`**, top **`garda_src_policy_de10_nano`**, device
 **Cyclone V 5CSEBA6U23I7**, clock **50 MHz**. Proyek memakai source kanonik
 `../../rtl/`; pertahankan struktur repository saat memindahkan proyek.
 
 Model yang dipasang ialah PPO residual **74 → 128 → 64 → 3** dari
-`src/igor_navigation/igor_navigation/weights/model_weights.json` dan enam MEM
+`src/garda_navigation/garda_navigation/weights/model_weights.json` dan enam MEM
 hasil ekspornya. Ini menghasilkan tiga residual twist, bukan empat setpoint
-roda. Proyek planner lama `../quartus/igor.qpf` memakai protokol berbeda dan
+roda. Proyek planner lama `../quartus/garda.qpf` memakai protokol berbeda dan
 neural 24 → 64 → 64 → 4; jangan mengirim frame bridge baru ke proyek itu.
 
 ## Arsitektur dan batas keselamatan
@@ -29,7 +29,7 @@ flowchart LR
 Core menggunakan akumulator signed 40 bit, satu operasi perkalian signed
 16×16, ROM sinkron, hidden activation signed16 jenuh, dan pergeseran aritmetika
 8 bit (pembulatan ke bawah). Detail alamat ROM, state machine, batas aritmetika,
-dan pembanding independen ada di [README RTL](../../rtl/igor_src_policy/README.md).
+dan pembanding independen ada di [README RTL](../../rtl/garda_src_policy/README.md).
 
 `safety_permit` pada proyek ini berarti **residual valid dan masih segar**.
 Tidak ada masukan costmap pada protokol observasi 74 dimensi. Pemeriksa peta
@@ -76,7 +76,7 @@ clock penerima; path komputasi internal tetap dianalisis.
 
 ## Reproduksi verifikasi dan kompilasi
 
-Dari folder `igor_ws/fpga`:
+Dari folder `garda_ws/fpga`:
 
 ```powershell
 python verification/src_policy/run.py --check
@@ -87,13 +87,13 @@ python verification/run_safety_regression.py
 Dari folder proyek ini:
 
 ```powershell
-& 'D:\Quartus-Program\quartus\bin64\quartus_sh.exe' --flow compile igor_src_policy
+& 'D:\Quartus-Program\quartus\bin64\quartus_sh.exe' --flow compile garda_src_policy
 ```
 
 Log build ada pada `compile.log`; hasil aktual ada pada
-`output_files/igor_src_policy.{map,fit,sta}.rpt`, pin terpasang pada
-`output_files/igor_src_policy.pin`, dan image pada
-`output_files/igor_src_policy.sof`. Status final, hash, resource, dan slack
+`output_files/garda_src_policy.{map,fit,sta}.rpt`, pin terpasang pada
+`output_files/garda_src_policy.pin`, dan image pada
+`output_files/garda_src_policy.sof`. Status final, hash, resource, dan slack
 harus dibaca dari hasil build saat ini, bukan angka proyek legacy pada halaman
 utama. Bukti yang dibekukan dicatat di `../../evidence/current_release/`.
 
@@ -101,7 +101,7 @@ Untuk operasi software gunakan workspace yang diperbaiki pada
 `fpga/software_integration`, lalu build/source sesuai README di folder itu:
 
 ```bash
-ros2 launch igor_bringup bringup.launch.py algorithm:=cl_drl_cbf use_fpga:=true fpga_port:=/dev/fpga fpga_baudrate:=921600
+ros2 launch garda_bringup bringup.launch.py algorithm:=cl_drl_cbf use_fpga:=true fpga_port:=/dev/fpga fpga_baudrate:=921600
 ```
 
 Mode hardware menolak port yang gagal dibuka. Mock hanya aktif jika diminta

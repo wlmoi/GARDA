@@ -1,5 +1,5 @@
 project:
-  title: IGOR Neural Logic
+  title: GARDA Neural Logic
   author: William Anthony / iSeeDesignITB
   discord: ''
   description: Complete dual-MAC Q8.8 inference 24-64-64-4 with fixed model logic
@@ -7,12 +7,12 @@ project:
   language: Verilog
   clock_hz: 50000000
   tiles: 8x4
-  top_module: tt_um_wlmoi_igor_neural_logic
+  top_module: tt_um_wlmoi_garda_neural_logic
   source_files:
-  - igor_neural_logic_top.v
-  - igor_parameter_logic.v
-  - igor_neural_datapath_logic.v
-  - igor_activation_logic.v
+  - garda_neural_logic_top.v
+  - garda_parameter_logic.v
+  - garda_neural_datapath_logic.v
+  - garda_activation_logic.v
 pinout:
   ui[0]: write_enable
   ui[1]: register_address_bit0

@@ -2,7 +2,7 @@
 `default_nettype none
 // Synchronous register interface. Host holds the inputs over a rising edge;
 // SRAM transactions latched there execute on the next rising edge.
-module tt_um_wlmoi_igor_neural_sram (
+module tt_um_wlmoi_garda_neural_sram (
  input wire [7:0] ui_in,output reg [7:0] uo_out,
  input wire [7:0] uio_in,output wire [7:0] uio_out,uio_oe,
  input wire ena,clk,rst_n
@@ -27,9 +27,9 @@ wire effective_ready=weights_ready && !host_fault;
 wire neural_rst_n=rst_n && !loading;
 wire [12:0] memory_address=memory_write ? write_address :
  (busy ? core_address : host_address);
-igor_parameter_sram parameter_store(clk,rst_n,1'b1,memory_write,
+garda_parameter_sram parameter_store(clk,rst_n,1'b1,memory_write,
  memory_address,write_word,16'hffff,memory_data,memory_even,memory_odd);
-igor_neural_datapath neural(clk,neural_rst_n,load_input,start,input_index,staged_data,
+garda_neural_datapath neural(clk,neural_rst_n,load_input,start,input_index,staged_data,
  output_index,output_value,busy,done,neural_fault,latency_cycles,
  effective_ready,core_address,memory_data,memory_even,memory_odd);
 always @(posedge clk or negedge rst_n) begin

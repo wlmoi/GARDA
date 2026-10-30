@@ -1,6 +1,6 @@
 # FPGA → laptop datalogger
 
-Setelah board diprogram dengan project `fpga/experiments/jp1_1_2_monitor/igor_jp7_monitor.qpf`, klik Desktop **IGOR - FPGA Datalogger**. Isi lokasi, misalnya `Lab ITB / meja A`, lalu Enter. Ctrl+C menghentikan logger dan menyimpan ringkasan. Launcher: `fpga/bitstreams/OPEN_FPGA_DATALOGGER.bat`. Shortcut dapat dibuat ulang dengan `fpga/scripts/install_datalogger_shortcut.ps1`.
+Setelah board diprogram dengan project `fpga/experiments/jp1_1_2_monitor/garda_jp7_monitor.qpf`, klik Desktop **GARDA - FPGA Datalogger**. Isi lokasi, misalnya `Lab ITB / meja A`, lalu Enter. Ctrl+C menghentikan logger dan menyimpan ringkasan. Launcher: `fpga/bitstreams/OPEN_FPGA_DATALOGGER.bat`. Shortcut dapat dibuat ulang dengan `fpga/scripts/install_datalogger_shortcut.ps1`.
 
 Gunakan USB-Blaster yang sama dengan programming; tutup JTAG terminal atau aplikasi pengujian lain yang sedang memakai interface JTAG. Logger tidak membuka COM12, tidak memprogram board, tidak mereset core, tidak mengganti mode, dan tidak mengirim observasi. Logger hanya meminta snapshot dengan perintah `q`. Sumber input inferensi dapat berjalan terpisah melalui UART. Tanpa inferensi baru, logger tetap merekam status dengan label `unchanged`.
 
@@ -20,7 +20,7 @@ Gunakan USB-Blaster yang sama dengan programming; tutup JTAG terminal atau aplik
 | `accepted`, `rejected`, `error` | Counter frame dan kode error dari wrapper FPGA. Kode disimpan sebagai angka pada CSV; tampilan console memakai heksadesimal. |
 | `unobserved_results` | Jika seq maju beberapa angka, jumlah hasil di antaranya yang tidak sempat dibaca. Kosong saat awal/discontinuity karena jumlahnya tidak diketahui. |
 
-**Action yang dicatat adalah hasil terakhir yang disimpan observer, bukan sinyal aktuator saat ini.** Hasil tersebut tetap tersimpan setelah freshness timeout atau E-stop. Baca bersama kolom `event`, `stop`, dan `error`. Contohnya, kode `0x0B` adalah result freshness timeout pada wrapper saat ini; hasil lama tetap dapat dilihat untuk audit, tetapi tidak boleh ditafsirkan sebagai izin menjalankan motor. Sumber perilaku: `fpga/rtl/igor_src_policy/igor_src_policy_uart.v` dan observer `fpga/experiments/jp1_1_2_monitor/igor_jp7_monitor.v`.
+**Action yang dicatat adalah hasil terakhir yang disimpan observer, bukan sinyal aktuator saat ini.** Hasil tersebut tetap tersimpan setelah freshness timeout atau E-stop. Baca bersama kolom `event`, `stop`, dan `error`. Contohnya, kode `0x0B` adalah result freshness timeout pada wrapper saat ini; hasil lama tetap dapat dilihat untuk audit, tetapi tidak boleh ditafsirkan sebagai izin menjalankan motor. Sumber perilaku: `fpga/rtl/garda_src_policy/garda_src_policy_uart.v` dan observer `fpga/experiments/jp1_1_2_monitor/garda_jp7_monitor.v`.
 
 ## Penyimpanan dan batas pembacaan
 

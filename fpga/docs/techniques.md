@@ -1,4 +1,4 @@
-# Teknik optimasi RTL IGOR: weights, bias, dan accumulator
+# Teknik optimasi RTL GARDA: weights, bias, dan accumulator
 
 Untuk cerita desain lengkap beserta 30 kelompok fun facts, angka fitted, screenshot GUI Quartus dan pustaka vendor, baca [Fun facts dan keputusan desain Parallel8](FUN_FACTS_AND_DESIGN_RATIONALE.md).
 
@@ -6,7 +6,7 @@ Dokumen ini menjelaskan teknik yang sudah digunakan oleh core Parallel8 dan
 kandidat penghematan berikutnya. Istilah yang digunakan adalah **weights**,
 **bias**, dan **accumulator**. Kandidat belum mengubah RTL atau image pada board.
 
-Lihat [block diagram core sederhana](IGOR_CORE_DIAGRAM.md) untuk alur memory,
+Lihat [block diagram core sederhana](GARDA_CORE_DIAGRAM.md) untuk alur memory,
 input, weights, bias, accumulator, activation dan output; file draw.io dapat diedit.
 
 ## Cara perhitungan satu neuron
@@ -27,7 +27,7 @@ Perkalian menghasilkan skala 1/65.536, sehingga bias digeser delapan bit
 sebelum masuk accumulator. Activation mengambil hasil pembagian aritmetika
 dengan 256, lalu menerapkan ReLU/clamp sesuai layer. Urutan operasi, signed
 arithmetic, pembulatan, dan batas saturasi harus tetap konsisten.
-Implementasi: [igor_src_policy_core.v](../experiments/parallel8/igor_src_policy_core.v).
+Implementasi: [garda_src_policy_core.v](../experiments/parallel8/garda_src_policy_core.v).
 
 ## Teknik yang sudah digunakan
 
@@ -41,8 +41,8 @@ Implementasi: [igor_src_policy_core.v](../experiments/parallel8/igor_src_policy_
 
 Hasil build saat ini: **3.303 ALM, 6.277 register, 64 M10K, 8 DSP**.
 Latensi core: **6.916 siklus × 20 ns = 138,32 µs**, pada 50 MHz.
-Sumber: [Fitter summary](../experiments/parallel8/output_files/igor_src_policy.fit.summary),
-[timing summary](../experiments/parallel8/output_files/igor_src_policy.sta.summary),
+Sumber: [Fitter summary](../experiments/parallel8/output_files/garda_src_policy.fit.summary),
+[timing summary](../experiments/parallel8/output_files/garda_src_policy.sta.summary),
 dan [acceptance receipt](../experiments/parallel8/artifacts/acceptance.json).
 ALM adalah satuan resource logika Cyclone V; bukan luas ASIC atau jumlah ALU.
 

@@ -68,7 +68,7 @@ def main():
     lidar_path = ROOT / "evidence/current_lidar/results.json"
     if lidar_path.is_file():
         doc = json.loads(lidar_path.read_text(encoding="utf-8"))
-        source = ROOT / "software_integration/src/igor_bringup/igor_bringup/rplidar_driver_node.py"
+        source = ROOT / "software_integration/src/garda_bringup/garda_bringup/rplidar_driver_node.py"
         runner = ROOT / "verification/run_lidar_regression.py"
         check = check_hashes({str(source.relative_to(ROOT)): doc.get("source_sha256"),
                               str(runner.relative_to(ROOT)): doc.get("runner_sha256")}, ROOT)
@@ -79,8 +79,8 @@ def main():
 
     builds = {}
     for name, project, stem in [
-        ("policy", "fpga_de10_nano/src_policy", "igor_src_policy"),
-        ("planner", "fpga_de10_nano/quartus", "igor"),
+        ("policy", "fpga_de10_nano/src_policy", "garda_src_policy"),
+        ("planner", "fpga_de10_nano/quartus", "garda"),
     ]:
         base = ROOT / project / "output_files"
         files = {suffix: base / f"{stem}.{suffix}"
@@ -100,7 +100,7 @@ def main():
                      "UART_RX": "V12", "UART_TX": "E8", "LED[0]": "W15",
                      "LED[1]": "AA24", "LED[2]": "V16", "LED[3]": "V15",
                      "LED[4]": "AF26", "LED[5]": "AE26", "LED[6]": "Y16", "LED[7]": "AA23"}
-    pin_path = ROOT / "fpga_de10_nano/src_policy/output_files/igor_src_policy.pin"
+    pin_path = ROOT / "fpga_de10_nano/src_policy/output_files/garda_src_policy.pin"
     pin_text = pin_path.read_text(errors="replace") if pin_path.is_file() else ""
     fitted_pins = dict(re.findall(r"^([A-Za-z0-9_]+(?:\[\d+\])?)\s*:\s*([A-Z]+\d+)\s*:", pin_text, re.M))
     pin_errors = {port: {"expected": ball, "actual": fitted_pins.get(port)}

@@ -27,6 +27,6 @@ class LayoutTests(unittest.TestCase):
                 with self.assertRaises(ValueError):inspect_layout(path)
     def test_rejects_previous_safety_gate_target(self):
         with tempfile.TemporaryDirectory() as d:
-            path=Path(d)/'gate.gds';self.make_layout(path,1,2,top_name='tt_um_wlmoi_igor_gate')
+            path=Path(d)/'gate.gds';self.make_layout(path,1,2,top_name='tt_um_wlmoi_garda_gate')
             with self.assertRaises(ValueError):inspect_layout(path)
 if __name__=='__main__':unittest.main()

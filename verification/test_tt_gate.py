@@ -55,4 +55,4 @@ async def wrapper_registers_and_fail_closed(dut):
     await write(dut,2,31)
     dut.ena.value=1
     assert await read(dut,1)==3,'ena=0 must block register writes'
-    Path('tt_functional_coverage.json').write_text(json.dumps({'cases':len(cases),'fault_bins':counts,'status':'PASS','scope':'TTL register wrapper and actual IGOR gate, no DWA/neural/motor driver'},indent=2))
+    Path('tt_functional_coverage.json').write_text(json.dumps({'cases':len(cases),'fault_bins':counts,'status':'PASS','scope':'TTL register wrapper and actual GARDA gate, no DWA/neural/motor driver'},indent=2))

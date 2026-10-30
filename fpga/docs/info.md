@@ -1,6 +1,6 @@
 # How it works
 
-The active chip is `tt_um_wlmoi_igor_neural_logic`: complete dual-MAC Q8.8 inference with topology 24 -> 64 -> 64 -> 4. All 5,888 weights and 132 biases are immutable model constants implemented in ordinary standard-cell logic. The 152 input/hidden activation words use flip-flops. There are **no physical SRAM macros**. Hidden layers use ReLU and outputs are clipped to [-256,256].
+The active chip is `tt_um_wlmoi_garda_neural_logic`: complete dual-MAC Q8.8 inference with topology 24 -> 64 -> 64 -> 4. All 5,888 weights and 132 biases are immutable model constants implemented in ordinary standard-cell logic. The 152 input/hidden activation words use flip-flops. There are **no physical SRAM macros**. Hidden layers use ReLU and outputs are clipped to [-256,256].
 
 This fallback preserves full on-chip inference. SRAM integration was delaying completion: the last SRAM run passed GDS, LVS/DRC, routed timing and gate-level inference, but failed Tiny Tapeout supply-pin placement precheck. Its source and evidence remain archived in [the SRAM implementation](../asic/neural_sram/README.md).
 

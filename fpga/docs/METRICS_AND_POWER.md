@@ -28,7 +28,7 @@ File angka terstruktur: [metrics.json](../evidence/current_metrics/metrics.json)
 
 ## 1. Resource dan area: nilai diambil dari mana?
 
-Source utama: [igor_src_policy.fit.summary](../fpga_de10_nano/src_policy/output_files/igor_src_policy.fit.summary).
+Source utama: [garda_src_policy.fit.summary](../fpga_de10_nano/src_policy/output_files/garda_src_policy.fit.summary).
 
 | Field persis pada report | Baris | Nilai mentah | Cara memakainya |
 |---|---:|---|---|
@@ -40,7 +40,7 @@ Source utama: [igor_src_policy.fit.summary](../fpga_de10_nano/src_policy/output_
 
 Identitas build dan SHA SOF: [source_policy.json](../evidence/current_builds/source_policy.json). SHA SOF policy saat analisis: `fb9fcd28136b647492d2284fef82beca34b97f8300ce0579c25e0745fa88cf4a`. Script menolak laporan jika source, model, SOF atau laporan compile tidak cocok dengan receipt.
 
-Untuk pembanding yang berbeda fungsi, [planner fit summary](../fpga_de10_nano/quartus/output_files/igor.fit.summary) memberikan **5.048 ALM, 1.650 register, 131 M10K, 10 DSP**. Angka ini tidak digabungkan dengan policy seolah sudah satu top terintegrasi. Menggabungkan kedua desain memerlukan build gabungan baru; jumlah resource tidak otomatis merupakan penjumlahan sederhana karena sharing/optimisasi/routing.
+Untuk pembanding yang berbeda fungsi, [planner fit summary](../fpga_de10_nano/quartus/output_files/garda.fit.summary) memberikan **5.048 ALM, 1.650 register, 131 M10K, 10 DSP**. Angka ini tidak digabungkan dengan policy seolah sudah satu top terintegrasi. Menggabungkan kedua desain memerlukan build gabungan baru; jumlah resource tidak otomatis merupakan penjumlahan sederhana karena sharing/optimisasi/routing.
 
 ### Arti “area estimation” pada FPGA dan ASIC
 
@@ -59,7 +59,7 @@ Angka historis gate kecil 684 generic cells bukan area PPO saat ini. Tidak menga
 
 Source nilai: [results.json](../verification/src_policy/artifacts/results.json), field `latency_cycles=54348` dan `latency_ms_at_50mhz=1.08696`; [core_checkpoints.csv](../verification/src_policy/artifacts/core_checkpoints.csv) mencatat siklus start/done. Contoh test 1: cycle **54923 → 109271**, selisih **54348**. Gunakan kolom cycle; selisih timestamp CSV dapat menyertakan perbedaan fase `#1` pada testbench.
 
-Clock target ditetapkan pada baris 1 [igor_src_policy.sdc](../fpga_de10_nano/src_policy/igor_src_policy.sdc): period **20 ns**, sehingga 50 MHz.
+Clock target ditetapkan pada baris 1 [garda_src_policy.sdc](../fpga_de10_nano/src_policy/garda_src_policy.sdc): period **20 ns**, sehingga 50 MHz.
 
 ```text
 T_core = cycles / clock_hz
@@ -67,7 +67,7 @@ T_core = cycles / clock_hz
        = 1.08696 ms
 ```
 
-Rumus jadwal dari [FSM core](../rtl/igor_src_policy/igor_src_policy_core.v): setiap neuron mempunyai 3 siklus per weight (address/wait/MAC), 3 siklus bias dan 1 aktivasi. Dengan 17.856 produk dan 195 neuron:
+Rumus jadwal dari [FSM core](../rtl/garda_src_policy/garda_src_policy_core.v): setiap neuron mempunyai 3 siklus per weight (address/wait/MAC), 3 siklus bias dan 1 aktivasi. Dengan 17.856 produk dan 195 neuron:
 
 ```text
 L1 = 128 × (3 × 74  + 4) = 28928 cycles
@@ -108,7 +108,7 @@ Q8.8 mempunyai satu LSB **2⁻⁸ = 0,00390625**. Rounding parameter ties-to-eve
 | W3 | 192 | 0,00193862989545 | 0 |
 | b3 | 3 | 0,000765766948462 | 0 |
 
-Collector juga membandingkan semua raw parameter tersebut dengan ROM yang benar-benar dideploy, bukan sekadar membuat model kuantisasi lain. Sumber koefisien adalah `src/igor_navigation/igor_navigation/weights/model_weights.json`, dibaca tanpa diubah; [model_provenance.json](../verification/src_policy/artifacts/model_provenance.json) mengikat hash JSON/enam MEM dan ROM.
+Collector juga membandingkan semua raw parameter tersebut dengan ROM yang benar-benar dideploy, bukan sekadar membuat model kuantisasi lain. Sumber koefisien adalah `src/garda_navigation/garda_navigation/weights/model_weights.json`, dibaca tanpa diubah; [model_provenance.json](../verification/src_policy/artifacts/model_provenance.json) mengikat hash JSON/enam MEM dan ROM.
 
 ### Error output pada input valid
 
@@ -154,11 +154,11 @@ Saya menjalankan **Quartus Prime Standard 25.1 Power Analyzer** pada hasil fitti
 
 Setiap summary mempunyai total pada **baris 8**, dynamic **9**, static **10**, I/O **11**, confidence **12**:
 
-- [Policy Typical .pow.summary](../evidence/current_metrics/power/source_policy_vectorless/igor_src_policy.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/source_policy_vectorless/igor_src_policy.pow.rpt), [receipt/perintah/hash](../evidence/current_metrics/power/source_policy_vectorless/receipt.json).
-- [Policy VCD .pow.summary](../evidence/current_metrics/power/source_policy_board_fixture_vcd/igor_src_policy.pow.summary), [coverage/assumsi .pow.rpt](../evidence/current_metrics/power/source_policy_board_fixture_vcd/igor_src_policy.pow.rpt), [receipt](../evidence/current_metrics/power/source_policy_board_fixture_vcd/receipt.json).
-- [Maximum 85°C .pow.summary](../evidence/current_metrics/power/source_policy_maximum_tj85/igor_src_policy.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/source_policy_maximum_tj85/igor_src_policy.pow.rpt), [receipt](../evidence/current_metrics/power/source_policy_maximum_tj85/receipt.json).
-- [Maximum 100°C .pow.summary](../evidence/current_metrics/power/source_policy_maximum_tj100/igor_src_policy.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/source_policy_maximum_tj100/igor_src_policy.pow.rpt), [receipt](../evidence/current_metrics/power/source_policy_maximum_tj100/receipt.json).
-- [Planner Typical .pow.summary](../evidence/current_metrics/power/planner_vectorless/igor.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/planner_vectorless/igor.pow.rpt), [receipt](../evidence/current_metrics/power/planner_vectorless/receipt.json).
+- [Policy Typical .pow.summary](../evidence/current_metrics/power/source_policy_vectorless/garda_src_policy.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/source_policy_vectorless/garda_src_policy.pow.rpt), [receipt/perintah/hash](../evidence/current_metrics/power/source_policy_vectorless/receipt.json).
+- [Policy VCD .pow.summary](../evidence/current_metrics/power/source_policy_board_fixture_vcd/garda_src_policy.pow.summary), [coverage/assumsi .pow.rpt](../evidence/current_metrics/power/source_policy_board_fixture_vcd/garda_src_policy.pow.rpt), [receipt](../evidence/current_metrics/power/source_policy_board_fixture_vcd/receipt.json).
+- [Maximum 85°C .pow.summary](../evidence/current_metrics/power/source_policy_maximum_tj85/garda_src_policy.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/source_policy_maximum_tj85/garda_src_policy.pow.rpt), [receipt](../evidence/current_metrics/power/source_policy_maximum_tj85/receipt.json).
+- [Maximum 100°C .pow.summary](../evidence/current_metrics/power/source_policy_maximum_tj100/garda_src_policy.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/source_policy_maximum_tj100/garda_src_policy.pow.rpt), [receipt](../evidence/current_metrics/power/source_policy_maximum_tj100/receipt.json).
+- [Planner Typical .pow.summary](../evidence/current_metrics/power/planner_vectorless/garda.pow.summary), [full .pow.rpt](../evidence/current_metrics/power/planner_vectorless/garda.pow.rpt), [receipt](../evidence/current_metrics/power/planner_vectorless/receipt.json).
 
 Total harus sama dengan dynamic+static+I/O dalam toleransi pembulatan report; collector memeriksanya. Receipt juga memuat source/SOF/build identity, command, exit code, report SHA dan konfirmasi input rilis tidak berubah. Collector memeriksa bahwa suhu/model aktual pada report sesuai yang diminta; setting yang diabaikan tidak diterima sebagai pengukuran kondisi tersebut.
 
@@ -202,7 +202,7 @@ latensi core bukan latensi sistem dari host ke host.
 
 ## Klarifikasi clock dan interpretasi budget
 
-Desain policy saat ini memakai `FPGA_CLK1_50` langsung pada **50 MHz**; Fitter melaporkan **0 PLL**. Pembagi UART `BIT_CYCLES=54` adalah penghitung waktu bit, bukan clock core 925 kHz. Bukti clock domain ada pada `power/source_policy_vectorless/igor_src_policy.pow.rpt`, bagian **Core Dynamic Thermal Power Dissipation by Clock Domain**: `FPGA_CLK1_50`, `50.00 MHz`, `38.51 mW`.
+Desain policy saat ini memakai `FPGA_CLK1_50` langsung pada **50 MHz**; Fitter melaporkan **0 PLL**. Pembagi UART `BIT_CYCLES=54` adalah penghitung waktu bit, bukan clock core 925 kHz. Bukti clock domain ada pada `power/source_policy_vectorless/garda_src_policy.pow.rpt`, bagian **Core Dynamic Thermal Power Dissipation by Clock Domain**: `FPGA_CLK1_50`, `50.00 MHz`, `38.51 mW`.
 
 Kecepatan mekanik 0,1 RPS tidak menentukan frekuensi komputasi policy **74→128→64→3**. Dengan jadwal 54.348 siklus yang sama, inferensi pada 5 MHz memerlukan **10,8696 ms**, sedangkan pada 1 MHz **54,348 ms**, melewati periode kontrol 20 ms. Menurunkan clock memerlukan perhitungan ulang UART, timeout/watchdog, constraint timing dan seluruh regresi; angka ini hanya proyeksi latency, bukan hasil build clock baru.
 

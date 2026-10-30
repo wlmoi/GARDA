@@ -1,6 +1,6 @@
 ﻿# DE10-Nano: project, programming dan bukti fisik
 
-Jalankan seluruh perintah halaman ini dari **root `igor_ws`**. Source RTL,
+Jalankan seluruh perintah halaman ini dari **root `garda_ws`**. Source RTL,
 project, pin planning, `.sof`, dan bukti berada di **`fpga/`**. `src/` dan
 `peruri-iseedesign/` tetap referensi. Pertahankan struktur lengkap `fpga/`
 karena QSF dan ROM memakai path relatif.
@@ -10,10 +10,10 @@ karena QSF dan ROM memakai path relatif.
 Untuk core cepat **6.916 siklus / 138,32 us**, gunakan paket
 [programming Parallel8](../bitstreams/README.md) dan
 [PROGRAM_PARALLEL8.bat](../bitstreams/PROGRAM_PARALLEL8.bat).
-Launcher memilih `igor_src_policy_parallel8.sof`, memeriksa checksum/build,
+Launcher memilih `garda_src_policy_parallel8.sof`, memeriksa checksum/build,
 dan mendeteksi posisi FPGA secara otomatis tanpa mengasumsikan urutan HPS.
 Perintah ekuivalen: `powershell -NoProfile -File fpga/scripts/program_fpga.ps1 -Project source_policy_parallel8 -AutoSelect -Program`.
-CDF siap dibuka ada di `fpga/bitstreams/igor_src_policy_parallel8.cdf`;
+CDF siap dibuka ada di `fpga/bitstreams/garda_src_policy_parallel8.cdf`;
 CDF chain aktual disimpan sebagai `detected_board.cdf` setelah identifikasi.
 
 **Update 18 Oktober 2026, 12:58 WIB: programming Parallel8 berhasil.**
@@ -25,8 +25,8 @@ Ini bukti konfigurasi FPGA, belum pengujian fungsi UART atau robot fisik.
 
 | Tujuan | Project | SOF di bawah `fpga/` | UART |
 |---|---|---|---|
-| PPO mengikuti software 74→128→64→3 | [igor_src_policy.qpf](../fpga_de10_nano/src_policy/igor_src_policy.qpf) | `fpga_de10_nano/src_policy/output_files/igor_src_policy.sof` | 921600 8N1, observasi 74 nilai, CRC8 Maxim |
-| Planner peta + gate + event logger | [igor.qpf](../fpga_de10_nano/quartus/igor.qpf) | `fpga_de10_nano/quartus/output_files/igor.sof` | 115200 8N1, frame 8 byte, CRC8 polinomial 0x07 |
+| PPO mengikuti software 74→128→64→3 | [garda_src_policy.qpf](../fpga_de10_nano/src_policy/garda_src_policy.qpf) | `fpga_de10_nano/src_policy/output_files/garda_src_policy.sof` | 921600 8N1, observasi 74 nilai, CRC8 Maxim |
+| Planner peta + gate + event logger | [garda.qpf](../fpga_de10_nano/quartus/garda.qpf) | `fpga_de10_nano/quartus/output_files/garda.sof` | 115200 8N1, frame 8 byte, CRC8 polinomial 0x07 |
 
 Keduanya menargetkan **Cyclone V SE `5CSEBA6U23I7`**, clock **50 MHz**.
 Satu image mengganti konfigurasi sebelumnya. Residual source-policy masih
@@ -154,9 +154,9 @@ Ganti `COM5` dengan port fabric UART aktual. Perintah awal berikut memeriksa
 status serta ROM dan jaringan neural **legacy**, bukan source-policy:
 
 ```powershell
-python .\fpga\fpga_de10_nano\host\igor_uart.py --port COM5 status
-python .\fpga\fpga_de10_nano\host\igor_uart.py --port COM5 rom-check
-python .\fpga\fpga_de10_nano\host\igor_uart.py --port COM5 nn-test
+python .\fpga\fpga_de10_nano\host\garda_uart.py --port COM5 status
+python .\fpga\fpga_de10_nano\host\garda_uart.py --port COM5 rom-check
+python .\fpga\fpga_de10_nano\host\garda_uart.py --port COM5 nn-test
 ```
 
 Simpan command line, output dan kode exit. Gunakan satu pemilik port UART
@@ -179,15 +179,15 @@ H01: tahan KEY1 selama capture. Gunakan nama file baru; capture menolak
 menimpa bukti yang sudah ada:
 
 ```powershell
-python .\fpga\verification\capture_hardware_safety.py --project planner --port COM5 --case H01_estop_held --output .\fpga\evidence\hardware\H01.jsonl --seconds 3 --expect-zero --expected-fault 2 --bitstream .\fpga\fpga_de10_nano\quartus\output_files\igor.sof
+python .\fpga\verification\capture_hardware_safety.py --project planner --port COM5 --case H01_estop_held --output .\fpga\evidence\hardware\H01.jsonl --seconds 3 --expect-zero --expected-fault 2 --bitstream .\fpga\fpga_de10_nano\quartus\output_files\garda.sof
 ```
 
 H02/H03 mengirim fault injection hanya ketika `--inject` ditulis eksplisit.
 Reset sebelum setiap kasus:
 
 ```powershell
-python .\fpga\verification\capture_hardware_safety.py --project planner --port COM5 --case H02_invalid_map_write --output .\fpga\evidence\hardware\H02.jsonl --inject invalid-map-write --expect-zero --expected-fault 5 --bitstream .\fpga\fpga_de10_nano\quartus\output_files\igor.sof
-python .\fpga\verification\capture_hardware_safety.py --project planner --port COM5 --case H03_invalid_run_payload --output .\fpga\evidence\hardware\H03.jsonl --inject invalid-run-payload --expect-zero --expected-fault 4 --require-event-advance --bitstream .\fpga\fpga_de10_nano\quartus\output_files\igor.sof
+python .\fpga\verification\capture_hardware_safety.py --project planner --port COM5 --case H02_invalid_map_write --output .\fpga\evidence\hardware\H02.jsonl --inject invalid-map-write --expect-zero --expected-fault 5 --bitstream .\fpga\fpga_de10_nano\quartus\output_files\garda.sof
+python .\fpga\verification\capture_hardware_safety.py --project planner --port COM5 --case H03_invalid_run_payload --output .\fpga\evidence\hardware\H03.jsonl --inject invalid-run-payload --expect-zero --expected-fault 4 --require-event-advance --bitstream .\fpga\fpga_de10_nano\quartus\output_files\garda.sof
 ```
 
 Tambahkan `--jtag-evidence <path-inspection.json>` untuk merekam hash log

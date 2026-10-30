@@ -11,7 +11,7 @@ args=parser.parse_args()
 root=Path(__file__).resolve().parents[1]
 logs=root/'evidence/jp7_uart'/time.strftime('loopback_%Y%m%dT%H%M%SZ',time.gmtime())
 logs.mkdir(parents=True,exist_ok=True)
-pattern=bytes.fromhex('55 aa 5a a5 00 ff 01 7f 80 fe')+b'IGOR-TTL-LOOPBACK\r\n'
+pattern=bytes.fromhex('55 aa 5a a5 00 ff 01 7f 80 fe')+b'GARDA-TTL-LOOPBACK\r\n'
 results=[]
 for baud in [9600,115200,921600]:
     with serial.Serial(args.port,baud,timeout=.05,write_timeout=1,xonxoff=False,rtscts=False,dsrdtr=False) as port:

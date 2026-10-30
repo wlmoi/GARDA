@@ -13,8 +13,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECTS = {
-    'source_policy': ('fpga_de10_nano/src_policy', 'igor_src_policy'),
-    'planner': ('fpga_de10_nano/quartus', 'igor'),
+    'source_policy': ('fpga_de10_nano/src_policy', 'garda_src_policy'),
+    'planner': ('fpga_de10_nano/quartus', 'garda'),
 }
 
 def sha(path):
@@ -25,7 +25,7 @@ def inputs(project, revision):
     qsf = (project / (revision + '.qsf')).read_text(encoding='utf-8')
     for kind, value in re.findall(r'set_global_assignment -name (VERILOG_FILE|SDC_FILE)\s+([^\r\n]+)', qsf):
         files.add((project / value.strip().strip('"')).resolve())
-    files.update((ROOT / 'rtl/igor_src_policy').glob('*.mem') if revision == 'igor_src_policy' else (ROOT / 'fpga_de10_nano/assets').rglob('*.mem'))
+    files.update((ROOT / 'rtl/garda_src_policy').glob('*.mem') if revision == 'garda_src_policy' else (ROOT / 'fpga_de10_nano/assets').rglob('*.mem'))
     for p in files:
         if not p.resolve().is_relative_to(ROOT):
             raise RuntimeError(f'Build input escapes the FPGA package: {p}')
@@ -72,7 +72,7 @@ def main():
     receipt = output / (args.project + '.json')
     receipt.write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
     command = [str(executable), '--flow', 'compile', revision]
-    log = project / ('compile.log' if revision == 'igor_src_policy' else 'compile_current.log')
+    log = project / ('compile.log' if revision == 'garda_src_policy' else 'compile_current.log')
     with log.open('w', encoding='utf-8') as stream:
         completed = subprocess.run(command, cwd=project, stdout=stream, stderr=subprocess.STDOUT)
     try:

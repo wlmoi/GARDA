@@ -23,7 +23,7 @@ close_jtag=bind('?jtagatlantic_close@@YAXPEAUJTAGATLANTIC@@@Z',None,[C.c_void_p]
 read_jtag=bind('?jtagatlantic_read@@YAHPEAUJTAGATLANTIC@@PEADI@Z',C.c_int,[C.c_void_p,C.c_void_p,C.c_uint])
 write_jtag=bind('?jtagatlantic_write@@YAHPEAUJTAGATLANTIC@@PEBDI@Z',C.c_int,[C.c_void_p,C.c_char_p,C.c_uint])
 flush_jtag=bind('?jtagatlantic_flush@@YAHPEAUJTAGATLANTIC@@@Z',C.c_int,[C.c_void_p])
-handle=open_jtag(b'DE-SoC [USB-1]',2,0,b'IGOR JP7 physical diagnostics')
+handle=open_jtag(b'DE-SoC [USB-1]',2,0,b'GARDA JP7 physical diagnostics')
 if not handle:raise SystemExit('JTAG monitor unavailable; close other JTAG terminals.')
 records=[]
 echo_enabled=False
@@ -45,7 +45,7 @@ try:
  expected_header={'JP7':'JP7 q=status','JP1_3_4':'JP1 pins 3/4 q=status','JP1_1_2':'JP1 pins 1/2 q=status'}[args.header]
  if expected_header not in initial:raise RuntimeError('Wrong or unresponsive FPGA monitor image; diagnostic stopped before echo testing.')
  command(b'e');echo_enabled=True
- pattern=bytes.fromhex('55 aa 00 ff 5a a5')+b'IGOR-JP7'
+ pattern=bytes.fromhex('55 aa 00 ff 5a a5')+b'GARDA-JP7'
  for baud in [9600,115200,921600]:
   with serial.Serial(args.port,baud,timeout=.05,write_timeout=1,xonxoff=False,rtscts=False,dsrdtr=False) as port:
    port.reset_input_buffer();port.write(pattern);port.flush()
@@ -54,7 +54,7 @@ try:
   result={'test':'physical_pad_echo','baud':baud,'tx_hex':pattern.hex(' '),'rx_hex':rx.hex(' '),'passed':bytes(rx)==pattern}
   print(result,flush=True);records.append(result);command(b'q')
  command(b'i');echo_enabled=False
- spec=importlib.util.spec_from_file_location('igor_uart_reference',root.parent/'src/igor_pipeline/scripts/uart_test.py')
+ spec=importlib.util.spec_from_file_location('garda_uart_reference',root.parent/'src/garda_pipeline/scripts/uart_test.py')
  ref=importlib.util.module_from_spec(spec);spec.loader.exec_module(ref)
  with serial.Serial(args.port,921600,timeout=.02,write_timeout=1,xonxoff=False,rtscts=False,dsrdtr=False) as port:
   try:

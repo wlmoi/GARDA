@@ -45,11 +45,11 @@ def main():
               TARGET / 'ihp/RM_IHPSG13_1P_256x16_c2_bm_bist.v']
     suites = {}
     for name in ['memory', 'activation', 'neural_sram'] + (['generic'] if args.generic else []):
-        sources = [ROOT / 'src/igor_parameter_sram.v', TARGET / f'tb_{name}.v', *models]
+        sources = [ROOT / 'src/garda_parameter_sram.v', TARGET / f'tb_{name}.v', *models]
         if name == 'activation':
-            sources.append(ROOT / 'src/igor_activation_sram.v')
+            sources.append(ROOT / 'src/garda_activation_sram.v')
         if name == 'neural_sram':
-            sources.extend([ROOT / 'src/igor_neural_sram_top.v', ROOT / 'src/igor_neural_datapath.v', ROOT / 'src/igor_activation_sram.v'])
+            sources.extend([ROOT / 'src/garda_neural_sram_top.v', ROOT / 'src/garda_neural_datapath.v', ROOT / 'src/garda_activation_sram.v'])
         if name == 'generic':
             sources = [ROOT / 'evidence/neural_sram_netlist.v', TARGET / 'tb_neural_sram.v', *models]
         exe = BUILD / f'{name}.out'

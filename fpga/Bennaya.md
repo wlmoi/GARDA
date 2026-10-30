@@ -1,10 +1,10 @@
-# IGOR Chip — keunggulan untuk pengendalian protokol industri
+# GARDA Chip — keunggulan untuk pengendalian protokol industri
 
-**IGOR Chip adalah prototipe yang sangat menarik untuk pengembangan
+**GARDA Chip adalah prototipe yang sangat menarik untuk pengembangan
 pengendali protokol industri: hemat energi, dapat diprogram, dan memiliki
 proteksi operasi I/O yang diterapkan langsung di RTL.**
 
-Desain ASIC **`tt_um_igorchip`** pada PDK **`ihp-sg13cmos5l`** menggabungkan
+Desain ASIC **`tt_um_gardachip`** pada PDK **`ihp-sg13cmos5l`** menggabungkan
 empat context eksekusi, register state per context, host SPI, GPIO yang
 dikelola berdasarkan kepemilikan, dan SRAM program **256×16 bit**.
 
@@ -55,7 +55,7 @@ pengendali protokol industri:
 | Sinkronisasi input | Host SPI dan GPIO mempunyai register sinkronisasi | Membantu antarmuka sinyal eksternal ke domain clock internal |
 | Arbitrasi mutasi host | Engine menahan langkah eksekusi saat transaksi mutasi host diproses | Urutan perubahan state dibuat eksplisit |
 
-Sumber implementasi: [igorchip_top.v](../src/igorchip_top.v),
+Sumber implementasi: [gardachip_top.v](../src/gardachip_top.v),
 [program_host.v](../src/program_host.v), dan
 [program_memory.v](../src/program_memory.v).
 
@@ -68,7 +68,7 @@ Sumber implementasi: [igorchip_top.v](../src/igorchip_top.v),
 
 ## Narasi singkat
 
-> IGOR Chip menawarkan kombinasi yang kuat untuk prototipe pengendalian
+> GARDA Chip menawarkan kombinasi yang kuat untuk prototipe pengendalian
 > protokol industri: estimasi daya Typical sekitar **2,04 mW**, empat
 > context eksekusi, serta mekanisme hardware untuk kepemilikan GPIO,
 > pengendalian perubahan program, kontrol output enable, dan diagnostik
@@ -80,13 +80,13 @@ Sumber implementasi: [igorchip_top.v](../src/igorchip_top.v),
 
 <!-- BENNAYA_TEXTFIELD_20261017 -->
 
-# Jawaban publikasi: inti FPGA IGOR dan seluruh text field
+# Jawaban publikasi: inti FPGA GARDA dan seluruh text field
 
-Tambahan **17 Oktober 2026**. Seluruh isi sebelum bagian ini dipertahankan. Bagian ini menjawab dokumen “IGOR: Kekuatan, Demo, dan To-do Menuju Top 3”, versi 15 Oktober 2026. Lampiran digunakan sebagai sumber pertanyaan; jawaban disusun dari implementasi dan bukti yang dapat dibuka. ID **K1–K7, D1–D7, A1–A14, B1–B6** mempertahankan nomor text field asal.
+Tambahan **17 Oktober 2026**. Seluruh isi sebelum bagian ini dipertahankan. Bagian ini menjawab dokumen “GARDA: Kekuatan, Demo, dan To-do Menuju Top 3”, versi 15 Oktober 2026. Lampiran digunakan sebagai sumber pertanyaan; jawaban disusun dari implementasi dan bukti yang dapat dibuka. ID **K1–K7, D1–D7, A1–A14, B1–B6** mempertahankan nomor text field asal.
 
 ## Narasi utama yang siap dipresentasikan
 
-**Kami menciptakan IGOR — Indonesian Gated Onboard Robotics — untuk membawa kecerdasan kendali ke hardware yang terukur.** Inti FPGA-nya mengolah **74 observasi** melalui jaringan PPO **74 → 128 → 64 → 3**, delapan jalur MAC dan bobot on-chip, menghasilkan tiga residual kendali dalam **138,32 µs**. Paket IGOR menyediakan motion checker, safety gate serta pencatatan fault pada jalur planner; protocol engine terprogram melengkapi visi antarmuka periferal industri.
+**Kami menciptakan GARDA — Indonesian Gated Onboard Robotics — untuk membawa kecerdasan kendali ke hardware yang terukur.** Inti FPGA-nya mengolah **74 observasi** melalui jaringan PPO **74 → 128 → 64 → 3**, delapan jalur MAC dan bobot on-chip, menghasilkan tiga residual kendali dalam **138,32 µs**. Paket GARDA menyediakan motion checker, safety gate serta pencatatan fault pada jalur planner; protocol engine terprogram melengkapi visi antarmuka periferal industri.
 
 Nilai produk kami adalah **komputasi edge, pembatasan operasi dekat keluaran, serta jejak bukti yang dapat ditelusuri**. Visi sistem terpadu menghubungkan kemampuan tersebut menuju kendali robot. Bukti teknis tetap diberi identitas blok: **core AI FPGA**, **planner/safety RTL**, dan **protocol engine ASIC**. Angka masing-masing blok merujuk hasil implementasi serta kondisi analisisnya sendiri.
 
@@ -116,13 +116,13 @@ Nilai produk kami adalah **komputasi edge, pembatasan operasi dekat keluaran, se
 
 Throughput ekuivalen adalah perhitungan dari waktu core dengan asumsi tanpa overhead; sustained throughput komunikasi/robot dilaporkan dari pengukuran sistem. Satu MAC berarti satu perkalian-penjumlahan untuk satu bobot berguna. Q8.8 menjelaskan resolusi representasi; galat jaringan terhadap FP32 mempunyai karakterisasi tersendiri pada [S23](#sumber-s23). Tabel ini tidak menyatukan daya ASIC dan latency FPGA menjadi satu hasil chip gabungan.
 
-## K1–K7: jawaban eksplisit untuk kekuatan IGOR
+## K1–K7: jawaban eksplisit untuk kekuatan GARDA
 
 Kalimat berikut dapat dipakai dalam naskah publikasi dengan jenis bukti yang menyertainya. Katalog Sxx di akhir bagian menyediakan tautan langsung.
 
 | Text field asal | Jawaban untuk dijelaskan | Jenis bukti | Sumber |
 |---|---|---|---|
-| <a id="textfield-k1"></a>**K1 — AI driver tangguh** | IGOR membawa kebijakan neural ke datapath yang dapat diulang: PPO 74→128→64→3, delapan lane MAC, dan pemeriksaan terhadap model integer dengan bobot yang sama. Ketangguhan navigasi per episode dilaporkan dari simulator, seed dan dataset studi yang dibekukan. | RTL/model tersedia; hasil episode mengikuti raw studi | [S01](#sumber-s01), [S02](#sumber-s02), [S22](#sumber-s22), [S23](#sumber-s23) |
+| <a id="textfield-k1"></a>**K1 — AI driver tangguh** | GARDA membawa kebijakan neural ke datapath yang dapat diulang: PPO 74→128→64→3, delapan lane MAC, dan pemeriksaan terhadap model integer dengan bobot yang sama. Ketangguhan navigasi per episode dilaporkan dari simulator, seed dan dataset studi yang dibekukan. | RTL/model tersedia; hasil episode mengikuti raw studi | [S01](#sumber-s01), [S02](#sumber-s02), [S22](#sumber-s22), [S23](#sumber-s23) |
 | <a id="textfield-k2"></a>**K2 — AI mengemudi, chip memutuskan** | Prinsip produk: AI mengusulkan koreksi, aturan kendali menjaga pelepasan keluaran. Core neural menghasilkan residual; jalur planner memiliki checker dan gate. Studi B mengukur dampak penyatuan jalur pada gangguan yang ditentukan. | Arsitektur blok dan RTL; integrasi sistem mempunyai acceptance | [S01](#sumber-s01), [S07](#sumber-s07), [S11](#sumber-s11), [S25](#sumber-s25) |
 | <a id="textfield-k3"></a>**K3 — fail-closed** | Pada jalur planner yang diuji, E-stop dan kondisi invalid menutup izin serta menolkan keluaran. Safety regression mencakup 111.210 vektor dan outcome 0–11; host fixture memeriksa penghentian pada kegagalan transport. | RTL dan host PASS | [S05](#sumber-s05), [S06](#sumber-s06), [S07](#sumber-s07), [S09](#sumber-s09) |
 | <a id="textfield-k4"></a>**K4 — waktu terdefinisi, hasil dapat diulang** | Parallel8 mempunyai jadwal 6.916 clock pada 50 MHz, yaitu 138,32 µs. Fase bias, baca bobot, MAC dan aktivasi memiliki urutan eksplisit; kecocokan numerik merujuk model integer dan bobot yang sama. | Simulasi serta timing FPGA PASS | [S01](#sumber-s01), [S02](#sumber-s02), [S04](#sumber-s04), [S22](#sumber-s22) |
@@ -195,7 +195,7 @@ Untuk board, [S10](#sumber-s10) mengakuisisi raw frame, timestamp dan identitas 
 
 ## Untuk PERURI dan Indonesia: jawaban nilai produk
 
-**Usulan pengguna awal:** integrator AGV/AMR untuk perpindahan bahan dan produk bernilai tinggi di lingkungan kerja terkontrol. IGOR menawarkan aturan kendali dekat keluaran, antarmuka yang dapat diprogram serta log kejadian untuk diagnosis. Pilot dimulai pada satu rute dan konfigurasi yang disepakati, dengan penerimaan fungsi, gangguan, latency dan traceability. Ini adalah usulan aplikasi, bukan pernyataan kontrak atau hasil armada PERURI.
+**Usulan pengguna awal:** integrator AGV/AMR untuk perpindahan bahan dan produk bernilai tinggi di lingkungan kerja terkontrol. GARDA menawarkan aturan kendali dekat keluaran, antarmuka yang dapat diprogram serta log kejadian untuk diagnosis. Pilot dimulai pada satu rute dan konfigurasi yang disepakati, dengan penerimaan fungsi, gangguan, latency dan traceability. Ini adalah usulan aplikasi, bukan pernyataan kontrak atau hasil armada PERURI.
 
 **Nilai strategis:** IP lokal meliputi Verilog, bobot terkuantisasi, firmware, model referensi, host driver dan paket verifikasi. Penguasaan komponen tersebut mendukung talenta serta desain semikonduktor nasional. HMAC/secure element untuk keaslian peta dapat menjadi kolaborasi roadmap tersendiri; CRC dibahas sebagai deteksi error transfer. Security publikasi berfokus pada integritas operasi dan akses I/O. Sertifikasi keselamatan mengikuti evaluasi produk serta audit yang sesuai, terpisah dari hasil simulasi.
 
@@ -220,7 +220,7 @@ Biaya 24 tile berlaku pada protocol engine ASIC. Sistem AI/safety yang digabungk
 ## Glosarium untuk penjelasan lisan
 
 - **FPGA / ASIC:** media prototipe rangkaian yang dapat diprogram ulang / implementasi chip melalui proses fabrikasi yang dipilih.
-- **PPO residual / SAC legacy:** kebijakan source IGOR menghasilkan tiga koreksi kendali / identitas neural 24-input dalam text field historis.
+- **PPO residual / SAC legacy:** kebijakan source GARDA menghasilkan tiga koreksi kendali / identitas neural 24-input dalam text field historis.
 - **MAC / siklus:** satu perkalian-penjumlahan / satu detak clock; 20 ns pada 50 MHz.
 - **M10K / ROM bobot / SRAM:** resource memori blok FPGA / parameter neural yang diinisialisasi dan dibaca / memori program ASIC 256×16-bit.
 - **DWA / safety gate / fail-closed:** pemeriksaan kandidat gerak / aturan pelepasan keluaran / kondisi invalid menutup izin pada jalur yang dilindungi.
@@ -234,14 +234,14 @@ Cari ID Sxx di bawah. JSON S02 memuat `cycles`, `clock_hz`, `suites`, `fitter_su
 
 | ID | File sumber yang dapat dibuka |
 |---|---|
-| <a id="sumber-s01"></a>**S01** | [Verilog core Parallel8](experiments/parallel8/igor_src_policy_core.v) |
+| <a id="sumber-s01"></a>**S01** | [Verilog core Parallel8](experiments/parallel8/garda_src_policy_core.v) |
 | <a id="sumber-s02"></a>**S02** | [Acceptance Parallel8](experiments/parallel8/artifacts/acceptance.json) |
-| <a id="sumber-s03"></a>**S03** | [Fitter DE10-Nano](experiments/parallel8/output_files/igor_src_policy.fit.summary) |
-| <a id="sumber-s04"></a>**S04** | [STA semua corner FPGA](experiments/parallel8/output_files/igor_src_policy.sta.summary) |
+| <a id="sumber-s03"></a>**S03** | [Fitter DE10-Nano](experiments/parallel8/output_files/garda_src_policy.fit.summary) |
+| <a id="sumber-s04"></a>**S04** | [STA semua corner FPGA](experiments/parallel8/output_files/garda_src_policy.sta.summary) |
 | <a id="sumber-s05"></a>**S05** | [Safety summary dan hash source](evidence/current_safety/summary.json) |
 | <a id="sumber-s06"></a>**S06** | [CSV checkpoint safety](evidence/current_safety/cases.csv) |
-| <a id="sumber-s07"></a>**S07** | [RTL safety gate](rtl/igor_safety_security_gate.v) |
-| <a id="sumber-s08"></a>**S08** | [RTL logger](rtl/igor_status_logger.v) |
+| <a id="sumber-s07"></a>**S07** | [RTL safety gate](rtl/garda_safety_security_gate.v) |
+| <a id="sumber-s08"></a>**S08** | [RTL logger](rtl/garda_status_logger.v) |
 | <a id="sumber-s09"></a>**S09** | [Hasil host fixture](evidence/current_host/results.json) |
 | <a id="sumber-s10"></a>**S10** | [Alat akuisisi board safety](verification/capture_hardware_safety.py) |
 | <a id="sumber-s11"></a>**S11** | [Matriks acceptance A/B/D](docs/IMPLEMENTATION_READINESS.md) |
@@ -253,18 +253,18 @@ Cari ID Sxx di bawah. JSON S02 memuat `cycles`, `clock_hz`, `suites`, `fitter_su
 | <a id="sumber-s17"></a>**S17** | [Hasil enam scene DWA legacy](verification/scene_cocotb_results.json) |
 | <a id="sumber-s18"></a>**S18** | [Coverage gate legacy](verification/gate_functional_coverage.json) |
 | <a id="sumber-s19"></a>**S19** | [Manifest rilis dan hash artefak](evidence/current_release/manifest.json) |
-| <a id="sumber-s20"></a>**S20** | [Proyek Quartus Parallel8](experiments/parallel8/igor_src_policy.qpf) |
+| <a id="sumber-s20"></a>**S20** | [Proyek Quartus Parallel8](experiments/parallel8/garda_src_policy.qpf) |
 | <a id="sumber-s21"></a>**S21** | [Screenshot GTKWave core](experiments/parallel8/artifacts/core_latency.png) |
 | <a id="sumber-s22"></a>**S22** | [Provenance model source](verification/src_policy/artifacts/model_provenance.json) |
 | <a id="sumber-s23"></a>**S23** | [Karakterisasi numerik model source](verification/src_policy/artifacts/results.json) |
 | <a id="sumber-s24"></a>**S24** | [Verifikasi motor offline](robot/jetauto/offline_verification.json) |
-| <a id="sumber-s25"></a>**S25** | [Controller host integrasi](software_integration/src/igor_controller/igor_controller/controller_node.py) |
-| <a id="sumber-s26"></a>**S26** | [Power FPGA Parallel8 Typical](experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary) |
+| <a id="sumber-s25"></a>**S25** | [Controller host integrasi](software_integration/src/garda_controller/garda_controller/controller_node.py) |
+| <a id="sumber-s26"></a>**S26** | [Power FPGA Parallel8 Typical](experiments/parallel8/artifacts/power/typical/garda_src_policy.pow.summary) |
 | <a id="sumber-s27"></a>**S27** | [Functional gate-level ASIC terlampir](evidence/asic_import/gatelevel_test_results/raw/results.xml) |
 
 [Traceability JSON](evidence/bennaya_answers/traceability.json) menyimpan ID text field, cuplikan pendek dan posisi karakter pada lampiran asal, SHA256 dokumen sumber, lokasi jawaban serta hash sumber bukti. Dokumen internal lengkap tidak disalin ke naskah publikasi ini. Metadata menghubungkan pertanyaan asal dengan jawaban tanpa memperlakukan rencana sebagai hasil eksperimen.
 
-**Kalimat penutup presentasi:** “IGOR membawa kecerdasan robot ke hardware yang terukur: core neural 138,32 mikrodetik, bobot on-chip, proteksi operasi pada jalur kendali, dan jejak bukti dari Verilog sampai pengujian. Kami membangun IP lokal yang dapat dijelaskan, diprogram dan dikembangkan menuju aplikasi industri serta silicon.”
+**Kalimat penutup presentasi:** “GARDA membawa kecerdasan robot ke hardware yang terukur: core neural 138,32 mikrodetik, bobot on-chip, proteksi operasi pada jalur kendali, dan jejak bukti dari Verilog sampai pengujian. Kami membangun IP lokal yang dapat dijelaskan, diprogram dan dikembangkan menuju aplikasi industri serta silicon.”
 
 
 <!-- professor-feedback-audit-measured-v1 -->
@@ -372,38 +372,38 @@ tetap menyertakan hasil yang lebih rendah, tanpa memilih angka terbaik saja.
 
 | Suite | File DUT | Metrik native | Covered / total | Persentase |
 |---|---|---|---:|---:|
-| `board` | `igor_src_policy_core.v` | `v_branch` | 95/96 | 98.96% |
-| `board` | `igor_src_policy_core.v` | `v_line` | 60/68 | 88.24% |
-| `board` | `igor_src_policy_core.v` | `v_toggle` | 789/908 | 86.89% |
-| `board` | `igor_src_policy_de10_nano.v` | `v_branch` | 6/6 | 100.00% |
-| `board` | `igor_src_policy_de10_nano.v` | `v_line` | 4/4 | 100.00% |
-| `board` | `igor_src_policy_de10_nano.v` | `v_toggle` | 51/194 | 26.29% |
-| `board` | `igor_src_policy_uart.v` | `v_branch` | 35/46 | 76.09% |
-| `board` | `igor_src_policy_uart.v` | `v_line` | 37/47 | 78.72% |
-| `board` | `igor_src_policy_uart.v` | `v_toggle` | 214/517 | 41.39% |
-| `board` | `igor_uart_rx.v` | `v_branch` | 13/14 | 92.86% |
-| `board` | `igor_uart_rx.v` | `v_line` | 8/10 | 80.00% |
-| `board` | `igor_uart_rx.v` | `v_toggle` | 33/44 | 75.00% |
-| `board` | `igor_uart_tx.v` | `v_branch` | 4/4 | 100.00% |
-| `board` | `igor_uart_tx.v` | `v_line` | 5/5 | 100.00% |
-| `board` | `igor_uart_tx.v` | `v_toggle` | 33/43 | 76.74% |
-| `core` | `igor_src_policy_core.v` | `v_branch` | 96/96 | 100.00% |
-| `core` | `igor_src_policy_core.v` | `v_line` | 68/68 | 100.00% |
-| `core` | `igor_src_policy_core.v` | `v_toggle` | 870/908 | 95.81% |
-| `gate` | `igor_safety_security_gate.v` | `v_line` | 13/13 | 100.00% |
-| `gate` | `igor_safety_security_gate.v` | `v_toggle` | 102/107 | 95.33% |
-| `uart` | `igor_src_policy_core.v` | `v_branch` | 95/96 | 98.96% |
-| `uart` | `igor_src_policy_core.v` | `v_line` | 61/68 | 89.71% |
-| `uart` | `igor_src_policy_core.v` | `v_toggle` | 829/908 | 91.30% |
-| `uart` | `igor_src_policy_uart.v` | `v_branch` | 46/46 | 100.00% |
-| `uart` | `igor_src_policy_uart.v` | `v_line` | 46/47 | 97.87% |
-| `uart` | `igor_src_policy_uart.v` | `v_toggle` | 371/517 | 71.76% |
-| `uart` | `igor_uart_rx.v` | `v_branch` | 14/14 | 100.00% |
-| `uart` | `igor_uart_rx.v` | `v_line` | 9/10 | 90.00% |
-| `uart` | `igor_uart_rx.v` | `v_toggle` | 31/44 | 70.45% |
-| `uart` | `igor_uart_tx.v` | `v_branch` | 4/4 | 100.00% |
-| `uart` | `igor_uart_tx.v` | `v_line` | 5/5 | 100.00% |
-| `uart` | `igor_uart_tx.v` | `v_toggle` | 30/43 | 69.77% |
+| `board` | `garda_src_policy_core.v` | `v_branch` | 95/96 | 98.96% |
+| `board` | `garda_src_policy_core.v` | `v_line` | 60/68 | 88.24% |
+| `board` | `garda_src_policy_core.v` | `v_toggle` | 789/908 | 86.89% |
+| `board` | `garda_src_policy_de10_nano.v` | `v_branch` | 6/6 | 100.00% |
+| `board` | `garda_src_policy_de10_nano.v` | `v_line` | 4/4 | 100.00% |
+| `board` | `garda_src_policy_de10_nano.v` | `v_toggle` | 51/194 | 26.29% |
+| `board` | `garda_src_policy_uart.v` | `v_branch` | 35/46 | 76.09% |
+| `board` | `garda_src_policy_uart.v` | `v_line` | 37/47 | 78.72% |
+| `board` | `garda_src_policy_uart.v` | `v_toggle` | 214/517 | 41.39% |
+| `board` | `garda_uart_rx.v` | `v_branch` | 13/14 | 92.86% |
+| `board` | `garda_uart_rx.v` | `v_line` | 8/10 | 80.00% |
+| `board` | `garda_uart_rx.v` | `v_toggle` | 33/44 | 75.00% |
+| `board` | `garda_uart_tx.v` | `v_branch` | 4/4 | 100.00% |
+| `board` | `garda_uart_tx.v` | `v_line` | 5/5 | 100.00% |
+| `board` | `garda_uart_tx.v` | `v_toggle` | 33/43 | 76.74% |
+| `core` | `garda_src_policy_core.v` | `v_branch` | 96/96 | 100.00% |
+| `core` | `garda_src_policy_core.v` | `v_line` | 68/68 | 100.00% |
+| `core` | `garda_src_policy_core.v` | `v_toggle` | 870/908 | 95.81% |
+| `gate` | `garda_safety_security_gate.v` | `v_line` | 13/13 | 100.00% |
+| `gate` | `garda_safety_security_gate.v` | `v_toggle` | 102/107 | 95.33% |
+| `uart` | `garda_src_policy_core.v` | `v_branch` | 95/96 | 98.96% |
+| `uart` | `garda_src_policy_core.v` | `v_line` | 61/68 | 89.71% |
+| `uart` | `garda_src_policy_core.v` | `v_toggle` | 829/908 | 91.30% |
+| `uart` | `garda_src_policy_uart.v` | `v_branch` | 46/46 | 100.00% |
+| `uart` | `garda_src_policy_uart.v` | `v_line` | 46/47 | 97.87% |
+| `uart` | `garda_src_policy_uart.v` | `v_toggle` | 371/517 | 71.76% |
+| `uart` | `garda_uart_rx.v` | `v_branch` | 14/14 | 100.00% |
+| `uart` | `garda_uart_rx.v` | `v_line` | 9/10 | 90.00% |
+| `uart` | `garda_uart_rx.v` | `v_toggle` | 31/44 | 70.45% |
+| `uart` | `garda_uart_tx.v` | `v_branch` | 4/4 | 100.00% |
+| `uart` | `garda_uart_tx.v` | `v_line` | 5/5 | 100.00% |
+| `uart` | `garda_uart_tx.v` | `v_toggle` | 30/43 | 69.77% |
 
 ### Functional coverage, FSM dan hasil pengujian
 
@@ -483,20 +483,20 @@ menghubungkan definisi dengan run aktual, seed dan hash sumbernya.
 
 | Parameter | Nilai / interpretasi | Bukti |
 |---|---|---|
-| Neural policy | 74 input, hidden 128 dan 64, tiga residual output; PPO source IGOR | [Provenance model](verification/src_policy/artifacts/model_provenance.json), [bobot source](../src/igor_navigation/igor_navigation/weights/model_weights.json). |
+| Neural policy | 74 input, hidden 128 dan 64, tiga residual output; PPO source GARDA | [Provenance model](verification/src_policy/artifacts/model_provenance.json), [bobot source](../src/garda_navigation/garda_navigation/weights/model_weights.json). |
 | Parameter model | 18.051 words termasuk bias; storage 32.768 words x 16 bit = 64 KiB | Provenance model dan Fitter; kapasitas storage berbeda dari parameter terpakai. |
-| Datapath | Delapan lane MAC, operand input dibroadcast, delapan bank bobot dan hidden storage terbagi bank | [RTL Parallel8](experiments/parallel8/igor_src_policy_core.v), [generator bank](experiments/parallel8/prepare.py). |
+| Datapath | Delapan lane MAC, operand input dibroadcast, delapan bank bobot dan hidden storage terbagi bank | [RTL Parallel8](experiments/parallel8/garda_src_policy_core.v), [generator bank](experiments/parallel8/prepare.py). |
 | Aritmetika | Q8.8; perkalian signed 16x16; accumulator signed 40-bit; floor shift 8 bit; hidden signed16 jenuh/ReLU; output clip -256..256 | RTL dan reference integer. |
-| Clock dan latency | 50 MHz, periode 20 ns; 6.916 siklus = 138,32 us | Log core dan [STA FPGA](experiments/parallel8/output_files/igor_src_policy.sta.summary). |
+| Clock dan latency | 50 MHz, periode 20 ns; 6.916 siklus = 138,32 us | Log core dan [STA FPGA](experiments/parallel8/output_files/garda_src_policy.sta.summary). |
 | Baseline | 54.348 siklus = 1.086,96 us; speedup 54.348/6.916 = 7,858x | [Perbandingan kandidat](experiments/parallel8/README.md). |
 | Operasi / throughput | 74x128 + 128x64 + 64x3 = 17.856 MAC/inference; 129,092 MMAC/s; ideal kernel-only 7.229,61 inference/s | Perhitungan berdasarkan model dan latency; tidak termasuk loading/UART/host. |
-| Resource | 3.303/41.910 ALM; 6.277 registers; 64/553 M10K; 8/112 DSP; 13 pin | [Fitter summary](experiments/parallel8/output_files/igor_src_policy.fit.summary). |
+| Resource | 3.303/41.910 ALM; 6.277 registers; 64/553 M10K; 8/112 DSP; 13 pin | [Fitter summary](experiments/parallel8/output_files/garda_src_policy.fit.summary). |
 | Resource tambahan | +54 ALM, +281 registers, +7 DSP; M10K tetap 64 dibanding baseline | Perbandingan kandidat. |
 | STA FPGA | Worst setup +5,647 ns, worst hold +0,119 ns, TNS 0 pada corner dilaporkan; WNS pelanggaran negatif = 0 | STA FPGA; bukan hasil ASIC. |
-| Typical FPGA power | Total 476,18 mW; dynamic 50,36 + static 413,27 + I/O 12,55 mW | [Power Typical](experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary); vectorless, confidence Low, bukan daya board. |
-| Maximum/Tj100 power | Total estimasi 937,55 mW | [Power maximum](experiments/parallel8/artifacts/power/maximum_tj100/igor_src_policy.pow.summary); confidence Low. |
+| Typical FPGA power | Total 476,18 mW; dynamic 50,36 + static 413,27 + I/O 12,55 mW | [Power Typical](experiments/parallel8/artifacts/power/typical/garda_src_policy.pow.summary); vectorless, confidence Low, bukan daya board. |
+| Maximum/Tj100 power | Total estimasi 937,55 mW | [Power maximum](experiments/parallel8/artifacts/power/maximum_tj100/garda_src_policy.pow.summary); confidence Low. |
 | Energy ilustratif | Total-power x core-time sekitar 65,87 uJ/inference; dynamic-only sekitar 6,97 uJ | Estimasi dengan asumsi daya konstan selama kernel, bukan pengukuran transaksi. |
-| UART | 921600 baud, 8N1, request 153 byte/74 signed int16 LE, response 11 byte/tiga signed int16 LE, CRC-8/MAXIM | [RTL transport](rtl/igor_src_policy/igor_src_policy_uart.v), [bridge host](software_integration/src/igor_controller/igor_controller/fpga_bridge.py). |
+| UART | 921600 baud, 8N1, request 153 byte/74 signed int16 LE, response 11 byte/tiga signed int16 LE, CRC-8/MAXIM | [RTL transport](rtl/garda_src_policy/garda_src_policy_uart.v), [bridge host](software_integration/src/garda_controller/garda_controller/fpga_bridge.py). |
 | Wire time | 164 byte x 10/921600 sekitar 1,7795 ms; ditambah core sekitar 1,9178 ms sebelum overhead lain | Batas waktu ideal; bukan benchmark round-trip Jetson. |
 
 Percepatan berasal dari delapan neuron yang dihitung bersamaan. Urutan
@@ -510,7 +510,7 @@ iterasi elaborasi yang mendahului implementasi yang diterima.
 
 Arsip `gds-diagnostics-1.zip` memiliki SHA256
 `1e41c73286b1c053fc08f3c031c4424dd7aa44c06dff380925f5e40393589506`.
-Top arsip adalah **tt_um_igorchip**, berbeda dari neural FPGA; belum ada
+Top arsip adalah **tt_um_gardachip**, berbeda dari neural FPGA; belum ada
 bukti ekuivalensi keduanya. Berikut hasil diagnostik implementasinya:
 
 | Parameter ASIC | Nilai dan batas |
@@ -568,8 +568,8 @@ atau diturunkan langsung dari paper akselerator tertentu.
 
 | ID | Referensi | Bagian yang didukung dan cara menggunakannya |
 |---|---|---|
-| R01 | [Model provenance IGOR](verification/src_policy/artifacts/model_provenance.json) dan [model source](../src/igor_navigation/igor_navigation/weights/model_weights.json) | Sumber primer bentuk 74-128-64-3, bobot, bias dan tata letak word. Arsitektur layer ini berasal dari artefak model lokal, bukan angka yang ditetapkan oleh paper PPO. |
-| R02 | [RTL Parallel8](experiments/parallel8/igor_src_policy_core.v), [prepare.py](experiments/parallel8/prepare.py), [README eksperimen](experiments/parallel8/README.md) | Sumber primer delapan lane MAC, broadcast operand, banking dan urutan penjumlahan. Pelajari pembagian neuron per grup dan alamat bobot untuk mereproduksi arsitektur. |
+| R01 | [Model provenance GARDA](verification/src_policy/artifacts/model_provenance.json) dan [model source](../src/garda_navigation/garda_navigation/weights/model_weights.json) | Sumber primer bentuk 74-128-64-3, bobot, bias dan tata letak word. Arsitektur layer ini berasal dari artefak model lokal, bukan angka yang ditetapkan oleh paper PPO. |
+| R02 | [RTL Parallel8](experiments/parallel8/garda_src_policy_core.v), [prepare.py](experiments/parallel8/prepare.py), [README eksperimen](experiments/parallel8/README.md) | Sumber primer delapan lane MAC, broadcast operand, banking dan urutan penjumlahan. Pelajari pembagian neuron per grup dan alamat bobot untuk mereproduksi arsitektur. |
 | R03 | Schulman et al., 2017, [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347) | Rujukan algoritma PPO. Tidak menjadi bukti konfigurasi layer lokal, hasil training/akurasi navigasi, atau implementasi delapan lane. |
 | R04 | [MIT Eyeriss Project](https://eyeriss.mit.edu/) dan [penjelasan dataflow oleh peneliti MIT](https://eems.mit.edu/research/) | Bacaan pembanding tentang pemrosesan paralel, reuse dan biaya perpindahan data. Eyeriss membahas dataflow row-stationary CNN; Parallel8 adalah MLP dengan neuron paralel, bukan klaim implementasi Eyeriss/systolic array yang sama. Dicantumkan sebagai bacaan tambahan, bukan riwayat inspirasi yang telah dibuktikan. |
 | R05 | [Verilator: coverage dan simulasi](https://verilator.org/guide/latest/simulating.html), [coverage tool](https://verilator.org/guide/latest/exe_verilator_coverage.html) | Referensi cara instrumentasi/counter dan interpretasi coverage. Dokumentasi latest dapat mencakup fitur lebih baru daripada versi 5.018 yang tercatat; hanya counter aktual run yang dilaporkan. |

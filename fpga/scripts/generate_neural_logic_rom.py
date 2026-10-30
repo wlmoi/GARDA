@@ -24,7 +24,7 @@ def generated_source():
 // Model SHA256 (little-endian words): {digest}
 // Immutable standard-cell logic. Host validation never changes coefficients.
 `default_nettype none
-module igor_parameter_logic(input wire clk,rst_n,enable,write_enable,
+module garda_parameter_logic(input wire clk,rst_n,enable,write_enable,
  input wire [12:0] address,input wire [15:0] unused_write_data,unused_write_mask,
  output wire signed [15:0] read_data,read_even,read_odd);
 reg [31:0] decoded,pair_q;
@@ -56,7 +56,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check',action='store_true')
     args=parser.parse_args()
-    target=ROOT/'src/igor_parameter_logic.v'
+    target=ROOT/'src/garda_parameter_logic.v'
     source=generated_source()
     if args.check:
         if target.read_text()!=source:raise SystemExit('Generated model logic is stale')

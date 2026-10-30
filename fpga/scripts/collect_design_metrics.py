@@ -129,7 +129,7 @@ def main():
         'claim':'Sample characterization only; not a formal all-input bound or robot trajectory accuracy.'}
     if not math.isclose(quant['max_abs_error'],policy['normalized_max_abs_error'],abs_tol=1e-15):
         raise RuntimeError('Quantization characterization differs from verified policy suite')
-    model_path=ROOT.parent/'src/igor_navigation/igor_navigation/weights/model_weights.json'
+    model_path=ROOT.parent/'src/garda_navigation/garda_navigation/weights/model_weights.json'
     model=load(model_path); parameter_rows=[]; stats={}
     for key in ['w1','b1','w2','b2','w3','b3']:
         values=model[key]
@@ -149,7 +149,7 @@ def main():
     quant['active_parameter_words']=len(parameter_rows)
     quant['padding_words']=policy['storage_words']-policy['model_words']
     # Bind parameter rounding to deployed MEM rather than analysing a different model.
-    deployed=[int(x,16) for x in (ROOT/'rtl/igor_src_policy/policy_weights.mem').read_text().split()]
+    deployed=[int(x,16) for x in (ROOT/'rtl/garda_src_policy/policy_weights.mem').read_text().split()]
     if deployed[:len(parameter_rows)]!=[r['q8_8_raw']&65535 for r in parameter_rows]:
         raise RuntimeError('Reported parameter quantization differs from deployed ROM')
     result['quantization']=quant
@@ -177,7 +177,7 @@ def main():
     if sum(schedule)!=policy['latency_cycles']: raise RuntimeError('MAC schedule differs from measured core latency')
     result['latency']['layer_schedule_cycles']=schedule
     result['latency']['schedule_formula']='sum(output_neurons * (3 * input_neurons + 4))'
-    sdc=ROOT/'fpga_de10_nano/src_policy/igor_src_policy.sdc'
+    sdc=ROOT/'fpga_de10_nano/src_policy/garda_src_policy.sdc'
     period=float(re.search(r'create_clock[^\n]*-period\s+([\d.]+)',sdc.read_text())[1])
     if period!=20: raise RuntimeError('Metrics expect the source-bound 50 MHz clock')
     record('policy.clock_hz',1e9/period,'Hz','source policy clock',sdc,1,'SDC target clock, not measured oscillator')
@@ -188,8 +188,8 @@ def main():
         'uart_assertions':policy['uart']['assertions'],'mismatches_observed_in_passing_suite':0,
         'hidden_values_compared':policy['core_vectors']*192,'outputs_compared':policy['core_vectors']*3,
         'claim':'Exact against specified integer model on tested vectors, not bitwise equivalence with FP32 representation.'}
-    for file in [results_path,ROOT/'rtl/igor_src_policy/policy_weights.mem',
-                 ROOT/'rtl/igor_src_policy/igor_src_policy_core.v',
+    for file in [results_path,ROOT/'rtl/garda_src_policy/policy_weights.mem',
+                 ROOT/'rtl/garda_src_policy/garda_src_policy_core.v',
                  ROOT/'evidence/current_builds/source_policy.json',ROOT/'evidence/current_builds/planner.json',
                  ROOT/'verification/src_policy/artifacts/model_provenance.json',
                  ROOT/'verification/src_policy/artifacts/core_checkpoints.csv']:
@@ -203,7 +203,7 @@ def main():
         power=data['power']['vectorless'];res=data['resources']
         doc=fitz.open();page=doc.new_page(width=1120,height=780)
         page.draw_rect(page.rect,color=None,fill=(0.96,0.97,0.99))
-        page.insert_text((34,45),'IGOR | RESOURCE, LATENCY, QUANTIZATION & POWER',fontsize=21,color=(0.05,0.17,0.28))
+        page.insert_text((34,45),'GARDA | RESOURCE, LATENCY, QUANTIZATION & POWER',fontsize=21,color=(0.05,0.17,0.28))
         body=[f'PROJECT: {name} | Cyclone V 5CSEBA6U23I7 | 50 MHz',
           'SOURCE: original post-fit Quartus reports; this is not a GUI screenshot.', '',
           f'ALMs: {res["alm"]["used"]} / {res["alm"]["total"]} ({res["alm"]["utilization_percent"]:.4f}%)',
@@ -228,7 +228,7 @@ def main():
     # A labelled report chart, never presented as a power-tool GUI screenshot.
     doc=fitz.open();page=doc.new_page(width=1120,height=760)
     page.draw_rect(page.rect,color=None,fill=(0.97,0.98,0.99))
-    page.insert_text((35,45),'IGOR | POST-FIT POWER ESTIMATES (mW)',fontsize=24,color=(0.05,0.17,0.28))
+    page.insert_text((35,45),'GARDA | POST-FIT POWER ESTIMATES (mW)',fontsize=24,color=(0.05,0.17,0.28))
     page.insert_text((35,74),'Confidence LOW | HPS excluded | Not measured board power',fontsize=14,color=(0.6,0.22,0.05))
     chart=[('Typical / Ta25C','vectorless'),('Fixture VCD','board_fixture_vcd'),
            ('Maximum / Tj85C','maximum_tj85'),('Maximum / Tj100C','maximum_tj100')]

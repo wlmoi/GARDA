@@ -4,7 +4,7 @@ This historical wrapper is retained for regression and is not the active GDS tar
 
 # How it works
 
-Top `tt_um_wlmoi_igor_gate` membungkus modul aktual `igor_safety_security_gate` dengan register dan read mux. Gerbang memeriksa reset, readiness, emergency, protection, validitas map/config/result, penyelesaian tile, arithmetic fault, timeout, batas kecepatan, dan perubahan kecepatan. Jika pemeriksaan gagal, permit, v, dan omega menjadi nol.
+Top `tt_um_wlmoi_garda_gate` membungkus modul aktual `garda_safety_security_gate` dengan register dan read mux. Gerbang memeriksa reset, readiness, emergency, protection, validitas map/config/result, penyelesaian tile, arithmetic fault, timeout, batas kecepatan, dan perubahan kecepatan. Jika pemeriksaan gagal, permit, v, dan omega menjadi nol.
 
 Keluaran adalah kode digital. Prototipe tidak berisi DWA, neural core, USB host atau driver motor. Jalur ASIC ini merupakan subset desain FPGA.
 
@@ -15,7 +15,7 @@ flowchart LR
   UI["ui_in 8 bit: write 1 + address 4 + read select 3"] --> REG["Register front end"]
   DATA["uio_in 8 bit: write data"] --> REG
   CTRL["clk, rst_n, ena: masing-masing 1 bit"] --> REG
-  REG -->|"flags 8 + timeout 1 + 4 fields v x 5 + 4 fields omega x 7"| GATE["igor_safety_security_gate"]
+  REG -->|"flags 8 + timeout 1 + 4 fields v x 5 + 4 fields omega x 7"| GATE["garda_safety_security_gate"]
   GATE -->|"permit 1, v 5 unsigned, omega 7 signed, fault 8"| MUX["Read mux"]
   UI --> MUX
   REG -->|"flags 8"| MUX
@@ -78,4 +78,4 @@ Tester Tiny Tapeout atau mikrokontroler dengan tegangan sesuai board, clock, 16 
 
 # Physical implementation status
 
-Target IHP CMOS5L, requested size 1×1 tile. GDS, DRC/LVS, precheck, PDK gate-level test, daya ASIC dan fit tile belum diverifikasi lokal. Workflow resmi disediakan. Desain FPGA lengkap memakai top igor_uart_top di folder terpisah.
+Target IHP CMOS5L, requested size 1×1 tile. GDS, DRC/LVS, precheck, PDK gate-level test, daya ASIC dan fit tile belum diverifikasi lokal. Workflow resmi disediakan. Desain FPGA lengkap memakai top garda_uart_top di folder terpisah.

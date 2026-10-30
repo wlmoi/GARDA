@@ -6,12 +6,12 @@ reg rst_n=0,begin_frame=0,write_byte=0,commit_frame=0,busy=0;
 reg [31:0] frame_sequence=1; reg [14:0] frame_addr=0; reg [7:0] frame_data=0;
 wire bank,valid,map_fault,fresh,ram_wr; wire [14:0] ram_addr; wire [7:0] ram_data;
 wire [31:0] sequence_out,age;
-igor_costmap_manager #(.FRESH_CYCLES(8)) maps(clk,rst_n,begin_frame,write_byte,commit_frame,busy,frame_sequence,frame_addr,frame_data,bank,valid,map_fault,fresh,ram_wr,ram_addr,ram_data,sequence_out,age);
+garda_costmap_manager #(.FRESH_CYCLES(8)) maps(clk,rst_n,begin_frame,write_byte,commit_frame,busy,frame_sequence,frame_addr,frame_data,bank,valid,map_fault,fresh,ram_wr,ram_addr,ram_data,sequence_out,age);
 reg wr=0,lock_request=0; reg [31:0] data=32'h00143d0f;
 wire locked,cfg_valid,cfg_fault; wire [4:0] max_v,max_dv; wire [6:0] max_w,max_dw;
-igor_config_registers cfg(clk,rst_n,wr,lock_request,busy,data,locked,cfg_valid,cfg_fault,max_v,max_dv,max_w,max_dw);
+garda_config_registers cfg(clk,rst_n,wr,lock_request,busy,data,locked,cfg_valid,cfg_fault,max_v,max_dv,max_w,max_dw);
 reg [7:0] fault_code=0; wire [31:0] event_count; wire [7:0] last_fault;
-igor_status_logger logger(clk,rst_n,fault_code,event_count,last_fault);
+garda_status_logger logger(clk,rst_n,fault_code,event_count,last_fault);
 integer fd,i; reg saved_bank;
 task tick; begin @(posedge clk); #1; end endtask
 task reset_all; begin

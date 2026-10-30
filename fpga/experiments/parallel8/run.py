@@ -11,15 +11,15 @@ def main():
     baseline=json.loads((ROOT/'verification/src_policy/artifacts/results.json').read_text())
     bound=list(HERE.glob('*.v'))+list(HERE.glob('*.sv'))+list(HERE.glob('*.mem'))
     bound+=list((ROOT/'verification/src_policy/artifacts').glob('*.hex'))
-    bound+=[ROOT/'rtl/igor_src_policy/igor_src_policy_uart.v',ROOT/'rtl/igor_uart_rx.v',ROOT/'rtl/igor_uart_tx.v']
+    bound+=[ROOT/'rtl/garda_src_policy/garda_src_policy_uart.v',ROOT/'rtl/garda_uart_rx.v',ROOT/'rtl/garda_uart_tx.v']
     before={p.relative_to(ROOT).as_posix():sha(p) for p in sorted(bound)}
     results={'scope':'Eight-lane candidate; no physical hardware measurement',
              'latency_cycles':6916,'latency_ms_at_50mhz':0.13832,
              'target_ms':0.16,'baseline_cycles':54348,'suites':{}}
     for suite in ['core','uart','board']:
-        sources=[HERE/'igor_src_policy_core.v']
-        if suite in ['uart','board']: sources += [ROOT/'rtl/igor_src_policy/igor_src_policy_uart.v',ROOT/'rtl/igor_uart_rx.v',ROOT/'rtl/igor_uart_tx.v']
-        if suite=='board': sources += [HERE/'igor_src_policy_de10_nano.v']
+        sources=[HERE/'garda_src_policy_core.v']
+        if suite in ['uart','board']: sources += [ROOT/'rtl/garda_src_policy/garda_src_policy_uart.v',ROOT/'rtl/garda_uart_rx.v',ROOT/'rtl/garda_uart_tx.v']
+        if suite=='board': sources += [HERE/'garda_src_policy_de10_nano.v']
         top='tb_board_wrapper' if suite=='board' else f'tb_src_policy_{suite}'
         sources += [HERE/f'{top}.sv']
         exe=HERE/f'artifacts/{suite}.vvp'
@@ -39,7 +39,7 @@ def main():
         print(log.strip(),flush=True)
     if args.build:
         with (HERE/'artifacts/compile.log').open('w') as stream:
-            subprocess.run(['D:/Quartus-Program/quartus/bin64/quartus_sh.exe','--flow','compile','igor_src_policy'],
+            subprocess.run(['D:/Quartus-Program/quartus/bin64/quartus_sh.exe','--flow','compile','garda_src_policy'],
                            cwd=HERE,stdout=stream,stderr=subprocess.STDOUT,check=True)
     assert before=={p.relative_to(ROOT).as_posix():sha(p) for p in sorted(bound)},'Inputs changed during simulation'
     results['sha256']=before

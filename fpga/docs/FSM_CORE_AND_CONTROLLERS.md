@@ -1,15 +1,15 @@
-# FSM core IGOR dan controller pendukung
+# FSM core GARDA dan controller pendukung
 
 Untuk presentasi singkat, gunakan [versi 3 FSM sederhana](FSM_3_SIMPLE.md)
 dengan lingkaran terbagi nama state/aksi seperti contoh pengguna.
 
-**[Buka seluruh 19 halaman draw.io](assets/igor_fsm_all.drawio)** menggunakan
+**[Buka seluruh 19 halaman draw.io](assets/garda_fsm_all.drawio)** menggunakan
 diagrams.net: **File -> Open From -> Device**, kemudian pilih tab halaman di
 bawah kanvas. State, panah, kondisi dan catatan berupa objek native yang dapat
 diedit. Gaya mengikuti contoh: header ungu, state oval hijau, reset biru, dan
-fault/trap merah. [Galeri semua halaman](assets/igor_fsm/contact_sheet.png).
+fault/trap merah. [Galeri semua halaman](assets/garda_fsm/contact_sheet.png).
 
-![FSM core Parallel8](assets/igor_fsm/01_core_parallel8.png)
+![FSM core Parallel8](assets/garda_fsm/01_core_parallel8.png)
 
 ## Isi file
 
@@ -36,7 +36,7 @@ fault/trap merah. [Galeri semua halaman](assets/igor_fsm/contact_sheet.png).
 | 18 | Acuan three-process | Struktur rekomendasi, bukan hasil refactor RTL |
 
 Halaman 00–08 menjelaskan jalur proyek
-[Parallel8 QSF](../experiments/parallel8/igor_src_policy.qsf).
+[Parallel8 QSF](../experiments/parallel8/garda_src_policy.qsf).
 Halaman 09–17 melengkapi seluruh FSM/controller operasional pada
 `fpga/rtl/`; blok legacy tersebut tidak semuanya ada di image Parallel8.
 Fase counter/flag ditandai **implisit** agar tidak dianggap enum yang ada di source.
@@ -112,28 +112,28 @@ Komponen berikut tidak diberi state buatan:
 
 | File/modul | Mengapa tidak memiliki halaman state terpisah |
 |---|---|
-| `igor_candidate_generator`, `igor_kinematic_step`, `igor_trig_lut` | Logika kombinasi; `case(phase)` LUT bukan register FSM |
-| `igor_score_accumulator`, `igor_best_candidate_selector` | Aritmetika/seleksi kombinasi |
-| `igor_safety_security_gate` | Gate prioritas kombinasi dengan default output nol |
-| `igor_costmap_bank`, `igor_neural_rom`, `igor_src_policy_rom` | Memori sinkron, bukan FSM kontrol operasi |
-| `igor_src_policy_activation` | Slice, ReLU/clamp kombinasi; berada dalam file core |
-| `igor_status_logger` | Register previous_fault dan counter saturating, bukan FSM operasi terpisah |
-| `igor_uart_top` | Decode opcode/response kombinasi dan flag invalid_command sticky; FSM di protocol/core dijelaskan terpisah |
+| `garda_candidate_generator`, `garda_kinematic_step`, `garda_trig_lut` | Logika kombinasi; `case(phase)` LUT bukan register FSM |
+| `garda_score_accumulator`, `garda_best_candidate_selector` | Aritmetika/seleksi kombinasi |
+| `garda_safety_security_gate` | Gate prioritas kombinasi dengan default output nol |
+| `garda_costmap_bank`, `garda_neural_rom`, `garda_src_policy_rom` | Memori sinkron, bukan FSM kontrol operasi |
+| `garda_src_policy_activation` | Slice, ReLU/clamp kombinasi; berada dalam file core |
+| `garda_status_logger` | Register previous_fault dan counter saturating, bukan FSM operasi terpisah |
+| `garda_uart_top` | Decode opcode/response kombinasi dan flag invalid_command sticky; FSM di protocol/core dijelaskan terpisah |
 | Wrapper neural / board | Instansiasi dan synchronizer/flag; controller internal ditunjukkan pada halaman terkait |
 
 ## Bukti pemeriksaan dokumen
 
-[fsm_sources.json](assets/igor_fsm/fsm_sources.json) memuat nama state, transisi,
+[fsm_sources.json](assets/garda_fsm/fsm_sources.json) memuat nama state, transisi,
 catatan, source dan SHA256. Panah normal harus dibaca bersama prioritas global;
 diagram bukan pengganti netlist, testbench atau pembuktian formal.
 Pemeriksaan dokumen tidak diklaim sebagai simulasi hardware baru.
-[document_checks.json](assets/igor_fsm/document_checks.json) mencatat pemeriksaan
+[document_checks.json](assets/garda_fsm/document_checks.json) mencatat pemeriksaan
 XML, setiap transisi, encoding state, prioritas core, handshake byte terakhir,
 format gambar, tautan dan hash source. Jalankan ulang dengan
-`python fpga/scripts/check_igor_fsm.py`.
+`python fpga/scripts/check_garda_fsm.py`.
 
-Renderer: `python fpga/scripts/render_igor_fsm.py` dari root workspace.
-Data yang dapat direview ada pada `fpga/scripts/igor_fsm_data.py`.
+Renderer: `python fpga/scripts/render_garda_fsm.py` dari root workspace.
+Data yang dapat direview ada pada `fpga/scripts/garda_fsm_data.py`.
 Dependensi: Graphviz `dot` dan `resvg-py==0.5.0` pada
 `fpga/.runtime/diagram_renderer`. Semua PNG/SVG per halaman ada di
-`fpga/docs/assets/igor_fsm/`; RTL, pin assignment dan SOF tidak diubah.
+`fpga/docs/assets/garda_fsm/`; RTL, pin assignment dan SOF tidak diubah.

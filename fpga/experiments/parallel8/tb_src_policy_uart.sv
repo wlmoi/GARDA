@@ -9,7 +9,7 @@ module tb_src_policy_uart;
     wire [15:0] error_flags;
     wire [31:0] accepted_frames,rejected_frames,last_latency_cycles;
     wire signed [15:0] action0,action1,action2;
-    igor_src_policy_uart #(.CLK_HZ(800000),.BAUD(100000),
+    garda_src_policy_uart #(.CLK_HZ(800000),.BAUD(100000),
         .RX_TIMEOUT_CYCLES(256),.RESULT_TIMEOUT_CYCLES(100000),
         .INFER_TIMEOUT_CYCLES(60000)) dut(
         clk,rst_n,uart_rx,estop,uart_tx,debug_state,error_code,error_flags,

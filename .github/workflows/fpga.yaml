@@ -34,7 +34,7 @@ jobs:
           import json
           import os
           from pathlib import Path
-          prefix = Path('build/tt_um_igorchip')
+          prefix = Path('build/tt_um_gardachip')
           bitstream = prefix.with_suffix('.bin')
           assert bitstream.is_file() and bitstream.stat().st_size > 0, 'FPGA bitstream required'
           netlist = json.loads(prefix.with_suffix('.json').read_text())

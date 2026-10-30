@@ -1,1 +1,1 @@
-{"name":"garda-rtl-explorer","version":"1.0.0","private":true,"type":"module","scripts":{"start":"python -m http.server 8765 --directory dist --bind 127.0.0.1","check":"node --check dist/app.js && node --check dist/scene.js && node --check dist/gate-model.js"}}
+{"name":"garda-rtl-explorer","version":"1.0.0","private":true,"type":"module","scripts":{"start":"python -m http.server 8765 --directory dist --bind 127.0.0.1","check":"node --check dist/app.js && node --check dist/scene.js && node --check dist/gate-model.js && node --check dist/clock-explorer.js"}}

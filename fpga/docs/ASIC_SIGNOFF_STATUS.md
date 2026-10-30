@@ -59,9 +59,9 @@ wait dan host readback, sehingga tidak dilakukan hanya untuk membungkam STA.
 Menurunkan clock target juga bukan perbaikan sah untuk klaim 50 MHz tanpa
 mengubah spesifikasi dan menguji ulang flow.
 
-Source referensi lokal `src/igorchip_top.v`, `program_host.v`,
+Source referensi lokal `src/gardachip_top.v`, `program_host.v`,
 `program_memory.v`, `defines.vh`, `sram_256x16_bb.v` serta `info.yaml`
-menunjukkan **IgorChip Programmable Protocol Engine**, empat thread dan
+menunjukkan **GardaChip Programmable Protocol Engine**, empat thread dan
 SRAM 256×16. Nama top cocok dengan konfigurasi arsip. Ini bukan bukti bahwa
 hasil power **2,037372 mW** adalah hasil neural Parallel8 74→128→64→3;
 kesetaraan desain/revisi harus dibuktikan tersendiri.

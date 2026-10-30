@@ -6,7 +6,7 @@ module tb_mock_parallel8;
  reg signed[15:0] input_value=0;reg[1:0] output_index=0;
  wire signed[15:0] output_value;
  wire busy,done,fault,saturated;wire[3:0] error_code;wire[31:0] latency;
- igor_src_policy_core dut(clk,rst_n,load,input_index,input_value,start,abort,output_index,
+ garda_src_policy_core dut(clk,rst_n,load,input_index,input_value,start,abort,output_index,
  output_value,busy,done,fault,error_code,latency,saturated);
  reg[15:0] observations[0:N*74-1];reg signed[15:0] expected[0:N*3-1];
  integer vector_id,i,watchdog,logfile,checks=0;

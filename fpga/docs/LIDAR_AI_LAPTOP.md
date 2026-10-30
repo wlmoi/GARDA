@@ -6,9 +6,9 @@
 
 | Desktop shortcut | Fungsi |
 |---|---|
-| **IGOR - LiDAR AI Live** | Deteksi CH340, scan nyata, nilai konsol setiap sekitar 1 detik; ulang sesi 30 detik sampai Ctrl+C. |
-| **IGOR - LiDAR AI Logs** | Buka log scan dan fitur. |
-| **IGOR - Testing ABC** | Tes A/B/C laptop; profil LiDAR saja ketika adapter FPGA/STM tidak tersedia. |
+| **GARDA - LiDAR AI Live** | Deteksi CH340, scan nyata, nilai konsol setiap sekitar 1 detik; ulang sesi 30 detik sampai Ctrl+C. |
+| **GARDA - LiDAR AI Logs** | Buka log scan dan fitur. |
+| **GARDA - Testing ABC** | Tes A/B/C laptop; profil LiDAR saja ketika adapter FPGA/STM tidak tersedia. |
 
 USB LiDAR langsung ke laptop, daya scanner aktif. Tutup logger/aplikasi lain yang memiliki port serial sebelum membuka shortcut lain. COM17 ditemukan otomatis dari CH340 `1A86:7523`; nomor COM boleh berubah. Bila ada lebih dari satu CH340, pilih eksplisit:
 
@@ -28,7 +28,7 @@ Logger baru default **Express Scan**, setelah firmware COM17 mengembalikan descr
 
 Parser mengikuti [definisi resmi Slamtec](https://github.com/Slamtec/rplidar_sdk/blob/master/sdk/include/sl_lidar_cmd.h): distance Q2 /4000 meter, angle Q6 /64 derajat. Quality nol, nonfinite dan jarak di luar 0,15–12 m tidak menjadi pengukuran grid. Sudut dibulatkan ke derajat; sampel valid terakhir pada bin menang. Grid dibuat baru setiap rotasi agar data lama tidak tertahan.
 
-Interpolasi sama dengan `src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py`, metode `subsample_from_laserscan`: wrap [-π,π), urutkan, 64 target inklusif [-90°,+90°], clip 0,15–3,50 m, float32. Controller reference membagi 3,50 sehingga domain [0,1]. Kandidat Q8.8 = `round(normalized*256)`, rentang 0–256. MAE dan error maksimum encoding input dicatat; batas pembulatan absolut ≤1/512 normalized. Ini bukan MAE output neural network.
+Interpolasi sama dengan `src/garda_navigation/garda_navigation/drivers/lidar_subsampler.py`, metode `subsample_from_laserscan`: wrap [-π,π), urutkan, 64 target inklusif [-90°,+90°], clip 0,15–3,50 m, float32. Controller reference membagi 3,50 sehingga domain [0,1]. Kandidat Q8.8 = `round(normalized*256)`, rentang 0–256. MAE dan error maksimum encoding input dicatat; batas pembulatan absolut ≤1/512 normalized. Ini bukan MAE output neural network.
 
 Bin tanpa return berisi kandidat 3,50 m sesuai kebijakan fallback reference. **Fallback bukan bukti ruang kosong.** `measured_support_mask[64]` true hanya bila kedua tetangga interpolasi diukur pada rotasi ini, atau target tepat pada bin terukur. Mask konservatif; hanya satu tetangga nyata belum dihitung didukung penuh. Unit test membandingkan interpolasi dengan source reference pada grid identik. Freshness dan mask tambahan hanya berada di folder FPGA.
 

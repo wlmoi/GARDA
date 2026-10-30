@@ -23,8 +23,8 @@ module tb ();
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
 
-  // Actual IGOR Tiny Tapeout top module:
-  tt_um_wlmoi_igor_gate user_project (
+  // Actual GARDA Tiny Tapeout top module:
+  tt_um_wlmoi_garda_gate user_project (
       .ui_in  (ui_in),    // Dedicated inputs
       .uo_out (uo_out),   // Dedicated outputs
       .uio_in (uio_in),   // IOs: Input path

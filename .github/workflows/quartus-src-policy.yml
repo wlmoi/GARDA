@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: igor-quartus-src-policy
+  group: garda-quartus-src-policy
   cancel-in-progress: false
 
 jobs:
@@ -27,41 +27,41 @@ jobs:
       - name: Find Quartus and record tool and source identity
         run: |
           $ErrorActionPreference = 'Stop'
-          $igorQuartus = $env:QUARTUS_SH
-          if (-not $igorQuartus -and $env:QUARTUS_ROOTDIR) {
-            $igorQuartus = Join-Path $env:QUARTUS_ROOTDIR 'bin64/quartus_sh.exe'
+          $gardaQuartus = $env:QUARTUS_SH
+          if (-not $gardaQuartus -and $env:QUARTUS_ROOTDIR) {
+            $gardaQuartus = Join-Path $env:QUARTUS_ROOTDIR 'bin64/quartus_sh.exe'
           }
-          if (-not $igorQuartus) {
-            $igorQuartus = (Get-Command quartus_sh.exe -ErrorAction Stop).Source
+          if (-not $gardaQuartus) {
+            $gardaQuartus = (Get-Command quartus_sh.exe -ErrorAction Stop).Source
           }
-          if (-not (Test-Path -LiteralPath $igorQuartus -PathType Leaf)) {
+          if (-not (Test-Path -LiteralPath $gardaQuartus -PathType Leaf)) {
             throw 'Quartus unavailable: set QUARTUS_SH or QUARTUS_ROOTDIR on the trusted runner.'
           }
-          "IGOR_QUARTUS_SH=$igorQuartus" >> $env:GITHUB_ENV
+          "GARDA_QUARTUS_SH=$gardaQuartus" >> $env:GITHUB_ENV
           New-Item -ItemType Directory -Force -Path output_files | Out-Null
-          & $igorQuartus --version | Tee-Object -FilePath output_files/ci_quartus_version.txt
+          & $gardaQuartus --version | Tee-Object -FilePath output_files/ci_quartus_version.txt
           if ($LASTEXITCODE -ne 0) { throw 'Cannot read Quartus version.' }
           if (-not (Select-String -LiteralPath output_files/ci_quartus_version.txt -Pattern 'Version 25\.' -Quiet)) {
             throw 'This build is specified for Quartus 25.x.'
           }
           git rev-parse HEAD | Set-Content output_files/ci_hardware_commit.txt
           git -C $env:GITHUB_WORKSPACE rev-parse HEAD | Set-Content output_files/ci_software_commit.txt
-          $igorSourceFiles = @(Get-ChildItem -File *.qpf,*.qsf,*.sdc,*.v,*.tcl)
-          $igorSourceFiles += @(Get-ChildItem -LiteralPath ../../rtl/igor_src_policy -File)
-          $igorSourceFiles += @(Get-Item -LiteralPath ../../rtl/igor_uart_rx.v,../../rtl/igor_uart_tx.v)
-          $igorSourceFiles |
+          $gardaSourceFiles = @(Get-ChildItem -File *.qpf,*.qsf,*.sdc,*.v,*.tcl)
+          $gardaSourceFiles += @(Get-ChildItem -LiteralPath ../../rtl/garda_src_policy -File)
+          $gardaSourceFiles += @(Get-Item -LiteralPath ../../rtl/garda_uart_rx.v,../../rtl/garda_uart_tx.v)
+          $gardaSourceFiles |
             Get-FileHash -Algorithm SHA256 |
             Export-Csv -NoTypeInformation output_files/ci_project_sha256.csv
       - name: Compile DE10-Nano project, including fitter, assembler and timing analysis
         run: |
           $ErrorActionPreference = 'Stop'
-          & $env:IGOR_QUARTUS_SH --flow compile igor_src_policy 2>&1 |
+          & $env:GARDA_QUARTUS_SH --flow compile garda_src_policy 2>&1 |
             Tee-Object -FilePath output_files/ci_compile.log
           if ($LASTEXITCODE -ne 0) { throw "Quartus failed: $LASTEXITCODE" }
-          if (-not (Test-Path -LiteralPath output_files/igor_src_policy.sof -PathType Leaf)) {
+          if (-not (Test-Path -LiteralPath output_files/garda_src_policy.sof -PathType Leaf)) {
             throw 'Compile completed without the expected SOF.'
           }
-          Get-FileHash -Algorithm SHA256 output_files/igor_src_policy.sof |
+          Get-FileHash -Algorithm SHA256 output_files/garda_src_policy.sof |
             Export-Csv -NoTypeInformation output_files/ci_sof_sha256.csv
       - name: Save build reports and programming image
         if: always()

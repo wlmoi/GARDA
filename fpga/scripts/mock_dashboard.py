@@ -1,4 +1,4 @@
-"""Local-only IGOR test dashboard. Fixed commands, one job, no motor commands."""
+"""Local-only GARDA test dashboard. Fixed commands, one job, no motor commands."""
 import datetime as dt
 import json
 import os
@@ -112,7 +112,7 @@ class Handler(BaseHTTPRequestHandler):
         return self.send({'error': 'Not found'}, status=404)
 
     def do_POST(self):
-        if self.headers.get('X-IGOR-Token') != TOKEN:
+        if self.headers.get('X-GARDA-Token') != TOKEN:
             return self.send({'error': 'Invalid local token'}, status=403)
         try:
             data = json.loads(self.rfile.read(min(int(self.headers.get('Content-Length', 0)), 2048)))
@@ -132,7 +132,7 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
     url = 'http://127.0.0.1:' + str(server.server_port)
-    print('IGOR dashboard: ' + url, flush=True)
+    print('GARDA dashboard: ' + url, flush=True)
     print('Close this terminal to stop the dashboard. Close other serial terminals before testing.', flush=True)
     if '--no-browser' not in sys.argv:
         webbrowser.open(url)

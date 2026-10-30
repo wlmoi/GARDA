@@ -66,7 +66,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
-          name: igor-paired-current-${{ github.sha }}
+          name: garda-paired-current-${{ github.sha }}
           path: |
             software/peruri-iseedesign/verification/src_policy/artifacts/
             software/peruri-iseedesign/verification/src_policy/*.gtkw
@@ -132,7 +132,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
-          name: igor-verification
+          name: garda-verification
           path: |
             evidence/cocotb_*.xml
             evidence/neural_logic_*.json

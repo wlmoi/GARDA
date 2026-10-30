@@ -18,7 +18,7 @@ from usb_serial_roles import fpga_port
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE=ROOT/'experiments/parallel8'
-SOF=ROOT/'bitstreams/igor_src_policy_parallel8.sof'
+SOF=ROOT/'bitstreams/garda_src_policy_parallel8.sof'
 EXPECTED_SOF='cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49'
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def load_module(name,path):
@@ -27,7 +27,7 @@ def load_module(name,path):
 def signed(word):return word-65536 if word&32768 else word
 
 def load_model():
-    source=ROOT.parent/'src/igor_navigation/igor_navigation/weights/model_weights.json'
+    source=ROOT.parent/'src/garda_navigation/garda_navigation/weights/model_weights.json'
     model=json.loads(source.read_text());q={}
     for layer in (1,2,3):
         for kind in ('w','b'):
@@ -55,7 +55,7 @@ def identity(q):
     assert sha(SOF)==EXPECTED_SOF,'Unexpected SOF; stopped before serial writes'
     acceptance=json.loads((BASE/'artifacts/acceptance.json').read_text())
     hashes={}
-    for name in ['igor_src_policy_core.v','igor_src_policy_de10_nano.v','igor_src_policy.sdc','pin_assignment.tcl']+[f'bank{i}.mem' for i in range(8)]:
+    for name in ['garda_src_policy_core.v','garda_src_policy_de10_nano.v','garda_src_policy.sdc','pin_assignment.tcl']+[f'bank{i}.mem' for i in range(8)]:
         path=BASE/name;key=str(path.relative_to(ROOT)).replace('\\','/')
         expected=acceptance['sha256'].get(key)
         assert expected and sha(path)==expected,f'Accepted source mismatch: {key}'
@@ -104,7 +104,7 @@ def main():
     cases=vectors();predictions=[oracle(obs,q) for _,obs in cases]
     existing=load_module('independent_existing_oracle',ROOT/'verification/src_policy/run.py')
     assert all(expected==existing.golden(obs,q)[2] for (_,obs),expected in zip(cases,predictions))
-    reference=load_module('uart_protocol_reference',ROOT.parent/'src/igor_pipeline/scripts/uart_test.py')
+    reference=load_module('uart_protocol_reference',ROOT.parent/'src/garda_pipeline/scripts/uart_test.py')
     assert oracle([205]*64+[0]*10,q)==[-46,60,34]
     if args.self_test:
         print('PASS: source JSON quantization, six hardware exports, eight bank layouts, accepted source/SOF hashes, 256-vector oracle cross-check');return 0
@@ -116,7 +116,7 @@ def main():
         for lane in range(8):shutil.copyfile(BASE/f'bank{lane}.mem',directory/f'bank{lane}.mem')
         (directory/'observations.hex').write_text(''.join(f'{x&65535:04x}\n' for _,obs in cases for x in obs))
         (directory/'expected.hex').write_text(''.join(f'{x&65535:04x}\n' for values in predictions for x in values))
-        compile_run=subprocess.run([r'C:\iverilog\bin\iverilog.exe','-g2012','-s','tb_mock_parallel8','-o',str(directory/'rtl.vvp'),str(ROOT/'verification/tb_mock_parallel8.sv'),str(BASE/'igor_src_policy_core.v')],cwd=directory,capture_output=True,text=True)
+        compile_run=subprocess.run([r'C:\iverilog\bin\iverilog.exe','-g2012','-s','tb_mock_parallel8','-o',str(directory/'rtl.vvp'),str(ROOT/'verification/tb_mock_parallel8.sv'),str(BASE/'garda_src_policy_core.v')],cwd=directory,capture_output=True,text=True)
         (directory/'rtl_compile.log').write_text(compile_run.stdout+compile_run.stderr)
         compile_run.check_returncode()
         run=subprocess.run([r'C:\iverilog\bin\vvp.exe',str(directory/'rtl.vvp')],cwd=directory,capture_output=True,text=True,timeout=180)
@@ -126,7 +126,7 @@ def main():
         print(f'Evidence: {directory}',flush=True);return 0 if passed else 1
     args.port=fpga_port(args.port)
     if args.program:
-        result=subprocess.run([r'D:\Quartus-Program\quartus\bin64\quartus_pgm.exe','-c','1','-m','JTAG','igor_src_policy_parallel8.cdf'],cwd=ROOT/'bitstreams',capture_output=True,text=True)
+        result=subprocess.run([r'D:\Quartus-Program\quartus\bin64\quartus_pgm.exe','-c','1','-m','JTAG','garda_src_policy_parallel8.cdf'],cwd=ROOT/'bitstreams',capture_output=True,text=True)
         (directory/'programming.log').write_text(result.stdout+result.stderr)
         assert result.returncode==0 and 'Configuration succeeded' in result.stdout,'Programming failed'
         assert sha(SOF)==EXPECTED_SOF

@@ -13,12 +13,12 @@ Timeout host tetap 1 detik setelah TX selesai.
 
 ## Jetson
 
-Salin `tools/install_igor_uart_9600.py` ke Jetson:
+Salin `tools/install_garda_uart_9600.py` ke Jetson:
 
 ```bash
-python3 install_igor_uart_9600.py ~/igor_ws
-cd ~/igor_ws
-python3 src/igor_pipeline/scripts/uart_test.py --baud 9600 --iter 50
+python3 install_garda_uart_9600.py ~/garda_ws
+cd ~/garda_ws
+python3 src/garda_pipeline/scripts/uart_test.py --baud 9600 --iter 50
 ```
 
 Installer membackup script lama dan memasang varian default 9600.
@@ -33,10 +33,10 @@ Expected summary: sent 50, received 50, dropped 0.
 
 ```powershell
 Set-Location fpga/experiments/parallel8_9600
-& 'D:/Quartus-Program/quartus/bin64/quartus_sh.exe' --flow compile igor_src_policy_9600
+& 'D:/Quartus-Program/quartus/bin64/quartus_sh.exe' --flow compile garda_src_policy_9600
 ```
 
-Project: `igor_src_policy_9600.qpf`; SOF: `output_files/igor_src_policy_9600.sof`.
+Project: `garda_src_policy_9600.qpf`; SOF: `output_files/garda_src_policy_9600.sof`.
 Hasil uji RTL: `verification/simulation.log`.
 `tools/program_uart9600.py --program` memeriksa hasil build, timing,
 simulasi dan chain aktual sebelum konfigurasi, lalu menyimpan receipt/log

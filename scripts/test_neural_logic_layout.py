@@ -16,7 +16,7 @@ class LogicLayoutTests(unittest.TestCase):
             self.assertEqual(inspect_layout(path)['physical_sram_banks'],0)
             self.layout(path,sram=True)
             with self.assertRaises(ValueError):inspect_layout(path)
-            self.layout(path,name='tt_um_wlmoi_igor_gate')
+            self.layout(path,name='tt_um_wlmoi_garda_gate')
             with self.assertRaises(ValueError):inspect_layout(path)
 
     def test_each_required_signoff_metric_is_enforced(self):

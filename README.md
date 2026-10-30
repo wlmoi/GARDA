@@ -1,11 +1,11 @@
 # GARDA
 
-GARDA adalah salinan proyek IGOR dengan identitas dan dashboard baru. Salinan struktur workspace asal tersedia di `workspace-igor/`, dan proyek explorer asal tersedia di `peruri-iseedesign/`. Nama modul, source RTL, dan bukti teknis tetap menggunakan IGOR agar kompatibilitas dan keterlacakan terjaga. Dashboard statis tersedia di `dashboard/dist`; konfigurasi Vercel ada di `vercel.json`.
+GARDA adalah proyek eksplorasi dan pengembangan hardware untuk pengambilan keputusan robot. Dashboard statis tersedia di `dashboard/dist`; konfigurasi Vercel ada di `vercel.json`. Hasil pengujian dan implementasi historis terikat pada revisi sumber yang menghasilkannya dan tidak membuktikan signoff desain baru.
 
 > **Implementasi workspace 16 Oktober 2026.** Software `../src` menggunakan
 > **74 → 128 → 64 → 3**, berbeda dari model legacy 24 → 64 → 64 → 4 yang
 > dijelaskan pada halaman ini. Jalur baru tersedia pada
-> [RTL source-policy](rtl/igor_src_policy/README.md) dan
+> [RTL source-policy](rtl/garda_src_policy/README.md) dan
 > [proyek Quartus DE10-Nano baru beserta pin planning](fpga_de10_nano/src_policy/README.md).
 > [Checklist lengkap](docs/IMPLEMENTATION_READINESS.md) memetakan seluruh permintaan,
 > A1–A14/B1–B6/D1–D7, edge case, titik GTKWave dan status bukti fisik.
@@ -18,11 +18,11 @@ GARDA adalah salinan proyek IGOR dengan identitas dan dashboard baru. Salinan st
 > melalui `evidence/current_release/`.
 
 <p align="center">
-  <img src="docs/assets/igor-banner.svg" alt="IGOR — four-tile FPGA planning, verified RTL, two FPGA targets" width="100%">
+  <img src="docs/assets/garda-banner.svg" alt="GARDA — perencanaan FPGA dengan empat evaluator" width="100%">
 </p>
 
 <p align="center">
-  <strong>IGOR · Indonesian Gated Onboard Robotics</strong><br>
+  <strong>GARDA · Robotics Hardware Explorer</strong><br>
   <strong>Peruri Chip Hackathon 2026</strong><br>
   <strong>iSeeDesignITB</strong><br>
   Cutting Edge Physical AI Technology for Inference Security
@@ -54,9 +54,9 @@ Proposal tim menempatkan logistik internal PERURI sebagai penerapan awal yang di
 
 ## Dari peta menjadi keputusan yang bisa diperiksa
 
-GARDA mengevaluasi kandidat gerak pada costmap 128 × 128 menggunakan empat evaluator paralel. Setiap evaluator menangani 128 kandidat dengan 20 pose per kandidat. Hasil terbaik melewati `igor_safety_security_gate`, lalu tersedia sebagai izin, kode kecepatan, kode kecepatan sudut, dan status kesalahan.
+GARDA mengevaluasi kandidat gerak pada costmap 128 × 128 menggunakan empat evaluator paralel. Setiap evaluator menangani 128 kandidat dengan 20 pose per kandidat. Hasil terbaik melewati `garda_safety_security_gate`, lalu tersedia sebagai izin, kode kecepatan, kode kecepatan sudut, dan status kesalahan.
 
-Repository ini menyatukan RTL, model numerik, bobot BRAM, testbench, proyek Quartus, bitstream `.sof`, diagram, dan bukti implementasi. Neural core **24 → 64 → 64 → 4** tersedia sebagai jalur inferensi terpisah. Top TinyTapeout aktif adalah `tt_um_wlmoi_igor_neural_logic`, yaitu inferensi neural lengkap dengan dua MAC, model tetap, dan aktivasi register tanpa SRAM fisik. Eksperimen subset gerbang sebelumnya merupakan arsip.
+Repository ini menyatukan RTL, model numerik, bobot BRAM, testbench, proyek Quartus, bitstream `.sof`, diagram, dan bukti implementasi. Neural core **24 → 64 → 64 → 4** tersedia sebagai jalur inferensi terpisah. Top TinyTapeout aktif adalah `tt_um_wlmoi_garda_neural_logic`, yaitu inferensi neural lengkap dengan dua MAC, model tetap, dan aktivasi register tanpa SRAM fisik. Eksperimen subset gerbang sebelumnya merupakan arsip.
 
 ### Alur kerja yang tersedia
 
@@ -64,7 +64,7 @@ Repository ini menyatukan RTL, model numerik, bobot BRAM, testbench, proyek Quar
 2. **Aktifkan peta lengkap.** Pengelola memeriksa kelengkapan dan nomor urut sebelum mengaktifkan bank peta sekaligus. Empat salinan memori memberi setiap evaluator port baca sendiri.
 3. **Periksa 512 pilihan gerak.** Empat tile DWA bekerja paralel, masing-masing mengevaluasi 128 kandidat pada 20 pose perkiraan. Kandidat yang melewati rintangan, keluar peta, atau mengalami kesalahan aritmetika dibatalkan.
 4. **Pilih hasil terbaik.** Selector memilih skor terendah dengan aturan indeks terendah saat skor sama.
-5. **Putuskan izin.** `igor_safety_security_gate` memeriksa validitas peta, konfigurasi, hasil, deadline, batas gerak, dan masukan penghentian. Pada `igor_top`, izin serta kedua keluaran perintah hanya berasal dari gerbang ini. Saat syarat gagal, gerbang menutup izin dan menolkan perintah.
+5. **Putuskan izin.** `garda_safety_security_gate` memeriksa validitas peta, konfigurasi, hasil, deadline, batas gerak, dan masukan penghentian. Pada `garda_top`, izin serta kedua keluaran perintah hanya berasal dari gerbang ini. Saat syarat gagal, gerbang menutup izin dan menolkan perintah.
 6. **Baca hasil dan status.** Keluaran berupa izin **1 bit**, kode kecepatan **5 bit**, laju belok bertanda **7 bit**, kode gangguan **8 bit**, dan penghitung kejadian **32 bit**. Konversi hasil menjadi setpoint roda dan pengiriman ke motor berada pada tahap integrasi sistem.
 
 Pemeriksa memakai model robot sebagai titik pada costmap yang rintangannya telah diperluas oleh host. Validasi bentuk robot, pengereman, dan respons fisik mengikuti tahap pengujian perangkat. Spesifikasi bilangan serta batas antarmuka tersedia pada [arsitektur](docs/ARCHITECTURE.md).
@@ -104,7 +104,7 @@ Implementasi DE10-Nano memakai **4.964 ALM, 131 M10K, dan 10 DSP**, dengan timin
 
 ## Arsitektur dalam satu pandangan
 
-![Arsitektur IGOR dengan empat evaluator dan lebar data](docs/assets/architecture.svg)
+![Arsitektur GARDA dengan empat evaluator dan lebar data](docs/assets/architecture.svg)
 
 Lihat [breakdown seluruh modul RTL](docs/RTL_MODULES.md), [bit flow](docs/ARCHITECTURE.md), serta [register TinyTapeout](docs/info.md).
 
@@ -203,17 +203,17 @@ Selain pengujian pada 5 skenario OOD terkurasi di atas, model dievaluasi secara 
 | **Collision Rate (Tabrakan)** | **0 / 50 (0,0%)** | Tidak ada satupun insiden tabrakan dengan rintangan |
 | **Action Delta Avg (*Smoothness Index*)** | **0,1655** | Sedikit di atas batas ideal $< 0,15$ akibat manuver reaktif jarak dekat |
 
-Temuan **68% keberhasilan dan 32% *timeout* dengan 0% tabrakan** menunjukkan bahwa kebijakan CL-DRL yang dilatih memiliki karakteristik konservatif (*safety-biased*): ketika berhadapan dengan konfigurasi rintangan acak yang menyulitkan penyelarasan sudut akhir ($\pm 20^\circ$), agen memprioritaskan penghindaran tabrakan sehingga waktu habis sebelum *docking* terpenuhi. Hal ini memperkuat alasan arsitektural GARDA untuk memosisikan jaringan saraf sebagai pengusul gerak pendamping yang tetap dikawal oleh evaluator lintasan deterministik **DWA** dan gerbang keselamatan **`igor_safety_security_gate`** pada FPGA.
+Temuan **68% keberhasilan dan 32% *timeout* dengan 0% tabrakan** menunjukkan bahwa kebijakan CL-DRL yang dilatih memiliki karakteristik konservatif (*safety-biased*): ketika berhadapan dengan konfigurasi rintangan acak yang menyulitkan penyelarasan sudut akhir ($\pm 20^\circ$), agen memprioritaskan penghindaran tabrakan sehingga waktu habis sebelum *docking* terpenuhi. Hal ini memperkuat alasan arsitektural GARDA untuk memosisikan jaringan saraf sebagai pengusul gerak pendamping yang tetap dikawal oleh evaluator lintasan deterministik **DWA** dan gerbang keselamatan **`garda_safety_security_gate`** pada FPGA.
 
 ## Pilih jalur yang ingin dijalankan
 
 | Tujuan | Mulai dari | Top module |
 |---|---|---|
-| Simulasi RTL dan pemeriksaan numerik | [Quickstart](docs/QUICKSTART.md) | `igor_top`, neural core, UART, dan wrapper |
-| FPGA utama DE10-Nano | [Proyek Nano](fpga_de10_nano/README.md) | `igor_uart_top` |
+| Simulasi RTL dan pemeriksaan numerik | [Quickstart](docs/QUICKSTART.md) | `garda_top`, neural core, UART, dan wrapper |
+| FPGA utama DE10-Nano | [Proyek Nano](fpga_de10_nano/README.md) | `garda_uart_top` |
 | FPGA lab DE10-Lite MAX 10 | [Proyek Lite](fpga_de10_lite/README.md) | `igor_de10_lite_top` |
-| ASIC aktif: inferensi neural lengkap tanpa SRAM | [TinyTapeout](docs/TINYTAPEOUT.md) | `tt_um_wlmoi_igor_neural_logic` |
-| Neural ASIC aktif: model tetap, aktivasi register | [Implementasi dan acceptance](asic/neural_logic/README.md) | `tt_um_wlmoi_igor_neural_logic` (8x4) |
+| ASIC aktif: inferensi neural lengkap tanpa SRAM | [TinyTapeout](docs/TINYTAPEOUT.md) | `tt_um_wlmoi_garda_neural_logic` |
+| Neural ASIC aktif: model tetap, aktivasi register | [Implementasi dan acceptance](asic/neural_logic/README.md) | `tt_um_wlmoi_garda_neural_logic` (8x4) |
 | Percobaan SRAM tersimpan sebagai arsip | [Implementasi SRAM](asic/neural_sram/README.md) | `b70b1ec`, tidak dipilih manifest aktif |
 | Pengujian motor UART empat kecepatan | [JetAuto](docs/JETAUTO.md) | `stm_uart_multispeed_top` |
 
@@ -241,7 +241,7 @@ Perintah `all` menjalankan tujuh test case. Suite `tt_generic` menambahkan test 
 
 | Board | Proyek yang dibuka | Image yang diprogram |
 |---|---|---|
-| DE10-Nano · `5CSEBA6U23I7` | [igor.qpf](fpga_de10_nano/quartus/igor.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
+| DE10-Nano · `5CSEBA6U23I7` | [igor.qpf](fpga_de10_nano/quartus/garda.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
 | DE10-Lite · `10M50DAF484C7G` | [igor_max10.qpf](fpga_de10_lite/quartus/igor_max10.qpf) | [igor_max10.sof](fpga_de10_lite/quartus/output_files/igor_max10.sof) |
 
 Gunakan Quartus Standard 25.1 beserta device support yang sesuai. [Panduan programming](docs/FPGA_PROGRAMMING.md) memuat urutan JTAG, pin UART, reset, dan pemeriksaan hasil. Hash image tercatat di [build evidence](evidence/build_evidence.json).

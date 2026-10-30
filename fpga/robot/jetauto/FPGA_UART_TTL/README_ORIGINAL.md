@@ -18,7 +18,7 @@ flowchart LR
  D --> M[4 motor encoder 12 V]
 ```
 
-Project demo ini TERPISAH dari IGOR. Tidak terintegrasi dengan safety_security_gate IGOR. Ini alat bring-up transport dan kontrol manual terbatas. Jangan menyebutnya sistem keselamatan kendaraan yang selesai.
+Project demo ini TERPISAH dari GARDA. Tidak terintegrasi dengan safety_security_gate GARDA. Ini alat bring-up transport dan kontrol manual terbatas. Jangan menyebutnya sistem keselamatan kendaraan yang selesai.
 
 ## Apa yang sudah terbukti
 
@@ -58,7 +58,7 @@ Arsitektur produksi dapat memakai FPGA untuk DWA dan safety, register Avalon-MM 
 
 1. Buka quartus/stm_uart.qpf. Device harus 5CSEBA6U23I7, top module stm_uart_demo_top.
 2. RTL terdapat di rtl/stm_uart_demo_top.v dan rtl/stm_packet_tx.v. QSF, SDC dan pin assignment sudah tersedia.
-3. Jalankan Processing > Start Compilation. Periksa error dan timing sebelum memprogram. Jangan memakai SOF IGOR untuk demo ini.
+3. Jalankan Processing > Start Compilation. Periksa error dan timing sebelum memprogram. Jangan memakai SOF GARDA untuk demo ini.
 4. Jika berhasil, file hasil ada di quartus/output_files/stm_uart.sof. Keberadaan file SOF harus diperiksa, jangan menganggap project source adalah bitstream.
 5. Hubungkan USB-Blaster II, buka Tools > Programmer, mode JTAG, Hardware Setup pilih USB-Blaster II, Auto Detect lalu pilih Cyclone V yang benar. Tambahkan stm_uart.sof, centang Program/Configure dan Start.
 6. Program sebelum memasang jalur TX ke STM atau dengan motor tidak di-arm. Setelah FPGA terkonfigurasi, TX idle HIGH 3,3 V.
@@ -97,7 +97,7 @@ Buzzer: function 02, payload 08, empat uint16 little endian berurutan frequency=
 AA 55 02 08 6C 07 64 00 84 03 01 00 5D
 ```
 
-ROM berisi packet dan CRC konstanta yang dihasilkan dari implementasi SDK-equivalent. Demo tidak memiliki konverter fixed-point ke float atau kalkulator CRC dinamis. Untuk integrasi IGOR, perlu format ulang hasil gerak menjadi setpoint empat roda, bounded conversion ke float, packet builder dan safety gate tepat sebelum transmisi. Total latency motor/robot belum bisa dihitung dari durasi serial saja.
+ROM berisi packet dan CRC konstanta yang dihasilkan dari implementasi SDK-equivalent. Demo tidak memiliki konverter fixed-point ke float atau kalkulator CRC dinamis. Untuk integrasi GARDA, perlu format ulang hasil gerak menjadi setpoint empat roda, bounded conversion ke float, packet builder dan safety gate tepat sebelum transmisi. Total latency motor/robot belum bisa dihitung dari durasi serial saja.
 
 ## Status dan file bukti
 

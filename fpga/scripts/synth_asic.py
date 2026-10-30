@@ -11,6 +11,6 @@ tempfile.tempdir=str(tmp)
 os.chdir(root)
 os.environ['YOWASP_MOUNT']='/=.'
 from yowasp_yosys import run_yosys
-commands='read_verilog src/project.v src/igor_safety_security_gate.v; synth -top tt_um_wlmoi_igor_gate -flatten -noabc; check; stat; write_json evidence/asic_generic_netlist.json; write_verilog -noattr evidence/asic_generic_netlist.v'
+commands='read_verilog src/project.v src/garda_safety_security_gate.v; synth -top tt_um_wlmoi_garda_gate -flatten -noabc; check; stat; write_json evidence/asic_generic_netlist.json; write_verilog -noattr evidence/asic_generic_netlist.v'
 sys.exit(run_yosys(['-l','evidence/asic_generic_synthesis_noabc.log','-p',commands]))
 

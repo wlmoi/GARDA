@@ -1,4 +1,4 @@
-# Checklist implementasi IGOR dan penerimaan demo
+# Checklist implementasi GARDA dan penerimaan demo
 
 Tanggal audit: **16 Oktober 2026, Asia/Jakarta**. Dokumen ini menerjemahkan semua butir A1–A14, B1–B6, dan D1–D7 dari catatan internal tim menjadi pekerjaan yang dapat diuji. Catatan internal adalah sumber kebutuhan; angka, rencana, dan label “Jumat” di dalamnya tidak dengan sendirinya menjadi hasil pengukuran baru.
 
@@ -12,7 +12,7 @@ Sesuai arahan terbaru, **semua hasil baru berada di `./fpga`**. `./src` adalah r
 |---|---|---|---|
 | Software workspace `src` dan RTL policy baru | PPO residual **74 → 128 → 64 → 3**; 64 LiDAR, 6 IMU, 3 perintah, 1 heading; output residual vx/vy/omega | Bobot sumber workspace, model integer policy, test core dan UART policy | Residual bukan empat kecepatan roda dan bukan izin motor. `safety_permit` pada wrapper policy berarti residual valid setelah pemeriksaan transport/E-stop/lease. Blending, CBF/mini-DWA, kinematika dan motor tetap memerlukan integrasi host yang benar. |
 | Accelerator PERURI lama | Neural **24 → 64 → 64 → 4**, aset `neural_24_64_64_4`; planner DWA 512 kandidat × 20 langkah; peta 128 × 128 | [Metodologi lama](VERIFICATION.md), [hasil dan batas bukti](RESULTS_AND_SCOPE.md), [build planner saat ini](../evidence/current_builds/planner.json) | 400/400 dan 18.192 siklus adalah bukti jalur ini. Tidak boleh dipindahkan menjadi klaim policy 74-input. Neural dan planner lama belum otomatis membentuk jalur AI → DWA → gate. |
-| Safety gate planner lama | `igor_top` → `igor_safety_security_gate` → v/omega/permit; logger fault | [RTL gate](../rtl/igor_safety_security_gate.v), [RTL logger](../rtl/igor_status_logger.v), regresi safety terkini | Melindungi keluaran planner terkait; bukan bukti bahwa keluaran policy baru atau seluruh pesan STM32 sudah melewati gate. |
+| Safety gate planner lama | `garda_top` → `garda_safety_security_gate` → v/omega/permit; logger fault | [RTL gate](../rtl/garda_safety_security_gate.v), [RTL logger](../rtl/garda_status_logger.v), regresi safety terkini | Melindungi keluaran planner terkait; bukan bukti bahwa keluaran policy baru atau seluruh pesan STM32 sudah melewati gate. |
 
 Catatan internal menyebut SAC 24-input. README workspace dan bobot aktual menjelaskan PPO 74-input. Untuk permintaan “RTL dari software `src`”, sumber kebenaran adalah bobot dan kontrak software aktual. Simpan kedua jalur dengan nama berbeda. Jika demo memilih arsitektur lama, tuliskan pilihannya pada manifest run; jangan menampilkan hasil policy baru dengan angka jaringan lama.
 
@@ -23,10 +23,10 @@ README workspace dibaca sebelum desain dan file internal digunakan sebagai check
 | ID | Permintaan teks pengguna | File / acceptance yang menjawab | Status bukti |
 |---|---|---|---|
 | R1 | Baca README terlebih dahulu | `README.md` akar workspace; perbedaan kontrak model dijelaskan di atas. | DIAUDIT; model sumber 74-input dibedakan dari catatan 24-input. |
-| R2 | Gunakan software `src` untuk menghasilkan RTL | [RTL policy](../rtl/igor_src_policy/), [exporter dan regresi](../verification/src_policy/run.py), `model_provenance.json` yang dihasilkan runner. | Source-true melalui hash/quantization check terhadap referensi software; implementasi host yang diperbaiki hanya berada di `software_integration/src/`. |
+| R2 | Gunakan software `src` untuk menghasilkan RTL | [RTL policy](../rtl/garda_src_policy/), [exporter dan regresi](../verification/src_policy/run.py), `model_provenance.json` yang dihasilkan runner. | Source-true melalui hash/quantization check terhadap referensi software; implementasi host yang diperbaiki hanya berada di `software_integration/src/`. |
 | R3 | GTKWave, lokasi dan titik tepat | [save core](../verification/src_policy/core.gtkw), [save UART policy](../verification/src_policy/uart.gtkw); safety `evidence/current_safety/{gate,units,top,uart}.gtkw`; CSV checkpoint safety berisi `time_ns`, policy memakai `time_ps` (bagi 1000 untuk ns). | Jalankan runner dan buka pasangan VCD/save dari run yang sama. Titik audit ditabelkan di bawah. |
-| R4 | DE10-Nano dan pin planning langsung | [QPF policy](../fpga_de10_nano/src_policy/igor_src_policy.qpf), [QSF](../fpga_de10_nano/src_policy/igor_src_policy.qsf), [pinplan](../fpga_de10_nano/src_policy/pin_assignment.tcl), [SDC](../fpga_de10_nano/src_policy/igor_src_policy.sdc). | Target 5CSEBA6U23I7; programming dan verifikasi kabel fisik tetap A1. |
-| R5 | Gunakan Quartus 25 yang terbuka / fresh compile | `fpga_de10_nano/src_policy/output_files/igor_src_policy.*`; README board dan laporan compile terkait. | Hasil build hanya berlaku bila source hash, tool version, fitter/STA dan SOF pada build yang sama tersedia. Tidak membuktikan JTAG programming. |
+| R4 | DE10-Nano dan pin planning langsung | [QPF policy](../fpga_de10_nano/src_policy/garda_src_policy.qpf), [QSF](../fpga_de10_nano/src_policy/garda_src_policy.qsf), [pinplan](../fpga_de10_nano/src_policy/pin_assignment.tcl), [SDC](../fpga_de10_nano/src_policy/garda_src_policy.sdc). | Target 5CSEBA6U23I7; programming dan verifikasi kabel fisik tetap A1. |
+| R5 | Gunakan Quartus 25 yang terbuka / fresh compile | `fpga_de10_nano/src_policy/output_files/garda_src_policy.*`; README board dan laporan compile terkait. | Hasil build hanya berlaku bila source hash, tool version, fitter/STA dan SOF pada build yang sama tersedia. Tidak membuktikan JTAG programming. |
 | R6 | Semua checklist folder PERURI | Seluruh A1–A14, B1–B6, D1–D7 pada dokumen ini. | 27/27 butir mempunyai acceptance dan status; butir hardware tidak dicentang tanpa perangkat. |
 | R7 | GitHub Actions | Paket `ci/workflows/rtl-verification.yml` dan `quartus-src-policy.yml`; panduan instalasi `ci/README.md`. | Workflow disiapkan; YAML diuji lokal. Eksekusi GitHub memerlukan paket `fpga` di-commit dan dipublikasikan dalam repository workspace. |
 | R8 | E-stop, perintah/peta invalid, output nol, error log traceable | [Safety runner](../verification/run_safety_regression.py), [akuisisi hardware](../verification/capture_hardware_safety.py), [host regression](../verification/run_host_regression.py); `current_safety/cases.csv`. | SIMULASI untuk fault/regresi; bukti board/robot ada di A3–A5 dan belum diklaim. |
@@ -130,7 +130,7 @@ Semua baris hardware berikut berstatus **TERBUKA FISIK** sampai acceptance-nya d
 
 Prioritas gate adalah urutan pada tabel. Jika beberapa fault aktif, kode pertama menang. `permit=0`, `v_command=0`, `omega_command=0` untuk **setiap** kode 1–11. “Output nol” di sini berarti command digital; menghentikan energi/gerak mekanis perlu rem dan acceptance sistem fisik.
 
-**Tabel kode berikut milik gate planner legacy**, bukan `error_code` policy baru. Pada `igor_src_policy_uart`, kode lokalnya ialah 1 E-stop, 2 framing, 3 header, 4 opcode, 5 panjang, 6 CRC, 7 inter-byte timeout, 8 rentang observasi, 9 busy, 10 core, 11 residual stale, 12 inference watchdog. Nama project dan namespace kode wajib dicatat pada log. Policy tidak menerima costmap; uji peta A3/D4 harus memakai planner+gate, dan belum membuktikan policy terhubung ke pemeriksa peta dalam chip. Untuk D3 planner, E-stop diharapkan kode 2; untuk guard policy, E-stop kode 1 dan residual nol.
+**Tabel kode berikut milik gate planner legacy**, bukan `error_code` policy baru. Pada `garda_src_policy_uart`, kode lokalnya ialah 1 E-stop, 2 framing, 3 header, 4 opcode, 5 panjang, 6 CRC, 7 inter-byte timeout, 8 rentang observasi, 9 busy, 10 core, 11 residual stale, 12 inference watchdog. Nama project dan namespace kode wajib dicatat pada log. Policy tidak menerima costmap; uji peta A3/D4 harus memakai planner+gate, dan belum membuktikan policy terhubung ke pemeriksa peta dalam chip. Untuk D3 planner, E-stop diharapkan kode 2; untuk guard policy, E-stop kode 1 dan residual nol.
 
 | Kode | Pemicu | Edge case wajib |
 |---|---|---|
@@ -147,7 +147,7 @@ Prioritas gate adalah urutan pada tabel. Jika beberapa fault aktif, kode pertama
 | 10 | Batas absolut dilanggar | v=max dan max+1; omega ±max dan ±(max+1); omega signed minimum −64, maksimum +63; nilai 0; max limit 0. |
 | 11 | Perubahan command dilanggar | Delta tepat max, max+1, kedua arah, −64→+63 dan +63→−64; prev=0; max_delta=0. Selisih harus diperlebar agar tidak overflow. |
 
-Logger [igor_status_logger.v](../rtl/igor_status_logger.v) mencatat **transisi menuju kode fault nonnol yang berbeda**, bukan menambah counter setiap clock fault ditahan. Urutan 0→2→2 menambah sekali; 2→5 menambah lagi; 5→0 tidak menambah; 0→5 menambah lagi. Counter 32-bit saturasi di `0xffffffff`; `last_fault` mempertahankan kode nonnol terakhir. Sertakan baseline reset dan nilai sebelum/sesudah agar angka counter bisa diaudit.
+Logger [garda_status_logger.v](../rtl/garda_status_logger.v) mencatat **transisi menuju kode fault nonnol yang berbeda**, bukan menambah counter setiap clock fault ditahan. Urutan 0→2→2 menambah sekali; 2→5 menambah lagi; 5→0 tidak menambah; 0→5 menambah lagi. Counter 32-bit saturasi di `0xffffffff`; `last_fault` mempertahankan kode nonnol terakhir. Sertakan baseline reset dan nilai sebelum/sesudah agar angka counter bisa diaudit.
 
 Uji UART harus mencakup header/trailer salah, CRC salah, paket terpotong, idle gap, stop bit/framing salah, opcode/alamat tidak sah, input back-to-back, reset di tengah paket dan fault latched. CRC hanya mendeteksi korupsi; tidak mengautentikasi peta atau pengirim. Replay sequence dan freshness bukan HMAC. HMAC/secure element, motor acknowledgement, interlock fisik independen dan sertifikasi tetap roadmap sampai implementasi serta pengujiannya tersedia.
 
@@ -174,7 +174,7 @@ Syarat traceability A3/D3/D4: satu identitas run harus menghubungkan **input fau
 Alat akuisisi planner tersedia pada [capture_hardware_safety.py](../verification/capture_hardware_safety.py). Contoh berikut **prosedur yang belum dijalankan pada board**; ganti port dan SOF dengan perangkat/project planner yang benar, pasang roda terangkat, dan aktifkan tombol E-stop fisik sebelum query:
 
 ```powershell
-python verification/capture_hardware_safety.py --port COM5 --case H01_estop_held --output evidence/hardware/H01.jsonl --seconds 3 --expect-zero --expected-fault 2 --bitstream fpga_de10_nano/quartus/output_files/igor.sof
+python verification/capture_hardware_safety.py --port COM5 --case H01_estop_held --output evidence/hardware/H01.jsonl --seconds 3 --expect-zero --expected-fault 2 --bitstream fpga_de10_nano/quartus/output_files/garda.sof
 ```
 
 Mode default hanya query. Injeksi `--inject invalid-map-write` dan `--inject invalid-run-payload` harus diminta eksplisit saat uji terkontrol; expected fault masing-masing 5 dan 4 pada UART planner. Script menyimpan frame raw valid-CRC, timestamp, gate/output/event/last_fault dan menandai snapshot beberapa query sebagai non-atomic. Operasi ini **bukan protocol policy 153-byte**; jangan menjalankannya ke project policy baru. Untuk E-stop planner yang sudah sticky fault lain, reset dan siapkan baseline terlebih dahulu agar prioritas/latched reason tidak menutupi skenario uji.

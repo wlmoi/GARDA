@@ -1,12 +1,12 @@
 # Parallel8 USB-Blaster console variant
 
-Open `igor_jtag.qpf` in Quartus 25.1 Standard. Target: DE10-Nano,
+Open `garda_jtag.qpf` in Quartus 25.1 Standard. Target: DE10-Nano,
 Cyclone V `5CSEBA6U23I7`, 50 MHz. All project changes reside under `fpga/`.
 The accepted Parallel8 image and project are separate.
 
 ## One-click use
 
-Double-click **IGOR - JTAG Terminal** on the Windows Desktop. The launcher checks
+Double-click **GARDA - JTAG Terminal** on the Windows Desktop. The launcher checks
 the installed SOF hash, programs the JTAG console image through USB-Blaster, and
 opens the actual Quartus `nios2-terminal`. No COM port, HPS Linux, Nios CPU,
 USB-to-TTL adapter, or MobaXterm session is needed for this variant.
@@ -19,7 +19,7 @@ board power-off. This does not program nonvolatile configuration flash.
 The first known-vector inference starts about three seconds after reset:
 
 ```text
-IGOR Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
+GARDA Parallel8 JTAG | r=demo !=badCRC | hex+Enter=frame
 RX count=0xB FPGA bytes: 5A A5 02 06 D2 FF 3C 00 22 00 61
 cycles=0x00001B04 accepted=0x00000001 rejected=0x00000000 error=0x00 CHECK=PASS
 >
@@ -78,17 +78,17 @@ regenerate sources or settings during a Quartus build.
 From this project directory:
 
 ```powershell
-iverilog -g2012 -I . -s tb_jtag_bytes -o bytes_test.vvp tb_jtag_bytes.v igor_jtag_console.v
+iverilog -g2012 -I . -s tb_jtag_bytes -o bytes_test.vvp tb_jtag_bytes.v garda_jtag_console.v
 vvp bytes_test.vvp | Tee-Object bytes_simulation.log
-iverilog -g2012 -I . -s tb_jtag_console -o console_test.vvp tb_jtag_console.v igor_jtag_console.v igor_src_policy_core.v ../../rtl/igor_src_policy/igor_src_policy_uart.v ../../rtl/igor_uart_rx.v ../../rtl/igor_uart_tx.v
+iverilog -g2012 -I . -s tb_jtag_console -o console_test.vvp tb_jtag_console.v garda_jtag_console.v garda_src_policy_core.v ../../rtl/garda_src_policy/garda_src_policy_uart.v ../../rtl/garda_uart_rx.v ../../rtl/garda_uart_tx.v
 vvp console_test.vvp | Tee-Object console_simulation.log
-& D:/Quartus-Program/quartus/bin64/quartus_sh.exe --flow compile igor_jtag
+& D:/Quartus-Program/quartus/bin64/quartus_sh.exe --flow compile garda_jtag
 ```
 
 Then run `fpga/scripts/install_jtag_variant.ps1`. It requires successful full
 compilation, nonnegative timing summary slack, the two passing simulation logs,
 and an unchanged core source hash before installing the distinct SOF/receipt.
-`output_files/igor_jtag.*.rpt` and `.summary` are the original Quartus reports.
+`output_files/garda_jtag.*.rpt` and `.summary` are the original Quartus reports.
 Simulations cover byte order/backpressure, real neural inference, CRC rejection,
 custom hex input, blank-line rejection, CR/LF command termination and E-stop;
 they do not constitute exhaustive formal verification.

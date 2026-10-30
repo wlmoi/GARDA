@@ -4,7 +4,7 @@ reg clk=1,rst_n=1,en=1,we=0;
 reg [12:0] a=0;
 reg [15:0] d=0,mask=16'hffff;
 wire signed [15:0] q,qe,qo;
-igor_parameter_sram dut(clk,rst_n,en,we,a,d,mask,q,qe,qo);
+garda_parameter_sram dut(clk,rst_n,en,we,a,d,mask,q,qe,qo);
 task tick;begin #5;clk=0;#5;clk=1;#1;end endtask
 integer i;
 reg [15:0] saved;

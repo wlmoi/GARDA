@@ -6,7 +6,7 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(CURDIR)/../src
-PROJECT_SOURCES = igor_neural_logic_top.v igor_parameter_logic.v igor_neural_datapath_logic.v igor_activation_logic.v
+PROJECT_SOURCES = garda_neural_logic_top.v garda_parameter_logic.v garda_neural_datapath_logic.v garda_activation_logic.v
 COMPILE_ARGS += -DSIM -DFUNCTIONAL
 
 ifneq ($(GATES),yes)

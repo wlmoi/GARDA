@@ -24,7 +24,7 @@ Verifikasi lokal memakai **Icarus Verilog**, **cocotb**, pemeriksaan assertion/i
 
 Jaringan **24 → 64 → 64 → 4** memakai operand signed 16 bit dan accumulator 40 bit. Seratus vektor menghasilkan 400 output yang cocok tepat dengan model integer Python. Seluruh inferensi yang diuji mempunyai latency 18.192 siklus.
 
-Sumber: [neural_reference.py](../reference_model/neural_reference.py), [hasil cocotb](../verification/neural_cocotb_results.json), dan [RTL core](../rtl/igor_neural_core.v).
+Sumber: [neural_reference.py](../reference_model/neural_reference.py), [hasil cocotb](../verification/neural_cocotb_results.json), dan [RTL core](../rtl/garda_neural_core.v).
 
 ## Fault injection
 

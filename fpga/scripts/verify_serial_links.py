@@ -61,8 +61,8 @@ def capture_stm(port,bauds,seconds,directory):
     return results
 
 def test_fpga(port,baud,directory):
-    path=ROOT.parent/'src/igor_pipeline/scripts/uart_test.py'
-    spec=importlib.util.spec_from_file_location('igor_reference_uart',path)
+    path=ROOT.parent/'src/garda_pipeline/scripts/uart_test.py'
+    spec=importlib.util.spec_from_file_location('garda_reference_uart',path)
     reference=importlib.util.module_from_spec(spec);spec.loader.exec_module(reference)
     request=reference.build_sensor_packet_q88(reference.DEFAULT_OBS_Q88)
     result={'port':port,'baud':baud,'tx_hex':request.hex(' '),'expected_q88':[-46,60,34],'passed':False}

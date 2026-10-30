@@ -1,12 +1,12 @@
-# IGOR FPGA — mulai di sini
+# GARDA FPGA — mulai di sini
 
-**Mock worker + liquid:** shortcut **IGOR - Mock Worker dan Liquid** menjalankan [uji proximity STOP dan rejection frame rusak](docs/MOCK_WORKER_LIQUID.md) tanpa perangkat fisik.
+**Mock worker + liquid:** shortcut **GARDA - Mock Worker dan Liquid** menjalankan [uji proximity STOP dan rejection frame rusak](docs/MOCK_WORKER_LIQUID.md) tanpa perangkat fisik.
 
-**Satu klik program + test:** shortcut **IGOR - Program FPGA dan Test** menjalankan [launcher gabungan](docs/PROGRAM_AND_TEST.md): program image Parallel8 JP1 pin 1/2, lalu seluruh pemeriksaan laptop/FPGA yang tersedia dan simpan log sesi.
+**Satu klik program + test:** shortcut **GARDA - Program FPGA dan Test** menjalankan [launcher gabungan](docs/PROGRAM_AND_TEST.md): program image Parallel8 JP1 pin 1/2, lalu seluruh pemeriksaan laptop/FPGA yang tersedia dan simpan log sesi.
 
-**LiDAR dari laptop:** [panduan Express Scan, 64 kandidat input AI, validity mask dan tes A/B/C](docs/LIDAR_AI_LAPTOP.md). Shortcut Desktop: **IGOR - LiDAR AI Live**, **IGOR - Testing ABC**, **IGOR - LiDAR AI Logs**.
+**LiDAR dari laptop:** [panduan Express Scan, 64 kandidat input AI, validity mask dan tes A/B/C](docs/LIDAR_AI_LAPTOP.md). Shortcut Desktop: **GARDA - LiDAR AI Live**, **GARDA - Testing ABC**, **GARDA - LiDAR AI Logs**.
 
-**Live input → output otomatis:** [terminal, repeat timer 1 detik, status komunikasi dan CSV/JSONL](docs/LIVE_INPUT_OUTPUT.md). Shortcut Desktop: **IGOR - LIVE Input Output Auto Check**.
+**Live input → output otomatis:** [terminal, repeat timer 1 detik, status komunikasi dan CSV/JSONL](docs/LIVE_INPUT_OUTPUT.md). Shortcut Desktop: **GARDA - LIVE Input Output Auto Check**.
 
 **Testing scenarios dari laptop:** [runner, pemetaan A/B/C, hasil dan shortcut](docs/TESTING_SCENARIO_RUNNER.md); [dokumen asli pengguna](testing_scenario.md).
 
@@ -16,16 +16,16 @@
 
 
 **Versi sederhana sesuai contoh:** [3 FSM lingkaran](docs/FSM_3_SIMPLE.md),
-dengan [file draw.io tiga halaman](docs/assets/igor_fsm_3_simple.drawio).
+dengan [file draw.io tiga halaman](docs/assets/garda_fsm_3_simple.drawio).
 
 [FSM core dan semua controller](docs/FSM_CORE_AND_CONTROLLERS.md) tersedia dalam
-[draw.io 19 halaman](docs/assets/igor_fsm_all.drawio), dengan kondisi transisi,
+[draw.io 19 halaman](docs/assets/garda_fsm_all.drawio), dengan kondisi transisi,
 aksi register, reset, fault/default dan sumber RTL.
 
 **Untuk langsung memprogram core Parallel8:** buka
 [bitstreams/README.md](bitstreams/README.md), lalu jalankan
 [PROGRAM_PARALLEL8.bat](bitstreams/PROGRAM_PARALLEL8.bat).
-[Project Programmer CDF](bitstreams/igor_src_policy_parallel8.cdf) sudah memilih
+[Project Programmer CDF](bitstreams/garda_src_policy_parallel8.cdf) sudah memilih
 SOF dan chain board aktual. **Programming fisik berhasil pada 18 Oktober 2026**;
 lihat [log Quartus](evidence/current_programming/20261018T0558125221956Z/programming.log).
 Tidak perlu kompilasi untuk memuat ulang SOF tersebut.
@@ -34,21 +34,21 @@ Teknik optimasi **weights, bias, dan accumulator** dijelaskan dalam
 [docs/techniques.md](docs/techniques.md), termasuk kandidat penghematan resource
 dan syarat validasinya.
 
-[Block diagram core berbentuk chip](docs/IGOR_CORE_DIAGRAM.md) tersedia dalam
-[draw.io](docs/assets/igor_core_simple.drawio), [PNG](docs/assets/igor_core_simple.png)
-dan [SVG](docs/assets/igor_core_simple.svg).
+[Block diagram core berbentuk chip](docs/GARDA_CORE_DIAGRAM.md) tersedia dalam
+[draw.io](docs/assets/garda_core_simple.drawio), [PNG](docs/assets/garda_core_simple.png)
+dan [SVG](docs/assets/garda_core_simple.svg).
 
-Seluruh implementasi dan keluaran baru berada di folder **`igor_ws/fpga`**.
+Seluruh implementasi dan keluaran baru berada di folder **`garda_ws/fpga`**.
 `../src` digunakan sebagai referensi software; `../peruri-iseedesign` digunakan
 sebagai referensi rancangan dan checklist. Proyek Quartus, RTL, bobot, pin
 planning, bukti simulasi dan software integrasi tersedia di dalam paket ini.
 
 ## Resource, area, latensi, kuantisasi dan power
 
-[Bennaya.md](Bennaya.md) merangkum keunggulan IGOR Chip untuk pengendalian
+[Bennaya.md](Bennaya.md) merangkum keunggulan GARDA Chip untuk pengendalian
 protokol industri, dengan fokus pada efisiensi energi dan proteksi operasi
 I/O di hardware. [power.md](power.md) menampilkan estimasi daya ASIC
-`tt_um_igorchip` / `ihp-sg13cmos5l`: Typical **2,037372 mW**, lengkap dengan
+`tt_um_gardachip` / `ihp-sg13cmos5l`: Typical **2,037372 mW**, lengkap dengan
 sumber angka dan bukti functional gate-level **PASS**.
 
 [Keunggulan tambahan chip](CHIP_ADVANTAGES.md) mencakup demo multi-protocol
@@ -56,12 +56,12 @@ empat context dalam 508 byte, upload dengan readback, penanganan UART/I²C,
 dan bukti **42 tes lokal PASS** tanpa perubahan RTL.
 
 **Varian cepat untuk target core <0,16 ms sudah tervalidasi:** buka
-[Parallel8 QPF](experiments/parallel8/igor_src_policy.qpf), dengan
+[Parallel8 QPF](experiments/parallel8/garda_src_policy.qpf), dengan
 [README dan bukti lengkap](experiments/parallel8/README.md).
 Hasilnya **0,13832 ms**, 3.303 ALM, 64 M10K, 8 DSP; semua timing corner dan
 13 fitted pins lulus. Power estimasi Typical **476,18 mW**, Maximum/Tj100°C
 **937,55 mW**, confidence Low/HPS Off. Handoff:
-[`bitstreams/igor_src_policy_parallel8.sof`](bitstreams/igor_src_policy_parallel8.sof).
+[`bitstreams/garda_src_policy_parallel8.sof`](bitstreams/garda_src_policy_parallel8.sof).
 Angka di bawah tetap menjelaskan baseline serial yang terpisah. Target
 0,16 ms adalah inferensi core, bukan round-trip UART.
 
@@ -88,8 +88,8 @@ regresi core/wrapper dan build ulang Quartus; model/latency tetap sama.
 
 | Kebutuhan | Proyek Quartus 25 siap dibuka | Image hasil build |
 |---|---|---|
-| Inferensi software workspace **74 → 128 → 64 → 3** | [igor_src_policy.qpf](fpga_de10_nano/src_policy/igor_src_policy.qpf) | [igor_src_policy.sof](bitstreams/igor_src_policy.sof) |
-| Planner peta, safety gate, logger, neural **24 → 64 → 64 → 4** | [igor.qpf](fpga_de10_nano/quartus/igor.qpf) | [igor_planner.sof](bitstreams/igor_planner.sof) |
+| Inferensi software workspace **74 → 128 → 64 → 3** | [garda_src_policy.qpf](fpga_de10_nano/src_policy/garda_src_policy.qpf) | [garda_src_policy.sof](bitstreams/garda_src_policy.sof) |
+| Planner peta, safety gate, logger, neural **24 → 64 → 64 → 4** | [garda.qpf](fpga_de10_nano/quartus/garda.qpf) | [garda_planner.sof](bitstreams/garda_planner.sof) |
 
 Kedua proyek menargetkan **DE10-Nano Cyclone V 5CSEBA6U23I7, 50 MHz**.
 Source kanonik ada di [rtl/](rtl/). QSF menyertakan pin assignment dan SDC;
@@ -144,7 +144,7 @@ Policy menggunakan bobot/aktivasi signed16 Q8.8, satu multiplier 16×16,
 akumulator signed40, `floor(acc/256)` antar layer, hidden ReLU jenuh 0–32767,
 dan tiga output clip -256–256. ROM memuat **18.051 parameter**, dipad menjadi
 32.768 word. Inferensi deterministik **54.348 siklus = 1,08696 ms pada 50 MHz**,
-di luar waktu UART. [README RTL](rtl/igor_src_policy/README.md) menjelaskan
+di luar waktu UART. [README RTL](rtl/garda_src_policy/README.md) menjelaskan
 alamat ROM, state machine, lebar data, CRC, domain input dan error code.
 
 Planner memakai peta dua bank dengan commit atomik. Hasil terikat pada sequence
@@ -245,7 +245,7 @@ gtkwave verification/src_policy/artifacts/uart.vcd verification/src_policy/uart.
 CSV dari run yang sama adalah sumber waktu final jika testbench diubah.
 Safety memakai kolom `time_ns`; policy memakai `time_ps`. Pada scope
 `tb_safety_top.core`, tampilkan enable, v, omega, fault_code, event_count dan
-last_fault bersama-sama. [Penjelasan waveform](rtl/igor_src_policy/README.md)
+last_fault bersama-sama. [Penjelasan waveform](rtl/garda_src_policy/README.md)
 membedakan E-stop, pencatatan pada clock berikut, dan case yang dump-nya
 dimatikan selama sweep agar VCD tidak membesar.
 

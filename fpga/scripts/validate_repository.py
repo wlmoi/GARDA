@@ -38,8 +38,8 @@ for image in proof['sof_images']:
     require(hashlib.sha256(path.read_bytes()).hexdigest() == image['sha256'], f'SOF hash mismatch: {path}')
 
 for canonical, ready, revision in [
-    ('fpga_de10_nano', 'IGOR_DE10_NANO', 'igor'),
-    ('fpga_de10_lite', 'MAX10_10M50DAF484C7G', 'igor_max10')]:
+    ('fpga_de10_nano', 'GARDA_DE10_NANO', 'garda'),
+    ('fpga_de10_lite', 'MAX10_10M50DAF484C7G', 'garda_max10')]:
     ready_root = root / 'ImplementationReadyQuartus' / ready
     for part in ['rtl', 'assets']:
         for path in (root / canonical / part).rglob('*'):
@@ -50,25 +50,25 @@ for canonical, ready, revision in [
     ready_sof = ready_root / 'quartus/output_files' / (revision + '.sof')
     require(ready_sof.is_file() and ready_sof.read_bytes() == original_sof.read_bytes(), f'Quartus Ready image differs: {ready}')
 
-for qsf in [root / 'fpga_de10_nano/quartus/igor.qsf', root / 'fpga_de10_lite/quartus/igor_max10.qsf', root / 'robot/jetauto/FPGA_UART_TTL_MULTISPEED/quartus/stm_uart_multispeed.qsf']:
+for qsf in [root / 'fpga_de10_nano/quartus/garda.qsf', root / 'fpga_de10_lite/quartus/garda_max10.qsf', root / 'robot/jetauto/FPGA_UART_TTL_MULTISPEED/quartus/stm_uart_multispeed.qsf']:
     for relative in re.findall(r'-name (?:VERILOG_FILE|SDC_FILE)\s+([^\r\n]+)', qsf.read_text()):
         require((qsf.parent / relative.strip().strip('"')).is_file(), f'Missing QSF source: {qsf.name}: {relative}')
 
 for board in ['fpga_de10_nano', 'fpga_de10_lite']:
     for path in (root / 'rtl').glob('*.v'):
         # Lite substitutes its own top wrapper and targets M9K memories.
-        if board == 'fpga_de10_lite' and path.name == 'igor_de10_nano_wrapper.v':
-            require((root / board / 'rtl/igor_de10_lite_top.v').is_file(), 'Missing DE10-Lite wrapper')
+        if board == 'fpga_de10_lite' and path.name == 'garda_de10_nano_wrapper.v':
+            require((root / board / 'rtl/garda_de10_lite_top.v').is_file(), 'Missing DE10-Lite wrapper')
             continue
         other = root / board / 'rtl' / path.name
         require(other.is_file(), f'Missing shared RTL: {board}/{path.name}')
         if other.is_file():
             expected = path.read_text(encoding='utf-8')
-            if board == 'fpga_de10_lite' and path.name in {'igor_costmap_bank.v', 'igor_neural_rom.v'}:
+            if board == 'fpga_de10_lite' and path.name in {'garda_costmap_bank.v', 'garda_neural_rom.v'}:
                 expected = expected.replace('"M10K"', '"M9K"')
             require(other.read_text(encoding='utf-8') == expected, f'Unexpected shared RTL difference: {board}/{path.name}')
 
-diagram = ET.parse(root / 'docs/flowcharts/IGOR_RTL_Flowchart.io')
+diagram = ET.parse(root / 'docs/flowcharts/GARDA_RTL_Flowchart.io')
 require(len(diagram.findall('diagram')) == 28, 'Expected 28 flowchart pages')
 for svg in (root / 'docs/assets').glob('*.svg'):
     ET.parse(svg)

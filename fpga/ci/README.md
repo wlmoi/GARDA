@@ -6,7 +6,7 @@ di `fpga/ci/workflows/` adalah paket siap dipasang dan belum menjadi workflow
 aktif karena lokasinya. Pembatasan perubahan hanya di `fpga` dipertahankan.
 Lokasi tersebut mengikuti [aturan workflow resmi GitHub](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#about-yaml-syntax-for-workflows).
 
-## Memasang pada repository `igor_ws`
+## Memasang pada repository `garda_ws`
 
 Repository harus menyertakan `fpga/` **dan** `src/` pada commit yang sama.
 Uji provenance policy membaca bobot asli dari `src/` sebagai referensi baca

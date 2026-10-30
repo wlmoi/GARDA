@@ -1,19 +1,19 @@
-# IGOR â€” Intelligence, Guarded Outputs, Reconfigurable Interfaces
+# GARDA â€” Intelligence, Guarded Outputs, Reconfigurable Interfaces
 
-**Kami menciptakan IGOR: rancangan chip kendali cerdas yang membawa inferensi AI berlatensi mikrodetik, proteksi keluaran di hardware, dan antarmuka industri terprogram ke dalam satu visi produk.**
+**Kami menciptakan GARDA: rancangan chip kendali cerdas yang membawa inferensi AI berlatensi mikrodetik, proteksi keluaran di hardware, dan antarmuka industri terprogram ke dalam satu visi produk.**
 
 **138,32 ?s per inferensi core ? 8 jalur komputasi paralel ? 18.051 parameter neural ? memori bobot on-chip ? proteksi operasi yang dapat ditelusuri.**
 
-IGOR dikembangkan untuk robot bergerak yang membaca lingkungan, menghitung koreksi gerak, dan menjaga agar keluaran aktuator mengikuti aturan operasi. Nilai produknya terletak pada tiga kemampuan yang saling melengkapi: **menghitung cepat, mengendalikan keluaran dengan disiplin, dan berkomunikasi dengan periferal secara fleksibel**.
+GARDA dikembangkan untuk robot bergerak yang membaca lingkungan, menghitung koreksi gerak, dan menjaga agar keluaran aktuator mengikuti aturan operasi. Nilai produknya terletak pada tiga kemampuan yang saling melengkapi: **menghitung cepat, mengendalikan keluaran dengan disiplin, dan berkomunikasi dengan periferal secara fleksibel**.
 
-Dokumen ini menyajikan **visi sistem IGOR terpadu** dengan bukti dari blok Verilog yang tersedia. Angka diberi label asalnya: akselerator AI pada FPGA, safety gate pada RTL planner, serta protocol engine pada implementasi ASIC IHP. Diagram berikut adalah arsitektur produk yang dituju; setiap metrik adalah hasil blok terkait, bukan pengukuran satu chip gabungan.
+Dokumen ini menyajikan **visi sistem GARDA terpadu** dengan bukti dari blok Verilog yang tersedia. Angka diberi label asalnya: akselerator AI pada FPGA, safety gate pada RTL planner, serta protocol engine pada implementasi ASIC IHP. Diagram berikut adalah arsitektur produk yang dituju; setiap metrik adalah hasil blok terkait, bukan pengukuran satu chip gabungan.
 
 ## 1. Satu cerita produk: dari sensor menuju aksi yang terkendali
 
 ```mermaid
 flowchart LR
     S[LiDAR Â· IMU Â· perintah gerak] --> H[Host ROS\n74 input Q8.8]
-    H --> A[Akselerator PPO IGOR\n74 â†’ 128 â†’ 64 â†’ 3]
+    H --> A[Akselerator PPO GARDA\n74 â†’ 128 â†’ 64 â†’ 3]
     A --> C[Blending Â· filter\nkeputusan gerak]
     M[Peta Â· freshness Â· E-stop] --> G[Safety gate hardware\nvalidasi dan pencatatan fault]
     C --> G
@@ -24,11 +24,11 @@ flowchart LR
 
 Dalam visi integrasi ini, akselerator menghasilkan residual AI, host mengolahnya menjadi keputusan gerak, safety gate memberi syarat pelepasan keluaran, dan protocol engine menjadi penghubung periferal. Pemisahan tanggung jawab tersebut memberi dasar yang jelas untuk robot inspeksi, AGV, dan otomasi tepi jaringan.
 
-**Jejak implementasi:** [core neural](rtl/igor_src_policy/igor_src_policy_core.v), [varian Parallel8](experiments/parallel8/README.md), [safety gate](rtl/igor_safety_security_gate.v), [status logger](rtl/igor_status_logger.v), dan [protocol engine ASIC](../src/igorchip_top.v). Penyatuan jalur antarmuka dan pengujiannya merupakan pekerjaan integrasi; dokumen ini tidak mengubah RTL atau bitstream yang sudah tervalidasi.
+**Jejak implementasi:** [core neural](rtl/garda_src_policy/garda_src_policy_core.v), [varian Parallel8](experiments/parallel8/README.md), [safety gate](rtl/garda_safety_security_gate.v), [status logger](rtl/garda_status_logger.v), dan [protocol engine ASIC](../src/gardachip_top.v). Penyatuan jalur antarmuka dan pengujiannya merupakan pekerjaan integrasi; dokumen ini tidak mengubah RTL atau bitstream yang sudah tervalidasi.
 
-## 2. Inti IGOR: akselerator AI yang dirancang langsung di RTL
+## 2. Inti GARDA: akselerator AI yang dirancang langsung di RTL
 
-**Jantung komputasi IGOR berada di folder `fpga/`: core PPO Parallel8 dengan delapan jalur multiply?accumulate, memori bobot lokal, dan state machine yang mengatur setiap langkah inferensi.** Jalur datanya menerima **74 observasi**, mengolah dua hidden layer **128 dan 64 neuron**, lalu menghasilkan **tiga residual kendali**. Ini adalah mesin inferensi neural berbasis Verilog yang mengerjakan matematika kebijakan IGOR pada hardware khusus.
+**Jantung komputasi GARDA berada di folder `fpga/`: core PPO Parallel8 dengan delapan jalur multiply?accumulate, memori bobot lokal, dan state machine yang mengatur setiap langkah inferensi.** Jalur datanya menerima **74 observasi**, mengolah dua hidden layer **128 dan 64 neuron**, lalu menghasilkan **tiga residual kendali**. Ini adalah mesin inferensi neural berbasis Verilog yang mengerjakan matematika kebijakan GARDA pada hardware khusus.
 
 | Parameter core AI FPGA | Spesifikasi / hasil | Makna desain |
 |---|---:|---|
@@ -51,7 +51,7 @@ Dalam visi integrasi ini, akselerator menghasilkan residual AI, host mengolahnya
 | PLL fitted | **0 / 6** | Memakai domain clock board 50 MHz |
 | Worst setup / hold slack | **+5,647 ns / +0,119 ns** | Hasil timing FPGA positif pada corner yang dilaporkan |
 
-Sumber primer: [Verilog core Parallel8](experiments/parallel8/igor_src_policy_core.v), [proyek Quartus](experiments/parallel8/igor_src_policy.qpf), [hasil acceptance](experiments/parallel8/artifacts/acceptance.json), [Fitter](experiments/parallel8/output_files/igor_src_policy.fit.summary), [timing](experiments/parallel8/output_files/igor_src_policy.sta.summary), dan [CSV metrik](experiments/parallel8/artifacts/metric_evidence.csv).
+Sumber primer: [Verilog core Parallel8](experiments/parallel8/garda_src_policy_core.v), [proyek Quartus](experiments/parallel8/garda_src_policy.qpf), [hasil acceptance](experiments/parallel8/artifacts/acceptance.json), [Fitter](experiments/parallel8/output_files/garda_src_policy.fit.summary), [timing](experiments/parallel8/output_files/garda_src_policy.sta.summary), dan [CSV metrik](experiments/parallel8/artifacts/metric_evidence.csv).
 
 ### Clock-cycle design: setiap fase komputasi mempunyai tugas
 
@@ -85,7 +85,7 @@ Pada layer output, tiga lane menghasilkan tiga keluaran berguna. Anggaran siklus
 
 ## 2A. Memori on-chip: bobot dekat dengan datapath
 
-**IGOR menempatkan bobot neural di embedded memory FPGA dan program protokol di SRAM macro ASIC.** Keduanya mempunyai fungsi yang jelas dalam arsitektur produk: bobot melayani komputasi AI; SRAM menyimpan program antarmuka periferal.
+**GARDA menempatkan bobot neural di embedded memory FPGA dan program protokol di SRAM macro ASIC.** Keduanya mempunyai fungsi yang jelas dalam arsitektur produk: bobot melayani komputasi AI; SRAM menyimpan program antarmuka periferal.
 
 | Organisasi memori | Kapasitas / bentuk | Fungsi |
 |---|---|---|
@@ -102,18 +102,18 @@ Array observasi/aktivasi adalah organisasi logis RTL; tabel tidak mengklaim semu
 
 Host dapat mengunggah dan membaca kembali isi SRAM. Uji mencakup seluruh **256 word**, alamat akhir **255**, pelestarian byte dan warm reset pada model SRAM yang tetap mendapat suplai. Demo UART RX/TX, I?C dan SPI memuat **508 byte** program. Untuk perencanaan cadence ASIC, scheduler memberikan giliran **satu context per eligible clock**, berulang tiap **empat eligible clock** per context; jumlah instruksi selesai bergantung pada opcode, literal dan wait. Angka tersebut adalah aturan RTL, bukan klaim frekuensi silicon ASIC.
 
-Sumber: [banked core FPGA](experiments/parallel8/igor_src_policy_core.v), [pemetaan bank](experiments/parallel8/prepare.py), [wrapper SRAM ASIC](../src/program_memory.v), dan [tes SRAM](../test/test_sram.py). Rujukan tes SRAM yang spesifik juga tersedia dalam [log regression](evidence/chip_highlights/regression.log).
+Sumber: [banked core FPGA](experiments/parallel8/garda_src_policy_core.v), [pemetaan bank](experiments/parallel8/prepare.py), [wrapper SRAM ASIC](../src/program_memory.v), dan [tes SRAM](../test/test_sram.py). Rujukan tes SRAM yang spesifik juga tersedia dalam [log regression](evidence/chip_highlights/regression.log).
 
-## 2B. Core IGOR dalam `fpga/`: fungsi setiap bagian
+## 2B. Core GARDA dalam `fpga/`: fungsi setiap bagian
 
-| Bagian | Peran dalam kendali IGOR | File utama |
+| Bagian | Peran dalam kendali GARDA | File utama |
 |---|---|---|
-| Neural datapath Parallel8 | MAC, bias, aktivasi dan residual tiga sumbu | [core Parallel8](experiments/parallel8/igor_src_policy_core.v) |
+| Neural datapath Parallel8 | MAC, bias, aktivasi dan residual tiga sumbu | [core Parallel8](experiments/parallel8/garda_src_policy_core.v) |
 | Bank bobot | Parameter neural lokal dan pembacaan sinkron | [bank 0](experiments/parallel8/bank0.mem) hingga [bank 7](experiments/parallel8/bank7.mem) |
-| Transport source-policy | Menerima observasi, memeriksa transaksi dan mengirim hasil | [UART policy](rtl/igor_src_policy/igor_src_policy_uart.v) |
-| Board wrapper | Integrasi clock, reset, E-stop, UART dan indikator DE10-Nano | [wrapper Parallel8](experiments/parallel8/igor_src_policy_de10_nano.v) |
-| Safety planner | Pemeriksaan peta/perintah, batas gerak dan izin keluaran pada jalur planner | [safety gate](rtl/igor_safety_security_gate.v) |
-| Pencatatan kejadian | Status gangguan dan jejak diagnosis pada jalur planner | [status logger](rtl/igor_status_logger.v) |
+| Transport source-policy | Menerima observasi, memeriksa transaksi dan mengirim hasil | [UART policy](rtl/garda_src_policy/garda_src_policy_uart.v) |
+| Board wrapper | Integrasi clock, reset, E-stop, UART dan indikator DE10-Nano | [wrapper Parallel8](experiments/parallel8/garda_src_policy_de10_nano.v) |
+| Safety planner | Pemeriksaan peta/perintah, batas gerak dan izin keluaran pada jalur planner | [safety gate](rtl/garda_safety_security_gate.v) |
+| Pencatatan kejadian | Status gangguan dan jejak diagnosis pada jalur planner | [status logger](rtl/garda_status_logger.v) |
 
 Antarmuka neural default memakai **UART 921.600 baud, 8N1**, dengan frame observasi **153 byte** dan respons **11 byte**. Core menyediakan pemeriksaan kelengkapan **74 input**, penolakan indeks tidak valid, load/start saat sibuk, load dan start bersamaan, serta pembatalan melalui `abort`. Wrapper menyediakan status frame diterima/ditolak dan latensi terakhir. `safety_permit` neural menyatakan validitas/freshness residual pada jalurnya; izin motor dengan pemeriksaan peta merupakan fungsi gate planner. Hubungan keduanya pada diagram merupakan tujuan integrasi sistem.
 
@@ -121,7 +121,7 @@ Bukti pengujian Parallel8 mencatat **54.399 assertion core**, **268 assertion UA
 
 ## 3. Security operasional: keputusan harus melewati aturan hardware
 
-**Keunggulan keamanan IGOR adalah menempatkan pembatasan operasi di jalur keluaran.** Pendekatan ini mendukung integritas kendali: data diperiksa, kondisi penghentian mempunyai prioritas, kepemilikan pin dibatasi, dan kejadian dapat ditelusuri.
+**Keunggulan keamanan GARDA adalah menempatkan pembatasan operasi di jalur keluaran.** Pendekatan ini mendukung integritas kendali: data diperiksa, kondisi penghentian mempunyai prioritas, kepemilikan pin dibatasi, dan kejadian dapat ditelusuri.
 
 | Lapisan proteksi | Fungsi yang tersedia | Nilai untuk pengguna industri |
 |---|---|---|
@@ -137,7 +137,7 @@ Safety gate planner didukung **111.210 perbandingan vektor RTL terhadap oracle**
 
 Security yang ditonjolkan di sini adalah **integritas operasi, pembatasan akses I/O dan traceability**. Enkripsi, autentikasi kriptografis dan sertifikasi keselamatan merupakan klaim terpisah yang membutuhkan implementasi serta bukti sendiri.
 
-Bukti: [hasil safety regression](evidence/current_safety/summary.json), [RTL gate](rtl/igor_safety_security_gate.v), [logger](rtl/igor_status_logger.v), [host program](../src/program_host.v), [host driver](../tools/host.py), dan [42 hasil tes](evidence/chip_highlights/results.json).
+Bukti: [hasil safety regression](evidence/current_safety/summary.json), [RTL gate](rtl/garda_safety_security_gate.v), [logger](rtl/garda_status_logger.v), [host program](../src/program_host.v), [host driver](../tools/host.py), dan [42 hasil tes](evidence/chip_highlights/results.json).
 
 ## 4. Efisiensi: angka energi yang menjelaskan nilai desain
 
@@ -153,7 +153,7 @@ Dengan asumsi daya Typical ASIC tetap selama 24 jam, energi protocol engine adal
 
 Estimasi FPGA bersifat vectorless dengan confidence tool Low; angka ASIC berasal dari laporan post-route. **2,04 mW adalah milik protocol engine ASIC; 0,13832 ms adalah milik core AI FPGA.** Daya dan area sistem gabungan memerlukan implementasi gabungan. Dengan penandaan ini, kedua capaian tetap kuat dan dapat ditelusuri.
 
-Bukti dan konversi satuan: [power.md](power.md), [power Typical ASIC](evidence/asic_import/gds_diagnostics_1/raw/runs/wokwi/56-openroad-stapostpnr/nom_typ_1p20V_25C/power.rpt), [199 metrik ASIC](evidence/asic_import/gds_diagnostics_1/final_metrics.csv), dan [power FPGA Typical](experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary).
+Bukti dan konversi satuan: [power.md](power.md), [power Typical ASIC](evidence/asic_import/gds_diagnostics_1/raw/runs/wokwi/56-openroad-stapostpnr/nom_typ_1p20V_25C/power.rpt), [199 metrik ASIC](evidence/asic_import/gds_diagnostics_1/final_metrics.csv), dan [power FPGA Typical](experiments/parallel8/artifacts/power/typical/garda_src_policy.pow.summary).
 
 ## 5. Antarmuka yang fleksibel: empat context dalam 508 byte
 
@@ -173,7 +173,7 @@ Bukti: [firmware protokol](../tools/protocols.py), [generator demo](../tools/bui
 
 ## 6. Angka bisnis: jalur prototipe IHP130 melalui Tiny Tapeout
 
-Tiny Tapeout memberi akses fabrikasi melalui pembagian area chip antardesain. Untuk perencanaan IGOR, ukuran ASIC protocol engine saat ini adalah **6Ã—4 = 24 tile**, sesuai [info.yaml](../info.yaml). Jumlah tile tersebut berlaku untuk protocol engine yang dilaporkan; estimasi area sistem AI dan safety yang digabungkan harus dihitung dari hasil implementasinya sendiri.
+Tiny Tapeout memberi akses fabrikasi melalui pembagian area chip antardesain. Untuk perencanaan GARDA, ukuran ASIC protocol engine saat ini adalah **6Ã—4 = 24 tile**, sesuai [info.yaml](../info.yaml). Jumlah tile tersebut berlaku untuk protocol engine yang dilaporkan; estimasi area sistem AI dan safety yang digabungkan harus dihitung dari hasil implementasinya sendiri.
 
 **Tarif kalkulator resmi diperiksa 17 Oktober 2026**, pilihan IHP, digital, 24 tile, 1 PCB/DevKit:
 
@@ -188,7 +188,7 @@ Harga merupakan snapshot kalkulator, bukan quotation atau bukti pemesanan. Opsi 
 
 Sumber resmi: [kalkulator IHP 24 tile / 1 PCB](https://app.tinytapeout.com/calculator?shuttle=ihp&tiles=24&pcbs=1), [penjelasan harga berdasarkan ukuran dan shuttle](https://tinytapeout.com/), serta [FAQ DevKit dan jumlah chip](https://tinytapeout.com/faq/#how-many-chips-will-i-receive-can-i-order-more). [Snapshot rumus tarif resmi](evidence/chip_highlights/tinytapeout_invoice_snapshot.js) dan [catatan sumber](evidence/chip_highlights/tinytapeout_pricing.json) disimpan agar perhitungan bisa diperiksa ulang.
 
-**Mengapa menarik secara bisnis:** biaya prototipe dapat dipetakan ke luas desain dan kebutuhan board; FPGA mendukung iterasi demonstrasi; programmable engine memungkinkan penyesuaian protokol melalui program. Nilai penawaran IGOR adalah paket IP, firmware, model referensi, verifikasi dan bukti implementasi yang saling mendukung.
+**Mengapa menarik secara bisnis:** biaya prototipe dapat dipetakan ke luas desain dan kebutuhan board; FPGA mendukung iterasi demonstrasi; programmable engine memungkinkan penyesuaian protokol melalui program. Nilai penawaran GARDA adalah paket IP, firmware, model referensi, verifikasi dan bukti implementasi yang saling mendukung.
 
 Biaya di atas adalah **biaya akses prototipe shared shuttle**, bukan harga produksi massal per unit atau biaya fabrikasi sistem gabungan. Perencanaan komersial memakai quotation terpisah untuk volume, packaging, pengujian, yield dan lisensi IP. Potensi pengurangan komponen atau biaya integrasi diposisikan sebagai tujuan desain sampai ada pembandingan BOM dan pengukuran proyek pelanggan.
 
@@ -224,13 +224,13 @@ Pos berikut merupakan **asumsi internal untuk proposal**, bukan harga vendor ata
 
 Cadangan dihitung satu kali pada subtotal, tidak ditumpuk dengan cadangan pos shuttle. Gaji, jam kerja, kebutuhan alat, pajak dan ongkir final harus dirinci kembali saat penawaran disusun.
 
-## 6B. Contoh model bisnis IGOR
+## 6B. Contoh model bisnis GARDA
 
 **Pelanggan awal:** integrator AGV, pembuat robot inspeksi, tim otomasi pabrik dan laboratorium industri. Penawarannya adalah paket akselerasi kendali dan integritas I/O, dilengkapi firmware, integrasi serta bukti uji yang dapat dibaca pelanggan. Performa core 0,13832 ms menjadi parameter teknis penawaran FPGA; fitur safety dan antarmuka dipilih sesuai konfigurasi yang benar-benar diserahkan.
 
 ### Model 1 ? jasa pilot dan integrasi
 
-Contoh paket: konfigurasi FPGA IGOR, integrasi sensor/periferal, demo safety gate, pelatihan dan laporan pengujian dalam ruang lingkup kontrak. **Seluruh harga dan biaya berikut adalah asumsi simulasi bisnis**, belum merupakan harga pasar, pesanan atau pendapatan aktual.
+Contoh paket: konfigurasi FPGA GARDA, integrasi sensor/periferal, demo safety gate, pelatihan dan laporan pengujian dalam ruang lingkup kontrak. **Seluruh harga dan biaya berikut adalah asumsi simulasi bisnis**, belum merupakan harga pasar, pesanan atau pendapatan aktual.
 
 | Parameter | Skenario contoh |
 |---|---:|
@@ -264,9 +264,9 @@ Sensitivitas: bila HPP naik menjadi **Rp1.100.000**, kontribusi turun menjadi **
 
 **Nilai jual yang konkret:** komputasi core berlatensi 138,32 mikrodetik, proteksi operasi yang dapat diuji, satu engine untuk beberapa protokol, dan paket bukti untuk mempercepat evaluasi pelanggan. Penghematan downtime, pengurangan BOM dan ROI pelanggan dihitung dari data pilot masing-masing; angka pendapatan di atas merupakan simulasi perencanaan.
 
-## 6C. Cara membangun alur fabrikasi IGOR
+## 6C. Cara membangun alur fabrikasi GARDA
 
-Model operasionalnya **fabless**: tim IGOR mendesain dan memverifikasi IP, shuttle/foundry membuat silicon, mitra assembly/test menyiapkan kemasan atau board, lalu tim menguji fungsi dan menyerahkan produk. Tim tidak perlu membangun fasilitas wafer sendiri untuk menjalankan prototipe ini.
+Model operasionalnya **fabless**: tim GARDA mendesain dan memverifikasi IP, shuttle/foundry membuat silicon, mitra assembly/test menyiapkan kemasan atau board, lalu tim menguji fungsi dan menyerahkan produk. Tim tidak perlu membangun fasilitas wafer sendiri untuk menjalankan prototipe ini.
 
 | Tahap | Pekerjaan dan keluaran yang disiapkan | Kriteria melanjutkan |
 |---|---|---|
@@ -290,7 +290,7 @@ CI membantu mereproduksi simulasi, build, laporan dan pemeriksaan artefak. **Pem
 | Pernyataan unggulan | Bukti yang dapat dibuka |
 |---|---|
 | Core AI di bawah 0,16 ms | [Parallel8 acceptance](experiments/parallel8/artifacts/acceptance.json) dan [waveform/simulasi](experiments/parallel8/artifacts/simulation_acceptance.json) |
-| Pemakaian resource dan timing 50 MHz | [Fitter summary](experiments/parallel8/output_files/igor_src_policy.fit.summary), [STA summary](experiments/parallel8/output_files/igor_src_policy.sta.summary) |
+| Pemakaian resource dan timing 50 MHz | [Fitter summary](experiments/parallel8/output_files/garda_src_policy.fit.summary), [STA summary](experiments/parallel8/output_files/garda_src_policy.sta.summary) |
 | Safety gate diuji pada 111.210 vektor | [Safety summary](evidence/current_safety/summary.json) |
 | Protocol engine: 42 tes lokal PASS | [Results dan hash source](evidence/chip_highlights/results.json), [log](evidence/chip_highlights/regression.log) |
 | Functional gate-level test terlampir PASS | [results.xml](evidence/asic_import/gatelevel_test_results/raw/results.xml), [waveform FST](evidence/asic_import/gatelevel_test_results/raw/tb.fst) |
@@ -299,6 +299,6 @@ CI membantu mereproduksi simulasi, build, laporan dan pemeriksaan artefak. **Pem
 
 ## Narasi presentasi
 
-> **IGOR membawa kecerdasan kendali ke hardware: core AI 138,32 mikrodetik, delapan lane MAC, dan memori bobot on-chip.** Arsitektur neural 74 menuju 128 menuju 64 menuju 3 mengolah **17.856 MAC berguna** per inferensi melalui datapath fixed-point dan akumulator **40-bit**. Paket FPGA menyediakan kendali transaksi, diagnosis dan bukti pengujian; safety gate planner didukung **111.210 vektor**. Protocol engine ASIC menambahkan empat context, SRAM program **512 byte**, dan estimasi daya Typical **2,04 mW**. Jalur prototipe 24 tile memiliki acuan anggaran **Rp40,34 juta sebelum pajak/bea**. IGOR menawarkan IP kendali yang terukur, dapat diprogram dan dirancang untuk pengembangan robot serta otomasi industri.
+> **GARDA membawa kecerdasan kendali ke hardware: core AI 138,32 mikrodetik, delapan lane MAC, dan memori bobot on-chip.** Arsitektur neural 74 menuju 128 menuju 64 menuju 3 mengolah **17.856 MAC berguna** per inferensi melalui datapath fixed-point dan akumulator **40-bit**. Paket FPGA menyediakan kendali transaksi, diagnosis dan bukti pengujian; safety gate planner didukung **111.210 vektor**. Protocol engine ASIC menambahkan empat context, SRAM program **512 byte**, dan estimasi daya Typical **2,04 mW**. Jalur prototipe 24 tile memiliki acuan anggaran **Rp40,34 juta sebelum pajak/bea**. GARDA menawarkan IP kendali yang terukur, dapat diprogram dan dirancang untuk pengembangan robot serta otomasi industri.
 
 Angka presentasi di atas mengikuti lingkup bukti setiap blok. Keunggulan integrasi dipresentasikan sebagai visi arsitektur produk; validasi satu sistem terpadu mengikuti implementasi dan uji gabungannya.

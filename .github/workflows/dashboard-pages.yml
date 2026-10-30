@@ -1,4 +1,4 @@
-name: IGOR unified GitHub Pages
+name: GARDA unified GitHub Pages
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: igor-unified-pages
+  group: garda-unified-pages
   cancel-in-progress: false
 
 jobs:
@@ -63,7 +63,7 @@ jobs:
     outputs:
       page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy the complete IGOR site
+      - name: Deploy the complete GARDA site
         id: deployment
         uses: actions/deploy-pages@v4
 

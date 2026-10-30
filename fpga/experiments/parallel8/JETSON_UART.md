@@ -26,7 +26,7 @@ https://developer.nvidia.com/downloads/assets/embedded/secure/jetson/orin_nano/d
 
 ## FPGA and serial setup
 
-1. Configure the FPGA with `fpga/bitstreams/igor_src_policy_parallel8.sof`
+1. Configure the FPGA with `fpga/bitstreams/garda_src_policy_parallel8.sof`
    through JTAG, or load the corresponding `.rbf` using a compatible FPGA
    configuration loader. Creating an RBF alone does not configure the board
    or make configuration persistent after power loss.
@@ -65,7 +65,7 @@ XOR, covering command, length and payload (excluding 5A A5 and the CRC byte).
 Invalid packets or an active inhibit produce no successful response.
 
 The existing host implementation is
-`fpga/software_integration/src/igor_controller/igor_controller/fpga_bridge.py`.
+`fpga/software_integration/src/garda_controller/garda_controller/fpga_bridge.py`.
 Use `FPGABridge(port="/dev/ttyTHS1", baudrate=921600, mock=False)` and
 `infer(observation_74)` to encode, transmit, validate and decode an exchange.
 It requires NumPy and pyserial. On a communication fault it latches failure;
@@ -74,7 +74,7 @@ reset the FPGA and restart the bridge before retrying.
 For the integrated ROS workspace, after building and sourcing it:
 
 ```bash
-ros2 launch igor_bringup bringup.launch.py algorithm:=cl_drl_cbf use_fpga:=true fpga_port:=/dev/ttyTHS1 fpga_baudrate:=921600
+ros2 launch garda_bringup bringup.launch.py algorithm:=cl_drl_cbf use_fpga:=true fpga_port:=/dev/ttyTHS1 fpga_baudrate:=921600
 ```
 
 The three results are neural residuals, not wheel commands. Host blending,

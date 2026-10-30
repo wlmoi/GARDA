@@ -17,7 +17,7 @@ The Fitter's **Resource Utilization by Entity** table isolates the core hierarch
 | Complete fitted board top, including reset/KEY/LED glue | **3,303.0** | **7.8812%** | **3,364** | **6,277** | **64** | **8** |
 | UART policy/interface overhead, by subtraction | **898.0** | **2.1427 percentage points** | **1,035** | **1,525** | **0 additional** | **0 additional** |
 
-Sources: [board row, line 1411](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:1411), [UART policy row, line 1412](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:1412), [core row, line 1413](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:1413). The table's note says the number outside parentheses includes sub-entities; the parenthesized number is the entity alone. Therefore the core is **2,402.7**, not its parenthesized 2,293.1: excluding activation children would undercount the core.
+Sources: [board row, line 1411](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:1411), [UART policy row, line 1412](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:1412), [core row, line 1413](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:1413). The table's note says the number outside parentheses includes sub-entities; the parenthesized number is the entity alone. Therefore the core is **2,402.7**, not its parenthesized 2,293.1: excluding activation children would undercount the core.
 
 Denominator: 41,910 ALMs on the selected 5CSEBA6U23I7. Example: `2402.7 / 41910 × 100 = 5.7330%`. The FPGA is comfortably within its reported resource capacities for this fitted design; memory and DSP are separate capacity constraints.
 
@@ -25,7 +25,7 @@ Denominator: 41,910 ALMs on the selected 5CSEBA6U23I7. Example: `2402.7 / 41910 
 
 The complete interface overhead is more than a serial shift register: observation/frame buffering, CRC, parser, range checking, load/start/output sequencing, fault handling, timeout and lease logic are included in the policy hierarchy.
 
-The actual byte-level UART receiver is **38.3 ALMs, 63 ALUTs, 63 registers**; the transmitter is **21.5 ALMs, 39 ALUTs, 33 registers**. Together those two leaves account for **59.8 ALMs**, 102 ALUTs and 96 registers. Source: [receiver line 1438](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:1438), [transmitter line 1439](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:1439).
+The actual byte-level UART receiver is **38.3 ALMs, 63 ALUTs, 63 registers**; the transmitter is **21.5 ALMs, 39 ALUTs, 33 registers**. Together those two leaves account for **59.8 ALMs**, 102 ALUTs and 96 registers. Source: [receiver line 1438](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:1438), [transmitter line 1439](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:1439).
 
 The remaining approximately **838.2 ALMs** of the 898.0 difference belong to surrounding interface/control logic and hierarchical allocation effects. The policy's exclusive reported value is 838.0 ALMs; small differences arise from rounded hierarchical packing attribution. Do not describe all 898 ALMs as the UART serializer itself.
 
@@ -40,17 +40,17 @@ Cyclone V uses **ALMs and ALUTs**. A generic “LUT count” is ambiguous; use t
 | Configured memory bits | 524,288 bits = 64 KiB | 5,662,720 bits | **9.2586%** |
 | Multiplier capacity | 8 DSP blocks | 112 DSP blocks | **7.1429%** |
 
-These percentages have different denominators: **5.7330% + 11.5732% is not a valid total silicon-area percentage**. M10K count and configured memory bits are also two views of the same memory, not two extra resources. Source capacities: [Fitter summary](../experiments/parallel8/output_files/igor_src_policy.fit.summary:8).
+These percentages have different denominators: **5.7330% + 11.5732% is not a valid total silicon-area percentage**. M10K count and configured memory bits are also two views of the same memory, not two extra resources. Source capacities: [Fitter summary](../experiments/parallel8/output_files/garda_src_policy.fit.summary:8).
 
 Within the *complete design's ALM-needed allocation*, the core accounts for **72.7430%**, the UART policy overhead **27.1874%**, and board glue approximately **0.0696%**. This answers how logic resources are distributed; it does not include a physical weighting for M10K or DSP silicon.
 
-For a literal packing view, the full Fitter report also lists 4,113 ALMs used in final placement: 1,044 shared logic/register ALMs, 1,295 logic-only ALMs and 1,774 register-only ALMs. The headline 3,303 ALMs needed includes dense-packing recoverability and unavailable-ALM adjustments. Do not confuse placement occupancy with ALMs needed. Source: [Fitter lines 487–495](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:487).
+For a literal packing view, the full Fitter report also lists 4,113 ALMs used in final placement: 1,044 shared logic/register ALMs, 1,295 logic-only ALMs and 1,774 register-only ALMs. The headline 3,303 ALMs needed includes dense-packing recoverability and unavailable-ALM adjustments. Do not confuse placement occupancy with ALMs needed. Source: [Fitter lines 487–495](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:487).
 
 The 64 KiB is configured on-chip parameter **ROM implemented in FPGA SRAM-based block memory**. It contains 18,051 active 16-bit parameters (36,102 bytes) plus bank/layout padding. UART does not add M10K blocks. The core's other input/hidden/accumulator storage is reflected in registers and logic; it must not be called another fabricated SRAM macro without a corresponding ASIC mapping.
 
 ## 3. Tiny Tapeout physical area and SRAM split
 
-Imported design: **`tt_um_igorchip`**, IHP **`ihp-sg13cmos5l`**, project allocation **6×4 tiles**. The measured rectangle is authoritative for this imported layout; the generic approximate tile dimensions in `info.yaml` are not a substitute for final die/core measurements.
+Imported design: **`tt_um_gardachip`**, IHP **`ihp-sg13cmos5l`**, project allocation **6×4 tiles**. The measured rectangle is authoritative for this imported layout; the generic approximate tile dimensions in `info.yaml` are not a substitute for final die/core measurements.
 
 | Physical category | µm² | mm² | % of allocated die |
 |---|---:|---:|---:|

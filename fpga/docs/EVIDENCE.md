@@ -10,7 +10,7 @@
 | Sembilan fault dengan permit nol | [fault_status.csv](../evidence/audit/fault_status.csv) |
 | Delapan test case | [cocotb XML](../evidence) dan [build_evidence.json](../evidence/build_evidence.json) |
 | Netlist generic wrapper | [synthesis report](../evidence/asic_generic_synthesis_noabc.log) dan [netlist](../evidence/asic_generic_netlist.v) |
-| Power estimate | [igor.pow.summary](../evidence/audit/power/igor.pow.summary) |
+| Power estimate | [garda.pow.summary](../evidence/audit/power/garda.pow.summary) |
 | Model transport | [PERHITUNGAN_LATENSI.json](../evidence/quartus/PERHITUNGAN_LATENSI.json) |
 
 ## Quartus

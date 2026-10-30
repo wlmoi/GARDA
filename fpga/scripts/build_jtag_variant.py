@@ -6,22 +6,22 @@ root = Path(__file__).resolve().parents[1]
 out = root / 'experiments/parallel8_jtag'
 out.mkdir(exist_ok=True)
 base = root / 'experiments/parallel8'
-for name in ['igor_src_policy_core.v', 'pin_assignment.tcl', 'igor_src_policy.sdc'] + [f'bank{i}.mem' for i in range(8)]:
+for name in ['garda_src_policy_core.v', 'pin_assignment.tcl', 'garda_src_policy.sdc'] + [f'bank{i}.mem' for i in range(8)]:
     shutil.copyfile(base / name, out / name)
 pins=(out/'pin_assignment.tcl').read_text()
 pins='\n'.join(line for line in pins.splitlines() if not ('UART_RX' in line and not line.startswith('foreach')))
 pins=pins.replace(' UART_RX','')
 (out/'pin_assignment.tcl').write_text(pins+'\n')
-sdc=(out/'igor_src_policy.sdc').read_text()
-(out/'igor_src_policy.sdc').write_text('\n'.join(line for line in sdc.splitlines() if 'UART_RX' not in line)+'\n')
-qsf = (base / 'igor_src_policy.qsf').read_text().split('set_global_assignment -name LAST_QUARTUS_VERSION')[0]
-qsf = qsf.replace('igor_src_policy_de10_nano', 'igor_jtag_top')
-qsf += '\nset_global_assignment -name VERILOG_FILE igor_jtag_console.v\n'
+sdc=(out/'garda_src_policy.sdc').read_text()
+(out/'garda_src_policy.sdc').write_text('\n'.join(line for line in sdc.splitlines() if 'UART_RX' not in line)+'\n')
+qsf = (base / 'garda_src_policy.qsf').read_text().split('set_global_assignment -name LAST_QUARTUS_VERSION')[0]
+qsf = qsf.replace('garda_src_policy_de10_nano', 'garda_jtag_top')
+qsf += '\nset_global_assignment -name VERILOG_FILE garda_jtag_console.v\n'
 ip = 'D:/Quartus-Program/ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/'
 for name in ['altera_avalon_jtag_uart', 'altera_avalon_jtag_uart_scfifo_r', 'altera_avalon_jtag_uart_scfifo_w']:
     qsf += f'set_global_assignment -name SYSTEMVERILOG_FILE "{ip}{name}.sv"\n'
-(out / 'igor_jtag.qsf').write_text(qsf)
-(out / 'igor_jtag.qpf').write_text('QUARTUS_VERSION = "25.1"\nPROJECT_REVISION = "igor_jtag"\n')
+(out / 'garda_jtag.qsf').write_text(qsf)
+(out / 'garda_jtag.qpf').write_text('QUARTUS_VERSION = "25.1"\nPROJECT_REVISION = "garda_jtag"\n')
 def crc(data):
     c = 0
     for b in data:
@@ -59,7 +59,7 @@ for i,c in enumerate(template):
     lines.append(f"8'd{i}:status_char={expr};")
 lines+=['default:status_char=8\'h20;', 'endcase end endfunction']
 (out/'status_chars.vh').write_text('\n'.join(lines)+'\n')
-top=(base/'igor_src_policy_de10_nano.v').read_text().replace('module igor_src_policy_de10_nano(', 'module igor_jtag_top(')
+top=(base/'garda_src_policy_de10_nano.v').read_text().replace('module garda_src_policy_de10_nano(', 'module garda_jtag_top(')
 top=top.replace(' input wire UART_RX,\n','')
 top=top.replace(' wire [3:0] state;', '''
  wire console_serial_rx;
@@ -71,16 +71,16 @@ top=top.replace(' wire [3:0] state;', '''
   .clk(FPGA_CLK1_50),.rst_n(rst_n),.av_address(address),.av_chipselect(chipselect),
   .av_read_n(read_n),.av_write_n(write_n),.av_writedata(writedata),
   .av_readdata(readdata),.av_waitrequest(waitrequest),.av_irq());
- igor_jtag_bytes bridge(FPGA_CLK1_50,rst_n,terminal_data,terminal_valid,terminal_ready,
+ garda_jtag_bytes bridge(FPGA_CLK1_50,rst_n,terminal_data,terminal_valid,terminal_ready,
   host_data,host_valid,host_ready,address,chipselect,read_n,write_n,writedata,readdata,waitrequest);
- igor_jtag_console console(FPGA_CLK1_50,rst_n,stop_active,
+ garda_jtag_console console(FPGA_CLK1_50,rst_n,stop_active,
   host_data,host_valid,host_ready,terminal_data,terminal_valid,terminal_ready,
   console_serial_rx,UART_TX,cycles,accepted,rejected,error_code);
  wire [3:0] state;''')
 top=top.replace('.uart_rx(UART_RX)', '.uart_rx(console_serial_rx)')
-(out/'igor_jtag_top.v').write_text(top)
+(out/'garda_jtag_top.v').write_text(top)
 (out / 'source_manifest.json').write_text(json.dumps({
-    'core_sha256': hashlib.sha256((out/'igor_src_policy_core.v').read_bytes()).hexdigest(),
+    'core_sha256': hashlib.sha256((out/'garda_src_policy_core.v').read_bytes()).hexdigest(),
     'demo_observations': [205]*64+[0]*10,
     'demo_request_hex': frame.hex(' '), 'expected_reply_hex': reply.hex(' '),
     'expected_actions_q88': [-46,60,34], 'expected_cycles': 6916,

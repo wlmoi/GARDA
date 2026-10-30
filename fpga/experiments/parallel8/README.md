@@ -27,10 +27,10 @@ Keduanya confidence **Low**, vectorless, HPS Off, bukan daya board terukur.
 Estimasi total masih <1.000 mW, tetapi target total 350 mW belum tercapai.
 Tidak ada jaminan produksi/thermal dari estimasi ini.
 
-Bukti angka: [Fitter summary](output_files/igor_src_policy.fit.summary),
-[semua timing corner](output_files/igor_src_policy.sta.summary),
-[power Typical](artifacts/power/typical/igor_src_policy.pow.summary),
-[power Maximum/Tj100°C](artifacts/power/maximum_tj100/igor_src_policy.pow.summary),
+Bukti angka: [Fitter summary](output_files/garda_src_policy.fit.summary),
+[semua timing corner](output_files/garda_src_policy.sta.summary),
+[power Typical](artifacts/power/typical/garda_src_policy.pow.summary),
+[power Maximum/Tj100°C](artifacts/power/maximum_tj100/garda_src_policy.pow.summary),
 [CSV sumber/baris/SHA](artifacts/metric_evidence.csv),
 [acceptance dan identitas source/SOF](artifacts/acceptance.json).
 
@@ -65,7 +65,7 @@ bentuk source ini tidak mengubah siklus atau aritmetika; regresi tetap wajib.
 
 Seluruh kandidat berada di `fpga/experiments/parallel8`. Proyek baseline
 `fpga/fpga_de10_nano/src_policy` tidak diganti. Buka
-[`igor_src_policy.qpf`](igor_src_policy.qpf) untuk kandidat, bukan QPF baseline.
+[`garda_src_policy.qpf`](garda_src_policy.qpf) untuk kandidat, bukan QPF baseline.
 Device **5CSEBA6U23I7**, clock **50 MHz**, pin planning dan constraint disalin
 dari baseline. KEY0 reset, KEY1 E-stop, UART dan LED tetap pada pin yang sama;
 lihat [`pin_assignment.tcl`](pin_assignment.tcl).
@@ -73,7 +73,7 @@ Tabel konektor JP1 dan arti LED ada di
 [README board baseline](../../fpga_de10_nano/src_policy/README.md).
 Untuk programming setelah build diterima, buka Programmer dari QPF kandidat,
 pilih USB-Blaster, Auto Detect chain, pilih FPGA Cyclone V lalu tambahkan
-`output_files/igor_src_policy.sof` kandidat dan centang Program/Configure.
+`output_files/garda_src_policy.sof` kandidat dan centang Program/Configure.
 Jangan memakai SOF baseline saat menguji angka 138,32 µs. Programming fisik
 belum dilakukan; GPIO UART adalah jalur runtime, bukan pengganti JTAG
 untuk memasukkan SOF pada rancangan ini.

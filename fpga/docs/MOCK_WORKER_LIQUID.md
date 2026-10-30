@@ -1,12 +1,12 @@
 # Mock worker steps in close + corrupted wiring frames
 
-Double-click Desktop **IGOR - Mock Worker dan Liquid**. Satu script Python `fpga/scripts/mock_worker_and_corrupt_frames.py` menjalankan kedua skenario, menampilkan expected/actual dan membuat log bertimestamp. Target batch: `fpga/bitstreams/MOCK_WORKER_LIQUID.bat`.
+Double-click Desktop **GARDA - Mock Worker dan Liquid**. Satu script Python `fpga/scripts/mock_worker_and_corrupt_frames.py` menjalankan kedua skenario, menampilkan expected/actual dan membuat log bertimestamp. Target batch: `fpga/bitstreams/MOCK_WORKER_LIQUID.bat`.
 
 **Tidak memerlukan FPGA, STM32 atau LiDAR terhubung. Tidak membuka port COM/JTAG dan tidak mengirim perintah motor fisik.**
 
 ## 1. Worker steps in close
 
-Menjalankan `_control_loop` dari controller aktual pada `fpga/software_integration/src/igor_controller/igor_controller/controller_node.py`, menggunakan fixture ROS/MCU/FPGA yang sudah tersedia di `run_host_regression.py`. Bukan implementasi ulang aturan STOP.
+Menjalankan `_control_loop` dari controller aktual pada `fpga/software_integration/src/garda_controller/garda_controller/controller_node.py`, menggunakan fixture ROS/MCU/FPGA yang sudah tersedia di `run_host_regression.py`. Bukan implementasi ulang aturan STOP.
 
 - Command awal nonzero: `vx=0,30 m/s`, `vy=0,20 m/s`, `omega=0,40 rad/s`.
 - Policy mock sengaja memberi `[+1,+1,+1]` agar test membuktikan guard tetap menang terhadap action nonzero.

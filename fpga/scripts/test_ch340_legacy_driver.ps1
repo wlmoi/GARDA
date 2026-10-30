@@ -45,7 +45,7 @@ try {
     Add-Type -TypeDefinition @'
 using System;
 using System.Runtime.InteropServices;
-public static class IgorDriverBinding {
+public static class GardaDriverBinding {
  [DllImport("newdev.dll",CharSet=CharSet.Unicode,SetLastError=true)]
  [return: MarshalAs(UnmanagedType.Bool)]
  public static extern bool UpdateDriverForPlugAndPlayDevicesW(IntPtr hwnd,string hardwareId,string inf,uint flags,out bool reboot);
@@ -53,7 +53,7 @@ public static class IgorDriverBinding {
 '@
     $reboot=$false
     # FORCE changes driver selection for the requested version; Windows catalog/security checks still apply.
-    $ok=[IgorDriverBinding]::UpdateDriverForPlugAndPlayDevicesW([IntPtr]::Zero,'USB\VID_1A86&PID_7523',$inf,1,[ref]$reboot)
+    $ok=[GardaDriverBinding]::UpdateDriverForPlugAndPlayDevicesW([IntPtr]::Zero,'USB\VID_1A86&PID_7523',$inf,1,[ref]$reboot)
     $result.api_success=$ok
     $result.reboot_required=$reboot
     if (-not $ok) {$result.win32_error=[Runtime.InteropServices.Marshal]::GetLastWin32Error();throw "Driver switch failed, Windows error $($result.win32_error)"}

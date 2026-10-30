@@ -6,7 +6,7 @@ module tb_jtag_bytes;
  wire address,chipselect,read_n,write_n;wire [31:0] writedata;
  reg [31:0] readdata=0;reg waitrequest=1;
  integer ticks=0,writes=0,receives=0;
- igor_jtag_bytes dut(clk,rst_n,tx_data,tx_valid,tx_ready,rx_data,rx_valid,1'b1,
+ garda_jtag_bytes dut(clk,rst_n,tx_data,tx_valid,tx_ready,rx_data,rx_valid,1'b1,
  address,chipselect,read_n,write_n,writedata,readdata,waitrequest);
  // Same registered handshake shape as the installed Intel IP, with FIFO-full
  // intervals. Assert byte order at each actual Avalon write side effect.

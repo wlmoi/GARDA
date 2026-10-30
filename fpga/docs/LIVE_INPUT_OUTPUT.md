@@ -1,6 +1,6 @@
 # Live input/output dan repeat timer
 
-Klik Desktop **IGOR - LIVE Input Output Auto Check**. Terminal langsung mengirim input, menampilkan hasil dan mengulang setiap 1 detik tanpa prompt. Board harus sudah diprogram dengan image observer JP1 pin 1/2. Tutup terminal/logger lain yang menggunakan COM12 atau JTAG; satu aplikasi saja memiliki setiap jalur. Ctrl+C menghentikan loop dan menyimpan ringkasan.
+Klik Desktop **GARDA - LIVE Input Output Auto Check**. Terminal langsung mengirim input, menampilkan hasil dan mengulang setiap 1 detik tanpa prompt. Board harus sudah diprogram dengan image observer JP1 pin 1/2. Tutup terminal/logger lain yang menggunakan COM12 atau JTAG; satu aplikasi saja memiliki setiap jalur. Ctrl+C menghentikan loop dan menyimpan ringkasan.
 
 Mode ini **aktif mengirim input sintetis ke FPGA**; berbeda dari logger pasif `fpga_datalogger.py` yang hanya membaca snapshot. Tidak ada input LiDAR atau perintah STM32/motor. Script tidak memprogram ulang atau mengganti mode FPGA. Ini adalah pemeriksaan bench yang diulang, bukan logger robot yang sedang memiliki UART yang sama.
 
@@ -21,7 +21,7 @@ Observer menyimpan hasil saat `response_valid`; hasil lama tidak diterima sebaga
 
 Input berputar melalui 256 pola tetap/seeded yang sama dengan suite verifikasi, lalu mengulang dari awal. Data ini mencakup zero, baseline, batas domain, impulse dan random; label sintetis tetap tercatat. Komunikasi OK hanya berlaku untuk jalur yang disebutkan dan pola yang diuji.
 
-Log berada pada `fpga/evidence/live_io/<timestamp UTC>/`: `session.json`, `input_output.csv`, `input_output.jsonl`, dan `summary.json`. CSV/JSONL memuat input lengkap, expected, output, selisih, sequence, timestamp, lokasi dan status; JSONL juga menyimpan snapshot mentah dan byte TX/RX. Setiap baris di-flush. Shortcut **IGOR - LIVE Input Output Logs** membuka foldernya. Log perangkat tetap lokal.
+Log berada pada `fpga/evidence/live_io/<timestamp UTC>/`: `session.json`, `input_output.csv`, `input_output.jsonl`, dan `summary.json`. CSV/JSONL memuat input lengkap, expected, output, selisih, sequence, timestamp, lokasi dan status; JSONL juga menyimpan snapshot mentah dan byte TX/RX. Setiap baris di-flush. Shortcut **GARDA - LIVE Input Output Logs** membuka foldernya. Log perangkat tetap lokal.
 
 Pengaturan alternatif:
 

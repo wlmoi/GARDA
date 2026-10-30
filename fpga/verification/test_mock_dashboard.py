@@ -26,7 +26,7 @@ class DashboardTests(unittest.TestCase):
 
     def request(self, method, url, data=None, token=False):
         connection = http.client.HTTPConnection('127.0.0.1', self.server.server_port, timeout=5)
-        headers = {'X-IGOR-Token': dashboard.TOKEN} if token else {}
+        headers = {'X-GARDA-Token': dashboard.TOKEN} if token else {}
         connection.request(method, url, json.dumps(data) if data is not None else None, headers)
         response = connection.getresponse()
         code, body = response.status, response.read().decode()

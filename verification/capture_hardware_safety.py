@@ -1,4 +1,4 @@
-"""Read real IGOR FPGA safety evidence over UART into timestamped JSONL.
+"""Read real GARDA FPGA safety evidence over UART into timestamped JSONL.
 
 This is an acquisition tool, not pre-recorded hardware evidence. Requires
 pyserial and a physically attached board running the matching UART bitstream.

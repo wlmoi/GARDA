@@ -1,16 +1,16 @@
-# Laporan teknis singkat IGOR
+# Laporan teknis singkat GARDA
 
 **Peruri Chip Hackathon 2026 · ISeeDesignITB · Institut Teknologi Bandung**
 
 ## Ringkasan
 
-IGOR adalah prototipe planner lokal FPGA dengan empat tile evaluator, costmap double-bank, pemilihan kandidat terbaik, dan gerbang pada keluaran command. Desain tersedia untuk Cyclone V pada DE10-Nano dan MAX 10 pada DE10-Lite. Proyek memuat neural core integer 24 → 64 → 64 → 4 yang diuji terpisah serta prototipe ASIC gerbang dalam harness TinyTapeout.
+GARDA adalah prototipe planner lokal FPGA dengan empat tile evaluator, costmap double-bank, pemilihan kandidat terbaik, dan gerbang pada keluaran command. Desain tersedia untuk Cyclone V pada DE10-Nano dan MAX 10 pada DE10-Lite. Proyek memuat neural core integer 24 → 64 → 64 → 4 yang diuji terpisah serta prototipe ASIC gerbang dalam harness TinyTapeout.
 
 Hasil utama adalah 7.938 siklus untuk evaluasi 512 kandidat × 20 pose pada enam scene, 400 output neural yang cocok tepat, delapan passing test case cocotb, sembilan skenario fault yang menolak izin, dan dua target FPGA yang telah melewati implementasi Quartus.
 
 ## Latar belakang dan keputusan desain
 
-Kontrol lokal memerlukan keputusan yang dapat diperiksa bersama status inputnya. Kecepatan arithmetic saja tidak menjawab apakah peta lengkap, konfigurasi terkunci, hasil masih fresh, atau emergency aktif. IGOR menggabungkan jadwal evaluasi yang jelas dengan keluaran yang tunduk pada gerbang pemeriksaan.
+Kontrol lokal memerlukan keputusan yang dapat diperiksa bersama status inputnya. Kecepatan arithmetic saja tidak menjawab apakah peta lengkap, konfigurasi terkunci, hasil masih fresh, atau emergency aktif. GARDA menggabungkan jadwal evaluasi yang jelas dengan keluaran yang tunduk pada gerbang pemeriksaan.
 
 Desain memakai fixed-point dan ROM agar operasi numerik serta resource bisa ditelusuri. Empat evaluator membagi kandidat secara paralel. Costmap direplikasi untuk menyediakan port baca independen. UART menjadi antarmuka inspeksi yang mudah direproduksi pada lab. Keputusan tersebut menyediakan bukti RTL dan implementation yang dapat ditinjau, sambil memperlihatkan batas bandwidth transport yang perlu ditingkatkan untuk integrasi.
 
@@ -26,9 +26,9 @@ Desain memakai fixed-point dan ROM agar operasi numerik serta resource bisa dite
 | Output planner | permit 1 bit, v 5 bit, omega signed 7 bit |
 | Neural | 24 → 64 → 64 → 4, operand signed 16 bit, accumulator 40 bit |
 | Host planner | UART 115200 8N1, request/response 8 byte |
-| Nano | 5CSEBA6U23I7, top igor_uart_top |
-| Lite | 10M50DAF484C7G, top igor_de10_lite_top |
-| ASIC aktif: full neural inference, fixed model | tt_um_wlmoi_igor_neural_logic |
+| Nano | 5CSEBA6U23I7, top garda_uart_top |
+| Lite | 10M50DAF484C7G, top garda_de10_lite_top |
+| ASIC aktif: full neural inference, fixed model | tt_um_wlmoi_garda_neural_logic |
 
 ## Arsitektur dan verifikasi
 

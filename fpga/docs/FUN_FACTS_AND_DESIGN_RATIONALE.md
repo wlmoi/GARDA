@@ -1,8 +1,8 @@
-# IGOR Parallel8: fun facts, keputusan desain dan keunggulan yang terukur
+# GARDA Parallel8: fun facts, keputusan desain dan keunggulan yang terukur
 
 19 Oktober 2026. Profil: **PPO 74→128→64→3**, Parallel8, DE10-Nano **5CSEBA6U23I7**, clock **50 MHz**, UART nominal **921600 baud**. Tujuan dokumen: menjelaskan *mengapa* arsitekturnya dipilih, bagaimana data bergerak, dan apa yang dibuktikan angka implementasi. Semua path relatif terhadap dokumen ini. Ini dokumentasi atas implementasi yang sudah ada; tidak ada perubahan RTL atau SOF.
 
-**Pesan utama:** IGOR memakai delapan jalur perkalian paralel, parameter lokal dan aritmetika fixed-point untuk menyelesaikan core inferensi dalam **138,32 µs**, dengan **3.303 ALM total, 64 M10K dan 8 DSP**. Kekuatan desain terletak pada kesesuaian target, pengelolaan data, perilaku yang terdefinisi dan bukti yang dapat dilacak. “Paling bagus” di sini berarti keputusan yang kuat untuk kebutuhan IGOR; klaim terbaik universal memerlukan benchmark dengan workload dan batas sistem yang sama.
+**Pesan utama:** GARDA memakai delapan jalur perkalian paralel, parameter lokal dan aritmetika fixed-point untuk menyelesaikan core inferensi dalam **138,32 µs**, dengan **3.303 ALM total, 64 M10K dan 8 DSP**. Kekuatan desain terletak pada kesesuaian target, pengelolaan data, perilaku yang terdefinisi dan bukti yang dapat dilacak. “Paling bagus” di sini berarti keputusan yang kuat untuk kebutuhan GARDA; klaim terbaik universal memerlukan benchmark dengan workload dan batas sistem yang sama.
 
 ## 1. Peta angka yang paling menarik
 
@@ -27,11 +27,11 @@
 | Pengujian core | **54.399 assertions** | Termasuk hidden/output integer, kontrol dan activation |
 | Inferensi UART fisik | **98/98**, mean **4,594 ms**, max **5,920 ms** | Hasil transaksi nyata pada sesi 18 Oktober, cakupan berbeda dari core latency |
 
-Bukti primer: [acceptance Parallel8](../experiments/parallel8/artifacts/acceptance.json), [hierarchy Fitter](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:1411), [GUI Quartus asli](../evidence/quartus_gui/README.md), [sesi fisik](../../final_docs.md). Ledger perhitungan dan SHA: [design_funfacts.json](../evidence/design_funfacts/design_funfacts.json).
+Bukti primer: [acceptance Parallel8](../experiments/parallel8/artifacts/acceptance.json), [hierarchy Fitter](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:1411), [GUI Quartus asli](../evidence/quartus_gui/README.md), [sesi fisik](../../final_docs.md). Ledger perhitungan dan SHA: [design_funfacts.json](../evidence/design_funfacts/design_funfacts.json).
 
 ## 2. Tanpa PLL: target dicapai lewat arsitektur
 
-**Fakta:** top menghubungkan `FPGA_CLK1_50` langsung ke policy/core. SDC menyatakan period 20 ns. GUI melaporkan **0 PLL** dan satu clock 50 MHz. [RTL top](../experiments/parallel8/igor_src_policy_de10_nano.v), [clock GUI](../evidence/quartus_gui/10_clock_50mhz.jpg), [resource GUI](../evidence/quartus_gui/02_fitter_summary.jpg).
+**Fakta:** top menghubungkan `FPGA_CLK1_50` langsung ke policy/core. SDC menyatakan period 20 ns. GUI melaporkan **0 PLL** dan satu clock 50 MHz. [RTL top](../experiments/parallel8/garda_src_policy_de10_nano.v), [clock GUI](../evidence/quartus_gui/10_clock_50mhz.jpg), [resource GUI](../evidence/quartus_gui/02_fitter_summary.jpg).
 
 **Mengapa masuk akal:** 6.916 siklus pada 50 MHz sudah memenuhi 160 µs. Secara aritmetika, 6.916/160 µs = **43,225 MHz** menghasilkan tepat 160 µs; untuk target *strictly below* 160 µs diperlukan lebih dari angka tersebut. Ini bukan hasil build baru pada 43,225 MHz. Clock board yang tersedia memberi margin tanpa kebutuhan menambah PLL, generated-clock constraint atau ketergantungan sinyal PLL lock.
 
@@ -43,7 +43,7 @@ Jangan menjelaskan ketiadaan PLL sebagai “tidak pernah ada implementasi lebih 
 
 ## 3. Parallelism dipilih pada sumbu neuron
 
-Setiap neuron menghitung `bias + Σ(input × weights)`. Pada satu layer, banyak neuron memerlukan input yang sama. IGOR menyiarkan satu `operand[15:0]` ke delapan lane; tiap lane membaca weights berbeda dan memiliki `accumulator[39:0]` sendiri.
+Setiap neuron menghitung `bias + Σ(input × weights)`. Pada satu layer, banyak neuron memerlukan input yang sama. GARDA menyiarkan satu `operand[15:0]` ke delapan lane; tiap lane membaca weights berbeda dan memiliki `accumulator[39:0]` sendiri.
 
 ```text
                          operand[15:0]
@@ -59,7 +59,7 @@ accumulator[39:0]   accumulator[39:0] ... accumulator[39:0]
  ReLU / clamp          ReLU / clamp        ReLU / clamp
 ```
 
-Dengan cara ini, parallelism tidak memerlukan delapan pembacaan input independen. Akses weights dibagi ke delapan bank; input dipakai ulang. Semua lane tetap menyelesaikan urutan penjumlahan neuron yang sama dengan baseline serial. Tidak ada adder tree baru yang mengubah pengelompokan operasi atau urutan saturasi. [Datapath RTL](../experiments/parallel8/igor_src_policy_core.v), [diagram editable](assets/igor_core_simple.drawio).
+Dengan cara ini, parallelism tidak memerlukan delapan pembacaan input independen. Akses weights dibagi ke delapan bank; input dipakai ulang. Semua lane tetap menyelesaikan urutan penjumlahan neuron yang sama dengan baseline serial. Tidak ada adder tree baru yang mengubah pengelompokan operasi atau urutan saturasi. [Datapath RTL](../experiments/parallel8/garda_src_policy_core.v), [diagram editable](assets/garda_core_simple.drawio).
 
 ## 4. Mengapa delapan lane sangat cocok dengan bentuk jaringan
 
@@ -78,7 +78,7 @@ Total grup: **16+8+1 = 25**. Total slot neuron yang dijadwalkan: **25×8 = 200**
 | M10K | 64 | 64 | **Tidak bertambah** |
 | DSP | 1 | 8 | Tambahan tujuh DSP untuk tujuh lane komputasi |
 
-Ini argumen efisiensi yang kuat: paralelisasi memanfaatkan hardware multiplier yang tersedia dan banking yang terencana, sehingga biaya penambahan ALM kecil pada hasil fit ini. Ini bukan bukti bahwa DSP bebas biaya atau setiap model akan memperoleh rasio yang sama. Sumber: [baseline summary](../fpga_de10_nano/src_policy/output_files/igor_src_policy.fit.summary), [Parallel8 summary](../experiments/parallel8/output_files/igor_src_policy.fit.summary).
+Ini argumen efisiensi yang kuat: paralelisasi memanfaatkan hardware multiplier yang tersedia dan banking yang terencana, sehingga biaya penambahan ALM kecil pada hasil fit ini. Ini bukan bukti bahwa DSP bebas biaya atau setiap model akan memperoleh rasio yang sama. Sumber: [baseline summary](../fpga_de10_nano/src_policy/output_files/garda_src_policy.fit.summary), [Parallel8 summary](../experiments/parallel8/output_files/garda_src_policy.fit.summary).
 
 Rasio speedup terhadap ideal delapan kali adalah **98,2287%**. Angka itu hanya membandingkan kedua jadwal inferensi; tidak sama dengan pemakaian multiplier tiap clock atau parallel efficiency universal.
 
@@ -88,7 +88,7 @@ Perkalian signed 16×16 menghasilkan product signed 32-bit. FPGA menyediakan har
 
 Manfaat desainnya: multiplier tidak harus seluruhnya dibangun dari tabel logika umum, sementara ALM dapat dipakai untuk FSM, validasi dan interface. Ini pilihan implementasi hardware, bukan sekadar label “AI accelerator”. Dokumentasi resmi menjelaskan inferensi multiplier/DSP/memory dan kemampuan variable-precision Cyclone V [P1][P2]. Kita tidak mengklaim seluruh adder accumulator 40-bit sudah masuk DSP tanpa melihat netlist terpetakan.
 
-Cyclone V mempunyai beberapa mode DSP. Karena itu **8 multiplier logis tidak secara universal berarti harus 8 DSP** pada setiap struktur HDL. Yang membuat angka delapan sah di IGOR adalah hasil Fitter aktual, bukan perkiraan dari jumlah operasi. Pemadatan multiplier atau MAC inference lain adalah eksperimen lanjutan, bukan optimasi yang sudah diklaim.
+Cyclone V mempunyai beberapa mode DSP. Karena itu **8 multiplier logis tidak secara universal berarti harus 8 DSP** pada setiap struktur HDL. Yang membuat angka delapan sah di GARDA adalah hasil Fitter aktual, bukan perkiraan dari jumlah operasi. Pemadatan multiplier atau MAC inference lain adalah eksperimen lanjutan, bukan optimasi yang sudah diklaim.
 
 ## 7. Reuse hardware: 17.856 weights tidak berarti 17.856 multiplier
 
@@ -113,7 +113,7 @@ CSV menyimpan contoh start cycle **499** dan done **7.415**, selisih **6.916**; 
 
 Upper bound core, tanpa waktu memuat input/host: `50.000.000/6.916` = **7.229,61 inferensi/detik**. Pekerjaan berguna per inferensi = 17.856 MAC berbobot, sehingga ekuivalen **129,092 juta MAC/detik**. Jika satu multiply dan satu add dihitung dua operasi, nilainya **258,184 juta operasi/detik = 0,258184 GOPS**. Bias/activation/transport tidak dihitung dalam definisi ini.
 
-Delapan multiplier pada 50 MHz memberi batas aritmetika mentah 400 juta perkalian/detik *jika* semuanya menerima data baru setiap siklus. Jadwal IGOR saat ini tidak bekerja begitu: ada akses memori, state tunggu dan tail output. Karena itu jangan memasarkan 400 MMAC/s sebagai sustained core throughput terukur.
+Delapan multiplier pada 50 MHz memberi batas aritmetika mentah 400 juta perkalian/detik *jika* semuanya menerima data baru setiap siklus. Jadwal GARDA saat ini tidak bekerja begitu: ada akses memori, state tunggu dan tail output. Karena itu jangan memasarkan 400 MMAC/s sebagai sustained core throughput terukur.
 
 Batas teoritis core juga bukan throughput UART nyata. Pemisahan ini justru membantu proses desain: ketika core telah cepat, optimasi berikutnya dapat diarahkan ke transport dan buffering sesuai kebutuhan aplikasi.
 
@@ -155,7 +155,7 @@ action = clamp(scaled, -256, 256)
 
 Tidak ada pembagi umum untuk rescale ini: pemilihan bit menjadi bagian datapath. Hidden maksimal 32.767 kode atau **127,99609375** pada skala Q8.8; output dibatasi **[-1,+1]** pada skala riil. Hardware menerapkan batas yang eksplisit, tidak membiarkan interpretasi overflow bergantung pada software host.
 
-Accumulator **40-bit** memberi ruang untuk partial sum sebelum aktivasi. Sebagai bound kasar struktural, 128 produk signed16×16 masing-masing maksimal magnitudo 2^30 memerlukan akomodasi hingga sekitar 2^37 sebelum bias; signed40 mencakupnya. Bound ini bukan alasan otomatis untuk mempersempitnya: domain, bias dan seluruh partial sum harus dibuktikan pada kandidat baru. [Aktivasi dan accumulator source](../experiments/parallel8/igor_src_policy_core.v).
+Accumulator **40-bit** memberi ruang untuk partial sum sebelum aktivasi. Sebagai bound kasar struktural, 128 produk signed16×16 masing-masing maksimal magnitudo 2^30 memerlukan akomodasi hingga sekitar 2^37 sebelum bias; signed40 mencakupnya. Bound ini bukan alasan otomatis untuk mempersempitnya: domain, bias dan seluruh partial sum harus dibuktikan pada kandidat baru. [Aktivasi dan accumulator source](../experiments/parallel8/garda_src_policy_core.v).
 
 ## 14. Ketepatan diuji sampai hidden layer
 
@@ -195,7 +195,7 @@ Dengan gate transaksi lengkap, parser dan core tidak memperlakukan setengah fram
 
 KEY1 mengassert stop dan melatch sampai KEY0 reset. Top juga mempunyai path raw KEY untuk inhibit dan path tersinkronisasi; ia tidak hanya bergantung pada state software. Default parameter UART memberi RX inter-byte timeout **1.000.000 siklus = 20 ms**, result lease **20 ms**, infer watchdog **100.000 siklus = 2 ms** pada 50 MHz.
 
-LED mapping: **LED0 permit**, **LED1 reset released**, **LED2 response-valid pulse**, **LED3 stop active**, **LED7:4 error code**. Status ini membantu diagnosis tanpa perlu alat debug internal. Frame accepted/rejected dan error history memberi jejak transaksi di interface debug yang diimplementasikan. [Top RTL](../experiments/parallel8/igor_src_policy_de10_nano.v), [policy RTL](../rtl/igor_src_policy/igor_src_policy_uart.v).
+LED mapping: **LED0 permit**, **LED1 reset released**, **LED2 response-valid pulse**, **LED3 stop active**, **LED7:4 error code**. Status ini membantu diagnosis tanpa perlu alat debug internal. Frame accepted/rejected dan error history memberi jejak transaksi di interface debug yang diimplementasikan. [Top RTL](../experiments/parallel8/garda_src_policy_de10_nano.v), [policy RTL](../rtl/garda_src_policy/garda_src_policy_uart.v).
 
 CRC8 mendeteksi kerusakan frame sesuai polinomialnya; ia bukan identitas pengirim dan bukan perlindungan terhadap pemalsuan oleh adversary. Keunggulan security yang sah adalah validation, fail-closed behavior pada kontrak terkait, status fault dan pemisahan jalur safety. Sertifikasi industri atau cryptographic root-of-trust tidak diklaim dari mekanisme tersebut.
 
@@ -254,7 +254,7 @@ Native GUI screenshot menyertakan judul project Parallel8 dan panel report asli.
 
 ## 28. ASIC memberi arah pengembangan, dengan batas fungsi yang jelas
 
-Repository juga menyimpan physical report IHP CMOS5L `tt_um_igorchip`, sebuah programmable protocol engine. Angka fisiknya: standard cells **0,0698308 mm²**, satu macro SRAM 512 byte **0,0281271 mm²**, jumlah footprint **0,0979579 mm²**, allocated block **0,916214 mm²**. Ini bukti proses implementasi ASIC untuk top tersebut, bukan luas neural Parallel8 yang sudah diproduksi.
+Repository juga menyimpan physical report IHP CMOS5L `tt_um_gardachip`, sebuah programmable protocol engine. Angka fisiknya: standard cells **0,0698308 mm²**, satu macro SRAM 512 byte **0,0281271 mm²**, jumlah footprint **0,0979579 mm²**, allocated block **0,916214 mm²**. Ini bukti proses implementasi ASIC untuk top tersebut, bukan luas neural Parallel8 yang sudah diproduksi.
 
 Nilai “tanpa PLL”, “8% ALM” dan “0,0979579 mm²” tidak boleh dilebur seolah berasal dari satu chip neural ASIC yang sama. ASIC memakai standard cells/macro, tidak membawa LUT/M10K/DSP FPGA secara literal. Langkah berikutnya adalah mapping neural top dan memory ke library IHP yang sama, lalu membandingkan area/timing/power pada fungsi yang ekuivalen. [Area analysis](AREA_CORE_UART_ASIC.md), [status fisik ASIC](ASIC_SIGNOFF_STATUS.md).
 
@@ -270,21 +270,21 @@ Ini ide engineering berbasis struktur aktual, bukan perubahan yang diam-diam sud
 
 ## 30. Narasi publikasi yang dapat langsung digunakan
 
-> IGOR Parallel8 menghadirkan akselerator neural dengan delapan lane komputasi yang memproses policy 74→128→64→3 dalam 138,32 mikrodetik pada clock 50 MHz. Banking parameter dan reuse operand mempertahankan model 18.051 parameter dengan 64 M10K, sementara delapan DSP menjalankan perkalian signed fixed-point. Implementasi lengkap hanya memakai 3.303 ALM—sekitar 8% kapasitas logika DE10-Nano—dan menyediakan interface UART ber-CRC, validasi transaksi, timeout serta E-stop yang dapat diamati melalui status hardware. Keputusan desain didukung oracle integer, laporan fitting dan timing, screenshot GUI Quartus asli, serta 98 transaksi inferensi UART fisik yang berhasil pada sesi pengujian terdokumentasi.
+> GARDA Parallel8 menghadirkan akselerator neural dengan delapan lane komputasi yang memproses policy 74→128→64→3 dalam 138,32 mikrodetik pada clock 50 MHz. Banking parameter dan reuse operand mempertahankan model 18.051 parameter dengan 64 M10K, sementara delapan DSP menjalankan perkalian signed fixed-point. Implementasi lengkap hanya memakai 3.303 ALM—sekitar 8% kapasitas logika DE10-Nano—dan menyediakan interface UART ber-CRC, validasi transaksi, timeout serta E-stop yang dapat diamati melalui status hardware. Keputusan desain didukung oracle integer, laporan fitting dan timing, screenshot GUI Quartus asli, serta 98 transaksi inferensi UART fisik yang berhasil pada sesi pengujian terdokumentasi.
 
 Untuk presentasi, jelaskan urutannya: **target → baseline → banking dan reuse → delapan lane → integer correctness → Fitter/STA → protokol/safety → bukti fisik**. Dengan alur ini, angka tidak berdiri sendiri: audiens melihat kebutuhan, pilihan, biaya dan hasilnya.
 
 ## Pustaka dan sumber primer
 
-Sumber project lebih berwenang untuk angka IGOR daripada deskripsi umum arsitektur perangkat. Pustaka vendor menjelaskan kemampuan dan metode, bukan membuktikan implementasi IGOR secara otomatis.
+Sumber project lebih berwenang untuk angka GARDA daripada deskripsi umum arsitektur perangkat. Pustaka vendor menjelaskan kemampuan dan metode, bukan membuktikan implementasi GARDA secara otomatis.
 
 - **[P1] Altera.** *Design Compilation User Guide, §3.5: Inferring Multiplier, DSP, and Memory Functions from HDL Code.* Dokumentasi resmi tentang pengenalan operasi HDL dan pemetaan ke resource perangkat. [Dokumen](https://docs.altera.com/r/docs/683283/18.1/design-compilation-user-guide-quartus-prime-standard-edition/inferring-multiplier-dsp-and-memory-functions-from-hdl-code?contentId=wmnswszCTQKsOuMH4H_cqw). Diakses melalui indeks dokumentasi 19 Oktober 2026.
 - **[P2] Altera.** *Cyclone V Device Overview: Variable-Precision DSP Block.* Mode presisi dan konfigurasi DSP Cyclone V. [Dokumen](https://docs.altera.com/r/docs/683694/current/cyclone-v-device-overview/variable-precision-dsp-block?contentId=DfL21bJ5g7LHAndq9mObpQ). Diakses melalui indeks dokumentasi 19 Oktober 2026.
-- **[P3] Terasic.** *DE10-Nano Kit*, spesifikasi board dan sumber clock. [Halaman resmi](https://www.terasic.com.tw/cgi-bin/page/archive.pl?CategoryNo=199&Language=Taiwan&No=1047&PartNo=2). Keberadaan tiga sumber 50 MHz pada spesifikasi board tidak berarti seluruhnya dipakai oleh IGOR; top dan SDC hanya memakai FPGA_CLK1_50.
-- **[L1] Quartus Prime 25.1.** [Fitter summary](../experiments/parallel8/output_files/igor_src_policy.fit.summary), [Fitter hierarchy](../experiments/parallel8/output_files/igor_src_policy.fit.rpt:1411), [timing summary](../experiments/parallel8/output_files/igor_src_policy.sta.summary).
-- **[L2] IGOR verification.** [Acceptance](../experiments/parallel8/artifacts/acceptance.json), [cycle checkpoints](../experiments/parallel8/core_checkpoints.csv), [UART audit](../evidence/uart_rtl_audit/20261018T071219039780Z/REPORT.md), [coverage](../evidence/rtl_coverage/COVERAGE_RESULTS.md).
+- **[P3] Terasic.** *DE10-Nano Kit*, spesifikasi board dan sumber clock. [Halaman resmi](https://www.terasic.com.tw/cgi-bin/page/archive.pl?CategoryNo=199&Language=Taiwan&No=1047&PartNo=2). Keberadaan tiga sumber 50 MHz pada spesifikasi board tidak berarti seluruhnya dipakai oleh GARDA; top dan SDC hanya memakai FPGA_CLK1_50.
+- **[L1] Quartus Prime 25.1.** [Fitter summary](../experiments/parallel8/output_files/garda_src_policy.fit.summary), [Fitter hierarchy](../experiments/parallel8/output_files/garda_src_policy.fit.rpt:1411), [timing summary](../experiments/parallel8/output_files/garda_src_policy.sta.summary).
+- **[L2] GARDA verification.** [Acceptance](../experiments/parallel8/artifacts/acceptance.json), [cycle checkpoints](../experiments/parallel8/core_checkpoints.csv), [UART audit](../evidence/uart_rtl_audit/20261018T071219039780Z/REPORT.md), [coverage](../evidence/rtl_coverage/COVERAGE_RESULTS.md).
 - **[L3] Native GUI evidence.** [18 screenshot asli](../evidence/quartus_gui/README.md), capture metadata dan hashes. Report berasal dari build 17 Oktober, diinspeksi GUI 19 Oktober 2026.
 - **[L4] Physical integration.** [Final operating guide](../../final_docs.md), [direct UART runbook](../../docs/direct_uart_runbook.md), [physical logs](../../docs/ethernet_validation/).
-- **[L5] Source RTL.** [Parallel8 core](../experiments/parallel8/igor_src_policy_core.v), [top](../experiments/parallel8/igor_src_policy_de10_nano.v), [UART policy](../rtl/igor_src_policy/igor_src_policy_uart.v), [techniques](techniques.md).
+- **[L5] Source RTL.** [Parallel8 core](../experiments/parallel8/garda_src_policy_core.v), [top](../experiments/parallel8/garda_src_policy_de10_nano.v), [UART policy](../rtl/garda_src_policy/garda_src_policy_uart.v), [techniques](techniques.md).
 
 Semua hitungan turunan diberi definisi di atas. Script ledger `fpga/scripts/collect_design_funfacts.py` membaca angka sumber dan menghitung kembali rasio; script tersebut tidak membuat angka Fitter/STA/power dan tidak menjalankan hardware.

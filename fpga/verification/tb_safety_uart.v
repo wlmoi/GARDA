@@ -3,7 +3,7 @@
 module tb_safety_uart;
 reg clk=0;always #10 clk=~clk;
 reg [1:0] key=0;reg [3:0] sw=0;reg rx=1;wire tx;wire [7:0] led;
-igor_uart_top #(.CLKS_PER_BIT(8),.RX_TIMEOUT_CYCLES(128)) dut(clk,key,sw,rx,tx,led);
+garda_uart_top #(.CLKS_PER_BIT(8),.RX_TIMEOUT_CYCLES(128)) dut(clk,key,sw,rx,tx,led);
 defparam dut.inspection_rom.FILE="assets/neural_24_64_64_4/bram_unified_weights_padded.mem";
 defparam dut.neural.weights.FILE="assets/neural_24_64_64_4/bram_unified_weights_padded.mem";
 integer fd,i,accepted_count=0;reg [7:0] c;reg [63:0] captured_frame;

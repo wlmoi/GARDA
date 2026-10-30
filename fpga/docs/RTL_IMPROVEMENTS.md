@@ -6,7 +6,7 @@ Tanggal 17 Oktober 2026. Model utama tetap PPO 74→128→64→3 dari `src`; per
 
 ### Counter accepted/rejected policy tidak boleh wrap menjadi nol
 
-Sebelumnya, tiga jalur increment pada [igor_src_policy_uart.v](../rtl/igor_src_policy/igor_src_policy_uart.v) memakai penjumlahan 32-bit biasa: counter accepted, task reject, dan kejadian E-stop. Ketika `0xffffffff` ditambah satu, counter menjadi nol. Pada observasi audit jangka panjang, nol itu dapat disalahartikan sebagai belum ada transaksi/penolakan sejak reset.
+Sebelumnya, tiga jalur increment pada [garda_src_policy_uart.v](../rtl/garda_src_policy/garda_src_policy_uart.v) memakai penjumlahan 32-bit biasa: counter accepted, task reject, dan kejadian E-stop. Ketika `0xffffffff` ditambah satu, counter menjadi nol. Pada observasi audit jangka panjang, nol itu dapat disalahartikan sebagai belum ada transaksi/penolakan sejak reset.
 
 Sekarang ketiganya **saturating**: increment hanya bila nilainya belum `32'hffffffff`. Kejadian fault tetap memperbarui error/history dan tetap membatalkan permit/respons; counter penuh tidak menghentikan evaluasi keselamatan. Reset hardware tetap menghapus counter. Tidak ada opcode, panjang frame, CRC, bobot, range output atau latency inferensi yang diubah.
 

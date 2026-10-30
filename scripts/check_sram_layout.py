@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / '.runtime/layout-python'))
 import klayout.db as db
 
-TOP = 'tt_um_wlmoi_igor_neural_sram'
+TOP = 'tt_um_wlmoi_garda_neural_sram'
 sys.path.insert(0,str(ROOT))
 from asic.neural_sram.contracts import EXPECTED_COUNTS
 

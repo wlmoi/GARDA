@@ -30,7 +30,7 @@ Copy the complete FPGA_UART_TTL folder. Open quartus/stm_uart.qpf. Device is **5
 | quartus/output_files/stm_uart.sof | Updated programming image |
 | evidence/verified_* | Current simulation/build logs |
 
-This is a standalone motor-transport demo. It has not been integrated with IGOR or its safety gate. Python and BAT are not needed during TTL operation after FPGA configuration.
+This is a standalone motor-transport demo. It has not been integrated with GARDA or its safety gate. Python and BAT are not needed during TTL operation after FPGA configuration.
 
 ## Module breakdown and bit flow
 
@@ -146,8 +146,8 @@ Begin with SW3=0, SW1=0, SW0=1, then press/release KEY1. After buzzer succeeds o
 
 LED0=sender busy, LED1=controller not idle, LED3:2=command code, LED4=arm, LED5=RX level, LED7:6=zero. LEDs do not prove STM execution.
 
-## Physical acceptance and IGOR integration
+## Physical acceptance and GARDA integration
 
 Record buzzer, movement of each wheel, correct forward/backward behavior and physical STOP. Keep FPGA-to-STM status NOT TESTED until those observations are obtained. A successful simulation, LED or SOF does not prove the connection.
 
-IGOR uses a different UART protocol and top igor_uart_top. Do not substitute its SOF for this transport demo. Integrating IGOR needs documented scaling, chassis inverse kinematics, bounded float conversion, dynamic packet/CRC generation and permission checks before transmission. Commands must be revoked when permission becomes zero. That integration and end-to-end latency are not implemented here.
+GARDA uses a different UART protocol and top garda_uart_top. Do not substitute its SOF for this transport demo. Integrating GARDA needs documented scaling, chassis inverse kinematics, bounded float conversion, dynamic packet/CRC generation and permission checks before transmission. Commands must be revoked when permission becomes zero. That integration and end-to-end latency are not implemented here.

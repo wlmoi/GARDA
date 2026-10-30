@@ -87,7 +87,7 @@ function disposeTree(root) {
   textures.forEach(x => x.dispose());
 }
 
-export class IgorScene {
+export class GardaScene {
   constructor(canvas, { onSelect = () => {}, onModeChange = () => {} } = {}) {
     this.canvas = canvas;
     this.onSelect = onSelect;
@@ -598,7 +598,7 @@ export class IgorScene {
     if (!obj) return;
     let id = obj.userData.selectId;
     if (id === '_fpga') {
-      id = this._blocks.find(b => b.id === 'igor_uart_top')?.id || this._blocks.find(b => /top|wrapper/.test(b.id))?.id || this._blocks[0]?.id || 'igor_uart_top';
+      id = this._blocks.find(b => b.id === 'garda_uart_top')?.id || this._blocks.find(b => /top|wrapper/.test(b.id))?.id || this._blocks[0]?.id || 'garda_uart_top';
       this.setMode('die');
     }
     this.select(id);

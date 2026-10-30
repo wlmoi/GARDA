@@ -1,6 +1,6 @@
 # Desktop JTAG terminal
 
-Double-click `IGOR - JTAG Terminal` on the Windows Desktop. The shortcut runs
+Double-click `GARDA - JTAG Terminal` on the Windows Desktop. The shortcut runs
 `fpga/bitstreams/OPEN_JTAG_TERMINAL.bat`, which invokes
 `fpga/scripts/open_jtag_terminal.ps1` using the installed Quartus tools.
 
@@ -23,7 +23,7 @@ See `fpga/evidence/jtag_terminal/20261019T1207461333405Z/` for the original logs
 
 The original accepted Parallel8 SOF provides a physical UART on JP1 pins 1/2 at
 921600 baud. USB-Blaster does not convert those pins into a Windows COM port.
-The new, separate `igor_parallel8_jtag.sof` adds the JTAG UART console and feeds
+The new, separate `garda_parallel8_jtag.sof` adds the JTAG UART console and feeds
 the policy receiver with an internal UART serializer. It retains the original
 Parallel8 core and weights. Physical JP1 RX is reserved for the original image;
 the JTAG variant uses the console as its input source.

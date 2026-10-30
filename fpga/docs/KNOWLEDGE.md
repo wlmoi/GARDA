@@ -2,7 +2,7 @@
 
 ## Keputusan awal
 
-Repository ini adalah paket source dan bukti yang dipilih untuk proyek IGOR. Mulai dari tujuan Anda pada tabel berikut, kemudian jalankan pemeriksaan file sebelum memilih programming image.
+Repository ini adalah paket source dan bukti yang dipilih untuk proyek GARDA. Mulai dari tujuan Anda pada tabel berikut, kemudian jalankan pemeriksaan file sebelum memilih programming image.
 
 | Pekerjaan | Entry point |
 |---|---|
@@ -25,12 +25,12 @@ Repository ini adalah paket source dan bukti yang dipilih untuk proyek IGOR. Mul
 - `verification/` memuat model-driven tests dan output JSON.
 - `evidence/build_evidence.json` mengidentifikasi keempat SOF dengan SHA256.
 - `evidence/RELEASE_MANIFEST.json` mengidentifikasi file publik pada snapshot release.
-- `docs/flowcharts/IGOR_RTL_Flowchart.io` merupakan sumber diagram yang dapat diedit.
+- `docs/flowcharts/GARDA_RTL_Flowchart.io` merupakan sumber diagram yang dapat diedit.
 - `robot/jetauto/FPGA_UART_TTL_MULTISPEED/` adalah target motor empat speed tersendiri.
 
 ## Invariant yang harus dipertahankan
 
-1. Output command planner tetap melalui gerbang pada `igor_top`.
+1. Output command planner tetap melalui gerbang pada `garda_top`.
 2. Peta tidak dipakai sampai frame lengkap, sequence dan commit diterima.
 3. Konfigurasi dibatasi oleh lock.
 4. Timeout, emergency, dan invalid input harus meniadakan izin.
@@ -40,7 +40,7 @@ Repository ini adalah paket source dan bukti yang dipilih untuk proyek IGOR. Mul
 
 ## Urutan pekerjaan berikutnya
 
-Rekam programming dan readback pada board lab, kemudian ulangi pada board onsite. Untuk motor, simpan observasi terbaru per-ID dan all-wheel setelah troubleshooting. Setelah transport dipastikan, implementasikan bridge command IGOR yang mempertahankan sequence dan expiry. Ukur latency keseluruhan setelah jalur tersebut ada. Flow ASIC dilanjutkan melalui workflow fisik tersendiri.
+Rekam programming dan readback pada board lab, kemudian ulangi pada board onsite. Untuk motor, simpan observasi terbaru per-ID dan all-wheel setelah troubleshooting. Setelah transport dipastikan, implementasikan bridge command GARDA yang mempertahankan sequence dan expiry. Ukur latency keseluruhan setelah jalur tersebut ada. Flow ASIC dilanjutkan melalui workflow fisik tersendiri.
 
 ## Praktik perubahan
 

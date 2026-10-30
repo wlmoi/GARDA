@@ -9,7 +9,7 @@ module integration_tb;
  wire [7:0] uio_in, uo_out, uio_out, uio_oe;
  // External drivers are used on released pins. Models pull-ups by driving 1.
  assign uio_in = (gpio_drive & ~uio_oe) | (uio_out & uio_oe);
- tt_um_igorchip dut (
+ tt_um_gardachip dut (
   .clk(clk), .rst_n(rst_n), .ena(ena), .ui_in(ui_in),
   .uio_in(uio_in), .uo_out(uo_out), .uio_out(uio_out), .uio_oe(uio_oe)
  );

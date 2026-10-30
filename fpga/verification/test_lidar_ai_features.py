@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'fpga/scripts'))
 from lidar_ai_reader import features
 
-spec = importlib.util.spec_from_file_location('reference_lidar', ROOT / 'src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py')
+spec = importlib.util.spec_from_file_location('reference_lidar', ROOT / 'src/garda_navigation/garda_navigation/drivers/lidar_subsampler.py')
 reference = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(reference)
 

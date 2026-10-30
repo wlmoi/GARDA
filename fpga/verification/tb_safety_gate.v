@@ -3,7 +3,7 @@
 module tb_safety_gate;
 reg [9:0] ctrl;reg [4:0] cv,pv,mv,mdv;reg signed [6:0] cw,pw;reg [6:0] mw,mdw;
 wire motor_enable;wire [4:0] v_command;wire signed [6:0] omega_command;wire [7:0] fault_code;
-igor_safety_security_gate gate(ctrl[0],ctrl[1],ctrl[2],ctrl[3],ctrl[4],ctrl[5],ctrl[6],ctrl[7],ctrl[8],ctrl[9],cv,pv,mv,mdv,cw,pw,mw,mdw,motor_enable,v_command,omega_command,fault_code);
+garda_safety_security_gate gate(ctrl[0],ctrl[1],ctrl[2],ctrl[3],ctrl[4],ctrl[5],ctrl[6],ctrl[7],ctrl[8],ctrl[9],cv,pv,mv,mdv,cw,pw,mw,mdw,motor_enable,v_command,omega_command,fault_code);
 integer fd,rows,scan,n=0,expected;integer outcome_counts[0:11];integer j;
 initial begin
  $dumpfile("gate.vcd");$dumpvars(0,tb_safety_gate);for(j=0;j<12;j=j+1)outcome_counts[j]=0;

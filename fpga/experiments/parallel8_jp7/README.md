@@ -1,6 +1,6 @@
 # Parallel8 UART on JP7 — DE10-Nano
 
-Open `igor_parallel8_jp7.qpf` in Quartus Standard 25.1. This separate project
+Open `garda_parallel8_jp7.qpf` in Quartus Standard 25.1. This separate project
 keeps the original Parallel8 core, weights, top-level behavior and UART protocol.
 Only RX/TX pad locations change from JP1 to JP7. No motor is connected by this RTL.
 
@@ -30,7 +30,7 @@ response. Typing `r` in MobaXterm does not invoke inference on this image.
 An idle terminal may therefore remain blank. Use the host protocol test:
 
 ```powershell
-python src/igor_pipeline/scripts/uart_test.py --port COM5 --baud 921600 --iter 10 --dump-hex
+python src/garda_pipeline/scripts/uart_test.py --port COM5 --baud 921600 --iter 10 --dump-hex
 ```
 
 Run from the repository root and replace COM5 with the detected adapter port.
@@ -42,7 +42,7 @@ residuals are raw Q8.8 `[-46,60,34]`; expected core latency remains 6,916 cycles
 at 50 MHz (138.32 µs), while serial/USB/host round-trip latency is additional.
 
 Prepare sources with `python fpga/scripts/prepare_jp7_variant.py` before compiling.
-From this directory run Quartus `quartus_sh --flow compile igor_parallel8_jp7`.
+From this directory run Quartus `quartus_sh --flow compile garda_parallel8_jp7`.
 Original implementation reports are in `output_files/`. `source_manifest.json`
 records hashes for copied RTL and weight banks. Build/programming success and
 physical UART runtime validation must be distinguished in the evidence logs.

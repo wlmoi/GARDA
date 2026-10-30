@@ -7,7 +7,7 @@ OUT=ROOT/'evidence/chip_highlights'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
-    files=[WORKSPACE/'src'/n for n in ['defines.vh','igorchip_top.v','program_host.v','program_memory.v','sram_256x16_bb.v']]
+    files=[WORKSPACE/'src'/n for n in ['defines.vh','gardachip_top.v','program_host.v','program_memory.v','sram_256x16_bb.v']]
     files+=list((WORKSPACE/'tools').rglob('*.py'))+list((WORKSPACE/'test').glob('test_*.py'))
     files += [WORKSPACE/'test/integration_tb.v']+list((WORKSPACE/'test/ihp_sram').glob('*.v'))
     before={p.relative_to(WORKSPACE).as_posix():sha(p) for p in sorted(set(files))}

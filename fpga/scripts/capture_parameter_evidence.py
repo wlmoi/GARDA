@@ -34,7 +34,7 @@ def main():
         pre{font:18px/1.5 Consolas,monospace;background:white;border:1px solid #c2d0dd;margin:0;padding:16px;white-space:pre-wrap;overflow-wrap:anywhere}
         table{width:100%;border-collapse:collapse;background:white;margin-top:20px;font-size:21px}td,th{padding:14px;border:1px solid #bfd0de;text-align:left}th{background:#163f57;color:white}
         footer{font-size:15px;margin-top:20px;color:#43566b}.note{background:#fff2ce;padding:15px;border-left:5px solid #c08a12}
-        </style>'''+f'<header><div class="badge">IGOR PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>{html.escape(title)}</h1><p>{html.escape(description)}</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header>'+extra+''.join(s[0] for s in sections)+'<footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_igorchip protocol engine, not a mapped PPO neural ASIC.</footer>'
+        </style>'''+f'<header><div class="badge">GARDA PARALLEL8 · TRACEABLE PARAMETER EVIDENCE</div><h1>{html.escape(title)}</h1><p>{html.escape(description)}</p><p class="note">Actual browser screenshot of a local report reader. NOT a Quartus GUI screenshot. Source excerpts retain original text and line numbers; extracted tables and calculations are labelled.</p></header>'+extra+''.join(s[0] for s in sections)+'<footer>Capture: 19 October 2026 · FPGA reports: accepted Parallel8 build, 17 October 2026 · Imported ASIC scope: tt_um_gardachip protocol engine, not a mapped PPO neural ASIC.</footer>'
         target=OUT/(name+'.html'); target.write_text(doc,encoding='utf-8')
         png=OUT/(name+'.png')
         cmd=[str(EDGE),'--headless','--disable-gpu','--no-first-run','--hide-scrollbars',
@@ -46,15 +46,15 @@ def main():
         inventory.append({'png':png.name,'html':target.name,'png_sha256':digest(png),'html_sha256':digest(target),'sources':refs})
         print('Captured '+png.name,flush=True)
     page('01_fitted_resources','01 | Complete FPGA: logic, registers, memory, DSP, pins, PLL',
-         'Raw Fitter summary. Top: igor_src_policy_de10_nano; device 5CSEBA6U23I7. These totals include the UART policy wrapper.',
-         [excerpt(P/'output_files/igor_src_policy.fit.summary')])
+         'Raw Fitter summary. Top: garda_src_policy_de10_nano; device 5CSEBA6U23I7. These totals include the UART policy wrapper.',
+         [excerpt(P/'output_files/garda_src_policy.fit.summary')])
     area=json.loads((ROOT/'fpga/evidence/area_analysis/parallel8_area.json').read_text())
     rows=[]
     for key in ('core_only','core_plus_uart_policy','board','uart_rx','uart_tx'):
         r=area['fpga'][key]; rows.append([key,r['alms_needed'],r['combinational_aluts'],r['registers'],r['m10k'],r['dsp'],r['report_line']])
     # The original table is very wide. Show selected columns as extracted values,
     # retaining exact row locations and original parenthesis-semantics note.
-    fit=P/'output_files/igor_src_policy.fit.rpt'
+    fit=P/'output_files/garda_src_policy.fit.rpt'
     fields=table(['Extracted hierarchy','ALMs needed','ALUTs','Registers','M10K','DSP','Report line'],rows)
     lines=read(fit)
     compact='\n'.join(f'L{r["report_line"]}: '+ ' ; '.join(lines[r['report_line']-1].split(';')[1:3]).strip() for r in area['fpga'].values())
@@ -66,8 +66,8 @@ def main():
     page('03_memory_packing','03 | SRAM-based block memory and ALM packing',
          'Configured data = 524,288 bits (64 KiB). Physical block implementation = 655,360 bits (64 x 10,240). Do not add these as two memories.',
          [excerpt(fit,start=487,end=495),excerpt(fit,start=554,end=562)])
-    sta=P/'output_files/igor_src_policy.sta.rpt'
-    sumsta=P/'output_files/igor_src_policy.sta.summary'
+    sta=P/'output_files/garda_src_policy.sta.rpt'
+    sumsta=P/'output_files/garda_src_policy.sta.summary'
     selected_timing=set()
     sumlines=read(sumsta)
     for i,line in enumerate(sumlines):
@@ -78,7 +78,7 @@ def main():
          [excerpt(sumsta,predicate=lambda l:l in selected_timing),excerpt(sta,start=125,end=136),excerpt(sta,start=205,end=209)])
     page('05_power','05 | FPGA power estimate: dynamic, static and I/O',
          'Vectorless Power Analyzer estimate, confidence Low; not a board-current measurement. Includes full FPGA top, not isolated neural-core power.',
-         [excerpt(P/'artifacts/power/typical/igor_src_policy.pow.summary'),excerpt(P/'artifacts/power/maximum_tj100/igor_src_policy.pow.summary')])
+         [excerpt(P/'artifacts/power/typical/garda_src_policy.pow.summary'),excerpt(P/'artifacts/power/maximum_tj100/garda_src_policy.pow.summary')])
     page('06_latency_acceptance','06 | Core latency and simulation acceptance',
          '6,916 cycles / 50,000,000 Hz = 138.32 us = 0.13832 ms. This is core latency; not physical UART RTT. Throughput upper bound: 7,229.61 core inferences/s before interface overhead.',
          [excerpt(P/'artifacts/acceptance.json',start=1,end=24)])
@@ -99,10 +99,10 @@ def main():
     page('08_calculations','08 | Percentages and memory projection: calculated evidence',
          'DERIVED VALUES, not independent tool measurements. FPGA capacity percentages have different denominators. ASIC raw metrics belong to a different design; equal-footprint allocation is hypothetical.',
          [excerpt(calc,predicate=lambda l:any(k in l for k in ['standard_cells_mm2','sram_macro_mm2','combined_die_percent','allocated_macro_count','allocated_macro_mm2','active_macro_mm2']))],calctable)
-    pins=P/'output_files/igor_src_policy.pin'
+    pins=P/'output_files/garda_src_policy.pin'
     page('09_pinplan','09 | Fitted physical pins and clock constraints',
          'Pins from the fitted .pin file, not a conceptual diagram. KEY0 reset, KEY1 latched E-stop; fabric UART uses 3.3-V LVTTL.',
-         [excerpt(pins,predicate=lambda l:any(s in l for s in ('FPGA_CLK1_50','KEY[','LED[','UART_RX','UART_TX'))),excerpt(P/'igor_src_policy.sdc')])
+         [excerpt(pins,predicate=lambda l:any(s in l for s in ('FPGA_CLK1_50','KEY[','LED[','UART_RX','UART_TX'))),excerpt(P/'garda_src_policy.sdc')])
     results=Path('fpga/evidence/current_programming/20261019T0245566102607Z/programming_from_cdf.log')
     page('10_programming','10 | Actual board programming result',
          '19 October 2026: accepted Parallel8 SOF loaded via DE-SoC USB-1, HPS bypass, FPGA device @2. Configuration success is separate from runtime UART functional testing.',

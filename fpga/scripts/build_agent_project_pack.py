@@ -76,7 +76,7 @@ def build():
     for r in rows:
         lines.append(f'| `{r["path"]}` | {r["role"]} | {r["bytes"]} |')
     (OUT/'DELIVERABLES_ALL.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    readme=f'''# IGOR — paket informasi project untuk agent
+    readme=f'''# GARDA — paket informasi project untuk agent
 
 Mulai dari **PROJECT_CONTEXT.md**, lalu **DELIVERABLES_GUIDE.md**. Paket ini mencakup seluruh area repository, bukan hanya FPGA.
 
@@ -101,8 +101,8 @@ Regenerasi dari root: `python fpga/scripts/build_agent_project_pack.py`. Tidak m
     files=[p for p in OUT.iterdir() if p.is_file() and p.suffix!='.zip' and p.name!='bundle_manifest.json']
     manifest={p.name:sha(p.read_bytes()) for p in sorted(files)}
     (OUT/'bundle_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
-    with zipfile.ZipFile(OUT/'IGOR_AGENT_PROJECT.zip','w',zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(OUT/'GARDA_AGENT_PROJECT.zip','w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(files+[OUT/'bundle_manifest.json']): z.write(p,p.name)
-    print(json.dumps(dict(files=len(rows),documents=len(docs),groups=chunks,zip_bytes=(OUT/'IGOR_AGENT_PROJECT.zip').stat().st_size)))
+    print(json.dumps(dict(files=len(rows),documents=len(docs),groups=chunks,zip_bytes=(OUT/'GARDA_AGENT_PROJECT.zip').stat().st_size)))
 
 if __name__=='__main__': build()

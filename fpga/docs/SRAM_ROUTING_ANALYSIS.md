@@ -2,7 +2,7 @@
 
 Historical analysis: the root manifest now selects the [full-inference logic fallback](../asic/neural_logic/README.md). SRAM sources and run evidence are preserved; they are not the current chip.
 
-The physical target is the neural inference core `tt_um_wlmoi_igor_neural_sram`, on the pinned Tiny Tapeout CMOS5L 8x4 template. FPGA, motor and legacy safety-gate RTL are separate regressions and are excluded from this chip's active synthesis manifest.
+The physical target is the neural inference core `tt_um_wlmoi_garda_neural_sram`, on the pinned Tiny Tapeout CMOS5L 8x4 template. FPGA, motor and legacy safety-gate RTL are separate regressions and are excluded from this chip's active synthesis manifest.
 
 `GRT-0102 Start extra iteration n/50` is a bounded attempt to remove routing overflow. Another batch can begin after the router relaxes clock NDR rules. It is not an RTL inference loop. Both failed runs ended at `GRT-0116` because routing overflow remained.
 
@@ -39,7 +39,7 @@ The revised clock configuration applies a main-trunk NDR policy (`root_only`) an
 
 The earlier description of opposing signal-pin faces was incorrect. Parsing every official LEF signal-pin rectangle shows all 114 signals of each 4096x16 macro on local y=0..0.26 um; all 106 signals of each 256x16 macro are also on its lower face. The revised weight-macro origins are y=80 um, providing a wider lower access corridor. Their 618.3-um height plus 6-um halo ends at 704.3 um, within the approved 706.86-um core bound. Target placement density is 45% to allow more logic near the lower interface. Clock period, process stack, NDR strategy and strict routing/DRC/LVS acceptance remain unchanged.
 
-## Single packed parameter SRAM and complete Igor inference
+## Single packed parameter SRAM and complete Garda inference
 
 [Build a1b7ff2](https://github.com/sundaysiagian/peruri-iseedesign/actions/runs/38649494420) still failed routing with 5,844 overflow units and 762,357 um wirelength. Widening the lower access channel alone therefore did not resolve the obstruction crossings.
 

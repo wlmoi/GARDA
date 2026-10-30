@@ -12,9 +12,9 @@ from unittest.mock import patch
 import numpy as np
 
 PACKAGE = Path(__file__).resolve().parents[1]
-SOURCE = PACKAGE / "software_integration/src/igor_bringup/igor_bringup/rplidar_driver_node.py"
+SOURCE = PACKAGE / "software_integration/src/garda_bringup/garda_bringup/rplidar_driver_node.py"
 if not SOURCE.exists():
-    SOURCE = PACKAGE.parent / "fpga/software_integration/src/igor_bringup/igor_bringup/rplidar_driver_node.py"
+    SOURCE = PACKAGE.parent / "fpga/software_integration/src/garda_bringup/garda_bringup/rplidar_driver_node.py"
 if not SOURCE.exists():
     raise SystemExit("Production overlay missing; original ./src is a read-only reference")
 

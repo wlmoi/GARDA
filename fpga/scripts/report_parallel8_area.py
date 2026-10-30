@@ -6,14 +6,14 @@ import math
 
 ROOT = Path(__file__).resolve().parents[2]
 FPGA = ROOT/'fpga'
-FIT = FPGA/'experiments/parallel8/output_files/igor_src_policy.fit.rpt'
+FIT = FPGA/'experiments/parallel8/output_files/garda_src_policy.fit.rpt'
 ASIC = FPGA/'evidence/asic_import/gds_diagnostics_1/raw/runs/wokwi/final/metrics.json'
 
 def main():
     lines=FIT.read_text().splitlines()
     header=next(i for i,line in enumerate(lines) if '; Compilation Hierarchy Node' in line)
-    wanted={'igor_src_policy_de10_nano':'board','igor_src_policy_uart':'core_plus_uart_policy',
-            'igor_src_policy_core':'core_only','igor_uart_rx':'uart_rx','igor_uart_tx':'uart_tx'}
+    wanted={'garda_src_policy_de10_nano':'board','garda_src_policy_uart':'core_plus_uart_policy',
+            'garda_src_policy_core':'core_only','garda_uart_rx':'uart_rx','garda_uart_tx':'uart_tx'}
     rows={}
     for n,line in enumerate(lines[header+1:],header+2):
         parts=[x.strip() for x in line.split(';')]
@@ -33,7 +33,7 @@ def main():
        'fpga':rows,'capacities':{'alms':41910,'m10k':553,'dsp':112,'memory_bits':5662720},
        'uart_policy_overhead':{key:rows['core_plus_uart_policy'][key]-rows['core_only'][key]
            for key in ('alms_needed','combinational_aluts','registers','block_memory_bits','m10k','dsp')},
-       'asic':{'top':'tt_um_igorchip','die_mm2':die/1e6,'core_mm2':core/1e6,
+       'asic':{'top':'tt_um_gardachip','die_mm2':die/1e6,'core_mm2':core/1e6,
            'standard_cells_mm2':std/1e6,'sram_macro_mm2':macro/1e6,
            'standard_cells_plus_macro_mm2':(std+macro)/1e6,
            'standard_cells_die_percent':std/die*100,'sram_die_percent':macro/die*100,

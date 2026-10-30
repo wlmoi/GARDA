@@ -1,6 +1,6 @@
 # Active Tiny Tapeout full neural inference target
 
-`info.yaml` selects `tt_um_wlmoi_igor_neural_logic` on 8x4 CMOS5L tiles. Full 24-64-64-4 Q8.8 inference remains on chip. All 6,020 weights/biases are immutable standard-cell logic; input/hidden activations use flip-flops. There are no SRAM macros in the active target.
+`info.yaml` selects `tt_um_wlmoi_garda_neural_logic` on 8x4 CMOS5L tiles. Full 24-64-64-4 Q8.8 inference remains on chip. All 6,020 weights/biases are immutable standard-cell logic; input/hidden activations use flip-flops. There are no SRAM macros in the active target.
 
 The host verifies the fixed model, commits it, loads 24 inputs, and starts the two-lane MAC pipeline. A mismatched model, incomplete verification/inputs, overflow, and conflicting host commands are rejected. The measured schedule is 3,080 cycles (61.6 us at the 50 MHz target, pending routed timing qualification). The model cannot be reprogrammed after fabrication.
 

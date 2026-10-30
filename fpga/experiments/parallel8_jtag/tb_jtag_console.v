@@ -7,10 +7,10 @@ module tb_jtag_console;
  wire [31:0] accepted,rejected,cycles;
  wire [7:0] error_code;wire [15:0] flags;wire [3:0] debug_state;
  wire permit,valid;wire signed [15:0] a0,a1,a2;
- igor_jtag_console #(.AUTO_DELAY(10),.REPLY_TIMEOUT(200000)) console(
+ garda_jtag_console #(.AUTO_DELAY(10),.REPLY_TIMEOUT(200000)) console(
  clk,rst_n,estop,host_data,host_valid,host_ready,text,text_valid,1'b1,
  serial_rx,serial_tx,cycles,accepted,rejected,error_code);
- igor_src_policy_uart #(.BAUD(921600)) policy(
+ garda_src_policy_uart #(.BAUD(921600)) policy(
  .clk(clk),.rst_n(rst_n),.uart_rx(serial_rx),.uart_tx(serial_tx),.estop(estop),
  .debug_state(debug_state),.error_code(error_code),.error_flags(flags),
  .accepted_frames(accepted),.rejected_frames(rejected),.last_latency_cycles(cycles),

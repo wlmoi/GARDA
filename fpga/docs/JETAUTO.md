@@ -2,7 +2,7 @@
 
 ## Dua protocol dengan dua fungsi
 
-UART planner IGOR memakai **115200 baud** dan paket delapan byte. Controller STM pada pengujian JetAuto memakai **1.000.000 baud**, header `AA 55`, dan protocol SDK motor. Bitstream motor disediakan sebagai target tersendiri.
+UART planner GARDA memakai **115200 baud** dan paket delapan byte. Controller STM pada pengujian JetAuto memakai **1.000.000 baud**, header `AA 55`, dan protocol SDK motor. Bitstream motor disediakan sebagai target tersendiri.
 
 Folder: [robot/jetauto](../robot/jetauto). Proyek empat speed: [stm_uart_multispeed.qpf](../robot/jetauto/FPGA_UART_TTL_MULTISPEED/quartus/stm_uart_multispeed.qpf). Top: **`stm_uart_multispeed_top`**. Serializer: **`stm_packet_tx_multispeed`**.
 
@@ -64,7 +64,7 @@ Bitstream motor mengeluarkan GPIO UART TTL **1 Mbps** pada DE10-Nano JP1 pin 2 /
 
 Jika STM hanya dapat diakses melalui USB, gunakan **HPS Linux USB host**. Template transport ada pada [robot/hps_usb](../robot/hps_usb). GPIO UART tidak menjadi USB host dan COM9 adalah nama device Windows.
 
-Command IGOR menuju motor memerlukan bridge yang mempertahankan permit, sequence, expiry, dan STOP ketika command stale. Demo motor tersendiri tidak memakai gerbang IGOR. [Status acceptance](RESULTS_AND_SCOPE.md) membedakan packet verification, observasi roda, dan integrasi FPGA.
+Command GARDA menuju motor memerlukan bridge yang mempertahankan permit, sequence, expiry, dan STOP ketika command stale. Demo motor tersendiri tidak memakai gerbang GARDA. [Status acceptance](RESULTS_AND_SCOPE.md) membedakan packet verification, observasi roda, dan integrasi FPGA.
 
 ## Bukti
 

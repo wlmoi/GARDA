@@ -2,7 +2,7 @@
 
 ## Level 0
 
-IGOR adalah planner lokal fixed-point untuk costmap yang sudah diinflasi. Jalur utama menerima konfigurasi dan peta, mengevaluasi kandidat DWA, memilih hasil terbaik, lalu memeriksa hasil melalui gerbang izin. Jalur inferensi neural memakai ROM dan input/output sendiri.
+GARDA adalah planner lokal fixed-point untuk costmap yang sudah diinflasi. Jalur utama menerima konfigurasi dan peta, mengevaluasi kandidat DWA, memilih hasil terbaik, lalu memeriksa hasil melalui gerbang izin. Jalur inferensi neural memakai ROM dan input/output sendiri.
 
 ![Diagram arsitektur](assets/architecture.svg)
 
@@ -27,14 +27,14 @@ Kode v dan omega adalah keluaran digital planner. Konversi menjadi RPS dan trans
 
 ```mermaid
 flowchart TD
-    HOST["UART 115200 8N1"] --> UART["igor_uart_protocol • paket 8 byte"]
+    HOST["UART 115200 8N1"] --> UART["garda_uart_protocol • paket 8 byte"]
     UART --> CFG["cfg_data 32 bit • lock"]
     UART --> MAP["sequence 32 • address 15 • data 8"]
     MAP --> BANKS["4 costmap copies • 32 KiB per copy"]
     CFG --> DWA["4 rollout tiles • 128 candidates per tile"]
     BANKS -->|"4 independent reads • address 14 + bank 1 • data 8"| DWA
     DWA -->|"indices 36 • each critic bus 128"| BEST["Best candidate selector"]
-    BEST -->|"index 9 • critic values 32 each"| GATE["igor_safety_security_gate"]
+    BEST -->|"index 9 • critic values 32 each"| GATE["garda_safety_security_gate"]
     GATE --> OUT["permit 1 • v 5 • omega 7 • fault 8"]
     UART --> NN["Separate neural core • 24 → 64 → 64 → 4"]
     ROM["Signed 16-bit weights • ROM address 13"] --> NN
@@ -53,6 +53,6 @@ Setiap kandidat memakai satu siklus inisialisasi, 20 pengulangan STEP / WAIT_RAM
 
 ## Gerbang pada output
 
-Pada [igor_top.v](../rtl/igor_top.v), `motor_enable`, `v_command`, dan `omega_command` didorong oleh instance `gate`. Gerbang memeriksa readiness, emergency, protection, validitas map/config/result, tile completion, arithmetic fault, deadline, batas kecepatan, dan perubahan kecepatan.
+Pada [garda_top.v](../rtl/garda_top.v), `motor_enable`, `v_command`, dan `omega_command` didorong oleh instance `gate`. Gerbang memeriksa readiness, emergency, protection, validitas map/config/result, tile completion, arithmetic fault, deadline, batas kecepatan, dan perubahan kecepatan.
 
-Sumber lengkap setiap modul ada pada [RTL_MODULES.md](RTL_MODULES.md). Diagram terperinci seluruh modul, FSM, level 0 dan level 1 tersedia dalam [file `.io` 28 halaman](flowcharts/IGOR_RTL_Flowchart.io).
+Sumber lengkap setiap modul ada pada [RTL_MODULES.md](RTL_MODULES.md). Diagram terperinci seluruh modul, FSM, level 0 dan level 1 tersedia dalam [file `.io` 28 halaman](flowcharts/GARDA_RTL_Flowchart.io).

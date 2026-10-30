@@ -1,6 +1,6 @@
 # Repeatable COM12 test on JP1 pins 1/2
 
-Double-click **IGOR - Uji UART COM12 JP1 Pin 1-2** on the Windows Desktop.
+Double-click **GARDA - Uji UART COM12 JP1 Pin 1-2** on the Windows Desktop.
 Its target is `fpga/bitstreams/TEST_JP1_COM12.bat`.
 
 From the adapter viewpoint: TX goes to JP1 pin 1 (FPGA RX/V12), RX goes to JP1

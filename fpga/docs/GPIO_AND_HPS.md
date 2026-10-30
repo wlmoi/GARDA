@@ -42,10 +42,10 @@ mengonversi file di komputer**, tanpa mengakses board atau microSD:
 ```powershell
 python .\fpga\scripts\freeze_release.py --check
 New-Item -ItemType Directory -Path .\fpga\bitstreams\hps_candidate -Force
-& 'D:\Quartus-Program\quartus\bin64\quartus_cpf.exe' -c -m FPP .\fpga\bitstreams\igor_src_policy.sof .\fpga\bitstreams\hps_candidate\igor_src_policy.rbf
+& 'D:\Quartus-Program\quartus\bin64\quartus_cpf.exe' -c -m FPP .\fpga\bitstreams\garda_src_policy.sof .\fpga\bitstreams\hps_candidate\garda_src_policy.rbf
 ```
 
-Untuk planner, pilih `igor_planner.sof` dan nama keluaran yang sesuai.
+Untuk planner, pilih `garda_planner.sof` dan nama keluaran yang sesuai.
 Sintaks konversi diperiksa pada Quartus 25.1 lokal melalui
 `quartus_cpf --help=rbf` dan `--help=configuration_mode`. Compression dan opsi
 konfigurasi harus cocok dengan loader/MSEL aktual. `--hps` pada CPF adalah
@@ -78,6 +78,6 @@ menulis SD atau mengubah bootloader. Langkah berikutnya setelah image dikenal:
 pilih prosedur loader image tersebut, cocokkan bridges/reset/clock dan device
 tree dengan desain, backup boot image, lalu rekam hash RBF, log konfigurasi
 dan respons UART setelah boot. Status manager `operating` saja belum
-membuktikan fungsi IGOR; ulangi verifikasi protokol dan acceptance safety
+membuktikan fungsi GARDA; ulangi verifikasi protokol dan acceptance safety
 project terkait. Implementasi HPS dan uji boot ini tetap **belum diverifikasi
 fisik**.

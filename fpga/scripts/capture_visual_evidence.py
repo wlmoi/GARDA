@@ -194,7 +194,7 @@ def compile_image(name, fitz):
           'PASS applies to compilation/timing. Hardware programming and robot tests are not claimed.']
     doc=fitz.open(); page=doc.new_page(width=1120,height=800)
     page.draw_rect(page.rect,color=None,fill=(0.96,0.97,0.99))
-    page.insert_text((34,42),'IGOR | QUARTUS BUILD EVIDENCE',fontsize=23,color=(0.05,0.17,0.28))
+    page.insert_text((34,42),'GARDA | QUARTUS BUILD EVIDENCE',fontsize=23,color=(0.05,0.17,0.28))
     page.insert_text((34,69),'VERIFIED REPORT EXTRACT - NOT A GUI SCREENSHOT',fontsize=12,color=(0.45,0.18,0.06))
     box=fitz.Rect(34,92,1090,775)
     if page.insert_textbox(box,'\n'.join(body),fontsize=12,fontname='cour',lineheight=1.35)<0:
@@ -225,9 +225,9 @@ def main():
     for item in result['images']:
         cards.append(f'<section><h2>{html.escape(item["name"])}</h2><p>{html.escape(item["kind"])}</p>'
                      f'<a href="{Path(item["image"]).name}"><img src="{Path(item["image"]).name}" width="100%"></a></section>')
-    (OUT/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>IGOR evidence</title>'
+    (OUT/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>GARDA evidence</title>'
         '<style>body{font:16px system-ui;max-width:1400px;margin:30px auto;background:#edf1f5}section{background:white;padding:20px;margin:20px 0}img{height:auto}</style>'
-        '<h1>IGOR: actual GTKWave captures and verified build report images</h1>'
+        '<h1>GARDA: actual GTKWave captures and verified build report images</h1>'
         '<p>Waveforms use simulation data; Quartus images are report extracts, not GUI screenshots. No physical hardware test is claimed.</p>'+''.join(cards),encoding='utf-8')
     print(f'PASS: {len(result["images"])} evidence images; {OUT}')
 

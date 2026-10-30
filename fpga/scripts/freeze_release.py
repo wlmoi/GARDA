@@ -57,7 +57,7 @@ def verify_build(name):
     return record
 
 def verify_software_model():
-    relative = Path('igor_navigation/igor_navigation/weights/model_weights.json')
+    relative = Path('garda_navigation/garda_navigation/weights/model_weights.json')
     original = json.loads((ROOT.parent / 'src' / relative).read_text(encoding='utf-8'))
     deployed = json.loads((ROOT / 'software_integration/src' / relative).read_text(encoding='utf-8'))
     if any(original[key] != deployed[key] for key in ('w1','b1','w2','b2','w3','b3')):
@@ -97,7 +97,7 @@ def write_build_status(records):
               'bahwa bobot aktif tidak terisi.', '',
               'Planner juga mencatat RAM read-during-write pass-through logic dan dua input SW0/SW1 '
               'yang tidak mempengaruhi output. Referensi lengkap adalah warning pada `compile_current.log` '
-              'dan `igor.map.rpt`. Tidak ada warning missing drive/slew sesudah pinplan eksplisit. '
+              'dan `garda.map.rpt`. Tidak ada warning missing drive/slew sesudah pinplan eksplisit. '
               'Tidak ada critical warning atau timing gagal pada flow kompilasi rilis yang diterima. '
               'Pernyataan ini tidak mencakup Power Analyzer; analisis power terpisah mempunyai '
               'Critical Warning HPS dan confidence Low yang dijelaskan pada '
@@ -145,7 +145,7 @@ def check_parallel8():
     if record['status']!='PASS' or record['latency_ms']>=0.16 or min(record['timing_slack_ns'].values())<0:
         raise RuntimeError('Parallel8 candidate has not passed latency/timing acceptance')
     check_mapping(record['sha256'])
-    check_mapping({'experiments/parallel8/output_files/igor_src_policy.sof':record['sof_sha256']})
+    check_mapping({'experiments/parallel8/output_files/garda_src_policy.sof':record['sof_sha256']})
     return record
 
 def freeze():
@@ -160,7 +160,7 @@ def freeze():
     bitstreams.mkdir(exist_ok=True)
     projects = {}
     for name, record in records.items():
-        target = bitstreams / ('igor_src_policy.sof' if name == 'source_policy' else 'igor_planner.sof')
+        target = bitstreams / ('garda_src_policy.sof' if name == 'source_policy' else 'garda_planner.sof')
         shutil.copyfile(local(record['sof']), target)
         projects[name] = {'sof': record['sof'], 'handoff_sof': target.relative_to(ROOT).as_posix(),
                           'sha256': sha(target), 'build_receipt': f'evidence/current_builds/{name}.json',
@@ -170,8 +170,8 @@ def freeze():
     parallel_receipt=ROOT/'experiments/parallel8/artifacts/acceptance.json'
     if parallel_receipt.exists():
         fast=check_parallel8()
-        source=ROOT/'experiments/parallel8/output_files/igor_src_policy.sof'
-        target=bitstreams/'igor_src_policy_parallel8.sof'
+        source=ROOT/'experiments/parallel8/output_files/garda_src_policy.sof'
+        target=bitstreams/'garda_src_policy_parallel8.sof'
         shutil.copyfile(source,target)
         projects['source_policy_parallel8']={'sof':source.relative_to(ROOT).as_posix(),
             'handoff_sof':target.relative_to(ROOT).as_posix(),'sha256':sha(target),
@@ -233,7 +233,7 @@ def freeze():
     if parallel_receipt.exists():
         tracked.add(parallel_receipt)
         tracked.update(local(name) for name in fast['sha256'])
-        tracked.add(ROOT/'experiments/parallel8/output_files/igor_src_policy.sof')
+        tracked.add(ROOT/'experiments/parallel8/output_files/garda_src_policy.sof')
     external_evidence={}
     for receipt in sorted((ROOT/'evidence/asic_import').glob('*/manifest.json')):
         imported=json.loads(receipt.read_text(encoding='utf-8'))

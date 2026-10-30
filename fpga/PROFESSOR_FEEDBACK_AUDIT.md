@@ -45,10 +45,10 @@ tes fault injection atau bukti formal, bukan dihapus demi menaikkan coverage.
 | GLS | XML terlampir menunjukkan satu testcase `test_project` PASS. Tidak membuktikan semua vector neural lulus pada netlist atau gate coverage. Ringkasan menyatakan tidak ada log anotasi SDF atau hash pengikat netlist/GDS. Sumber: `evidence/asic_import/gatelevel_test_results/summary.json`. |
 | Performance Parallel8 | 50 MHz, 6.916 cycles = 138,32 us, baseline 54.348 cycles = 1.086,96 us; percepatan 7,858x. |
 | Throughput kernel | Model 74x128 + 128x64 + 64x3 = 17.856 MAC/inference; dibagi 138,32 us = 129,092 MMAC/s. Ideal kernel-only 7.229,61 inference/s, belum termasuk loading/UART. |
-| Resource FPGA | 3.303/41.910 ALM; 6.277 registers; 524.288 block-memory bits = 64 KiB; 64 M10K; 8 DSP. Memori ini untuk FPGA, bukan SRAM ASIC. Sumber: `experiments/parallel8/output_files/igor_src_policy.fit.summary`. |
-| Power FPGA | Typical total 476,18 mW = dynamic 50,36 + static 413,27 + I/O 12,55. Confidence LOW, vectorless; bukan daya board terukur. Sumber: `experiments/parallel8/artifacts/power/typical/igor_src_policy.pow.summary`. |
+| Resource FPGA | 3.303/41.910 ALM; 6.277 registers; 524.288 block-memory bits = 64 KiB; 64 M10K; 8 DSP. Memori ini untuk FPGA, bukan SRAM ASIC. Sumber: `experiments/parallel8/output_files/garda_src_policy.fit.summary`. |
+| Power FPGA | Typical total 476,18 mW = dynamic 50,36 + static 413,27 + I/O 12,55. Confidence LOW, vectorless; bukan daya board terukur. Sumber: `experiments/parallel8/artifacts/power/typical/garda_src_policy.pow.summary`. |
 | Energy FPGA | Ilustrasi total-power x core-time = 65,87 uJ/inference; dynamic-only = 6,97 uJ. Asumsi daya estimasi berlaku selama kernel; bukan pengukuran energi transaksi UART. |
-| FPGA STA | Worst setup +5,647 ns; worst hold +0,119 ns; TNS 0 pada corner yang dilaporkan. WNS sebagai besar pelanggaran negatif = 0, bukan +5,647. Sumber: `experiments/parallel8/output_files/igor_src_policy.sta.summary`. |
+| FPGA STA | Worst setup +5,647 ns; worst hold +0,119 ns; TNS 0 pada corner yang dilaporkan. WNS sebagai besar pelanggaran negatif = 0, bukan +5,647. Sumber: `experiments/parallel8/output_files/garda_src_policy.sta.summary`. |
 | ASIC power | Typical 1,20 V/25 C: internal 1,663574 mW + switching 0,323768 mW + leakage 0,050029 mW = 2,037372 mW. Estimasi post-route protocol engine, bukan neural core FPGA dan bukan silicon terukur. |
 | ASIC area | Die 916.214 um2 = 0,916214 mm2; core 0,902417 mm2; 5.316 standard cells dan 1 macro. Total 71.108 instances termasuk 65.791 fill cells, bukan 71.108 logic gates/NAND2 equivalents. |
 | ASIC STA | Slow 1,08 V/125 C: setup WNS -2,637272 ns, TNS -258,604708 ns, 253 setup violations. Hold terburuk +0,107577 ns. Belum timing closure 50 MHz semua corner. |
@@ -64,8 +64,8 @@ ZIP pengguna `gds-diagnostics-1.zip` memiliki SHA256
 sama dengan arsip yang sudah diimpor pada
 `evidence/asic_import/gds_diagnostics_1/summary.json`. Nilai area, timing,
 DRC/LVS dan overlap dicocokkan langsung dengan `runs/wokwi/final/metrics.json`
-di ZIP. Top arsip adalah `tt_um_igorchip`, bukan top neural FPGA
-`igor_src_policy_de10_nano`. Tidak ada bukti ekuivalensi keduanya.
+di ZIP. Top arsip adalah `tt_um_gardachip`, bukan top neural FPGA
+`garda_src_policy_de10_nano`. Tidak ada bukti ekuivalensi keduanya.
 
 ## Mengapa hasil Parallel8 membaik
 

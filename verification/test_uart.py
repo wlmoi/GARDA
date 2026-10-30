@@ -51,4 +51,4 @@ async def uart_crc_response_and_fault_latch(dut):
     for value in frame:await byte(dut,value)
     await receiver
     assert int(dut.accepted.value)==1 and int(dut.protocol_fault.value)==0
-    Path('uart_cocotb_results.json').write_text(json.dumps({'status':'PASS','valid_response_crc':True,'bad_crc_rejected':True,'fault_latched':True,'reset_recovers':True,'divider':8,'scope':'IGOR A5/5A protocol, not STM RRC'},indent=2))
+    Path('uart_cocotb_results.json').write_text(json.dumps({'status':'PASS','valid_response_crc':True,'bad_crc_rejected':True,'fault_latched':True,'reset_recovers':True,'divider':8,'scope':'GARDA A5/5A protocol, not STM RRC'},indent=2))

@@ -1,7 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-echo IGOR RTL Explorer - iSeeDesignITB
+echo GARDA RTL Explorer - iSeeDesignITB
 echo Buka http://127.0.0.1:8765
 echo Tekan Ctrl+C untuk menghentikan server.
 where py >nul 2>nul

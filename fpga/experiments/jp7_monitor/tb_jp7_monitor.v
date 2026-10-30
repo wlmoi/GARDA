@@ -3,7 +3,7 @@ module tb_jp7_monitor;
  reg clk=0;always #10 clk=~clk;
  reg rst_n=0,pin_rx=1;reg[7:0] host_data=0;reg host_valid=0;
  wire ready,valid,echo_mode;wire[7:0] text;
- igor_jp7_monitor dut(clk,rst_n,1'b0,pin_rx,host_data,host_valid,ready,text,valid,1'b1,
+ garda_jp7_monitor dut(clk,rst_n,1'b0,pin_rx,host_data,host_valid,ready,text,valid,1'b1,
  echo_mode,32'd1,32'd2,32'd6916,8'd6,4'd0);
  task send_byte;input[7:0] value;input stopbit;integer k;begin
   @(negedge clk);pin_rx=0;repeat(54)@(negedge clk);

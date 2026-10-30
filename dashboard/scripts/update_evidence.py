@@ -13,7 +13,7 @@ def check(key, label, details=None):
     }.get(status, status)
     return {'label': label, 'status': 'pass' if status == 'PASS' else status.lower(), 'result': result}
 functional = all(raw.get(key, {}).get('status') == 'PASS' for key in ('rtl', 'generic', 'cocotb'))
-summary = 'Model tetap 6.020 kata diuji melalui RTL dan antarmuka pin TinyTapeout. '
+summary = 'Bukti historis IHP berasal dari revisi sebelum perubahan nama GARDA; bukan hasil verifikasi SKY130 atau GDS baru. Model tetap 6.020 kata diuji melalui RTL dan antarmuka pin TinyTapeout. '
 if raw.get('mapped', {}).get('status') == 'PASS':
     summary += 'Netlist sel IHP juga lolos simulasi fungsional tanpa SDF. '
 if raw.get('global_routing', {}).get('status') == 'PASS':
@@ -22,7 +22,7 @@ if raw.get('detailed_routing', {}).get('status') == 'PASS':
     summary += 'Detailed routing selesai sesuai laporan. '
 summary += 'DRC, LVS dan timing signoff dinilai terpisah sesuai bukti yang tersedia.'
 report = {
-    'schema': 'igor-dashboard-evidence-1',
+    'schema': 'garda-dashboard-evidence-1',
     'checked_date': raw.get('generated_date', 'Lihat laporan'),
     'functional_pass': functional,
     'top': raw['top'],

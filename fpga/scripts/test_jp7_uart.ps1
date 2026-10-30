@@ -16,7 +16,7 @@ $logs=Join-Path $fpgaRoot ('evidence/jp7_uart/'+$stamp)
 New-Item -ItemType Directory -Path $logs -Force | Out-Null
 Write-Host "Testing real JP7 UART on $Port at 921600 baud, 8N1. Close MobaXterm on that port first."
 [ordered]@{port=$Port;baud=921600;iterations=$Iterations;expected_q88=@(-46,60,34);utc=[DateTime]::UtcNow.ToString('o')} | ConvertTo-Json | Set-Content (Join-Path $logs 'request.json')
-& python (Join-Path $repoRoot 'src/igor_pipeline/scripts/uart_test.py') --port $Port --baud 921600 --iter $Iterations --dump-hex --jsonl (Join-Path $logs 'transactions.jsonl') 2>&1 | Tee-Object -FilePath (Join-Path $logs 'host_test.log')
+& python (Join-Path $repoRoot 'src/garda_pipeline/scripts/uart_test.py') --port $Port --baud 921600 --iter $Iterations --dump-hex --jsonl (Join-Path $logs 'transactions.jsonl') 2>&1 | Tee-Object -FilePath (Join-Path $logs 'host_test.log')
 $result=$LASTEXITCODE
 Write-Host "Evidence: $logs"
 exit $result

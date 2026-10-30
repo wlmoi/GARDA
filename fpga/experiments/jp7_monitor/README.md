@@ -24,7 +24,7 @@ and queries counters again. It writes local evidence only. No jumper between
 the two female adapter connectors is required. Close other JTAG/COM12 terminals
 before running it. Both USB-Blaster and the USB–TTL adapter must be attached.
 
-Open `igor_jp7_monitor.qpf` in Quartus 25.1 Standard. Prepare source files with
+Open `garda_jp7_monitor.qpf` in Quartus 25.1 Standard. Prepare source files with
 `fpga/scripts/prepare_jp7_monitor.py` before compilation, never during a build.
 Vendor IP paths point to the installed Quartus directory. The monitor simulation
 checks decoded bytes, bad stop bits, counters, snapshots and mode commands.

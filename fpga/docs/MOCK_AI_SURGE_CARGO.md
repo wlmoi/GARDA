@@ -1,6 +1,6 @@
 # Mock AI surge cargo: hard forward cap
 
-Double-click **IGOR - Mock AI Surge Cargo** on Desktop. It runs `fpga/scripts/mock_ai_surge_cargo.py` automatically and keeps the terminal open.
+Double-click **GARDA - Mock AI Surge Cargo** on Desktop. It runs `fpga/scripts/mock_ai_surge_cargo.py` automatically and keeps the terminal open.
 
 The script enables the actual packaged controller's `cargo_mode=True`. This mode limits forward output to **0.15 m/s at every distance**, including 1.20 m, 1.50 m and clear space at 3.50 m. The distance envelope may reduce speed further; at or below 0.22 m all motion commands are zero. Zero nominal command also remains zero.
 

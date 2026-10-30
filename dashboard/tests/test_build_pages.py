@@ -18,8 +18,8 @@ class PhysicalArtifactTests(unittest.TestCase):
         for name in ('tinytapeout.oas', 'tinytapeout.gds'):
             (self.folder / name).write_bytes(b'test artifact integrity payload')
         self.manifest = {
-            'schema_version': 1, 'kind': 'igor-physical-viewer',
-            'top_module': 'tt_um_wlmoi_igor_neural_logic',
+            'schema_version': 1, 'kind': 'garda-physical-viewer',
+            'top_module': 'tt_um_wlmoi_garda_neural_logic',
             'checks': {'gds': 'success', 'precheck': 'success', 'gl_test': 'success'},
             'source_sha256': PAGES.source_hashes(),
             'files': {name: PAGES.digest(self.folder / name)

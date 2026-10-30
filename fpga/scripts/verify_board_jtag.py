@@ -16,7 +16,7 @@ class Jtag:
   self.read=bind('?jtagatlantic_read@@YAHPEAUJTAGATLANTIC@@PEADI@Z',C.c_int,[C.c_void_p,C.c_void_p,C.c_uint])
   self.write=bind('?jtagatlantic_write@@YAHPEAUJTAGATLANTIC@@PEBDI@Z',C.c_int,[C.c_void_p,C.c_char_p,C.c_uint])
   self.flush=bind('?jtagatlantic_flush@@YAHPEAUJTAGATLANTIC@@@Z',C.c_int,[C.c_void_p])
-  self.h=self.open(b'DE-SoC [USB-1]',2,0,b'IGOR numeric validation')
+  self.h=self.open(b'DE-SoC [USB-1]',2,0,b'GARDA numeric validation')
   if not self.h:raise RuntimeError('Close other JTAG terminals; board monitor unavailable')
  def query(self,command=b'q'):
   assert self.write(self.h,command,1)==1;self.flush(self.h)
@@ -38,18 +38,18 @@ def main():
  args.port=fpga_port(args.port)
  _,q=model.load_model();identity=model.identity(q)
  project=ROOT/'experiments/jp1_1_2_monitor'
- assert model.sha(project/'igor_src_policy_core.v')==model.sha(model.BASE/'igor_src_policy_core.v')
+ assert model.sha(project/'garda_src_policy_core.v')==model.sha(model.BASE/'garda_src_policy_core.v')
  for lane in range(8):assert model.sha(project/f'bank{lane}.mem')==model.sha(model.BASE/f'bank{lane}.mem')
  if args.program:
   subprocess.run([shutil.which('pwsh') or str(Path.home()/'.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe'),'-NoProfile','-ExecutionPolicy','Bypass','-File',str(ROOT/'scripts/program_uart_monitor.ps1'),'-Header','JP1_1_2'],check=True)
- image=ROOT/'bitstreams/igor_parallel8_jp1_1_2_monitor.sof'
+ image=ROOT/'bitstreams/garda_parallel8_jp1_1_2_monitor.sof'
  receipts=sorted((ROOT/'evidence/jp1_1_2_monitor').glob('*/image_receipt.json'))
  receipt=json.loads(receipts[-1].read_text(encoding='utf-8-sig'))
  assert model.sha(image)==receipt['sha256'],'Monitor image receipt mismatch'
  out=ROOT/'evidence/mock_board_jtag'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True)
  identity.update(active_observer_sof_sha256=model.sha(image),active_receipt=receipt,transport='COM12 input, JTAG output; UART return path not validated')
  (out/'identity.json').write_text(json.dumps(identity,indent=2))
- ref=model.load_module('uart_reference',ROOT.parent/'src/igor_pipeline/scripts/uart_test.py')
+ ref=model.load_module('uart_reference',ROOT.parent/'src/garda_pipeline/scripts/uart_test.py')
  j=Jtag();records=[]
  try:
   before=j.query(b'i')

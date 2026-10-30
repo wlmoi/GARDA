@@ -91,7 +91,7 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
     hardware_result = hardware.finish() if hardware else None
-    files = [Path(__file__), source, FPGA / 'software_integration/src/igor_controller/igor_controller/controller_node.py']
+    files = [Path(__file__), source, FPGA / 'software_integration/src/garda_controller/garda_controller/controller_node.py']
     summary = dict(passed=all(r['passed'] for r in rows), passed_cases=sum(r['passed'] for r in rows),
                    total_cases=len(rows), hardware_accessed=bool(hardware), hardware=hardware_result,
                    groups={g: dict(passed=sum(r['passed'] for r in rows if r['group'] == g),

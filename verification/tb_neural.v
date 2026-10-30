@@ -8,5 +8,5 @@ reg [1:0] output_index=0;
 wire signed [15:0] output_value;
 wire busy,done,fault;
 wire [31:0] latency_cycles;
-igor_neural_core core(clk,rst_n,load_input,start,input_index,input_value,output_index,output_value,busy,done,fault,latency_cycles);
+garda_neural_core core(clk,rst_n,load_input,start,input_index,input_value,output_index,output_value,busy,done,fault,latency_cycles);
 endmodule

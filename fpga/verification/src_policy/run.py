@@ -16,8 +16,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 WORKSPACE = ROOT.parent
+# Existing source-model dependency in the enclosing workspace; not the rebranded FPGA package.
 SOURCE = WORKSPACE / "src/igor_navigation/igor_navigation/weights"
-RTL = ROOT / "rtl/igor_src_policy"
+RTL = ROOT / "rtl/garda_src_policy"
 ARTIFACTS = HERE / "artifacts"
 SHAPES = {"w1": (128, 74), "b1": (128,), "w2": (64, 128), "b2": (64,),
           "w3": (3, 64), "b3": (3,)}
@@ -199,9 +200,9 @@ def main():
     for suite in ("core", "uart"):
         suite_started = time.monotonic()
         output = ARTIFACTS / f"{suite}.vvp"
-        sources = [RTL / "igor_src_policy_rom.v", RTL / "igor_src_policy_core.v"]
+        sources = [RTL / "garda_src_policy_rom.v", RTL / "garda_src_policy_core.v"]
         if suite == "uart":
-            sources += [ROOT / "rtl/igor_uart_rx.v", ROOT / "rtl/igor_uart_tx.v", RTL / "igor_src_policy_uart.v"]
+            sources += [ROOT / "rtl/garda_uart_rx.v", ROOT / "rtl/garda_uart_tx.v", RTL / "garda_src_policy_uart.v"]
         sources.append(HERE / f"tb_src_policy_{suite}.sv")
         before_hashes = {str(path.relative_to(ROOT)): sha(path) for path in sources}
         command = [simulator, "-g2012", "-Wall", "-s", f"tb_src_policy_{suite}",

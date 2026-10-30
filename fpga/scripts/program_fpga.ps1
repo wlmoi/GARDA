@@ -17,18 +17,18 @@ $requestedWhatIf = [bool]$WhatIfPreference
 $WhatIfPreference = $false
 $fpgaRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $relativeSof = if ($Project -eq 'source_policy_parallel8') {
-    'experiments/parallel8/output_files/igor_src_policy.sof'
+    'experiments/parallel8/output_files/garda_src_policy.sof'
 } elseif ($Project -eq 'source_policy') {
-    'fpga_de10_nano/src_policy/output_files/igor_src_policy.sof'
-} else { 'fpga_de10_nano/quartus/output_files/igor.sof' }
+    'fpga_de10_nano/src_policy/output_files/garda_src_policy.sof'
+} else { 'fpga_de10_nano/quartus/output_files/garda.sof' }
 $relativeQsf = if ($Project -eq 'source_policy_parallel8') {
-    'experiments/parallel8/igor_src_policy.qsf'
+    'experiments/parallel8/garda_src_policy.qsf'
 } elseif ($Project -eq 'source_policy') {
-    'fpga_de10_nano/src_policy/igor_src_policy.qsf'
-} else { 'fpga_de10_nano/quartus/igor.qsf' }
+    'fpga_de10_nano/src_policy/garda_src_policy.qsf'
+} else { 'fpga_de10_nano/quartus/garda.qsf' }
 $sof = Join-Path $fpgaRoot $relativeSof
 $programSof = if ($Project -eq 'source_policy_parallel8') {
-    Join-Path $fpgaRoot 'bitstreams/igor_src_policy_parallel8.sof'
+    Join-Path $fpgaRoot 'bitstreams/garda_src_policy_parallel8.sof'
 } else { $sof }
 $qsf = Join-Path $fpgaRoot $relativeQsf
 if (!$Manifest) { $Manifest = Join-Path $fpgaRoot 'evidence/current_release/manifest.json' }

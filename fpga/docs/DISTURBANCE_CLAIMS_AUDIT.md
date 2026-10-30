@@ -1,4 +1,4 @@
-# Audit implementasi dan pengujian: 18 intelligent disturbances IGOR
+# Audit implementasi dan pengujian: 18 intelligent disturbances GARDA
 
 Tanggal: **20 Oktober 2026 (Asia/Jakarta)**. Branch: **bri/pipeline**. Commit dasar: `90fcd47b510bb00ded55a3283297f445bce65170`.
 
@@ -19,11 +19,11 @@ Empat hal dibedakan: **kode mekanisme ada**, **test yang menyasar mekanisme ada*
 
 Tiga arsitektur dalam repo tidak boleh digabung menjadi satu chip yang telah diuji end-to-end:
 
-1. **Parallel8 neural FPGA**: `fpga/experiments/parallel8`, top `igor_src_policy_de10_nano`, output residual Q8.8 melalui UART. QSF memuat core, UART dan wrapper; **tidak memuat planner gate/costmap**. Wrapper menyatakan tidak ada motor driver di top ini.
-2. **Planner/gate FPGA**: `fpga/rtl/igor_top.v`, `igor_safety_security_gate.v`, costmap, logger dan protocol planner. Sumber angka 111.210 vektor.
-3. **ASIC protocol engine**: `src/igorchip_top.v`, top `tt_um_igorchip`, empat context, pin mask dan program memory. Sumber bukti isolasi I/O/lock program; bukan neural Parallel8.
+1. **Parallel8 neural FPGA**: `fpga/experiments/parallel8`, top `garda_src_policy_de10_nano`, output residual Q8.8 melalui UART. QSF memuat core, UART dan wrapper; **tidak memuat planner gate/costmap**. Wrapper menyatakan tidak ada motor driver di top ini.
+2. **Planner/gate FPGA**: `fpga/rtl/garda_top.v`, `garda_safety_security_gate.v`, costmap, logger dan protocol planner. Sumber angka 111.210 vektor.
+3. **ASIC protocol engine**: `src/gardachip_top.v`, top `tt_um_gardachip`, empat context, pin mask dan program memory. Sumber bukti isolasi I/O/lock program; bukan neural Parallel8.
 
-Host integrasi yang diuji memakai `fpga/software_integration/src`, sedangkan `src/igor_*` adalah reference asli. Perbedaan ini ditandai saat mengutip source. Beberapa perubahan FPGA lokal sudah ada sebelum audit; tidak diubah oleh audit ini. SHA-256 source yang dikutip disertakan di akhir.
+Host integrasi yang diuji memakai `fpga/software_integration/src`, sedangkan `src/garda_*` adalah reference asli. Perbedaan ini ditandai saat mengutip source. Beberapa perubahan FPGA lokal sudah ada sebelum audit; tidak diubah oleh audit ini. SHA-256 source yang dikutip disertakan di akhir.
 
 ## 2. Matriks seluruh klaim
 
@@ -54,7 +54,7 @@ Host integrasi yang diuji memakai `fpga/software_integration/src`, sedangkan `sr
 
 **Kode ada.** Simulator training menolkan seluruh body command saat jarak minimum di bawah 0,22 m. Ini aksi simulator, belum pengukuran jarak berhenti kendaraan.
 
-Sumber: [src/igor_navigation/igor_navigation/retrain_ai.py:377](D:/LinkedinProjects/igor_ws/igor_ws/src/igor_navigation/igor_navigation/retrain_ai.py:377) (baris 377–379).
+Sumber: [src/garda_navigation/garda_navigation/retrain_ai.py:377](D:/LinkedinProjects/garda_ws/garda_ws/src/garda_navigation/garda_navigation/retrain_ai.py:377) (baris 377–379).
 
 ```python
         if d_min < 0.22:
@@ -63,7 +63,7 @@ Sumber: [src/igor_navigation/igor_navigation/retrain_ai.py:377](D:/LinkedinProje
 ```
 Host integrasi juga memiliki final override yang berlaku sesudah inferensi/filter, sebelum kinematika roda:
 
-Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:384](D:/LinkedinProjects/igor_ws/igor_ws/fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:384) (baris 384–388).
+Sumber: [fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:384](D:/LinkedinProjects/garda_ws/garda_ws/fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:384) (baris 384–388).
 
 ```python
         if d_min <= 0.22 or not np.any(command):
@@ -72,7 +72,7 @@ Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controlle
             v_safe = np.clip(v_safe, [-0.15, -0.50, -2.0], [allowed_max_vx, 0.50, 2.0])
 
 ```
-**Test tersedia dan lulus ulang:** [fpga/verification/run_host_regression.py:226](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/run_host_regression.py:226) dan `test_scan_metadata_and_positive_infinity_no_return`. Fixture membuktikan command empat roda nol ketika obstacle kritis ada; tidak memakai worker/robot nyata. Test batas kritis ini bukan coverage exhaustif seluruh jarak atau noise LiDAR.
+**Test tersedia dan lulus ulang:** [fpga/verification/run_host_regression.py:226](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/run_host_regression.py:226) dan `test_scan_metadata_and_positive_infinity_no_return`. Fixture membuktikan command empat roda nol ketika obstacle kritis ada; tidak memakai worker/robot nyata. Test batas kritis ini bukan coverage exhaustif seluruh jarak atau noise LiDAR.
 
 **Tidak ditemukan:** test “worker steps in close” dengan lintasan manusia, rekaman robot, speed sebelum stop, stopping time/distance dan kriteria penerimaannya. Label yang aman: **critical-distance zero command tested in simulator/host fixtures**.
 
@@ -80,7 +80,7 @@ Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controlle
 
 **Guard dan error memang ada** pada neural UART:
 
-Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:96](D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v:96) (baris 96–100).
+Sumber: [fpga/rtl/garda_src_policy/garda_src_policy_uart.v:96](D:/LinkedinProjects/garda_ws/garda_ws/fpga/rtl/garda_src_policy/garda_src_policy_uart.v:96) (baris 96–100).
 
 ```verilog
     assign safety_permit=result_valid && !estop_active && !core_fault;
@@ -90,7 +90,7 @@ Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:96](D:/LinkedinProjects
     assign debug_state=estop_active ? 4'hf : (core_fault ? 4'he : mode);
 ```
 
-Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:109](D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v:109) (baris 109–115).
+Sumber: [fpga/rtl/garda_src_policy/garda_src_policy_uart.v:109](D:/LinkedinProjects/garda_ws/garda_ws/fpga/rtl/garda_src_policy/garda_src_policy_uart.v:109) (baris 109–115).
 
 ```verilog
             error_code<=code; error_history<=error_history | (12'h1 << (code[3:0]-1'b1));
@@ -101,9 +101,9 @@ Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:109](D:/LinkedinProject
             result_valid<=0; position<=0; mode<=RX;
             rx_timer<=0; infer_timer<=0;
 ```
-**Test tersedia dan lulus ulang:** [fpga/experiments/parallel8/tb_board_wrapper.sv:78](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/tb_board_wrapper.sv:78) sampai pengujian latch, history dan reset. Wrapper memiliki **18 checkpoint**. Planner juga menguji fault code 2, command nol dan logger:
+**Test tersedia dan lulus ulang:** [fpga/experiments/parallel8/tb_board_wrapper.sv:78](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/tb_board_wrapper.sv:78) sampai pengujian latch, history dan reset. Wrapper memiliki **18 checkpoint**. Planner juga menguji fault code 2, command nol dan logger:
 
-Sumber: [fpga/verification/tb_safety_top.v:59](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/tb_safety_top.v:59) (baris 59–61).
+Sumber: [fpga/verification/tb_safety_top.v:59](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/tb_safety_top.v:59) (baris 59–61).
 
 ```verilog
  result_ready;events_before=event_count;#3;estop=1;zero_outputs(2);checkpoint("estop_asserted_between_clocks_immediate_zero");
@@ -116,7 +116,7 @@ Sumber: [fpga/verification/tb_safety_top.v:59](D:/LinkedinProjects/igor_ws/igor_
 
 **0,15 ada pada software, bukan aturan RTL universal.** Dalam simulator, scaling action maju positif adalah tambahan residual:
 
-Sumber: [src/igor_navigation/igor_navigation/retrain_ai.py:360](D:/LinkedinProjects/igor_ws/igor_ws/src/igor_navigation/igor_navigation/retrain_ai.py:360) (baris 360–362).
+Sumber: [src/garda_navigation/garda_navigation/retrain_ai.py:360](D:/LinkedinProjects/garda_ws/garda_ws/src/garda_navigation/garda_navigation/retrain_ai.py:360) (baris 360–362).
 
 ```python
         delta_vx = a0 * self.max_cmd_vx if a0 < 0.0 else a0 * 0.15
@@ -125,21 +125,21 @@ Sumber: [src/igor_navigation/igor_navigation/retrain_ai.py:360](D:/LinkedinProje
 ```
 Pada host integrasi, batas tergantung jarak:
 
-Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:326](D:/LinkedinProjects/igor_ws/igor_ws/fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:326) (baris 326–327).
+Sumber: [fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:326](D:/LinkedinProjects/garda_ws/garda_ws/fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:326) (baris 326–327).
 
 ```python
         allowed_max_vx = float(np.interp(d_min, [0.22, 0.40, 1.20], [0.0, 0.15, 0.60]))
 
 ```
 
-Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:387](D:/LinkedinProjects/igor_ws/igor_ws/fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:387) (baris 387–387).
+Sumber: [fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:387](D:/LinkedinProjects/garda_ws/garda_ws/fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:387) (baris 387–387).
 
 ```python
             v_safe = np.clip(v_safe, [-0.15, -0.50, -2.0], [allowed_max_vx, 0.50, 2.0])
 ```
 Envelope 0,22–0,40 m memberi batas dari nol hingga 0,15 m/s; pada 0,80 m batasnya **0,375 m/s**, dan pada 1,20 m mencapai 0,60 m/s. Jadi ini bukan “semua forward capped 0,15”.
 
-**Test tersedia dan lulus ulang:** [fpga/verification/run_host_regression.py:233](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/run_host_regression.py:233) secara eksplisit mengharapkan 0,375 m/s pada 0,8 m. Planner RTL memiliki `max_v/max_dv`, tetapi tidak langsung mengartikan objek “cargo” atau unit m/s dari kalimat ini.
+**Test tersedia dan lulus ulang:** [fpga/verification/run_host_regression.py:233](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/run_host_regression.py:233) secara eksplisit mengharapkan 0,375 m/s pada 0,8 m. Planner RTL memiliki `max_v/max_dv`, tetapi tidak langsung mengartikan objek “cargo” atau unit m/s dari kalimat ini.
 
 **Tidak ditemukan:** test RTL khusus AI surge dekat cargo yang membuktikan batas fisik 0,15 m/s pada semua kondisi. Klaim perlu menyebut **software distance-dependent speed envelope**.
 
@@ -147,14 +147,14 @@ Envelope 0,22–0,40 m memberi batas dari nol hingga 0,15 m/s; pada 0,80 m batas
 
 **Bounded action ada** melalui clamp yang ditunjukkan pada nomor 3 dan 14. Simulator juga memodelkan perbedaan slip roda:
 
-Sumber: [src/igor_navigation/igor_navigation/retrain_ai.py:270](D:/LinkedinProjects/igor_ws/igor_ws/src/igor_navigation/igor_navigation/retrain_ai.py:270) (baris 270–271).
+Sumber: [src/garda_navigation/garda_navigation/retrain_ai.py:270](D:/LinkedinProjects/garda_ws/garda_ws/src/garda_navigation/garda_navigation/retrain_ai.py:270) (baris 270–271).
 
 ```python
             self.wheel_slip_factors = np.random.uniform(0.90, 1.10, size=4).astype(np.float32)
             self.obstacles.append(DynamicObstacle([1.8, np.random.uniform(-0.5, 0.5)], radius=0.20))
 ```
 
-Sumber: [src/igor_navigation/igor_navigation/retrain_ai.py:396](D:/LinkedinProjects/igor_ws/igor_ws/src/igor_navigation/igor_navigation/retrain_ai.py:396) (baris 396–398).
+Sumber: [src/garda_navigation/garda_navigation/retrain_ai.py:396](D:/LinkedinProjects/garda_ws/garda_ws/src/garda_navigation/garda_navigation/retrain_ai.py:396) (baris 396–398).
 
 ```python
         eff_rps = motor_rps * self.wheel_slip_factors if self.domain_randomization_enabled else motor_rps
@@ -167,25 +167,25 @@ Namun variasi slip bukan model perpindahan massa atau center of mass saat belok.
 
 **Map-stale stop ada pada planner**:
 
-Sumber: [fpga/rtl/igor_costmap_manager.v:17](D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_costmap_manager.v:17) (baris 17–17).
+Sumber: [fpga/rtl/garda_costmap_manager.v:17](D:/LinkedinProjects/garda_ws/garda_ws/fpga/rtl/garda_costmap_manager.v:17) (baris 17–17).
 
 ```verilog
 assign fresh=valid && age<FRESH_CYCLES;
 ```
 
-Sumber: [fpga/rtl/igor_safety_security_gate.v:24](D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_safety_security_gate.v:24) (baris 24–24).
+Sumber: [fpga/rtl/garda_safety_security_gate.v:24](D:/LinkedinProjects/garda_ws/garda_ws/fpga/rtl/garda_safety_security_gate.v:24) (baris 24–24).
 
 ```verilog
  else if (!map_ok) fault_code=8'd5;
 ```
 Test mengunci kondisi tepat di ambang freshness dan memeriksa fault/log:
 
-Sumber: [fpga/verification/tb_safety_top.v:71](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/tb_safety_top.v:71) (baris 71–71).
+Sumber: [fpga/verification/tb_safety_top.v:71](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/tb_safety_top.v:71) (baris 71–71).
 
 ```verilog
  wait(freshness_core.maps.age==10000);#1;if(stale_enable || stale_fault!=5)$fatal(1,"stale map exact cutoff");checkpoint_source=2;checkpoint("map_freshness_exact_boundary_zero");tick;if(stale_last!=5)$fatal(1,"stale map log");checkpoint("map_freshness_zero_and_logged");checkpoint_source=0;
 ```
-**Test tersedia dan lulus ulang:** `map_freshness_exact_boundary_zero`, `map_freshness_zero_and_logged`; host [fpga/verification/run_host_regression.py:200](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/run_host_regression.py:200) juga lulus. Test planner memakai `FRESH_CYCLES=10000` untuk mempercepat boundary test; itu bukan bukti seluruh deployment memakai ambang sama.
+**Test tersedia dan lulus ulang:** `map_freshness_exact_boundary_zero`, `map_freshness_zero_and_logged`; host [fpga/verification/run_host_regression.py:200](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/run_host_regression.py:200) juga lulus. Test planner memakai `FRESH_CYCLES=10000` untuk mempercepat boundary test; itu bukan bukti seluruh deployment memakai ambang sama.
 
 **Tidak ditemukan:** power-off fasilitas, pengukuran LiDAR dalam gelap, suplai cadangan, atau uji robot saat blackout. Map planner juga tidak otomatis berada dalam source list top neural Parallel8. Klaim yang terbukti hanya **freshness failure retracts digital permit/commands**.
 
@@ -193,13 +193,13 @@ Sumber: [fpga/verification/tb_safety_top.v:71](D:/LinkedinProjects/igor_ws/igor_
 
 **Parser korupsi ada**, termasuk CRC, trailer, frame terpotong dan stop bit. Contoh test:
 
-Sumber: [fpga/verification/tb_safety_uart.v:52](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/tb_safety_uart.v:52) (baris 52–53).
+Sumber: [fpga/verification/tb_safety_uart.v:52](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/tb_safety_uart.v:52) (baris 52–53).
 
 ```verilog
  reset_all;send_frame(7,0,1,0);if(!dut.protocol_fault || accepted_count!=0 || dut.enable || dut.last!=4)$fatal(1,"bad crc");checkpoint("crc_corruption_zero_and_logged");
  send_frame(4,32'h00143d0f,0,0);if(accepted_count!=0 || dut.core.cfg.valid)$fatal(1,"protocol sticky bypass");checkpoint("good_command_after_crc_fault_rejected");
 ```
-Test tersedia dan lulus ulang dalam suite safety UART, bersama `wrong_terminator_rejected`, `truncated_frame_timeout`, dan `uart_stop_bit_error` ([fpga/verification/tb_safety_uart.v:54](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/tb_safety_uart.v:54)).
+Test tersedia dan lulus ulang dalam suite safety UART, bersama `wrong_terminator_rejected`, `truncated_frame_timeout`, dan `uart_stop_bit_error` ([fpga/verification/tb_safety_uart.v:54](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/tb_safety_uart.v:54)).
 
 **Tidak ditemukan:** injeksi cairan, resistansi bocor, korsleting, overvoltage atau electrical isolation test. Mengubah byte dalam testbench bukan simulasi lengkap rangkaian yang terkena cairan. Bukti ini hanya mendukung **malformed/corrupted digital frame rejection**.
 
@@ -207,13 +207,13 @@ Test tersedia dan lulus ulang dalam suite safety UART, bersama `wrong_terminator
 
 **Timer host 50 Hz ada**:
 
-Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:59](D:/LinkedinProjects/igor_ws/igor_ws/fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:59) (baris 59–59).
+Sumber: [fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:59](D:/LinkedinProjects/garda_ws/garda_ws/fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:59) (baris 59–59).
 
 ```python
         self.declare_parameter('control_rate_hz', 50.0)
 ```
 
-Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:194](D:/LinkedinProjects/igor_ws/igor_ws/fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:194) (baris 194–195).
+Sumber: [fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:194](D:/LinkedinProjects/garda_ws/garda_ws/fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:194) (baris 194–195).
 
 ```python
         timer_period = 1.0 / self.control_rate_hz
@@ -221,7 +221,7 @@ Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controlle
 ```
 **Slip simulator ada**, tetapi bukan plant PID motor: simulator menghitung kecepatan dari RPS yang dikalikan faktor slip lalu langsung mengintegrasikan pose. Frekuensi simulasi training juga berbeda:
 
-Sumber: [src/igor_navigation/igor_navigation/retrain_ai.py:126](D:/LinkedinProjects/igor_ws/igor_ws/src/igor_navigation/igor_navigation/retrain_ai.py:126) (baris 126–126).
+Sumber: [src/garda_navigation/garda_navigation/retrain_ai.py:126](D:/LinkedinProjects/garda_ws/garda_ws/src/garda_navigation/garda_navigation/retrain_ai.py:126) (baris 126–126).
 
 ```python
         self.dt = 0.033
@@ -238,7 +238,7 @@ Klaim **“Sim verified wet/oily floor + wheel PID” belum terbukti lengkap**. 
 
 Watchdog host yang nyata memakai **0,5 s**:
 
-Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:252](D:/LinkedinProjects/igor_ws/igor_ws/fpga/software_integration/src/igor_controller/igor_controller/controller_node.py:252) (baris 252–258).
+Sumber: [fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:252](D:/LinkedinProjects/garda_ws/garda_ws/fpga/software_integration/src/garda_controller/garda_controller/controller_node.py:252) (baris 252–258).
 
 ```python
         # Watchdog: if no command received for > 0.5s, command zero
@@ -249,9 +249,9 @@ Sumber: [fpga/software_integration/src/igor_controller/igor_controller/controlle
             self._stop_for_fault("COMMAND_STALE")
             return
 ```
-Test [fpga/verification/run_host_regression.py:197](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/run_host_regression.py:197) lulus ulang, tetapi memeriksa keputusan software mengirim nol. Itu tidak membuktikan timer STM32 200 ms, apalagi respons tegangan turun.
+Test [fpga/verification/run_host_regression.py:197](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/run_host_regression.py:197) lulus ulang, tetapi memeriksa keputusan software mengirim nol. Itu tidak membuktikan timer STM32 200 ms, apalagi respons tegangan turun.
 
-Nilai `join(timeout=0.2)` yang ditemukan pada driver terkait menunggu thread saat shutdown, **bukan** cutoff PWM. Brownout detector tegangan dan watchdog komunikasi adalah mekanisme berbeda. Dokumen [fpga/robot/jetauto/FPGA_VERILOG_TUTORIAL.md:99](D:/LinkedinProjects/igor_ws/igor_ws/fpga/robot/jetauto/FPGA_VERILOG_TUTORIAL.md:99) menyatakan belum ada verifikasi STM watchdog pada RTL demo.
+Nilai `join(timeout=0.2)` yang ditemukan pada driver terkait menunggu thread saat shutdown, **bukan** cutoff PWM. Brownout detector tegangan dan watchdog komunikasi adalah mekanisme berbeda. Dokumen [fpga/robot/jetauto/FPGA_VERILOG_TUTORIAL.md:99](D:/LinkedinProjects/garda_ws/garda_ws/fpga/robot/jetauto/FPGA_VERILOG_TUTORIAL.md:99) menyatakan belum ada verifikasi STM watchdog pada RTL demo.
 
 Status **Next** tepat; angka **200 ms belum boleh dianggap hasil yang sudah diverifikasi**.
 
@@ -259,7 +259,7 @@ Status **Next** tepat; angka **200 ms belum boleh dianggap hasil yang sudah dive
 
 CRC source-policy memang memicu reject:
 
-Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:173](D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v:173) (baris 173–176).
+Sumber: [fpga/rtl/garda_src_policy/garda_src_policy_uart.v:173](D:/LinkedinProjects/garda_ws/garda_ws/fpga/rtl/garda_src_policy/garda_src_policy_uart.v:173) (baris 173–176).
 
 ```verilog
                             if (rx_data!=crc) reject(8'd6);
@@ -267,7 +267,7 @@ Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:173](D:/LinkedinProject
                             else begin
                                 if (accepted_frames!=32'hffffffff)
 ```
-**Test tersedia dan lulus ulang:** CRC corruption suite safety dan [test/test_rtl.py:206](D:/LinkedinProjects/igor_ws/igor_ws/test/test_rtl.py:206), `test_uart_rx_start_glitch_and_valid_frame`. CRC diuji pada model paket digital. Bukti nomor 6 dan 9 banyak memakai mekanisme/test yang sama; tidak otomatis dua kampanye uji fisik terpisah.
+**Test tersedia dan lulus ulang:** CRC corruption suite safety dan [test/test_rtl.py:206](D:/LinkedinProjects/garda_ws/garda_ws/test/test_rtl.py:206), `test_uart_rx_start_glitch_and_valid_frame`. CRC diuji pada model paket digital. Bukti nomor 6 dan 9 banyak memakai mekanisme/test yang sama; tidak otomatis dua kampanye uji fisik terpisah.
 
 **Tidak ditemukan:** RF/conducted injection, EFT/burst, ESD, medan motor/press-line, amplitudo/frekuensi/durasi, atau hasil EMC di setup fisik. CRC juga bukan autentikasi: pengirim yang menghitung ulang CRC dapat membuat paket palsu yang valid. Klaim aman: **CRC/framing rejects the tested digital corruption cases**.
 
@@ -275,7 +275,7 @@ Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:173](D:/LinkedinProject
 
 Testbench menegakkan latency untuk setiap network vector:
 
-Sumber: [fpga/experiments/parallel8/tb_src_policy_core.sv:102](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/tb_src_policy_core.sv:102) (baris 102–104).
+Sumber: [fpga/experiments/parallel8/tb_src_policy_core.sv:102](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/tb_src_policy_core.sv:102) (baris 102–104).
 
 ```verilog
             if(fault||busy||latency_cycles!==6916)
@@ -294,7 +294,7 @@ Sumber: [fpga/experiments/parallel8/tb_src_policy_core.sv:102](D:/LinkedinProjec
 
 Test yang benar-benar ada adalah deadline host:
 
-Sumber: [fpga/verification/run_host_regression.py:114](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/run_host_regression.py:114) (baris 114–120).
+Sumber: [fpga/verification/run_host_regression.py:114](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/run_host_regression.py:114) (baris 114–120).
 
 ```python
     def test_total_deadline_rejects_slow_write_and_slow_read(self):
@@ -311,7 +311,7 @@ Fixture ini menguji waktu 21 ms pada write/read dengan clock yang dimock. **Lulu
 
 Scheduler ASIC memberi context lain kesempatan walau context saat ini menunggu pin:
 
-Sumber: [src/igorchip_top.v:134](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchip_top.v:134) (baris 134–137).
+Sumber: [src/gardachip_top.v:134](D:/LinkedinProjects/garda_ws/garda_ws/src/gardachip_top.v:134) (baris 134–137).
 
 ```verilog
     slot <= slot + 2'd1;
@@ -320,12 +320,12 @@ Sumber: [src/igorchip_top.v:134](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchi
      else begin
 ```
 
-Sumber: [src/igorchip_top.v:178](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchip_top.v:178) (baris 178–178).
+Sumber: [src/gardachip_top.v:178](D:/LinkedinProjects/garda_ws/garda_ws/src/gardachip_top.v:178) (baris 178–178).
 
 ```verilog
         1: if (!pin_ready) pc[slot] <= active_pc;
 ```
-**Test tersedia dan lulus ulang:** [test/test_rtl.py:274](D:/LinkedinProjects/igor_ws/igor_ws/test/test_rtl.py:274), `test_i2c_nack_stops_before_data`, `test_four_protocol_contexts_concurrently`. Test stretch menahan SCL **30 siklus**, lalu melepasnya; bukan stuck selamanya.
+**Test tersedia dan lulus ulang:** [test/test_rtl.py:274](D:/LinkedinProjects/garda_ws/garda_ws/test/test_rtl.py:274), `test_i2c_nack_stops_before_data`, `test_four_protocol_contexts_concurrently`. Test stretch menahan SCL **30 siklus**, lalu melepasnya; bukan stuck selamanya.
 
 **Belum ditemukan:** test yang menahan SDA/SCL secara permanen sekaligus memeriksa kemajuan context lain dan batas waktunya, prosedur bus recovery, atau uji sensor fisik hang. Isolation scheduler dasarnya ada dan concurrency diuji; klaim permanent-hang lengkap tetap **Next/partial**. Ini fitur protocol engine ASIC, bukan jalur LiDAR USB pada Parallel8.
 
@@ -333,7 +333,7 @@ Sumber: [src/igorchip_top.v:178](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchi
 
 Implementasi menolak pin-mask overlap dan menandai error context:
 
-Sumber: [src/igorchip_top.v:124](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchip_top.v:124) (baris 124–128).
+Sumber: [src/gardachip_top.v:124](D:/LinkedinProjects/garda_ws/garda_ws/src/gardachip_top.v:124) (baris 124–128).
 
 ```verilog
       if (!core_enabled && !(|(host_data & other_pins))) begin
@@ -344,7 +344,7 @@ Sumber: [src/igorchip_top.v:124](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchi
 ```
 Test secara eksplisit mencoba konflik dan memastikan mask lama tidak tertimpa:
 
-Sumber: [test/test_rtl.py:347](D:/LinkedinProjects/igor_ws/igor_ws/test/test_rtl.py:347) (baris 347–354).
+Sumber: [test/test_rtl.py:347](D:/LinkedinProjects/garda_ws/garda_ws/test/test_rtl.py:347) (baris 347–354).
 
 ```python
     def test_pin_ownership_rejects_overlap_and_releases_old_mask(self):
@@ -364,7 +364,7 @@ Arti “logs it” di sini adalah **sticky bit `errors[host_tid]` yang bisa diba
 
 Clamp output layer pada Parallel8 benar-benar ada:
 
-Sumber: [fpga/experiments/parallel8/igor_src_policy_core.v:15](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v:15) (baris 15–20).
+Sumber: [fpga/experiments/parallel8/garda_src_policy_core.v:15](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/garda_src_policy_core.v:15) (baris 15–20).
 
 ```verilog
     assign value = output_layer ?
@@ -376,7 +376,7 @@ endmodule
 ```
 ±256 Q8.8 = ±1,0 normalized. Test activation menguji data pembatasan dan perbandingan oracle:
 
-Sumber: [fpga/experiments/parallel8/tb_src_policy_core.sv:89](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/tb_src_policy_core.sv:89) (baris 89–93).
+Sumber: [fpga/experiments/parallel8/tb_src_policy_core.sv:89](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/tb_src_policy_core.sv:89) (baris 89–93).
 
 ```verilog
         for(i=0;i<A;i=i+1)begin
@@ -393,7 +393,7 @@ Sumber: [fpga/experiments/parallel8/tb_src_policy_core.sv:89](D:/LinkedinProject
 
 **Tidak ditemukan sequence ID/nonce/HMAC pada frame neural UART saat ini.** Parser menerima header/opcode/length, payload 148 byte dan CRC; tidak ada counter freshness kriptografis:
 
-Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:171](D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_src_policy/igor_src_policy_uart.v:171) (baris 171–180).
+Sumber: [fpga/rtl/garda_src_policy/garda_src_policy_uart.v:171](D:/LinkedinProjects/garda_ws/garda_ws/fpga/rtl/garda_src_policy/garda_src_policy_uart.v:171) (baris 171–180).
 
 ```verilog
                         152: begin
@@ -409,13 +409,13 @@ Sumber: [fpga/rtl/igor_src_policy/igor_src_policy_uart.v:171](D:/LinkedinProject
 ```
 Jangan keliru dengan sequence pada **map planner**:
 
-Sumber: [fpga/rtl/igor_costmap_manager.v:24](D:/LinkedinProjects/igor_ws/igor_ws/fpga/rtl/igor_costmap_manager.v:24) (baris 24–25).
+Sumber: [fpga/rtl/garda_costmap_manager.v:24](D:/LinkedinProjects/garda_ws/garda_ws/fpga/rtl/garda_costmap_manager.v:24) (baris 24–25).
 
 ```verilog
    if(loading || frame_sequence<=committed_sequence || fault) begin fault<=1;loading<=0;end
    else begin loading<=1;count<=0;pending_sequence<=frame_sequence;end
 ```
-Test map replay memang tersedia pada [fpga/verification/tb_safety_units.v:64](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/tb_safety_units.v:64) dan lulus dalam suite units. Ini bukan perlindungan replay pada neural inference UART. Late-response fault latch di host juga bukan HMAC/sequence setiap request.
+Test map replay memang tersedia pada [fpga/verification/tb_safety_units.v:64](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/tb_safety_units.v:64) dan lulus dalam suite units. Ini bukan perlindungan replay pada neural inference UART. Late-response fault latch di host juga bukan HMAC/sequence setiap request.
 
 Slide memberi label **Next**; HMAC dan neural frame anti-replay tetap roadmap. Tidak diimplementasikan dalam audit ini.
 
@@ -423,7 +423,7 @@ Slide memberi label **Next**; HMAC dan neural frame anti-replay tetap roadmap. T
 
 Pada salah satu lane Parallel8, bobot dimuat saat inisialisasi dan selanjutnya dibaca sinkron:
 
-Sumber: [fpga/experiments/parallel8/igor_src_policy_core.v:108](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_core.v:108) (baris 108–111).
+Sumber: [fpga/experiments/parallel8/garda_src_policy_core.v:108](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/garda_src_policy_core.v:108) (baris 108–111).
 
 ```verilog
         initial $readmemh(BANK_FILE,memory);
@@ -441,13 +441,13 @@ Test bit-exact membandingkan output jaringan dengan oracle dan memeriksa seluruh
 
 Write enable program memory dibatasi core state:
 
-Sumber: [src/igorchip_top.v:38](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchip_top.v:38) (baris 38–38).
+Sumber: [src/gardachip_top.v:38](D:/LinkedinProjects/garda_ws/garda_ws/src/gardachip_top.v:38) (baris 38–38).
 
 ```verilog
  wire memory_write = rst_n && host_write && host_address == 4 && !core_enabled;
 ```
 
-Sumber: [src/igorchip_top.v:95](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchip_top.v:95) (baris 95–97).
+Sumber: [src/gardachip_top.v:95](D:/LinkedinProjects/garda_ws/garda_ws/src/gardachip_top.v:95) (baris 95–97).
 
 ```verilog
     if (!core_enabled) byte_address <= byte_address + 1'b1;
@@ -456,7 +456,7 @@ Sumber: [src/igorchip_top.v:95](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchip
 ```
 Test mencoba live write, memeriksa error, address tidak maju, dan program tidak berubah:
 
-Sumber: [test/test_rtl.py:361](D:/LinkedinProjects/igor_ws/igor_ws/test/test_rtl.py:361) (baris 361–367).
+Sumber: [test/test_rtl.py:361](D:/LinkedinProjects/garda_ws/garda_ws/test/test_rtl.py:361) (baris 361–367).
 
 ```python
           // Live memory writes must be rejected without advancing the address.
@@ -471,7 +471,7 @@ Sumber: [test/test_rtl.py:361](D:/LinkedinProjects/igor_ws/igor_ws/test/test_rtl
 
 Namun host tetap bisa menulis control register yang mematikan core:
 
-Sumber: [src/igorchip_top.v:100](D:/LinkedinProjects/igor_ws/igor_ws/src/igorchip_top.v:100) (baris 100–100).
+Sumber: [src/gardachip_top.v:100](D:/LinkedinProjects/garda_ws/garda_ws/src/gardachip_top.v:100) (baris 100–100).
 
 ```verilog
      0: core_enabled <= host_data[0];
@@ -482,7 +482,7 @@ Tidak ditemukan autentikasi/otorisasi host untuk jalur itu. Setelah core dimatik
 
 Manifest SHA-256 dan verifier file tersedia:
 
-Sumber: [fpga/scripts/freeze_release.py:37](D:/LinkedinProjects/igor_ws/igor_ws/fpga/scripts/freeze_release.py:37) (baris 37–47).
+Sumber: [fpga/scripts/freeze_release.py:37](D:/LinkedinProjects/garda_ws/garda_ws/fpga/scripts/freeze_release.py:37) (baris 37–47).
 
 ```python
 def check_mapping(mapping):
@@ -497,9 +497,9 @@ def check_mapping(mapping):
 
 def verify_build(name):
 ```
-Source pembuatan manifest: [fpga/scripts/create_manifest.py:44](D:/LinkedinProjects/igor_ws/igor_ws/fpga/scripts/create_manifest.py:44). Daftar SOF SHA-256 juga dibuat pada `freeze_release.py`. Ini membuktikan tooling integritas file, bukan encryption.
+Source pembuatan manifest: [fpga/scripts/create_manifest.py:44](D:/LinkedinProjects/garda_ws/garda_ws/fpga/scripts/create_manifest.py:44). Daftar SOF SHA-256 juga dibuat pada `freeze_release.py`. Ini membuktikan tooling integritas file, bukan encryption.
 
-Test [fpga/scripts/test_release_integrity.py:11](D:/LinkedinProjects/igor_ws/igor_ws/fpga/scripts/test_release_integrity.py:11) memeriksa helper hash/link-target dan perubahan bytes. **Bukan** test tampered SOF. Pemeriksaan release penuh tidak dijalankan dalam audit ini karena bukan syarat untuk membuktikan keberadaan helper dan ada perubahan lokal lama; dokumen ini tidak mengklaim semua manifest historis masih cocok.
+Test [fpga/scripts/test_release_integrity.py:11](D:/LinkedinProjects/garda_ws/garda_ws/fpga/scripts/test_release_integrity.py:11) memeriksa helper hash/link-target dan perubahan bytes. **Bukan** test tampered SOF. Pemeriksaan release penuh tidak dijalankan dalam audit ini karena bukan syarat untuk membuktikan keberadaan helper dan ada perubahan lokal lama; dokumen ini tidak mengklaim semua manifest historis masih cocok.
 
 **Tidak ditemukan:** gate-level/board test menolak bitstream yang telah dimodifikasi, signed bitstream verification dalam boot chain, key management, atau encrypted configuration yang aktif. SHA-256 tanpa trust anchor/signature tidak mencegah penyerang mengganti file sekaligus manifest. Status slide Next harus dipertahankan.
 
@@ -547,32 +547,32 @@ Link di atas menunjuk file lokal dan nomor baris checkout saat audit. Potongan k
 
 | File | SHA-256 saat audit |
 |---|---|
-| `fpga/experiments/parallel8/igor_src_policy_core.v` | `0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34` |
+| `fpga/experiments/parallel8/garda_src_policy_core.v` | `0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34` |
 | `fpga/experiments/parallel8/tb_board_wrapper.sv` | `cf6afed010b93ce39a91f3337607298f02bf57853e5d3c66575d0ee5afa1543e` |
 | `fpga/experiments/parallel8/tb_src_policy_core.sv` | `2548d3ed6b3173a973bb12335b90dcb41f86910b72dd5c754236977ee4ca8715` |
 | `fpga/robot/jetauto/FPGA_VERILOG_TUTORIAL.md` | `7035404e4ff1cec47e8b4950a9b1b45193fc22ddb64e2c877c756800a59a3a97` |
-| `fpga/rtl/igor_costmap_manager.v` | `5d58ee1bc90873f1c226ee0308c32fda351fdd97e23f8db6d7598c356fa58e94` |
-| `fpga/rtl/igor_safety_security_gate.v` | `17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6` |
-| `fpga/rtl/igor_src_policy/igor_src_policy_uart.v` | `8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a` |
+| `fpga/rtl/garda_costmap_manager.v` | `5d58ee1bc90873f1c226ee0308c32fda351fdd97e23f8db6d7598c356fa58e94` |
+| `fpga/rtl/garda_safety_security_gate.v` | `17e58e15e6e09e0e51e8e6d8a3731290931e607c7b607e1683d43c02e41f1ae6` |
+| `fpga/rtl/garda_src_policy/garda_src_policy_uart.v` | `8c03e18a3a22afa550f387e74cb78c3b0d66df8a8efac1def37682e159e0e38a` |
 | `fpga/scripts/create_manifest.py` | `080df0e7e4de11f2f62a135cb31189581e63edadd61a529514a7e43bc0506583` |
 | `fpga/scripts/freeze_release.py` | `bb63de3da75874e34fc3fac752e9f59a30f81e6dc198b31d869645b012801b70` |
 | `fpga/scripts/test_release_integrity.py` | `5febc247970db79400fd574765acc2eaa31acdef890cb38ad5b265c04f21a889` |
-| `fpga/software_integration/src/igor_controller/igor_controller/controller_node.py` | `2ebe5e4e3ccefe93ae3a7242e42644d2b02bb1d3277bd6127b4b9875f77b758b` |
+| `fpga/software_integration/src/garda_controller/garda_controller/controller_node.py` | `2ebe5e4e3ccefe93ae3a7242e42644d2b02bb1d3277bd6127b4b9875f77b758b` |
 | `fpga/verification/run_host_regression.py` | `4c95d3956971b7db20125ee9eb20010163f437a2a27fec70d56c2b3e5a1ff53c` |
 | `fpga/verification/tb_safety_top.v` | `4762ba74212f32ee4e3c235ecbeef8e9c1fac0cdfa2a60d1266aa9156f8b164d` |
 | `fpga/verification/tb_safety_uart.v` | `4ed41b2180611c4cb770b12bdf4abaf26f48a9611a899d783f1992fd3a53dac9` |
 | `fpga/verification/tb_safety_units.v` | `e3bff4dc16981efc860877ea798379fe3a2d08e06f57170a0db33438dc562ac5` |
-| `src/igor_navigation/igor_navigation/retrain_ai.py` | `e3196b2cde0f54bb4c91a0ccf8bd638af58bae6810466b65234f7cb0380012c0` |
-| `src/igorchip_top.v` | `ebbc52a887832c04a3b0c21bbe8161d75218906c2744f5183b03e4489aaefd41` |
+| `src/garda_navigation/garda_navigation/retrain_ai.py` | `e3196b2cde0f54bb4c91a0ccf8bd638af58bae6810466b65234f7cb0380012c0` |
+| `src/gardachip_top.v` | `ebbc52a887832c04a3b0c21bbe8161d75218906c2744f5183b03e4489aaefd41` |
 | `test/test_rtl.py` | `f78b2f98f9e95900b04be0de2f153d098d72c5d191723dec2072db5ba69dab82` |
 
 ### Artefak existing dan pengikat arsitektur
 
-- [fpga/experiments/parallel8/igor_src_policy.qsf](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy.qsf) — SHA-256 `9c94b0cd5779a8f1c55b2ca1b5f60607a7fdbdc87eff8ed9d01e2d56d930cef6`.
-- [fpga/experiments/parallel8/igor_src_policy_de10_nano.v](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/igor_src_policy_de10_nano.v) — SHA-256 `74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81`.
-- [fpga/evidence/current_safety/summary.json](D:/LinkedinProjects/igor_ws/igor_ws/fpga/evidence/current_safety/summary.json) — SHA-256 `6ee2c0ddcf35aeca485f4624f6504b018381847ac776fd9a353d6e9a0bf23aff`.
-- [fpga/experiments/parallel8/artifacts/simulation_acceptance.json](D:/LinkedinProjects/igor_ws/igor_ws/fpga/experiments/parallel8/artifacts/simulation_acceptance.json) — SHA-256 `2f0912540a432872b3b11a7e427480fb35f68744f78651c736c0a2da5b61c8d8`.
-- [fpga/verification/run_safety_regression.py](D:/LinkedinProjects/igor_ws/igor_ws/fpga/verification/run_safety_regression.py) — SHA-256 `86a7a6865b2392f8080ccd9441c77e67e2f17520540c1be13a7f287417547aa3`.
+- [fpga/experiments/parallel8/garda_src_policy.qsf](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/garda_src_policy.qsf) — SHA-256 `9c94b0cd5779a8f1c55b2ca1b5f60607a7fdbdc87eff8ed9d01e2d56d930cef6`.
+- [fpga/experiments/parallel8/garda_src_policy_de10_nano.v](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/garda_src_policy_de10_nano.v) — SHA-256 `74238afb3675d3ebeea9d4290883197dd1dfce6402d18569fa7a5b4deea7ed81`.
+- [fpga/evidence/current_safety/summary.json](D:/LinkedinProjects/garda_ws/garda_ws/fpga/evidence/current_safety/summary.json) — SHA-256 `6ee2c0ddcf35aeca485f4624f6504b018381847ac776fd9a353d6e9a0bf23aff`.
+- [fpga/experiments/parallel8/artifacts/simulation_acceptance.json](D:/LinkedinProjects/garda_ws/garda_ws/fpga/experiments/parallel8/artifacts/simulation_acceptance.json) — SHA-256 `2f0912540a432872b3b11a7e427480fb35f68744f78651c736c0a2da5b61c8d8`.
+- [fpga/verification/run_safety_regression.py](D:/LinkedinProjects/garda_ws/garda_ws/fpga/verification/run_safety_regression.py) — SHA-256 `86a7a6865b2392f8080ccd9441c77e67e2f17520540c1be13a7f287417547aa3`.
 
 Artefak existing di atas mendukung penelusuran historis. Hasil rerun audit dijelaskan pada bagian 4; simulator rerun memakai folder sementara, sehingga tidak menimpa artefak tersebut.
 

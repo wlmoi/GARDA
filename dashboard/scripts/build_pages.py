@@ -16,7 +16,7 @@ import urllib.request
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
-ARTIFACT = 'igor-physical-viewer'
+ARTIFACT = 'garda-physical-viewer'
 
 
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
@@ -42,7 +42,7 @@ def source_hashes(root=ROOT):
 def package(args):
     args.output.mkdir(parents=True, exist_ok=True)
     for suffix in ('oas', 'gds'):
-        source = args.submission / ('tt_um_wlmoi_igor_neural_logic.' + suffix)
+        source = args.submission / ('tt_um_wlmoi_garda_neural_logic.' + suffix)
         if not source.is_file():
             raise ValueError('Missing actual neural logic submission: ' + str(source))
         shutil.copy2(source, args.output / ('tinytapeout.' + suffix))
@@ -50,7 +50,7 @@ def package(args):
     for source in sorted(args.render.rglob('*.png')):
         shutil.copy2(source, args.output / source.name)
     manifest = {
-        'schema_version': 1, 'kind': ARTIFACT, 'top_module': 'tt_um_wlmoi_igor_neural_logic',
+        'schema_version': 1, 'kind': ARTIFACT, 'top_module': 'tt_um_wlmoi_garda_neural_logic',
         'pdk': pdk, 'run_id': str(args.run_id), 'commit': args.commit,
         'checks': {'gds': 'success', 'precheck': 'success', 'gl_test': 'success'},
         'source_sha256': source_hashes(),
@@ -68,7 +68,7 @@ def api(path, binary=False):
     url = 'https://api.github.com/' + path
     req = urllib.request.Request(url, headers={
         'Accept': 'application/vnd.github+json', 'Authorization': 'Bearer ' + token,
-        'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'igor-pages-builder'})
+        'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'garda-pages-builder'})
     with urllib.request.build_opener(SafeRedirect()).open(req, timeout=45) as response:
         data = response.read()
     return data if binary else json.loads(data)
@@ -81,7 +81,7 @@ def matching_artifact(folder):
     manifest = json.loads(path.read_text())
     if manifest.get('kind') != ARTIFACT or manifest.get('schema_version') != 1:
         raise ValueError('Unknown physical artifact format')
-    if manifest.get('top_module') != 'tt_um_wlmoi_igor_neural_logic':
+    if manifest.get('top_module') != 'tt_um_wlmoi_garda_neural_logic':
         raise ValueError('Physical artifact targets a different top module')
     if manifest.get('source_sha256') != source_hashes():
         raise ValueError('Physical artifact belongs to different RTL/configuration')
@@ -117,7 +117,7 @@ def download_matching(args):
                 continue
             try:
                 content = api(f'repos/{repository}/actions/artifacts/{artifact["id"]}/zip', True)
-                target = Path(tempfile.mkdtemp(prefix='igor-layout-'))
+                target = Path(tempfile.mkdtemp(prefix='garda-layout-'))
                 with zipfile.ZipFile(io.BytesIO(content)) as archive:
                     for item in archive.infolist():
                         if item.is_dir():
@@ -147,8 +147,8 @@ def layout_page(status):
     else:
         detail = '<p>' + html.escape(status['reason']) + '</p><p>The interactive dashboard shows a conceptual block model. It is not an ASIC layout or physical signoff result.</p>'
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>IGOR actual physical layout</title><style>body{margin:0;background:#10151d;color:#e3edf7;font:18px/1.6 system-ui}main{max-width:980px;margin:auto;padding:48px 24px}a{color:#7fe5e0;margin-right:24px}img{max-width:100%;border-radius:16px}h1{font-size:clamp(32px,5vw,56px)}</style>
-    <main><a href="../">Back to IGOR RTL Explorer</a><h1>Actual Tiny Tapeout physical layout</h1>''' + detail + '</main></html>'
+    <title>GARDA actual physical layout</title><style>body{margin:0;background:#10151d;color:#e3edf7;font:18px/1.6 system-ui}main{max-width:980px;margin:auto;padding:48px 24px}a{color:#7fe5e0;margin-right:24px}img{max-width:100%;border-radius:16px}h1{font-size:clamp(32px,5vw,56px)}</style>
+    <main><a href="../">Back to GARDA RTL Explorer</a><h1>Actual Tiny Tapeout physical layout</h1>''' + detail + '</main></html>'
 
 
 def build(args):

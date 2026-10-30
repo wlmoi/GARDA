@@ -70,7 +70,7 @@ Semua corner setup/hold/recovery/removal/minimum pulse yang dilaporkan nonnegati
 
 Warning policy berasal dari port tulis internal ROM read-only. Warning planner direview pada [BUILD_STATUS](../BUILD_STATUS.md). Tidak ada klaim “tanpa warning”, MTBF terukur, sertifikasi keselamatan atau timing pin analog yang telah diuji. Simulasi functional RTL juga bukan simulasi gate-level dengan anotasi delay.
 
-Laporan asli: [receipt policy](../evidence/current_builds/source_policy.json), [compile policy](../fpga_de10_nano/src_policy/compile.log), [STA policy](../fpga_de10_nano/src_policy/output_files/igor_src_policy.sta.rpt), [receipt planner](../evidence/current_builds/planner.json). Source, report, SOF dan gambar terikat pada manifest rilis; hash file tidak membuktikan image sedang berjalan pada board.
+Laporan asli: [receipt policy](../evidence/current_builds/source_policy.json), [compile policy](../fpga_de10_nano/src_policy/compile.log), [STA policy](../fpga_de10_nano/src_policy/output_files/garda_src_policy.sta.rpt), [receipt planner](../evidence/current_builds/planner.json). Source, report, SOF dan gambar terikat pada manifest rilis; hash file tidak membuktikan image sedang berjalan pada board.
 
 ## Reproduksi
 

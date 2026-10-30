@@ -15,7 +15,7 @@ foreach ($file in @($terminal, $scanner)) {
 $stamp = [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffffffZ')
 $logs = Join-Path $fpgaRoot "evidence/jtag_terminal/$stamp"
 New-Item -ItemType Directory -Path $logs -Force | Out-Null
-Write-Host 'IGOR - USB-Blaster JTAG Terminal' -ForegroundColor Cyan
+Write-Host 'GARDA - USB-Blaster JTAG Terminal' -ForegroundColor Cyan
 Write-Host 'Real Quartus JTAG UART terminal for the Parallel8 JTAG console variant.'
 Write-Host "Cable selection: $Cable"
 Write-Host "Log directory: $logs"
@@ -30,8 +30,8 @@ if ($scanCode -ne 0 -or ($scan -join "`n") -match 'No JTAG hardware|Server error
     exit 1
 }
 if ($ProgramJtagImage) {
-    $image = Join-Path $fpgaRoot 'bitstreams/igor_parallel8_jtag.sof'
-    $receipt = Join-Path $fpgaRoot 'bitstreams/igor_parallel8_jtag.json'
+    $image = Join-Path $fpgaRoot 'bitstreams/garda_parallel8_jtag.sof'
+    $receipt = Join-Path $fpgaRoot 'bitstreams/garda_parallel8_jtag.json'
     if (!(Test-Path $image) -or !(Test-Path $receipt)) { throw 'Validated JTAG image is not installed yet.' }
     $expected = (Get-Content $receipt -Raw | ConvertFrom-Json).sha256
     if ((Get-FileHash $image -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) { throw 'JTAG SOF hash mismatch.' }
@@ -39,7 +39,7 @@ if ($ProgramJtagImage) {
     $ErrorActionPreference = 'Continue'
     try {
         Push-Location (Join-Path $fpgaRoot 'bitstreams')
-        $program = @(& (Join-Path $QuartusBin 'quartus_pgm.exe') -c $Cable -m JTAG 'igor_parallel8_jtag.cdf' 2>&1 | ForEach-Object { $_.ToString() })
+        $program = @(& (Join-Path $QuartusBin 'quartus_pgm.exe') -c $Cable -m JTAG 'garda_parallel8_jtag.cdf' 2>&1 | ForEach-Object { $_.ToString() })
         $programCode = $LASTEXITCODE
     } finally { Pop-Location; $ErrorActionPreference = 'Stop' }
     $program | Tee-Object -FilePath (Join-Path $logs 'programming.log') | Write-Host

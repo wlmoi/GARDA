@@ -79,7 +79,7 @@ def main():
         inventory = [dict(port=p.device, vid=p.vid, pid=p.pid, description=p.description) for p in list_ports.comports()]
         sources = [Path(__file__), Path(__file__).with_name('lidar_express.py'),
                    Path(__file__).with_name('laptop_sensor_preflight.py'),
-                   FPGA.parent / 'src/igor_navigation/igor_navigation/drivers/lidar_subsampler.py']
+                   FPGA.parent / 'src/garda_navigation/garda_navigation/drivers/lidar_subsampler.py']
         (out / 'session.json').write_text(json.dumps(dict(location=args.location, inventory=inventory,
             yaw_deg=args.yaw_deg, scan_mode=args.scan_mode,
             source_sha256={str(p.relative_to(FPGA.parent)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}), indent=2))

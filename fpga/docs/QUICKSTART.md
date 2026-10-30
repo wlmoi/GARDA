@@ -43,8 +43,8 @@ Trace besar disimpan dengan gzip agar repository tetap ringkas. Ekstraksi dilaku
 
 ```bash
 python scripts/unpack_waveforms.py
-gtkwave evidence/waveforms/vcd/igor_top.vcd evidence/waveforms/05_dwa_result.gtkw
-gtkwave evidence/waveforms/igor_neural_first_inference.vcd evidence/waveforms/06_neural_result.gtkw
+gtkwave evidence/waveforms/vcd/garda_top.vcd evidence/waveforms/05_dwa_result.gtkw
+gtkwave evidence/waveforms/garda_neural_first_inference.vcd evidence/waveforms/06_neural_result.gtkw
 ```
 
 Screenshot yang sudah tersedia dapat langsung dibuka melalui [indeks bukti](EVIDENCE.md).
@@ -52,7 +52,7 @@ Screenshot yang sudah tersedia dapat langsung dibuka melalui [indeks bukti](EVID
 ## Membuka FPGA
 
 1. Clone atau salin repository secara utuh.
-2. Buka `fpga_de10_nano/quartus/igor.qpf` untuk **5CSEBA6U23I7** atau `fpga_de10_lite/quartus/igor_max10.qpf` untuk **10M50DAF484C7G**.
+2. Buka `fpga_de10_nano/quartus/garda.qpf` untuk **5CSEBA6U23I7** atau `fpga_de10_lite/quartus/garda_max10.qpf` untuk **10M50DAF484C7G**.
 3. Pilih programming image dari folder board yang sama.
 4. Ikuti [panduan JTAG dan UART](FPGA_PROGRAMMING.md).
 

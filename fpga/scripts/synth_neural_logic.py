@@ -9,9 +9,9 @@ os.environ['YOWASP_MOUNT']='/=.'
 os.chdir(ROOT)
 from yowasp_yosys import run_yosys
 
-TOP='tt_um_wlmoi_igor_neural_logic'
-SOURCES=['igor_neural_logic_top.v','igor_parameter_logic.v',
-         'igor_neural_datapath_logic.v','igor_activation_logic.v']
+TOP='tt_um_wlmoi_garda_neural_logic'
+SOURCES=['garda_neural_logic_top.v','garda_parameter_logic.v',
+         'garda_neural_datapath_logic.v','garda_activation_logic.v']
 command='read_verilog '+' '.join('src/'+name for name in SOURCES)+f'; synth -top {TOP} -flatten; check -assert; stat; '
 command+='write_json evidence/neural_logic_netlist.json; write_verilog -noattr evidence/neural_logic_netlist.v'
 code=run_yosys(['-Q','-T','-q','-l','evidence/neural_logic_synthesis.log','-p',command])

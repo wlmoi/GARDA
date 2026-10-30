@@ -1,14 +1,14 @@
 # Testing scenarios dari laptop Windows
 
-**Pembaruan 20 Oktober 2026:** shortcut **IGOR - Testing ABC** kini memilih profil LiDAR saja bila FPGA/STM tidak tersedia. Shortcut **IGOR - LiDAR AI Live** mengulang scan dan logging 64 kandidat fitur dengan validity mask. Lihat [panduan LiDAR AI laptop](LIDAR_AI_LAPTOP.md) untuk cara pakai, hasil COM17, driver 3.4 dan batas kualitas pengukuran. Tidak ada perubahan RTL atau protokol FPGA untuk fitur ini.
+**Pembaruan 20 Oktober 2026:** shortcut **GARDA - Testing ABC** kini memilih profil LiDAR saja bila FPGA/STM tidak tersedia. Shortcut **GARDA - LiDAR AI Live** mengulang scan dan logging 64 kandidat fitur dengan validity mask. Lihat [panduan LiDAR AI laptop](LIDAR_AI_LAPTOP.md) untuk cara pakai, hasil COM17, driver 3.4 dan batas kualitas pengukuran. Tidak ada perubahan RTL atau protokol FPGA untuk fitur ini.
 
 Dokumen yang dikirim disimpan utuh sebagai `fpga/testing_scenario.md`. Contoh path dan link di dalam dokumen asal mengacu pada root repo/sistem pembuatnya. Sesuai klarifikasi pengguna, **Jetson dan ROS bukan prasyarat untuk runner laptop**. Semua file tambahan berada dalam `fpga/`; source referensi `src/` tidak diubah.
 
-Klik Desktop **IGOR - Testing Scenarios** untuk menjalankan `fpga/scripts/run_testing_scenarios.py`. Tutup logger/terminal JTAG lain sebelum menjalankan suite. Board dan COM12 harus tersedia, Jetson dilepas dari pin UART, dan kabel adapter sesuai panduan mock board. Runner memprogram observer image, mengirim observasi sintetis hanya ke FPGA, dan membaca sensor STM32 secara pasif. Tidak ada perintah motor.
+Klik Desktop **GARDA - Testing Scenarios** untuk menjalankan `fpga/scripts/run_testing_scenarios.py`. Tutup logger/terminal JTAG lain sebelum menjalankan suite. Board dan COM12 harus tersedia, Jetson dilepas dari pin UART, dan kabel adapter sesuai panduan mock board. Runner memprogram observer image, mengirim observasi sintetis hanya ke FPGA, dan membaca sensor STM32 secara pasif. Tidak ada perintah motor.
 
 Pembaruan hub USB: runner kini juga menjalankan `laptop_sensor_preflight.py`. Nomor COM LiDAR dan STM ditemukan ulang berdasarkan USB VID/PID, sehingga perpindahan COM13 ke COM14 tidak memerlukan edit script. Bila lebih dari satu adapter dengan identitas yang sama ditemukan, script berhenti dan meminta pemilihan port, bukan menebak.
 
-Shortcut **IGOR - Cek LiDAR dan STM32** mengulang hanya tahap sensor selama 15 detik. Shortcut **IGOR - Testing Scenario Logs** membuka log suite. Log sensor mandiri berada di `fpga/evidence/laptop_sensors/<timestamp>/`; pada suite, log sensor berada di subfolder `sensors/` dalam folder sesi suite.
+Shortcut **GARDA - Cek LiDAR dan STM32** mengulang hanya tahap sensor selama 15 detik. Shortcut **GARDA - Testing Scenario Logs** membuka log suite. Log sensor mandiri berada di `fpga/evidence/laptop_sensors/<timestamp>/`; pada suite, log sensor berada di subfolder `sensors/` dalam folder sesi suite.
 
 ### Pemeriksaan sensor yang benar-benar dilakukan
 
@@ -30,7 +30,7 @@ Protokol LiDAR mengikuti definisi primer [Slamtec SDK: command dan format measur
 | Security auth | Nama test persis yang disebut dokumen diperiksa keberadaannya | `test/test_security_auth.py` tidak tersedia pada checkout saat implementasi; BLOCKED, bukan PASS 0 tests. |
 | Sensor dan gerak fisik | Checklist unresolved dalam summary | LiDAR belum terpasang; pose, IMU units, floor trial dan cabut kabel fisik tidak dapat digantikan oleh fixture. |
 
-Total software yang tersedia saat implementasi: 39 test repository ditambah 2 fault-contract test laptop. Dua test tambahan hanya memanggil source reference dengan fixture; tidak mengubah controller atau firmware. Harness contoh ROS dari dokumen juga diekstrak ke `fpga/scripts/igor_trace_controller.py` untuk referensi bila lingkungan ROS tersedia; runner Windows tidak menjalankannya.
+Total software yang tersedia saat implementasi: 39 test repository ditambah 2 fault-contract test laptop. Dua test tambahan hanya memanggil source reference dengan fixture; tidak mengubah controller atau firmware. Harness contoh ROS dari dokumen juga diekstrak ke `fpga/scripts/garda_trace_controller.py` untuk referensi bila lingkungan ROS tersedia; runner Windows tidak menjalankannya.
 
 ## Log dan status
 
@@ -54,7 +54,7 @@ Jangan menjalankan suite ini bersamaan dengan controller yang memiliki UART atau
 
 ## Port USB dan logging waktu
 
-**IGOR - FPGA Datalogger** membuka logger setelah image monitor diprogram. Isi lokasi manual; CSV mencatat waktu UTC/lokal dan output terakhir. **IGOR - Folder Data Logging** membuka folder sesi untuk mengakses CSV/JSONL. Lihat `FPGA_DATALOGGER.md` untuk arti setiap kolom dan keterbatasan snapshot.
+**GARDA - FPGA Datalogger** membuka logger setelah image monitor diprogram. Isi lokasi manual; CSV mencatat waktu UTC/lokal dan output terakhir. **GARDA - Folder Data Logging** membuka folder sesi untuk mengakses CSV/JSONL. Lihat `FPGA_DATALOGGER.md` untuk arti setiap kolom dan keterbatasan snapshot.
 
 - USB-Blaster diperlukan untuk membaca logger JTAG saat ini. Melepasnya menghentikan komunikasi logger; konfigurasi FPGA dapat bertahan jika board tetap mendapat daya eksternal dan tidak direset/reconfigure.
 - Adapter USB-to-UART COM12 diperlukan untuk sumber input FPGA dari laptop saat ini. Melepasnya untuk memasang LiDAR menghilangkan jalur input tersebut. Logger JTAG masih bisa membaca hasil lama, tetapi itu tidak berarti ada inferensi LiDAR baru.

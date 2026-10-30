@@ -10,7 +10,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--simulation-only',action='store_true')
     args=parser.parse_args()
-    words=(ROOT/'rtl/igor_src_policy/policy_weights.mem').read_text().split()
+    words=(ROOT/'rtl/garda_src_policy/policy_weights.mem').read_text().split()
     banks=[(HERE/f'bank{i}.mem').read_text().split() for i in range(8)]
     count=0
     for rows,cols,base,bias,bw,bb in [(128,74,0,9472,0,1184),(64,128,9600,17792,1200,2224),(3,64,17856,18048,2232,2296)]:
@@ -45,19 +45,19 @@ def main():
         (HERE/'artifacts/simulation_acceptance.json').write_text(json.dumps(report,indent=2)+'\n')
         print(json.dumps(report,indent=2))
         return
-    fit=HERE/'output_files/igor_src_policy.fit.summary'
+    fit=HERE/'output_files/garda_src_policy.fit.summary'
     assert fit.is_file(),'Quartus fitting not complete'
     assert 'Quartus Prime Full Compilation was successful' in readlog(HERE/'artifacts/compile.log')
     text=fit.read_text()
     assert 'Successful' in text
     report['fitter_summary']=text
-    sta=HERE/'output_files/igor_src_policy.sta.summary'
+    sta=HERE/'output_files/garda_src_policy.sta.summary'
     timing=re.findall(r'Type\s*:\s*(.*?)\r?\nSlack\s*:\s*([-+\d.]+)',sta.read_text())
     assert timing and all(float(slack)>=0 for _,slack in timing),timing
     report['timing_slack_ns']={name.strip():float(slack) for name,slack in timing}
     sys.path.insert(0,str(ROOT/'scripts'))
     from build_quartus import pin_rows
-    report['pins']=pin_rows(HERE/'output_files/igor_src_policy.pin')
+    report['pins']=pin_rows(HERE/'output_files/garda_src_policy.pin')
     baseline=json.loads((ROOT/'evidence/current_builds/source_policy.json').read_text())
     assert report['pins']==baseline['pin_assignments'],'Fitted pins differ from validated board pinout'
     assert len(report['pins'])==13
@@ -71,7 +71,7 @@ def main():
         report['resources'][key]=value;row(key,value,unit,fit,line[0],'post-fit resource count')
     report['power']={}
     for profile in ['typical','maximum_tj100']:
-        summary=HERE/f'artifacts/power/{profile}/igor_src_policy.pow.summary'
+        summary=HERE/f'artifacts/power/{profile}/garda_src_policy.pow.summary'
         full=summary.with_suffix('.rpt')
         detail=full.read_text()
         assert re.search(r'Enable HPS\s*; Off\s*;',detail)
@@ -93,10 +93,10 @@ def main():
     assert report['compile_warnings']=={'10030':24,'10037':24,'10230':1},'New warning requires review'
     assert 'Critical Warning' not in readlog(HERE/'artifacts/compile.log')
     row('latency_cycles',6916,'cycle',HERE/'core_checkpoints.csv',3,'RTL simulation; core only')
-    row('clock_period',20,'ns',HERE/'igor_src_policy.sdc',1,'timing constraint; validated by STA')
+    row('clock_period',20,'ns',HERE/'garda_src_policy.sdc',1,'timing constraint; validated by STA')
     with (HERE/'artifacts/metric_evidence.csv').open('w',newline='') as stream:
         writer=csv.writer(stream);writer.writerow(['metric','value','unit','source','line','source_sha256','kind']);writer.writerows(evidence)
-    sof=HERE/'output_files/igor_src_policy.sof'
+    sof=HERE/'output_files/garda_src_policy.sof'
     assert sof.is_file()
     report['sof_sha256']=sha(sof)
     files=list(HERE.glob('*.v'))+list(HERE.glob('*.sv'))+list(HERE.glob('*.mem'))+list(HERE.glob('*.q*'))+list(HERE.glob('*.sdc'))+[HERE/'pin_assignment.tcl']
@@ -104,7 +104,7 @@ def main():
     files+=list((HERE/'output_files').glob('*.pin'))
     files+=list(HERE.glob('*.py'))+list(HERE.glob('*.md'))+list(HERE.glob('*.csv'))
     files += [p for p in (HERE/'artifacts').rglob('*') if p.is_file() and p.suffix in {'.gz','.png','.json','.rpt','.summary','.gtkw','.tcl','.log'} and p.name!='acceptance.json']
-    files += [ROOT/'rtl/igor_src_policy/igor_src_policy_uart.v',ROOT/'rtl/igor_uart_rx.v',ROOT/'rtl/igor_uart_tx.v',ROOT/'rtl/igor_src_policy/policy_weights.mem']
+    files += [ROOT/'rtl/garda_src_policy/garda_src_policy_uart.v',ROOT/'rtl/garda_uart_rx.v',ROOT/'rtl/garda_uart_tx.v',ROOT/'rtl/garda_src_policy/policy_weights.mem']
     report['sha256']={p.relative_to(ROOT).as_posix():sha(p) for p in sorted(files)}
     (HERE/'artifacts/acceptance.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({k:report[k] for k in ['status','bank_words_verified','latency_ms','suites','timing_slack_ns']},indent=2))

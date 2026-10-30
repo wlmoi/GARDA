@@ -8,7 +8,7 @@ os.environ['YOWASP_CACHE_DIR']=str(ROOT/'.runtime/yowasp-cache')
 os.environ['YOWASP_MOUNT']='/=.'
 os.chdir(ROOT)
 from yowasp_yosys import run_yosys
-TOP='tt_um_wlmoi_igor_sram_example'
+TOP='tt_um_wlmoi_garda_sram_example'
 MACRO='RM_IHPSG13_1P_256x16_c2_bm_bist'
 provenance={item['file']:item for item in json.loads((ROOT/'asic/neural_sram/ihp/provenance.json').read_text())}
 for name in ['RM_IHPSG13_1P_core_behavioral_bm_bist.v',MACRO+'.v']:

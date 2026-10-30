@@ -165,7 +165,7 @@ def main():
                 result[label] = dict(passed=False, error=str(exc))
                 print(label, 'ERROR:', exc, flush=True)
         paths = [Path(__file__), FPGA/'verification/run_host_regression.py',
-                 FPGA/'software_integration/src/igor_controller/igor_controller/controller_node.py',
+                 FPGA/'software_integration/src/garda_controller/garda_controller/controller_node.py',
                  FPGA/'verification/tb_safety_uart.v'] + sorted((FPGA/'rtl').glob('*.v'))
         result['source_sha256'] = {str(p.relative_to(FPGA)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
         if args.hardware:

@@ -13,7 +13,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--generic',action='store_true')
     args=parser.parse_args()
-    assert (ROOT/'src/igor_parameter_logic.v').read_text()==generated_source()
+    assert (ROOT/'src/garda_parameter_logic.v').read_text()==generated_source()
     build=ROOT/'verification/build/neural_logic';build.mkdir(parents=True,exist_ok=True)
     inputs=read_mem('test_inputs.mem');expected=[]
     for n in range(100):
@@ -24,8 +24,8 @@ def main():
     iverilog=shutil.which('iverilog') or 'C:/iverilog/bin/iverilog.exe'
     vvp=shutil.which('vvp') or 'C:/iverilog/bin/vvp.exe'
     for name in ['rtl']+(['generic'] if args.generic else []):
-        sources=[ROOT/'src'/name for name in ['igor_neural_logic_top.v','igor_parameter_logic.v',
-                 'igor_neural_datapath_logic.v','igor_activation_logic.v']]
+        sources=[ROOT/'src'/name for name in ['garda_neural_logic_top.v','garda_parameter_logic.v',
+                 'garda_neural_datapath_logic.v','garda_activation_logic.v']]
         if name=='generic':sources=[ROOT/'evidence/neural_logic_netlist.v']
         exe=build/(name+'.out')
         command=[iverilog,'-g2012','-s','tb','-o',str(exe)]
