@@ -1,6 +1,7 @@
 """Generate presentation status directly from recorded verification evidence."""
 from pathlib import Path
 import json
+from current_rtl_evidence import current_evidence
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'dist/data'
 raw = json.loads((ROOT.parent / 'evidence/tinytapeout/current/verification.json').read_text(encoding='utf-8'))
@@ -13,16 +14,10 @@ def check(key, label, details=None):
     }.get(status, status)
     return {'label': label, 'status': 'pass' if status == 'PASS' else status.lower(), 'result': result}
 functional = all(raw.get(key, {}).get('status') == 'PASS' for key in ('rtl', 'generic', 'cocotb'))
-summary = 'Bukti historis IHP berasal dari revisi sebelum perubahan nama GARDA; bukan hasil verifikasi SKY130 atau GDS baru. Model tetap 6.020 kata diuji melalui RTL dan antarmuka pin TinyTapeout. '
-if raw.get('mapped', {}).get('status') == 'PASS':
-    summary += 'Netlist sel IHP juga lolos simulasi fungsional tanpa SDF. '
-if raw.get('global_routing', {}).get('status') == 'PASS':
-    summary += 'Global routing telah lolos tanpa overflow. '
-if raw.get('detailed_routing', {}).get('status') == 'PASS':
-    summary += 'Detailed routing selesai sesuai laporan. '
-summary += 'DRC, LVS dan timing signoff dinilai terpisah sesuai bukti yang tersedia.'
+summary = 'Model 6.020 kata: hasil RTL dan antarmuka pin tercatat di bawah. Bukti netlist/routing IHP berasal dari build historis; signoff SKY130 dinilai terpisah.'
 report = {
     'schema': 'garda-dashboard-evidence-1',
+    'current_rtl': current_evidence(ROOT.parent),
     'checked_date': raw.get('generated_date', 'Lihat laporan'),
     'functional_pass': functional,
     'top': raw['top'],
@@ -42,5 +37,8 @@ report = {
 DATA.mkdir(exist_ok=True)
 (DATA / 'tinytapeout-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 (DATA / 'tinytapeout-raw.json').write_text(json.dumps(raw, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-print(json.dumps({'functional_pass': functional, 'checks': [(entry['label'], entry['result']) for entry in report['checks']]}))
+activity = ROOT.parent / 'evidence/neural_logic_activity.json'
+if activity.is_file():
+    (DATA / 'neural-logic-activity.json').write_bytes(activity.read_bytes())
+print(json.dumps({'current_rtl': report['current_rtl']['status'], 'functional_pass': functional, 'checks': [(entry['label'], entry['result']) for entry in report['checks']]}))
 

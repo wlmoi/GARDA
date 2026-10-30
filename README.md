@@ -1,56 +1,57 @@
-# GARDA
-
-GARDA adalah proyek eksplorasi dan pengembangan hardware untuk pengambilan keputusan robot. Dashboard statis tersedia di `dashboard/dist`; konfigurasi Vercel ada di `vercel.json`. Hasil pengujian dan implementasi historis terikat pada revisi sumber yang menghasilkannya dan tidak membuktikan signoff desain baru.
-
-> **Implementasi workspace 16 Oktober 2026.** Software `../src` menggunakan
-> **74 → 128 → 64 → 3**
-> dijelaskan pada halaman ini. Jalur baru tersedia pada
-> [RTL source-policy](rtl/garda_src_policy/README.md) dan
-> [proyek Quartus DE10-Nano baru beserta pin planning](fpga_de10_nano/src_policy/README.md).
-> [Checklist lengkap](docs/IMPLEMENTATION_READINESS.md) memetakan seluruh permintaan,
-> A1–A14/B1–B6/D1–D7, edge case, titik GTKWave dan status bukti fisik.
-> Regresi safety terbaru ada di `evidence/current_safety/`, hasil neural baru di
-> `verification/src_policy/artifacts/`, dan hasil host di `evidence/current_host/`.
-> Source planner kini mempertahankan penyebab abort, menolak payload UART
-> malformed sebelum side effect, dan menyediakan query counter/last-fault.
-> Angka resource, timing, waveform dan SOF historis di bawah hanya berlaku untuk
-> revision yang menghasilkan bukti historis itu; build terbaru harus ditelusuri
-> melalui `evidence/current_release/`.
-
 <p align="center">
-  <img src="docs/assets/garda-banner.svg" alt="GARDA — perencanaan FPGA dengan empat evaluator" width="100%">
+  <img src="docs/assets/garda-banner.svg" alt="GARDA — Hackathon ITS 2026, AI untuk masalah nyata" width="100%">
 </p>
 
-<p align="center">
-  <strong>GARDA · Robotics Hardware Explorer</strong><br>
-  <strong>Peruri Chip Hackathon 2026</strong><br>
-  <strong>iSeeDesignITB</strong><br>
-  Cutting Edge Physical AI Technology for Inference Security
-</p>
+# GARDA · Hackathon ITS 2026
 
-<p align="center">
-  <img alt="RTL Verilog" src="https://img.shields.io/badge/RTL-Verilog-2563eb">
-  <img alt="8 local cocotb cases" src="https://img.shields.io/badge/cocotb-8_local_cases_passed-059669">
-  <img alt="2 compiled FPGA targets" src="https://img.shields.io/badge/FPGA-2_compiled_targets-0891b2">
-  <img alt="Full neural inference without SRAM" src="https://img.shields.io/badge/TinyTapeout-neural_logic_active-7c3aed">
-</p>
+<table>
+<tr>
+<td width="72%">
+<p><strong>AI untuk gerak robot yang dapat diperiksa.</strong></p>
+<p>RTL, inferensi Q8.8, gerbang keselamatan, dan explorer 3D dalam satu repository. Dikembangkan untuk <strong>Hackathon ITS 2026</strong> dengan biru, cyan, dan kuning maskot <strong>SENO</strong>.</p>
+<p><a href="https://garda-chip-explorer.vercel.app/"><img alt="Buka dashboard 3D" src="https://img.shields.io/badge/BUKA-DASHBOARD_3D-19BCE5?style=for-the-badge&amp;labelColor=082D67"></a> <a href="https://hackathon-its.id/"><img alt="Hackathon ITS 2026" src="https://img.shields.io/badge/HACKATHON-ITS_2026-F4D447?style=for-the-badge&amp;labelColor=082D67"></a></p>
+<p><strong>Jelajahi board → buka RTL → ikuti setiap clock.</strong></p>
+</td>
+<td width="28%" align="center">
+<img src="dashboard/dist/assets/seno.png" alt="SENO, maskot Hackathon ITS, dari gambar yang disediakan pengguna" width="245">
+</td>
+</tr>
+</table>
 
-<p align="center">
-  <a href="https://sundaysiagian.github.io/peruri-iseedesign/">Buka dashboard 3D</a> ·
-  <a href="docs/README.md">Dokumentasi</a> ·
-  <a href="docs/QUICKSTART.md">Mulai di sini</a> ·
-  <a href="docs/FPGA_PROGRAMMING.md">Program FPGA</a> ·
-  <a href="docs/DEMO_GUIDE.md">Panduan demo</a> ·
-  <a href="docs/INTERACTIVE_EXPLORER.md">Explorer 3D RTL</a> ·
-  <a href="docs/TECHNICAL_REPORT.md">Laporan teknis</a> ·
-  <a href="#hasil-eksperimen-model-ai-cl-drl-dan-akselerator-q88">Eksperimen AI</a>
-</p>
+| Jelajahi | Tujuan |
+|:--|:--|
+| 🌐 [Buka dashboard 3D](https://garda-chip-explorer.vercel.app/) | Board, isi chip, port, dan source RTL |
+| ⏱ [Animated dataflow](https://garda-chip-explorer.vercel.app/#clock-explorer) | Model jadwal FSM Parallel8, 0–6.916 clock |
+| 📚 [Dokumentasi](docs/README.md) | Indeks seluruh panduan |
+| 🚀 [Mulai di sini](docs/QUICKSTART.md) | Menjalankan alur pengembangan |
+| 🔌 [Program FPGA](docs/FPGA_PROGRAMMING.md) | Proyek board dan pemrograman |
+| 🎬 [Panduan demo](docs/DEMO_GUIDE.md) | Urutan demonstrasi |
+| 🧩 [Explorer 3D RTL](docs/INTERACTIVE_EXPLORER.md) | Model, source, dan batas visualisasi |
+| 📄 [Laporan teknis](docs/TECHNICAL_REPORT.md) | Arsitektur dan hasil pengujian |
+| 🧠 [Eksperimen AI](#hasil-eksperimen-model-ai-cl-drl-dan-akselerator-q88) | CL-DRL dan akselerator Q8.8 |
+| ☀️ [Hackathon ITS 2026](docs/HACKATHON_ITS_2026.md) | Konteks proposal, prinsip, dan jadwal resmi |
+
+> **Status yang dapat ditelusuri.** Dashboard adalah situs statis; animasi clock memakai model jadwal FSM. Hasil RTL, build FPGA historis, dan status fisik ASIC ditampilkan sesuai buktinya. Target pengembangan SKY130 dan SRAM ada pada [rencana ASIC](asic/sky130_garda/README.md); kelulusan DRC, LVS, timing, dan precheck memerlukan laporan dari build yang sama.
+
+## RTL GARDA aktif
+
+**100 vektor · 400 keluaran cocok · 6.020 kata model · 3.080 clock inferensi.** [Regresi terbaru](evidence/neural_logic_activity.json) mengikat hasil ke hash empat source RTL aktif. Koefisien MAC signed 12-bit mempertahankan nilai model tepat; operand nol diisolasi.
+
+Transisi operand MAC pada vektor uji berkurang **14,35%** dibanding baseline. Ini indikator aktivitas RTL; daya fisik memerlukan analisis teknologi dan pengukuran tersendiri. Latensi tetap **61,6 µs pada referensi 50 MHz**. [Metode dan reproduksi](asic/neural_logic/OPTIMIZATION.md).
+
+## Arah proposal Hackathon ITS
+
+| 💛 Sustainable | 🩵 AI Driven | 💙 Innovative | 🌱 Local |
+|:--|:--|:--|:--|
+| Ukur energi per inferensi dan waktu idle. | Jalankan inferensi fixed-point di hardware. | Telusuri keputusan hingga port dan clock. | Validasi kebutuhan robot bersama calon pengguna lokal. |
+
+Lihat [situs resmi Hackathon ITS](https://hackathon-its.id/) untuk program pra-inkubasi dan jadwal **September 2026–Februari 2027**. Identitas ini menunjukkan konteks pengembangan proposal, tanpa menyatakan status seleksi atau penghargaan.
 
 ## Mengapa GARDA
 
 Robot pengangkut material perlu mengambil keputusan cepat sekaligus menjaga pekerja dan barang di sekitarnya. Usulan gerak dapat menjadi tidak layak ketika peta belum lengkap, informasi sudah kedaluwarsa, atau pengaturan berubah. GARDA dirancang sebagai prosesor pendamping yang memeriksa pilihan gerak dan menentukan izin pada rangkaian FPGA.
 
-Proposal tim menempatkan logistik internal PERURI sebagai penerapan awal yang diusulkan. Repository ini memuat fondasi teknisnya: pemeriksa lintasan, pemilih gerak, gerbang izin, inti inferensi, serta perangkat pengujian yang dapat ditelusuri dari source hingga hasil. Pilot pada rute nyata merupakan tahap pengembangan berikutnya.
+Untuk Hackathon ITS 2026, GARDA berfokus pada kebutuhan navigasi robot logistik di lingkungan industri dan komunitas lokal. Repository ini memuat fondasi teknisnya: pemeriksa lintasan, pemilih gerak, gerbang izin, inti inferensi, serta perangkat pengujian yang dapat ditelusuri dari source hingga hasil. Pilot pada rute nyata merupakan tahap pengembangan berikutnya.
 
 ## Dari peta menjadi keputusan yang bisa diperiksa
 
@@ -222,8 +223,8 @@ Temuan **68% keberhasilan dan 32% *timeout* dengan 0% tabrakan** menunjukkan bah
 Linux atau WSL dengan Python 3.11:
 
 ```bash
-git clone https://github.com/sundaysiagian/peruri-iseedesign.git
-cd peruri-iseedesign
+git clone https://github.com/wlmoi/GARDA.git
+cd GARDA
 sudo apt-get update
 sudo apt-get install -y iverilog make
 python3 -m venv .venv
@@ -241,7 +242,7 @@ Perintah `all` menjalankan tujuh test case. Suite `tt_generic` menambahkan test 
 
 | Board | Proyek yang dibuka | Image yang diprogram |
 |---|---|---|
-| DE10-Nano · `5CSEBA6U23I7` | [igor.qpf](fpga_de10_nano/quartus/garda.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
+| DE10-Nano · `5CSEBA6U23I7` | [garda.qpf](fpga_de10_nano/quartus/garda.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
 | DE10-Lite · `10M50DAF484C7G` | [igor_max10.qpf](fpga_de10_lite/quartus/igor_max10.qpf) | [igor_max10.sof](fpga_de10_lite/quartus/output_files/igor_max10.sof) |
 
 Gunakan Quartus Standard 25.1 beserta device support yang sesuai. [Panduan programming](docs/FPGA_PROGRAMMING.md) memuat urutan JTAG, pin UART, reset, dan pemeriksaan hasil. Hash image tercatat di [build evidence](evidence/build_evidence.json).
@@ -268,7 +269,7 @@ Screenshot berasal dari aplikasi Quartus dan GTKWave. Laporan asli, waveform, XM
 ## Peta repository
 
 ```text
-peruri-iseedesign/
+GARDA/
 ├── rtl/                  RTL accelerator FPGA
 ├── src/                  Neural logic TinyTapeout aktif dan arsip eksperimen
 ├── assets/               ROM BRAM dan vektor neural

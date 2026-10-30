@@ -17,12 +17,16 @@ reg [6:0] neuron,k;
 reg signed [39:0] accumulator;
 reg [7:0] activation_address;
 reg signed [15:0] next_operand0,next_operand1;
-reg signed [15:0] operand0_q,operand1_q,weight0_q,weight1_q,bias_q;
+reg signed [15:0] operand0_q,operand1_q,bias_q;
+// Every immutable coefficient fits signed 12 bits (-1205..640). Keep the
+// full activation precision and full 40-bit accumulator: this is exact,
+// not quantization. The generator and independent regression guard the range.
+reg signed [11:0] weight0_q,weight1_q;
 reg pipe_valid;
-wire signed [31:0] product0=operand0_q*weight0_q;
-wire signed [31:0] product1=operand1_q*weight1_q;
-wire signed [39:0] sum=accumulator+{{8{product0[31]}},product0}
- +{{8{product1[31]}},product1};
+wire signed [27:0] product0=operand0_q*weight0_q;
+wire signed [27:0] product1=operand1_q*weight1_q;
+wire signed [39:0] sum=accumulator+{{12{product0[27]}},product0}
+ +{{12{product1[27]}},product1};
 wire signed [31:0] scaled=accumulator[39:8];
 wire signed [15:0] nonlinear=scaled>32'sd256 ? 16'sd256 :
  (scaled < -32'sd256 ? -16'sd256 : scaled[15:0]);
@@ -48,6 +52,12 @@ wire activation_write=host_activation_write || result_activation_write;
 wire [7:0] activation_memory_address=host_activation_write ? {3'd0,input_index}:
  (result_activation_write ? (layer==0 ? 8'd24:8'd88)+{1'b0,neuron} : activation_address);
 wire signed [15:0] activation_even,activation_odd;
+// Isolate both multiplier inputs when either factor is zero. ReLU zeros can
+// then suppress coefficient-register switching without changing the schedule.
+wire pair0_nonzero=activation_even!=0 && weight_even!=0;
+wire pair1_nonzero=activation_odd!=0 && weight_odd!=0;
+wire next_pair0_nonzero=next_operand0!=0 && weight_even!=0;
+wire next_pair1_nonzero=next_operand1!=0 && weight_odd!=0;
 // The output-store edge replaces a read. Pair 0 and pair 1 have already been
 // prefetched, so both output registers hold pair 1 during this edge.
 garda_activation_logic activation_store(clk,rst_n,
@@ -82,8 +92,10 @@ always @(posedge clk or negedge rst_n)begin
     address<=2;activation_address<=2;state<=4;
    end
    4:begin
-    weight0_q<=weight_even;weight1_q<=weight_odd;
-    operand0_q<=activation_even;operand1_q<=activation_odd;pipe_valid<=1;
+    weight0_q<=pair0_nonzero ? weight_even[11:0]:12'd0;
+    weight1_q<=pair1_nonzero ? weight_odd[11:0]:12'd0;
+    operand0_q<=pair0_nonzero ? activation_even:16'sd0;
+    operand1_q<=pair1_nonzero ? activation_odd:16'sd0;pipe_valid<=1;
     if(pipe_valid)accumulator<=sum;
     if(k==input_count-2)begin
      // Prefetch the next row while the last pair and bias finish.
@@ -117,8 +129,10 @@ always @(posedge clk or negedge rst_n)begin
     else begin
      layer<=next_layer;neuron<=next_neuron;k<=2;
      accumulator<={{16{bias_q[15]}},bias_q,8'd0};pipe_valid<=1;
-     weight0_q<=weight_even;weight1_q<=weight_odd;
-     operand0_q<=next_operand0;operand1_q<=next_operand1;
+     weight0_q<=next_pair0_nonzero ? weight_even[11:0]:12'd0;
+     weight1_q<=next_pair1_nonzero ? weight_odd[11:0]:12'd0;
+     operand0_q<=next_pair0_nonzero ? next_operand0:16'sd0;
+     operand1_q<=next_pair1_nonzero ? next_operand1:16'sd0;
      address<=next_row+4;
      state<=4;
     end

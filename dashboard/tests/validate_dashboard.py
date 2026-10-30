@@ -1,7 +1,9 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
-import json,hashlib,zipfile
+import json,hashlib,zipfile,sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from current_rtl_evidence import current_evidence, source_digest
 R=Path(__file__).resolve().parents[1];D=R/'dist'
 class Links(HTMLParser):
     def __init__(self):super().__init__();self.links=[];self.ids=[]
@@ -37,6 +39,17 @@ with zipfile.ZipFile(D/'downloads/TINYTAPEOUT_SOURCE.zip') as z:
         assert path in z.namelist(),'Incomplete TinyTapeout source bundle: '+path
 report=json.loads((D/'data/tinytapeout-report.json').read_text(encoding='utf-8'))
 assert report['functional_pass'] is True
+current=report.get('current_rtl', {})
+assert current==current_evidence(R.parent),'Active RTL proof snapshot is stale'
+assert current.get('status')=='pass' and current.get('source_match'),'Active RTL requires rerun'
+activity=json.loads((D/'data/neural-logic-activity.json').read_text(encoding='utf-8'))
+assert activity==json.loads((R.parent/'evidence/neural_logic_activity.json').read_text(encoding='utf-8')),'Active RTL artifact snapshot is stale'
+assert source_digest(R.parent)==activity['source_sha256']['current'],'Active RTL hash differs'
+assert current['outputs_checked']==400 and current['model_words']==6020 and current['latency_cycles']==3080
+with zipfile.ZipFile(D/'downloads/TINYTAPEOUT_SOURCE.zip') as z:
+    assert json.loads(z.read('evidence/neural_logic_activity.json'))==activity,'Bundle RTL proof is stale'
+    for relative in current['source_files']:
+        assert z.read(relative).replace(b'\r\n',b'\n')==(R.parent/relative).read_bytes().replace(b'\r\n',b'\n'),'Bundle source differs: '+relative
 raw=json.loads((D/'data/tinytapeout-raw.json').read_text(encoding='utf-8'))
 canonical_raw=json.loads((R.parent/'evidence/tinytapeout/current/verification.json').read_text(encoding='utf-8'))
 assert raw==canonical_raw,'TinyTapeout evidence snapshot is stale'
@@ -52,4 +65,4 @@ assert config['installCommand']=='' and config['buildCommand']==''
 assert (D/'downloads/igor.sof').read_bytes()==(R.parent/'ImplementationReadyQuartus/IGOR_DE10_NANO/quartus/output_files/igor.sof').read_bytes(),'Published SOF differs'
 for data in (D/'data').glob('*.json'):
     assert 'C:\\\\Users\\\\' not in data.read_text(encoding='utf-8'),'Local path published in '+data.name
-print(json.dumps({'status':'PASS','local_links':checked,'fpga_modules':20,'asic_modules':4,'source_sha256_verified':24,'zip_crc':'PASS','browser_gate_vs_rtl':gate['vectors'],'tinytapeout_functional':report['functional_pass']}))
+print(json.dumps({'status':'PASS','local_links':checked,'fpga_modules':20,'asic_modules':4,'source_sha256_verified':24,'zip_crc':'PASS','browser_gate_vs_rtl':gate['vectors'],'tinytapeout_functional':report['functional_pass'],'active_rtl_source_bound':current['source_match']}))

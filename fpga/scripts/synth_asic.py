@@ -29,7 +29,10 @@ def main():
         f'write_json {quoted(output / "asic_generic_netlist.json")}; '
         f'write_verilog -noattr {quoted(output / "asic_generic_netlist.v")}'
     )
-    arguments = ['-l', str(output / 'asic_generic_synthesis_noabc.log'), '-p', commands]
+    log = output / 'asic_generic_synthesis_noabc.log'
+    if log.is_relative_to(ROOT):
+        log = log.relative_to(ROOT)
+    arguments = ['-l', log.as_posix(), '-p', commands]
     native = shutil.which('yosys')
     if native:
         return subprocess.run([native, *arguments], cwd=ROOT, check=False).returncode

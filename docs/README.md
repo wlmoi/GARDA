@@ -1,9 +1,10 @@
-# Pusat dokumentasi IGOR
+# Pusat dokumentasi GARDA
 
 Dokumentasi ini disusun untuk pembaca yang ingin menilai hasil, menjalankan simulasi, membuka Quartus, atau mengambil alih pengembangan hardware.
 
 | Jika Anda ingin | Baca |
 |---|---|
+| Menyiapkan konteks Hackathon ITS 2026 | [Prinsip, program journey, dan validasi](HACKATHON_ITS_2026.md) |
 | Menutup seluruh checklist A1–A14, B1–B6 dan D1–D7, termasuk bukti hardware | [Checklist implementasi dan penerimaan](IMPLEMENTATION_READINESS.md) |
 | Menjalankan hasil dalam beberapa langkah | [Quickstart](QUICKSTART.md) |
 | Memahami alur dan lebar data | [Arsitektur](ARCHITECTURE.md) |

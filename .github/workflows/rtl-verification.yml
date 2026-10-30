@@ -116,7 +116,7 @@ jobs:
       - name: Install simulator and pinned legacy test dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y iverilog
+          sudo apt-get install -y iverilog yosys
           python -m pip install -r requirements.txt -r ../requirements-asic.txt pyserial==3.5
       - name: Run legacy RTL suites against source
         run: |

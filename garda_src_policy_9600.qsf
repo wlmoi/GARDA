@@ -1,0 +1,18 @@
+# GARDA DE10-Nano Parallel8, UART 9600. Canonical sources remain in fpga/.
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name TOP_LEVEL_ENTITY garda_src_policy_de10_nano
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY .runtime/quartus-garda-9600
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+set_global_assignment -name SEED 1
+set_global_assignment -name SEARCH_PATH fpga/experiments/parallel8_9600
+set_global_assignment -name VERILOG_FILE fpga/experiments/parallel8_9600/garda_src_policy_de10_nano.v
+set_global_assignment -name VERILOG_FILE fpga/experiments/parallel8_9600/garda_src_policy_core.v
+set_global_assignment -name VERILOG_FILE fpga/rtl/garda_src_policy/garda_src_policy_rom.v
+set_global_assignment -name VERILOG_FILE fpga/rtl/garda_src_policy/garda_src_policy_uart.v
+set_global_assignment -name VERILOG_FILE fpga/rtl/garda_uart_rx.v
+set_global_assignment -name VERILOG_FILE fpga/rtl/garda_uart_tx.v
+set_global_assignment -name SDC_FILE fpga/experiments/parallel8_9600/garda_src_policy.sdc
+source fpga/experiments/parallel8_9600/pin_assignment.tcl
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"

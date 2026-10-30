@@ -1,6 +1,6 @@
 # GARDA RTL Explorer
 
-**iSeeDesignITB** memvisualisasikan RTL GARDA yang sudah ada melalui model 3D DE10-Nano, blok FPGA, dan neural core TinyTapeout. Setiap modul memiliki source Verilog, port, arah data, ukuran bit, hierarchy, dan bukti yang dapat dibuka.
+**GARDA · Hackathon ITS 2026** memakai identitas visual SENO dalam biru, cyan, dan kuning. Dashboard memvisualisasikan RTL melalui model 3D DE10-Nano, blok FPGA, dan neural core TinyTapeout. Setiap modul memiliki source Verilog, port, arah data, ukuran bit, hierarchy, dan bukti yang dapat dibuka.
 
 ## Jalankan di laptop
 

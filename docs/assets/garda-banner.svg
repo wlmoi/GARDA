@@ -1,28 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="350" viewBox="0 0 1200 350" role="img" aria-labelledby="title desc">
-  <title id="title">GARDA FPGA local planner</title>
-  <desc id="desc">Four parallel evaluators, 158.76 microsecond simulated DWA kernel, 400 exact neural outputs, and two compiled FPGA targets.</desc>
-  <rect width="1200" height="350" rx="20" fill="#0b1220"/>
-  <path d="M825 0v350M900 0v350M975 0v350M1050 0v350M1125 0v350M750 75h450M750 150h450M750 225h450M750 300h450" stroke="#17283d" stroke-width="1"/>
-  <rect x="46" y="33" width="236" height="26" rx="13" fill="#152c37"/>
-  <text x="164" y="51" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.4" fill="#7de3d0">ISEEDESIGNITB · PERURI 2026</text>
-  <text x="44" y="139" font-family="Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="3" fill="#f8fafc">GARDA</text>
-  <text x="48" y="180" font-family="Arial, sans-serif" font-size="22" fill="#c6d5e5">Four-tile FPGA planning. Inspectable decisions.</text>
-  <text x="48" y="209" font-family="Arial, sans-serif" font-size="15" fill="#8ba5bd">RTL · Integer neural inference · Safety gate · TinyTapeout prototype</text>
-  <g font-family="Arial, sans-serif">
-    <rect x="48" y="246" width="249" height="72" rx="12" fill="#132136" stroke="#253a51"/>
-    <text x="67" y="275" font-size="25" font-weight="700" fill="#6de0c8">158.76 µs</text><text x="67" y="299" font-size="13" fill="#b9cadb">DWA kernel · simulation at 50 MHz</text>
-    <rect x="312" y="246" width="249" height="72" rx="12" fill="#132136" stroke="#253a51"/>
-    <text x="331" y="275" font-size="25" font-weight="700" fill="#f8fafc">512 × 20</text><text x="331" y="299" font-size="13" fill="#b9cadb">Candidates × poses per run</text>
-    <rect x="576" y="246" width="249" height="72" rx="12" fill="#132136" stroke="#253a51"/>
-    <text x="595" y="275" font-size="25" font-weight="700" fill="#f8fafc">400 / 400</text><text x="595" y="299" font-size="13" fill="#b9cadb">Exact neural outputs · 100 vectors</text>
-    <rect x="840" y="246" width="312" height="72" rx="12" fill="#132136" stroke="#253a51"/>
-    <text x="859" y="275" font-size="25" font-weight="700" fill="#f8fafc">Nano + Lite</text><text x="859" y="299" font-size="13" fill="#b9cadb">Separate compiled FPGA targets</text>
-  </g>
-  <g fill="#1b3548" stroke="#72e0cc" stroke-width="2">
-    <rect x="928" y="57" width="156" height="139" rx="13"/>
-    <rect x="945" y="74" width="57" height="45" rx="5"/><rect x="1010" y="74" width="57" height="45" rx="5"/>
-    <rect x="945" y="127" width="57" height="45" rx="5"/><rect x="1010" y="127" width="57" height="45" rx="5"/>
-    <path d="M940 43v14m22-14v14m22-14v14m22-14v14m22-14v14m22-14v14m22-14v14M940 196v14m22-14v14m22-14v14m22-14v14m22-14v14m22-14v14m22-14v14M914 70h14m-14 22h14m-14 22h14m-14 22h14m-14 22h14m-14 22h14M1084 70h14m-14 22h14m-14 22h14m-14 22h14m-14 22h14m-14 22h14"/>
-  </g>
-  <text x="1006" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#a4d8d0">FOUR PARALLEL TILES</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="title desc">
+<title id="title">GARDA · Hackathon ITS 2026</title>
+<desc id="desc">GARDA, AI untuk gerak yang terukur. Biru, cyan, dan kuning SENO dengan ilustrasi jalur data menuju sebuah chip.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#061947"/><stop offset="1" stop-color="#075594"/></linearGradient>
+<linearGradient id="chip" x2="1" y2="1"><stop stop-color="#40d9f2"/><stop offset="1" stop-color="#0987c7"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#5dd9f5" stroke-opacity=".07"/></pattern>
+</defs>
+<rect width="1280" height="360" rx="24" fill="url(#bg)"/>
+<rect width="1280" height="360" rx="24" fill="url(#grid)"/>
+<circle cx="1200" cy="-18" r="250" fill="#1ebfe1" opacity=".09"/>
+<circle cx="1180" cy="350" r="190" fill="#1ebfe1" opacity=".07"/>
+<rect x="48" y="40" width="251" height="30" rx="15" fill="#f4d447"/>
+<text x="173" y="60" text-anchor="middle" fill="#082d67" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.6">HACKATHON ITS 2026</text>
+<text x="44" y="172" fill="white" font-family="Arial,sans-serif" font-size="96" font-weight="700" letter-spacing="1">GARDA<tspan fill="#f4d447">.</tspan></text>
+<text x="49" y="218" fill="#97eeff" font-family="Arial,sans-serif" font-size="28">AI untuk gerak yang terukur.</text>
+<text x="50" y="251" fill="#c7e4f8" font-family="Arial,sans-serif" font-size="16">RTL yang terbuka. Keputusan yang dapat ditelusuri.</text>
+<g font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1">
+<rect x="49" y="287" width="126" height="31" rx="8" fill="#0d4172" stroke="#3b85ad"/><text x="112" y="307" text-anchor="middle" fill="#d0f6ff">FPGA + AI</text>
+<rect x="186" y="287" width="141" height="31" rx="8" fill="#0d4172" stroke="#3b85ad"/><text x="256" y="307" text-anchor="middle" fill="#d0f6ff">RTL EXPLORER</text>
+<rect x="338" y="287" width="128" height="31" rx="8" fill="#0d4172" stroke="#3b85ad"/><text x="402" y="307" text-anchor="middle" fill="#d0f6ff">CLOCK FLOW</text>
+</g>
+<g fill="none" stroke="#43ceee" stroke-width="3" stroke-linecap="round">
+<path d="M728 108h95l32 32h43M688 179h210M738 250h86l31-31h43"/>
+<path d="M1086 144h43l35-35h52M1086 214h55l28 28h49"/>
+</g>
+<g fill="#f4d447"><circle cx="728" cy="108" r="6"/><circle cx="688" cy="179" r="6"/><circle cx="738" cy="250" r="6"/><circle cx="1216" cy="109" r="6"/><circle cx="1218" cy="242" r="6"/></g>
+<g stroke="#86ecff" stroke-width="6" stroke-linecap="round">
+<path d="M931 71v18m32-18v18m32-18v18m32-18v18m32-18v18M931 268v18m32-18v18m32-18v18m32-18v18m32-18v18M879 115h18m-18 32h18m-18 32h18m-18 32h18m-18 32h18M1087 115h18m-18 32h18m-18 32h18m-18 32h18m-18 32h18"/>
+</g>
+<rect x="899" y="89" width="186" height="178" rx="23" fill="url(#chip)" stroke="#9befff" stroke-width="2"/>
+<rect x="918" y="108" width="148" height="140" rx="12" fill="#07558e"/>
+<path d="M946 148h31v25h-31zm44 0h31v25h-31zm-44 38h31v25h-31zm44 0h31v25h-31z" fill="#29d2ec"/>
+<text x="992" y="134" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="3">GARDA</text>
+<path d="m1107 55 7-23 7 23 23 7-23 7-7 23-7-23-23-7z" fill="#f4d447"/>
 </svg>

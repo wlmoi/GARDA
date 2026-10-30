@@ -47,7 +47,7 @@ for name in ('garda_neural_logic_top.v', 'garda_parameter_logic.v', 'garda_neura
     entries['src/' + name] = REPO / 'src' / name
 for part in ('test', 'reference_model', 'assets', 'scripts', 'asic/neural_logic'):
     entries.update(collect(REPO / part, part + '/'))
-for name in ('info.yaml', 'docs/info.md', 'requirements.txt', 'requirements-layout.txt',
+for name in ('evidence/neural_logic_activity.json', 'info.yaml', 'docs/info.md', 'requirements.txt', 'requirements-layout.txt',
              'requirements-asic.txt', 'librelane_plugin_neural_sram.py', 'LICENSE',
              '.github/workflows/gds.yaml', '.github/workflows/docs.yaml',
              'dashboard/scripts/build_pages.py'):

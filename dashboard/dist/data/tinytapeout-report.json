@@ -1,9 +1,31 @@
 {
   "schema": "garda-dashboard-evidence-1",
+  "current_rtl": {
+    "status": "pass",
+    "source_match": true,
+    "source_files": [
+      "src/garda_neural_logic_top.v",
+      "src/garda_parameter_logic.v",
+      "src/garda_neural_datapath_logic.v",
+      "src/garda_activation_logic.v"
+    ],
+    "source_hash_normalization": "concatenate source_files in order; CRLF to LF",
+    "result": "PASS / 400 cocok",
+    "summary": "100 vektor · 400 keluaran cocok · 6.020 kata · 3.080 clock.",
+    "activity_summary": "Transisi operand MAC turun 14,35% pada vektor uji. Ini indikator aktivitas RTL, bukan pengukuran daya.",
+    "artifact": "neural-logic-activity.json",
+    "current_source_sha256": "5feac3b02a1972886e099015a39a3a7fd453ff8f961a0ddac345b0a8e87c9b8d",
+    "measured_source_sha256": "5feac3b02a1972886e099015a39a3a7fd453ff8f961a0ddac345b0a8e87c9b8d",
+    "vectors": 100,
+    "outputs_checked": 400,
+    "model_words": 6020,
+    "latency_cycles": 3080,
+    "physical_power_measured": false
+  },
   "checked_date": "2026-10-15",
   "functional_pass": true,
   "top": "tt_um_wlmoi_igor_neural_logic",
-  "summary": "Bukti historis IHP berasal dari revisi sebelum perubahan nama GARDA; bukan hasil verifikasi SKY130 atau GDS baru. Model tetap 6.020 kata diuji melalui RTL dan antarmuka pin TinyTapeout. Netlist sel IHP juga lolos simulasi fungsional tanpa SDF. Global routing telah lolos tanpa overflow. DRC, LVS dan timing signoff dinilai terpisah sesuai bukti yang tersedia.",
+  "summary": "Model 6.020 kata: hasil RTL dan antarmuka pin tercatat di bawah. Bukti netlist/routing IHP berasal dari build historis; signoff SKY130 dinilai terpisah.",
   "checks": [
     {
       "label": "RTL / 100 vektor, 400 keluaran",

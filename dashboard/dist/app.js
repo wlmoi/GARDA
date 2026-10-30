@@ -34,7 +34,7 @@ function setMode(next,fromScene=false){
   const tt=mode==='tt';
   if(scene){scene.setBlocks(tt?ttModules:modules);if(!fromScene)scene.setMode(mode);}
   document.querySelectorAll('[data-mode]').forEach(b=>{const yes=b.dataset.mode===mode;b.setAttribute('aria-selected',String(yes));b.tabIndex=yes?0:-1;});
-  $('mode-chip').textContent=tt?'CMOS5L / NEURAL CORE':mode==='die'?'20 MODUL / 19 BERKAS':'CYCLONE V SoC';
+  $('mode-chip').textContent=tt?'NEURAL CORE / IHP HISTORIS':mode==='die'?'20 MODUL / 19 BERKAS':'CYCLONE V SoC';
   $('stage-kicker').textContent=tt?'TINYTAPEOUT EXPLORER':mode==='die'?'LOGICAL RTL EXPLORER':'BOARD EXPLORER';
   $('stage-title').innerHTML=tt?'24 → 64 → 64 → 4.<br>Dual MAC. Model tetap.':mode==='die'?'Dari masukan peta.<br>Ke gerbang keputusan.':'Satu board.<br>Dua dunia komputasi.';
   $('stage-description').textContent=tt?'Neural core TinyTapeout. DWA dan penggerak motor berada di luar chip ini.':mode==='die'?'Klik blok untuk melihat fungsi, port, dan source Verilog aslinya.':'FPGA fabric untuk RTL GARDA. HPS ARM untuk perangkat lunak host.';
@@ -92,11 +92,16 @@ function renderFlow(){
 }
 async function loadEvidence(){
   try{const r=await fetch('data/tinytapeout-report.json');if(!r.ok)throw Error(r.status);report=await r.json();
-    $('tt-functional').textContent=report.functional_pass?'RTL historis lulus pengujian':'Status RTL perlu ditinjau';
+    const current=report.current_rtl||{};
+    $('tt-functional').textContent=current.status==='pass'?'RTL GARDA / PASS':'RTL aktif perlu uji ulang';
+    $('current-rtl-status').textContent=current.result||'Perlu uji ulang';
+    $('current-rtl-status').dataset.status=current.status||'rerun_required';
+    $('current-rtl-summary').textContent=current.summary||'Bukti RTL aktif belum tersedia.';
+    $('current-rtl-activity').textContent=current.activity_summary||'';
     $('tt-summary').textContent=report.summary||'Hasil RTL dan implementasi fisik memiliki cakupan terpisah.';
     $('evidence-date').textContent=`Diperiksa ${report.checked_date||'15 Oktober 2026'}`;
     $('tt-checks').innerHTML=(report.checks||[]).map(c=>`<div class="tt-check ${c.status==='pass'?'':'pending'}"><span>${esc(c.label)}</span><strong>${esc(c.result)}</strong></div>`).join('');
-  }catch(error){$('tt-functional').textContent='Lihat bukti pengujian repository';$('tt-summary').textContent='Laporan pengujian terbaru belum berhasil dimuat. Status implementasi fisik tidak disimpulkan dari hasil simulasi.';$('tt-report-link').hidden=true;}
+  }catch(error){$('current-rtl-status').textContent='Bukti belum dimuat';$('current-rtl-summary').textContent='Buka laporan repository untuk hasil pengujian.';$('current-rtl-activity').textContent='';$('tt-functional').textContent='Lihat bukti pengujian repository';$('tt-summary').textContent='Laporan pengujian terbaru belum berhasil dimuat. Status implementasi fisik tidak disimpulkan dari hasil simulasi.';$('tt-report-link').hidden=true;}
 }
 document.querySelectorAll('[data-mode]').forEach(b=>{b.addEventListener('click',()=>setMode(b.dataset.mode));b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const tabs=[...document.querySelectorAll('[data-mode]')];const i=tabs.indexOf(b);const next=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];setMode(next.dataset.mode);next.focus();}});});
 $('show-source').addEventListener('click',()=>openDetail());$('show-ports').addEventListener('click',()=>openDetail());$('close-detail').addEventListener('click',()=>{$('module-detail').hidden=true;});

@@ -2036,7 +2036,7 @@
           "signed": true
         }
       ],
-      "sha256": "ee7c6ffee24243b8ae8040d15893b073fd9de7b0a11acac615e021151e6d15ab",
+      "sha256": "b0554b0d58cc0b925f87b5ca2e98022b51dcaa69b0a3003733fba991872ecc4a",
       "id": "garda_neural_datapath_logic",
       "title": "Datapath neural ASIC",
       "subtitle": "Dua MAC paralel",
