@@ -27,3 +27,5 @@ node_modules/
 _site/
 physical-viewer/
 gds_render/
+.vercel
+.env*
