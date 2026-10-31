@@ -2,7 +2,7 @@
 
 GARDA dikembangkan sebagai purwarupa AI untuk navigasi robot logistik: inferensi fixed-point, pemeriksaan lintasan, dan gerbang izin gerak yang dapat ditelusuri. Tema visual menggunakan biru, cyan, dan kuning dari gambar SENO yang disediakan pengguna.
 
-[Situs resmi](https://hackathon-its.id/) · [Dashboard GARDA](https://garda-chip-explorer.vercel.app/) · [Mulai di sini](QUICKSTART.md)
+[Situs resmi](https://hackathon-its.id/) , [Dashboard GARDA](https://garda-chip-explorer.vercel.app/) , [Mulai di sini](QUICKSTART.md)
 
 ## Masalah dan validasi
 

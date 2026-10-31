@@ -1,6 +1,6 @@
 # Laporan teknis singkat IGOR
 
-**Peruri Chip Hackathon 2026 · ISeeDesignITB · Institut Teknologi Bandung**
+**Peruri Chip Hackathon 2026 , ISeeDesignITB , Institut Teknologi Bandung**
 
 ## Ringkasan
 

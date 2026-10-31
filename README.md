@@ -2,7 +2,7 @@
   <img src="docs/assets/garda-banner.svg" alt="GARDA — Hackathon ITS 2026, AI untuk masalah nyata" width="100%">
 </p>
 
-# GARDA · Hackathon ITS 2026
+# GARDA , Hackathon ITS 2026
 
 <table>
 <tr>
@@ -38,13 +38,13 @@
 
 **Gerbang AI Robot Deterministik & Aman**: policy PPO **74 → 128 → 64 → 3**, delapan MAC, Q8.8 dan gerbang keselamatan pada FPGA DE10-Nano. Jadwal inti **6.916 clock / 138,32 µs pada 50 MHz**, dengan UART acuan **921.600 baud**. Host ROS 2 mengolah sensor; STM32 menjalankan aktuasi dengan watchdog.
 
-[Implementasi Parallel8](fpga/experiments/parallel8/README.md) · [Pemetaan ke GARDA.pdf](docs/PROPOSAL_ALIGNMENT.md) · [Hasil run GitHub Actions](https://github.com/wlmoi/GARDA/actions)
+[Implementasi Parallel8](fpga/experiments/parallel8/README.md) , [Pemetaan ke GARDA.pdf](docs/PROPOSAL_ALIGNMENT.md) , [Hasil run GitHub Actions](https://github.com/wlmoi/GARDA/actions)
 
 Angka fitted dan daya pada proposal adalah snapshot eksperimen FPGA. Estimasi **50,36 mW dinamis / 476,18 mW total** bersifat vectorless dengan confidence Low, bukan pengukuran board.
 
 ## Eksperimen TinyTapeout neural terpisah
 
-**100 vektor · 400 keluaran cocok · 6.020 kata model · 3.080 clock inferensi.** [Regresi terbaru](evidence/neural_logic_activity.json) mengikat hasil ke hash empat source RTL aktif. Koefisien MAC signed 12-bit mempertahankan nilai model tepat; operand nol diisolasi.
+**100 vektor , 400 keluaran cocok , 6.020 kata model , 3.080 clock inferensi.** [Regresi terbaru](evidence/neural_logic_activity.json) mengikat hasil ke hash empat source RTL aktif. Koefisien MAC signed 12-bit mempertahankan nilai model tepat; operand nol diisolasi.
 
 Transisi operand MAC pada vektor uji berkurang **14,35%** dibanding baseline. Ini indikator aktivitas RTL; daya fisik memerlukan analisis teknologi dan pengukuran tersendiri. Latensi tetap **61,6 µs pada referensi 50 MHz**. [Metode dan reproduksi](asic/neural_logic/OPTIMIZATION.md).
 
@@ -98,11 +98,11 @@ Jalankan [START_DASHBOARD.bat](dashboard/START_DASHBOARD.bat) untuk membuka di l
 | Hasil | Angka | Bukti |
 |---|---:|---|
 | Evaluasi DWA | **512 kandidat × 20 pose** | [RTL dan arsitektur](docs/ARCHITECTURE.md) |
-| Waktu kernel DWA | **7.938 siklus · 158,76 µs pada 50 MHz** | [Enam scene](evidence/audit/scene_latency.csv) |
+| Waktu kernel DWA | **7.938 siklus , 158,76 µs pada 50 MHz** | [Enam scene](evidence/audit/scene_latency.csv) |
 | Inferensi neural | **400 keluaran cocok tepat pada 100 vektor** | [Hasil model pembanding](verification/neural_cocotb_results.json) |
-| Waktu kernel neural | **18.192 siklus · 363,84 µs pada 50 MHz** | [Analisis performa](docs/PERFORMANCE.md) |
+| Waktu kernel neural | **18.192 siklus , 363,84 µs pada 50 MHz** | [Analisis performa](docs/PERFORMANCE.md) |
 | Pemeriksaan RTL tercatat | **29.382 pemeriksaan tanpa kesalahan** | [Manifest bukti simulasi](evidence/waveforms/MANIFEST_BUKTI.json) |
-| Regresi gerbang | **13.078 kasus · 12/12 bin hasil fungsional** | [Coverage](verification/gate_functional_coverage.json) |
+| Regresi gerbang | **13.078 kasus , 12/12 bin hasil fungsional** | [Coverage](verification/gate_functional_coverage.json) |
 | Regresi cocotb lokal | **8 test case pada 6 suite** | [Metodologi](docs/VERIFICATION.md) |
 | Fault injection | **9 skenario menghasilkan izin = 0** | [Daftar pengujian](evidence/audit/fault_status.csv) |
 | Implementasi FPGA | **DE10-Nano dan DE10-Lite** | [Resource dan timing](docs/PERFORMANCE.md) |
@@ -195,12 +195,12 @@ Untuk menguji kemampuan generalisasi di luar kondisi pelatihan nominal, model di
 
 | Skenario Uji | Gambar di `notebook/unique_scenarios_validation.png` | Log Notebook (`run_20261008_160243`) |
 |---|---|---|
-| **Seed 101 (Baseline)** | FP32 & Q8.8: **SUCCESS** (~153 steps \| 15,3s) | FP32: **SUCCESS (108 steps \| 10,8s)** · Q8.8: **SUCCESS (96 steps \| 9,6s)** |
-| **OOD 1: Negative X Goal** | FP32: **SUCCESS (88 steps \| 8,8s)** · Q8.8: **SUCCESS (79 steps \| 7,9s)** | FP32: **SUCCESS (92 steps \| 9,2s)** · Q8.8: **SUCCESS (85 steps \| 8,5s)** |
-| **OOD 2: 5-Obstacle Maze** | FP32: **SUCCESS (138 steps \| 13,8s)** · Q8.8: **SUCCESS (131 steps \| 13,1s)** | FP32: **SUCCESS (136 steps \| 13,6s)** · Q8.8: **SUCCESS (126 steps \| 12,6s)** |
-| **OOD 3: Heterogeneous Radius** | FP32: **SUCCESS (129 steps \| 12,9s)** · Q8.8: **SUCCESS (114 steps \| 11,4s)** | FP32: **TIMEOUT (200 steps \| 20,0s)** · Q8.8: **SUCCESS (90 steps \| 9,0s)** |
-| **OOD 4: Slalom Barrier** | FP32: **SUCCESS (101 steps \| 10,1s)** · Q8.8: **SUCCESS (98 steps \| 9,8s)** | FP32: **SUCCESS (138 steps \| 13,8s)** · Q8.8: **SUCCESS (129 steps \| 12,9s)** |
-| **OOD 5: Noise & Heavy Slip** | FP32: **SUCCESS (114 steps \| 11,4s)** · Q8.8: **SUCCESS (111 steps \| 11,1s)** | FP32: **SUCCESS (103 steps \| 10,3s)** · Q8.8: **SUCCESS (98 steps \| 9,8s)** |
+| **Seed 101 (Baseline)** | FP32 & Q8.8: **SUCCESS** (~153 steps \| 15,3s) | FP32: **SUCCESS (108 steps \| 10,8s)** , Q8.8: **SUCCESS (96 steps \| 9,6s)** |
+| **OOD 1: Negative X Goal** | FP32: **SUCCESS (88 steps \| 8,8s)** , Q8.8: **SUCCESS (79 steps \| 7,9s)** | FP32: **SUCCESS (92 steps \| 9,2s)** , Q8.8: **SUCCESS (85 steps \| 8,5s)** |
+| **OOD 2: 5-Obstacle Maze** | FP32: **SUCCESS (138 steps \| 13,8s)** , Q8.8: **SUCCESS (131 steps \| 13,1s)** | FP32: **SUCCESS (136 steps \| 13,6s)** , Q8.8: **SUCCESS (126 steps \| 12,6s)** |
+| **OOD 3: Heterogeneous Radius** | FP32: **SUCCESS (129 steps \| 12,9s)** , Q8.8: **SUCCESS (114 steps \| 11,4s)** | FP32: **TIMEOUT (200 steps \| 20,0s)** , Q8.8: **SUCCESS (90 steps \| 9,0s)** |
+| **OOD 4: Slalom Barrier** | FP32: **SUCCESS (101 steps \| 10,1s)** , Q8.8: **SUCCESS (98 steps \| 9,8s)** | FP32: **SUCCESS (138 steps \| 13,8s)** , Q8.8: **SUCCESS (129 steps \| 12,9s)** |
+| **OOD 5: Noise & Heavy Slip** | FP32: **SUCCESS (114 steps \| 11,4s)** , Q8.8: **SUCCESS (111 steps \| 11,1s)** | FP32: **SUCCESS (103 steps \| 10,3s)** , Q8.8: **SUCCESS (98 steps \| 9,8s)** |
 
 ### 4. Evaluasi Statistik 50 Episode Acak & Keterbatasan Model AI
 
@@ -251,8 +251,8 @@ Perintah `all` menjalankan tujuh test case. Suite `tt_generic` menambahkan test 
 
 | Board | Proyek yang dibuka | Image yang diprogram |
 |---|---|---|
-| DE10-Nano · `5CSEBA6U23I7` | [garda.qpf](fpga_de10_nano/quartus/garda.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
-| DE10-Lite · `10M50DAF484C7G` | [Paket MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/igor_max10.qpf) | [Bitstream MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/output_files/igor_max10.sof) |
+| DE10-Nano , `5CSEBA6U23I7` | [garda.qpf](fpga_de10_nano/quartus/garda.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
+| DE10-Lite , `10M50DAF484C7G` | [Paket MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/igor_max10.qpf) | [Bitstream MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/output_files/igor_max10.sof) |
 
 Gunakan Quartus Standard 25.1 beserta device support yang sesuai. [Panduan programming](docs/FPGA_PROGRAMMING.md) memuat urutan JTAG, pin UART, reset, dan pemeriksaan hasil. Hash image tercatat di [build evidence](evidence/build_evidence.json).
 
@@ -264,12 +264,12 @@ Paket [ImplementationReadyQuartus](ImplementationReadyQuartus/README_MULAI_DI_SI
 
 <table>
   <tr>
-    <td width="50%"><a href="evidence/quartus/nano_resource.png"><img src="evidence/quartus/nano_resource.png" alt="Screenshot resource DE10-Nano pada Quartus"></a><br><strong>Quartus · DE10-Nano</strong></td>
-    <td width="50%"><a href="evidence/quartus/lite_resource.png"><img src="evidence/quartus/lite_resource.png" alt="Screenshot resource DE10-Lite pada Quartus"></a><br><strong>Quartus · DE10-Lite</strong></td>
+    <td width="50%"><a href="evidence/quartus/nano_resource.png"><img src="evidence/quartus/nano_resource.png" alt="Screenshot resource DE10-Nano pada Quartus"></a><br><strong>Quartus , DE10-Nano</strong></td>
+    <td width="50%"><a href="evidence/quartus/lite_resource.png"><img src="evidence/quartus/lite_resource.png" alt="Screenshot resource DE10-Lite pada Quartus"></a><br><strong>Quartus , DE10-Lite</strong></td>
   </tr>
   <tr>
-    <td><a href="evidence/waveforms/05_dwa_result.png"><img src="evidence/waveforms/05_dwa_result.png" alt="GTKWave hasil DWA dengan 7938 siklus"></a><br><strong>GTKWave · hasil DWA</strong></td>
-    <td><a href="evidence/waveforms/06_neural_result.png"><img src="evidence/waveforms/06_neural_result.png" alt="GTKWave hasil inferensi neural"></a><br><strong>GTKWave · hasil neural</strong></td>
+    <td><a href="evidence/waveforms/05_dwa_result.png"><img src="evidence/waveforms/05_dwa_result.png" alt="GTKWave hasil DWA dengan 7938 siklus"></a><br><strong>GTKWave , hasil DWA</strong></td>
+    <td><a href="evidence/waveforms/06_neural_result.png"><img src="evidence/waveforms/06_neural_result.png" alt="GTKWave hasil inferensi neural"></a><br><strong>GTKWave , hasil neural</strong></td>
   </tr>
 </table>
 
@@ -309,7 +309,7 @@ GARDA/
 
 ## Tim dan kontribusi
 
-**iSeeDesignITB · Institut Teknologi Bandung**
+**iSeeDesignITB , Institut Teknologi Bandung**
 
 | Anggota | NIM |
 |---|---|

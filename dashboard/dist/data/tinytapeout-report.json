@@ -11,7 +11,7 @@
     ],
     "source_hash_normalization": "concatenate source_files in order; CRLF to LF",
     "result": "PASS / 400 cocok",
-    "summary": "100 vektor · 400 keluaran cocok · 6.020 kata · 3.080 clock.",
+    "summary": "100 vektor, 400 keluaran cocok, 6,020 kata, 3,080 clock.",
     "activity_summary": "Transisi operand MAC turun 14,35% pada vektor uji. Ini indikator aktivitas RTL, bukan pengukuran daya.",
     "artifact": "neural-logic-activity.json",
     "current_source_sha256": "5feac3b02a1972886e099015a39a3a7fd453ff8f961a0ddac345b0a8e87c9b8d",

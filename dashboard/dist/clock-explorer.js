@@ -24,7 +24,7 @@ function describeClock(cycle) {
   if (within === groupLength - 1) return {layer, group, groupLength, groupStart, within, phase: 'activate', state: 'ACTIVATE', detail: 'ACTIVATE'};
   const input = Math.floor((within - 3) / 3) + 1;
   const sub = (within - 3) % 3;
-  return {layer, group, groupLength, groupStart, within, phase: sub === 2 ? 'mac' : 'weight', state: ['WEIGHT_ADDRESS', 'WEIGHT_WAIT', 'MAC'][sub], input, detail: `${['WEIGHT_ADDRESS', 'WEIGHT_WAIT', 'MAC'][sub]} · input ${input} / ${layer.inputs}`};
+  return {layer, group, groupLength, groupStart, within, phase: sub === 2 ? 'mac' : 'weight', state: ['WEIGHT_ADDRESS', 'WEIGHT_WAIT', 'MAC'][sub], input, detail: `${['WEIGHT_ADDRESS', 'WEIGHT_WAIT', 'MAC'][sub]} , input ${input} / ${layer.inputs}`};
 }
 const explanations = {
   BIAS_ADDRESS: 'Alamat bias kelompok ini disiapkan untuk dibaca.',
@@ -70,7 +70,7 @@ function render() {
   document.getElementById('clock-time').textContent = `${(cycle / 50).toLocaleString('id-ID', {maximumFractionDigits: 2})} µs`;
   document.getElementById('clock-layer').textContent = current.layer?.name || 'Siap';
   document.getElementById('clock-group').textContent = current.layer ? `${current.group} / ${current.layer.groups}` : '—';
-  document.getElementById('clock-detail').textContent = current.layer ? `${current.detail} · kelompok ${current.group}` : current.detail;
+  document.getElementById('clock-detail').textContent = current.layer ? `${current.detail} , kelompok ${current.group}` : current.detail;
   stages.forEach(stage => stage.classList.toggle('active', stage.dataset.clockStage === current.phase));
   renderFlow(current, cycle);
 }

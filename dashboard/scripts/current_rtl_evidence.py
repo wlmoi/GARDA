@@ -45,8 +45,8 @@ def current_evidence(repo):
             'outputs_checked': raw['outputs_checked_per_revision'],
             'model_words': raw['model_words'],
             'latency_cycles': raw['latency_cycles_after'],
-            'summary': (f"{raw['vectors_per_revision']} vektor · {raw['outputs_checked_per_revision']} keluaran cocok · "
-                        f"{raw['model_words']:,} kata · {raw['latency_cycles_after']:,} clock.").replace(',', '.'),
+            'summary': (f"{raw['vectors_per_revision']} vektor, {raw['outputs_checked_per_revision']} keluaran cocok, "
+                        f"{raw['model_words']:,} kata, {raw['latency_cycles_after']:,} clock."),
             'activity_summary': (f"Transisi operand MAC turun {raw['combined_bit_transition_reduction_percent']:.2f}% "
                                  'pada vektor uji. Ini indikator aktivitas RTL, bukan pengukuran daya.').replace('.', ',', 1),
             'physical_power_measured': raw.get('physical_power_measured', False),
