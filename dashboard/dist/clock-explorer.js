@@ -52,11 +52,12 @@ function renderFlow(current, cycle) {
     const used = Boolean(current.layer && neuron <= current.layer.outputs);
     lane.classList.toggle('unused', Boolean(current.layer && !used));
     lane.classList.toggle('working', used && ['BIAS_TAKE', 'MAC', 'ACTIVATE'].includes(current.state));
-    lane.querySelector('strong').textContent = used ? `Neuron ${neuron}` : '—';
+    lane.querySelector('strong').textContent = used ? '●' : '—';
+    lane.setAttribute('aria-label', current.layer ? `Lane ${index + 1}: ${used ? `neuron ${neuron}` : 'tidak digunakan'}` : `Lane ${index + 1}: menunggu`);
   });
   progress.max = current.layer?.groups || 8;
   progress.value = current.group || 0;
-  groupLabel.textContent = current.layer ? `Kelompok ${current.group} / ${current.layer.groups}` : 'Menunggu inferensi';
+  groupLabel.textContent = current.layer ? `${current.group} / ${current.layer.groups}` : 'Menunggu';
   label.textContent = current.layer ? `${current.layer.name}: neuron ${first}–${last} dari ${current.layer.outputs}` : 'Belum ada kelompok yang berjalan.';
   explanation.textContent = current.state ? explanations[current.state] +
     (current.state === 'ACTIVATE' && current.layer.name === 'FC3' ? ' Tiga hasil membentuk residual keluaran.' : '') :
