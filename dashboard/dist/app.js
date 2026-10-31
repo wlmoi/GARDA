@@ -123,5 +123,4 @@ function updateGate(){
   $('gate-result').className='gate-result '+(r.motor_enable?'permitted':'blocked');
 }
 document.querySelectorAll('[data-fault],#candidate-v,#candidate-w').forEach(el=>el.addEventListener('input',updateGate));
-$('gate-reset').addEventListener('click',()=>{document.querySelectorAll('[data-fault]').forEach(x=>x.checked=false);$('candidate-v').value=12;$('candidate-w').value=4;updateGate();});
 updateGate();init();

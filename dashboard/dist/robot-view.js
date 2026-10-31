@@ -97,6 +97,6 @@ if(running&&!document.hidden){
   if(progress>=1||(mode.value==='obstacle'&&progress>=.25)){pause();draw();}
   else if(t>=1)resetSequence();
  }
-}requestAnimationFrame(animate);}draw();requestAnimationFrame(animate);
+}requestAnimationFrame(animate);}resetSequence();document.querySelector('.clock-panel').classList.toggle('motion-only',motionOnly());draw();requestAnimationFrame(animate);
 } catch(error) { document.getElementById('robot-status').textContent='3D tidak tersedia , coba browser dengan WebGL'; console.warn('GARDA robot viewer:',error.message); }
 }

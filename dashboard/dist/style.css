@@ -61,3 +61,5 @@ body{background:radial-gradient(ellipse at 5% 15%,#034ab6 0,transparent 45%),rad
 @media(max-width:520px){.dataflow-path{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.dataflow-node{min-height:52px}.dataflow-node strong{font-size:11px}.dataflow-node:not(:last-child):after{display:none}.mac-lanes{grid-template-columns:repeat(8,minmax(0,1fr));gap:4px}.mac-lanes li{padding:6px 1px}.mac-lanes span{font-size:9px}.mac-lanes strong{font-size:12px}.robot-stage{height:260px}.robot-path span{font-size:9px;padding:7px 1px}.robot-controls label{flex:1 1 130px}}
 
 .clock-panel.motion-only .clock-stats,.clock-panel.motion-only .dataflow-visual,.clock-panel.motion-only .clock-controls,.clock-panel.motion-only .clock-options,.clock-panel.motion-only .clock-layers,.clock-panel.motion-only #clock-detail,.clock-panel.motion-only #clock-slider,.clock-panel.motion-only label[for="clock-slider"]{display:none}.clock-panel.motion-only .unified-demo{grid-template-columns:1fr}.clock-panel.motion-only .robot-section{max-width:100%;width:100%}
+
+.board-reference{grid-template-columns:1fr}
