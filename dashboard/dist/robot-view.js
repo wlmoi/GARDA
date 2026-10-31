@@ -22,9 +22,11 @@ const route=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(0,.02
 const rays=[];for(let i=0;i<41;i++){const line=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(),new T.Vector3()]),new T.LineBasicMaterial({color:0x35b8e4,transparent:true,opacity:.5}));scene.add(line);rays.push(line);}
 function positionAt(p,avoid){const rise=Math.max(0,Math.min(1,(p-.05)/.25));const smooth=rise*rise*(3-2*rise);return {x:avoid?2.7*smooth:0,z:3-p*6};}
 function hitBox(ox,oz,dx,dz){let near=0,far=4;for(const [o,d,lo,hi] of [[ox,dx,-.625,.625],[oz,dz,-1.525,-.875]]){if(Math.abs(d)<1e-8){if(o<lo||o>hi)return 4;}else{let a=(lo-o)/d,b=(hi-o)/d;if(a>b)[a,b]=[b,a];near=Math.max(near,a);far=Math.min(far,b);if(near>far)return 4;}}return near;}
-const slider=document.getElementById('robot-progress'),play=document.getElementById('robot-play'),mode=document.getElementById('robot-scenario'),status=document.getElementById('robot-status');let running=false,last=0,progress=0,phase='infer',phaseTime=0,stepStart=0;
+const slider=document.getElementById('robot-progress'),play=document.getElementById('robot-play'),mode=document.getElementById('robot-scenario'),status=document.getElementById('robot-status');let running=false,last=0,progress=0,phase='infer',phaseTime=0,stepStart=0,inferenceStep=0;
+const inferenceMarks=[0];
+for(const [start,inputs,groups] of [[1,74,8],[1809,128,4],[3361,64,1]]){const length=inputs*3+4;for(let group=0;group<groups;group++){const base=start+group*length;for(const offset of [0,1,2,3,4,5,length-2,length-1])inferenceMarks.push(base+offset);}}
 function publishClock(clock){document.dispatchEvent(new CustomEvent('garda-demo-frame',{detail:{clock}}));}
-function resetSequence(){phase='infer';phaseTime=0;stepStart=progress;publishClock(0);}
+function resetSequence(){phase='infer';phaseTime=0;inferenceStep=0;stepStart=progress;publishClock(0);}
 function draw(){const size=canvas.getBoundingClientRect();if(!size.width||!size.height)return;renderer.setSize(size.width,size.height,false);camera.aspect=size.width/size.height;camera.position.set(Math.sin(yaw)*Math.cos(pitch)*distance,Math.sin(pitch)*distance,Math.cos(yaw)*Math.cos(pitch)*distance);camera.lookAt(0,.7,0);camera.updateProjectionMatrix();
 const avoid=mode.value==='avoid',blocked=mode.value==='obstacle',emergency=mode.value==='estop';obstacle.visible=avoid||blocked;const p=emergency?0:blocked?Math.min(progress,.25):progress;const pathPoints=Array.from({length:61},(_,i)=>{const q=positionAt(i/60,avoid);return new T.Vector3(q.x,.03,q.z);});route.geometry.dispose();route.geometry=new T.BufferGeometry().setFromPoints(pathPoints);route.computeLineDistances();const pos=positionAt(p,avoid),ahead=positionAt(Math.min(1,p+.001),avoid);robot.position.set(pos.x,0,pos.z);
 // Mecanum translation: the chassis keeps its heading while strafing around an object.
@@ -53,8 +55,11 @@ function animate(time){const dt=Math.min((time-last)/1000,.06);last=time;
 if(running&&!document.hidden){
  if(mode.value==='estop'){pause();draw();}
  else if(phase==='infer'){
-  phaseTime+=dt;publishClock(Math.min(3556,Math.floor(phaseTime/3*3556)));
-  if(phaseTime>=3){publishClock(3556);phase='move';phaseTime=0;stepStart=progress;}
+  phaseTime+=dt;
+  const speed=document.getElementById('clock-speed').value;
+  const delay={slow:1.2,normal:.65,fast:.22}[speed]||1.2;
+  if(phaseTime>=delay){phaseTime=0;inferenceStep++;if(inferenceStep<inferenceMarks.length)publishClock(inferenceMarks[inferenceStep]);else{publishClock(3556);phase='move';stepStart=progress;}}
+
   draw();
  }else{
   phaseTime+=dt;const t=Math.min(1,phaseTime/2),smooth=t*t*(3-2*t);

@@ -89,7 +89,7 @@ function nextHighlight(cycle) {
 }
 function startTimer() {
   flowVisual.classList.toggle('is-playing', true);
-  const delay = {slow: 700, normal: 250, fast: 80}[document.getElementById('clock-speed').value];
+  const delay = {slow: 1200, normal: 650, fast: 220}[document.getElementById('clock-speed').value];
   timer = window.setInterval(() => {
     const cycle = Number(slider.value);
     setCycle(document.getElementById('clock-mode').value === 'highlights' ? nextHighlight(cycle) : cycle + 1);
