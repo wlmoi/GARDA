@@ -63,3 +63,5 @@ body{background:radial-gradient(ellipse at 5% 15%,#034ab6 0,transparent 45%),rad
 .clock-panel.motion-only .clock-stats,.clock-panel.motion-only .dataflow-visual,.clock-panel.motion-only .clock-controls,.clock-panel.motion-only .clock-options,.clock-panel.motion-only .clock-layers,.clock-panel.motion-only #clock-detail,.clock-panel.motion-only #clock-slider,.clock-panel.motion-only label[for="clock-slider"]{display:none}.clock-panel.motion-only .unified-demo{grid-template-columns:1fr}.clock-panel.motion-only .robot-section{max-width:100%;width:100%}
 
 .board-reference{grid-template-columns:1fr}
+
+.inference-time{font-size:clamp(19px,2.2vw,28px);color:#fdfdff;line-height:1.5;margin:12px 0 22px}.inference-time strong{color:#9bfd08}.inference-time span{display:block;font-size:13px;color:#c7e4f8}#platform-note:empty{display:none}

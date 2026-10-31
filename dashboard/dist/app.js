@@ -38,8 +38,6 @@ function setMode(next,fromScene=false){
   $('mode-chip').textContent=tt?'NEURAL CORE / IHP HISTORIS':mode==='die'?'20 MODUL / 19 BERKAS':'CYCLONE V SoC';
   $('stage-kicker').textContent=tt?'TINYTAPEOUT EXPLORER':mode==='die'?'LOGICAL RTL EXPLORER':'BOARD EXPLORER';
   $('stage-title').innerHTML=tt?'24 → 64 → 64 → 4.<br>Dual MAC. Model tetap.':mode==='die'?'Dari masukan peta.<br>Ke gerbang keputusan.':'Satu board.<br>Dua dunia komputasi.';
-  $('stage-description').textContent=tt?'Neural core TinyTapeout. DWA dan penggerak motor berada di luar chip ini.':mode==='die'?'Klik blok untuk melihat fungsi, port, dan source Verilog aslinya.':'FPGA fabric untuk RTL GARDA. HPS ARM untuk perangkat lunak host.';
-  $('model-scale').textContent=tt?'Susunan logis, bukan GDS signoff':mode==='die'?'Ukuran dan posisi blok bersifat konseptual':'DE10-Nano / bentuk konseptual';
   $('block-count').textContent=tt?'4 modul': '20 modul / 19 berkas';
   renderLegend();
   if(!selected||!available().some(m=>m.id===selected.id))selectBlock(tt?'tt_um_wlmoi_garda_neural_logic':'garda_uart_top');
