@@ -22,12 +22,14 @@ const route=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(0,.02
 const rays=[];for(let i=0;i<41;i++){const line=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(),new T.Vector3()]),new T.LineBasicMaterial({color:0x35b8e4,transparent:true,opacity:.5}));scene.add(line);rays.push(line);}
 function positionAt(p,avoid){const rise=Math.max(0,Math.min(1,(p-.05)/.25));const smooth=rise*rise*(3-2*rise);return {x:avoid?2.7*smooth:0,z:3-p*6};}
 function hitBox(ox,oz,dx,dz){let near=0,far=4;for(const [o,d,lo,hi] of [[ox,dx,-.625,.625],[oz,dz,-1.525,-.875]]){if(Math.abs(d)<1e-8){if(o<lo||o>hi)return 4;}else{let a=(lo-o)/d,b=(hi-o)/d;if(a>b)[a,b]=[b,a];near=Math.max(near,a);far=Math.min(far,b);if(near>far)return 4;}}return near;}
-const slider=document.getElementById('robot-progress'),play=document.getElementById('robot-play'),mode=document.getElementById('robot-scenario'),status=document.getElementById('robot-status');let running=false,last=0,progress=0;
+const slider=document.getElementById('robot-progress'),play=document.getElementById('robot-play'),mode=document.getElementById('robot-scenario'),status=document.getElementById('robot-status');let running=false,last=0,progress=0,phase='infer',phaseTime=0,stepStart=0;
+function publishClock(clock){document.dispatchEvent(new CustomEvent('garda-demo-frame',{detail:{clock}}));}
+function resetSequence(){phase='infer';phaseTime=0;stepStart=progress;publishClock(0);}
 function draw(){const size=canvas.getBoundingClientRect();if(!size.width||!size.height)return;renderer.setSize(size.width,size.height,false);camera.aspect=size.width/size.height;camera.position.set(Math.sin(yaw)*Math.cos(pitch)*distance,Math.sin(pitch)*distance,Math.cos(yaw)*Math.cos(pitch)*distance);camera.lookAt(0,.7,0);camera.updateProjectionMatrix();
 const avoid=mode.value==='avoid',blocked=mode.value==='obstacle',emergency=mode.value==='estop';obstacle.visible=avoid||blocked;const p=emergency?0:blocked?Math.min(progress,.25):progress;const pathPoints=Array.from({length:61},(_,i)=>{const q=positionAt(i/60,avoid);return new T.Vector3(q.x,.03,q.z);});route.geometry.dispose();route.geometry=new T.BufferGeometry().setFromPoints(pathPoints);route.computeLineDistances();const pos=positionAt(p,avoid),ahead=positionAt(Math.min(1,p+.001),avoid);robot.position.set(pos.x,0,pos.z);
 // Mecanum translation: the chassis keeps its heading while strafing around an object.
 robot.rotation.y=0;
-const moving=running&&!emergency&&!(blocked&&progress>=.25)&&p<1;
+const moving=running&&phase==='move'&&!emergency&&!(blocked&&progress>=.25)&&p<1;
 const vibration=moving&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
 body.position.y=vibration?.006*Math.sin(p*640):0;
 body.rotation.x=vibration?.003*Math.sin(p*410):0;
@@ -39,13 +41,27 @@ wheels.forEach((wheel,i)=>{wheel.rotation.x=-wheelTravel[i]/.42;});
 let nearest=4;const origin=new T.Vector3(0,1.6,-.38);robot.localToWorld(origin);rays.forEach((line,i)=>{const angle=(i/40-.5)*Math.PI*2;const dx=Math.sin(angle),dz=Math.cos(angle);const distance=obstacle.visible?hitBox(origin.x,origin.z,dx,dz):4;nearest=Math.min(nearest,distance);const points=line.geometry.attributes.position;points.setXYZ(0,origin.x,1.6,origin.z);points.setXYZ(1,origin.x+dx*distance,.55,origin.z+dz*distance);points.needsUpdate=true;line.geometry.computeBoundingSphere();line.material.color.set(distance<4?0x9bfd08:0x35b8e4);});
 const reading=document.getElementById('lidar-distance');if(reading)reading.textContent=nearest<4?nearest.toFixed(2)+' m':'4,00 m+';
 status.textContent=emergency?'E-stop , keluaran nol':blocked&&progress>=.25?'LiDAR , berhenti':avoid&&p>.15&&p<.85?'LiDAR → koreksi arah → menghindar':p>=1?'Tujuan tercapai':'LiDAR memindai , maju';
-const stage=emergency?'safety':running?['lidar','cpu','mac','safety','robot'][Math.floor(progress*45)%5]:'lidar';document.querySelectorAll('[data-robot-stage]').forEach(el=>el.classList.toggle('active',el.dataset.robotStage===stage));
+if(running&&phase==='infer'&&!emergency)status.textContent='Inferensi berjalan, robot diam';
+const stage=emergency?'safety':running?(phase==='infer'?'mac':'robot'):'lidar';document.querySelectorAll('[data-robot-stage]').forEach(el=>el.classList.toggle('active',el.dataset.robotStage===stage));
 renderer.render(scene,camera);}
 function pause(){running=false;body.position.y=0;body.rotation.set(0,0,0);play.textContent='▶ Jalankan';play.setAttribute('aria-pressed','false');}
-play.addEventListener('click',()=>{if(running)pause();else{if(progress>=1)progress=0;if(matchMedia('(prefers-reduced-motion: reduce)').matches){progress=Math.min(1,progress+.1);slider.value=Math.round(progress*100);draw();return;}running=true;play.textContent='Ⅱ Jeda';play.setAttribute('aria-pressed','true');}});
-document.getElementById('robot-reset').addEventListener('click',()=>{pause();progress=0;slider.value=0;draw();});slider.addEventListener('input',()=>{pause();progress=Number(slider.value)/100;draw();});mode.addEventListener('change',()=>{pause();progress=0;slider.value=0;draw();});
+play.addEventListener('click',()=>{if(running)pause();else{if(progress>=1){progress=0;resetSequence();}if(matchMedia('(prefers-reduced-motion: reduce)').matches){if(phase==='infer'){phase='move';publishClock(3556);}else{progress=Math.min(1,progress+.25);resetSequence();}slider.value=Math.round(progress*100);draw();return;}running=true;play.textContent='Ⅱ Jeda';play.setAttribute('aria-pressed','true');}});
+document.getElementById('robot-reset').addEventListener('click',()=>{pause();progress=0;slider.value=0;resetSequence();draw();});slider.addEventListener('input',()=>{pause();progress=Number(slider.value)/100;resetSequence();draw();});mode.addEventListener('change',()=>{pause();progress=0;slider.value=0;resetSequence();draw();});
 let dragging=false,px=0,py=0;canvas.addEventListener('pointerdown',e=>{dragging=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId);});canvas.addEventListener('pointerup',()=>dragging=false);canvas.addEventListener('pointercancel',()=>dragging=false);canvas.addEventListener('pointermove',e=>{if(!dragging)return;yaw-=(e.clientX-px)*.008;pitch=Math.max(.15,Math.min(1.2,pitch+(e.clientY-py)*.006));px=e.clientX;py=e.clientY;draw();});canvas.addEventListener('wheel',e=>{e.preventDefault();distance=Math.max(5,Math.min(15,distance+e.deltaY*.006));draw();},{passive:false});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');reduced.addEventListener('change',()=>{pause();draw();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});new ResizeObserver(draw).observe(canvas);
-function animate(time){const dt=Math.min((time-last)/1000,.06);last=time;if(running&&!document.hidden){progress=Math.min(1,progress+dt/8);slider.value=Math.round(progress*100);document.dispatchEvent(new CustomEvent('garda-demo-frame',{detail:{progress,playing:true}}));draw();if(progress>=1||(mode.value==='obstacle'&&progress>=.25)||mode.value==='estop'){pause();draw();}}requestAnimationFrame(animate);}draw();requestAnimationFrame(animate);
+function animate(time){const dt=Math.min((time-last)/1000,.06);last=time;
+if(running&&!document.hidden){
+ if(mode.value==='estop'){pause();draw();}
+ else if(phase==='infer'){
+  phaseTime+=dt;publishClock(Math.min(3556,Math.floor(phaseTime/3*3556)));
+  if(phaseTime>=3){publishClock(3556);phase='move';phaseTime=0;stepStart=progress;}
+  draw();
+ }else{
+  phaseTime+=dt;const t=Math.min(1,phaseTime/2),smooth=t*t*(3-2*t);
+  progress=Math.min(1,stepStart+.25*smooth);slider.value=Math.round(progress*100);draw();
+  if(progress>=1||(mode.value==='obstacle'&&progress>=.25)){pause();draw();}
+  else if(t>=1)resetSequence();
+ }
+}requestAnimationFrame(animate);}draw();requestAnimationFrame(animate);
 } catch(error) { document.getElementById('robot-status').textContent='3D tidak tersedia , coba browser dengan WebGL'; console.warn('GARDA robot viewer:',error.message); }
 }
