@@ -19,7 +19,7 @@ async function init(){
     try{scene=new GardaScene(canvas,{onSelect:id=>selectBlock(id),onModeChange:m=>setMode(m,true)});scene.setBlocks(modules);}catch(error){$('scene-error').hidden=false;console.warn('WebGL unavailable',error.message);}
     setMode('board');
     const requested=new URLSearchParams(location.search).get('module');
-    if(requested){if(ttModules.some(m=>m.id===requested))setMode('tt');else setMode('die');selectBlock(requested);}
+    if(requested&&modules.some(m=>m.id===requested)){setMode('die');selectBlock(requested);}
     else selectBlock('garda_uart_top');
     renderFlow();
     document.documentElement.dataset.appReady='true';
@@ -28,7 +28,8 @@ async function init(){
   loadEvidence();
 }
 function setMode(next,fromScene=false){
-  if(!['board','die','tt'].includes(next))return;
+  if(next==='tt')next='die';
+  if(!['board','die'].includes(next))return;
   mode=next;
   $('module-search').value='';
   const tt=mode==='tt';
@@ -52,7 +53,7 @@ function renderLegend(){
 function selectBlock(id){
   if(id==='hps'){
     selected={id:'hps',title:'HPS ARM Cortex-A9',module:'Cyclone V HPS',explanation:'Processor ARM untuk Linux dan perangkat lunak host. HPS adalah bagian dari SoC Cyclone V. Tidak ada modul RTL HPS buatan tim dalam katalog ini.',highlights:['FPGA fabric dan HPS berada pada SoC yang sama','Jalur neural dan DWA GARDA berada pada fabric','Integrasi HPS menuju sensor dan motor merupakan tahap sistem berikutnya'],ports:[],group:'board'};
-  }else{selected=[...modules,...ttModules].find(m=>m.id===id);if(!selected)return;}
+  }else{selected=modules.find(m=>m.id===id);if(!selected)return;}
   if(selected.group==='tt'&&mode!=='tt')setMode('tt');
   if(selected.group!=='tt'&&mode==='tt')setMode('die');
   scene?.select(id);

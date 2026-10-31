@@ -119,3 +119,6 @@ play.addEventListener('click', () => {
 reducedMotion.addEventListener('change', event => { if (event.matches) stop(); });
 document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
 render();
+
+// Educational synchronization; robot timeline is not measured inference data.
+document.addEventListener("garda-demo-frame", event => { if(timer!==null) stop(); setCycle(Math.round((event.detail.progress*4%1)*3556)); });
