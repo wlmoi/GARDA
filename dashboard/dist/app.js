@@ -18,7 +18,17 @@ function setupMotion(){
   let shouldPlay=false;
   try{shouldPlay=!sessionStorage.getItem('garda-intro-seen');if(shouldPlay)sessionStorage.setItem('garda-intro-seen','1');}catch(error){shouldPlay=true;console.warn('Intro session state unavailable',error.message);}
   const finishIntro=()=>{intro?.remove();document.querySelectorAll('.hero-reveal').forEach(el=>el.classList.add('is-visible'));};
-  if(!intro||reduced||!shouldPlay){finishIntro();}else{
+  if(!intro||reduced||!shouldPlay){finishIntro();}else if(window.gsap){
+    const {gsap}=window;
+    const holes=intro.querySelector('.site-intro__holes');
+    const wordmark=intro.querySelector('.site-intro__wordmark');
+    gsap.set(holes,{scale:.08,transformOrigin:'50% 50%'});
+    gsap.timeline({defaults:{ease:'power3.inOut'},onComplete:finishIntro})
+      .to(wordmark,{autoAlpha:0,y:-12,duration:.35,ease:'power2.out'},.62)
+      .to(holes,{scale:32,duration:1.15},.25)
+      .to(intro,{autoAlpha:0,duration:.3,ease:'power2.in'},1.42);
+    window.setTimeout(finishIntro,2500);
+  }else{
     intro.classList.add('is-running');
     window.setTimeout(finishIntro,2100);
     intro.addEventListener('animationend',event=>{if(event.animationName==='intro-overlay-exit')finishIntro();},{once:true});
