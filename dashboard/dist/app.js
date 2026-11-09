@@ -9,6 +9,30 @@ let modules=[], ttModules=[];
 const canvas=$('scene');
 const available=()=>mode==='tt'?ttModules:modules;
 
+function setupMotion(){
+  const root=document.documentElement;
+  root.dataset.motionReady='true';
+  document.querySelectorAll('main > section:not(.intro)').forEach(section=>section.classList.add('scroll-reveal'));
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const intro=$('site-intro');
+  let shouldPlay=false;
+  try{shouldPlay=!sessionStorage.getItem('garda-intro-seen');if(shouldPlay)sessionStorage.setItem('garda-intro-seen','1');}catch(error){shouldPlay=true;console.warn('Intro session state unavailable',error.message);}
+  const finishIntro=()=>{intro?.remove();document.querySelectorAll('.hero-reveal').forEach(el=>el.classList.add('is-visible'));};
+  if(!intro||reduced||!shouldPlay){finishIntro();}else{
+    intro.classList.add('is-running');
+    window.setTimeout(finishIntro,2100);
+    intro.addEventListener('animationend',event=>{if(event.animationName==='intro-overlay-exit')finishIntro();},{once:true});
+  }
+  const revealObserver='IntersectionObserver' in window?new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}),{threshold:.12,rootMargin:'0px 0px -40px'}):null;
+  document.querySelectorAll('.scroll-reveal').forEach(el=>revealObserver?revealObserver.observe(el):el.classList.add('is-visible'));
+  const links=[...document.querySelectorAll('nav a')], sections=links.map(link=>document.querySelector(link.hash)).filter(Boolean);
+  const navObserver='IntersectionObserver' in window?new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.setAttribute('aria-current',link.hash===`#${entry.target.id}`?'true':'false'));}}),{rootMargin:'-25% 0px -60%'}):null;
+  sections.forEach(section=>navObserver?.observe(section));
+  const progress=$('.scroll-progress span');
+  const updateScroll=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.transform=`scaleX(${max>0?window.scrollY/max:0})`;};
+  window.addEventListener('scroll',updateScroll,{passive:true});updateScroll();
+}
+
 async function init(){
   try {
     const response=await fetch('data/rtl-catalog.json');
@@ -122,3 +146,4 @@ function updateGate(){
 }
 document.querySelectorAll('[data-fault],#candidate-v,#candidate-w').forEach(el=>el.addEventListener('input',updateGate));
 updateGate();init();
+setupMotion();

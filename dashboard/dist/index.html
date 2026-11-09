@@ -10,9 +10,26 @@
   <script type="module" src="app.js?v=unified2"></script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="site-intro" id="site-intro" aria-hidden="true">
+    <svg class="site-intro__svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <mask id="site-intro-mask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="300" height="300">
+          <rect x="-100" y="-100" width="300" height="300" fill="white"/>
+          <g class="site-intro__holes" fill="black">
+            <rect x="41" y="41" width="5" height="5" rx=".5"/><rect x="47.5" y="41" width="5" height="5" rx=".5"/><rect x="54" y="41" width="5" height="5" rx=".5"/>
+            <rect x="41" y="47.5" width="5" height="5" rx=".5"/><rect x="47.5" y="47.5" width="5" height="5" rx=".5"/><rect x="54" y="47.5" width="5" height="5" rx=".5"/>
+            <rect x="41" y="54" width="5" height="5" rx=".5"/><rect x="47.5" y="54" width="5" height="5" rx=".5"/><rect x="54" y="54" width="5" height="5" rx=".5"/>
+          </g>
+        </mask>
+      </defs>
+      <rect x="-100" y="-100" width="300" height="300" fill="var(--intro-bg)" mask="url(#site-intro-mask)"/>
+    </svg>
+    <div class="site-intro__wordmark"><span class="brand-mark" aria-hidden="true">G</span><strong>GARDA</strong><small>RTL EXPLORER</small></div>
+  </div>
   <header class="topbar"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">G</span> GARDA <span class="brand-sub">RTL EXPLORER</span></a><nav aria-label="Navigasi utama"><a href="#explorer">Eksplorasi</a><a href="#clock-explorer">Dataflow</a><a href="#robot-demo">Robot</a><a href="#verification">Verifikasi</a></nav><a class="repo-link" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Source code <span aria-hidden="true">↗</span></a></header>
   <main>
-    <section class="intro wrap"><div><p class="eyebrow"><span class="status-dot"></span> HACKATHON ITS 2026  GARDA</p><h1>AI bergerak.<br><em>GARDA menjaga.</em></h1><p class="lead">Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.</p><div class="hero-actions"><a class="hero-primary" href="#explorer">Jelajahi 3D ↗</a><a href="#clock-explorer">Putar dataflow →</a></div><div class="hero-metrics"><div><strong>3.556</strong><span>clock Parallel16 , diuji lewat RTL</span></div><div><strong>71,12 <small>µs</small></strong><span>proyeksi core pada 50 MHz</span></div></div></div><figure class="intro-mascot"><img src="assets/seno.png" width="3240" height="3240" alt="SENO, maskot Hackathon ITS, menyapa di samping explorer GARDA"><figcaption>Inspirasi SENO , <a href="https://hackathon-its.id/" target="_blank" rel="noreferrer">Hackathon ITS 2026 ↗</a></figcaption></figure></section>
+    <section class="intro wrap"><div><p class="eyebrow hero-reveal" style="--reveal-delay:80ms"><span class="status-dot"></span> HACKATHON ITS 2026  GARDA</p><h1 class="hero-reveal" style="--reveal-delay:160ms">AI bergerak.<br><em>GARDA menjaga.</em></h1><p class="lead hero-reveal" style="--reveal-delay:240ms">Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.</p><div class="hero-actions hero-reveal" style="--reveal-delay:320ms"><a class="hero-primary" href="#explorer">Jelajahi 3D ↗</a><a href="#clock-explorer">Putar dataflow →</a></div><div class="hero-metrics hero-reveal" style="--reveal-delay:400ms"><div><strong>3.556</strong><span>clock Parallel16 , diuji lewat RTL</span></div><div><strong>71,12 <small>µs</small></strong><span>proyeksi core pada 50 MHz</span></div></div></div><figure class="intro-mascot hero-reveal" style="--reveal-delay:300ms"><img src="assets/seno.png" width="3240" height="3240" alt="SENO, maskot Hackathon ITS, menyapa di samping explorer GARDA"><figcaption>Inspirasi SENO , <a href="https://hackathon-its.id/" target="_blank" rel="noreferrer">Hackathon ITS 2026 ↗</a></figcaption></figure></section>
     <section class="wrap explorer" id="explorer" aria-label="Explorer hardware interaktif">
       <div class="explorer-main"><div class="viewport-toolbar"><div class="mode-tabs" role="tablist" aria-label="Tampilan hardware"><button id="tab-board" type="button" role="tab" aria-selected="true" data-mode="board">DE10-Nano</button><button id="tab-die" type="button" role="tab" aria-selected="false" data-mode="die">Isi RTL</button></div><span id="mode-chip" class="scope-label">CYCLONE V SoC</span></div>
         <div class="stage"><canvas id="scene" tabindex="0" aria-label="Model 3D interaktif board DE10-Nano dan blok RTL GARDA. Gunakan tombol daftar modul untuk memilih blok dengan keyboard."></canvas><div id="scene-error" class="scene-error" hidden>Model 3D membutuhkan WebGL. Semua blok dan source tetap dapat dibuka melalui daftar di bawah.</div><div class="stage-heading"><span class="eyebrow" id="stage-kicker">BOARD EXPLORER</span><h2 id="stage-title">Satu board.<br>Dua dunia komputasi.</h2></div></div>
