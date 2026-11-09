@@ -16,12 +16,12 @@ const translations = {
     'nav.dataflow': 'DATAFLOW',
     'nav.robot': 'ROBOT & SAFETY',
     'nav.verification': 'VERIFIKASI',
-    'hero.title': '<span>AI bergerak.</span><em>GARDA menjaga.</em>',
-    'hero.lead': 'Eksplorasi arsitektur akselerator neural paralel (74 → 128 → 64 → 3) dan logika gerbang verifikasi keselamatan hardware deterministik pada FPGA Intel Cyclone V SoC.',
-    'hero.explore': 'Eksplorasi Arsitektur FPGA ↗',
-    'hero.play': 'Telusuri Dataflow Neural ↓',
-    'hero.metricCycles': 'Clock RTL teruji',
-    'hero.metricTime': 'Pada referensi clock 50 MHz'
+    'hero.title': '<span class="portal-title-left">AI bergerak.</span><br><em class="portal-title-right">GARDA menjaga.</em>',
+    'hero.lead': 'Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.',
+    'hero.explore': 'Jelajahi 3D ↗',
+    'hero.play': 'Putar dataflow →',
+    'hero.metricCycles': 'clock Parallel16, diuji lewat RTL',
+    'hero.metricTime': 'proyeksi core pada 50 MHz'
   },
   en: {
     'nav.explorer': 'EXPLORATION',
@@ -29,12 +29,12 @@ const translations = {
     'nav.dataflow': 'DATAFLOW',
     'nav.robot': 'ROBOT & SAFETY',
     'nav.verification': 'VERIFICATION',
-    'hero.title': '<span>AI moves.</span><em>GARDA keeps watch.</em>',
-    'hero.lead': 'Exploration of parallel neural inference accelerator architecture (74 → 128 → 64 → 3) and deterministic hardware safety verification gate logic on Intel Cyclone V SoC FPGA.',
-    'hero.explore': 'Explore FPGA Architecture ↗',
-    'hero.play': 'Trace Neural Dataflow ↓',
-    'hero.metricCycles': 'RTL clock cycles tested',
-    'hero.metricTime': 'At 50 MHz reference clock'
+    'hero.title': '<span class="portal-title-left">AI moves.</span><br><em class="portal-title-right">GARDA keeps watch.</em>',
+    'hero.lead': 'Explore RISC-V and Parallel16 74 → 128 → 64 → 3 and trace how GARDA constrains control outputs.',
+    'hero.explore': 'Explore 3D ↗',
+    'hero.play': 'Play dataflow →',
+    'hero.metricCycles': 'Parallel16 clocks, RTL tested',
+    'hero.metricTime': 'core projection at 50 MHz'
   }
 };
 
@@ -140,8 +140,96 @@ function setupMotion() {
   window.addEventListener('scroll', updateScroll, { passive: true });
   updateScroll();
 
+  setupPortalScroll();
   setupFieldSwap();
   setupArchInteractions();
+}
+
+function setupPortalScroll() {
+  const hero = document.querySelector('.portal-hero');
+  const stage = hero?.querySelector('.portal-stage');
+  if (!hero || !stage) return;
+
+  const left = stage.querySelector('.portal-panel-left');
+  const right = stage.querySelector('.portal-panel-right');
+  const image = stage.querySelector('img');
+  const wash = stage.querySelector('.portal-wash');
+  const veil = stage.querySelector('.portal-veil');
+  const dotLeft = stage.querySelector('.portal-dot-left');
+  const dotRight = stage.querySelector('.portal-dot-right');
+  const titleLeft = hero.querySelector('.portal-title-left');
+  const titleRight = hero.querySelector('.portal-title-right');
+
+  let currentEase = 0;
+  let targetProgress = 0;
+  let isTicking = false;
+
+  const updateTransforms = (p) => {
+    const clamped = Math.min(1, Math.max(0, p));
+    const ease = clamped * clamped * (3 - 2 * clamped);
+
+    if (left) left.style.transform = `translateX(${-ease * 105}%)`;
+    if (right) right.style.transform = `translateX(${ease * 105}%)`;
+    if (image) image.style.transform = `scale(${1.15 - ease * 0.15})`;
+    if (wash) wash.style.opacity = `${ease * 0.35}`;
+    if (veil) veil.style.opacity = `${0.25 - ease * 0.15}`;
+
+    if (dotLeft) {
+      dotLeft.style.transform = `translate(${-ease * 45}vw, ${-ease * 25}vh)`;
+      dotLeft.style.opacity = `${1 - ease * 0.85}`;
+    }
+    if (dotRight) {
+      dotRight.style.transform = `translate(${ease * 45}vw, ${ease * 25}vh)`;
+      dotRight.style.opacity = `${1 - ease * 0.85}`;
+    }
+
+    if (titleLeft) titleLeft.style.transform = `translateX(${-ease * 25}px)`;
+    if (titleRight) titleRight.style.transform = `translateX(${ease * 25}px)`;
+  };
+
+  const calculateProgress = () => {
+    const rect = hero.getBoundingClientRect();
+    const travel = Math.max(1, hero.offsetHeight - window.innerHeight);
+    const raw = -rect.top / travel;
+    targetProgress = Math.min(1, Math.max(0, raw));
+
+    if (!isTicking) {
+      isTicking = true;
+      requestAnimationFrame(function animate() {
+        currentEase += (targetProgress - currentEase) * 0.25;
+        if (Math.abs(targetProgress - currentEase) < 0.001) {
+          currentEase = targetProgress;
+          updateTransforms(currentEase);
+          isTicking = false;
+        } else {
+          updateTransforms(currentEase);
+          requestAnimationFrame(animate);
+        }
+      });
+    }
+  };
+
+  window.addEventListener('scroll', calculateProgress, { passive: true });
+  window.addEventListener('resize', calculateProgress, { passive: true });
+  calculateProgress();
+
+  // Gentle greeting preview animation on initial load to show that the portal is active
+  setTimeout(() => {
+    if (window.scrollY < 30) {
+      let t = 0;
+      const teaserTimer = setInterval(() => {
+        t += 0.03;
+        if (t <= 0.18) {
+          updateTransforms(t);
+        } else if (t <= 0.36) {
+          updateTransforms(0.36 - t);
+        } else {
+          clearInterval(teaserTimer);
+          calculateProgress();
+        }
+      }, 25);
+    }
+  }, 600);
 }
 
 function setupFieldSwap() {

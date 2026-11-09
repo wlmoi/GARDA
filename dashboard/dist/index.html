@@ -52,8 +52,8 @@
   <!-- Navigation: Fixed 64px, 82% opacity, 14px blur, hairline, Archivo 800 wordmark with signal-blue period -->
   <header class="topbar">
     <div class="topbar-inner wrap">
-      <a class="brand" href="#">
-        <img class="brand-logo" src="assets/logo.png" alt="SENO Hackathon ITS 2026">
+      <a class="brand" href="#" aria-label="GARDA RTL Explorer Beranda">
+        <img class="brand-logo" src="assets/garda-mark.svg" alt="GARDA Mark" width="28" height="28">
         <span class="brand-label">GARDA<span class="signal-dot">.</span> <span class="brand-sub">RTL EXPLORER</span></span>
       </a>
 
@@ -76,91 +76,47 @@
   </header>
 
   <main id="main-content">
-    <!-- CHAPTER 01: Hero — The GARDA Editorial Cover with Type–Hardware Occlusion -->
-    <section class="hero-cover" aria-label="Bab 01: Identitas dan Sampul Editorial GARDA">
-      <div class="wrap hero-cover-grid">
-        <!-- Left Editorial Column -->
-        <div class="hero-left-col">
-          <p class="mono-eyebrow">
-            <span class="pulse-indicator"></span> HACKATHON ITS 2026 · DIVISI HARDWARE &amp; EMBEDDED AI
-          </p>
-
-          <h1 class="hero-editorial-title" data-i18n="hero.title">
-            <span>AI bergerak.</span>
-            <em>GARDA menjaga.</em>
-          </h1>
-
-          <p class="hero-editorial-lead" data-i18n="hero.lead">
-            Eksplorasi arsitektur akselerator neural paralel (74 → 128 → 64 → 3) dan logika gerbang verifikasi keselamatan hardware deterministik pada FPGA Intel Cyclone V SoC.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn-action primary" href="#explorer" data-i18n="hero.explore">Eksplorasi Arsitektur FPGA ↗</a>
-            <a class="btn-action secondary" href="#clock-explorer" data-i18n="hero.play">Telusuri Dataflow Neural ↓</a>
-          </div>
-
-          <!-- Hairline-topped technical metadata strip -->
-          <div class="hero-meta-strip">
-            <div class="meta-item">
-              <span class="meta-label">PARALLEL16 COMPUTATION</span>
-              <strong class="meta-value">3.556 <small>SIKLUS</small></strong>
-              <span class="meta-sub" data-i18n="hero.metricCycles">Clock RTL teruji</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">LATENSI INTI PROYEKSI</span>
-              <strong class="meta-value">71,12 <small>µs</small></strong>
-              <span class="meta-sub" data-i18n="hero.metricTime">Pada referensi clock 50 MHz</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">TARGET SILIKON</span>
-              <strong class="meta-value">Cyclone V</strong>
-              <span class="meta-sub">5CSEBA6U23I7 (28nm)</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">REGRESI RTL</span>
-              <strong class="meta-value">236 <small>VEKTOR</small></strong>
-              <span class="meta-sub">708 keluaran cocok 100%</span>
-            </div>
-          </div>
+    <!-- CHAPTER 01: Hero — Scroll-Driven Portal Hero -->
+    <section class="intro wrap portal-hero" id="hero" aria-label="Bab 01: Identitas dan Portal Hero GARDA">
+      <div class="portal-stage" aria-hidden="true">
+        <img src="assets/seno.png" alt="" class="portal-image">
+        <span class="portal-wash"></span>
+        <span class="portal-veil"></span>
+        <span class="portal-panel portal-panel-left"></span>
+        <span class="portal-panel portal-panel-right"></span>
+        <i class="portal-dot portal-dot-left"></i>
+        <i class="portal-dot portal-dot-right"></i>
+      </div>
+      <div class="portal-copy">
+        <p class="eyebrow hero-reveal is-visible" style="--reveal-delay:80ms">
+          <span class="status-dot"></span> HACKATHON ITS 2026 · GARDA
+        </p>
+        <h1 class="hero-reveal portal-title is-visible" style="--reveal-delay:160ms" data-i18n="hero.title">
+          <span class="portal-title-left">AI bergerak.</span><br>
+          <em class="portal-title-right">GARDA menjaga.</em>
+        </h1>
+        <p class="lead hero-reveal is-visible" style="--reveal-delay:240ms" data-i18n="hero.lead">
+          Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.
+        </p>
+        <div class="hero-actions hero-reveal is-visible" style="--reveal-delay:320ms">
+          <a class="hero-primary" href="#explorer" data-i18n="hero.explore">Jelajahi 3D ↗</a>
+          <a href="#clock-explorer" data-i18n="hero.play">Putar dataflow →</a>
         </div>
-
-        <!-- Right Column: Real Hardware Representation with Precise Type-Hardware Occlusion -->
-        <div class="hero-right-col">
-          <div class="hero-occlusion-stage" aria-hidden="true">
-            <!-- Layer 1: Back wordmark (z-index 1) -->
-            <div class="occlusion-layer occlusion-layer--back">
-              <span class="occlusion-char">G</span>
-              <span class="occlusion-char">A</span>
-              <span class="occlusion-char">R</span>
-              <span class="occlusion-char">D</span>
-              <span class="occlusion-char is-cut">A</span>
-            </div>
-
-            <!-- Layer 2: Real Hardware Subject (z-index 2) -->
-            <div class="hero-hardware-subject">
-              <img src="assets/de10-nano-terasic.jpg" alt="Board DE10-Nano dengan Intel Cyclone V SoC" class="hardware-img">
-              <div class="hardware-callout">
-                <span class="callout-pin"></span>
-                <span class="callout-tag">INTEL CYCLONE V SE 5CSEBA6U23I7</span>
-              </div>
-            </div>
-
-            <!-- Layer 3: Front wordmark (z-index 3) - Only trailing letter A in front -->
-            <div class="occlusion-layer occlusion-layer--front">
-              <span class="occlusion-char is-cut">G</span>
-              <span class="occlusion-char is-cut">A</span>
-              <span class="occlusion-char is-cut">R</span>
-              <span class="occlusion-char is-cut">D</span>
-              <span class="occlusion-char">A</span>
-            </div>
+        <div class="hero-metrics hero-reveal is-visible" style="--reveal-delay:400ms">
+          <div>
+            <strong>3.556</strong>
+            <span data-i18n="hero.metricCycles">clock Parallel16, diuji lewat RTL</span>
           </div>
-
-          <div class="hardware-caption">
-            <span class="mono-label">SUBJEK PERANGKAT KERAS:</span>
-            <span>Terasic DE10-Nano Board · Cyclone V SoC (Dual ARM Cortex-A9 + FPGA Fabric)</span>
+          <div>
+            <strong>71,12 <small>µs</small></strong>
+            <span data-i18n="hero.metricTime">proyeksi core pada 50 MHz</span>
           </div>
         </div>
       </div>
+      <figure class="intro-mascot hero-reveal is-visible" style="--reveal-delay:300ms">
+        <img src="assets/seno.png" width="3240" height="3240" alt="SENO, maskot Hackathon ITS, menyapa di samping explorer GARDA">
+        <figcaption>Inspirasi SENO , <a href="https://hackathon-its.id/" target="_blank" rel="noreferrer">Hackathon ITS 2026 ↗</a></figcaption>
+      </figure>
     </section>
 
     <!-- CHAPTER 02: Inverted Proof Section — The Hardware Claim -->
