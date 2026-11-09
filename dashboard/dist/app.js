@@ -10,15 +10,15 @@ const canvas=$('scene');
 const available=()=>mode==='tt'?ttModules:modules;
 
 const translations={
-  id:{'nav.explorer':'Eksplorasi','nav.dataflow':'Dataflow','nav.robot':'Robot','nav.verification':'Verifikasi','hero.title':'AI bergerak.<br><em>GARDA menjaga.</em>','hero.lead':'Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.','hero.explore':'Jelajahi 3D ↗','hero.play':'Putar dataflow →','hero.metricCycles':'clock Parallel16, diuji lewat RTL','hero.metricTime':'proyeksi core pada 50 MHz'},
-  en:{'nav.explorer':'Explore','nav.dataflow':'Dataflow','nav.robot':'Robot','nav.verification':'Verification','hero.title':'AI moves.<br><em>GARDA keeps watch.</em>','hero.lead':'Explore RISC-V and Parallel16 74 → 128 → 64 → 3, and trace how GARDA constrains control outputs.','hero.explore':'Explore 3D ↗','hero.play':'Play dataflow →','hero.metricCycles':'Parallel16 clocks, RTL tested','hero.metricTime':'core projection at 50 MHz'}
+  id:{'nav.explorer':'Eksplorasi','nav.dataflow':'Dataflow','nav.robot':'Robot','nav.verification':'Verifikasi','hero.title':'<span class="portal-title-left">AI bergerak.</span><br><em class="portal-title-right">GARDA menjaga.</em>','hero.lead':'Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.','hero.explore':'Jelajahi 3D ↗','hero.play':'Putar dataflow →','hero.metricCycles':'clock Parallel16, diuji lewat RTL','hero.metricTime':'proyeksi core pada 50 MHz'},
+  en:{'nav.explorer':'Explore','nav.dataflow':'Dataflow','nav.robot':'Robot','nav.verification':'Verification','hero.title':'<span class="portal-title-left">AI moves.</span><br><em class="portal-title-right">GARDA keeps watch.</em>','hero.lead':'Explore RISC-V and Parallel16 74 → 128 → 64 → 3, and trace how GARDA constrains control outputs.','hero.explore':'Explore 3D ↗','hero.play':'Play dataflow →','hero.metricCycles':'Parallel16 clocks, RTL tested','hero.metricTime':'core projection at 50 MHz'}
 };
 
 function setupPreferences(){
   const root=document.documentElement;
   const themeToggle=$('theme-toggle'),languageToggle=$('language-toggle');
-  let theme='dark',language='id';
-  try{theme=localStorage.getItem('garda-theme')||'dark';language=localStorage.getItem('garda-language')||'id';}catch(error){console.warn('Preferences unavailable',error.message);}
+  let theme='light',language='id';
+  try{theme=localStorage.getItem('garda-theme')||'light';language=localStorage.getItem('garda-language')||'id';}catch(error){console.warn('Preferences unavailable',error.message);}
   const applyTheme=next=>{
     theme=next==='light'?'light':'dark';root.dataset.theme=theme;
     themeToggle.setAttribute('aria-pressed',String(theme==='light'));
@@ -70,6 +70,28 @@ function setupMotion(){
   const progress=$('.scroll-progress span');
   const updateScroll=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.transform=`scaleX(${max>0?window.scrollY/max:0})`;};
   window.addEventListener('scroll',updateScroll,{passive:true});updateScroll();
+  setupPortalScroll(reduced);
+}
+
+function setupPortalScroll(reduced){
+  const hero=document.querySelector('.portal-hero'),stage=hero?.querySelector('.portal-stage');
+  if(!hero||!stage||reduced)return;
+  const left=stage.querySelector('.portal-panel-left'),right=stage.querySelector('.portal-panel-right');
+  const image=stage.querySelector('img'),wash=stage.querySelector('.portal-wash'),veil=stage.querySelector('.portal-veil');
+  const dotLeft=stage.querySelector('.portal-dot-left'),dotRight=stage.querySelector('.portal-dot-right');
+  const titleLeft=hero.querySelector('.portal-title-left'),titleRight=hero.querySelector('.portal-title-right'),title=hero.querySelector('.portal-title');
+  const render=()=>{
+    const bounds=hero.getBoundingClientRect(),travel=Math.max(1,hero.offsetHeight-window.innerHeight);
+    const progress=Math.min(1,Math.max(0,-bounds.top/travel));
+    const ease=progress*progress*(3-2*progress);
+    if(window.gsap){
+      const {gsap}=window;
+      gsap.set(left,{xPercent:-ease*115});gsap.set(right,{xPercent:ease*115});gsap.set(image,{scale:1.16-ease*.16});
+      gsap.set(wash,{opacity:ease*.16});gsap.set(veil,{opacity:.18+ease*.16});gsap.set(dotLeft,{x:-ease*45+'vw',y:-ease*22+'vh'});gsap.set(dotRight,{x:ease*45+'vw',y:ease*22+'vh'});
+      gsap.set(title,{scale:1+ease*.2,letterSpacing:`${-.08-ease*.14}em`});gsap.set(titleLeft,{x:-ease*16+'vw'});gsap.set(titleRight,{x:ease*16+'vw'});
+    }
+  };
+  window.addEventListener('scroll',render,{passive:true});window.addEventListener('resize',render);render();
 }
 
 async function init(){
