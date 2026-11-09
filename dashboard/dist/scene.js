@@ -2,11 +2,11 @@ import * as THREE from './vendor/three.module.min.js';
 
 // The package and board are explanatory models. RTL placement is deliberately
 // independent of the FPGA fitter and of an ASIC place-and-route result.
-const BG = '#050684';
-const INK = '#102b43';
+const BG = '#0D0D0F';
+const INK = '#EFEFEE';
 const PALETTE = {
-  control: '#638ee1', dwa: '#26adc4', memory: '#7693d7', gate: '#edac48',
-  neural: '#38b9d7', uart: '#4bb9c7', tt: '#9bfd08', default: '#77a7d4',
+  control: '#2F5BFF', dwa: '#5B7FFF', memory: '#7C97FF', gate: '#2F5BFF',
+  neural: '#3B64FF', uart: '#7C97FF', tt: '#2F5BFF', default: '#5B7FFF',
 };
 
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));

@@ -3,7 +3,7 @@ const canvas=document.getElementById('robot-scene');
 if(canvas){
 try {
 const renderer=new T.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-const scene=new T.Scene();scene.background=new T.Color('#050684');
+const scene=new T.Scene();scene.background=new T.Color('#0D0D0F');
 const camera=new T.PerspectiveCamera(40,1,.1,100);let yaw=.65,pitch=.7,distance=11;
 scene.add(new T.HemisphereLight(0xffffff,0x18385c,2.7));const light=new T.DirectionalLight(0xffffff,3);light.position.set(3,6,4);scene.add(light);
 const robot=new T.Group();scene.add(robot);const green=0x58fd37,dark=0x15232d;const wheels=[];const body=new T.Group();robot.add(body);
