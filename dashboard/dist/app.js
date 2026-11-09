@@ -9,6 +9,35 @@ let modules=[], ttModules=[];
 const canvas=$('scene');
 const available=()=>mode==='tt'?ttModules:modules;
 
+const translations={
+  id:{'nav.explorer':'Eksplorasi','nav.dataflow':'Dataflow','nav.robot':'Robot','nav.verification':'Verifikasi','hero.title':'AI bergerak.<br><em>GARDA menjaga.</em>','hero.lead':'Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.','hero.explore':'Jelajahi 3D ↗','hero.play':'Putar dataflow →','hero.metricCycles':'clock Parallel16, diuji lewat RTL','hero.metricTime':'proyeksi core pada 50 MHz'},
+  en:{'nav.explorer':'Explore','nav.dataflow':'Dataflow','nav.robot':'Robot','nav.verification':'Verification','hero.title':'AI moves.<br><em>GARDA keeps watch.</em>','hero.lead':'Explore RISC-V and Parallel16 74 → 128 → 64 → 3, and trace how GARDA constrains control outputs.','hero.explore':'Explore 3D ↗','hero.play':'Play dataflow →','hero.metricCycles':'Parallel16 clocks, RTL tested','hero.metricTime':'core projection at 50 MHz'}
+};
+
+function setupPreferences(){
+  const root=document.documentElement;
+  const themeToggle=$('theme-toggle'),languageToggle=$('language-toggle');
+  let theme='dark',language='id';
+  try{theme=localStorage.getItem('garda-theme')||'dark';language=localStorage.getItem('garda-language')||'id';}catch(error){console.warn('Preferences unavailable',error.message);}
+  const applyTheme=next=>{
+    theme=next==='light'?'light':'dark';root.dataset.theme=theme;
+    themeToggle.setAttribute('aria-pressed',String(theme==='light'));
+    themeToggle.setAttribute('aria-label',theme==='light'?'Aktifkan dark mode':'Aktifkan light mode');
+    themeToggle.querySelector('[data-theme-label]').textContent=theme==='light'?'Dark':'Light';
+    try{localStorage.setItem('garda-theme',theme);}catch(error){console.warn('Theme preference unavailable',error.message);}
+  };
+  const applyLanguage=next=>{
+    language=next==='en'?'en':'id';
+    document.documentElement.lang=language;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{const value=translations[language][el.dataset.i18n];if(value)el.innerHTML=value;});
+    languageToggle.setAttribute('aria-label',language==='id'?'Switch to English':'Beralih ke Bahasa Indonesia');
+    try{localStorage.setItem('garda-language',language);}catch(error){console.warn('Language preference unavailable',error.message);}
+  };
+  themeToggle.addEventListener('click',()=>applyTheme(theme==='light'?'dark':'light'));
+  languageToggle.addEventListener('click',()=>applyLanguage(language==='id'?'en':'id'));
+  applyTheme(theme);applyLanguage(language);
+}
+
 function setupMotion(){
   const root=document.documentElement;
   root.dataset.motionReady='true';
@@ -156,4 +185,5 @@ function updateGate(){
 }
 document.querySelectorAll('[data-fault],#candidate-v,#candidate-w').forEach(el=>el.addEventListener('input',updateGate));
 updateGate();init();
+setupPreferences();
 setupMotion();
