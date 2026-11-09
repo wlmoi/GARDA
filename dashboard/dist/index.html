@@ -10,6 +10,7 @@
   <script type="module" src="app.js?v=unified2"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="site-intro" id="site-intro" aria-hidden="true">
     <svg class="site-intro__svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
@@ -28,7 +29,7 @@
     <div class="site-intro__wordmark"><span class="brand-mark" aria-hidden="true">G</span><strong>GARDA</strong><small>RTL EXPLORER</small></div>
   </div>
   <header class="topbar"><a class="brand" href="#"><img class="brand-logo" src="assets/logo.png" alt="SENO Hackathon ITS 2026"><span class="brand-label">GARDA <span class="brand-sub">RTL EXPLORER</span></span></a><nav aria-label="Navigasi utama"><a href="#explorer">Eksplorasi</a><a href="#clock-explorer">Dataflow</a><a href="#robot-demo">Robot</a><a href="#verification">Verifikasi</a></nav><a class="repo-link" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Source code <span aria-hidden="true">↗</span></a></header>
-  <main>
+  <main id="main-content">
     <section class="intro wrap"><div><p class="eyebrow hero-reveal" style="--reveal-delay:80ms"><span class="status-dot"></span> HACKATHON ITS 2026  GARDA</p><h1 class="hero-reveal" style="--reveal-delay:160ms">AI bergerak.<br><em>GARDA menjaga.</em></h1><p class="lead hero-reveal" style="--reveal-delay:240ms">Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.</p><div class="hero-actions hero-reveal" style="--reveal-delay:320ms"><a class="hero-primary" href="#explorer">Jelajahi 3D ↗</a><a href="#clock-explorer">Putar dataflow →</a></div><div class="hero-metrics hero-reveal" style="--reveal-delay:400ms"><div><strong>3.556</strong><span>clock Parallel16 , diuji lewat RTL</span></div><div><strong>71,12 <small>µs</small></strong><span>proyeksi core pada 50 MHz</span></div></div></div><figure class="intro-mascot hero-reveal" style="--reveal-delay:300ms"><img src="assets/seno.png" width="3240" height="3240" alt="SENO, maskot Hackathon ITS, menyapa di samping explorer GARDA"><figcaption>Inspirasi SENO , <a href="https://hackathon-its.id/" target="_blank" rel="noreferrer">Hackathon ITS 2026 ↗</a></figcaption></figure></section>
     <section class="wrap explorer" id="explorer" aria-label="Explorer hardware interaktif">
       <div class="explorer-main"><div class="viewport-toolbar"><div class="mode-tabs" role="tablist" aria-label="Tampilan hardware"><button id="tab-board" type="button" role="tab" aria-selected="true" data-mode="board">DE10-Nano</button><button id="tab-die" type="button" role="tab" aria-selected="false" data-mode="die">Isi RTL</button></div><span id="mode-chip" class="scope-label">CYCLONE V SoC</span></div>
