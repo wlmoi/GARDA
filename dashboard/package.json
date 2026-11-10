@@ -5,6 +5,6 @@
   "type": "module",
   "scripts": {
     "start": "python -m http.server 8765 --directory dist --bind 127.0.0.1",
-    "check": "node --check dist/app.js && node --check dist/scene.js && node --check dist/gate-model.js && node --check dist/clock-explorer.js && node --check dist/robot-view.js && node --check dist/cinematic-intro.js && node --check dist/verification-table.js && node --check dist/localization.js && node --check dist/hero-motion.js && node --check dist/scroll-story.js"
+    "check": "node --check dist/app.js && node --check dist/scene.js && node --check dist/gate-model.js && node --check dist/clock-explorer.js && node --check dist/robot-view.js && node --check dist/cinematic-intro.js && node --check dist/verification-table.js && node --check dist/localization.js && node --check dist/hero-motion.js && node --check dist/scroll-story.js && node --check dist/engineering-gallery.js"
   }
 }
