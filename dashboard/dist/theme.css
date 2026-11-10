@@ -134,3 +134,4 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
  .proof-bar-legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 20px;font:400 11px/1.5 'IBM Plex Mono',monospace;color:var(--color-inverted-muted)}
 }
 @media(max-width:780px){.proof-cycle-table tbody tr{background:var(--color-inverted-surface)}}
+.proof-table-card .table-card-header .mono-label{color:var(--color-inverted-muted)}.proof-table-card .status-pill.verified{color:#B7FF35;border-color:#B7FF35;background:transparent}.inverted-proof-section .text-signal{color:#93ACFF}@media(max-width:780px){.proof-cycle-table tbody td.text-signal,.proof-cycle-table tfoot th:nth-child(2){color:#B7FF35}}
