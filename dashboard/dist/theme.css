@@ -135,3 +135,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 }
 @media(max-width:780px){.proof-cycle-table tbody tr{background:var(--color-inverted-surface)}}
 .proof-table-card .table-card-header .mono-label{color:var(--color-inverted-muted)}.proof-table-card .status-pill.verified{color:#B7FF35;border-color:#B7FF35;background:transparent}.inverted-proof-section .text-signal{color:#93ACFF}@media(max-width:780px){.proof-cycle-table tbody td.text-signal,.proof-cycle-table tfoot th:nth-child(2){color:#B7FF35}}
+
+.brand-cluster{display:flex;align-items:center;gap:16px;min-width:0;flex-shrink:0}.nav-event-logo{display:block;width:112px;height:auto;object-fit:contain;background:transparent!important;padding:0;border:0;border-radius:0}
+@media(max-width:1024px){.brand-cluster{gap:12px}.nav-event-logo{width:100px}}
+@media(max-width:480px){.brand-cluster{gap:8px}.nav-event-logo{width:76px}.topbar-inner.wrap{column-gap:4px}.brand-cluster .brand-label{font-size:15px!important}.brand-cluster .brand-logo{width:18px!important}}
+@media(max-width:350px){.nav-event-logo{width:64px}.brand-cluster{gap:6px}}
