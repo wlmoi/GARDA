@@ -31,7 +31,7 @@ function render(ev, live) {
     st.textContent = ok ? 'LAYOUT SIGNED OFF' : 'SIGN-OFF OPEN';
     st.className = `status-pill ${ok ? 'verified' : 'note'}`;
   }
-  if (!live && box) box.dataset.source = 'fallback';
+  if (box) box.dataset.source = live ? 'live' : 'fallback';
 }
 
 render(FALLBACK, false);
