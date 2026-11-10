@@ -1,0 +1,2626 @@
+{
+  "schema": "garda-rtl-explorer-catalog-1",
+  "generated_date": "2026-10-15",
+  "team_display_name": "iSeeDesignITB",
+  "count": {
+    "canonical_fpga_source_files": 19,
+    "canonical_fpga_module_declarations": 20,
+    "active_asic_source_files": 4
+  },
+  "fpga_top": "garda_uart_top",
+  "asic_top": "tt_um_wlmoi_garda_neural_logic",
+  "modules": [
+    {
+      "module": "garda_best_candidate_selector",
+      "file": "rtl/garda_best_candidate_selector.v",
+      "source": {
+        "path": "rtl/garda_best_candidate_selector.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "valid",
+          "direction": "input",
+          "bits": 4,
+          "signed": false
+        },
+        {
+          "name": "indices",
+          "direction": "input",
+          "bits": 36,
+          "signed": false
+        },
+        {
+          "name": "scores",
+          "direction": "input",
+          "bits": 128,
+          "signed": false
+        },
+        {
+          "name": "costs",
+          "direction": "input",
+          "bits": 128,
+          "signed": false
+        },
+        {
+          "name": "goals",
+          "direction": "input",
+          "bits": 128,
+          "signed": false
+        },
+        {
+          "name": "velocities",
+          "direction": "input",
+          "bits": 128,
+          "signed": false
+        },
+        {
+          "name": "best_valid",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "best_index",
+          "direction": "output",
+          "bits": 9,
+          "signed": false
+        },
+        {
+          "name": "best_score",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "best_cost",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "best_goal",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "best_velocity",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        }
+      ],
+      "sha256": "ed61be69d979eacdf65748b7f4f89c53e8fe86dcdeb122ae624e725422fc0340",
+      "id": "garda_best_candidate_selector",
+      "title": "Pemilih kandidat",
+      "subtitle": "Turnamen empat hasil",
+      "explanation": "Membandingkan empat hasil tile melalui dua tingkat comparator. Skor terkecil menang, lalu indeks terkecil saat seri.",
+      "group": "control",
+      "children": [],
+      "highlights": [
+        "valid 4 bit",
+        "indices 4 x 9 =36 bit",
+        "scores/costs/goals/velocities masing-masing 128 bit",
+        "Hasil index 9 bit + 4 critic 32 bit"
+      ]
+    },
+    {
+      "module": "garda_candidate_generator",
+      "file": "rtl/garda_candidate_generator.v",
+      "source": {
+        "path": "rtl/garda_candidate_generator.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "candidate_index",
+          "direction": "input",
+          "bits": 9,
+          "signed": false
+        },
+        {
+          "name": "previous_v",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_v",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_dv",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "previous_w",
+          "direction": "input",
+          "bits": 7,
+          "signed": true
+        },
+        {
+          "name": "max_w",
+          "direction": "input",
+          "bits": 7,
+          "signed": false
+        },
+        {
+          "name": "max_dw",
+          "direction": "input",
+          "bits": 7,
+          "signed": false
+        },
+        {
+          "name": "velocity",
+          "direction": "output",
+          "bits": 4,
+          "signed": false
+        },
+        {
+          "name": "omega",
+          "direction": "output",
+          "bits": 6,
+          "signed": true
+        },
+        {
+          "name": "legal",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        }
+      ],
+      "sha256": "5954e56c16e0a5e44e52645257ffb4ff0609aef48b9b014d67d363ba2e657201",
+      "id": "garda_candidate_generator",
+      "title": "Pembangkit kandidat",
+      "subtitle": "Dynamic window",
+      "explanation": "Mendecode 9 bit indeks menjadi 16 kode kecepatan dan 32 kode belok, lalu memeriksa batas kecepatan serta perubahan dari command sebelumnya.",
+      "group": "compute",
+      "children": [],
+      "highlights": [
+        "velocity 4 bit unsigned",
+        "omega 6 bit signed, -16 sampai 15",
+        "legal 1 bit"
+      ]
+    },
+    {
+      "module": "garda_config_registers",
+      "file": "rtl/garda_config_registers.v",
+      "source": {
+        "path": "rtl/garda_config_registers.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "wr",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "lock_request",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "busy",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "data",
+          "direction": "input",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "locked",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "valid",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "fault",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "max_v",
+          "direction": "output",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_dv",
+          "direction": "output",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_w",
+          "direction": "output",
+          "bits": 7,
+          "signed": false
+        },
+        {
+          "name": "max_dw",
+          "direction": "output",
+          "bits": 7,
+          "signed": false
+        }
+      ],
+      "sha256": "c1fdd2f392e6c370412a82ab83e76e5c58662eeefba5fc55fbb49f3d47129d82",
+      "id": "garda_config_registers",
+      "title": "Konfigurasi terkunci",
+      "subtitle": "Batas gerak",
+      "explanation": "Memuat konfigurasi 32 bit, memeriksa versi serta rentang, dan menolak write ketika terkunci atau planner sibuk.",
+      "group": "control",
+      "children": [],
+      "highlights": [
+        "max_v dan max_dv masing-masing 5 bit",
+        "max_w dan max_dw masing-masing 7 bit",
+        "locked, valid dan fault 1 bit"
+      ]
+    },
+    {
+      "module": "garda_costmap_bank",
+      "file": "rtl/garda_costmap_bank.v",
+      "source": {
+        "path": "rtl/garda_costmap_bank.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "wr_en",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "wr_addr",
+          "direction": "input",
+          "bits": 15,
+          "signed": false
+        },
+        {
+          "name": "wr_data",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "rd_addr",
+          "direction": "input",
+          "bits": 15,
+          "signed": false
+        },
+        {
+          "name": "rd_data",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        }
+      ],
+      "sha256": "37c8ed8a8e43b84c3d887d2b1bdf81b380202f1410f3f34cbc75cd09468084e1",
+      "id": "garda_costmap_bank",
+      "title": "Memori costmap",
+      "subtitle": "Empat copy double buffer",
+      "explanation": "RAM synchronous 32.768 x 8 per instance. Dua frame 128 x 128 disimpan untuk satu port baca independen per tile.",
+      "group": "memory",
+      "children": [],
+      "highlights": [
+        "4 instance",
+        "32 KiB per copy",
+        "128 KiB total costmap",
+        "Data 8 bit",
+        "Alamat 15 bit"
+      ]
+    },
+    {
+      "module": "garda_costmap_manager",
+      "file": "rtl/garda_costmap_manager.v",
+      "source": {
+        "path": "rtl/garda_costmap_manager.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "begin_frame",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "write_byte",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "commit_frame",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "busy",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "frame_sequence",
+          "direction": "input",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "frame_addr",
+          "direction": "input",
+          "bits": 15,
+          "signed": false
+        },
+        {
+          "name": "frame_data",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "active_bank",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "valid",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "fault",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "fresh",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "ram_wr",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "ram_addr",
+          "direction": "output",
+          "bits": 15,
+          "signed": false
+        },
+        {
+          "name": "ram_data",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "committed_sequence",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "age",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        }
+      ],
+      "sha256": "d964ac78ec0350b69095b83c77d56ece857c70179f66f698dd335bb25f6aecdc",
+      "id": "garda_costmap_manager",
+      "title": "Pengelola costmap",
+      "subtitle": "Upload dan commit atomik",
+      "explanation": "Memeriksa nomor urut, urutan alamat dan kelengkapan 16.384 byte sebelum mengganti bank aktif. Menghitung umur peta.",
+      "group": "memory",
+      "children": [],
+      "highlights": [
+        "sequence dan age 32 bit",
+        "write address 15 bit = bank 1 + cell 14",
+        "Replay dan commit parsial ditolak",
+        "Write dibroadcast ke empat copy"
+      ]
+    },
+    {
+      "module": "garda_de10_nano_wrapper",
+      "file": "rtl/garda_de10_nano_wrapper.v",
+      "source": {
+        "path": "rtl/garda_de10_nano_wrapper.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "FPGA_CLK1_50",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "KEY",
+          "direction": "input",
+          "bits": 2,
+          "signed": false
+        },
+        {
+          "name": "SW",
+          "direction": "input",
+          "bits": 4,
+          "signed": false
+        },
+        {
+          "name": "LED",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        }
+      ],
+      "sha256": "3337d430f65926bea3cd5f3b481e53abf8c953d16797c4f88d91d473bcc98908",
+      "id": "garda_de10_nano_wrapper",
+      "title": "Wrapper scene alternatif",
+      "subtitle": "Demo non-UART",
+      "explanation": "Pembungkus scene lama dengan LED, switch dan core DWA. Berkas disertakan dalam proyek, tetapi bukan top aktif Quartus.",
+      "group": "alternate",
+      "children": [
+        "garda_top"
+      ],
+      "highlights": [
+        "Tidak menjadi root proyek FPGA saat ini",
+        "Tidak punya port UART"
+      ]
+    },
+    {
+      "module": "garda_kinematic_step",
+      "file": "rtl/garda_kinematic_step.v",
+      "source": {
+        "path": "rtl/garda_kinematic_step.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "x",
+          "direction": "input",
+          "bits": 24,
+          "signed": true
+        },
+        {
+          "name": "y",
+          "direction": "input",
+          "bits": 24,
+          "signed": true
+        },
+        {
+          "name": "heading",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "velocity",
+          "direction": "input",
+          "bits": 4,
+          "signed": false
+        },
+        {
+          "name": "omega",
+          "direction": "input",
+          "bits": 6,
+          "signed": true
+        },
+        {
+          "name": "next_x",
+          "direction": "output",
+          "bits": 24,
+          "signed": true
+        },
+        {
+          "name": "next_y",
+          "direction": "output",
+          "bits": 24,
+          "signed": true
+        },
+        {
+          "name": "next_heading",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "overflow",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "outside",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        }
+      ],
+      "sha256": "202c8b74cb6730a9224bb6ee1779e4e11edb617ea230f3a9a2f261f0019d7213",
+      "id": "garda_kinematic_step",
+      "title": "Pembaruan pose",
+      "subtitle": "Kinematika fixed point",
+      "explanation": "Menghitung next_x, next_y dan next_heading memakai perkalian displacement dengan lookup sinus/cosinus. Memeriksa overflow dan batas peta.",
+      "group": "compute",
+      "children": [
+        "garda_trig_lut"
+      ],
+      "highlights": [
+        "x dan y signed 24 bit",
+        "heading unsigned 8 bit",
+        "2 instance trig LUT",
+        "Sin/cos signed 16 bit"
+      ]
+    },
+    {
+      "module": "garda_neural_core",
+      "file": "rtl/garda_neural_core.v",
+      "source": {
+        "path": "rtl/garda_neural_core.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "load_input",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "start",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "input_index",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "input_value",
+          "direction": "input",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "output_index",
+          "direction": "input",
+          "bits": 2,
+          "signed": false
+        },
+        {
+          "name": "output_value",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "busy",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "done",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "fault",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "latency_cycles",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        }
+      ],
+      "sha256": "009d2290d4dc2e0aae8feb133fadf457f457d3d4315a70ef7b12c14b44e45f3e",
+      "id": "garda_neural_core",
+      "title": "Inti neural FPGA",
+      "subtitle": "Inferensi Q8.8 serial",
+      "explanation": "Wrapper FPGA untuk ROM bobot dan datapath neural 24-64-64-4. Jalur ini terpisah dari DWA.",
+      "group": "neural",
+      "children": [
+        "garda_neural_rom",
+        "garda_neural_datapath"
+      ],
+      "highlights": [
+        "18192 siklus per inferensi",
+        "Input dan output signed 16 bit",
+        "24 input",
+        "4 output"
+      ]
+    },
+    {
+      "module": "garda_neural_datapath",
+      "file": "rtl/garda_neural_core.v",
+      "source": {
+        "path": "rtl/garda_neural_core.v",
+        "line": 20
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "load_input",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "start",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "input_index",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "input_value",
+          "direction": "input",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "output_index",
+          "direction": "input",
+          "bits": 2,
+          "signed": false
+        },
+        {
+          "name": "output_value",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "busy",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "done",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "fault",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "latency_cycles",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "weights_ready",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "address",
+          "direction": "output",
+          "bits": 13,
+          "signed": false
+        },
+        {
+          "name": "weight",
+          "direction": "input",
+          "bits": 16,
+          "signed": true
+        }
+      ],
+      "sha256": "009d2290d4dc2e0aae8feb133fadf457f457d3d4315a70ef7b12c14b44e45f3e",
+      "id": "garda_neural_datapath",
+      "title": "Datapath neural FPGA",
+      "subtitle": "MAC serial dan aktivasi",
+      "explanation": "Satu perkalian signed 16 x 16 menghasilkan product 32 bit ke accumulator 40 bit. Hidden ReLU, output clipping -256..256.",
+      "group": "neural",
+      "children": [],
+      "highlights": [
+        "Didefinisikan di garda_neural_core.v",
+        "24-64-64-4",
+        "24 input + 128 hidden + 4 output word",
+        "Single MAC lane",
+        "Neural FPGA berbeda dengan dual-MAC ASIC"
+      ]
+    },
+    {
+      "module": "garda_neural_rom",
+      "file": "rtl/garda_neural_rom.v",
+      "source": {
+        "path": "rtl/garda_neural_rom.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "address",
+          "direction": "input",
+          "bits": 13,
+          "signed": false
+        },
+        {
+          "name": "data",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        }
+      ],
+      "sha256": "f05aa1b60960f258c548f9eef8f3667530ac458c56b45fb693aeae532118b989",
+      "id": "garda_neural_rom",
+      "title": "ROM model FPGA",
+      "subtitle": "6020 parameter Q8.8",
+      "explanation": "Membaca ROM synchronous 8192 x 16 dari berkas model unified padded. 6020 word berisi bobot dan bias.",
+      "group": "memory",
+      "children": [],
+      "highlights": [
+        "Address 13 bit",
+        "Data signed 16 bit",
+        "File .mem harus ikut disalin",
+        "Satu instance inferensi dan satu inspeksi UART"
+      ]
+    },
+    {
+      "module": "garda_rollout_tile",
+      "file": "rtl/garda_rollout_tile.v",
+      "source": {
+        "path": "rtl/garda_rollout_tile.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "start",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "abort_run",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "previous_v",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_v",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_dv",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "previous_w",
+          "direction": "input",
+          "bits": 7,
+          "signed": true
+        },
+        {
+          "name": "max_w",
+          "direction": "input",
+          "bits": 7,
+          "signed": false
+        },
+        {
+          "name": "max_dw",
+          "direction": "input",
+          "bits": 7,
+          "signed": false
+        },
+        {
+          "name": "map_addr",
+          "direction": "output",
+          "bits": 14,
+          "signed": false
+        },
+        {
+          "name": "map_data",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "done",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "best_valid",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "arithmetic_fault",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "best_index",
+          "direction": "output",
+          "bits": 9,
+          "signed": false
+        },
+        {
+          "name": "best_score",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "best_cost",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "best_goal",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "best_velocity",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        }
+      ],
+      "sha256": "bc70efe50209a712ba0d4c0df1e43cdc9c96d535daad137b5b62c7e7ee894202",
+      "id": "garda_rollout_tile",
+      "title": "Rollout tile",
+      "subtitle": "128 kandidat per evaluator",
+      "explanation": "FSM INIT, STEP, WAIT_RAM, SCORE, FINISH menelusuri 20 pose per kandidat, menolak collision atau overflow dan menyimpan kandidat terbaik lokal.",
+      "group": "compute",
+      "children": [
+        "garda_candidate_generator",
+        "garda_kinematic_step",
+        "garda_score_accumulator"
+      ],
+      "highlights": [
+        "4 instance dengan TILE_ID 0 sampai 3",
+        "Indeks diinterleave dengan increment 4",
+        "128 x 20 pose per tile",
+        "Cell >=254 dianggap tidak legal",
+        "score = 16 x cost + goal + velocity penalty"
+      ]
+    },
+    {
+      "module": "garda_safety_security_gate",
+      "file": "rtl/garda_safety_security_gate.v",
+      "source": {
+        "path": "rtl/garda_safety_security_gate.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "ready",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "estop",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "protective_stop",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "map_ok",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "cfg_ok",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "result_valid",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "all_done",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "arithmetic_fault",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "timeout",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "candidate_v",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "previous_v",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_v",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "max_dv",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "candidate_w",
+          "direction": "input",
+          "bits": 7,
+          "signed": true
+        },
+        {
+          "name": "previous_w",
+          "direction": "input",
+          "bits": 7,
+          "signed": true
+        },
+        {
+          "name": "max_w",
+          "direction": "input",
+          "bits": 7,
+          "signed": false
+        },
+        {
+          "name": "max_dw",
+          "direction": "input",
+          "bits": 7,
+          "signed": false
+        },
+        {
+          "name": "motor_enable",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "v_command",
+          "direction": "output",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "omega_command",
+          "direction": "output",
+          "bits": 7,
+          "signed": true
+        },
+        {
+          "name": "fault_code",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        }
+      ],
+      "sha256": "9d127ba8c87180d61fc53fdf12d3925882a2b2fdb63ba5c9e21810ac7ae45a90",
+      "id": "garda_safety_security_gate",
+      "title": "Gerbang keselamatan",
+      "subtitle": "Izin akhir fail closed",
+      "explanation": "Menghasilkan izin dan kode command hanya bila seluruh prasyarat terpenuhi. Reset, emergency, peta, konfigurasi, overflow, deadline, hasil dan batas gerak dapat menutup izin.",
+      "group": "safety",
+      "children": [],
+      "highlights": [
+        "motor_enable 1 bit",
+        "v_command 5 bit unsigned",
+        "omega_command 7 bit signed",
+        "fault_code 8 bit, kode 1 sampai 11",
+        "Default semua keluaran gerak nol"
+      ]
+    },
+    {
+      "module": "garda_score_accumulator",
+      "file": "rtl/garda_score_accumulator.v",
+      "source": {
+        "path": "rtl/garda_score_accumulator.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "prior",
+          "direction": "input",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "increment",
+          "direction": "input",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "total",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "overflow",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        }
+      ],
+      "sha256": "b20c862aaaffbafe3c5d22b98a6e84a4abc2e5c3486afe60fd23a1cb5cf0a722",
+      "id": "garda_score_accumulator",
+      "title": "Akumulator skor",
+      "subtitle": "Penjumlahan dengan overflow",
+      "explanation": "Menjumlahkan prior dan increment 32 bit melalui hasil antara 33 bit untuk mendeteksi carry.",
+      "group": "compute",
+      "children": [],
+      "highlights": [
+        "Input 2 x 32 bit",
+        "total 32 bit",
+        "overflow 1 bit"
+      ]
+    },
+    {
+      "module": "garda_status_logger",
+      "file": "rtl/garda_status_logger.v",
+      "source": {
+        "path": "rtl/garda_status_logger.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "fault_code",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "event_count",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "last_fault",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        }
+      ],
+      "sha256": "e97f502658f8b35f0828e9c922834af06d2b5e8115ba6cf56245f7f478d51e37",
+      "id": "garda_status_logger",
+      "title": "Pencatat status",
+      "subtitle": "Diagnostik gangguan",
+      "explanation": "Menyimpan fault terakhir dan menambah penghitung saat terjadi perubahan fault sesuai kondisi logger.",
+      "group": "safety",
+      "children": [],
+      "highlights": [
+        "fault 8 bit",
+        "event counter 32 bit"
+      ]
+    },
+    {
+      "module": "garda_top",
+      "file": "rtl/garda_top.v",
+      "source": {
+        "path": "rtl/garda_top.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "ready",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "estop",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "protective_stop",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "start",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "cfg_write",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "cfg_lock",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "cfg_data",
+          "direction": "input",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "map_begin",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "map_write",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "map_commit",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "map_sequence",
+          "direction": "input",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "map_address",
+          "direction": "input",
+          "bits": 15,
+          "signed": false
+        },
+        {
+          "name": "map_byte",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "motor_enable",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "v_command",
+          "direction": "output",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "omega_command",
+          "direction": "output",
+          "bits": 7,
+          "signed": true
+        },
+        {
+          "name": "fault_code",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "busy",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "done",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "latency_cycles",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "selected_index",
+          "direction": "output",
+          "bits": 9,
+          "signed": false
+        },
+        {
+          "name": "selected_score",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "selected_cost",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "selected_goal",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "selected_velocity",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "event_count",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "last_fault",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        }
+      ],
+      "sha256": "38244cd6b014679c88d7d153a26dee8034f740147219720d6715a731ac3da5e6",
+      "id": "garda_top",
+      "title": "Pengendali DWA",
+      "subtitle": "Planner empat tile",
+      "explanation": "FSM IDLE, RUN, RESULT, FAULT mengelola konfigurasi, peta, empat rollout, pemilihan kandidat, deadline dan gerbang keluaran.",
+      "group": "control",
+      "children": [
+        "garda_config_registers",
+        "garda_costmap_manager",
+        "garda_costmap_bank",
+        "garda_rollout_tile",
+        "garda_best_candidate_selector",
+        "garda_safety_security_gate",
+        "garda_status_logger"
+      ],
+      "highlights": [
+        "4 evaluator paralel",
+        "512 kandidat total",
+        "Gerbang satu-satunya penggerak tiga output command",
+        "Result lease dan map freshness default 1.000.000 siklus"
+      ]
+    },
+    {
+      "module": "garda_trig_lut",
+      "file": "rtl/garda_trig_lut.v",
+      "source": {
+        "path": "rtl/garda_trig_lut.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "phase",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "value",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        }
+      ],
+      "sha256": "ef12009345dd9125583e42e43b0b41e19aa06359864ee4f65b11ce98e411febe",
+      "id": "garda_trig_lut",
+      "title": "Lookup trigonometri",
+      "subtitle": "Sinus dan cosinus",
+      "explanation": "Memetakan fase 8 bit ke nilai sinus signed 16 bit. Cosinus memakai penambahan fase 64.",
+      "group": "compute",
+      "children": [],
+      "highlights": [
+        "256 phase codes",
+        "value signed 16 bit",
+        "2 LUT per kinematic step"
+      ]
+    },
+    {
+      "module": "garda_uart_protocol",
+      "file": "rtl/garda_uart_protocol.v",
+      "source": {
+        "path": "rtl/garda_uart_protocol.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rx",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "tx",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "command_valid",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "opcode",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "payload",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "response_data",
+          "direction": "input",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "protocol_fault",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        }
+      ],
+      "sha256": "89e3958cfedc3dea3f623a98a7fd46c2cfb56c0ea25788cd54f1f26e9762a65e",
+      "id": "garda_uart_protocol",
+      "title": "Protokol UART",
+      "subtitle": "Framing dan CRC8",
+      "explanation": "Menerima paket 8 byte, memvalidasi CRC8 polinomial 0x07, mengeluarkan opcode 8 bit dan payload 32 bit, lalu membalas snapshot 32 bit.",
+      "group": "host",
+      "children": [
+        "garda_uart_rx",
+        "garda_uart_tx"
+      ],
+      "highlights": [
+        "Request A5 OP DATA[31:0] CRC 5A",
+        "Response 5A OP DATA[31:0] CRC A5",
+        "Data little-endian",
+        "Fault pada frame error, CRC salah atau timeout"
+      ]
+    },
+    {
+      "module": "garda_uart_rx",
+      "file": "rtl/garda_uart_rx.v",
+      "source": {
+        "path": "rtl/garda_uart_rx.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rx",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "valid",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "error",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "data",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        }
+      ],
+      "sha256": "be24ae8a91b445dbb3262c6353f9bdf78a99d3930b5b2533f18a89471843e3d5",
+      "id": "garda_uart_rx",
+      "title": "Penerima UART",
+      "subtitle": "Serial menjadi byte",
+      "explanation": "Menyinkronkan RX dan mengambil satu byte 8 bit dengan sampling di tengah bit serta pemeriksaan stop bit.",
+      "group": "host",
+      "children": [],
+      "highlights": [
+        "434 clock per bit pada 50 MHz",
+        "8N1",
+        "Flag valid dan error"
+      ]
+    },
+    {
+      "module": "garda_uart_top",
+      "file": "rtl/garda_uart_top.v",
+      "source": {
+        "path": "rtl/garda_uart_top.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "FPGA_CLK1_50",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "KEY",
+          "direction": "input",
+          "bits": 2,
+          "signed": false
+        },
+        {
+          "name": "SW",
+          "direction": "input",
+          "bits": 4,
+          "signed": false
+        },
+        {
+          "name": "UART_RX",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "UART_TX",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "LED",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        }
+      ],
+      "sha256": "421f90b44479213298dc2d4fb781d53c4543b3a08356b087180c61888b99ed3b",
+      "id": "garda_uart_top",
+      "title": "Antarmuka FPGA",
+      "subtitle": "Top board DE10-Nano",
+      "explanation": "Menyinkronkan reset dan switch, menerjemahkan opcode UART ke DWA dan neural, lalu menampilkan status LED.",
+      "group": "host",
+      "children": [
+        "garda_uart_protocol",
+        "garda_top",
+        "garda_neural_core",
+        "garda_neural_rom"
+      ],
+      "highlights": [
+        "UART 115200 8N1",
+        "Opcode 8 membaca ROM",
+        "Opcode 9 membaca siklus DWA",
+        "Opcode 10/11 memuat dan memulai neural",
+        "Opcode 12/13 membaca hasil dan siklus neural",
+        "Opcode 14 membaca kode v dan omega"
+      ]
+    },
+    {
+      "module": "garda_uart_tx",
+      "file": "rtl/garda_uart_tx.v",
+      "source": {
+        "path": "rtl/garda_uart_tx.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "send",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "data",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "tx",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "busy",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        }
+      ],
+      "sha256": "e42b8a0a566e2fcac3fd41f5e5db55f16563b4451427970718563d4fe7eef963",
+      "id": "garda_uart_tx",
+      "title": "Pengirim UART",
+      "subtitle": "Byte menjadi serial",
+      "explanation": "Menggeser byte 8 bit ke TX dengan start bit dan stop bit, disertai sinyal busy.",
+      "group": "host",
+      "children": [],
+      "highlights": [
+        "LSB first",
+        "8N1",
+        "434 clock per bit"
+      ]
+    }
+  ],
+  "asic_modules": [
+    {
+      "module": "tt_um_wlmoi_garda_neural_logic",
+      "file": "src/garda_neural_logic_top.v",
+      "source": {
+        "path": "src/garda_neural_logic_top.v",
+        "line": 5
+      },
+      "ports": [
+        {
+          "name": "ui_in",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "uo_out",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "uio_in",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "uio_out",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "uio_oe",
+          "direction": "output",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "ena",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        }
+      ],
+      "sha256": "788abc125d557a83da8365b3c3504a4a1f9f19f56fd3ecf6398cdbf20dd1928e",
+      "id": "tt_um_wlmoi_garda_neural_logic",
+      "title": "Top TinyTapeout aktif",
+      "subtitle": "Chip inferensi lengkap",
+      "explanation": "Menyediakan register sinkron pin TinyTapeout untuk validasi model tetap, pemuatan input dan pembacaan inferensi 24-64-64-4.",
+      "group": "asic",
+      "children": [
+        "garda_parameter_logic",
+        "garda_neural_datapath_logic"
+      ],
+      "highlights": [
+        "ui_in dan uo_out 8 bit",
+        "uio_in data tulis 8 bit",
+        "uio_out dan uio_oe selalu nol",
+        "CMOS5L, 8x4 tile",
+        "Model tidak dapat diganti setelah fabrikasi"
+      ]
+    },
+    {
+      "module": "garda_parameter_logic",
+      "file": "src/garda_parameter_logic.v",
+      "source": {
+        "path": "src/garda_parameter_logic.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "enable",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "write_enable",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "address",
+          "direction": "input",
+          "bits": 13,
+          "signed": false
+        },
+        {
+          "name": "unused_write_data",
+          "direction": "input",
+          "bits": 16,
+          "signed": false
+        },
+        {
+          "name": "unused_write_mask",
+          "direction": "input",
+          "bits": 16,
+          "signed": false
+        },
+        {
+          "name": "read_data",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "read_even",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "read_odd",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        }
+      ],
+      "sha256": "70294db401f16b0a7f4799986907a05f35a08d4435222b6214c45385bc758a6d",
+      "id": "garda_parameter_logic",
+      "title": "Logika parameter ASIC",
+      "subtitle": "Model immutable",
+      "explanation": "6020 word model dipetakan ke konstanta standard-cell logic, dengan pembacaan pasangan even/odd. Tidak memakai SRAM fisik.",
+      "group": "asic",
+      "children": [],
+      "highlights": [
+        "Address 13 bit",
+        "Read data, even dan odd masing-masing signed 16 bit",
+        "5888 weight +132 bias",
+        "Write interface dipertahankan untuk verifikasi model"
+      ]
+    },
+    {
+      "module": "garda_neural_datapath_logic",
+      "file": "src/garda_neural_datapath_logic.v",
+      "source": {
+        "path": "src/garda_neural_datapath_logic.v",
+        "line": 6
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "load_input",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "start",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "input_index",
+          "direction": "input",
+          "bits": 5,
+          "signed": false
+        },
+        {
+          "name": "input_value",
+          "direction": "input",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "output_index",
+          "direction": "input",
+          "bits": 2,
+          "signed": false
+        },
+        {
+          "name": "output_value",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "busy",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "done",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "fault",
+          "direction": "output",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "latency_cycles",
+          "direction": "output",
+          "bits": 32,
+          "signed": false
+        },
+        {
+          "name": "weights_ready",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "address",
+          "direction": "output",
+          "bits": 13,
+          "signed": false
+        },
+        {
+          "name": "weight",
+          "direction": "input",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "weight_even",
+          "direction": "input",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "weight_odd",
+          "direction": "input",
+          "bits": 16,
+          "signed": true
+        }
+      ],
+      "sha256": "b0554b0d58cc0b925f87b5ca2e98022b51dcaa69b0a3003733fba991872ecc4a",
+      "id": "garda_neural_datapath_logic",
+      "title": "Datapath neural ASIC",
+      "subtitle": "Dua MAC paralel",
+      "explanation": "Dua lane perkalian signed dan pipeline pembacaan berpasangan mengeksekusi jaringan neural lengkap.",
+      "group": "asic",
+      "children": [
+        "garda_activation_logic"
+      ],
+      "highlights": [
+        "3080 siklus inferensi",
+        "61,6 us pada target 50 MHz",
+        "Timing fisik belum qualified",
+        "Accumulator 40 bit"
+      ]
+    },
+    {
+      "module": "garda_activation_logic",
+      "file": "src/garda_activation_logic.v",
+      "source": {
+        "path": "src/garda_activation_logic.v",
+        "line": 2
+      },
+      "ports": [
+        {
+          "name": "clk",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "rst_n",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "enable",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "write_enable",
+          "direction": "input",
+          "bits": 1,
+          "signed": false
+        },
+        {
+          "name": "address",
+          "direction": "input",
+          "bits": 8,
+          "signed": false
+        },
+        {
+          "name": "write_data",
+          "direction": "input",
+          "bits": 16,
+          "signed": false
+        },
+        {
+          "name": "read_even",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        },
+        {
+          "name": "read_odd",
+          "direction": "output",
+          "bits": 16,
+          "signed": true
+        }
+      ],
+      "sha256": "fb28e8583bdb657b990e39f0022216f1c82171f1ae07476c6a3ce672828d257d",
+      "id": "garda_activation_logic",
+      "title": "Aktivasi ASIC",
+      "subtitle": "Register tanpa SRAM",
+      "explanation": "Menyimpan 152 word input dan hidden activation menggunakan flip-flop, dengan pembacaan even/odd.",
+      "group": "asic",
+      "children": [],
+      "highlights": [
+        "152 x16 bit",
+        "Address 8 bit",
+        "Input 24 +hidden 64 +hidden 64",
+        "Output final disimpan datapath"
+      ]
+    }
+  ],
+  "hierarchy": [
+    {
+      "parent": "garda_uart_top",
+      "instance": "serial",
+      "child": "garda_uart_protocol",
+      "count": 1
+    },
+    {
+      "parent": "garda_uart_protocol",
+      "instance": "receiver",
+      "child": "garda_uart_rx",
+      "count": 1
+    },
+    {
+      "parent": "garda_uart_protocol",
+      "instance": "transmitter",
+      "child": "garda_uart_tx",
+      "count": 1
+    },
+    {
+      "parent": "garda_uart_top",
+      "instance": "core",
+      "child": "garda_top",
+      "count": 1
+    },
+    {
+      "parent": "garda_uart_top",
+      "instance": "neural",
+      "child": "garda_neural_core",
+      "count": 1
+    },
+    {
+      "parent": "garda_uart_top",
+      "instance": "inspection_rom",
+      "child": "garda_neural_rom",
+      "count": 1
+    },
+    {
+      "parent": "garda_neural_core",
+      "instance": "weights",
+      "child": "garda_neural_rom",
+      "count": 1
+    },
+    {
+      "parent": "garda_neural_core",
+      "instance": "core",
+      "child": "garda_neural_datapath",
+      "count": 1
+    },
+    {
+      "parent": "garda_top",
+      "instance": "cfg",
+      "child": "garda_config_registers",
+      "count": 1
+    },
+    {
+      "parent": "garda_top",
+      "instance": "maps",
+      "child": "garda_costmap_manager",
+      "count": 1
+    },
+    {
+      "parent": "garda_top",
+      "instance": "tiles[t].memory",
+      "child": "garda_costmap_bank",
+      "count": 4
+    },
+    {
+      "parent": "garda_top",
+      "instance": "tiles[t].tile",
+      "child": "garda_rollout_tile",
+      "count": 4
+    },
+    {
+      "parent": "garda_top",
+      "instance": "selector",
+      "child": "garda_best_candidate_selector",
+      "count": 1
+    },
+    {
+      "parent": "garda_top",
+      "instance": "gate",
+      "child": "garda_safety_security_gate",
+      "count": 1
+    },
+    {
+      "parent": "garda_top",
+      "instance": "logger",
+      "child": "garda_status_logger",
+      "count": 1
+    },
+    {
+      "parent": "garda_rollout_tile",
+      "instance": "gen",
+      "child": "garda_candidate_generator",
+      "count": 1
+    },
+    {
+      "parent": "garda_rollout_tile",
+      "instance": "stepper",
+      "child": "garda_kinematic_step",
+      "count": 1
+    },
+    {
+      "parent": "garda_rollout_tile",
+      "instance": "acc",
+      "child": "garda_score_accumulator",
+      "count": 1
+    },
+    {
+      "parent": "garda_kinematic_step",
+      "instance": "s",
+      "child": "garda_trig_lut",
+      "count": 1
+    },
+    {
+      "parent": "garda_kinematic_step",
+      "instance": "c",
+      "child": "garda_trig_lut",
+      "count": 1
+    },
+    {
+      "parent": "tt_um_wlmoi_garda_neural_logic",
+      "instance": "parameter_store",
+      "child": "garda_parameter_logic",
+      "count": 1
+    },
+    {
+      "parent": "tt_um_wlmoi_garda_neural_logic",
+      "instance": "neural",
+      "child": "garda_neural_datapath_logic",
+      "count": 1
+    },
+    {
+      "parent": "garda_neural_datapath_logic",
+      "instance": "activation_store",
+      "child": "garda_activation_logic",
+      "count": 1
+    }
+  ],
+  "flows": [
+    {
+      "from": "UART_RX",
+      "to": "garda_uart_protocol",
+      "name": "serial RX",
+      "bits": 1,
+      "kind": "serial",
+      "detail": "115200 baud 8N1"
+    },
+    {
+      "from": "garda_uart_protocol",
+      "to": "garda_uart_top",
+      "name": "opcode + payload + valid",
+      "bits": [
+        8,
+        32,
+        1
+      ]
+    },
+    {
+      "from": "garda_uart_top",
+      "to": "garda_config_registers",
+      "name": "cfg_data / write / lock",
+      "bits": [
+        32,
+        1,
+        1
+      ]
+    },
+    {
+      "from": "garda_uart_top",
+      "to": "garda_costmap_manager",
+      "name": "sequence / address / data",
+      "bits": [
+        32,
+        15,
+        8
+      ]
+    },
+    {
+      "from": "garda_costmap_manager",
+      "to": "garda_costmap_bank",
+      "name": "broadcast write",
+      "bits": [
+        1,
+        15,
+        8
+      ],
+      "instances": 4
+    },
+    {
+      "from": "garda_rollout_tile",
+      "to": "garda_costmap_bank",
+      "name": "read address + active bank",
+      "bits": [
+        14,
+        1
+      ],
+      "instances": 4
+    },
+    {
+      "from": "garda_costmap_bank",
+      "to": "garda_rollout_tile",
+      "name": "cell cost",
+      "bits": 8,
+      "instances": 4
+    },
+    {
+      "from": "garda_rollout_tile",
+      "to": "garda_best_candidate_selector",
+      "name": "valid / index / score / cost / goal / velocity",
+      "bits": [
+        1,
+        9,
+        32,
+        32,
+        32,
+        32
+      ],
+      "instances": 4
+    },
+    {
+      "from": "garda_best_candidate_selector",
+      "to": "garda_safety_security_gate",
+      "name": "index decoded as candidate v / omega",
+      "bits": [
+        5,
+        7
+      ]
+    },
+    {
+      "from": "garda_safety_security_gate",
+      "to": "command output",
+      "name": "permit / v / omega / fault",
+      "bits": [
+        1,
+        5,
+        7,
+        8
+      ]
+    },
+    {
+      "from": "garda_uart_top",
+      "to": "garda_neural_core",
+      "name": "input index / value / output index",
+      "bits": [
+        5,
+        16,
+        2
+      ]
+    },
+    {
+      "from": "garda_neural_rom",
+      "to": "garda_neural_datapath",
+      "name": "weight signed Q8.8",
+      "bits": 16
+    },
+    {
+      "from": "garda_neural_datapath",
+      "to": "garda_neural_rom",
+      "name": "ROM address",
+      "bits": 13
+    },
+    {
+      "from": "garda_neural_core",
+      "to": "garda_uart_top",
+      "name": "output value / latency",
+      "bits": [
+        16,
+        32
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "dwa_latency",
+      "label": "Kernel DWA",
+      "value": 7938,
+      "unit": "cycles",
+      "clock_hz": 50000000,
+      "microseconds": 158.76,
+      "status": "simulated",
+      "scope": "Evaluasi lengkap pada enam scene. Abort dan timeout jalur berbeda.",
+      "source": {
+        "path": "evidence/audit/scene_latency.csv",
+        "line": 1
+      }
+    },
+    {
+      "id": "poses",
+      "label": "Evaluasi pose per run",
+      "value": 10240,
+      "formula": "4 tile x128 kandidat x20 pose",
+      "status": "RTL structure",
+      "source": {
+        "path": "rtl/garda_rollout_tile.v",
+        "line": 6
+      }
+    },
+    {
+      "id": "neural_fpga",
+      "label": "Inferensi neural FPGA serial",
+      "value": 18192,
+      "unit": "cycles",
+      "microseconds": 363.84,
+      "status": "simulated",
+      "source": {
+        "path": "verification/neural_cocotb_results.json",
+        "line": 1
+      }
+    },
+    {
+      "id": "neural_asic",
+      "label": "Inferensi TinyTapeout dual MAC",
+      "value": 3080,
+      "unit": "cycles",
+      "microseconds_at_target": 61.6,
+      "status": "RTL/generic simulation",
+      "scope": "50MHz target, bukan hasil timing routed.",
+      "source": {
+        "path": "evidence/neural_logic_verification.json",
+        "line": 1
+      }
+    },
+    {
+      "id": "fpga_fit",
+      "label": "Resource DE10-Nano",
+      "status": "Quartus fit successful",
+      "value": {
+        "alm": 4964,
+        "alm_capacity": 41910,
+        "registers": 1554,
+        "memory_bits": 1051008,
+        "m10k": 131,
+        "m10k_capacity": 553,
+        "dsp": 10,
+        "dsp_capacity": 112
+      },
+      "source": {
+        "path": "evidence/quartus/reports/DE10_NANO/igor.fit.summary",
+        "line": 1
+      }
+    },
+    {
+      "id": "fpga_sta",
+      "label": "STA DE10-Nano",
+      "value": {
+        "worst_setup_ns": 0.146,
+        "worst_hold_ns": 0.12
+      },
+      "status": "STA report",
+      "scope": "Jangan salah menyebut 0.120ns sebagai setup slack.",
+      "source": {
+        "path": "evidence/quartus/reports/DE10_NANO/igor.sta.summary",
+        "line": 1
+      }
+    },
+    {
+      "id": "power",
+      "label": "Power Analyzer",
+      "value": 506.69,
+      "unit": "mW",
+      "status": "estimated",
+      "scope": "Vectorless Low confidence. Hanya FPGA report, bukan whole board/HPS/robot.",
+      "source": {
+        "path": "evidence/audit/power/igor.pow.summary",
+        "line": 1
+      }
+    },
+    {
+      "id": "faults",
+      "label": "Fault scenarios permit=0",
+      "value": 9,
+      "status": "simulated",
+      "source": {
+        "path": "evidence/audit/fault_status.csv",
+        "line": 1
+      }
+    },
+    {
+      "id": "asic_model",
+      "label": "Parameter ASIC",
+      "value": 6020,
+      "unit": "signed16 words",
+      "status": "RTL/generic verified",
+      "source": {
+        "path": "evidence/neural_logic_verification.json",
+        "line": 1
+      }
+    }
+  ],
+  "board": {
+    "name": "DE10-Nano",
+    "device": "5CSEBA6U23I7",
+    "fabric": "Cyclone V",
+    "clock_hz": 50000000,
+    "qpf": "fpga_de10_nano/quartus/garda.qpf",
+    "qsf": "fpga_de10_nano/quartus/garda.qsf",
+    "sof": null,
+    "portable_project": "ImplementationReadyQuartus/IGOR_DE10_NANO/quartus/igor.qpf",
+    "source": {
+      "path": "fpga_de10_nano/quartus/garda.qsf",
+      "line": 1
+    },
+    "uart": {
+      "baud": 115200,
+      "data_bits": 8,
+      "parity": "none",
+      "stop_bits": 1,
+      "fpga_rx": {
+        "pin": "V12",
+        "header": "JP1 pin1"
+      },
+      "fpga_tx": {
+        "pin": "E8",
+        "header": "JP1 pin2"
+      },
+      "ground": "JP1 pin12 or30",
+      "voltage": "3.3V LVTTL",
+      "source": {
+        "path": "fpga_de10_nano/quartus/pin_assignment.tcl",
+        "line": 33
+      }
+    }
+  },
+  "board_hotspots": [
+    {
+      "id": "fabric",
+      "title": "Cyclone V SoC",
+      "description": "FPGA fabric menjalankan RTL GARDA. HPS ARM adalah domain prosesor tersendiri.",
+      "module": "garda_uart_top"
+    },
+    {
+      "id": "gpio0",
+      "title": "GPIO0 / JP1",
+      "description": "RX V12 pin1, TX E8 pin2, logika3.3V. UART planner115200 dan UART STM1Mbps adalah proyek berbeda.",
+      "module": "garda_uart_protocol"
+    },
+    {
+      "id": "clock",
+      "title": "Clock 50MHz",
+      "description": "Input FPGA_CLK1_50 pada V11. Clock dari board, bukan oscillator RTL.",
+      "module": "garda_uart_top"
+    },
+    {
+      "id": "keys",
+      "title": "KEY0 dan KEY1",
+      "description": "KEY0 reset active-low. KEY1 emergency inhibit active-low.",
+      "module": "garda_safety_security_gate"
+    },
+    {
+      "id": "switches",
+      "title": "SW[3:0]",
+      "description": "SW2 not-ready dan SW3 protective stop. SW0/1 unused pada top UART aktif.",
+      "module": "garda_uart_top"
+    },
+    {
+      "id": "leds",
+      "title": "LED[7:0]",
+      "description": "{fault[3:0],done,busy,reset released,enable}.",
+      "module": "garda_status_logger"
+    },
+    {
+      "id": "usb",
+      "title": "USB host HPS",
+      "description": "Rute USB controller STM memerlukan HPS/Linux host. GPIO FPGA bukan USB host.",
+      "module": null
+    },
+    {
+      "id": "jtag",
+      "title": "USB-Blaster II / JTAG",
+      "description": "Untuk memprogram SOF FPGA dari Quartus, bukan port UART aplikasi.",
+      "module": null
+    }
+  ],
+  "assets": {
+    "existing_3d_models": [],
+    "existing_dashboard_html": [],
+    "architecture_svg": "docs/assets/architecture.svg",
+    "banner_svg": "docs/assets/garda-banner.svg",
+    "quartus_screenshot": "evidence/quartus/nano_resource.png",
+    "dwa_waveform": "evidence/waveforms/05_dwa_result.png",
+    "neural_waveform": "evidence/waveforms/06_neural_result.png",
+    "flowchart": "docs/flowcharts/GARDA_RTL_Flowchart.io"
+  },
+  "uncertainties": [
+    "No existing glb/gltf/obj/stl model was found. Any generated board geometry is an explanatory illustration, not an official accurate CAD model.",
+    "Logical floorplan rectangles are not physical placement or measured block area. FPGA ALM count is not ASIC gate count.",
+    "Canonical rtl/ has19 files but20 modules. garda_neural_datapath is a second module inside garda_neural_core.v.",
+    "Active FPGA source lists an alternative scene wrapper that is not reachable from active garda_uart_top.",
+    "Full DWA plus costmap are FPGA-only. Current TinyTapeout active manifest contains neural inference only, not DWA, motor controller or FPGA UART.",
+    "TinyTapeout RTL and synthesis verification are separate from routed DRC, LVS and extracted timing. Current physical status is read from evidence/tinytapeout/current/verification.json.",
+    "FPGA programming and sensor-to-motor integrated physical acceptance not established by a SOF existing in the repository.",
+    "Team presentation name is iSeeDesignITB.",
+    "Current info.yaml selects full fixed-model neural inference. Earlier gate and SRAM experiments are historical references, not the active submission.",
+    "Do not join115200 GARDA planner frames with1Mbps AA55 STM motor frames without an actual RTL bridge. They are different protocols and projects.",
+    "Neural output is not yet connected to DWA ranking or final command gate in active FPGA top. A 522.60us sum is arithmetic projection, not measured integrated latency."
+  ],
+  "source_hash_normalization": "CRLF to LF for Verilog source"
+}

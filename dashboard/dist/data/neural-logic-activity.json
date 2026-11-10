@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "baseline_commit": "275763f33c918603a4e6f560a5ea5d522423505d",
+  "source_sha256": {
+    "baseline": "b3a506afb871fa7115c4ec7df79951b2b35e44c78b7e2f4e20f9d3846768a91a",
+    "current": "5feac3b02a1972886e099015a39a3a7fd453ff8f961a0ddac345b0a8e87c9b8d"
+  },
+  "vectors_per_revision": 100,
+  "outputs_checked_per_revision": 400,
+  "model_words": 6020,
+  "latency_cycles_before": 3080,
+  "latency_cycles_after": 3080,
+  "reference_clock_hz": 50000000,
+  "reference_inference_us": 61.6,
+  "coefficient_range": [
+    -1205,
+    640
+  ],
+  "coefficient_bits_before": 16,
+  "coefficient_bits_after": 12,
+  "activation_bits": 16,
+  "accumulator_bits": 40,
+  "metrics": {
+    "baseline": {
+      "weight_bit_transitions": 4620345,
+      "activation_bit_transitions": 2546868,
+      "zero_lanes": 224724,
+      "sampled_lanes": 568226
+    },
+    "current": {
+      "weight_bit_transitions": 3597143,
+      "activation_bit_transitions": 2541614,
+      "zero_lanes": 227362,
+      "sampled_lanes": 568226
+    }
+  },
+  "combined_bit_transitions_before": 7167213,
+  "combined_bit_transitions_after": 6138757,
+  "combined_bit_transition_reduction_percent": 14.3495,
+  "qualification": "RTL MAC input switching proxy normalized to sign-extended 16-bit signals on supplied vectors, not power in watts, timing signoff or a global minimum; includes directed overflow and guard traffic",
+  "physical_power_measured": false
+}
