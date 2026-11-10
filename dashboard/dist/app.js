@@ -36,7 +36,7 @@ const translations = {
     'hero.title': '<span class="portal-title-left">Drones inspect.</span><br><em class="portal-title-right">GARDA keeps watch.</em>',
     'hero.lead': 'Power-line inspection drones need to avoid obstacles without depending on a server connection. GARDA is developing a chip that computes proposed motion corrections and checks them with a hardware safety gate to help operators protect vehicles and assets.',
     'hero.explore': 'Watch the demo',
-    'hero.play': 'How it works and why it matters',
+    'hero.play': 'Read the GARDA proposal ↗',
     'hero.metricCycles': 'Parallel16 clocks, RTL tested',
     'hero.metricTime': 'core projection at 50 MHz'
   }
@@ -45,10 +45,10 @@ const translations = {
 function setupPreferences() {
   const root = document.documentElement;
   const themeToggle = $('theme-toggle'), languageToggle = $('language-toggle');
-  let theme = 'dark', language = 'id';
+  let theme = 'dark', language = 'en';
   try {
     theme = localStorage.getItem('garda-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    language = localStorage.getItem('garda-language') || 'id';
+    language = 'en';
   } catch (error) {
     console.warn('Preferences unavailable', error.message);
   }
@@ -57,7 +57,7 @@ function setupPreferences() {
     theme = next === 'dark' ? 'dark' : 'light';
     root.dataset.theme = theme;
     themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
-    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     const label = themeToggle.querySelector('[data-theme-label]');
     if (label) label.textContent = theme === 'dark' ? 'Light' : 'Dark';
     try { localStorage.setItem('garda-theme', theme); } catch (error) { console.warn('Theme preference unavailable', error.message); }

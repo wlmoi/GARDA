@@ -37,3 +37,23 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 :root[data-theme="dark"] .portal-title .portal-title-right{color:var(--safety-lime)}
 :root[data-theme="light"] .portal-title .portal-title-right{color:#376100}
 
+
+/* Refined hero, proposal action and people. */
+.portal-hero{position:relative;background:radial-gradient(ellipse at 83% 40%,#315cff12,transparent 55%)}
+:root[data-theme="dark"] .portal-title .portal-title-right{color:#E4F5CC}
+.event-identity{display:flex;align-items:center;gap:18px;max-width:480px;margin-bottom:26px}
+.event-identity img{background:white;width:160px;height:auto;padding:9px 12px;border-radius:4px}
+.event-identity span{font-family:'Work Sans',sans-serif;font-size:13px;line-height:1.6;color:var(--color-ink-secondary);max-width:190px}
+.proposal-cta{position:relative;overflow:hidden;isolation:isolate;transition:border-color .25s,box-shadow .25s}
+.proposal-cta:before{content:"";position:absolute;inset:-100% -30%;z-index:-1;background:linear-gradient(110deg,transparent 40%,#315cff35 50%,transparent 60%);transform:translateX(-90%);transition:transform .7s}
+.proposal-cta:hover:before,.proposal-cta:focus-visible:before{transform:translateX(90%)}
+.proposal-cta:hover{border-color:var(--color-signal);box-shadow:0 6px 25px #315cff18}
+.people-section{padding-block:100px;border-top:1px solid var(--color-hairline)}
+.people-heading{max-width:750px;margin-bottom:40px}.people-heading h2{font-family:Archivo,sans-serif;font-size:clamp(32px,4vw,56px);letter-spacing:-.04em;line-height:1.1;margin:16px 0}.people-heading p,.person-card p{color:var(--color-ink-secondary);line-height:1.65}
+.people-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.person-card{padding:28px;background:var(--color-surface);border:1px solid var(--color-hairline);border-radius:8px;min-width:0}
+.person-index{font-family:'IBM Plex Mono',monospace;color:var(--color-signal);font-size:12px}.person-card h3{font:700 22px/1.25 Archivo,sans-serif;margin:24px 0 12px}.person-card .person-role{color:var(--color-ink-primary);font-size:13px;font-weight:600}.person-card p{font-size:14px}.team-advisor{margin-top:28px;font-size:14px;color:var(--color-ink-primary)}.team-advisor span{display:block;color:var(--color-ink-secondary);margin-top:8px}
+.closing-statement-box{position:relative}.closing-title span:last-child{color:var(--color-signal)}.closing-title span{display:inline-block}.editorial-closing{background:radial-gradient(ellipse at 90% 40%,#315cff15,transparent 65%)}
+@media(max-width:780px){.people-section{padding-block:64px}.people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.person-card{padding:20px}.event-identity{gap:14px}.event-identity img{width:135px}.event-identity span{font-size:12px}}
+@media(max-width:480px){.people-grid{grid-template-columns:minmax(0,1fr)}.proposal-cta{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.proposal-cta:before{display:none}}

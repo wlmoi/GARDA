@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -26,7 +26,7 @@
   <script type="module" src="scroll-story.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <!-- Navigation: Fixed 64px, 82% opacity, 14px blur, hairline, Archivo 800 wordmark with signal-blue period -->
@@ -40,7 +40,7 @@
       <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button>
       <nav id="main-navigation" aria-label="Navigasi utama">
         <a href="#hero" data-i18n="nav.home">Beranda</a>
-        <a href="#solution" data-i18n="nav.solution">Solusi</a>
+        <a href="#solution" data-i18n="nav.solution">Solution</a>
         <a href="#robot-demo" data-i18n="nav.demo">Demo</a>
         <a href="#architecture" data-i18n="nav.technology">Teknologi</a>
         <a href="#verification" data-i18n="nav.results">Hasil pengujian</a>
@@ -49,7 +49,7 @@
       <div class="topbar-actions">
         <div class="site-settings" aria-label="Pengaturan tampilan">
           <button type="button" id="theme-toggle" aria-label="Aktifkan mode gelap" aria-pressed="false"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a8 8 0 0 1-11-11 8 8 0 1 0 11 11Z"/></svg> <span data-theme-label>Dark</span></button>
-          <button type="button" id="language-toggle" aria-label="Switch to English">ID <span aria-hidden="true">/</span> EN</button>
+          <button type="button" id="language-toggle" hidden aria-label="Switch to English">ID <span aria-hidden="true">/</span> EN</button>
         </div>
       </div>
     </div>
@@ -72,11 +72,10 @@
         <p class="eyebrow hero-reveal is-visible" style="--reveal-delay:80ms">
           <span class="status-dot"></span> HACKATHON ITS 2026 GARDA
         </p>
-        <div class="event-identity"><img src="assets/logo.png" width="8125" height="2016" alt="SENO Hackathon 2026" decoding="async"><span>Proyek peserta SENO Hackathon ITS 2026</span></div>
+        <div class="event-identity"><img src="assets/logo.png" width="8125" height="2016" alt="SENO Hackathon 2026" decoding="async"><span>A participating project in SENO Hackathon ITS 2026</span></div>
         <h1 class="hero-reveal portal-title is-visible" data-i18n="hero.title"><span class="portal-title-left">Drone menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em></h1>
         <p class="lead hero-reveal is-visible" data-i18n="hero.lead">Drone inspeksi jaringan listrik perlu menghindari rintangan tanpa bergantung pada koneksi ke server. GARDA mengembangkan chip yang menghitung usulan koreksi gerak dan memeriksanya dengan gerbang keselamatan perangkat keras untuk membantu operator menjaga wahana dan aset.</p>
-        <div class="hero-actions hero-reveal is-visible"><a class="hero-primary" href="#robot-demo" data-i18n="hero.explore">Lihat demo</a><a href="#solution" data-i18n="hero.play">Cara kerja dan manfaat</a></div>
-        <p class="hero-qualification" data-i18n="hero.stage">Prototipe riset. Demo browser adalah simulasi; penerapan pada drone inspeksi PLN masih memerlukan pilot.</p>
+        <div class="hero-actions hero-reveal is-visible"><a class="hero-primary" href="#robot-demo" data-i18n="hero.explore">Lihat demo</a><a class="btn-action secondary proposal-cta" href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener" data-i18n="hero.play">Read the GARDA proposal ↗</a></div>
         <div class="hero-metrics hero-reveal is-visible" style="--reveal-delay:400ms">
           <div>
             <strong>3.556</strong>
@@ -94,18 +93,18 @@
 
 
     <section class="wrap stakeholder-section" id="solution" aria-labelledby="solution-title">
-      <div class="section-editorial-header"><h2 id="solution-title">Inspeksi penting. Gerak aman juga.</h2><p>Untuk unit transmisi PLN, penyedia jasa drone, dan integrator robot inspeksi.</p></div>
+      <div class="section-editorial-header"><h2 id="solution-title">Inspection matters. Safe movement does too.</h2><p>For PLN transmission units, drone service providers, and inspection robot integrators.</p></div>
       <div class="stakeholder-grid">
-        <article><span class="font-mono">Masalah</span><h3>Bekerja dekat aset berisiko</h3><p>Drone perlu bergerak di sekitar menara, kabel, dan rintangan. Operator membutuhkan respons penghindaran yang cepat dan perilaku sistem yang dapat diperiksa.</p></article>
-        <article><span class="font-mono">Solusi</span><h3>AI mengusulkan, gerbang memeriksa</h3><p>GARDA mengolah data jarak dan gerak di perangkat. Usulan koreksi melewati pemeriksaan keselamatan sebelum menjadi keluaran kendali.</p></article>
-        <article><span class="font-mono">Potensi dampak</span><h3>Lindungi wahana dan dukung inspeksi</h3><p>Tujuannya mengurangi risiko kerusakan, mendukung pekerjaan inspeksi, dan menyediakan jejak keputusan. Dampak operasional serta penghematan biaya perlu diukur bersama mitra.</p></article>
+        <article><span class="font-mono">Problem</span><h3>Working near assets carries risk</h3><p>Drones operate around towers, cables, and obstacles. Operators need fast avoidance responses and system behaviour they can inspect.</p></article>
+        <article><span class="font-mono">Solution</span><h3>AI proposes, the gate checks</h3><p>GARDA processes range and motion data on the device. Proposed corrections pass through safety checks before becoming control outputs.</p></article>
+        <article><span class="font-mono">Potential impact</span><h3>Protect vehicles and support inspection</h3><p>The aim is to reduce damage risk, support inspection work, and provide decision traces. Operational impact and cost savings need to be measured with partners.</p></article>
       </div>
-      <details class="stakeholder-details"><summary>Apa yang sudah diketahui dari calon pengguna?</summary><p>Proposal mencatat wawancara awal dengan seorang manajer ULTG PLN: keselamatan menjadi pembatas operasi drone, dan insiden hilang kendali pernah terjadi. Temuan awal ini belum mewakili seluruh unit PLN atau menjadi persetujuan kemitraan.</p></details>
+      <details class="stakeholder-details"><summary>What have prospective users told us?</summary><p>The proposal records an initial interview with a PLN ULTG manager: safety limits drone operations, and a loss-of-control incident had occurred. These early findings do not represent all PLN units or constitute a partnership agreement.</p></details>
     </section>
 
-    <section class="wrap stakeholder-section public-demo" id="demo" aria-labelledby="demo-title"><div class="section-editorial-header"><h2 id="demo-title">Lihat GARDA bekerja</h2><p>Pilih rintangan atau emergency stop, tekan Putar, lalu amati perubahan gerak. Ini ilustrasi browser, bukan bukti uji terbang atau keselamatan lapangan.</p></div>          <div class="robot-section" id="robot-demo" aria-labelledby="robot-title">
-            <h3 id="robot-title">Coba skenario inspeksi</h3>
-            <p class="inference-time">Inferensi RTL: <strong>71,12 µs</strong> <span>pada clock referensi 50 MHz</span></p>
+    <section class="wrap stakeholder-section public-demo" id="demo" aria-labelledby="demo-title"><div class="section-editorial-header"><h2 id="demo-title">See GARDA in action</h2><p>Choose an obstacle or emergency stop, press Play, and observe the motion response. This browser illustration is not evidence of flight testing or field safety.</p></div>          <div class="robot-section" id="robot-demo" aria-labelledby="robot-title">
+            <h3 id="robot-title">Try an inspection scenario</h3>
+            <p class="inference-time">RTL inference<strong>71,12 µs</strong> <span>at a reference clock of 50 MHz</span></p>
 
             <div class="robot-panel">
               <div class="robot-path" aria-label="Alur ilustrasi: LiDAR, RISC-V, 16 MAC, safety, robot">
@@ -132,12 +131,11 @@
                 <label>Playback
                   <select id="robot-playback">
                     <option value="motion" selected>Gerakan saja</option>
-                    <option value="inference">Inferensi lalu gerak</option>
+                    <option value="inference">Inference followed by motion</option>
                   </select>
                 </label>
-                <label>Skenario
-                  <select id="robot-scenario">
-                    <option value="avoid" selected>Menghindari rintangan</option>
+                <label>Scenario<select id="robot-scenario">
+                    <option value="avoid" selected>Obstacle avoidance</option>
                     <option value="clear">Jalur bebas</option>
                     <option value="obstacle">Rintangan</option>
                     <option value="estop">Emergency stop</option>
@@ -151,7 +149,7 @@
               </div>
 
               <details class="flow-details">
-                <summary>Referensi inovasi robotik</summary>
+                <summary>Robotics references</summary>
                 <a href="https://r2surgical.com/blogs/news/physical-ai-and-surgical-robotics" target="_blank" rel="noreferrer">Physical AI and Surgical Robotics, R2 Surgical</a>
                 <p>Contoh arah inovasi: bantuan kamera dan pengaturan gerak alat melalui umpan balik visual. Artikel ini menjadi inspirasi demonstrasi konseptual, bukan bukti implementasi klinis.</p>
                 <a href="https://www.roboticscenter.ai/store/product/deeprobotics-lite3-lidar" target="_blank" rel="noreferrer">Lite3 LiDAR, Robotics Center</a>
@@ -160,14 +158,14 @@
 
               <p id="platform-note" class="scope-note"></p>
               <p class="robot-readout">Jarak LiDAR: <strong id="lidar-distance">—</strong></p>
-              <p id="robot-status" role="status">Siap memulai ilustrasi.</p>
+              <p id="robot-status" role="status">Ready to start the illustration.</p>
             </div>
-          </div><div class="demo-next"><a href="#gate-demo">Uji gerbang keselamatan</a><a href="#clock-explorer">Telusuri perhitungan neural</a><a href="#verification">Lihat bukti pengujian</a></div></section>
+          </div><div class="demo-next"><a href="#gate-demo">Test the safety gate</a><a href="#clock-explorer">Explore the neural computation</a><a href="#verification">View test evidence</a></div></section>
 
     <section class="wrap chapter-section" id="clock-explorer" aria-labelledby="clock-title">
       <div class="section-editorial-header">
         <p class="mono-eyebrow">Bagian 02 Aliran data inferensi Parallel16</p>
-        <h2 class="editorial-title" id="clock-title">Di balik keputusan GARDA</h2>
+        <h2 class="editorial-title" id="clock-title">Inside a GARDA decision</h2>
         <p class="editorial-desc">
           Pilih skenario, jalankan robot, dan amati respons terhadap rintangan. Panel perhitungan menjelaskan proses neural di balik ilustrasi ini.
         </p>
@@ -175,18 +173,18 @@
 
       <!-- Runtime Field-Swap Perspective Picker (Section 13) -->
       <div class="field-swap-strip" role="tablist" aria-label="Pilihan perspektif arsitektur">
-        <span class="mono-label">PERSPEKTIF ARSITEKTUR:</span>
+        <span class="mono-label">Architecture perspective</span>
         <button type="button" class="swap-tab active" data-field-perspective="compute">COMPUTE (16 Lane MAC)</button>
         <button type="button" class="swap-tab" data-field-perspective="control">CONTROL (Host &amp; Peta)</button>
-        <button type="button" class="swap-tab" data-field-perspective="safety">SAFETY (Aturan Gerbang)</button>
+        <button type="button" class="swap-tab" data-field-perspective="safety">Safety (gate rules)</button>
       </div>
 
       <div class="clock-panel">
         <div class="clock-stats">
-          <div><span class="stat-lbl">SIKLUS SAAT INI</span><strong id="clock-number">0 / 3.556</strong></div>
+          <div><span class="stat-lbl">Current cycle</span><strong id="clock-number">0 / 3.556</strong></div>
           <div><span class="stat-lbl">LAYER AKTIF</span><strong id="clock-layer">Siap</strong></div>
-          <div><span class="stat-lbl">KELOMPOK / 16 LANE</span><strong id="clock-group">—</strong></div>
-          <div><span class="stat-lbl">WAKTU PADA 50 MHZ</span><strong id="clock-time">0 µs</strong></div>
+          <div><span class="stat-lbl">Group of 16 lanes</span><strong id="clock-group">—</strong></div>
+          <div><span class="stat-lbl">Time at 50 MHz</span><strong id="clock-time">0 µs</strong></div>
         </div>
 
         <div class="clock-stages" aria-label="Fase komputasi">
@@ -196,7 +194,7 @@
           <div data-clock-stage="activate">04 <strong>Aktivasi</strong></div>
         </div>
 
-        <p id="clock-detail" aria-live="polite">Siap memulai inferensi</p>
+        <p id="clock-detail" aria-live="polite">Ready to start inference</p>
 
         <!-- 16-Lane Array and Visualizer -->
         <div class="unified-demo">
@@ -204,13 +202,13 @@
             <div class="dataflow-path" aria-label="Alur data ilustrasi">
               <div class="dataflow-node" data-flow-node="input"><span>01</span><strong>Input</strong><small>74 Fitur</small></div>
               <div class="dataflow-node" data-flow-node="weight"><span>02</span><strong>Memori</strong><small>Bias &amp; Bobot</small></div>
-              <div class="dataflow-node" data-flow-node="mac"><span>03</span><strong>16 MAC</strong><small>Akumulator SIMD</small></div>
-              <div class="dataflow-node" data-flow-node="activate"><span>04</span><strong>Aktivasi</strong><small>ReLU / Saturasi</small></div>
-              <div class="dataflow-node" data-flow-node="output"><span>05</span><strong>Hasil</strong><small>Output Tensor</small></div>
+              <div class="dataflow-node" data-flow-node="mac"><span>03</span><strong>16 MAC</strong><small>SIMD accumulator</small></div>
+              <div class="dataflow-node" data-flow-node="activate"><span>04</span><strong>Aktivasi</strong><small>ReLU and saturation</small></div>
+              <div class="dataflow-node" data-flow-node="output"><span>05</span><strong>Output</strong><small>Output Tensor</small></div>
             </div>
 
             <div class="lane-header">
-              <h3>Array 16 Lane MAC Paralel</h3>
+              <h3>16 parallel MAC lanes</h3>
               <div class="group-progress">
                 <label for="group-progress" id="group-label">Menunggu</label>
                 <progress id="group-progress" value="0" max="8">0</progress>
@@ -238,8 +236,8 @@
 
             <details class="flow-details">
               <summary>Detail perhitungan &amp; validasi RTL</summary>
-              <p id="lane-summary">Belum ada kelompok yang berjalan.</p>
-              <p id="phase-explanation">Tekan Putar atau pilih clock untuk melihat fase perhitungan.</p>
+              <p id="lane-summary">No group is running yet.</p>
+              <p id="phase-explanation">Press Play or select a cycle to inspect the computation phase.</p>
               <p>Regresi RTL: 236 vektor dan 708 keluaran cocok 100%. Latensi 71,12 µs menggunakan clock 50 MHz pada arsitektur Parallel16.</p>
             </details>
           </div>
@@ -256,19 +254,18 @@
           <button type="button" id="clock-play" aria-pressed="false">▶ Play</button>
           <button type="button" id="clock-next">+1 clock</button>
           <button type="button" id="clock-reset">↺ Reset</button>
-          <button type="button" id="clock-next-group">Kelompok berikut</button>
-          <button type="button" id="clock-next-layer">Layer berikut</button>
+          <button type="button" id="clock-next-group">Next group</button>
+          <button type="button" id="clock-next-layer">Next layer</button>
         </div>
 
         <div class="clock-options">
           <label>Mode
             <select id="clock-mode">
               <option value="every">Setiap clock</option>
-              <option value="highlights" selected>Sorotan / lewati pengulangan</option>
+              <option value="highlights" selected>Highlights and skip repetitions</option>
             </select>
           </label>
-          <label>Kecepatan
-            <select id="clock-speed">
+          <label>Speed<select id="clock-speed">
               <option value="slow" selected>Pelan</option>
               <option value="normal">Normal</option>
               <option value="fast">Cepat</option>
@@ -286,11 +283,11 @@
 
     <section class="signal-story" aria-label="Cara kerja GARDA">
       <div class="signal-story__pin">
-        <div class="signal-story__heading"><p>GARDA</p><h2>Dari data.<br>Ke keputusan.</h2><a href="#clock-explorer">Coba simulasinya <span aria-hidden="true">↓</span></a></div>
+        <div class="signal-story__heading"><p>GARDA</p><h2>From data.<br>To decisions.</h2><a href="#clock-explorer">Try the simulation<span aria-hidden="true">↓</span></a></div>
         <div class="signal-story__steps">
-          <article class="signal-step"><span class="signal-step__index">01</span><h3>Amati</h3><p>Data sensor menjadi masukan untuk sistem.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="120" cy="90" r="20"/><path d="M65 90a55 55 0 0 1 110 0M25 90a95 95 0 0 1 190 0M120 90l55-55"/></g></svg></article>
-          <article class="signal-step"><span class="signal-step__index">02</span><h3>Hitung</h3><p>Jalur neural menghitung usulan keluaran. Telusuri tiap fase di simulasi Parallel16.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="80" y="14" width="80" height="72"/><path d="M95 0v14m25-14v14m25-14v14M95 86v14m25-14v14m25-14v14M55 30h25m-25 20h25m-25 20h25m80-40h25m-25 20h25m-25 20h25M98 33h44v34H98z"/></g></svg></article>
-          <article class="signal-step"><span class="signal-step__index">03</span><h3>Batasi</h3><p>Gerbang keselamatan memeriksa kondisi izin. Uji responsnya dengan kontrol fault.</p><svg viewBox="0 0 240 100" aria-hidden="true"><path d="M120 8l38 15v25c0 23-20 36-38 44-18-8-38-21-38-44V23zM101 48l13 13 25-26" fill="none" stroke="currentColor" stroke-width="3"/></svg></article>
+          <article class="signal-step"><span class="signal-step__index">01</span><h3>Observe</h3><p>Sensor data becomes the input to the system.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="120" cy="90" r="20"/><path d="M65 90a55 55 0 0 1 110 0M25 90a95 95 0 0 1 190 0M120 90l55-55"/></g></svg></article>
+          <article class="signal-step"><span class="signal-step__index">02</span><h3>Compute</h3><p>The neural path computes proposed outputs. Explore each phase in the Parallel16 simulation.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="80" y="14" width="80" height="72"/><path d="M95 0v14m25-14v14m25-14v14M95 86v14m25-14v14m25-14v14M55 30h25m-25 20h25m-25 20h25m80-40h25m-25 20h25m-25 20h25M98 33h44v34H98z"/></g></svg></article>
+          <article class="signal-step"><span class="signal-step__index">03</span><h3>Constrain</h3><p>The safety gate checks permission conditions. Test its response using fault controls.</p><svg viewBox="0 0 240 100" aria-hidden="true"><path d="M120 8l38 15v25c0 23-20 36-38 44-18-8-38-21-38-44V23zM101 48l13 13 25-26" fill="none" stroke="currentColor" stroke-width="3"/></svg></article>
         </div>
         <div class="signal-story__track" aria-hidden="true"><span></span></div>
       </div>
@@ -301,7 +298,7 @@
       <div class="wrap proof-grid">
         <div class="proof-left">
           <p class="mono-eyebrow proof-eyebrow">Bagian 03 Kinerja perangkat keras</p>
-          <h2 class="proof-title">Inferensi Deterministik.<br>Terverifikasi Siklus per Siklus.</h2>
+          <h2 class="proof-title">Deterministic inference.<br>Verified cycle by cycle.</h2>
           <p class="proof-lead">
             GARDA menjalankan inferensi neural langsung pada FPGA. Jumlah siklus core dapat diperiksa melalui pengujian RTL. Waktu respons seluruh robot masih memerlukan pengukuran tersendiri.
           </p>
@@ -331,10 +328,10 @@
               <thead>
                 <tr>
                   <th>Fase / Layer</th>
-                  <th>Konfigurasi Tensor</th>
-                  <th>Kelompok SIMD</th>
-                  <th>Jumlah Siklus</th>
-                  <th>Proporsi Waktu</th>
+                  <th>Tensor configuration</th>
+                  <th>SIMD groups</th>
+                  <th>Cycle count</th>
+                  <th>Time share</th>
                 </tr>
               </thead>
               <tbody>
@@ -362,7 +359,7 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th colspan="3">Total Siklus Inferensi Parallel16</th>
+                  <th colspan="3">Total Parallel16 inference cycles</th>
                   <th class="font-mono text-signal">3.556</th>
                   <th class="font-mono">100,00%</th>
                 </tr>
@@ -387,11 +384,11 @@
     <section class="wrap chapter-section" id="architecture" aria-label="Bab 03: Arsitektur Perangkat Keras dan Gambar Teknik">
       <div class="section-editorial-header">
         <p class="mono-eyebrow">Bagian 04 Arsitektur sistem</p>
-        <h2 class="editorial-title">Gambar Teknik Arsitektur Sistem</h2>
+        <h2 class="editorial-title">System architecture diagram</h2>
         <p class="editorial-desc">
           Diagram fungsional sistem GARDA yang menghubungkan antarmuka host, memori costmap lokal, akselerator neural, evaluator trajektori, dan gerbang keselamatan hardware.
         </p>
-        <span class="mono-meta-tag">Fungsional arsitektur Tidak dalam skala fisik silikon</span>
+        <span class="mono-meta-tag">Functional architecture, not a physical silicon floorplan</span>
       </div>
 
       <div class="arch-editorial-grid">
@@ -541,7 +538,7 @@
           <div class="viewport-toolbar">
             <div class="mode-tabs" role="tablist" aria-label="Pilihan tampilan board atau die">
               <button id="tab-board" type="button" role="tab" aria-selected="true" data-mode="board">Board DE10-Lite</button>
-              <button id="tab-die" type="button" role="tab" aria-selected="false" data-mode="die">Isi RTL Silikon</button>
+              <button id="tab-die" type="button" role="tab" aria-selected="false" data-mode="die">RTL blocks</button>
             </div>
             <span id="mode-chip" class="scope-label">MAX 10 (10M50DAF484C7G)</span>
           </div>
@@ -554,7 +551,7 @@
             <!-- Corner-Pinned Technical Labels -->
             <div class="stage-corner top-left">
               <span class="corner-id" id="stage-kicker">BOARD / DE10-LITE</span>
-              <h3 class="corner-title" id="stage-title">Satu board.<br>Dua dunia komputasi.</h3>
+              <h3 class="corner-title" id="stage-title">Satu board.<br>Two computing domains.</h3>
             </div>
             <div class="stage-corner top-right">
               <span class="corner-id">IC / 10M50DAF484C7G</span>
@@ -571,11 +568,11 @@
           </div>
 
           <div class="viewport-controls">
-            <p><span aria-hidden="true">↔</span> Seret untuk memutar <span class="control-divider"></span> Gulir / cubit untuk zoom</p>
+            <p><span aria-hidden="true">↔</span>Drag to rotate<span class="control-divider"></span>Scroll or pinch to zoom</p>
             <div class="controls-actions">
-              <button type="button" id="explode" aria-pressed="false" title="Pisahkan lapisan board">Pisah Lapisan</button>
-              <button type="button" id="rotate" aria-pressed="false" title="Rotasi otomatis">Putar</button>
-              <button type="button" id="reset-camera" title="Atur ulang kamera">Reset Kamera ↺</button>
+              <button type="button" id="explode" aria-pressed="false" title="Pisahkan lapisan board">Separate layers</button>
+              <button type="button" id="rotate" aria-pressed="false" title="Rotasi otomatis">Play</button>
+              <button type="button" id="reset-camera" title="Atur ulang kamera">Reset camera</button>
             </div>
           </div>
         </div>
@@ -588,7 +585,7 @@
           </div>
 
           <div class="inspector-content" aria-live="polite">
-            <h2 id="block-title">Antarmuka FPGA</h2>
+            <h2 id="block-title">FPGA interface</h2>
             <code id="block-name">garda_uart_top</code>
             <p id="block-description"></p>
             <div class="block-highlights" id="block-highlights"></div>
@@ -596,15 +593,15 @@
             <p class="source-ref" id="source-ref"></p>
 
             <div class="inspector-actions">
-              <button id="show-source" hidden type="button" class="btn-action primary small">Lihat Kode .v </button>
+              <button id="show-source" hidden type="button" class="btn-action primary small">View Verilog</button>
               <button id="show-ports" type="button" class="btn-action quiet small">Port &amp; Bit Flow</button>
             </div>
           </div>
 
           <div class="module-list">
             <div class="list-heading">
-              <span class="list-title">DAFTAR MODUL HARDWARE</span>
-              <span id="block-count">20 modul / 19 berkas</span>
+              <span class="list-title">Hardware modules</span>
+              <span id="block-count">20 modules in 19 files</span>
             </div>
             <input id="module-search" class="module-search" type="search" aria-label="Cari modul atau sinyal" placeholder="Cari nama modul atau port…">
             <div id="legend" aria-label="Daftar blok hardware"></div>
@@ -616,12 +613,12 @@
     <!-- Module Detail Overlay / Expanded Code Panel -->
     <section class="wrap detail-panel" id="module-detail" hidden>
       <div class="section-line">
-        <div><h2 id="detail-title">Port dan Kode Verilog</h2></div>
+        <div><h2 id="detail-title">Ports and Verilog code</h2></div>
         <button id="close-detail" class="quiet-button" type="button" aria-label="Tutup detail">Tutup ×</button>
       </div>
       <div class="detail-grid">
         <div>
-          <h3>Antarmuka Modul (I/O)</h3>
+          <h3>Module interface (I/O)</h3>
           <div class="table-scroll">
             <table class="port-table">
               <thead><tr><th>Port</th><th>Arah</th><th>Lebar</th></tr></thead>
@@ -647,12 +644,12 @@
       <div class="gate-editorial-layout">
         <div class="gate-copy">
           <p class="mono-eyebrow">Bagian 06 Pemeriksaan keselamatan</p>
-          <h2 class="editorial-title">AI mengusulkan.<br>GARDA memutuskan.</h2>
+          <h2 class="editorial-title">AI proposes.<br>GARDA decides.</h2>
           <p class="editorial-lead">
             Model gerbang keselamatan hardware terpisah. Proposal GARDA menetapkan batas umur hasil 20 ms dan watchdog inferensi 2 ms. Setiap anomali segera memutus motor_enable dalam &lt;1 µs.
           </p>
           <div class="gate-link-box">
-            <a href="#explorer" id="select-gate" class="btn-action secondary">Buka garda_safety_security_gate di Die RTL </a>
+            <a href="#explorer" id="select-gate" class="btn-action secondary">Open garda_safety_security_gate in the RTL view</a>
           </div>
         </div>
 
@@ -664,12 +661,10 @@
           <div class="fault-toggles" id="fault-toggles"></div>
 
           <div class="gate-sliders">
-            <label>Kecepatan kandidat AI (v)
-              <output id="candidate-value">12</output>
+            <label>AI candidate speed (v)<output id="candidate-value">12</output>
               <input id="candidate-v" type="range" min="0" max="31" value="12">
             </label>
-            <label>Laju belok bertanda AI (omega)
-              <output id="omega-value">4</output>
+            <label>Signed AI turn rate (omega)<output id="omega-value">4</output>
               <input id="candidate-w" type="range" min="-64" max="63" value="4">
             </label>
           </div>
@@ -687,7 +682,7 @@
               <span class="result-label">omega (7b)</span>
               <strong id="w-value">4</strong>
             </div>
-            <p id="fault-reason">Semua kondisi valid. Fault 0.</p>
+            <p id="fault-reason">All conditions are valid. Fault 0.</p>
           </div>
         </div>
       </div>
@@ -697,8 +692,8 @@
     <section class="wrap chapter-section" id="verification" aria-label="Bab 07: Bukti Verifikasi, Tabel Spesifikasi, dan Sumber Daya">
       <div class="section-editorial-header">
         <p class="mono-eyebrow">Bagian 07 Hasil pengujian dan bukti</p>
-        <h2 class="editorial-title">Hasil pengujian dan status validasi</h2><p class="validation-scope">Hasil berlabel PASS telah lulus pengujian yang disebutkan pada tabel. Simulasi, perhitungan, build historis, dan status signoff ditampilkan terpisah. Kelulusan pengujian komponen tidak berarti seluruh sistem telah tervalidasi di lapangan.</p>
-        <span class="date-label" id="evidence-date">Sumber proyek lokal</span>
+        <h2 class="editorial-title">Test results and validation status</h2><p class="validation-scope">Results marked PASS passed the tests stated in the table. Simulation, calculations, historical builds, and signoff status are reported separately. Passing component tests does not mean the entire system has been validated in the field.</p>
+        <span class="date-label" id="evidence-date">Local project evidence</span>
       </div>
 
       <!-- Ruled Technical Verification Table (Section 15) -->
@@ -706,11 +701,11 @@
         <table class="editorial-table full-table">
           <thead>
             <tr>
-              <th>Kategori Bukti</th>
-              <th>Target Sub-Sistem</th>
-              <th>Metrik / Hasil Pengujian</th>
+              <th>Evidence category</th>
+              <th>Subsystem</th>
+              <th>Metric or test result</th>
               <th>Metodologi &amp; Validasi</th>
-              <th>Status Verifikasi</th>
+              <th>Verification status</th>
             </tr>
           </thead>
           <tbody>
@@ -723,10 +718,10 @@
             </tr>
             <tr>
               <td><span class="cat-pill project">CALCULATED</span></td>
-              <td class="font-display">Latensi Inti Inferensi</td>
+              <td class="font-display">Inference core latency</td>
               <td class="font-mono text-signal">71,12 µs (@ 50 MHz)</td>
               <td>Kalkulasi analitis: 3.556 siklus / 50.000.000 Hz</td>
-              <td><span class="status-pill note">PROYEKSI CLOCK</span></td>
+              <td><span class="status-pill note">Clock projection</span></td>
             </tr>
             <tr>
               <td><span class="cat-pill record">RECORD</span></td>
@@ -747,7 +742,7 @@
               <td class="font-display">TinyTapeout ASIC Core</td>
               <td class="font-mono" id="tt-latency">3.080 siklus</td>
               <td>24 64 64 4. Dual MAC fixed-point pada IHP SG13G2</td>
-              <td><span id="tt-functional" class="status-pill note">Memuat status</span></td>
+              <td><span id="tt-functional" class="status-pill note">Loading status</span></td>
             </tr>
             <tr>
               <td><span class="cat-pill illustrative">ILLUSTRATIVE</span></td>
@@ -764,8 +759,8 @@
       <article class="rtl-current-card" aria-labelledby="current-rtl-title">
         <div>
           <p class="mono-eyebrow">TinyTapeout RTL aktif</p>
-          <h3 id="current-rtl-title">Model tetap. Hasil cocok.</h3>
-          <p id="current-rtl-summary">Memeriksa bukti terhadap kode aktif…</p>
+          <h3 id="current-rtl-title">Fixed model. Matching results.</h3>
+          <p id="current-rtl-summary">Checking evidence against the current code…</p>
           <p id="current-rtl-activity" class="scope-note"></p>
         </div>
         <div>
@@ -779,7 +774,7 @@
         <div>
           <p class="mono-eyebrow">TINYTAPEOUT / BUKTI IMPLEMENTASI HISTORIS</p>
           <h3><code>tt_um_wlmoi_garda_neural_logic</code></h3>
-          <p id="tt-summary">Hasil RTL dan status implementasi fisik ditampilkan secara terpisah.</p>
+          <p id="tt-summary">RTL results and physical implementation status are reported separately.</p>
         </div>
         <div id="tt-checks" class="tt-checks"></div>
       </div>
@@ -792,17 +787,17 @@
           <div><dt>UART_RX / JP1 pin 1</dt><dd>PIN_V12</dd></div>
           <div><dt>UART_TX / JP1 pin 2</dt><dd>PIN_E8</dd></div>
           <div><dt>UART host DWA</dt><dd>115200 baud / 8N1</dd></div>
-          <div><dt>Batas Watchdog</dt><dd>2 ms</dd></div>
-          <div><dt>Masa Berlaku Hasil (TTL)</dt><dd>20 ms</dd></div>
+          <div><dt>Watchdog limit</dt><dd>2 ms</dd></div>
+          <div><dt>Result lifetime (TTL)</dt><dd>20 ms</dd></div>
         </dl>
       </div>
 
       <!-- Technical Download Resources Strip -->
       <div class="verification-links">
-        <a href="data/tinytapeout-report.json" id="tt-report-link" class="btn-action secondary small" download>Laporan Uji JSON ↓</a>
-        <a href="downloads/IGOR_DE10_NANO_READY.zip" class="btn-action secondary small" download>Paket Quartus Historis ↓</a>
+        <a href="data/tinytapeout-report.json" id="tt-report-link" class="btn-action secondary small" download>Test report JSON</a>
+        <a href="downloads/IGOR_DE10_NANO_READY.zip" class="btn-action secondary small" download>Historical Quartus package</a>
         <a href="downloads/igor.sof" class="btn-action secondary small" download>Bitstream .sof ↓</a>
-        <a href="downloads/TINYTAPEOUT_SOURCE.zip" class="btn-action secondary small" download>Kode TinyTapeout ↓</a>
+        <a href="downloads/TINYTAPEOUT_SOURCE.zip" class="btn-action secondary small" download>TinyTapeout code</a>
       </div>
 
       <!-- Scope & Power Details Disclosure -->
@@ -814,32 +809,33 @@
 
     <!-- Layout Viewer Link -->
     <section class="wrap stakeholder-section" id="readiness" aria-labelledby="readiness-title">
-      <div class="section-editorial-header"><h2 id="readiness-title">Dari prototipe ke penggunaan lapangan</h2><p>GARDA diusulkan sebagai komponen untuk diintegrasikan ke wahana, bukan sebagai pengganti seluruh drone.</p></div>
+      <div class="section-editorial-header"><h2 id="readiness-title">From prototype to field deployment</h2><p>GARDA is proposed as a component for integration into a vehicle, rather than a replacement for the entire drone.</p></div>
       <div class="stakeholder-grid">
-        <article><span class="font-mono">Bukti saat ini</span><h3>Komponen dan pengujian</h3><p>Hasil RTL, catatan build FPGA, dan uji antarmuka tersedia di tabel pengujian. Masing-masing berlaku pada konfigurasi dan revisi yang diuji.</p><a href="#verification">Periksa hasil pengujian</a></article>
-        <article><span class="font-mono">Langkah berikut</span><h3>Integrasi dan uji terawasi</h3><p>Rencana mencakup penyelesaian integrasi, pengujian hardware-in-the-loop drone, serta uji di lingkungan relevan sebelum operasi lapangan.</p></article>
-        <article><span class="font-mono">Model penerapan</span><h3>Pilot dengan kriteria penerimaan</h3><p>Operator dan tim menyepakati wahana, lingkungan, prosedur keselamatan, serta metrik. Risiko, energi, waktu inspeksi, dan biaya dibandingkan dengan kondisi awal.</p></article>
+        <article><span class="font-mono">Current evidence</span><h3>Components and testing</h3><p>RTL results, FPGA build records, and interface tests are available in the evidence table. Each applies to the tested configuration and revision.</p><a href="#verification">Review test results</a></article>
+        <article><span class="font-mono">Next steps</span><h3>Integration and supervised testing</h3><p>The plan covers integration, drone hardware-in-the-loop testing, and trials in relevant environments before field operations.</p></article>
+        <article><span class="font-mono">Deployment model</span><h3>A pilot with acceptance criteria</h3><p>Operators and the team agree on the vehicle, environment, safety procedures, and metrics. Risk, energy, inspection time, and cost are compared with a baseline.</p></article>
       </div>
-      <details class="stakeholder-details"><summary>Bagaimana menilai kelayakan biaya dan daya?</summary><p>Proposal merencanakan modul FPGA untuk tahap awal, dilanjutkan pengembangan chip dan lisensi IP. Target daya chip 20 mW belum merupakan hasil pengukuran produk. Harga, biaya integrasi, dukungan, dan pengembalian investasi harus divalidasi melalui pilot; belum ada penghematan PLN yang diklaim tercapai.</p></details>
+      <details class="stakeholder-details"><summary>How should cost and power feasibility be assessed?</summary><p>The proposal plans FPGA modules first, followed by chip development and IP licensing. The 20 mW chip power target is not a product measurement. Pricing, integration, support costs, and return on investment must be validated through a pilot; no realised PLN savings are claimed.</p></details>
     </section>
 
     <section class="wrap layout-link-section">
-      <a href="layout/index.html">Status dan viewer layout fisik TinyTapeout </a>
-      <p class="scope-note">Layout dipublikasikan bersama hasil pemeriksaan fisiknya.</p>
+      <a href="layout/index.html">TinyTapeout physical layout status and viewer</a>
+      <p class="scope-note">Layouts are published with their physical verification results.</p>
     </section>
 
+<section class="wrap people-section" id="people" aria-labelledby="people-title"><div class="people-heading"><p class="mono-eyebrow">THE TEAM</p><h2 id="people-title">The People Behind GARDA</h2><p>Bringing chip design, robotics, verification and industry insight together.</p></div><div class="people-grid"><article class="person-card"><span class="person-index">01</span><h3>William Anthony</h3><p class="person-role">Team lead</p><p>Chip architecture, RTL acceleration and hardware safety.</p></article><article class="person-card"><span class="person-index">02</span><h3>Karol Yangqian Poetracahya</h3><p class="person-role">AI and robotics software</p><p>Reinforcement learning, quantization and ROS 2 integration.</p></article><article class="person-card"><span class="person-index">03</span><h3>Brian Albar Hadian</h3><p class="person-role">Verification and security</p><p>RTL testbenches, fault injection and system security.</p></article><article class="person-card"><span class="person-index">04</span><h3>Bennaya Jonathan R. P. Siagian</h3><p class="person-role">Business and project strategy</p><p>Industry needs, project management and pitching.</p></article><article class="person-card"><span class="person-index">05</span><h3>Gregorius Yoga Robianto</h3><p class="person-role">Systems and energy</p><p>Robot integration, energy measurements and user validation.</p></article></div><p class="team-advisor">Research advisor: Anggera Bayuwindra, Ph.D. <span>Autonomous control and robotics</span></p></section>
     <!-- Editorial Closing: Statement, Actions, Hairline Footer Strip, Cropped Poster Wordmark -->
     <section class="editorial-closing wrap" aria-label="Penutup Editorial">
       <div class="closing-statement-box">
         <p class="mono-eyebrow">GARDA HACKATHON ITS 2026</p>
-        <h2 class="closing-title">AI menghitung.<br>Perangkat keras memeriksa.</h2>
+        <h2 class="closing-title"><span>AI computes.</span><br><span>Hardware checks.</span></h2>
         <p class="closing-desc">
-          Pelajari cara GARDA mengolah data dan memeriksa keluaran kendali. Lihat hasil pengujian serta batas implementasinya sebelum menilai kesiapan penggunaan.
+          Explore how GARDA processes sensor data and checks motion commands. Follow the demo, inspect the architecture and review the test evidence.
         </p>
 
         <div class="closing-actions">
           
-          <a class="btn-action secondary" href="downloads/IGOR_DE10_NANO_READY.zip" download>Unduh Paket Quartus (.zip) ↓</a>
+          <a class="btn-action secondary" href="downloads/IGOR_DE10_NANO_READY.zip" download>Download Quartus package</a>
         </div>
       </div>
 
