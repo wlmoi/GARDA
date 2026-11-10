@@ -3,7 +3,7 @@ import { evaluateGate, faultDescriptions } from './gate-model.js';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const colors = { host: '#2F5BFF', compute: '#3B64FF', memory: '#7C97FF', control: '#2F5BFF', safety: '#1A8A3E', neural: '#3B64FF', alternate: '#8E9099', asic: '#8E44AD' };
+const colors = { host: '#2F5BFF', compute: '#3B64FF', memory: '#7C97FF', control: '#2F5BFF', safety: '#1A8A3E', neural: '#3B64FF', alternate: '#8E9099', asic: '#9B7000' };
 let mode = 'board', selected, scene, catalog, report, sourceRequest = 0;
 let modules = [], ttModules = [];
 const canvas = $('scene');
@@ -47,7 +47,7 @@ function setupPreferences() {
   const themeToggle = $('theme-toggle'), languageToggle = $('language-toggle');
   let theme = 'dark', language = 'id';
   try {
-    theme = localStorage.getItem('garda-theme') || 'dark';
+    theme = localStorage.getItem('garda-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     language = localStorage.getItem('garda-language') || 'id';
   } catch (error) {
     console.warn('Preferences unavailable', error.message);
@@ -508,7 +508,7 @@ setupMotion();
 // Accessible compact navigation; engineering controls keep their own handlers.
 const mobileMenu = document.querySelector('.mobile-menu-toggle');
 const mainNavigation = document.getElementById('main-navigation');
-function closeNavigation(){mobileMenu?.setAttribute('aria-expanded','false');mainNavigation?.classList.remove('is-open');}
-mobileMenu?.addEventListener('click',()=>{const open=mobileMenu.getAttribute('aria-expanded')!=='true';mobileMenu.setAttribute('aria-expanded',String(open));mainNavigation?.classList.toggle('is-open',open);});
+function closeNavigation(){const wasOpen=mobileMenu?.getAttribute('aria-expanded')==='true';mobileMenu?.setAttribute('aria-expanded','false');mainNavigation?.classList.remove('is-open');if(wasOpen)mobileMenu.focus();}
+mobileMenu?.addEventListener('click',()=>{const open=mobileMenu.getAttribute('aria-expanded')!=='true';mobileMenu.setAttribute('aria-expanded',String(open));mainNavigation?.classList.toggle('is-open',open);if(open)mainNavigation?.querySelector('a')?.focus();});
 mainNavigation?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNavigation));
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeNavigation();});

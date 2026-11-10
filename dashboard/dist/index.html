@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#EFEFEE">
+  <meta name="theme-color" content="#151611">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("garda-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch{}</script>
   <meta name="description" content="GARDA mengembangkan chip refleks keselamatan untuk drone inspeksi jaringan listrik. Lihat demo, potensi manfaat bagi PLN, dan bukti pengujiannya.">
   <title>GARDA | Refleks keselamatan untuk drone inspeksi</title>
   <link rel="icon" href="assets/garda-mark.svg" type="image/svg+xml">
@@ -21,6 +22,7 @@
   <script type="module" src="cinematic-intro.js"></script>
   <script type="module" src="hero-motion.js"></script>
   <link rel="stylesheet" href="scroll-story.css">
+  <link rel="stylesheet" href="theme.css">
   <script type="module" src="scroll-story.js"></script>
 </head>
 <body>
@@ -58,7 +60,7 @@
     <!-- CHAPTER 01: Hero — Scroll-Driven Portal Hero -->
     <section class="intro wrap portal-hero" id="hero" aria-label="Bab 01: Identitas dan Portal Hero GARDA">
       <div class="portal-stage" aria-hidden="true">
-        <img src="assets/inspection-concept.svg" alt="" class="portal-image">
+        <img src="assets/garda-bulb.svg" alt="" class="portal-image">
         <span class="portal-wash"></span>
         <span class="portal-veil"></span>
         <span class="portal-panel portal-panel-left"></span>
@@ -70,7 +72,7 @@
         <p class="eyebrow hero-reveal is-visible" style="--reveal-delay:80ms">
           <span class="status-dot"></span> HACKATHON ITS 2026 GARDA
         </p>
-        <div class="event-identity"><img src="assets/seno-hackathon-2026.png" width="8125" height="2016" alt="SENO Hackathon 2026" decoding="async"><span>Proyek peserta SENO Hackathon ITS 2026</span></div>
+        <div class="event-identity"><img src="assets/logo.png" width="8125" height="2016" alt="SENO Hackathon 2026" decoding="async"><span>Proyek peserta SENO Hackathon ITS 2026</span></div>
         <h1 class="hero-reveal portal-title is-visible" data-i18n="hero.title"><span class="portal-title-left">Drone menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em></h1>
         <p class="lead hero-reveal is-visible" data-i18n="hero.lead">Drone inspeksi jaringan listrik perlu menghindari rintangan tanpa bergantung pada koneksi ke server. GARDA mengembangkan chip yang menghitung usulan koreksi gerak dan memeriksanya dengan gerbang keselamatan perangkat keras untuk membantu operator menjaga wahana dan aset.</p>
         <div class="hero-actions hero-reveal is-visible"><a class="hero-primary" href="#robot-demo" data-i18n="hero.explore">Lihat demo</a><a href="#solution" data-i18n="hero.play">Cara kerja dan manfaat</a></div>

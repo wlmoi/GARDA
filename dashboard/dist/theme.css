@@ -1,0 +1,19 @@
+/* One authoritative theme contract for the website and cinematic intro. */
+:root{color-scheme:light;--color-ground-primary:#FAFAF5;--color-ground-secondary:#F0F1E9;--color-surface:#FFFFFF;--color-ink-primary:#171B19;--color-ink-secondary:#62675E;--color-ink-muted:#62675E;--color-signal:#805D00;--color-signal-lift:#9B7000;--color-hairline:#DFE2D7;--color-hairline-strong:#8B9184;--color-inverted-ground:#151611;--color-inverted-surface:#202119;--color-inverted-ink:#F5F2E6;--color-inverted-muted:#ACAE9E;--color-inverted-hairline:#737764;--color-status-pass:#276B24;--color-status-alert:#B52828;--accent-fill:#E5B800;--accent-ink:#171B19;--paper:var(--color-ground-primary);--portal-bg:var(--color-ground-primary)}
+:root[data-theme="dark"]{color-scheme:dark;--color-ground-primary:#151611;--color-ground-secondary:#292A20;--color-surface:#202119;--color-ink-primary:#F5F2E6;--color-ink-secondary:#ACAE9E;--color-ink-muted:#ACAE9E;--color-signal:#F4D43F;--color-signal-lift:#E5A91C;--color-hairline:#3A3B2E;--color-hairline-strong:#737764;--color-status-pass:#A8DF18;--color-status-alert:#FF9890;--accent-fill:#F4D43F;--accent-ink:#171B19}
+:root[data-theme] body{background:var(--color-ground-primary);color:var(--color-ink-primary)}
+:root[data-theme] .topbar,:root[data-theme] .portal-stage{background:var(--color-ground-primary);color:var(--color-ink-primary)}
+:root[data-theme] .portal-title,:root[data-theme] .brand-label{color:var(--color-ink-primary)}
+:root[data-theme] .portal-title-right,:root[data-theme] .signal-dot{color:var(--color-signal)}
+:root[data-theme] .portal-hero .lead,:root[data-theme] .portal-hero .eyebrow,:root[data-theme] .hero-metrics span{color:var(--color-ink-secondary)}
+:root[data-theme] .hero-metrics strong{color:var(--color-ink-primary)}
+:root[data-theme] .hero-primary,:root[data-theme] .btn-action.primary{background:var(--accent-fill);border:1px solid var(--accent-fill);color:var(--accent-ink)}
+:root[data-theme] .btn-action.secondary,:root[data-theme] .btn-action.quiet,:root[data-theme] .site-settings button{background:var(--color-surface);color:var(--color-ink-primary);border:1px solid var(--color-hairline-strong)}
+:root[data-theme] .site-settings button:hover,:root[data-theme] nav a:hover{color:var(--color-signal);border-color:var(--color-signal)}
+:root[data-theme] nav a{color:var(--color-ink-primary)}
+:root[data-theme] .hero-metrics,:root[data-theme] .portal-copy .lead,:root[data-theme] .portal-copy .hero-actions{background:transparent;border:0}
+.rtl-current-card,.tt-status-panel,.gate-console{background:var(--color-surface);color:var(--color-ink-primary);border-color:var(--color-hairline-strong)}
+.stage,.robot-panel,.code-panel{background:var(--color-inverted-ground);color:var(--color-inverted-ink)}
+.portal-hero .portal-image{filter:none!important}.event-identity img{background:#fff}.brand-logo{object-fit:contain}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--color-signal);outline-offset:4px}
+@media(max-width:780px){.btn-action,.mode-tabs button,.viewport-controls button,.clock-controls button,.clock-layers button,.clock-options select,.robot-controls button,.robot-controls select{min-height:44px}.hero-qualification{max-width:100%}.portal-hero.wrap{padding-inline:0}.signal-story{min-height:0}}
