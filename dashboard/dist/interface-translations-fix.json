@@ -1,0 +1,1434 @@
+{
+ "3.556": [
+  "3,556",
+  "3.556"
+ ],
+ "71,12": [
+  "71.12",
+  "71,12"
+ ],
+ "71,12 µs": [
+  "71.12 µs",
+  "71,12 µs"
+ ],
+ "3,556": [
+  "3,556",
+  "3.556"
+ ],
+ "0 / 3.556": [
+  "0 / 3,556",
+  "0 / 3.556"
+ ],
+ "0 / 3,556": [
+  "0 / 3,556",
+  "0 / 3.556"
+ ],
+ "1,808": [
+  "1,808",
+  "1.808"
+ ],
+ "1,552": [
+  "1,552",
+  "1.552"
+ ],
+ "50.84%": [
+  "50.84%",
+  "50,84%"
+ ],
+ "43.64%": [
+  "43.64%",
+  "43,64%"
+ ],
+ "5.51%": [
+  "5.51%",
+  "5,51%"
+ ],
+ "100.00%": [
+  "100.00%",
+  "100,00%"
+ ],
+ "FC1 50.8%": [
+  "FC1 50.8%",
+  "FC1 50,8%"
+ ],
+ "FC2 43.6%": [
+  "FC2 43.6%",
+  "FC2 43,6%"
+ ],
+ "FC1 50.84%": [
+  "FC1 50.84%",
+  "FC1 50,84%"
+ ],
+ "FC2 43.64%": [
+  "FC2 43.64%",
+  "FC2 43,64%"
+ ],
+ "FC3 5.51%": [
+  "FC3 5.51%",
+  "FC3 5,51%"
+ ],
+ "RTL inference": [
+  "RTL inference:",
+  "Inferensi RTL:"
+ ],
+ "at a reference clock of 50 MHz": [
+  "at a 50 MHz reference clock",
+  "pada clock referensi 50 MHz"
+ ],
+ "Latensi = 3.556 siklus ÷ 50 MHz =": [
+  "Latency = 3,556 cycles ÷ 50 MHz =",
+  "Latensi = 3.556 siklus ÷ 50 MHz ="
+ ],
+ "16 Lane MAC Fixed-Point Q8.8 3.556 siklus": [
+  "16 MAC lanes · Q8.8 fixed point · 3,556 cycles",
+  "16 lane MAC · fixed point Q8.8 · 3.556 siklus"
+ ],
+ "3.556 siklus clock": [
+  "3,556 clock cycles",
+  "3.556 siklus clock"
+ ],
+ "3.556 siklus / 708 cocok": [
+  "3,556 cycles / 708 matched",
+  "3.556 siklus / 708 cocok"
+ ],
+ "71,12 µs (@ 50 MHz)": [
+  "71.12 µs (at 50 MHz)",
+  "71,12 µs (pada 50 MHz)"
+ ],
+ "Kalkulasi analitis: 3.556 siklus / 50.000.000 Hz": [
+  "Calculated: 3,556 cycles ÷ 50,000,000 Hz",
+  "Dihitung: 3.556 siklus ÷ 50.000.000 Hz"
+ ],
+ "3.303 ALMs / 64 M10K / 8 DSP": [
+  "3,303 ALMs / 64 M10K / 8 DSP",
+  "3.303 ALM / 64 M10K / 8 DSP"
+ ],
+ "3.084 vektor / 12 fault": [
+  "3,084 vectors / 12 faults",
+  "3.084 vektor / 12 fault"
+ ],
+ "3.084 VECTORS PASS": [
+  "3,084 VECTORS PASS",
+  "3.084 VEKTOR LULUS"
+ ],
+ "FC1 1.808 cycles": [
+  "FC1 · 1,808 cycles",
+  "FC1 · 1.808 siklus"
+ ],
+ "FC2 1.552 cycles": [
+  "FC2 · 1,552 cycles",
+  "FC2 · 1.552 siklus"
+ ],
+ "FC3 196 cycles": [
+  "FC3 · 196 cycles",
+  "FC3 · 196 siklus"
+ ],
+ "FC1 1.808 siklus": [
+  "FC1 · 1,808 cycles",
+  "FC1 · 1.808 siklus"
+ ],
+ "FC2 1.552 siklus": [
+  "FC2 · 1,552 cycles",
+  "FC2 · 1.552 siklus"
+ ],
+ "FC3 196 siklus": [
+  "FC3 · 196 cycles",
+  "FC3 · 196 siklus"
+ ],
+ "clock Parallel16, diuji lewat RTL": [
+  "clock cycles per Parallel16 inference, verified in RTL",
+  "siklus clock per inferensi Parallel16, terverifikasi di RTL"
+ ],
+ "Parallel16 clocks, RTL tested": [
+  "clock cycles per Parallel16 inference, verified in RTL",
+  "siklus clock per inferensi Parallel16, terverifikasi di RTL"
+ ],
+ "proyeksi core pada 50 MHz": [
+  "core latency, calculated at 50 MHz",
+  "latensi inti, dihitung pada 50 MHz"
+ ],
+ "core projection at 50 MHz": [
+  "core latency, calculated at 50 MHz",
+  "latensi inti, dihitung pada 50 MHz"
+ ],
+ "Cara kerja dan manfaat": [
+  "Read the GARDA proposal ↗",
+  "Baca proposal GARDA ↗"
+ ],
+ "Read the GARDA proposal ↗": [
+  "Read the GARDA proposal ↗",
+  "Baca proposal GARDA ↗"
+ ],
+ "Read the GARDA proposal": [
+  "Read the GARDA proposal",
+  "Baca proposal GARDA"
+ ],
+ "Choose an obstacle or emergency stop, press Play, and observe the motion response. This browser illustration is not evidence of flight testing or field safety.": [
+  "Choose a scenario, such as an obstacle or an emergency stop, press Play and watch how the motion responds. This is a browser illustration, not evidence from flight tests or field safety trials.",
+  "Pilih skenario, misalnya rintangan atau berhenti darurat, tekan Jalankan, lalu amati respons geraknya. Ini ilustrasi di browser, bukan bukti uji terbang atau uji keselamatan lapangan."
+ ],
+ "Emergency stop": [
+  "Emergency stop",
+  "Berhenti darurat"
+ ],
+ "Protective stop": [
+  "Protective stop",
+  "Berhenti pengaman"
+ ],
+ "Robotics references": [
+  "Robotics references",
+  "Referensi robotika"
+ ],
+ "Referensi inovasi robotik": [
+  "Robotics references",
+  "Referensi robotika"
+ ],
+ "A conceptual application of camera assistance and visual-feedback motion control. The reference inspires the demonstration; it does not establish clinical implementation.": [
+  "An example of camera assistance and motion control guided by visual feedback. It inspired this conceptual demo; it is not evidence of clinical use.",
+  "Contoh bantuan kamera dan kendali gerak yang dipandu umpan balik visual. Artikel ini menginspirasi demo konseptual ini, bukan bukti penggunaan klinis."
+ ],
+ "The 3D models are simplified illustrations. GARDA integration with Lite3, drones and surgical robots remains a design exploration.": [
+  "The 3D models are simplified illustrations. Integrating GARDA with Lite3, drones and surgical robots is still a design exploration.",
+  "Model 3D ini ilustrasi yang disederhanakan. Integrasi GARDA dengan Lite3, drone, dan robot bedah masih berupa eksplorasi desain."
+ ],
+ "Alur ilustrasi: LiDAR, RISC-V, 16 MAC, safety, robot": [
+  "Illustrated flow: LiDAR, RISC-V, 16 MAC, safety gate, robot",
+  "Alur ilustrasi: LiDAR, RISC-V, 16 MAC, pengaman, robot"
+ ],
+ "PERSPEKTIF ARSITEKTUR:": [
+  "Architecture view",
+  "Sudut pandang arsitektur"
+ ],
+ "COMPUTE (16 Lane MAC)": [
+  "Compute (16 MAC lanes)",
+  "Komputasi (16 lane MAC)"
+ ],
+ "CONTROL (Host & Peta)": [
+  "Control (host and map)",
+  "Kendali (host dan peta)"
+ ],
+ "SAFETY (Aturan Gerbang)": [
+  "Safety (gate rules)",
+  "Keselamatan (aturan gerbang)"
+ ],
+ "SIKLUS SAAT INI": [
+  "Current cycle",
+  "Siklus saat ini"
+ ],
+ "Current cycle": [
+  "Current cycle",
+  "Siklus saat ini"
+ ],
+ "LAYER AKTIF": [
+  "Active layer",
+  "Layer aktif"
+ ],
+ "KELOMPOK / 16 LANE": [
+  "Group of 16 lanes",
+  "Kelompok 16 lane"
+ ],
+ "WAKTU PADA 50 MHZ": [
+  "Time at 50 MHz",
+  "Waktu pada 50 MHz"
+ ],
+ "Input": [
+  "Input",
+  "Masukan"
+ ],
+ "Datapath aktif": [
+  "Datapath active",
+  "Datapath aktif"
+ ],
+ "Memory": [
+  "Memory",
+  "Memori"
+ ],
+ "SIMD accumulator": [
+  "SIMD accumulator",
+  "Akumulator SIMD"
+ ],
+ "ReLU and saturation": [
+  "ReLU and saturation",
+  "ReLU dan saturasi"
+ ],
+ "Aktivasi": [
+  "Activation",
+  "Aktivasi"
+ ],
+ "Auto-rotate": [
+  "Auto-rotate",
+  "Putar otomatis"
+ ],
+ "74 Fitur": [
+  "74 features",
+  "74 fitur"
+ ],
+ "Bias & Bobot": [
+  "Bias and weights",
+  "Bias dan bobot"
+ ],
+ "Output": [
+  "Output",
+  "Keluaran"
+ ],
+ "Output Tensor": [
+  "3 motion values (v, ω, heading)",
+  "3 nilai gerak (v, ω, arah)"
+ ],
+ "Array 16 Lane MAC Paralel": [
+  "16 parallel MAC lanes",
+  "16 lane MAC paralel"
+ ],
+ "Detail perhitungan & validasi RTL": [
+  "Calculation details and RTL validation",
+  "Detail perhitungan dan validasi RTL"
+ ],
+ "Tekan Play atau pilih clock untuk melihat fase perhitungan.": [
+  "Press Play or pick a cycle to see each calculation phase.",
+  "Tekan Putar atau pilih siklus untuk melihat tiap fase perhitungan."
+ ],
+ "Regresi RTL: 236 vektor dan 708 keluaran cocok 100%. Latensi 71,12 µs menggunakan clock 50 MHz pada arsitektur Parallel16.": [
+  "RTL regression: all 708 outputs from 236 test vectors match. The 71.12 µs latency is calculated for Parallel16 at 50 MHz.",
+  "Regresi RTL: seluruh 708 keluaran dari 236 vektor uji cocok. Latensi 71,12 µs dihitung untuk Parallel16 pada 50 MHz."
+ ],
+ "RTL regression: 236 vectors and 708 matching outputs. The 71.12 µs latency is calculated at 50 MHz for Parallel16.": [
+  "RTL regression: all 708 outputs from 236 test vectors match. The 71.12 µs latency is calculated for Parallel16 at 50 MHz.",
+  "Regresi RTL: seluruh 708 keluaran dari 236 vektor uji cocok. Latensi 71,12 µs dihitung untuk Parallel16 pada 50 MHz."
+ ],
+ "Select cycle": [
+  "Select a cycle",
+  "Pilih siklus"
+ ],
+ "Pilih clock": [
+  "Select a cycle",
+  "Pilih siklus"
+ ],
+ "Alamat bias kelompok ini disiapkan untuk dibaca.": [
+  "The bias address for this group is prepared for reading.",
+  "Alamat bias untuk kelompok ini disiapkan untuk dibaca."
+ ],
+ "Memori sinkron menyiapkan bias untuk setiap lane kelompok.": [
+  "Synchronous memory fetches the bias for each lane in the group.",
+  "Memori sinkron mengambil bias untuk setiap lane dalam kelompok."
+ ],
+ "Bias mengisi akumulator lane yang digunakan.": [
+  "The bias is loaded into the accumulator of each active lane.",
+  "Bias dimuat ke akumulator setiap lane yang aktif."
+ ],
+ "Input dipilih dan alamat bobot untuk kelompok ini disiapkan.": [
+  "The next input is selected and the weight address for this group is prepared.",
+  "Input berikutnya dipilih dan alamat bobot untuk kelompok ini disiapkan."
+ ],
+ "Memori sinkron menyiapkan bobot sebelum operasi MAC.": [
+  "Synchronous memory fetches the weights before the MAC step.",
+  "Memori sinkron mengambil bobot sebelum langkah MAC."
+ ],
+ "Satu input dikalikan dengan bobot lane; hasilnya ditambahkan ke akumulator.": [
+  "One input is multiplied by each lane's weight and added to its accumulator.",
+  "Satu input dikalikan dengan bobot tiap lane, lalu hasilnya ditambahkan ke akumulator."
+ ],
+ "Akumulator diaktifkan atau dibatasi, lalu hasil kelompok disimpan.": [
+  "The activation function (or output clipping) is applied and the group's results are stored.",
+  "Fungsi aktivasi (atau pembatasan keluaran) diterapkan, lalu hasil kelompok disimpan."
+ ],
+ "Akumulator diaktifkan atau dibatasi, lalu hasil kelompok disimpan. Tiga hasil membentuk residual keluaran.": [
+  "The activation function (or output clipping) is applied and the group's results are stored. The three results form the output residual.",
+  "Fungsi aktivasi (atau pembatasan keluaran) diterapkan, lalu hasil kelompok disimpan. Tiga hasil ini membentuk residual keluaran."
+ ],
+ "Belum ada kelompok yang berjalan.": [
+  "No group is running yet.",
+  "Belum ada kelompok yang berjalan."
+ ],
+ "Siap memulai inferensi": [
+  "Ready to start inference",
+  "Siap memulai inferensi"
+ ],
+ "Inferensi Deterministik.": [
+  "Deterministic inference.",
+  "Inferensi deterministik."
+ ],
+ "Terverifikasi Siklus per Siklus.": [
+  "Verified cycle by cycle.",
+  "Terverifikasi siklus demi siklus."
+ ],
+ "GARDA menjalankan inferensi neural langsung pada FPGA. Jumlah siklus core dapat diperiksa melalui pengujian RTL. Waktu respons seluruh robot masih memerlukan pengukuran tersendiri.": [
+  "GARDA runs neural inference on an FPGA. RTL tests confirm the core's cycle count. The response time of the whole robot still needs to be measured separately.",
+  "GARDA menjalankan inferensi neural langsung di FPGA. Pengujian RTL memastikan jumlah siklus inti. Waktu respons robot secara keseluruhan masih perlu diukur tersendiri."
+ ],
+ "*Latensi 71,12 µs merupakan hasil perhitungan analitis berdasarkan cycle count RTL yang terverifikasi dan frekuensi clock target 50 MHz. Bukan waktu respons fisik end-to-end seluruh sistem robot.": [
+  "*The 71.12 µs latency is calculated from the verified RTL cycle count at a 50 MHz target clock. It is not a measured end-to-end response time of the robot.",
+  "*Latensi 71,12 µs dihitung dari jumlah siklus RTL yang terverifikasi pada clock target 50 MHz. Angka ini bukan waktu respons end-to-end robot yang diukur."
+ ],
+ "Konfigurasi Tensor": [
+  "Tensor configuration",
+  "Konfigurasi tensor"
+ ],
+ "Jumlah Siklus": [
+  "Cycle count",
+  "Jumlah siklus"
+ ],
+ "Proporsi Waktu": [
+  "Share of time",
+  "Porsi waktu"
+ ],
+ "Total Siklus Inferensi Parallel16": [
+  "Total Parallel16 inference cycles",
+  "Total siklus inferensi Parallel16"
+ ],
+ "Metrik teruji pada testbench Verilog cycle-accurate dengan 236 stimulus acak dan deterministik. 100% keluaran biner cocok dengan model referensi numerik Python.": [
+  "A cycle-accurate Verilog testbench applies 236 random and fixed test inputs. Every binary output matches the Python reference model.",
+  "Testbench Verilog yang akurat per siklus menguji 236 masukan acak dan tetap. Seluruh keluaran biner cocok dengan model referensi Python."
+ ],
+ "Gambar Teknik Arsitektur Sistem": [
+  "System architecture diagram",
+  "Diagram arsitektur sistem"
+ ],
+ "Diagram fungsional sistem GARDA yang menghubungkan antarmuka host, memori costmap lokal, akselerator neural, evaluator trajektori, dan gerbang keselamatan hardware.": [
+  "GARDA links the host interface, local costmap memory, neural accelerator, trajectory evaluator and hardware safety gate.",
+  "GARDA menghubungkan antarmuka host, memori costmap lokal, akselerator neural, evaluator trajektori, dan gerbang keselamatan perangkat keras."
+ ],
+ "Fungsional arsitektur Tidak dalam skala fisik silikon": [
+  "Functional diagram, not a physical silicon floorplan",
+  "Diagram fungsional, bukan denah fisik silikon"
+ ],
+ "Menerima paket 8-byte terenkapsulasi CRC-8 dari ARM HPS pada 115200 baud. Mengatur konfigurasi robot, waypoint, dan kontrol mode.": [
+  "Receives 8-byte frames protected by CRC-8 from the ARM HPS at 115200 baud, and manages robot configuration, waypoints and operating modes.",
+  "Menerima frame 8 byte berpelindung CRC-8 dari ARM HPS pada 115200 baud, serta mengatur konfigurasi robot, waypoint, dan mode operasi."
+ ],
+ "Buffer lokal 128×128 (8-bit) dalam memori M10K FPGA. Mengisolasi pembacaan rintangan lingkungan tanpa membebani bus memori HPS.": [
+  "A local 128 × 128, 8-bit buffer in FPGA M10K memory, so obstacle reads never load the HPS memory bus.",
+  "Buffer lokal 128 × 128 (8 bit) di memori M10K FPGA, sehingga pembacaan rintangan tidak membebani bus memori HPS."
+ ],
+ "Mesin inferensi 16-lane SIMD MAC fixed-point Q8.8. Mengubah 74 fitur observasi menjadi keluaran trajektori dalam 3.556 siklus clock.": [
+  "A 16-lane SIMD MAC engine with Q8.8 fixed-point arithmetic turns 74 observation features into trajectory outputs in 3,556 clock cycles.",
+  "Mesin MAC SIMD 16 lane dengan aritmetika fixed point Q8.8 mengubah 74 fitur observasi menjadi keluaran trajektori dalam 3.556 siklus clock."
+ ],
+ "4 tile rollout memproyeksikan 512 kandidat trajektori DWA secara paralel. Memilih kombinasi (v, ω) dengan skor clearance tertinggi.": [
+  "Four rollout tiles simulate 512 candidate DWA trajectories in parallel and pick the (v, ω) pair with the best clearance score.",
+  "Empat tile rollout menyimulasikan 512 kandidat trajektori DWA secara paralel, lalu memilih pasangan (v, ω) dengan skor jarak aman terbaik."
+ ],
+ "4 Rollout Tiles 512 trajektori Skor 32-bit": [
+  "4 rollout tiles · 512 trajectories · 32-bit score",
+  "4 tile rollout · 512 trajektori · skor 32 bit"
+ ],
+ "Gerbang independen yang memverifikasi batas kinematik, integritas peta, watchdog 2 ms, dan TTL 20 ms. Intersepsi pemutus motor <1 µs.": [
+  "An independent gate checks kinematic limits, map integrity, a 2 ms watchdog and a 20 ms result lifetime. The target for cutting motor power is under 1 µs.",
+  "Gerbang independen memeriksa batas kinematik, integritas peta, watchdog 2 ms, dan umur hasil 20 ms. Target pemutusan daya motor di bawah 1 µs."
+ ],
+ "An independent gate checks kinematic limits, map integrity, a 2 ms watchdog and a 20 ms result lifetime. The specified motor-disable interception target is below 1 µs.": [
+  "An independent gate checks kinematic limits, map integrity, a 2 ms watchdog and a 20 ms result lifetime. The target for cutting motor power is under 1 µs.",
+  "Gerbang independen memeriksa batas kinematik, integritas peta, watchdog 2 ms, dan umur hasil 20 ms. Target pemutusan daya motor di bawah 1 µs."
+ ],
+ "Watchdog 2 ms TTL 20 ms Intersepsi <1 µs": [
+  "Watchdog 2 ms · TTL 20 ms · cut-off <1 µs (target)",
+  "Watchdog 2 ms · TTL 20 ms · pemutusan <1 µs (target)"
+ ],
+ "Intersepsi <1 µs": [
+  "Cut-off <1 µs (target)",
+  "Pemutusan <1 µs (target)"
+ ],
+ "512 Trajektori DWA": [
+  "512 DWA trajectories",
+  "512 trajektori DWA"
+ ],
+ "Selector 32-bit Score": [
+  "32-bit score selector",
+  "Pemilih skor 32 bit"
+ ],
+ "Result TTL: 20 ms": [
+  "Result TTL: 20 ms",
+  "TTL hasil: 20 ms"
+ ],
+ "Masukan host": [
+  "Host input",
+  "Masukan host"
+ ],
+ "Peta & konfigurasi": [
+  "Map and configuration",
+  "Peta dan konfigurasi"
+ ],
+ "Empat rollout tile": [
+  "Four rollout tiles",
+  "Empat tile rollout"
+ ],
+ "4 × 128 kandidat": [
+  "4 × 128 candidates",
+  "4 × 128 kandidat"
+ ],
+ "Pilih kandidat": [
+  "Select a candidate",
+  "Pilih kandidat"
+ ],
+ "skor 32 bit / indeks 9 bit": [
+  "32-bit score / 9-bit index",
+  "skor 32 bit / indeks 9 bit"
+ ],
+ "Gerbang izin": [
+  "Permission gate",
+  "Gerbang izin"
+ ],
+ "Pemeriksaan Board & Die Silikon": [
+  "Inspect the board and the RTL blocks",
+  "Periksa board dan blok RTL"
+ ],
+ "Model digital 3D target DE10-Lite MAX 10 (10M50DAF484C7G) dan pemetaan modul RTL. Model 3D merupakan ilustrasi konseptual, bukan layout komponen atau bukti implementasi fisik board.": [
+  "Explore a conceptual 3D model of the target DE10-Lite board (MAX 10, 10M50DAF484C7G) and GARDA's RTL modules. It is an illustration, not the board's real component layout or proof that the design runs on it.",
+  "Jelajahi model 3D konseptual dari board target DE10-Lite (MAX 10, 10M50DAF484C7G) dan modul RTL GARDA. Model ini ilustrasi, bukan tata letak komponen board yang sebenarnya atau bukti bahwa desain sudah berjalan di board."
+ ],
+ "Explore a conceptual 3D model of the target DE10-Lite MAX 10 (10M50DAF484C7G) and its RTL modules. The illustration is not a physical component layout or evidence of board implementation.": [
+  "Explore a conceptual 3D model of the target DE10-Lite board (MAX 10, 10M50DAF484C7G) and GARDA's RTL modules. It is an illustration, not the board's real component layout or proof that the design runs on it.",
+  "Jelajahi model 3D konseptual dari board target DE10-Lite (MAX 10, 10M50DAF484C7G) dan modul RTL GARDA. Model ini ilustrasi, bukan tata letak komponen board yang sebenarnya atau bukti bahwa desain sudah berjalan di board."
+ ],
+ "Isi RTL Silikon": [
+  "RTL blocks",
+  "Blok RTL"
+ ],
+ "RTL blocks": [
+  "RTL blocks",
+  "Blok RTL"
+ ],
+ "BOARD EXPLORER": [
+  "BOARD EXPLORER",
+  "PENJELAJAH BOARD"
+ ],
+ "LOGICAL RTL EXPLORER": [
+  "RTL LOGIC EXPLORER",
+  "PENJELAJAH LOGIKA RTL"
+ ],
+ "Dari masukan peta.": [
+  "From map input",
+  "Dari masukan peta"
+ ],
+ "Ke gerbang keputusan.": [
+  "to the decision gate.",
+  "hingga gerbang keputusan."
+ ],
+ "20 MODUL / 19 BERKAS": [
+  "20 MODULES / 19 FILES",
+  "20 MODUL / 19 BERKAS"
+ ],
+ "Board DE10-Lite.": [
+  "DE10-Lite board.",
+  "Board DE10-Lite."
+ ],
+ "Target FPGA MAX 10.": [
+  "MAX 10 FPGA target.",
+  "Target FPGA MAX 10."
+ ],
+ "FABRIC": [
+  "FPGA FABRIC",
+  "FABRIC FPGA"
+ ],
+ "INTERFACE": [
+  "INTERFACE",
+  "ANTARMUKA"
+ ],
+ "Gulir / cubit untuk zoom": [
+  "Scroll or pinch to zoom",
+  "Gulir atau cubit untuk memperbesar"
+ ],
+ "Scroll or pinch to zoom": [
+  "Scroll or pinch to zoom",
+  "Gulir atau cubit untuk memperbesar"
+ ],
+ "Pisah Lapisan": [
+  "Separate layers",
+  "Pisahkan lapisan"
+ ],
+ "Separate layers": [
+  "Separate layers",
+  "Pisahkan lapisan"
+ ],
+ "Reset Kamera ↺": [
+  "Reset camera",
+  "Atur ulang kamera"
+ ],
+ "Reset camera": [
+  "Reset camera",
+  "Atur ulang kamera"
+ ],
+ "Pisahkan lapisan board": [
+  "Separate the board layers",
+  "Pisahkan lapisan board"
+ ],
+ "Rotasi otomatis": [
+  "Auto-rotate",
+  "Putar otomatis"
+ ],
+ "Atur ulang kamera": [
+  "Reset camera",
+  "Atur ulang kamera"
+ ],
+ "Model 3D membutuhkan WebGL. Daftar modul dan kode sumber tetap dapat diakses di panel samping.": [
+  "The 3D view needs WebGL. The module list and source code are still available in the side panel.",
+  "Tampilan 3D membutuhkan WebGL. Daftar modul dan kode sumber tetap tersedia di panel samping."
+ ],
+ "Lihat Kode .v": [
+  "View Verilog",
+  "Lihat kode Verilog"
+ ],
+ "View Verilog": [
+  "View Verilog",
+  "Lihat kode Verilog"
+ ],
+ "Port & Bit Flow": [
+  "Ports and bit flow",
+  "Port dan aliran bit"
+ ],
+ "DAFTAR MODUL HARDWARE": [
+  "Hardware modules",
+  "Modul perangkat keras"
+ ],
+ "Hardware modules": [
+  "Hardware modules",
+  "Modul perangkat keras"
+ ],
+ "20 modul / 19 berkas": [
+  "20 modules in 19 files",
+  "20 modul dalam 19 berkas"
+ ],
+ "4 modul": [
+  "4 modules",
+  "4 modul"
+ ],
+ "Port dan Kode Verilog": [
+  "Ports and Verilog code",
+  "Port dan kode Verilog"
+ ],
+ "Antarmuka Modul (I/O)": [
+  "Module interface (I/O)",
+  "Antarmuka modul (I/O)"
+ ],
+ "Arah": [
+  "Direction",
+  "Arah"
+ ],
+ "Lebar": [
+  "Width",
+  "Lebar"
+ ],
+ "Unduh .v ↓": [
+  "Download .v ↓",
+  "Unduh .v ↓"
+ ],
+ "ALTERNATIF": [
+  "ALTERNATIVE",
+  "ALTERNATIF"
+ ],
+ "Source belum tersedia. Gunakan repository atau paket unduhan.": [
+  "Source not available yet. Use the repository or the download package.",
+  "Kode sumber belum tersedia. Gunakan repositori atau paket unduhan."
+ ],
+ "Menyinkronkan reset dan switch, menerjemahkan opcode UART ke DWA dan neural, lalu menampilkan status LED.": [
+  "Synchronizes reset and switches, turns UART opcodes into DWA and neural commands, and drives the status LEDs.",
+  "Menyinkronkan reset dan switch, menerjemahkan opcode UART menjadi perintah DWA dan neural, serta menyalakan LED status."
+ ],
+ "Top board DE10-Nano": [
+  "DE10-Nano board top level",
+  "Top level board DE10-Nano"
+ ],
+ "Opcode 8 membaca ROM": [
+  "Opcode 8 reads the ROM",
+  "Opcode 8 membaca ROM"
+ ],
+ "Opcode 9 membaca siklus DWA": [
+  "Opcode 9 reads the DWA cycle count",
+  "Opcode 9 membaca jumlah siklus DWA"
+ ],
+ "Opcode 10/11 memuat dan memulai neural": [
+  "Opcodes 10/11 load and start neural inference",
+  "Opcode 10/11 memuat dan memulai inferensi neural"
+ ],
+ "Opcode 12/13 membaca hasil dan siklus neural": [
+  "Opcodes 12/13 read the neural result and cycle count",
+  "Opcode 12/13 membaca hasil dan jumlah siklus neural"
+ ],
+ "Opcode 14 membaca kode v dan omega": [
+  "Opcode 14 reads the v and omega codes",
+  "Opcode 14 membaca kode v dan omega"
+ ],
+ "Pemilih kandidat": [
+  "Candidate selector",
+  "Pemilih kandidat"
+ ],
+ "Turnamen empat hasil": [
+  "Four-way tournament",
+  "Turnamen empat hasil"
+ ],
+ "Membandingkan empat hasil tile melalui dua tingkat comparator. Skor terkecil menang, lalu indeks terkecil saat seri.": [
+  "Compares the four tile results in two comparator stages. The lowest score wins; on a tie, the lowest index wins.",
+  "Membandingkan empat hasil tile melalui dua tingkat pembanding. Skor terkecil menang; jika seri, indeks terkecil yang menang."
+ ],
+ "indices 4 x 9 =36 bit": [
+  "indices 4 × 9 = 36 bits",
+  "indices 4 × 9 = 36 bit"
+ ],
+ "scores/costs/goals/velocities masing-masing 128 bit": [
+  "scores, costs, goals and velocities: 128 bits each",
+  "scores, costs, goals, dan velocities: masing-masing 128 bit"
+ ],
+ "Hasil index 9 bit + 4 critic 32 bit": [
+  "Result: 9-bit index + four 32-bit critic values",
+  "Hasil: indeks 9 bit + empat nilai critic 32 bit"
+ ],
+ "Pembangkit kandidat": [
+  "Candidate generator",
+  "Pembangkit kandidat"
+ ],
+ "Mendecode 9 bit indeks menjadi 16 kode kecepatan dan 32 kode belok, lalu memeriksa batas kecepatan serta perubahan dari command sebelumnya.": [
+  "Decodes a 9-bit index into one of 16 speed codes and 32 turn codes, then checks the speed limit and the change from the previous command.",
+  "Mendekode indeks 9 bit menjadi salah satu dari 16 kode kecepatan dan 32 kode belok, lalu memeriksa batas kecepatan serta perubahan dari perintah sebelumnya."
+ ],
+ "velocity 4 bit unsigned": [
+  "velocity: 4 bits, unsigned",
+  "velocity: 4 bit, unsigned"
+ ],
+ "omega 6 bit signed, -16 sampai 15": [
+  "omega: 6 bits, signed, −16 to 15",
+  "omega: 6 bit, signed, −16 sampai 15"
+ ],
+ "legal 1 bit": [
+  "legal: 1 bit",
+  "legal: 1 bit"
+ ],
+ "Konfigurasi terkunci": [
+  "Locked configuration",
+  "Konfigurasi terkunci"
+ ],
+ "Batas gerak": [
+  "Motion limits",
+  "Batas gerak"
+ ],
+ "Memuat konfigurasi 32 bit, memeriksa versi serta rentang, dan menolak write ketika terkunci atau planner sibuk.": [
+  "Loads a 32-bit configuration, checks its version and ranges, and rejects writes while locked or while the planner is busy.",
+  "Memuat konfigurasi 32 bit, memeriksa versi dan rentangnya, serta menolak penulisan saat terkunci atau saat planner sibuk."
+ ],
+ "max_v dan max_dv masing-masing 5 bit": [
+  "max_v and max_dv: 5 bits each",
+  "max_v dan max_dv: masing-masing 5 bit"
+ ],
+ "max_w dan max_dw masing-masing 7 bit": [
+  "max_w and max_dw: 7 bits each",
+  "max_w dan max_dw: masing-masing 7 bit"
+ ],
+ "locked, valid dan fault 1 bit": [
+  "locked, valid and fault: 1 bit each",
+  "locked, valid, dan fault: masing-masing 1 bit"
+ ],
+ "Memori costmap": [
+  "Costmap memory",
+  "Memori costmap"
+ ],
+ "Empat copy double buffer": [
+  "Four double-buffered copies",
+  "Empat salinan double buffer"
+ ],
+ "RAM synchronous 32.768 x 8 per instance. Dua frame 128 x 128 disimpan untuk satu port baca independen per tile.": [
+  "Synchronous 32,768 × 8 RAM per instance. It holds two 128 × 128 frames so each tile gets its own read port.",
+  "RAM sinkron 32.768 × 8 per instance. RAM ini menyimpan dua frame 128 × 128 agar setiap tile punya port baca sendiri."
+ ],
+ "4 instance": [
+  "4 instances",
+  "4 instance"
+ ],
+ "32 KiB per copy": [
+  "32 KiB per copy",
+  "32 KiB per salinan"
+ ],
+ "128 KiB total costmap": [
+  "128 KiB of costmap in total",
+  "Total costmap 128 KiB"
+ ],
+ "Data 8 bit": [
+  "Data: 8 bits",
+  "Data: 8 bit"
+ ],
+ "Alamat 15 bit": [
+  "Address: 15 bits",
+  "Alamat: 15 bit"
+ ],
+ "Pengelola costmap": [
+  "Costmap manager",
+  "Pengelola costmap"
+ ],
+ "Upload dan commit atomik": [
+  "Atomic upload and commit",
+  "Unggah dan commit atomik"
+ ],
+ "Memeriksa nomor urut, urutan alamat dan kelengkapan 16.384 byte sebelum mengganti bank aktif. Menghitung umur peta.": [
+  "Checks the sequence number, address order and that all 16,384 bytes arrived before switching the active bank. Also tracks the map's age.",
+  "Memeriksa nomor urut, urutan alamat, dan kelengkapan 16.384 byte sebelum mengganti bank aktif. Modul ini juga menghitung umur peta."
+ ],
+ "sequence dan age 32 bit": [
+  "sequence and age: 32 bits each",
+  "sequence dan age: masing-masing 32 bit"
+ ],
+ "write address 15 bit = bank 1 + cell 14": [
+  "Write address: 15 bits = 1 bank bit + 14 cell bits",
+  "Alamat tulis: 15 bit = 1 bit bank + 14 bit sel"
+ ],
+ "Replay dan commit parsial ditolak": [
+  "Replays and partial commits are rejected",
+  "Replay dan commit parsial ditolak"
+ ],
+ "Write dibroadcast ke empat copy": [
+  "Each write is broadcast to all four copies",
+  "Setiap penulisan disebarkan ke keempat salinan"
+ ],
+ "Wrapper scene alternatif": [
+  "Alternative scene wrapper",
+  "Wrapper scene alternatif"
+ ],
+ "Demo non-UART": [
+  "Non-UART demo",
+  "Demo tanpa UART"
+ ],
+ "Pembungkus scene lama dengan LED, switch dan core DWA. Berkas disertakan dalam proyek, tetapi bukan top aktif Quartus.": [
+  "An older scene wrapper with LEDs, switches and the DWA core. The file ships with the project but is not the active Quartus top level.",
+  "Wrapper scene lama dengan LED, switch, dan core DWA. Berkasnya ada di proyek, tetapi bukan top level Quartus yang aktif."
+ ],
+ "Tidak menjadi root proyek FPGA saat ini": [
+  "Not the root of the current FPGA project",
+  "Bukan root proyek FPGA saat ini"
+ ],
+ "Tidak punya port UART": [
+  "Has no UART port",
+  "Tidak punya port UART"
+ ],
+ "Pembaruan pose": [
+  "Pose update",
+  "Pembaruan pose"
+ ],
+ "Kinematika fixed point": [
+  "Fixed-point kinematics",
+  "Kinematika fixed point"
+ ],
+ "Menghitung next_x, next_y dan next_heading memakai perkalian displacement dengan lookup sinus/cosinus. Memeriksa overflow dan batas peta.": [
+  "Computes next_x, next_y and next_heading by multiplying the displacement with sine and cosine lookups, and checks for overflow and map bounds.",
+  "Menghitung next_x, next_y, dan next_heading dengan mengalikan perpindahan dengan nilai sinus dan kosinus dari tabel, lalu memeriksa overflow dan batas peta."
+ ],
+ "x dan y signed 24 bit": [
+  "x and y: 24 bits, signed",
+  "x dan y: 24 bit, signed"
+ ],
+ "heading unsigned 8 bit": [
+  "heading: 8 bits, unsigned",
+  "heading: 8 bit, unsigned"
+ ],
+ "2 instance trig LUT": [
+  "2 trig LUT instances",
+  "2 instance LUT trigonometri"
+ ],
+ "Sin/cos signed 16 bit": [
+  "sin/cos: 16 bits, signed",
+  "sin/cos: 16 bit, signed"
+ ],
+ "Inti neural FPGA": [
+  "FPGA neural core",
+  "Inti neural FPGA"
+ ],
+ "Inferensi Q8.8 serial": [
+  "Serial Q8.8 inference",
+  "Inferensi Q8.8 serial"
+ ],
+ "Wrapper FPGA untuk ROM bobot dan datapath neural 24-64-64-4. Jalur ini terpisah dari DWA.": [
+  "FPGA wrapper for the weight ROM and the 24-64-64-4 neural datapath. This path is separate from DWA.",
+  "Wrapper FPGA untuk ROM bobot dan datapath neural 24-64-64-4. Jalur ini terpisah dari DWA."
+ ],
+ "18192 siklus per inferensi": [
+  "18,192 cycles per inference",
+  "18.192 siklus per inferensi"
+ ],
+ "Input dan output signed 16 bit": [
+  "Inputs and outputs: 16 bits, signed",
+  "Input dan output: 16 bit, signed"
+ ],
+ "24 input": [
+  "24 inputs",
+  "24 input"
+ ],
+ "4 output": [
+  "4 outputs",
+  "4 output"
+ ],
+ "Datapath neural FPGA": [
+  "FPGA neural datapath",
+  "Datapath neural FPGA"
+ ],
+ "MAC serial dan aktivasi": [
+  "Serial MAC and activation",
+  "MAC serial dan aktivasi"
+ ],
+ "Satu perkalian signed 16 x 16 menghasilkan product 32 bit ke accumulator 40 bit. Hidden ReLU, output clipping -256..256.": [
+  "Each signed 16 × 16 multiply produces a 32-bit product that is added to a 40-bit accumulator. Hidden layers use ReLU; outputs are clipped to −256…256.",
+  "Setiap perkalian signed 16 × 16 menghasilkan product 32 bit yang ditambahkan ke akumulator 40 bit. Layer tersembunyi memakai ReLU; keluaran dibatasi −256…256."
+ ],
+ "Didefinisikan di garda_neural_core.v": [
+  "Defined in garda_neural_core.v",
+  "Didefinisikan di garda_neural_core.v"
+ ],
+ "24 input + 128 hidden + 4 output word": [
+  "24 input + 128 hidden + 4 output words",
+  "24 word input + 128 hidden + 4 output"
+ ],
+ "Single MAC lane": [
+  "Single MAC lane",
+  "Satu lane MAC"
+ ],
+ "Neural FPGA berbeda dengan dual-MAC ASIC": [
+  "The FPGA neural core differs from the dual-MAC ASIC version",
+  "Inti neural FPGA berbeda dari versi ASIC dual-MAC"
+ ],
+ "ROM model FPGA": [
+  "FPGA model ROM",
+  "ROM model FPGA"
+ ],
+ "6020 parameter Q8.8": [
+  "6,020 Q8.8 parameters",
+  "6.020 parameter Q8.8"
+ ],
+ "Membaca ROM synchronous 8192 x 16 dari berkas model unified padded. 6020 word berisi bobot dan bias.": [
+  "Reads a synchronous 8,192 × 16 ROM loaded from the padded unified model file. 6,020 words hold the weights and biases.",
+  "Membaca ROM sinkron 8.192 × 16 dari berkas model gabungan yang di-padding. 6.020 word berisi bobot dan bias."
+ ],
+ "Address 13 bit": [
+  "Address: 13 bits",
+  "Alamat: 13 bit"
+ ],
+ "Data signed 16 bit": [
+  "Data: 16 bits, signed",
+  "Data: 16 bit, signed"
+ ],
+ "File .mem harus ikut disalin": [
+  "The .mem file must be copied along with it",
+  "Berkas .mem harus ikut disalin"
+ ],
+ "Satu instance inferensi dan satu inspeksi UART": [
+  "One instance for inference, one for UART inspection",
+  "Satu instance untuk inferensi, satu untuk inspeksi UART"
+ ],
+ "Rollout tile": [
+  "Rollout tile",
+  "Tile rollout"
+ ],
+ "128 kandidat per evaluator": [
+  "128 candidates per evaluator",
+  "128 kandidat per evaluator"
+ ],
+ "FSM INIT, STEP, WAIT_RAM, SCORE, FINISH menelusuri 20 pose per kandidat, menolak collision atau overflow dan menyimpan kandidat terbaik lokal.": [
+  "An INIT → STEP → WAIT_RAM → SCORE → FINISH state machine traces 20 poses per candidate, rejects collisions and overflows, and keeps the best local candidate.",
+  "Mesin state INIT → STEP → WAIT_RAM → SCORE → FINISH menelusuri 20 pose per kandidat, menolak tabrakan dan overflow, lalu menyimpan kandidat lokal terbaik."
+ ],
+ "4 instance dengan TILE_ID 0 sampai 3": [
+  "4 instances, TILE_ID 0 to 3",
+  "4 instance, TILE_ID 0 sampai 3"
+ ],
+ "Indeks diinterleave dengan increment 4": [
+  "Indices are interleaved in steps of 4",
+  "Indeks diselang-seling dengan langkah 4"
+ ],
+ "128 x 20 pose per tile": [
+  "128 × 20 poses per tile",
+  "128 × 20 pose per tile"
+ ],
+ "Cell >=254 dianggap tidak legal": [
+  "Cells ≥ 254 are treated as not drivable",
+  "Sel ≥ 254 dianggap tidak bisa dilalui"
+ ],
+ "score = 16 x cost + goal + velocity penalty": [
+  "score = 16 × cost + goal + velocity penalty",
+  "skor = 16 × cost + goal + penalti kecepatan"
+ ],
+ "Gerbang keselamatan": [
+  "Safety gate",
+  "Gerbang keselamatan"
+ ],
+ "Izin akhir fail closed": [
+  "Final permission, fails closed",
+  "Izin akhir, gagal-tertutup"
+ ],
+ "Menghasilkan izin dan kode command hanya bila seluruh prasyarat terpenuhi. Reset, emergency, peta, konfigurasi, overflow, deadline, hasil dan batas gerak dapat menutup izin.": [
+  "Grants permission and outputs a command only when every precondition holds. Reset, emergency stop, map, configuration, overflow, deadline, result and motion-limit faults can all revoke it.",
+  "Memberi izin dan mengeluarkan perintah hanya jika semua prasyarat terpenuhi. Reset, berhenti darurat, peta, konfigurasi, overflow, tenggat, hasil, dan batas gerak dapat mencabut izin."
+ ],
+ "motor_enable 1 bit": [
+  "motor_enable: 1 bit",
+  "motor_enable: 1 bit"
+ ],
+ "v_command 5 bit unsigned": [
+  "v_command: 5 bits, unsigned",
+  "v_command: 5 bit, unsigned"
+ ],
+ "omega_command 7 bit signed": [
+  "omega_command: 7 bits, signed",
+  "omega_command: 7 bit, signed"
+ ],
+ "fault_code 8 bit, kode 1 sampai 11": [
+  "fault_code: 8 bits, codes 1 to 11",
+  "fault_code: 8 bit, kode 1 sampai 11"
+ ],
+ "Default semua keluaran gerak nol": [
+  "All motion outputs default to zero",
+  "Semua keluaran gerak bernilai nol secara default"
+ ],
+ "Akumulator skor": [
+  "Score accumulator",
+  "Akumulator skor"
+ ],
+ "Penjumlahan dengan overflow": [
+  "Addition with overflow check",
+  "Penjumlahan dengan deteksi overflow"
+ ],
+ "Menjumlahkan prior dan increment 32 bit melalui hasil antara 33 bit untuk mendeteksi carry.": [
+  "Adds a 32-bit prior and increment through a 33-bit intermediate result to detect the carry.",
+  "Menjumlahkan nilai prior dan increment 32 bit melalui hasil antara 33 bit untuk mendeteksi carry."
+ ],
+ "Input 2 x 32 bit": [
+  "Inputs: 2 × 32 bits",
+  "Input: 2 × 32 bit"
+ ],
+ "total 32 bit": [
+  "total: 32 bits",
+  "total: 32 bit"
+ ],
+ "overflow 1 bit": [
+  "overflow: 1 bit",
+  "overflow: 1 bit"
+ ],
+ "Pencatat status": [
+  "Status logger",
+  "Pencatat status"
+ ],
+ "Diagnostik gangguan": [
+  "Fault diagnostics",
+  "Diagnostik gangguan"
+ ],
+ "Menyimpan fault terakhir dan menambah penghitung saat terjadi perubahan fault sesuai kondisi logger.": [
+  "Stores the latest fault and increments a counter each time the fault changes.",
+  "Menyimpan fault terakhir dan menambah penghitung setiap kali fault berubah."
+ ],
+ "fault 8 bit": [
+  "fault: 8 bits",
+  "fault: 8 bit"
+ ],
+ "event counter 32 bit": [
+  "event counter: 32 bits",
+  "penghitung kejadian: 32 bit"
+ ],
+ "Pengendali DWA": [
+  "DWA controller",
+  "Pengendali DWA"
+ ],
+ "Planner empat tile": [
+  "Four-tile planner",
+  "Planner empat tile"
+ ],
+ "FSM IDLE, RUN, RESULT, FAULT mengelola konfigurasi, peta, empat rollout, pemilihan kandidat, deadline dan gerbang keluaran.": [
+  "An IDLE → RUN → RESULT → FAULT state machine manages configuration, the map, four rollouts, candidate selection, the deadline and the output gate.",
+  "Mesin state IDLE → RUN → RESULT → FAULT mengelola konfigurasi, peta, empat rollout, pemilihan kandidat, tenggat, dan gerbang keluaran."
+ ],
+ "4 evaluator paralel": [
+  "4 parallel evaluators",
+  "4 evaluator paralel"
+ ],
+ "512 kandidat total": [
+  "512 candidates in total",
+  "Total 512 kandidat"
+ ],
+ "Gerbang satu-satunya penggerak tiga output command": [
+  "The gate is the only driver of the three command outputs",
+  "Hanya gerbang yang menggerakkan tiga keluaran perintah"
+ ],
+ "Result lease dan map freshness default 1.000.000 siklus": [
+  "Result lease and map freshness default to 1,000,000 cycles",
+  "Masa berlaku hasil dan kesegaran peta default 1.000.000 siklus"
+ ],
+ "Lookup trigonometri": [
+  "Trigonometry lookup",
+  "Tabel trigonometri"
+ ],
+ "Sinus dan cosinus": [
+  "Sine and cosine",
+  "Sinus dan kosinus"
+ ],
+ "Memetakan fase 8 bit ke nilai sinus signed 16 bit. Cosinus memakai penambahan fase 64.": [
+  "Maps an 8-bit phase to a signed 16-bit sine value. Cosine is the same table shifted by a phase of 64.",
+  "Memetakan fase 8 bit ke nilai sinus signed 16 bit. Kosinus memakai tabel yang sama dengan pergeseran fase 64."
+ ],
+ "256 phase codes": [
+  "256 phase codes",
+  "256 kode fase"
+ ],
+ "value signed 16 bit": [
+  "value: 16 bits, signed",
+  "nilai: 16 bit, signed"
+ ],
+ "2 LUT per kinematic step": [
+  "2 LUTs per kinematic step",
+  "2 LUT per langkah kinematik"
+ ],
+ "Protokol UART": [
+  "UART protocol",
+  "Protokol UART"
+ ],
+ "Framing dan CRC8": [
+  "Framing and CRC-8",
+  "Framing dan CRC-8"
+ ],
+ "Menerima paket 8 byte, memvalidasi CRC8 polinomial 0x07, mengeluarkan opcode 8 bit dan payload 32 bit, lalu membalas snapshot 32 bit.": [
+  "Receives 8-byte packets, validates the CRC-8 (polynomial 0x07), outputs an 8-bit opcode and 32-bit payload, then replies with a 32-bit snapshot.",
+  "Menerima paket 8 byte, memvalidasi CRC-8 (polinomial 0x07), mengeluarkan opcode 8 bit dan payload 32 bit, lalu membalas dengan snapshot 32 bit."
+ ],
+ "Request A5 OP DATA[31:0] CRC 5A": [
+  "Request: A5 OP DATA[31:0] CRC 5A",
+  "Permintaan: A5 OP DATA[31:0] CRC 5A"
+ ],
+ "Response 5A OP DATA[31:0] CRC A5": [
+  "Response: 5A OP DATA[31:0] CRC A5",
+  "Balasan: 5A OP DATA[31:0] CRC A5"
+ ],
+ "Data little-endian": [
+  "Data is little-endian",
+  "Data little-endian"
+ ],
+ "Fault pada frame error, CRC salah atau timeout": [
+  "Faults on frame errors, bad CRC or timeout",
+  "Fault jika frame rusak, CRC salah, atau timeout"
+ ],
+ "Penerima UART": [
+  "UART receiver",
+  "Penerima UART"
+ ],
+ "Serial menjadi byte": [
+  "Serial to bytes",
+  "Serial menjadi byte"
+ ],
+ "Menyinkronkan RX dan mengambil satu byte 8 bit dengan sampling di tengah bit serta pemeriksaan stop bit.": [
+  "Synchronizes RX and captures one 8-bit byte by sampling mid-bit and checking the stop bit.",
+  "Menyinkronkan RX dan menangkap satu byte 8 bit dengan sampling di tengah bit serta memeriksa stop bit."
+ ],
+ "434 clock per bit pada 50 MHz": [
+  "434 clocks per bit at 50 MHz",
+  "434 clock per bit pada 50 MHz"
+ ],
+ "Flag valid dan error": [
+  "Valid and error flags",
+  "Flag valid dan error"
+ ],
+ "Pengirim UART": [
+  "UART transmitter",
+  "Pengirim UART"
+ ],
+ "Byte menjadi serial": [
+  "Bytes to serial",
+  "Byte menjadi serial"
+ ],
+ "Menggeser byte 8 bit ke TX dengan start bit dan stop bit, disertai sinyal busy.": [
+  "Shifts an 8-bit byte out on TX with start and stop bits and raises a busy signal.",
+  "Menggeser byte 8 bit keluar lewat TX dengan start bit dan stop bit, disertai sinyal busy."
+ ],
+ "434 clock per bit": [
+  "434 clocks per bit",
+  "434 clock per bit"
+ ],
+ "Antarmuka FPGA": [
+  "FPGA interface",
+  "Antarmuka FPGA"
+ ],
+ "Model gerbang keselamatan hardware terpisah. Proposal GARDA menetapkan batas umur hasil 20 ms dan watchdog inferensi 2 ms. Setiap anomali segera memutus motor_enable dalam <1 µs.": [
+  "A separate hardware safety gate checks every proposed command. The proposal sets a 20 ms result lifetime, a 2 ms inference watchdog and a target of under 1 µs to cut motor_enable.",
+  "Gerbang keselamatan perangkat keras yang terpisah memeriksa setiap perintah yang diusulkan. Proposal menetapkan umur hasil 20 ms, watchdog inferensi 2 ms, dan target pemutusan motor_enable di bawah 1 µs."
+ ],
+ "An independent hardware safety gate checks the proposed command. The proposal specifies a 20 ms result lifetime, a 2 ms inference watchdog and a motor-disable interception target below 1 µs.": [
+  "A separate hardware safety gate checks every proposed command. The proposal sets a 20 ms result lifetime, a 2 ms inference watchdog and a target of under 1 µs to cut motor_enable.",
+  "Gerbang keselamatan perangkat keras yang terpisah memeriksa setiap perintah yang diusulkan. Proposal menetapkan umur hasil 20 ms, watchdog inferensi 2 ms, dan target pemutusan motor_enable di bawah 1 µs."
+ ],
+ "Buka garda_safety_security_gate di Die RTL": [
+  "Open garda_safety_security_gate in the RTL view",
+  "Buka garda_safety_security_gate di tampilan RTL"
+ ],
+ "INJEKSI SINYAL MASUKAN & KONDISI FAULT": [
+  "Input signals and fault injection",
+  "Sinyal masukan dan injeksi fault"
+ ],
+ "Belum ready": [
+  "Not ready",
+  "Belum siap"
+ ],
+ "Fault aritmetika": [
+  "Arithmetic fault",
+  "Galat aritmetika"
+ ],
+ "Timeout": [
+  "Timeout",
+  "Waktu habis"
+ ],
+ "AI candidate speed (v)": [
+  "AI candidate speed (v)",
+  "Kecepatan kandidat AI (v)"
+ ],
+ "Signed AI turn rate (omega)": [
+  "AI turn rate, signed (omega)",
+  "Laju belok AI, bertanda ± (omega)"
+ ],
+ "Laju belok bertanda AI (omega)": [
+  "AI turn rate, signed (omega)",
+  "Laju belok AI, bertanda ± (omega)"
+ ],
+ "Semua kondisi valid.": [
+  "All conditions valid.",
+  "Semua kondisi valid."
+ ],
+ "Reset aktif.": [
+  "Reset active.",
+  "Reset aktif."
+ ],
+ "Emergency stop aktif.": [
+  "Emergency stop active.",
+  "Berhenti darurat aktif."
+ ],
+ "Protective stop aktif.": [
+  "Protective stop active.",
+  "Berhenti pengaman aktif."
+ ],
+ "Sistem belum ready.": [
+  "System not ready.",
+  "Sistem belum siap."
+ ],
+ "Costmap tidak valid.": [
+  "Invalid costmap.",
+  "Costmap tidak valid."
+ ],
+ "Konfigurasi tidak valid.": [
+  "Invalid configuration.",
+  "Konfigurasi tidak valid."
+ ],
+ "Fault aritmetika.": [
+  "Arithmetic fault.",
+  "Galat aritmetika."
+ ],
+ "Batas waktu terlampaui.": [
+  "Watchdog timeout.",
+  "Batas waktu watchdog terlampaui."
+ ],
+ "Hasil belum lengkap atau tidak valid.": [
+  "Result incomplete or invalid.",
+  "Hasil belum lengkap atau tidak valid."
+ ],
+ "Perintah melampaui batas v atau omega.": [
+  "Command exceeds the v or omega limit.",
+  "Perintah melampaui batas v atau omega."
+ ],
+ "Perubahan perintah melampaui batas delta.": [
+  "Command change exceeds the delta limit.",
+  "Perubahan perintah melampaui batas delta."
+ ],
+ "Kategori Bukti": [
+  "Evidence category",
+  "Kategori bukti"
+ ],
+ "Target Sub-Sistem": [
+  "Subsystem",
+  "Subsistem"
+ ],
+ "Metrik / Hasil Pengujian": [
+  "Metric or test result",
+  "Metrik atau hasil uji"
+ ],
+ "Metodologi & Validasi": [
+  "Method and validation",
+  "Metode dan validasi"
+ ],
+ "Status Verifikasi": [
+  "Verification status",
+  "Status verifikasi"
+ ],
+ "Verification status": [
+  "Verification status",
+  "Status verifikasi"
+ ],
+ "236 stimulus uji floating vs fixed-point Q8.8 cocok 100%": [
+  "236 test inputs; every output matches the Q8.8 reference",
+  "236 masukan uji; semua keluaran cocok dengan referensi Q8.8"
+ ],
+ "236 test inputs, 100% match against the Q8.8 reference": [
+  "236 test inputs; every output matches the Q8.8 reference",
+  "236 masukan uji; semua keluaran cocok dengan referensi Q8.8"
+ ],
+ "Latensi Inti Inferensi": [
+  "Inference core latency",
+  "Latensi inti inferensi"
+ ],
+ "PROYEKSI CLOCK": [
+  "CALCULATED",
+  "DIHITUNG"
+ ],
+ "Clock projection": [
+  "CALCULATED",
+  "DIHITUNG"
+ ],
+ "Laporan fit historis arsitektur 8-lane pada Cyclone V": [
+  "Historical Cyclone V fit report for the 8-lane architecture",
+  "Laporan fit historis arsitektur 8 lane pada Cyclone V"
+ ],
+ "Kecocokan 100% antara simulator browser dan Verilog gate": [
+  "The browser model and the Verilog gate agree on every vector",
+  "Model browser dan gerbang Verilog cocok di semua vektor"
+ ],
+ "100% agreement between the browser model and Verilog gate": [
+  "The browser model and the Verilog gate agree on every vector",
+  "Model browser dan gerbang Verilog cocok di semua vektor"
+ ],
+ "Simulasi 3D Robot & LiDAR": [
+  "3D robot and LiDAR simulation",
+  "Simulasi 3D robot dan LiDAR"
+ ],
+ "Visualisasi terjemahan trajektori DWA ke gerak kinematis": [
+  "Shows DWA trajectories turned into kinematic motion",
+  "Menampilkan trajektori DWA yang diubah menjadi gerak kinematik"
+ ],
+ "100 vektor, 400 keluaran cocok, 6,020 kata, 3,080 clock.": [
+  "100 vectors and 400 outputs matched; 6,020-word model; 3,080 clock cycles.",
+  "100 vektor dan 400 keluaran cocok; model 6.020 word; 3.080 siklus clock."
+ ],
+ "100 vectors and 400 outputs matched; 6,020-word model, 3,080 clock cycles.": [
+  "100 vectors and 400 outputs matched; 6,020-word model; 3,080 clock cycles.",
+  "100 vektor dan 400 keluaran cocok; model 6.020 word; 3.080 siklus clock."
+ ],
+ "Regresi RTL & aktivitas JSON ↓": [
+  "RTL regression and activity (JSON) ↓",
+  "Regresi RTL dan aktivitas (JSON) ↓"
+ ],
+ "Chip Tiny Tapeout implementasi fisik": [
+  "Tiny Tapeout chip, physical implementation",
+  "Implementasi fisik chip Tiny Tapeout"
+ ],
+ "Tiny Tapeout chip physical implementation": [
+  "Tiny Tapeout chip, physical implementation",
+  "Implementasi fisik chip Tiny Tapeout"
+ ],
+ "Referensi pin historis DE10-Nano (bukan pin DE10-Lite)": [
+  "Historical DE10-Nano pin reference (not DE10-Lite pins)",
+  "Referensi pin historis DE10-Nano (bukan pin DE10-Lite)"
+ ],
+ "Batas Watchdog": [
+  "Watchdog limit",
+  "Batas watchdog"
+ ],
+ "Masa Berlaku Hasil (TTL)": [
+  "Result lifetime (TTL)",
+  "Masa berlaku hasil (TTL)"
+ ],
+ "Source RTL inti neural (zip)": [
+  "Neural core RTL source (zip)",
+  "Kode sumber RTL inti neural (zip)"
+ ],
+ "Neural core RTL source (zip)": [
+  "Neural core RTL source (zip)",
+  "Kode sumber RTL inti neural (zip)"
+ ],
+ "Unduh Paket Quartus (.zip) ↓": [
+  "Download the Quartus package (.zip) ↓",
+  "Unduh paket Quartus (.zip) ↓"
+ ],
+ "Download Quartus package": [
+  "Download the Quartus package (.zip) ↓",
+  "Unduh paket Quartus (.zip) ↓"
+ ],
+ "Prototipe yang berjalan dan bukti": [
+  "Working prototype and evidence",
+  "Prototipe yang berfungsi dan bukti"
+ ],
+ "Working prototype and evidence": [
+  "Working prototype and evidence",
+  "Prototipe yang berfungsi dan bukti"
+ ],
+ "Uji responsnya dengan kontrol fault.": [
+  "Test its response with the fault controls.",
+  "Uji responsnya dengan tombol simulasi fault."
+ ],
+ "The safety gate checks permission conditions. Test its response using fault controls.": [
+  "The safety gate checks whether a command is allowed. Try it with the fault controls.",
+  "Gerbang keselamatan memeriksa apakah perintah boleh dijalankan. Coba dengan tombol simulasi fault."
+ ],
+ "Bab 01: Identitas dan Portal Hero GARDA": [
+  "Chapter 01: GARDA introduction",
+  "Bab 01: Pengenalan GARDA"
+ ],
+ "Bab 02: Pernyataan dan Bukti Kinerja Perangkat Keras": [
+  "Chapter 02: Hardware performance and evidence",
+  "Bab 02: Kinerja perangkat keras dan buktinya"
+ ],
+ "Bab 03: Arsitektur Perangkat Keras dan Gambar Teknik": [
+  "Chapter 03: Hardware architecture and diagrams",
+  "Bab 03: Arsitektur perangkat keras dan diagram"
+ ],
+ "Bab 04: Penjelajah Perangkat Keras Board DE10-Lite dan Die RTL": [
+  "Chapter 04: DE10-Lite board and RTL explorer",
+  "Bab 04: Penjelajah board DE10-Lite dan RTL"
+ ],
+ "Bab 06: Gerbang Keselamatan Hardware dan Pengambilan Keputusan": [
+  "Chapter 06: Hardware safety gate and decisions",
+  "Bab 06: Gerbang keselamatan perangkat keras dan keputusan"
+ ],
+ "Bab 07: Bukti Verifikasi, Tabel Spesifikasi, dan Sumber Daya": [
+  "Chapter 07: Verification evidence, specifications and downloads",
+  "Bab 07: Bukti verifikasi, spesifikasi, dan unduhan"
+ ],
+ "Pilihan tampilan board atau die": [
+  "Choose the board or RTL view",
+  "Pilih tampilan board atau RTL"
+ ],
+ "Model 3D interaktif board DE10-Nano dan modul RTL GARDA.": [
+  "Interactive 3D model of the DE10-Lite board and GARDA's RTL modules.",
+  "Model 3D interaktif board DE10-Lite dan modul RTL GARDA."
+ ],
+ "Detail blok hardware terpilih": [
+  "Selected hardware block details",
+  "Detail blok perangkat keras terpilih"
+ ],
+ "Cari nama modul atau port…": [
+  "Search module or port name…",
+  "Cari nama modul atau port…"
+ ],
+ "Daftar blok hardware": [
+  "Hardware block list",
+  "Daftar blok perangkat keras"
+ ],
+ "Tutup detail": [
+  "Close details",
+  "Tutup detail"
+ ],
+ "Pilihan perspektif arsitektur": [
+  "Architecture view options",
+  "Pilihan sudut pandang arsitektur"
+ ],
+ "Fase komputasi": [
+  "Computation phases",
+  "Fase komputasi"
+ ],
+ "Visualisasi jalur komputasi Parallel16": [
+  "Parallel16 computation path",
+  "Jalur komputasi Parallel16"
+ ],
+ "Alur data ilustrasi": [
+  "Illustrated data flow",
+  "Alur data ilustrasi"
+ ],
+ "Cara kerja GARDA": [
+  "How GARDA works",
+  "Cara kerja GARDA"
+ ],
+ "Penutup Editorial": [
+  "Closing",
+  "Penutup"
+ ],
+ "Search results pengujian": [
+  "Search test results",
+  "Cari hasil pengujian"
+ ],
+ "Close menu": [
+  "Close menu",
+  "Tutup menu"
+ ]
+}

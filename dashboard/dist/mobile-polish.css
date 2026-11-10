@@ -179,3 +179,44 @@ html.gloss-hover, html.gloss-hover * { cursor: help !important; }
   .clock-layers button, .mode-tabs button, #tab-board, #tab-die, #show-ports { min-height: 44px; }
   button, a, summary, select, input { touch-action: manipulation; }
 }
+
+/* ---------- board / RTL explorer: nothing may overlap on narrow screens ---------- */
+.viewport-toolbar { flex-wrap: wrap; gap: 8px 12px; }
+#mode-chip { min-width: 0; overflow-wrap: anywhere; }
+.viewport-controls { flex-wrap: wrap; gap: 10px 16px; }
+.viewport-hint { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.controls-actions { flex-wrap: wrap; }
+#legend button > span:not(.swatch) { min-width: 0; flex: 1 1 auto; }
+#legend button small { min-width: 0; max-width: 48%; overflow-wrap: anywhere; text-align: right; }
+.gate-sliders label { overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .viewport-toolbar { padding: 10px 12px; }
+  .mode-tabs { flex: 1 1 100%; }
+  .mode-tabs button { flex: 1 1 0; padding: 6px 8px; letter-spacing: .04em; }
+  #mode-chip { flex: 1 1 100%; }
+  .stage-corner.top-left { top: 14px; left: 14px; right: 14px; }
+  .stage-corner.bottom-left { left: 14px; bottom: 56px; }
+  .stage-corner.bottom-right { left: 14px; right: auto; bottom: 14px; text-align: left; }
+  .corner-title { font-size: 18px; }
+  .viewport-controls { flex-direction: column; align-items: stretch; padding: 12px; }
+  .controls-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .controls-actions button { padding: 6px 4px; line-height: 1.25; white-space: normal; }
+}
+/* robot pipeline chips: size columns to their labels so long words (e.g. "Keselamatan") fit */
+@media (max-width: 480px) {
+  .robot-panel .robot-path { grid-template-columns: repeat(5, auto); justify-content: space-between; }
+  .robot-panel .robot-path span { padding: 8px 3px; font-size: 9.5px; white-space: nowrap; letter-spacing: 0; }
+}
+@media (max-width: 640px) {
+  #legend button { flex-wrap: wrap; row-gap: 2px; }
+  #legend button small { flex: 1 1 100%; max-width: none; padding-left: 18px; text-align: left; overflow-wrap: anywhere; }
+}
+.gate-sliders input[type="range"] { box-sizing: border-box; max-width: 100%; margin-inline: 0; }
+/* dataflow strip: keep whole words ("Activation", "accumulator") on two-column phones */
+@media (max-width: 780px) {
+  .dataflow-node { overflow-wrap: break-word !important; hyphens: manual; }
+}
+@media (max-width: 420px) {
+  .dataflow-node { padding: 10px 8px; }
+  .dataflow-node strong { font-size: 13px; }
+}

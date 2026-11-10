@@ -12,7 +12,8 @@ const layers = [
   {name: 'FC3', start: 3361, inputs: 64, outputs: 3, groups: 1}
 ];
 let timer = null;
-const format = n => n.toLocaleString('en-US');
+const locale = () => document.documentElement.lang === 'id' ? 'id-ID' : 'en-US';
+const format = n => n.toLocaleString(locale());
 function describeClock(cycle) {
   if (cycle === 0) return {phase: null, detail: 'Siap memulai inferensi'};
   const layer = [...layers].reverse().find(item => cycle >= item.start);
@@ -66,9 +67,9 @@ function renderFlow(current, cycle) {
 }
 function render() {
   const cycle = Number(slider.value), current = describeClock(cycle);
-  document.getElementById('clock-number').textContent = `${format(cycle)} / 3,556`;
-  document.getElementById('clock-range').textContent = `${format(cycle)} / 3,556`;
-  document.getElementById('clock-time').textContent = `${(cycle / 50).toLocaleString('id-ID', {maximumFractionDigits: 2})} µs`;
+  document.getElementById('clock-number').textContent = `${format(cycle)} / ${format(3556)}`;
+  document.getElementById('clock-range').textContent = `${format(cycle)} / ${format(3556)}`;
+  document.getElementById('clock-time').textContent = `${(cycle / 50).toLocaleString(locale(), {maximumFractionDigits: 2})} µs`;
   document.getElementById('clock-layer').textContent = current.layer?.name || 'Siap';
   document.getElementById('clock-group').textContent = current.layer ? `${current.group} / ${current.layer.groups}` : '—';
   document.getElementById('clock-detail').textContent = current.layer ? `${current.detail} , kelompok ${current.group}` : current.detail;
@@ -120,6 +121,7 @@ play.addEventListener('click', () => {
 reducedMotion.addEventListener('change', event => { if (event.matches) stop(); });
 document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
 render();
+document.addEventListener("garda-language", () => setTimeout(render, 0));
 
 // Educational synchronization; robot timeline is not measured inference data.
 document.addEventListener("garda-demo-frame", event => { if(timer!==null) stop(); setCycle(event.detail.clock); });

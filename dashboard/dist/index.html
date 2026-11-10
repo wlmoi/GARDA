@@ -19,8 +19,8 @@
   <link rel="stylesheet" href="style.css?v=editorial1">
   <script src="vendor/gsap.min.js?v=3.15.1"></script>
   <script src="vendor/ScrollTrigger.min.js?v=3.15.1"></script>
-  <script type="module" src="app.js?v=editorial3"></script>
-  <script type="module" src="localization.js?v=2"></script>
+  <script type="module" src="app.js?v=i18n4"></script>
+  <script type="module" src="localization.js?v=3"></script>
   <script type="module" src="verification-table.js?v=3"></script>
   <script type="module" src="cinematic-intro.js?v=2"></script>
   <script type="module" src="hero-motion.js?v=3"></script>
@@ -34,7 +34,7 @@
   <script type="module" src="inference-guide.js"></script>
   <link rel="stylesheet" href="ui-controls.css">
   <link rel="stylesheet" href="proposal-viewer.css">
-  <link rel="stylesheet" href="mobile-polish.css?v=judge4">
+  <link rel="stylesheet" href="mobile-polish.css?v=ov2">
   <link rel="stylesheet" href="judge-mode.css?v=judge2">
   <script type="module" src="judge-mode.js?v=judge3"></script>
   <script type="module" src="silicon-3d.js?v=1"></script>
@@ -584,10 +584,6 @@
               <span class="corner-id" id="stage-kicker">BOARD / DE10-LITE</span>
               <h3 class="corner-title" id="stage-title">Satu board.<br>Two computing domains.</h3>
             </div>
-            <div class="stage-corner top-right">
-              <span class="corner-id">IC / 10M50DAF484C7G</span>
-              <span class="corner-val" data-i18n="judge-mode">Tapeout target: GARDA-chip, IHP SG13CMOS5L 130 nm</span>
-            </div>
             <div class="stage-corner bottom-left">
               <span class="corner-id">FABRIC</span>
               <span class="corner-val">FPGA Intel MAX 10</span>
@@ -599,10 +595,10 @@
           </div>
 
           <div class="viewport-controls">
-            <p><span aria-hidden="true">↔</span>Drag to rotate<span class="control-divider"></span>Scroll or pinch to zoom</p>
+            <p class="viewport-hint"><span aria-hidden="true">↔</span> <span>Drag to rotate</span> <span class="control-divider" aria-hidden="true"></span> <span>Scroll or pinch to zoom</span></p>
             <div class="controls-actions">
               <button type="button" id="explode" aria-pressed="false" title="Pisahkan lapisan board">Separate layers</button>
-              <button type="button" id="rotate" aria-pressed="false" title="Rotasi otomatis">Play</button>
+              <button type="button" id="rotate" aria-pressed="false" title="Rotasi otomatis">Auto-rotate</button>
               <button type="button" id="reset-camera" title="Atur ulang kamera">Reset camera</button>
             </div>
           </div>
@@ -898,7 +894,7 @@
  <p class="proposal-status" role="status" aria-live="polite">Loading proposal…</p><div class="proposal-pages"><canvas role="img" aria-label="GARDA proposal page"></canvas><div class="proposal-accessible-text"></div></div>
 </dialog>
   <div id="toast" class="toast" role="status" hidden></div>
-  <script type="module" src="clock-explorer.js?v=editorial1"></script>
+  <script type="module" src="clock-explorer.js?v=i18n2"></script>
   <script type="module" src="robot-view.js?v=editorial1"></script>
 </body>
 </html>

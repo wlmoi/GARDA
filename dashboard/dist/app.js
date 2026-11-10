@@ -21,9 +21,9 @@ const translations = {
     'hero.title': '<span class="portal-title-left"><a class=\"hero-term-link\" href=\"https://halorobotics.com/transmisi-pln-drone-inspeksi/\" target=\"_blank\" rel=\"noopener\">Drone</a> menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em>',
     'hero.lead': 'Drone inspeksi jaringan listrik perlu menghindari rintangan tanpa bergantung pada koneksi ke server. GARDA mengembangkan chip yang menghitung usulan koreksi gerak dan memeriksanya dengan gerbang keselamatan perangkat keras untuk membantu operator menjaga wahana dan aset.',
     'hero.explore': 'Lihat demo',
-    'hero.play': 'Cara kerja dan manfaat',
-    'hero.metricCycles': 'clock Parallel16, diuji lewat RTL',
-    'hero.metricTime': 'proyeksi core pada 50 MHz'
+    'hero.play': 'Baca proposal GARDA ↗',
+    'hero.metricCycles': 'siklus clock per inferensi Parallel16, terverifikasi di RTL',
+    'hero.metricTime': 'latensi inti, dihitung pada 50 MHz'
   },
   en: {
     'hero.stage':'Research prototype. The browser demo is a simulation; deployment on PLN inspection drones still requires a pilot.',
@@ -36,9 +36,9 @@ const translations = {
     'hero.title': '<span class="portal-title-left"><a class=\"hero-term-link\" href=\"https://halorobotics.com/transmisi-pln-drone-inspeksi/\" target=\"_blank\" rel=\"noopener\">Drones</a> inspect.</span><br><em class="portal-title-right">GARDA keeps watch.</em>',
     'hero.lead': 'Power-line inspection drones need to avoid obstacles without depending on a server connection. GARDA is developing a chip that computes proposed motion corrections and checks them with a hardware safety gate to help operators protect vehicles and assets.',
     'hero.explore': 'Watch the demo',
-    'hero.play': 'Read the GARDA proposal',
-    'hero.metricCycles': 'Parallel16 clocks, RTL tested',
-    'hero.metricTime': 'core projection at 50 MHz'
+    'hero.play': 'Read the GARDA proposal ↗',
+    'hero.metricCycles': 'clock cycles per Parallel16 inference, verified in RTL',
+    'hero.metricTime': 'core latency, calculated at 50 MHz'
   }
 };
 
