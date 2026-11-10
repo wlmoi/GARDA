@@ -128,7 +128,7 @@
 .judge-btn-main svg { width: 22px; height: 22px; }
 .judge-btn-text { margin-left: auto; padding: 0 14px; }
 .judge-btn-exit { flex: none; }
-.judge-hud.is-paused .judge-kicker .judge-count::after { content: " · paused"; color: var(--judge-muted); }
+.judge-hud.is-paused .judge-kicker .judge-count::after { content: "❚❚ paused"; margin-left: .6em; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--judge-line); color: var(--judge-muted); letter-spacing: .04em; }
 .judge-hud.is-done [data-judge="prev"], .judge-hud.is-done [data-judge="next"], .judge-hud.is-done [data-judge="replay"] { display: none; }
 .judge-hud.is-done .judge-btn-exit { margin-left: auto; }
 

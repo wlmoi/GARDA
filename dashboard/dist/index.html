@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#151611">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem("garda-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch{}</script>
+  <script>/* first visit: cover the page from the first frame so the intro never flashes the content; never longer than 6 s */try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&(sessionStorage.getItem("garda-boot-seen")!=="1"||/[?&]intro\b/.test(location.search))){document.documentElement.classList.add("gi-pending");setTimeout(function(){document.documentElement.classList.remove("gi-pending")},6000)}}catch(e){}</script>
+  <style>html.gi-pending::after{content:"";position:fixed;inset:0;z-index:99999;background:#070B20}</style>
   <meta name="description" content="GARDA mengembangkan chip refleks keselamatan untuk drone inspeksi jaringan listrik. Lihat demo, potensi manfaat bagi PLN, dan bukti pengujiannya.">
   <title>GARDA | Hardware safety for inspection drones</title>
   <link rel="icon" href="assets/garda-mark.svg" type="image/svg+xml">
@@ -20,8 +22,8 @@
   <script type="module" src="app.js?v=editorial1"></script>
   <script type="module" src="localization.js"></script>
   <script type="module" src="verification-table.js"></script>
-  <script type="module" src="cinematic-intro.js"></script>
-  <script type="module" src="hero-motion.js"></script>
+  <script type="module" src="cinematic-intro.js?v=2"></script>
+  <script type="module" src="hero-motion.js?v=2"></script>
   <link rel="stylesheet" href="scroll-story.css">
   <link rel="stylesheet" href="theme.css">
   <script type="module" src="scroll-story.js"></script>
@@ -32,9 +34,10 @@
   <script type="module" src="inference-guide.js"></script>
   <link rel="stylesheet" href="ui-controls.css">
   <link rel="stylesheet" href="proposal-viewer.css">
-  <link rel="stylesheet" href="mobile-polish.css?v=judge1">
-  <link rel="stylesheet" href="judge-mode.css?v=judge1">
-  <script type="module" src="judge-mode.js?v=judge1"></script>
+  <link rel="stylesheet" href="mobile-polish.css?v=judge2">
+  <link rel="stylesheet" href="judge-mode.css?v=judge2">
+  <script type="module" src="judge-mode.js?v=judge2"></script>
+  <script type="module" src="silicon-3d.js?v=1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -55,6 +58,7 @@
         <a href="#robot-demo" data-i18n="nav.demo">Demo</a>
         <a href="#architecture" data-i18n="nav.technology">Teknologi</a>
         <a href="#verification" data-i18n="nav.results">Hasil pengujian</a>
+        <a href="https://wlmoi.github.io/GARDA/GDSII/" class="nav-silicon" data-i18n="judge-mode">Explore Physical Silicon / GDSII</a>
       </nav>
 
       <div class="topbar-actions">
@@ -85,7 +89,7 @@
         </p>
         <h1 class="hero-reveal portal-title is-visible" data-i18n="hero.title"><span class="portal-title-left">Drone menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em></h1>
         <p class="lead hero-reveal is-visible" data-i18n="hero.lead">Drone inspeksi jaringan listrik perlu menghindari rintangan tanpa bergantung pada koneksi ke server. GARDA mengembangkan chip yang menghitung usulan koreksi gerak dan memeriksanya dengan gerbang keselamatan perangkat keras untuk membantu operator menjaga wahana dan aset.</p>
-        <div class="hero-actions hero-reveal is-visible"><button type="button" class="judge-launch" data-judge-start data-i18n="judge-mode" aria-label="Watch GARDA in Action: start the hands-free 76-second tour"><span class="judge-launch-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span class="judge-launch-text"><strong>Watch GARDA in Action</strong><small>Hands-free tour · 76 s</small></span></button><a class="hero-primary" href="#robot-demo" data-i18n="hero.explore">Lihat demo</a><a class="btn-action secondary proposal-cta" aria-haspopup="dialog" aria-controls="proposal-viewer" href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener" data-i18n="hero.play">Read the GARDA proposal ↗</a></div>
+        <div class="hero-actions hero-reveal is-visible"><button type="button" class="judge-launch" data-judge-start data-i18n="judge-mode" aria-label="Watch GARDA in Action: start the hands-free 76-second tour"><span class="judge-launch-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span class="judge-launch-text"><strong>Watch GARDA in Action</strong><small>Hands-free tour<i class="ic-chip" aria-hidden="true"></i>76 s</small></span></button><a class="btn-action secondary proposal-cta" aria-haspopup="dialog" aria-controls="proposal-viewer" href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener" data-i18n="hero.play">Read the GARDA proposal ↗</a></div>
         <div class="hero-metrics hero-reveal is-visible" style="--reveal-delay:400ms">
           <div>
             <strong>3.556</strong>
@@ -171,6 +175,25 @@
               <p id="robot-status" role="status">Ready to start the illustration.</p>
             </div>
           </div><div class="demo-next"><a href="#gate-demo">Test the safety gate</a><a href="#clock-explorer">Explore the neural computation</a><a href="#verification">View test evidence</a></div></section>
+
+    <section class="wrap silicon-3d" id="silicon-3d" aria-labelledby="silicon-3d-title" data-i18n="judge-mode">
+      <div class="silicon-3d-head">
+        <p class="mono-eyebrow">Physical silicon<i class="ic-chip" aria-hidden="true"></i>GDSII in 3D</p>
+        <h2 id="silicon-3d-title">The chip layout, layer by layer.</h2>
+        <p>Rotate and zoom through the real routed layout of <strong>GARDA-chip</strong> (<code>tt_um_garda_chip</code>): PRISM state machines and a TinyQV RISC-V core on an IHP SG13CMOS5L Tiny Tapeout 8x4 tile, 1724.16 × 710.64 µm. This is a separate design from the neural-logic core in the test results below.</p>
+      </div>
+      <div class="silicon-3d-stage" id="silicon-3d-stage">
+        <img class="silicon-3d-poster" src="https://wlmoi.github.io/GARDA/GDSII/assets/overview-1600.jpg" alt="Layout of GARDA-chip rendered from its final GDS" width="1600" height="659" loading="lazy" decoding="async" onerror="this.remove()">
+        <div class="silicon-3d-cover">
+          <button type="button" class="silicon-3d-load" id="silicon-3d-load"><span class="silicon-3d-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span><strong>Load the 3D view</strong><small>WebGL<i class="ic-chip" aria-hidden="true"></i>about 1.6 MB</small></span></button>
+          <p class="silicon-3d-msg" id="silicon-3d-msg" role="status"></p>
+        </div>
+      </div>
+      <div class="silicon-3d-links">
+        <a class="silicon-3d-primary" href="https://wlmoi.github.io/GARDA/GDSII/">Explore Physical Silicon / GDSII ↗</a>
+        <a href="https://gds-viewer.tinytapeout.com/?pdk=ihp-sg13cmos5l&amp;model=https%3A%2F%2Fwlmoi.github.io%2FGARDA%2Ftinytapeout.oas" target="_blank" rel="noopener">Open the 3D viewer in a new tab ↗</a>
+      </div>
+    </section>
 
     <section class="wrap chapter-section" id="clock-explorer" aria-labelledby="clock-title">
       <div class="section-editorial-header">
@@ -819,7 +842,7 @@
     </section>
 
     <section class="wrap layout-link-section">
-      <a href="layout/index.html">TinyTapeout physical layout status and viewer</a>
+      <a href="https://wlmoi.github.io/GARDA/GDSII/" data-i18n="judge-mode">Explore Physical Silicon / GDSII: GARDA-chip layout, macros and sign-off evidence</a>
       <p class="scope-note">Layouts are published with their physical verification results.</p>
     </section>
 

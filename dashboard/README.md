@@ -67,6 +67,10 @@ Pengujian gerbang memerlukan Node.js dan Icarus Verilog. Windows menggunakan Ica
 
 Bukti TinyTapeout berikut merupakan hasil revisi historis dan tidak membuktikan hasil setelah rebranding atau signoff SKY130. Status TinyTapeout dibaca dari `../evidence/tinytapeout/current/verification.json`. Simulasi RTL, netlist generik, netlist sel IHP, global routing, detailed routing, DRC, LVS, dan timing signoff tetap memiliki status masing-masing.
 
+## Physical silicon
+
+The canonical GDSII reference is [wlmoi.github.io/GARDA/GDSII/](https://wlmoi.github.io/GARDA/GDSII/): GARDA-chip (`tt_um_garda_chip`, PRISM + TinyQV, IHP SG13CMOS5L 8x4). It is a separate design from the neural-logic core in the evidence table. The dashboard links it from the navigation, the 3D section below the demo (`silicon-3d.js`) and the closing link.
+
 ## Deploy Vercel
 
 Impor repository melalui [Vercel, tim wlmois-projects](https://vercel.com/new?teamSlug=wlmois-projects). Gunakan **Root Directory = repository root**, **Framework Preset = Other**, serta **Output Directory = dashboard/dist**. Root `vercel.json` melewati install dan build karena distribusi statis sudah disertakan. Tidak ada environment variable atau backend yang diperlukan.

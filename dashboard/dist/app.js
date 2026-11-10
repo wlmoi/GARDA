@@ -129,7 +129,8 @@ function setupMotion() {
 
   document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver ? revealObserver.observe(el) : el.classList.add('is-visible'));
 
-  const links = [...document.querySelectorAll('nav a')], sections = links.map(link => document.querySelector(link.hash)).filter(Boolean);
+  // in-page links only: an external nav link (e.g. the GDSII explorer) has no hash to track
+  const links = [...document.querySelectorAll('nav a')].filter(link => link.hash && link.pathname === location.pathname), sections = links.map(link => document.querySelector(link.hash)).filter(Boolean);
   const navObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) {
       links.forEach(link => link.setAttribute('aria-current', link.hash === `#${entry.target.id}` ? 'true' : 'false'));

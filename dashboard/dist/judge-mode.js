@@ -6,6 +6,7 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const clamp = (v, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, v));
 const ease = t => (t < .5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
 const text = selector => ($(selector)?.textContent || '').replace(/\s+/g, ' ').trim();
+const SEP = '<i class="ic-chip" aria-hidden="true"></i>'; // chip icon instead of a middle dot
 const fmt = ms => { const s = Math.max(0, Math.round(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
 
 function fire(el, type) { el.dispatchEvent(new Event(type, { bubbles: true })); }
@@ -40,10 +41,10 @@ const FAULTS = ['all conditions valid', 'reset active', 'emergency stop', 'prote
 function gateLive() {
   const code = Number((text('#fault-reason').match(/Fault\s+(\d+)/) || [])[1] || 0);
   const enabled = text('#permit-value') === '1';
-  const verdict = enabled ? '<b class="is-pass">PERMITTED</b>' : `<b class="is-block">BLOCKED</b> · fault ${code}, ${FAULTS[code] || ''}`;
-  return { html: `AI v <b>${text('#candidate-value')}</b> → motor_enable <b class="${enabled ? 'is-pass' : 'is-block'}">${text('#permit-value')}</b> · ${verdict}`, state: enabled ? 'pass' : 'block' };
+  const verdict = enabled ? '<b class="is-pass">PERMITTED</b>' : `<b class="is-block">BLOCKED</b>${SEP}fault ${code}, ${FAULTS[code] || ''}`;
+  return { html: `AI v <b>${text('#candidate-value')}</b> → motor_enable <b class="${enabled ? 'is-pass' : 'is-block'}">${text('#permit-value')}</b>${SEP}${verdict}`, state: enabled ? 'pass' : 'block' };
 }
-const robotLive = () => ({ html: `${text('#robot-status')} · LiDAR range <b>${text('#lidar-distance')}</b>`, state: /stopped|E-stop/i.test(text('#robot-status')) ? 'block' : '' });
+const robotLive = () => ({ html: `${text('#robot-status')}${SEP}LiDAR range <b>${text('#lidar-distance')}</b>`, state: /stopped|E-stop/i.test(text('#robot-status')) ? 'block' : '' });
 
 const STEPS = [
   { label: 'Intro', title: 'Drones inspect. GARDA keeps watch.', dur: 7000, target: '#hero', focus: '.portal-copy', align: 'top',
@@ -55,7 +56,7 @@ const STEPS = [
     text: '16 MAC lanes run the neural network in 3,556 cycles: 71.12 µs at 50 MHz. The RTL matches all 236 reference tests.',
     enter: () => { stopRobot(); stopClock(); setValue('#clock-slider', 0); },
     tick: ms => setValue('#clock-slider', Math.round(ease(clamp((ms - 700) / 10300)) * 3556)),
-    live: () => ({ html: `Cycle <b>${text('#clock-number')}</b> · ${text('#clock-layer')} · <b>${text('#clock-time')}</b>` }) },
+    live: () => ({ html: `Cycle <b>${text('#clock-number')}</b>${SEP}${text('#clock-layer')}${SEP}<b>${text('#clock-time')}</b>` }) },
   { label: 'Obstacle', title: 'Obstacle detected', dur: 8000, target: '#robot-demo', focus: '.robot-stage',
     text: 'An obstacle blocks the path. LiDAR range drops and the drone stops short instead of pressing on.',
     at: { 700: () => startRobot('obstacle') }, live: robotLive },
@@ -188,7 +189,7 @@ function enterStep(i) {
   index = clamp(i, 0, STEPS.length - 1); elapsed = 0; fired = new Set(); done = false;
   const step = STEPS[index];
   hud.classList.remove('is-done');
-  ui.count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(STEPS.length).padStart(2, '0')} · ${step.label}`;
+  ui.count.innerHTML = `${String(index + 1).padStart(2, '0')} / ${String(STEPS.length).padStart(2, '0')}${SEP}${step.label}`;
   ui.title.textContent = step.title;
   ui.text.textContent = step.text;
   ui.live.innerHTML = ''; ui.live.className = 'judge-live';

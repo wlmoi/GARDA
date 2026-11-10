@@ -1,5 +1,55 @@
 /* Readability and touch polish layered on top of the existing styles. */
 
+/* separator icon: a tiny chip (die with pins), used instead of a middle dot */
+.ic-chip {
+  display: inline-block; width: .95em; height: .95em; margin: 0 .45em; vertical-align: -.12em; flex: none;
+  background: currentColor; opacity: .9;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 2h2v3H9zM13 2h2v3h-2zM9 19h2v3H9zM13 19h2v3h-2zM2 9h3v2H2zM2 13h3v2H2zM19 9h3v2h-3zM19 13h3v2h-3z'/%3E%3Crect x='6' y='6' width='12' height='12' rx='2.5'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 2h2v3H9zM13 2h2v3h-2zM9 19h2v3H9zM13 19h2v3h-2zM2 9h3v2H2zM2 13h3v2H2zM19 9h3v2h-3zM19 13h3v2h-3z'/%3E%3Crect x='6' y='6' width='12' height='12' rx='2.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ---------- 3D GDSII view ---------- */
+.silicon-3d { padding-block: clamp(40px, 7vw, 88px); }
+.silicon-3d-head { max-width: 860px; margin-bottom: 22px; }
+.silicon-3d-head .mono-eyebrow { display: flex; align-items: center; flex-wrap: wrap; color: var(--color-signal); }
+.silicon-3d-head h2 { font-family: var(--font-display, 'Archivo', sans-serif); font-weight: 800; font-size: clamp(28px, 4.6vw, 48px); line-height: 1.05; letter-spacing: -.02em; margin: 10px 0 12px; color: var(--color-ink-primary); }
+.silicon-3d-head p { color: var(--color-ink-secondary); font-size: 16.5px; line-height: 1.6; margin: 0; }
+.silicon-3d-head code { font-size: .92em; overflow-wrap: anywhere; }
+.silicon-3d-stage {
+  position: relative; width: 100%; aspect-ratio: 16 / 8; overflow: hidden; border-radius: 16px;
+  background: #070B20; border: 1px solid var(--color-hairline-strong); box-shadow: 0 30px 60px -40px rgba(7, 11, 32, .8);
+}
+@media (max-width: 640px) { .silicon-3d-stage { aspect-ratio: auto; height: min(68vh, 440px); } }
+.silicon-3d-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .72; transform: scale(1.04); transition: transform 6s ease, opacity .4s; }
+.silicon-3d-stage:hover .silicon-3d-poster { transform: scale(1.1); }
+.silicon-3d-cover {
+  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 12px; padding: 20px; text-align: center;
+  background: radial-gradient(ellipse at center, rgba(7, 11, 32, .35), rgba(7, 11, 32, .88));
+}
+.silicon-3d-load {
+  display: inline-flex; align-items: center; gap: 14px; min-height: 62px; padding: 9px 22px 9px 9px; border-radius: 999px; cursor: pointer;
+  background: #B7FF35; color: #070B20; border: 0; font: inherit; text-align: left; box-shadow: 0 0 0 6px rgba(183, 255, 53, .16); touch-action: manipulation;
+  transition: transform .2s cubic-bezier(.16, 1, .3, 1), box-shadow .2s;
+}
+.silicon-3d-load:hover { transform: translateY(-2px); box-shadow: 0 0 0 9px rgba(183, 255, 53, .2); }
+.silicon-3d-load:focus-visible { outline: 3px solid #F7F9FF; outline-offset: 3px; }
+.silicon-3d-disc { width: 44px; height: 44px; border-radius: 50%; background: #070B20; color: #B7FF35; display: grid; place-items: center; flex: none; }
+.silicon-3d-disc svg { width: 19px; height: 19px; margin-left: 3px; fill: currentColor; }
+.silicon-3d-load strong { display: block; font-family: var(--font-display, 'Archivo', sans-serif); font-weight: 800; font-size: 17px; }
+.silicon-3d-load small { display: flex; align-items: center; font-family: var(--font-mono, monospace); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; opacity: .75; }
+.silicon-3d-msg { margin: 0; max-width: 460px; color: #F7F9FF; font-size: 14px; }
+.silicon-3d-msg:empty { display: none; }
+.silicon-3d-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+.silicon-3d-stage.is-live .silicon-3d-cover, .silicon-3d-stage.is-live .silicon-3d-poster { display: none; }
+.silicon-3d-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.silicon-3d-links a {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 6px; text-decoration: none;
+  font-family: var(--font-mono, monospace); font-size: 13px; font-weight: 600; letter-spacing: .03em;
+  border: 1px solid var(--color-hairline-strong); color: var(--color-ink-primary);
+}
+.silicon-3d-links a.silicon-3d-primary { background: var(--color-ink-primary); color: var(--color-ground-primary); border-color: var(--color-ink-primary); }
+.nav-silicon { color: var(--color-signal) !important; font-weight: 700; }
+
 /* ---------- TinyTapeout evidence: one clean row per check ---------- */
 .tt-status-panel { border: 1px solid var(--color-hairline); padding: clamp(20px, 3vw, 32px) !important; }
 .tt-status-panel h3 code { font-size: .92em; }
