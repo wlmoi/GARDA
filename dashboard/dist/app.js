@@ -18,8 +18,8 @@ const translations = {
     'nav.verification': 'VERIFIKASI',
     'hero.title': '<span class="portal-title-left">AI bergerak.</span><br><em class="portal-title-right">GARDA menjaga.</em>',
     'hero.lead': 'Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.',
-    'hero.explore': 'Jelajahi 3D ↗',
-    'hero.play': 'Putar dataflow →',
+    'hero.explore': 'Mulai simulasi',
+    'hero.play': 'Lihat arsitektur sistem',
     'hero.metricCycles': 'clock Parallel16, diuji lewat RTL',
     'hero.metricTime': 'proyeksi core pada 50 MHz'
   },
@@ -31,8 +31,8 @@ const translations = {
     'nav.verification': 'VERIFICATION',
     'hero.title': '<span class="portal-title-left">AI moves.</span><br><em class="portal-title-right">GARDA keeps watch.</em>',
     'hero.lead': 'Explore RISC-V and Parallel16 74 → 128 → 64 → 3 and trace how GARDA constrains control outputs.',
-    'hero.explore': 'Explore 3D ↗',
-    'hero.play': 'Play dataflow →',
+    'hero.explore': 'Start simulation',
+    'hero.play': 'View system architecture',
     'hero.metricCycles': 'Parallel16 clocks, RTL tested',
     'hero.metricTime': 'core projection at 50 MHz'
   }
@@ -43,7 +43,7 @@ function setupPreferences() {
   const themeToggle = $('theme-toggle'), languageToggle = $('language-toggle');
   let theme = 'light', language = 'id';
   try {
-    theme = localStorage.getItem('garda-theme') || 'light';
+    theme = localStorage.getItem('garda-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     language = localStorage.getItem('garda-language') || 'id';
   } catch (error) {
     console.warn('Preferences unavailable', error.message);
@@ -62,6 +62,7 @@ function setupPreferences() {
   const applyLanguage = next => {
     language = next === 'en' ? 'en' : 'id';
     document.documentElement.lang = language;
+    document.dispatchEvent(new CustomEvent('garda-language', {detail:language}));
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const value = translations[language][el.dataset.i18n];
       if (value) el.innerHTML = value;

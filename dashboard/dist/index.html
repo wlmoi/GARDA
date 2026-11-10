@@ -16,38 +16,12 @@
   <link rel="stylesheet" href="style.css?v=editorial1">
   <script src="vendor/gsap.min.js?v=3.15.1"></script>
   <script type="module" src="app.js?v=editorial1"></script>
+  <script type="module" src="localization.js"></script>
+  <script type="module" src="cinematic-intro.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
-
-  <!-- Intro Aperture Overlay -->
-  <div class="site-intro" id="site-intro" aria-hidden="true">
-    <svg class="site-intro__svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <mask id="site-intro-mask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="300" height="300">
-          <rect x="-100" y="-100" width="300" height="300" fill="white"/>
-          <g class="site-intro__holes" fill="black">
-            <rect x="41" y="41" width="5" height="5" rx=".5"/>
-            <rect x="47.5" y="41" width="5" height="5" rx=".5"/>
-            <rect x="54" y="41" width="5" height="5" rx=".5"/>
-            <rect x="41" y="47.5" width="5" height="5" rx=".5"/>
-            <rect x="47.5" y="47.5" width="5" height="5" rx=".5"/>
-            <rect x="54" y="47.5" width="5" height="5" rx=".5"/>
-            <rect x="41" y="54" width="5" height="5" rx=".5"/>
-            <rect x="47.5" y="54" width="5" height="5" rx=".5"/>
-            <rect x="54" y="54" width="5" height="5" rx=".5"/>
-          </g>
-        </mask>
-      </defs>
-      <rect x="-100" y="-100" width="300" height="300" fill="var(--color-ground-secondary)" mask="url(#site-intro-mask)"/>
-    </svg>
-    <div class="site-intro__wordmark">
-      <span class="brand-mark" aria-hidden="true">G</span>
-      <strong>GARDA<span class="signal-dot">.</span></strong>
-      <small>EDITORIAL HARDWARE PUBLICATION</small>
-    </div>
-  </div>
 
   <!-- Navigation: Fixed 64px, 82% opacity, 14px blur, hairline, Archivo 800 wordmark with signal-blue period -->
   <header class="topbar">
@@ -68,10 +42,9 @@
 
       <div class="topbar-actions">
         <div class="site-settings" aria-label="Pengaturan tampilan">
-          <button type="button" id="theme-toggle" aria-label="Aktifkan mode gelap" aria-pressed="false">☾ <span data-theme-label>Dark</span></button>
+          <button type="button" id="theme-toggle" aria-label="Aktifkan mode gelap" aria-pressed="false"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a8 8 0 0 1-11-11 8 8 0 1 0 11 11Z"/></svg> <span data-theme-label>Dark</span></button>
           <button type="button" id="language-toggle" aria-label="Switch to English">ID <span aria-hidden="true">/</span> EN</button>
         </div>
-        <a class="repo-link" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Kode </a>
       </div>
     </div>
   </header>
@@ -81,7 +54,7 @@
     <!-- CHAPTER 01: Hero — Scroll-Driven Portal Hero -->
     <section class="intro wrap portal-hero" id="hero" aria-label="Bab 01: Identitas dan Portal Hero GARDA">
       <div class="portal-stage" aria-hidden="true">
-        <img src="assets/de10-nano-terasic.jpg" alt="" class="portal-image">
+        <img src="assets/garda-bulb.svg" alt="" class="portal-image">
         <span class="portal-wash"></span>
         <span class="portal-veil"></span>
         <span class="portal-panel portal-panel-left"></span>
@@ -98,11 +71,11 @@
           <em class="portal-title-right">GARDA menjaga.</em>
         </h1>
         <p class="lead hero-reveal is-visible" style="--reveal-delay:240ms" data-i18n="hero.lead">
-          Jelajahi RISC-V dan Parallel16 74 128 64 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.
+          Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.
         </p>
         <div class="hero-actions hero-reveal is-visible" style="--reveal-delay:320ms">
-          <a class="hero-primary" href="#explorer" data-i18n="hero.explore">Jelajahi 3D </a>
-          <a href="#clock-explorer" data-i18n="hero.play">Putar dataflow</a>
+          <a class="hero-primary" href="#clock-explorer" data-i18n="hero.explore">Jelajahi 3D </a>
+          <a href="#architecture" data-i18n="hero.play">Putar dataflow</a>
         </div>
         <div class="hero-metrics hero-reveal is-visible" style="--reveal-delay:400ms">
           <div>
@@ -304,7 +277,7 @@
           <p class="mono-eyebrow proof-eyebrow">Bagian 03 Kinerja perangkat keras</p>
           <h2 class="proof-title">Inferensi Deterministik.<br>Terverifikasi Siklus per Siklus.</h2>
           <p class="proof-lead">
-            GARDA mengeliminasi variabilitas latensi software (OS scheduling jitter, context switching) dengan mengeksekusi inferensi neural langsung pada fabric silikon terdedikasi.
+            GARDA menjalankan inferensi neural langsung pada FPGA. Jumlah siklus core dapat diperiksa melalui pengujian RTL. Waktu respons seluruh robot masih memerlukan pengukuran tersendiri.
           </p>
 
           <div class="proof-hero-stat">
@@ -485,7 +458,7 @@
               <rect x="290" y="40" width="200" height="150" class="svg-node active" id="svg-compute"/>
               <text x="305" y="70" class="svg-label-title">03 NEURAL CORE</text>
               <text x="305" y="90" class="svg-label-sub">Parallel16 SIMD MAC</text>
-              <text x="305" y="115" class="svg-label-meta">74 128 64 3</text>
+              <text x="305" y="115" class="svg-label-meta">74 → 128 → 64 → 3</text>
               <text x="305" y="135" class="svg-label-meta">3.556 siklus clock</text>
               <text x="305" y="155" class="svg-label-meta text-signal">Q8.8 Fixed-Point</text>
 
