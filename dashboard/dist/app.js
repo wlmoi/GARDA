@@ -41,9 +41,9 @@ const translations = {
 function setupPreferences() {
   const root = document.documentElement;
   const themeToggle = $('theme-toggle'), languageToggle = $('language-toggle');
-  let theme = 'light', language = 'id';
+  let theme = 'dark', language = 'id';
   try {
-    theme = localStorage.getItem('garda-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    theme = localStorage.getItem('garda-theme') || 'dark';
     language = localStorage.getItem('garda-language') || 'id';
   } catch (error) {
     console.warn('Preferences unavailable', error.message);
