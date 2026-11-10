@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#EFEFEE">
   <meta name="description" content="GARDA: Publikasi Rekayasa Perangkat Keras. Akselerator Inferensi Neural Deterministik (71,12 µs @ 50 MHz) dan Gerbang Keselamatan Hardware Zero-Trust pada Intel Cyclone V SoC.">
-  <title>GARDA — Editorial Engineering &amp; Hardware Explorer</title>
+  <title>GARDA Editorial Engineering &amp; Hardware Explorer</title>
   <link rel="icon" href="assets/garda-mark.svg" type="image/svg+xml">
 
   <!-- Typography: Archivo, IBM Plex Mono, Work Sans -->
@@ -57,7 +57,8 @@
         <span class="brand-label">GARDA<span class="signal-dot">.</span> <span class="brand-sub"></span></span>
       </a>
 
-      <nav aria-label="Navigasi editorial">
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button>
+      <nav id="main-navigation" aria-label="Navigasi utama">
         <a href="#clock-explorer" data-i18n="nav.explorer">EKSPLORASI</a>
         <a href="#architecture" data-i18n="nav.architecture">ARSITEKTUR</a>
         <a href="#clock-explorer" data-i18n="nav.dataflow">DATAFLOW</a>
@@ -70,7 +71,7 @@
           <button type="button" id="theme-toggle" aria-label="Aktifkan mode gelap" aria-pressed="false">☾ <span data-theme-label>Dark</span></button>
           <button type="button" id="language-toggle" aria-label="Switch to English">ID <span aria-hidden="true">/</span> EN</button>
         </div>
-        <a class="repo-link" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Kode ↗</a>
+        <a class="repo-link" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Kode </a>
       </div>
     </div>
   </header>
@@ -90,18 +91,18 @@
       </div>
       <div class="portal-copy">
         <p class="eyebrow hero-reveal is-visible" style="--reveal-delay:80ms">
-          <span class="status-dot"></span> HACKATHON ITS 2026 · GARDA
+          <span class="status-dot"></span> HACKATHON ITS 2026 GARDA
         </p>
         <h1 class="hero-reveal portal-title is-visible" style="--reveal-delay:160ms" data-i18n="hero.title">
           <span class="portal-title-left">AI bergerak.</span><br>
           <em class="portal-title-right">GARDA menjaga.</em>
         </h1>
         <p class="lead hero-reveal is-visible" style="--reveal-delay:240ms" data-i18n="hero.lead">
-          Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.
+          Jelajahi RISC-V dan Parallel16 74 128 64 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.
         </p>
         <div class="hero-actions hero-reveal is-visible" style="--reveal-delay:320ms">
-          <a class="hero-primary" href="#explorer" data-i18n="hero.explore">Jelajahi 3D ↗</a>
-          <a href="#clock-explorer" data-i18n="hero.play">Putar dataflow →</a>
+          <a class="hero-primary" href="#explorer" data-i18n="hero.explore">Jelajahi 3D </a>
+          <a href="#clock-explorer" data-i18n="hero.play">Putar dataflow</a>
         </div>
         <div class="hero-metrics hero-reveal is-visible" style="--reveal-delay:400ms">
           <div>
@@ -119,7 +120,7 @@
 
     <section class="wrap chapter-section" id="clock-explorer" aria-labelledby="clock-title">
       <div class="section-editorial-header">
-        <p class="mono-eyebrow">CHAPTER 02 · DATAFLOW INFERENSI PARALLEL16</p>
+        <p class="mono-eyebrow">Bagian 02 Aliran data inferensi Parallel16</p>
         <h2 class="editorial-title" id="clock-title">Kronologi Siklus Komputasi Neural</h2>
         <p class="editorial-desc">
           Penelusuran operasi MAC 16-lane paralel pada arsitektur Parallel16 dari siklus 0 hingga 3.556.
@@ -268,8 +269,8 @@
           <button type="button" id="clock-play" aria-pressed="false">▶ Play</button>
           <button type="button" id="clock-next">+1 clock</button>
           <button type="button" id="clock-reset">↺ Reset</button>
-          <button type="button" id="clock-next-group">Kelompok berikut →</button>
-          <button type="button" id="clock-next-layer">Layer berikut →</button>
+          <button type="button" id="clock-next-group">Kelompok berikut</button>
+          <button type="button" id="clock-next-layer">Layer berikut</button>
         </div>
 
         <div class="clock-options">
@@ -289,9 +290,9 @@
         </div>
 
         <div class="clock-layers">
-          <button type="button" data-clock-start="1">FC1 · 1.808 siklus</button>
-          <button type="button" data-clock-start="1809">FC2 · 1.552 siklus</button>
-          <button type="button" data-clock-start="3361">FC3 · 196 siklus</button>
+          <button type="button" data-clock-start="1">FC1 1.808 siklus</button>
+          <button type="button" data-clock-start="1809">FC2 1.552 siklus</button>
+          <button type="button" data-clock-start="3361">FC3 196 siklus</button>
         </div>
       </div>
     </section>
@@ -300,7 +301,7 @@
     <section class="inverted-proof-section" aria-label="Bab 02: Pernyataan dan Bukti Kinerja Perangkat Keras">
       <div class="wrap proof-grid">
         <div class="proof-left">
-          <p class="mono-eyebrow proof-eyebrow">CHAPTER 03 · PERNYATAAN KINERJA HARDWARE</p>
+          <p class="mono-eyebrow proof-eyebrow">Bagian 03 Kinerja perangkat keras</p>
           <h2 class="proof-title">Inferensi Deterministik.<br>Terverifikasi Siklus per Siklus.</h2>
           <p class="proof-lead">
             GARDA mengeliminasi variabilitas latensi software (OS scheduling jitter, context switching) dengan mengeksekusi inferensi neural langsung pada fabric silikon terdedikasi.
@@ -324,7 +325,7 @@
           <div class="proof-table-card">
             <div class="table-card-header">
               <span class="mono-label">DISTRIBUSI KOMPUTASI PARALLEL16 PER LAYER</span>
-              <span class="status-pill verified">RTL VERIFIED · PASS</span>
+              <span class="status-pill verified">RTL VERIFIED PASS</span>
             </div>
 
             <table class="editorial-table">
@@ -340,21 +341,21 @@
               <tbody>
                 <tr>
                   <td class="font-display">FC1 (Layer 1)</td>
-                  <td class="font-mono">74 → 128 (Q8.8)</td>
+                  <td class="font-mono">74 128 (Q8.8)</td>
                   <td class="font-mono">8 kelompok (16 lane)</td>
                   <td class="font-mono text-signal">1.808</td>
                   <td class="font-mono">50,84%</td>
                 </tr>
                 <tr>
                   <td class="font-display">FC2 (Layer 2)</td>
-                  <td class="font-mono">128 → 64 (Q8.8)</td>
+                  <td class="font-mono">128 64 (Q8.8)</td>
                   <td class="font-mono">4 kelompok (16 lane)</td>
                   <td class="font-mono text-signal">1.552</td>
                   <td class="font-mono">43,64%</td>
                 </tr>
                 <tr>
                   <td class="font-display">FC3 (Output)</td>
-                  <td class="font-mono">64 → 3 (v, ω, head)</td>
+                  <td class="font-mono">64 3 (v, ω, head)</td>
                   <td class="font-mono">1 kelompok (16 lane)</td>
                   <td class="font-mono text-signal">196</td>
                   <td class="font-mono">5,51%</td>
@@ -370,8 +371,8 @@
             </table>
 
             <div class="proof-visual-bar">
-              <div class="bar-segment fc1" style="width: 50.84%" title="FC1: 1.808 siklus (50.84%)">FC1 · 50.8%</div>
-              <div class="bar-segment fc2" style="width: 43.64%" title="FC2: 1.552 siklus (43.64%)">FC2 · 43.6%</div>
+              <div class="bar-segment fc1" style="width: 50.84%" title="FC1: 1.808 siklus (50.84%)">FC1 50.8%</div>
+              <div class="bar-segment fc2" style="width: 43.64%" title="FC2: 1.552 siklus (43.64%)">FC2 43.6%</div>
               <div class="bar-segment fc3" style="width: 5.51%" title="FC3: 196 siklus (5.51%)">FC3</div>
             </div>
 
@@ -386,12 +387,12 @@
     <!-- CHAPTER 03: Architecture — Technical Drawing as Editorial Art -->
     <section class="wrap chapter-section" id="architecture" aria-label="Bab 03: Arsitektur Perangkat Keras dan Gambar Teknik">
       <div class="section-editorial-header">
-        <p class="mono-eyebrow">CHAPTER 04 · ARSITEKTUR TEKNIS</p>
+        <p class="mono-eyebrow">Bagian 04 Arsitektur sistem</p>
         <h2 class="editorial-title">Gambar Teknik Arsitektur Sistem</h2>
         <p class="editorial-desc">
           Diagram fungsional sistem GARDA yang menghubungkan antarmuka host, memori costmap lokal, akselerator neural, evaluator trajektori, dan gerbang keselamatan hardware.
         </p>
-        <span class="mono-meta-tag">Fungsional arsitektur — Tidak dalam skala fisik silikon</span>
+        <span class="mono-meta-tag">Fungsional arsitektur Tidak dalam skala fisik silikon</span>
       </div>
 
       <div class="arch-editorial-grid">
@@ -403,7 +404,7 @@
               <h3 class="def-title">Host &amp; UART Interface</h3>
               <code class="def-code">garda_uart_protocol</code>
               <p>Menerima paket 8-byte terenkapsulasi CRC-8 dari ARM HPS pada 115200 baud. Mengatur konfigurasi robot, waypoint, dan kontrol mode.</p>
-              <span class="def-metric">8-byte frame · CRC-8 · 115.2 kbps</span>
+              <span class="def-metric">8-byte frame CRC-8 115.2 kbps</span>
             </div>
           </div>
 
@@ -413,7 +414,7 @@
               <h3 class="def-title">Costmap Memory Subsystem</h3>
               <code class="def-code">garda_costmap_manager</code>
               <p>Buffer lokal 128×128 (8-bit) dalam memori M10K FPGA. Mengisolasi pembacaan rintangan lingkungan tanpa membebani bus memori HPS.</p>
-              <span class="def-metric">128 × 128 cell · 8-bit depth · 1-cycle access</span>
+              <span class="def-metric">128 × 128 cell 8-bit depth 1-cycle access</span>
             </div>
           </div>
 
@@ -423,7 +424,7 @@
               <h3 class="def-title">Parallel16 Neural Compute Core</h3>
               <code class="def-code">garda_neural_logic_top</code>
               <p>Mesin inferensi 16-lane SIMD MAC fixed-point Q8.8. Mengubah 74 fitur observasi menjadi keluaran trajektori dalam 3.556 siklus clock.</p>
-              <span class="def-metric">16 Lane MAC · Fixed-Point Q8.8 · 3.556 siklus</span>
+              <span class="def-metric">16 Lane MAC Fixed-Point Q8.8 3.556 siklus</span>
             </div>
           </div>
 
@@ -433,7 +434,7 @@
               <h3 class="def-title">Parallel Rollout Evaluator</h3>
               <code class="def-code">garda_rollout_tile &amp; selector</code>
               <p>4 tile rollout memproyeksikan 512 kandidat trajektori DWA secara paralel. Memilih kombinasi (v, ω) dengan skor clearance tertinggi.</p>
-              <span class="def-metric">4 Rollout Tiles · 512 trajektori · Skor 32-bit</span>
+              <span class="def-metric">4 Rollout Tiles 512 trajektori Skor 32-bit</span>
             </div>
           </div>
 
@@ -443,7 +444,7 @@
               <h3 class="def-title">Zero-Trust Safety &amp; Security Gate</h3>
               <code class="def-code">garda_safety_security_gate</code>
               <p>Gerbang independen yang memverifikasi batas kinematik, integritas peta, watchdog 2 ms, dan TTL 20 ms. Intersepsi pemutus motor &lt;1 µs.</p>
-              <span class="def-metric">Watchdog 2 ms · TTL 20 ms · Intersepsi &lt;1 µs</span>
+              <span class="def-metric">Watchdog 2 ms TTL 20 ms Intersepsi &lt;1 µs</span>
             </div>
           </div>
         </div>
@@ -470,34 +471,34 @@
 
               <!-- Host Subsystem Box -->
               <rect x="40" y="40" width="180" height="90" class="svg-node" id="svg-host"/>
-              <text x="55" y="70" class="svg-label-title">01 · HOST INTERFACE</text>
+              <text x="55" y="70" class="svg-label-title">01 HOST INTERFACE</text>
               <text x="55" y="90" class="svg-label-sub">garda_uart_protocol</text>
-              <text x="55" y="110" class="svg-label-meta">UART RX/TX · CRC-8</text>
+              <text x="55" y="110" class="svg-label-meta">UART RX/TX CRC-8</text>
 
               <!-- Costmap Box -->
               <rect x="40" y="190" width="180" height="90" class="svg-node" id="svg-costmap"/>
-              <text x="55" y="220" class="svg-label-title">02 · COSTMAP MEMORY</text>
+              <text x="55" y="220" class="svg-label-title">02 COSTMAP MEMORY</text>
               <text x="55" y="240" class="svg-label-sub">garda_costmap_manager</text>
               <text x="55" y="260" class="svg-label-meta">128x128 BRAM M10K</text>
 
               <!-- Neural Compute Core -->
               <rect x="290" y="40" width="200" height="150" class="svg-node active" id="svg-compute"/>
-              <text x="305" y="70" class="svg-label-title">03 · NEURAL CORE</text>
+              <text x="305" y="70" class="svg-label-title">03 NEURAL CORE</text>
               <text x="305" y="90" class="svg-label-sub">Parallel16 SIMD MAC</text>
-              <text x="305" y="115" class="svg-label-meta">74 → 128 → 64 → 3</text>
+              <text x="305" y="115" class="svg-label-meta">74 128 64 3</text>
               <text x="305" y="135" class="svg-label-meta">3.556 siklus clock</text>
               <text x="305" y="155" class="svg-label-meta text-signal">Q8.8 Fixed-Point</text>
 
               <!-- Rollout Evaluator -->
               <rect x="290" y="250" width="200" height="110" class="svg-node" id="svg-rollout"/>
-              <text x="305" y="280" class="svg-label-title">04 · ROLLOUT EVAL</text>
+              <text x="305" y="280" class="svg-label-title">04 ROLLOUT EVAL</text>
               <text x="305" y="300" class="svg-label-sub">4x garda_rollout_tile</text>
               <text x="305" y="320" class="svg-label-meta">512 Trajektori DWA</text>
               <text x="305" y="340" class="svg-label-meta">Selector 32-bit Score</text>
 
               <!-- Safety Security Gate -->
               <rect x="550" y="140" width="170" height="180" class="svg-node gate-node" id="svg-gate"/>
-              <text x="565" y="170" class="svg-label-title">05 · SAFETY GATE</text>
+              <text x="565" y="170" class="svg-label-title">05 SAFETY GATE</text>
               <text x="565" y="190" class="svg-label-sub">garda_safety_security_gate</text>
               <text x="565" y="215" class="svg-label-meta">Watchdog: 2 ms</text>
               <text x="565" y="235" class="svg-label-meta">Result TTL: 20 ms</text>
@@ -528,7 +529,7 @@
     <!-- CHAPTER 04: FPGA Board Explorer (Cyclone V SoC & RTL Die) -->
     <section class="wrap chapter-section" id="explorer" aria-label="Bab 04: Penjelajah Perangkat Keras Board DE10-Nano dan Die RTL">
       <div class="section-editorial-header">
-        <p class="mono-eyebrow">CHAPTER 05 · EKSPLORASI SILIKON &amp; RTL</p>
+        <p class="mono-eyebrow">Bagian 05 Jelajahi perangkat keras</p>
         <h2 class="editorial-title">Pemeriksaan Board &amp; Die Silikon</h2>
         <p class="editorial-desc">
           Model digital 3D board DE10-Nano Cyclone V SoC dan pemetaan 20 modul RTL ke blok komputasi hardware.
@@ -562,11 +563,11 @@
             </div>
             <div class="stage-corner bottom-left">
               <span class="corner-id">FABRIC</span>
-              <span class="corner-val">110K LE · 41.5K ALM</span>
+              <span class="corner-val">110K LE 41.5K ALM</span>
             </div>
             <div class="stage-corner bottom-right">
               <span class="corner-id">INTERFACE</span>
-              <span class="corner-val">UART 115200 8N1 · JP1</span>
+              <span class="corner-val">UART 115200 8N1 JP1</span>
             </div>
           </div>
 
@@ -596,7 +597,7 @@
             <p class="source-ref" id="source-ref"></p>
 
             <div class="inspector-actions">
-              <button id="show-source" type="button" class="btn-action primary small">Lihat Kode .v ↗</button>
+              <button id="show-source" type="button" class="btn-action primary small">Lihat Kode .v </button>
               <button id="show-ports" type="button" class="btn-action quiet small">Port &amp; Bit Flow</button>
             </div>
           </div>
@@ -646,13 +647,13 @@
     <section class="wrap chapter-section" id="gate-demo" aria-label="Bab 06: Gerbang Keselamatan Hardware dan Pengambilan Keputusan">
       <div class="gate-editorial-layout">
         <div class="gate-copy">
-          <p class="mono-eyebrow">CHAPTER 06 · PENGAWAS KESELAMATAN ZERO-TRUST</p>
+          <p class="mono-eyebrow">Bagian 06 Pemeriksaan keselamatan</p>
           <h2 class="editorial-title">AI mengusulkan.<br>GARDA memutuskan.</h2>
           <p class="editorial-lead">
             Model gerbang keselamatan hardware terpisah. Proposal GARDA menetapkan batas umur hasil 20 ms dan watchdog inferensi 2 ms. Setiap anomali segera memutus motor_enable dalam &lt;1 µs.
           </p>
           <div class="gate-link-box">
-            <a href="#explorer" id="select-gate" class="btn-action secondary">Buka garda_safety_security_gate di Die RTL ↗</a>
+            <a href="#explorer" id="select-gate" class="btn-action secondary">Buka garda_safety_security_gate di Die RTL </a>
           </div>
         </div>
 
@@ -696,7 +697,7 @@
     <!-- CHAPTER 07: Verification, Ruled Tables, & Resources -->
     <section class="wrap chapter-section" id="verification" aria-label="Bab 07: Bukti Verifikasi, Tabel Spesifikasi, dan Sumber Daya">
       <div class="section-editorial-header">
-        <p class="mono-eyebrow">CHAPTER 07 · REPRODUSIBILITAS &amp; BUKTI VERIFIKASI</p>
+        <p class="mono-eyebrow">Bagian 07 Hasil pengujian dan bukti</p>
         <h2 class="editorial-title">Tabel Hasil &amp; Matriks Pengujian</h2>
         <span class="date-label" id="evidence-date">Sumber proyek lokal</span>
       </div>
@@ -746,7 +747,7 @@
               <td><span class="cat-pill asic">ASIC EXP</span></td>
               <td class="font-display">TinyTapeout ASIC Core</td>
               <td class="font-mono" id="tt-latency">3.080 siklus</td>
-              <td>24 → 64 → 64 → 4. Dual MAC fixed-point pada IHP SG13G2</td>
+              <td>24 64 64 4. Dual MAC fixed-point pada IHP SG13G2</td>
               <td><span id="tt-functional" class="status-pill note">Memuat status</span></td>
             </tr>
             <tr>
@@ -808,40 +809,40 @@
       <!-- Scope & Power Details Disclosure -->
       <details class="scope-details">
         <summary>Cakupan bukti pengujian, estimasi daya, dan batasan implementasi</summary>
-        <p>Hasil Parallel8 adalah catatan simulasi dan fit eksperimen FPGA terdahulu; belum membuktikan implementasi gabungan atau pengujian board pada revisi ini. <a href="https://github.com/wlmoi/GARDA/tree/main/fpga/experiments/parallel8" target="_blank" rel="noreferrer">Sumber eksperimen Parallel8 ↗</a> Netlist IHP, bitstream, dan paket Quartus adalah bukti build historis. Hasil SKY130 memerlukan build dan signoff tersendiri. Daya 506,69 mW berasal dari estimasi vectorless proyek DWA lain, dengan confidence rendah; pengukuran board dan sistem masih diperlukan.</p>
+        <p>Hasil Parallel8 adalah catatan simulasi dan fit eksperimen FPGA terdahulu; belum membuktikan implementasi gabungan atau pengujian board pada revisi ini. <a href="https://github.com/wlmoi/GARDA/tree/main/fpga/experiments/parallel8" target="_blank" rel="noreferrer">Sumber eksperimen Parallel8 </a> Netlist IHP, bitstream, dan paket Quartus adalah bukti build historis. Hasil SKY130 memerlukan build dan signoff tersendiri. Daya 506,69 mW berasal dari estimasi vectorless proyek DWA lain, dengan confidence rendah; pengukuran board dan sistem masih diperlukan.</p>
       </details>
     </section>
 
     <!-- Layout Viewer Link -->
     <section class="wrap layout-link-section">
-      <a href="layout/index.html">Status dan viewer layout fisik TinyTapeout ↗</a>
+      <a href="layout/index.html">Status dan viewer layout fisik TinyTapeout </a>
       <p class="scope-note">Layout dipublikasikan bersama hasil pemeriksaan fisiknya.</p>
     </section>
 
     <!-- Editorial Closing: Statement, Actions, Hairline Footer Strip, Cropped Poster Wordmark -->
     <section class="editorial-closing wrap" aria-label="Penutup Editorial">
       <div class="closing-statement-box">
-        <p class="mono-eyebrow">GARDA · HACKATHON ITS 2026</p>
+        <p class="mono-eyebrow">GARDA HACKATHON ITS 2026</p>
         <h2 class="closing-title">Intelligence computes.<br>Hardware decides.</h2>
         <p class="closing-desc">
           Eksplorasi arsitektur komputasi neural deterministik dan batasan keselamatan tingkat silikon untuk sistem otonom masa depan.
         </p>
 
         <div class="closing-actions">
-          <a class="btn-action primary" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Buka GitHub Repository ↗</a>
+          <a class="btn-action primary" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Buka GitHub Repository </a>
           <a class="btn-action secondary" href="downloads/IGOR_DE10_NANO_READY.zip" download>Unduh Paket Quartus (.zip) ↓</a>
         </div>
       </div>
 
       <footer class="editorial-footer-strip">
         <div class="footer-col-left">
-          <span class="font-display">GARDA</span> · <span class="font-mono"></span>
+          <span class="font-display">GARDA</span> <span class="font-mono"></span>
         </div>
         <div class="footer-col-center">
-          <span>Departemen Teknik Elektro &amp; Informatika · Institut Teknologi Sepuluh Nopember</span>
+          <span>Departemen Teknik Elektro &amp; Informatika Institut Teknologi Sepuluh Nopember</span>
         </div>
         <div class="footer-col-right">
-          <a href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer" class="font-mono">wlmoi/GARDA ↗</a>
+          <a href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer" class="font-mono">wlmoi/GARDA </a>
         </div>
       </footer>
 
