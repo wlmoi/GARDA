@@ -80,9 +80,9 @@
   "Spesifikasi Pinout Antarmuka Perangkat Keras DE10-Nano": "DE10-Nano interface pinout",
   "Batas Watchdog": "Watchdog limit",
   "Masa Berlaku Hasil (TTL)": "Result lifetime (TTL)",
-  "Laporan Uji JSON ↓": "Test report JSON",
-  "Paket Quartus Historis ↓": "Historical Quartus package",
-  "Kode TinyTapeout ↓": "TinyTapeout code",
+  "Laporan Uji JSON ↓": "Test report JSON ↓",
+  "Paket Quartus Historis ↓": "Historical Quartus package ↓",
+  "Kode TinyTapeout ↓": "TinyTapeout package ↓",
   "Sumber eksperimen Parallel8": "Parallel8 experiment files",
   "Status dan viewer layout fisik TinyTapeout": "TinyTapeout physical layout status and viewer",
   "Layout dipublikasikan bersama hasil pemeriksaan fisiknya.": "Layouts are published with their physical verification results.",
@@ -226,5 +226,6 @@
   "Simulasi 3D Robot & LiDAR": "3D robot and LiDAR simulation",
   "Visualisasi terjemahan trajektori DWA ke gerak kinematis": "Illustration of DWA trajectories translated into kinematic motion",
   "SIMULASI": "SIMULATION",
-  "▶ Jalankan": "▶ Play"
+  "▶ Jalankan": "▶ Play",
+  "Diperiksa 2026-10-15": "Reviewed 2026-10-15"
 }
