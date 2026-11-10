@@ -32,7 +32,7 @@ async function initializePinnedGallery(){
  ]),new Promise(resolve=>setTimeout(resolve,2500))]);
  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
  const media=gsap.matchMedia();
- media.add('(prefers-reduced-motion: no-preference) and (min-height: 700px)',()=>{
+ media.add('(prefers-reduced-motion: no-preference) and (min-height: 760px)',()=>{
   if(!section.isConnected||viewport.clientWidth<1)return;
   section.classList.add('gallery-pinned');
   const state={x:0};
@@ -52,3 +52,4 @@ async function initializePinnedGallery(){
  });
 }
 initializePinnedGallery().catch(error=>console.warn('Gallery remains available with swipe controls:',error.message));
+
