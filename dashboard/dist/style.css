@@ -2581,3 +2581,6 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
 /* Signal motion denotes activity, not an additional measured result. */
 @media(prefers-reduced-motion:no-preference){.svg-wire{stroke-dasharray:9 7;animation:datapath-energy 1.6s linear infinite}.dataflow-node.active{outline:2px solid var(--color-signal);outline-offset:2px}@keyframes datapath-energy{to{stroke-dashoffset:-32}}}
 [hidden]{display:none!important}
+
+.chapter-section *{min-width:0}.chapter-section input[type=range]{width:100%;max-width:100%}.gate-console,.robot-section,.robot-panel{width:100%;max-width:100%;min-width:0}.gate-section{min-width:0}.robot-section canvas{max-width:100%}
+@media(max-width:780px){.gate-section{display:grid!important;grid-template-columns:minmax(0,1fr)!important}.gate-console{padding:12px!important;overflow-wrap:anywhere}.fault-toggles,.gate-sliders{grid-template-columns:minmax(0,1fr)!important}.dataflow-visual,.robot-section{box-sizing:border-box;margin-inline:0!important;width:100%!important}.clock-panel>*{width:100%;max-width:100%}.chapter-section{width:calc(100% - 32px)!important;margin-inline:auto}.gate-result{grid-template-columns:minmax(0,1fr)!important}.verification-links a{white-space:normal;overflow-wrap:anywhere}}
