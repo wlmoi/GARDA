@@ -3,7 +3,7 @@ import { evaluateGate, faultDescriptions } from './gate-model.js';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const colors = { host: '#2F5BFF', compute: '#3B64FF', memory: '#7C97FF', control: '#2F5BFF', safety: '#1A8A3E', neural: '#3B64FF', alternate: '#8E9099', asic: '#9B7000' };
+const colors = { host: '#315CFF', compute: '#315CFF', memory: '#A8B6D4', control: '#315CFF', safety: '#B7FF35', neural: '#315CFF', alternate: '#526387', asic: '#93ACFF' };
 let mode = 'board', selected, scene, catalog, report, sourceRequest = 0;
 let modules = [], ttModules = [];
 const canvas = $('scene');
