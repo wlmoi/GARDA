@@ -1,6 +1,8 @@
 const section=document.getElementById('verification');
 const table=section.querySelector('table');
 const rows=[...table.tBodies[0].rows];
+const labels=['Evidence','Subsystem','Result','Method','Status'];
+rows.forEach(row=>[...row.cells].forEach((cell,i)=>cell.dataset.label=labels[i]));
 const categories=['pass','projection','historical','pass','pending','simulation'];
 const toolbar=document.createElement('div');toolbar.className='verification-toolbar';
 toolbar.innerHTML=`<label>Cari hasil<input type="search" placeholder="Nama pengujian atau metrik" aria-label="Cari hasil pengujian"></label><label>Status<select aria-label="Filter status"><option value="all">Semua status</option><option value="pass">PASS terverifikasi</option><option value="projection">Perhitungan</option><option value="historical">Build historis</option><option value="pending">Status ASIC</option><option value="simulation">Simulasi</option></select></label><p role="status" aria-live="polite"></p>`;
