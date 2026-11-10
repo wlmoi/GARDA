@@ -3,7 +3,7 @@ const opener=document.querySelector('.proposal-cta');
 const canvas=dialog.querySelector('canvas'),pages=dialog.querySelector('.proposal-pages'),status=dialog.querySelector('.proposal-status');
 const prev=dialog.querySelector('.proposal-prev'),next=dialog.querySelector('.proposal-next'),number=dialog.querySelector('input'),zoom=dialog.querySelector('select');
 let documentPromise,pageNumber=1,total=0,sequence=0,renderTask,resizeTimer,lastWidth=0;
-function load(){return documentPromise??=(async()=>{const pdf=await import('./vendor/pdf.mjs');pdf.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdf.worker.mjs',import.meta.url).href;return pdf.getDocument(new URL(opener.getAttribute('href'),location.href).href).promise;})();}
+function load(){return documentPromise??=(async()=>{const pdf=await import('./vendor/pdf.mjs');pdf.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdf.worker.mjs',import.meta.url).href;return pdf.getDocument({url:new URL(opener.getAttribute('href'),location.href).href}).promise;})();}
 async function render(){const ticket=++sequence;renderTask?.cancel();prev.disabled=next.disabled=true;status.textContent='Loading proposal…';try{
  const doc=await load();if(ticket!==sequence||!dialog.open)return;total=doc.numPages;pageNumber=Math.max(1,Math.min(pageNumber,total));number.value=pageNumber;number.max=total;dialog.querySelector('.proposal-page-total').textContent=`/ ${total}`;
  const page=await doc.getPage(pageNumber);if(ticket!==sequence||!dialog.open)return;

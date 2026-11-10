@@ -4,7 +4,7 @@ const gsap = window.gsap;
 function reveal() {
  hero.classList.add('hero-ready');
  if (!gsap || reduced.matches) return;
- gsap.fromTo('.event-identity', {opacity:0,y:16}, {opacity:1,y:0,duration:.8,delay:.2});
+ gsap.fromTo('.nav-event-logo', {opacity:0,y:16}, {opacity:1,y:0,duration:.8,delay:.2});
  gsap.fromTo('.hero-actions > *', {opacity:0,y:20}, {opacity:1,y:0,stagger:.12,duration:.7,delay:.35});
  gsap.fromTo('.hero-metrics > *', {opacity:0,y:20}, {opacity:1,y:0,stagger:.12,duration:.8,delay:.55});
 }
