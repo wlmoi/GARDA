@@ -84,6 +84,60 @@ def load_mask(path, w_px, h_px, mode, threshold, disc):
     return mask, (cx * sx, cy * sy, r * (sx + sy) / 2)
 
 
+def load_mask_figure(path, w_px, h_px, edge, margin):
+    """A cut-out figure on a transparent background (e.g. the SENO mascot
+    pose): the silhouette (alpha >= 128) becomes metal, and the boundaries
+    between its colour regions (face, eyes, jacket, sarong...) become 1-pixel
+    slots so the figure reads at a distance and up close.  The figure is
+    cropped to its opaque extent and fitted to the grid with its aspect ratio
+    kept, centred, `margin` empty pixels inside every edge."""
+    im = Image.open(path).convert("RGBA")
+    alpha = np.asarray(im.getchannel("A"))
+    ys, xs = np.where(alpha >= 128)
+    if not len(xs):
+        raise SystemExit(f"{path}: no opaque pixels, nothing to draw")
+    im = im.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
+    W, H = im.size
+    aw, ah = w_px - 2 * margin, h_px - 2 * margin
+    scale = min(aw / W, ah / H)
+    fw, fh = max(1, int(round(W * scale))), max(1, int(round(H * scale)))
+    small = im.resize((fw, fh), Image.LANCZOS)
+    a = np.asarray(small.getchannel("A")).astype(float)
+    sil = a >= 128
+    # posterise the figure into a few flat colour regions (the mascot's blue
+    # head, navy jacket, yellow sarong, white...) so shading does not read as
+    # detail; slots go where two regions meet
+    flat = Image.new("RGB", small.size, (0, 0, 0))
+    flat.paste(small.convert("RGB"), mask=small.getchannel("A"))
+    labels = np.asarray(flat.quantize(colors=int(edge), method=Image.Quantize.MEDIANCUT))
+    step = np.zeros(sil.shape, bool)
+    step[:, :-1] |= labels[:, 1:] != labels[:, :-1]
+    step[:-1, :] |= labels[1:, :] != labels[:-1, :]
+    slots = step & sil
+    # keep the outline whole: slots one pixel inside the silhouette edge only
+    inner = sil.copy()
+    inner[1:, :] &= sil[:-1, :]; inner[:-1, :] &= sil[1:, :]; inner[:, 1:] &= sil[:, :-1]; inner[:, :-1] &= sil[:, 1:]
+    fig = sil & ~(slots & inner)
+    mask = np.zeros((h_px, w_px), bool)
+    ox, oy = (w_px - fw) // 2, (h_px - fh) // 2
+    mask[oy:oy + fh, ox:ox + fw] = fig
+    return mask, (w_px / 2.0, h_px / 2.0, 0.0)
+
+
+def open_small(mask, iterations=1):
+    """Drop isolated metal specks and one-pixel spurs (morphological opening on
+    a 2x2 element), so every metal run is at least two pixels wide or long."""
+    m = mask.copy()
+    for _ in range(iterations):
+        er = m.copy()
+        er[:-1, :] &= m[1:, :]; er[:, :-1] &= m[:, 1:]; er[:-1, :-1] &= m[1:, 1:]
+        er[-1, :] = False; er[:, -1] = False
+        di = er.copy()
+        di[1:, :] |= er[:-1, :]; di[:, 1:] |= er[:, :-1]; di[1:, 1:] |= er[:-1, :-1]
+        m = di
+    return m
+
+
 def clean(mask):
     """No two metal pixels touching only at a corner (space 0 to a DRC
     checker): fill the 2x2 checkerboards until none is left."""
@@ -107,7 +161,10 @@ def main():
     ap.add_argument("--pixel", type=float, default=0.6, help="pixel size, um")
     ap.add_argument("--exclude", nargs=4, type=float, action="append", default=[], metavar=("X0", "Y0", "X1", "Y1"), help="Metal4 to stay clear of (die um); repeatable")
     ap.add_argument("--clearance", type=float, default=1.0, help="grown around every exclusion, um")
-    ap.add_argument("--mode", choices=("plate", "ink"), default="plate")
+    ap.add_argument("--mode", choices=("plate", "ink", "figure"), default="plate",
+                    help="plate/ink: a round avatar on a dark background; figure: a cut-out on a transparent background (silhouette from alpha, colour boundaries as slots)")
+    ap.add_argument("--edge", type=int, default=5, help="--mode figure: colour regions the figure is posterised into; their boundaries become slots")
+    ap.add_argument("--margin", type=int, default=2, help="--mode figure: empty pixels kept inside every edge of the box")
     ap.add_argument("--threshold", type=float, default=128)
     ap.add_argument("--no-disc", action="store_true", help="do not clip to the avatar's disc")
     ap.add_argument("--nofill", choices=("metal4", "all"), default="metal4", help="fill-exclusion markers over the box: Metal4 only, or every layer (for a box whose rows are cut out so nothing lies under the art)")
@@ -122,6 +179,10 @@ def main():
     we_px, he_px = int(round((ex1 - ex0) / a.pixel)), int(round((ey1 - ey0) / a.pixel))
     if a.image.lower().endswith((".gds", ".gds2", ".oas")):
         full, disc = load_mask_gds(a.image, we_px, he_px, a.pixel)       # already in die orientation
+    elif a.mode == "figure":
+        full, disc = load_mask_figure(a.image, we_px, he_px, a.edge, a.margin)
+        full = open_small(full)
+        full = full[::-1, :]                  # the image's row 0 is the top: die orientation has row 0 at the bottom
     else:
         full, disc = load_mask(a.image, we_px, he_px, a.mode, a.threshold, not a.no_disc)
         full = full[::-1, :]                  # the image's row 0 is the top: die orientation has row 0 at the bottom

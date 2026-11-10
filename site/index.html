@@ -66,21 +66,34 @@
   .links { margin-top: 28px; font-size: 15px; color: var(--ink-2); }
   .links a { color: var(--accent); text-underline-offset: 3px; }
   .links span { margin: 0 8px; }
+  .links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; }
+  .links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .ic-chip { display: inline-block; width: .95em; height: .95em; margin: 0 .5em; vertical-align: -.12em; background: currentColor; opacity: .85; flex: none;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 2h2v3H9zM13 2h2v3h-2zM9 19h2v3H9zM13 19h2v3h-2zM2 9h3v2H2zM2 13h3v2H2zM19 9h3v2h-3zM19 13h3v2h-3z'/%3E%3Crect x='6' y='6' width='12' height='12' rx='2.5'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 2h2v3H9zM13 2h2v3h-2zM9 19h2v3H9zM13 19h2v3h-2zM2 9h3v2H2zM2 13h3v2H2zM19 9h3v2h-3zM19 13h3v2h-3z'/%3E%3Crect x='6' y='6' width='12' height='12' rx='2.5'/%3E%3C/svg%3E") center / contain no-repeat; }
+  .card.featured { grid-column: 1 / -1; border-color: var(--accent); }
+  .card.featured h2 { font-size: clamp(24px, 4vw, 30px); }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <p class="kicker">Tiny Tapeout · Jane Street competition · IHP SG13CMOS5L · 8x4 tile</p>
+    <p class="kicker">Tiny Tapeout<i class="ic-chip" aria-hidden="true"></i>Jane Street competition<i class="ic-chip" aria-hidden="true"></i>IHP SG13CMOS5L<i class="ic-chip" aria-hidden="true"></i>8x4 tile</p>
     <h1><em>GARDA-chip</em></h1>
     <p class="lede">A programmable protocol engine beside a RISC-V core: two 16-state machines with their own datapaths, packet FIFOs in IHP SRAM, and DMA to the PSRAM. Ethernet, CAN, USB, SpaceWire, I2C, SPI, UART, JTAG, SWD, PS/2, 1-Wire and WS2812, each a small configuration file.</p>
   </header>
 
   <div class="cards">
+    <a class="card featured" href="GDSII/">
+      <span class="t">Silicon explorer</span>
+      <h2>Explore Physical Silicon / GDSII</h2>
+      <p>The routed layout, explained: pan and zoom through real GDS layers, see where the SRAM, CFGMEM, PRISM and TinyQV blocks sit, the Metal4 power grid and the SENO chip art, and exactly which sign-off checks have passed. One tap on Auto Explore runs a guided tour.</p>
+      <span class="go">Open the GDSII explorer →</span>
+    </a>
     <a class="card" id="viewer" href="#">
       <span class="t">Layout</span>
       <h2>3D GDS viewer</h2>
-      <p>The tile as taped out, in Tiny Tapeout's interactive viewer: the two SRAM macros on the left, the eight latch-based configuration memories, the standard cells between them.</p>
+      <p>The tile layout in Tiny Tapeout's interactive viewer: the two SRAM macros on the left, the eight latch-based configuration memories, the standard cells between them.</p>
       <span class="go">Open the viewer →</span>
     </a>
     <a class="card" href="ihp_sram_macro.html">
@@ -98,9 +111,9 @@
 
   <p class="links">
     <a href="https://github.com/kdp1965/ihp-um-janestreet-prism">Source on GitHub</a>
-    <span>·</span>
+    <i class="ic-chip" aria-hidden="true"></i>
     <a id="explorer" href="#">Tiny Tapeout Explorer</a>
-    <span>·</span>
+    <i class="ic-chip" aria-hidden="true"></i>
     <a href="tinytapeout.oas">Download the OASIS</a>
   </p>
 </div>

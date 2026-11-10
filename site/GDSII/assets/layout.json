@@ -1,0 +1,365 @@
+{
+ "design": "GARDA-chip",
+ "top_module": "tt_um_garda_chip",
+ "pdk": "IHP SG13CMOS5L (130 nm CMOS, 5-layer stack: Metal1-Metal4 used by the tile)",
+ "tile": "8x4",
+ "die_um": [
+  1724.16,
+  710.64
+ ],
+ "gds_db_unit_um": 0.001,
+ "gds_cells": 280,
+ "gds_bytes": 40393554,
+ "top_cell_children": 381069,
+ "metal_area_pct": {
+  "Metal1": 38.7,
+  "Metal2": 19.2,
+  "Metal3": 29.6,
+  "Metal4": 25.7
+ },
+ "evidence": {
+  "instances_total": 72371,
+  "stdcells": 31305,
+  "macros": 10,
+  "sequential_cells": 3537,
+  "utilization_pct": 69.9,
+  "stdcell_utilization_pct": 55.2,
+  "route_drc_errors": 0,
+  "klayout_drc_errors": 0,
+  "lvs_errors": 0,
+  "antenna_violating_nets": 0,
+  "wirelength_um": 2585567,
+  "setup_ws_typ_ns": 0.36,
+  "setup_ws_slow_ns": -7.69,
+  "setup_ws_fast_ns": 1.004,
+  "hold_ws_ns": 0.059,
+  "max_slew_violations": 6237,
+  "max_cap_violations": 45,
+  "max_fanout_violations": 520,
+  "ir_drop_worst_mv": 0.437,
+  "power_total_mw": 15.62,
+  "magic_illegal_overlap": 96
+ },
+ "chip_art": {
+  "image": "Calvin.png (SENO pose)",
+  "box_um": [
+   1634.9,
+   464.0,
+   1670.9,
+   511.4
+  ],
+  "size_um": [
+   36.0,
+   47.4
+  ],
+  "metal_area_um2": 429.12,
+  "rectangles": 212,
+  "layer": "Metal4 50/0 on bare oxide (rows cut, all-layer nofill)"
+ },
+ "macros": [
+  {
+   "cell": "tt_um_pettit_calvin",
+   "kind": "art",
+   "label": "Chip art: SENO pose, Metal4 on bare oxide",
+   "orient": "r0",
+   "x0": 1634.9,
+   "y0": 464.0,
+   "x1": 1670.9,
+   "y1": 511.4
+  },
+  {
+   "cell": "CFGMEM_IHP_LEFT16_SRAM",
+   "kind": "cfgmem",
+   "label": "CFGMEM, left column with SRAM-side pins",
+   "orient": "r0",
+   "x0": 132.47,
+   "y0": 619.92,
+   "x1": 472.79,
+   "y1": 706.86
+  },
+  {
+   "cell": "CFGMEM_IHP_LEFT16",
+   "kind": "cfgmem",
+   "label": "CFGMEM bank A (latch array, pins east)",
+   "orient": "m0",
+   "x0": 537.11,
+   "y0": 3.78,
+   "x1": 877.43,
+   "y1": 90.72
+  },
+  {
+   "cell": "CFGMEM_IHP_LEFT16",
+   "kind": "cfgmem",
+   "label": "CFGMEM bank A (latch array, pins east)",
+   "orient": "r0",
+   "x0": 537.11,
+   "y0": 257.04,
+   "x1": 877.43,
+   "y1": 343.98
+  },
+  {
+   "cell": "CFGMEM_IHP_LEFT16",
+   "kind": "cfgmem",
+   "label": "CFGMEM bank A (latch array, pins east)",
+   "orient": "r0",
+   "x0": 537.11,
+   "y0": 619.92,
+   "x1": 877.43,
+   "y1": 706.86
+  },
+  {
+   "cell": "CFGMEM_IHP16",
+   "kind": "cfgmem",
+   "label": "CFGMEM bank B (latch array, pins west)",
+   "orient": "m0",
+   "x0": 1346.39,
+   "y0": 3.78,
+   "x1": 1686.71,
+   "y1": 90.72
+  },
+  {
+   "cell": "CFGMEM_IHP16",
+   "kind": "cfgmem",
+   "label": "CFGMEM bank B (latch array, pins west)",
+   "orient": "r0",
+   "x0": 1346.39,
+   "y0": 257.04,
+   "x1": 1686.71,
+   "y1": 343.98
+  },
+  {
+   "cell": "CFGMEM_IHP16",
+   "kind": "cfgmem",
+   "label": "CFGMEM bank B (latch array, pins west)",
+   "orient": "m0",
+   "x0": 1346.39,
+   "y0": 366.66,
+   "x1": 1686.71,
+   "y1": 453.6
+  },
+  {
+   "cell": "CFGMEM_IHP16",
+   "kind": "cfgmem",
+   "label": "CFGMEM bank B (latch array, pins west)",
+   "orient": "r0",
+   "x0": 1346.39,
+   "y0": 619.92,
+   "x1": 1686.71,
+   "y1": 706.86
+  },
+  {
+   "cell": "RM_IHPSG13_1P_512x32_c2_bm_bist",
+   "kind": "sram",
+   "label": "IHP SRAM 512x32 (PRISM packet FIFO)",
+   "orient": "m0",
+   "x0": 3.36,
+   "y0": 3.78,
+   "x1": 420.0,
+   "y1": 195.34
+  },
+  {
+   "cell": "RM_IHPSG13_1P_512x32_c2_bm_bist",
+   "kind": "sram",
+   "label": "IHP SRAM 512x32 (PRISM packet FIFO)",
+   "orient": "r0",
+   "x0": 3.36,
+   "y0": 339.98,
+   "x1": 420.0,
+   "y1": 531.54
+  }
+ ],
+ "blocks": [
+  {
+   "id": "prism_shards",
+   "label": "PRISM state-machine shards",
+   "samples": 21537,
+   "color": "#B7FF35",
+   "heat": "assets/block-prism_shards.png",
+   "peak_um": [
+    465.0,
+    85.0
+   ],
+   "core_um": [
+    410.0,
+    30.0,
+    1630.0,
+    450.0
+   ]
+  },
+  {
+   "id": "prism_sram",
+   "label": "PRISM SRAM FIFO wrappers",
+   "samples": 2848,
+   "color": "#FFC43D",
+   "heat": "assets/block-prism_sram.png",
+   "peak_um": [
+    245.0,
+    295.0
+   ],
+   "core_um": [
+    40.0,
+    170.0,
+    610.0,
+    350.0
+   ]
+  },
+  {
+   "id": "tinyqv",
+   "label": "TinyQV RISC-V CPU and QSPI memory controller",
+   "samples": 5971,
+   "color": "#315CFF",
+   "heat": "assets/block-tinyqv.png",
+   "peak_um": [
+    535.0,
+    485.0
+   ],
+   "core_um": [
+    70.0,
+    300.0,
+    1070.0,
+    690.0
+   ]
+  },
+  {
+   "id": "cfgmem_if",
+   "label": "CFGMEM write/read interface",
+   "samples": 7537,
+   "color": "#28B5E8",
+   "heat": "assets/block-cfgmem_if.png",
+   "peak_um": [
+    1025.0,
+    595.0
+   ],
+   "core_um": [
+    460.0,
+    0.0,
+    1580.0,
+    690.0
+   ]
+  },
+  {
+   "id": "uart",
+   "label": "UART peripheral",
+   "samples": 931,
+   "color": "#FF6EC7",
+   "heat": "assets/block-uart.png",
+   "peak_um": [
+    1585.0,
+    595.0
+   ],
+   "core_um": [
+    1270.0,
+    550.0,
+    1650.0,
+    700.0
+   ]
+  },
+  {
+   "id": "dma",
+   "label": "PRISM DMA engines",
+   "samples": 1295,
+   "color": "#9D7BFF",
+   "heat": "assets/block-dma.png",
+   "peak_um": [
+    855.0,
+    495.0
+   ],
+   "core_um": [
+    580.0,
+    200.0,
+    1000.0,
+    540.0
+   ]
+  }
+ ],
+ "layers": [
+  {
+   "id": "feol",
+   "label": "Active + poly (transistors)",
+   "gds_layers": [
+    "1/0",
+    "5/0",
+    "31/0",
+    "14/0"
+   ],
+   "color": "#3E4C8A",
+   "image": "assets/layer-feol.webp",
+   "bytes": 109074,
+   "shapes": 2036353
+  },
+  {
+   "id": "metal1",
+   "label": "Metal1 (cell wiring, rails)",
+   "gds_layers": [
+    "8/0"
+   ],
+   "color": "#315CFF",
+   "image": "assets/layer-metal1.webp",
+   "bytes": 767234,
+   "shapes": 1429264
+  },
+  {
+   "id": "metal2",
+   "label": "Metal2 (horizontal routing)",
+   "gds_layers": [
+    "10/0"
+   ],
+   "color": "#28B5E8",
+   "image": "assets/layer-metal2.webp",
+   "bytes": 930668,
+   "shapes": 959176
+  },
+  {
+   "id": "metal3",
+   "label": "Metal3 (vertical routing)",
+   "gds_layers": [
+    "30/0"
+   ],
+   "color": "#9D7BFF",
+   "image": "assets/layer-metal3.webp",
+   "bytes": 492004,
+   "shapes": 551388
+  },
+  {
+   "id": "metal4",
+   "label": "Metal4 (power grid + chip art)",
+   "gds_layers": [
+    "50/0"
+   ],
+   "color": "#B7FF35",
+   "image": "assets/layer-metal4.webp",
+   "bytes": 391166,
+   "shapes": 99283
+  },
+  {
+   "id": "vias",
+   "label": "Contacts and vias",
+   "gds_layers": [
+    "6/0",
+    "19/0",
+    "29/0",
+    "49/0"
+   ],
+   "color": "#F7F9FF",
+   "image": "assets/layer-vias.webp",
+   "bytes": 1093686,
+   "shapes": 4476938
+  }
+ ],
+ "images": {
+  "overview": "assets/overview.webp",
+  "overview_small": "assets/overview-1600.webp",
+  "overview_jpg": "assets/overview-1600.jpg",
+  "chip_art": "assets/chip-art.webp",
+  "chip_art_box_um": [
+   1628.9,
+   458.0,
+   1676.9,
+   517.4
+  ],
+  "size_px": [
+   2400,
+   989
+  ]
+ }
+}

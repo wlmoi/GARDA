@@ -2,7 +2,10 @@
   "name": "GARDA-chip",
   "top_module": "tt_um_garda_chip",
   "tile": "8x4",
-  "die_um": [1724.16, 710.64],
+  "die_um": [
+    1724.16,
+    710.64
+  ],
   "gds": "local_build/gds/tt_um_garda_chip.gds",
   "gds_klayout": "local_build/klayout_gds/tt_um_garda_chip.klayout.gds",
   "preview_png": "local_build/render/tt_um_garda_chip_overview.png",
@@ -11,7 +14,11 @@
   "image": "Calvin.png",
   "tools": {
     "info": "python tools/gds_view.py info",
-    "render": "python tools/gds_view.py render -o out.png"
+    "render": "python tools/gds_view.py render -o out.png",
+    "gdsii_site": "python tools/gdsii_site.py --def local_build/def/tt_um_garda_chip.def",
+    "chip_art": "python tools/chip_art.py --image Calvin.png --mode figure --edge 3 --box 1634.9 464.0 1670.9 511.4 --nofill all --out macros/CALVIN_UP"
   },
-  "instructions": "AGENTS.md"
+  "instructions": "AGENTS.md",
+  "gdsii_explorer": "https://wlmoi.github.io/GARDA/GDSII/",
+  "website": "https://garda-chip-explorer.vercel.app/"
 }

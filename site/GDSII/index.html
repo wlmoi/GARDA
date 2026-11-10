@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GARDA-chip Silicon Explorer (GDSII)</title>
+<meta name="description" content="Interactive physical-layout explorer for GARDA-chip (tt_um_garda_chip): IHP SG13CMOS5L, Tiny Tapeout 8x4 tile, 1724.16 x 710.64 um. Real GDS renders, macro placement, verification evidence and the SENO chip art.">
+<link rel="canonical" href="https://wlmoi.github.io/GARDA/GDSII/">
+<meta property="og:title" content="GARDA-chip Silicon Explorer">
+<meta property="og:description" content="The physical silicon of GARDA-chip: real GDS layout, macros, power grid, verification evidence.">
+<meta property="og:image" content="https://wlmoi.github.io/GARDA/GDSII/assets/overview-1600.jpg">
+<meta name="theme-color" content="#070B20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23315CFF'/%3E%3Cpath d='M9 9h14v14H9z' fill='none' stroke='%23B7FF35' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#070B20;--surface:#101942;--surface-2:#0C1434;--line:rgba(247,249,255,.12);--line-2:rgba(247,249,255,.22);--blue:#315CFF;--lime:#B7FF35;--ink:#F7F9FF;--muted:#A8B6D4;--warn:#FFC43D;--alert:#FF5364;
+--display:'Archivo',system-ui,sans-serif;--body:'Work Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--lime);text-underline-offset:3px}
+img{max-width:100%}
+[hidden]{display:none!important}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+.mono{font-family:var(--mono);overflow-wrap:anywhere}
+p,footer,.card,.lede{overflow-wrap:break-word}
+.ic-chip{display:inline-block;width:.95em;height:.95em;margin:0 .45em;vertical-align:-.12em;background:currentColor;opacity:.9;flex:none;
+-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 2h2v3H9zM13 2h2v3h-2zM9 19h2v3H9zM13 19h2v3h-2zM2 9h3v2H2zM2 13h3v2H2zM19 9h3v2h-3zM19 13h3v2h-3z'/%3E%3Crect x='6' y='6' width='12' height='12' rx='2.5'/%3E%3C/svg%3E") center/contain no-repeat;
+mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 2h2v3H9zM13 2h2v3h-2zM9 19h2v3H9zM13 19h2v3h-2zM2 9h3v2H2zM2 13h3v2H2zM19 9h3v2h-3zM19 13h3v2h-3z'/%3E%3Crect x='6' y='6' width='12' height='12' rx='2.5'/%3E%3C/svg%3E") center/contain no-repeat}
+.eyebrow .ic-chip,.eyebrow span .ic-chip{margin:0 .3em}
+.skip{position:absolute;left:-999px;top:8px;background:var(--lime);color:var(--bg);padding:10px 14px;border-radius:6px;z-index:100}
+.skip:focus{left:12px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:50;background:rgba(7,11,32,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.bar .wrap{display:flex;align-items:center;gap:12px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:800 18px/1 var(--display);letter-spacing:-.01em;min-height:44px}
+.brand i{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--blue),#1a2f8f);display:grid;place-items:center;font-style:normal;color:var(--lime);font-size:14px}
+.brand b{color:var(--lime)}
+.bar nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.bar nav a{color:var(--muted);text-decoration:none;font:500 13px/1 var(--mono);padding:0 10px;min-height:44px;display:inline-flex;align-items:center;border-radius:8px}
+.bar nav a:hover,.bar nav a:focus-visible{color:var(--ink);background:rgba(247,249,255,.06)}
+@media(max-width:640px){.bar nav a.opt{display:none}}
+@media(max-width:430px){.bar nav a.opt2{display:none}.bar nav{flex-wrap:nowrap}.bar nav a{padding:0 8px}}
+
+/* hero */
+.hero{padding:40px 0 18px}
+.eyebrow{font:600 12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin:0 0 12px;display:flex;flex-wrap:wrap;gap:6px 14px}
+.eyebrow span{color:var(--muted)}
+h1{font:900 clamp(34px,6.4vw,68px)/1.02 var(--display);letter-spacing:-.025em;margin:0 0 14px}
+h1 em{font-style:normal;color:var(--lime)}
+.lede{font-size:clamp(16px,2.2vw,19px);color:#D5DDF0;max-width:820px;margin:0 0 22px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:0 0 22px}
+.fact{background:var(--surface-2);padding:14px 16px;min-width:0}
+.fact dt{font:500 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.fact dd{margin:0;font:700 17px/1.25 var(--display);overflow-wrap:anywhere}
+.fact dd small{display:block;font:400 12px/1.4 var(--mono);color:var(--muted);margin-top:3px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 18px;border-radius:999px;border:1px solid var(--line-2);background:rgba(247,249,255,.05);color:var(--ink);font:600 14px/1 var(--mono);text-decoration:none;cursor:pointer;touch-action:manipulation;transition:background-color .15s,transform .15s}
+.btn:hover{background:rgba(247,249,255,.12)}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible,.tool:focus-visible,.chip:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.btn.primary{background:var(--lime);border-color:var(--lime);color:var(--bg);font:800 16px/1 var(--display);padding:0 22px 0 8px;min-height:58px}
+.btn.primary .disc{width:42px;height:42px;border-radius:50%;background:var(--bg);color:var(--lime);display:grid;place-items:center}
+.btn.primary .disc svg{width:18px;height:18px;margin-left:3px;fill:currentColor}
+.btn.primary small{display:block;font:500 11px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;opacity:.75;margin-top:3px}
+@media(max-width:520px){.cta-row .btn.primary{width:100%;justify-content:flex-start}}
+
+/* status ladder */
+.ladder{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.ladder li{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface-2);min-width:0}
+.ladder .st{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:999px;margin-bottom:8px}
+.ladder .st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ladder b{display:block;font:700 15px/1.25 var(--display)}
+.ladder span.d{display:block;font:400 12.5px/1.45 var(--body);color:var(--muted);margin-top:3px}
+.ok .st{color:var(--lime);background:rgba(183,255,53,.1);border:1px solid rgba(183,255,53,.35)}
+.part .st{color:var(--warn);background:rgba(255,196,61,.1);border:1px solid rgba(255,196,61,.35)}
+.no .st{color:var(--muted);border:1px dashed var(--line-2)}
+.no .st::before{background:transparent;border:1.5px solid currentColor}
+
+/* explorer */
+section{padding:30px 0}
+h2{font:800 clamp(24px,3.6vw,36px)/1.1 var(--display);letter-spacing:-.015em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 18px;max-width:820px}
+.explorer{border:1px solid var(--line);border-radius:16px;background:var(--surface-2);overflow:hidden}
+.toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px;border-bottom:1px solid var(--line);background:rgba(16,25,66,.6)}
+.tool{min-width:44px;height:44px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:rgba(247,249,255,.04);color:var(--ink);font:600 13px/1 var(--mono);display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;touch-action:manipulation}
+.tool svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tool:hover{background:rgba(247,249,255,.1)}
+.tool[aria-pressed="true"]{background:rgba(183,255,53,.14);border-color:rgba(183,255,53,.5);color:var(--lime)}
+.toolbar .sep{flex:1}
+.zoomread{font:500 12px/1 var(--mono);color:var(--muted);padding:0 6px;min-width:64px;text-align:right}
+.stage{position:relative;height:clamp(260px,58vh,620px);background:#000;overflow:hidden;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.stage.dragging{cursor:grabbing}
+.world{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.world img{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;-webkit-user-drag:none}
+.world img.layer{mix-blend-mode:screen;opacity:0;transition:opacity .4s ease}
+.world img.layer.on{opacity:1}
+.world img.heat{opacity:0;transition:opacity .5s ease;image-rendering:auto}
+.world img.heat.on{opacity:.78}
+.world img.art{image-rendering:pixelated}
+.world svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.world .m rect{fill:rgba(49,92,255,.08);stroke:rgba(247,249,255,.55);stroke-width:1.2;vector-effect:non-scaling-stroke;transition:fill .3s,stroke .3s}
+.world .m.kind-sram rect{stroke:#FFC43D}
+.world .m.kind-cfgmem rect{stroke:#28B5E8}
+.world .m.kind-art rect{stroke:var(--lime);stroke-width:2}
+.world .m.hl rect{fill:rgba(183,255,53,.18);stroke:var(--lime);stroke-width:2.4}
+.world.no-macros .m{display:none}
+.base{transition:opacity .5s ease}
+.reveal-scan{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 0,rgba(183,255,53,.0) 40%,rgba(183,255,53,.55) 50%,transparent 52%);transform:translateX(-60%);opacity:0}
+.stage.revealing .reveal-scan{animation:scan 1.8s var(--ease) forwards}
+.stage.revealing .base{animation:wipe 1.8s var(--ease) forwards}
+@keyframes scan{0%{opacity:1;transform:translateX(-60%)}100%{opacity:0;transform:translateX(60%)}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.labels{position:absolute;inset:0;pointer-events:none}
+.lbl{position:absolute;transform:translate(-50%,-50%);font:600 11.5px/1.2 var(--mono);color:var(--ink);background:rgba(7,11,32,.82);border:1px solid var(--line-2);padding:4px 7px;border-radius:6px;white-space:nowrap;max-width:46vw;overflow:hidden;text-overflow:ellipsis;transition:opacity .2s}
+.lbl i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:0}
+.lbl.hl{border-color:var(--lime);color:var(--lime);box-shadow:0 0 0 3px rgba(183,255,53,.18)}
+.stage.hide-labels .labels{display:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px;padding:10px;border-top:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 12.5px/1.2 var(--mono);cursor:pointer;touch-action:manipulation}
+.chip i{width:10px;height:10px;border-radius:3px;flex:none}
+.chip[aria-pressed="false"]{opacity:.5}
+.chip[aria-pressed="true"]{border-color:var(--line-2);background:rgba(247,249,255,.06)}
+.legend .hd{width:100%;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:4px 2px 2px}
+.coords{position:absolute;right:8px;bottom:8px;font:500 11px/1 var(--mono);color:var(--muted);background:rgba(7,11,32,.7);padding:5px 7px;border-radius:6px;pointer-events:none}
+.scale{position:absolute;left:10px;bottom:10px;font:500 11px/1 var(--mono);color:var(--ink);pointer-events:none}
+.scale span{display:block;height:3px;background:var(--lime);margin-bottom:4px;border-radius:2px}
+.stage:fullscreen{height:100vh;border-radius:0}
+.explorer:fullscreen{border-radius:0;display:flex;flex-direction:column;overflow:auto}
+.explorer:fullscreen .stage{flex:1;height:auto}
+
+/* tour */
+.tour{display:grid;gap:8px;padding:12px 14px;border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(49,92,255,.12),transparent)}
+.tour-progress{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px}
+.tour-progress button{height:20px;border:0;background:none;padding:8px 1px;cursor:pointer}
+.tour-progress button span{display:block;height:4px;border-radius:4px;background:rgba(247,249,255,.18);overflow:hidden}
+.tour-progress button span i{display:block;height:100%;width:100%;background:var(--lime);transform-origin:left;transform:scaleX(0)}
+.tour-kicker{display:flex;justify-content:space-between;gap:10px;font:600 11.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime);margin:0}
+.tour-kicker span:last-child{color:var(--muted)}
+.tour h3{margin:0;font:800 20px/1.2 var(--display)}
+.tour p.tx{margin:0;color:#D5DDF0;font-size:15px;min-height:3em}
+.tour .ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tour.is-in h3,.tour.is-in p.tx{animation:fadeup .45s var(--ease) both}
+@keyframes fadeup{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+/* content */
+.grid2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px}
+@media(max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.card{border:1px solid var(--line);border-radius:16px;background:var(--surface-2);padding:20px;min-width:0}
+.card h3{margin:0 0 8px;font:800 20px/1.2 var(--display)}
+.card p{margin:0 0 10px;color:#D5DDF0}
+.artcard{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:560px){.artcard{grid-template-columns:minmax(0,1fr)}.artcard img{max-width:240px}}
+.artcard img{width:100%;border-radius:10px;border:1px solid var(--line);background:#000;image-rendering:pixelated}
+.note{font-size:13.5px;color:var(--muted);border-left:3px solid var(--warn);padding:6px 0 6px 12px;margin:10px 0 0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:rgba(16,25,66,.6)}
+td.num{font-family:var(--mono);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 11.5px/1 var(--mono);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.ok{color:var(--lime);background:rgba(183,255,53,.1);border:1px solid rgba(183,255,53,.35)}
+.pill.part{color:var(--warn);background:rgba(255,196,61,.1);border:1px solid rgba(255,196,61,.35)}
+.pill.no{color:var(--muted);border:1px dashed var(--line-2)}
+.pill.no::before{background:transparent;border:1.5px solid currentColor}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:38px minmax(0,1fr);gap:12px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface-2)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:700 13px/38px var(--mono);color:var(--lime);text-align:center;border:1px solid rgba(183,255,53,.35);border-radius:10px;height:38px}
+.steps b{display:block;font:700 16px/1.3 var(--display)}
+.steps span{display:block;color:var(--muted);font-size:14px}
+.viewer3d{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#000 center/cover no-repeat}
+@media(max-width:640px){.viewer3d{aspect-ratio:auto;height:min(70vh,420px)}}
+.explorer{scroll-margin-top:calc(68px + env(safe-area-inset-top,0px))}
+footer a{display:inline-flex;align-items:center;min-height:44px}
+.viewer3d iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.viewer3d .ph{position:absolute;inset:0;display:grid;place-content:center;gap:12px;text-align:center;padding:20px;background:linear-gradient(180deg,rgba(7,11,32,.55),rgba(7,11,32,.88))}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.variants{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+footer{border-top:1px solid var(--line);padding:26px 0 calc(40px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#explorer">Skip to the layout explorer</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="GARDA-chip home"><i aria-hidden="true">G</i><span>GARDA<b>.</b>chip</span></a>
+    <nav aria-label="Page">
+      <a href="#explorer">Layout</a>
+      <a class="opt2" href="#evidence">Evidence</a>
+      <a class="opt" href="#flow">RTL→GDS</a>
+      <a class="opt" href="#downloads">Downloads</a>
+      <a href="https://garda-chip-explorer.vercel.app/" rel="noopener">GARDA site</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <p class="eyebrow">Physical silicon<i class="ic-chip" aria-hidden="true"></i>GDSII <span id="hero-tags">Tiny Tapeout<i class="ic-chip" aria-hidden="true"></i>IHP SG13CMOS5L</span></p>
+    <h1>GARDA-chip, <em>in silicon layout.</em></h1>
+    <p class="lede">This is the real, routed layout of <span class="mono">tt_um_garda_chip</span>: a PRISM programmable state-machine engine beside a TinyQV RISC-V core, placed on one Tiny Tapeout tile. Every image below is rendered from the final GDS file, not drawn by hand.</p>
+    <dl class="facts" id="facts" aria-label="Design facts"></dl>
+    <div class="cta-row">
+      <button type="button" class="btn primary" id="auto" aria-describedby="auto-note"><span class="disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>Auto Explore Chip<small>Hands-free<i class="ic-chip" aria-hidden="true"></i>about 60 s</small></span></button>
+      <a class="btn" href="#evidence">What is verified?</a>
+      <a class="btn" href="#viewer3d">3D viewer</a>
+    </div>
+    <p id="auto-note" class="sub" style="margin-top:10px;font-size:13.5px">One tap: the explorer flies to each block, highlights it and explains it. Pause or replay at any time.</p>
+    <ol class="ladder" id="ladder" aria-label="Implementation status, from RTL to fabricated silicon"></ol>
+  </div>
+
+  <section id="explorer" aria-labelledby="explorer-title">
+    <div class="wrap">
+      <h2 id="explorer-title">2D layout explorer</h2>
+      <p class="sub">Drag to pan, pinch or scroll to zoom, double-tap to zoom in. Turn GDS layers and annotations on and off below. Coordinates are die micrometres from the lower-left corner.</p>
+      <div class="explorer" id="explorer-box">
+        <div class="toolbar" role="toolbar" aria-label="Layout view controls">
+          <button class="tool" id="zin" aria-label="Zoom in"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M11 8v6M8 11h6M20 20l-4-4"/></svg></button>
+          <button class="tool" id="zout" aria-label="Zoom out"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M8 11h6M20 20l-4-4"/></svg></button>
+          <button class="tool" id="rot" aria-label="Rotate 90 degrees"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button>
+          <button class="tool" id="reset" aria-label="Reset view"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 15v5h-5M4 4l6 6M20 20l-6-6"/></svg></button>
+          <button class="tool" id="fs" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+          <button class="tool" id="t-macros" aria-pressed="true">Macros</button>
+          <button class="tool" id="t-labels" aria-pressed="true">Labels</button>
+          <span class="sep"></span>
+          <span class="zoomread" id="zoomread" aria-live="off">1.0×</span>
+        </div>
+        <div class="tour" id="tour" hidden>
+          <div class="tour-progress" id="tour-progress" role="group" aria-label="Tour chapters"></div>
+          <p class="tour-kicker"><span id="tour-count"></span><span id="tour-time"></span></p>
+          <div aria-live="polite" aria-atomic="true"><h3 id="tour-title"></h3><p class="tx" id="tour-text"></p></div>
+          <div class="ctl">
+            <button class="tool" id="tour-prev" aria-label="Previous chapter">◀</button>
+            <button class="tool" id="tour-toggle" aria-label="Pause tour" aria-pressed="false">Pause</button>
+            <button class="tool" id="tour-next" aria-label="Next chapter">▶</button>
+            <button class="tool" id="tour-replay">Replay</button>
+            <span class="sep" style="flex:1"></span>
+            <button class="tool" id="tour-exit" aria-label="Exit the tour">Exit ✕</button>
+          </div>
+        </div>
+        <div class="stage" id="stage" tabindex="0" aria-label="GARDA-chip layout. Use arrow keys to pan, plus and minus to zoom.">
+          <div class="world" id="world">
+            <img class="base" id="base" alt="Rendered layout of the GARDA-chip tile from the final GDS" width="2400" height="989" decoding="async">
+            <div id="layers"></div>
+            <div id="heats"></div>
+            <img class="art" id="artimg" alt="" decoding="async">
+            <svg id="macros" aria-hidden="true"></svg>
+          </div>
+          <div class="reveal-scan" aria-hidden="true"></div>
+          <div class="labels" id="labels" aria-hidden="true"></div>
+          <div class="scale" id="scale" aria-hidden="true"><span></span><em></em></div>
+          <div class="coords" id="coords" aria-hidden="true"></div>
+        </div>
+        <div class="legend" id="legend">
+          <span class="hd">GDS layers</span>
+          <div id="layer-chips" style="display:contents"></div>
+          <span class="hd">RTL blocks (where their named nets are routed)</span>
+          <div id="block-chips" style="display:contents"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="art" aria-labelledby="art-title">
+    <div class="wrap grid2">
+      <div class="card artcard">
+        <img id="art-inset" src="assets/chip-art.webp" alt="Metal4 geometry of the SENO pose chip art, rendered from the GDS" width="900" height="1114" loading="lazy">
+        <div>
+          <h3 id="art-title">Chip art: the SENO pose</h3>
+          <p id="art-text">Loading…</p>
+          <p class="note">At this size the picture is visible only when you zoom in. A larger, from-afar-visible SENO needs a re-hardened layout with a bigger reserved area; that run has not been done, so it is not shown here.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Where the blocks are</h3>
+        <p>Ten hard macros are placed by hand; around 31,000 standard cells fill the rest. RTL block areas are shown as heat maps of where each block's <em>named</em> nets are routed in the final DEF. Synthesis flattens most cell names, so this marks wiring density, not an exact boundary.</p>
+        <div class="tablewrap" style="margin-top:12px"><table id="macro-table"><thead><tr><th>Macro</th><th>Instances</th><th>Placed at (µm)</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="evidence" aria-labelledby="ev-title">
+    <div class="wrap">
+      <h2 id="ev-title">Verification evidence</h2>
+      <p class="sub">Numbers come from the hardened run's <span class="mono">metrics.json</span> (LibreLane, local build published by the repository's GDS workflow). "Passed" means the check reported zero errors; anything else is shown as it is.</p>
+      <div class="tablewrap"><table id="ev-table"><thead><tr><th>Check</th><th>Result</th><th>Status</th><th>What it means</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="flow" aria-labelledby="flow-title">
+    <div class="wrap grid2">
+      <div>
+        <h2 id="flow-title">RTL to GDSII</h2>
+        <p class="sub">How this layout was produced, stage by stage.</p>
+        <ol class="steps" id="steps"></ol>
+      </div>
+      <div class="card">
+        <h3>Power and routing</h3>
+        <p>The tile's power grid is Metal4 stripe pairs (VPWR and VGND) on a 44.96 µm pitch, 5.62 µm apart, matched to the IHP SRAM's power-column grid so one set of full-height stripes powers the SRAM and the CFGMEM macros. A flow step (<span class="mono">Project.ExtendPowerStripes</span>) extends the stripes across the macros' Metal4 power pins.</p>
+        <p id="route-text">Loading…</p>
+        <div class="tablewrap" style="margin-top:12px"><table id="metal-table"><thead><tr><th>Layer</th><th>Area of die</th><th>Main use</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="viewer3d-sec" aria-labelledby="v3-title">
+    <div class="wrap">
+      <h2 id="v3-title">Interactive 3D viewer</h2>
+      <p class="sub">Tiny Tapeout's open-source GDS viewer, loading this tile's OASIS file. It needs WebGL and downloads about 1.6 MB, so it starts only when you ask.</p>
+      <div class="viewer3d" id="viewer3d" style="background-image:url(assets/overview-1600.jpg)">
+        <div class="ph" id="v3-ph">
+          <button type="button" class="btn primary" id="v3-load" style="justify-self:center"><span class="disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>Load 3D viewer<small>WebGL<i class="ic-chip" aria-hidden="true"></i>rotate, zoom, layers</small></span></button>
+          <p class="mono" id="v3-msg" style="margin:0;color:var(--muted);font-size:13px"></p>
+        </div>
+      </div>
+      <div class="links">
+        <a class="btn" id="v3-ext" href="#" target="_blank" rel="noopener">Open 3D viewer in a new tab ↗</a>
+        <a class="btn" id="explorer-ext" href="#" target="_blank" rel="noopener">Tiny Tapeout Explorer ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="variants" aria-labelledby="var-title">
+    <div class="wrap">
+      <h2 id="var-title">Which GARDA silicon is this?</h2>
+      <p class="sub">The GARDA project has more than one hardware experiment. They are separate designs and must not be confused.</p>
+      <div class="variants">
+        <div class="card"><span class="pill ok">Layout shown here</span><h3 style="margin-top:10px">GARDA-chip<i class="ic-chip" aria-hidden="true"></i>tt_um_garda_chip</h3><p>PRISM + TinyQV on IHP SG13CMOS5L, Tiny Tapeout 8x4 tile. Routed and signed off locally (DRC 0, LVS 0); the timing caveats are listed in the evidence table. Not fabricated.</p></div>
+        <div class="card"><span class="pill no">No layout published here</span><h3 style="margin-top:10px">GARDA neural-logic accelerator</h3><p>The neural-accelerator and chip I/O experiments described in the hackathon proposal (<span class="mono">tt_um_wlmoi_garda_neural_logic</span>) are a different design. Their layout and verification status are not part of this page; none of the numbers above apply to them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="downloads" aria-labelledby="dl-title">
+    <div class="wrap">
+      <h2 id="dl-title">Downloads and sources</h2>
+      <p class="sub">The artifacts the repository's GDS workflow publishes with this site.</p>
+      <div class="links">
+        <a class="btn" href="../tinytapeout.gds" download>GDSII (.gds) ↓</a>
+        <a class="btn" href="../tinytapeout.oas" download>OASIS (.oas) ↓</a>
+        <a class="btn" href="../gds_render.png" target="_blank" rel="noopener">Full-resolution render (PNG, ~20 MB) ↗</a>
+        <a class="btn" href="assets/layout.json" target="_blank" rel="noopener">Layout facts (JSON) ↗</a>
+        <a class="btn" href="https://github.com/wlmoi/GARDA" rel="noopener">Repository ↗</a>
+        <a class="btn" href="../ihp_sram_macro.html">IHP SRAM write-up</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">GARDA-chip<i class="ic-chip" aria-hidden="true"></i><span class="mono">tt_um_garda_chip</span><i class="ic-chip" aria-hidden="true"></i>Canonical page: <a href="https://wlmoi.github.io/GARDA/GDSII/">wlmoi.github.io/GARDA/GDSII/</a><i class="ic-chip" aria-hidden="true"></i>Renders generated from the GDS by <span class="mono">tools/gdsii_site.py</span>.</div></footer>
+
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+const fmt = (n, d = 0) => Number(n).toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d });
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const oas = new URL('../tinytapeout.oas', location.href).href;
+const pdk = 'ihp-sg13cmos5l';
+const viewerURL = `https://gds-viewer.tinytapeout.com/?pdk=${pdk}&model=${encodeURIComponent(oas)}`;
+$('#v3-ext').href = viewerURL;
+$('#explorer-ext').href = `https://gds-explorer.tinytapeout.com/viewer?file=${encodeURIComponent(oas)}&pdk=${pdk}`;
+
+let D = null, Wum = 1724.16, Hum = 710.64;
+const stage = $('#stage'), world = $('#world');
+const cam = { s: 1, tx: 0, ty: 0, rot: 0 };
+let fitS = 1;
+
+fetch('assets/layout.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(init).catch(err => {
+  console.warn('layout.json', err);
+  $('#base').src = '../gds_render.png';
+  $('#facts').innerHTML = '<div class="fact"><dt>Status</dt><dd>Layout facts could not be loaded<small>Showing the workflow render instead.</small></dd></div>';
+  sizeWorld(); fit(false);
+});
+
+function init(data) {
+  D = data; [Wum, Hum] = D.die_um;
+  const ev = D.evidence;
+  // ---- facts
+  const facts = [
+    ['Top module', D.top_module, D.design],
+    ['Process', 'IHP SG13CMOS5L', '130 nm CMOS, Metal1 to Metal4'],
+    ['Tile', `${D.tile} Tiny Tapeout`, `${fmt(Wum, 2)} × ${fmt(Hum, 2)} µm`],
+    ['Cells', `${fmt(ev.stdcells)} standard`, `${ev.macros} hard macros, ${fmt(ev.sequential_cells)} flops/latches`],
+    ['Sign-off', `DRC ${ev.klayout_drc_errors}, LVS ${ev.lvs_errors}`, 'KLayout DRC and Netgen LVS'],
+    ['Fabrication', 'Not fabricated', 'Layout only; no silicon yet'],
+  ];
+  $('#facts').innerHTML = facts.map(([t, v, s]) => `<div class="fact"><dt>${esc(t)}</dt><dd>${esc(v)}<small>${esc(s)}</small></dd></div>`).join('');
+  // ---- status ladder
+  const ladder = [
+    ['ok', 'Done', 'RTL', 'PRISM + TinyQV Verilog, cocotb testbench in the repository'],
+    ['ok', 'Done', 'Synthesis', `${fmt(ev.instances_total)} instances incl. fill and taps`],
+    ['ok', 'Done', 'Place & route', `Router DRC ${ev.route_drc_errors} after the final iteration`],
+    ['ok', 'Passed', 'DRC / LVS', `KLayout DRC ${ev.klayout_drc_errors}, LVS errors ${ev.lvs_errors}, antenna nets ${ev.antenna_violating_nets}`],
+    ['part', 'Partial', 'Timing', `Typical corner met (+${ev.setup_ws_typ_ns} ns); slow corner ${ev.setup_ws_slow_ns} ns`],
+    ['no', 'Not recorded', 'Tapeout submission', 'No shuttle submission is recorded in the repository'],
+    ['no', 'Not yet', 'Fabricated silicon', 'No chip has been manufactured or measured'],
+  ];
+  $('#ladder').innerHTML = ladder.map(([c, st, b, d]) => `<li class="${c}"><span class="st">${esc(st)}</span><b>${esc(b)}</b><span class="d">${esc(d)}</span></li>`).join('');
+  // ---- evidence table
+  const P = (cls, t) => `<span class="pill ${cls}">${esc(t)}</span>`;
+  const rows = [
+    ['KLayout DRC (full deck)', `${ev.klayout_drc_errors} errors`, ev.klayout_drc_errors === 0 ? P('ok', 'Passed') : P('part', 'Errors'), 'Geometry obeys the foundry design rules.'],
+    ['LVS (layout vs netlist)', `${ev.lvs_errors} errors`, ev.lvs_errors === 0 ? P('ok', 'Passed') : P('part', 'Errors'), 'The drawn transistors and wires match the synthesized netlist.'],
+    ['Detailed routing DRC', `${ev.route_drc_errors} violations`, ev.route_drc_errors === 0 ? P('ok', 'Passed') : P('part', 'Open'), 'The router finished with no shorts or spacing errors.'],
+    ['Antenna', `${ev.antenna_violating_nets} nets`, ev.antenna_violating_nets === 0 ? P('ok', 'Passed') : P('part', 'Open'), 'No long wires charge a gate unprotected during manufacturing.'],
+    ['Setup timing, typical 1.20 V 25 °C', `${ev.setup_ws_typ_ns > 0 ? '+' : ''}${ev.setup_ws_typ_ns} ns`, ev.setup_ws_typ_ns >= 0 ? P('ok', 'Met') : P('part', 'Not met'), 'Worst slack at the nominal corner.'],
+    ['Setup timing, slow 1.08 V 125 °C', `${ev.setup_ws_slow_ns} ns`, ev.setup_ws_slow_ns >= 0 ? P('ok', 'Met') : P('part', 'Not met'), 'Negative slack: the clock target is not met at the slow corner.'],
+    ['Hold timing (worst corner)', `+${ev.hold_ws_ns} ns`, ev.hold_ws_ns >= 0 ? P('ok', 'Met') : P('part', 'Not met'), 'No hold violations.'],
+    ['Max slew / cap / fanout', `${fmt(ev.max_slew_violations)} / ${ev.max_cap_violations} / ${ev.max_fanout_violations}`, P('part', 'Warnings'), 'Electrical design-rule warnings reported by STA (slow corner for slew).'],
+    ['IR drop, worst', `${ev.ir_drop_worst_mv} mV`, P('ok', 'Low'), 'Static voltage drop across the power grid.'],
+    ['Estimated power', `${ev.power_total_mw} mW`, P('no', 'Estimate'), 'Tool estimate, not a measurement.'],
+    ['Utilization', `${ev.utilization_pct} % (cells ${ev.stdcell_utilization_pct} %)`, P('no', 'Info'), 'Share of the core area occupied.'],
+  ];
+  $('#ev-table tbody').innerHTML = rows.map(r => `<tr><td>${esc(r[0])}</td><td class="num">${esc(r[1])}</td><td>${r[2]}</td><td>${esc(r[3])}</td></tr>`).join('');
+  // ---- steps
+  const steps = [
+    ['RTL and simulation', 'PRISM state machines, datapaths, FIFOs and DMA, the TinyQV RISC-V core and its peripherals in Verilog, tested with cocotb.'],
+    ['Hard macros', 'Two IHP 512x32 SRAMs for packet FIFOs and eight latch-array CFGMEM macros built with DFFRAM.librelane for PRISM configuration.'],
+    ['Synthesis (Yosys)', `Mapped to SG13CMOS5L standard cells: ${fmt(ev.stdcells)} cells, ${fmt(ev.sequential_cells)} of them sequential.`],
+    ['Floorplan and power grid', 'Macros placed by hand on the 44.96 µm stripe grid; Metal4 stripe pairs extended over the macro power pins.'],
+    ['Place, CTS, route (OpenROAD)', `Global and detailed routing, ${fmt(ev.wirelength_um)} µm of wire, router DRC ${ev.route_drc_errors}.`],
+    ['Sign-off', `KLayout DRC ${ev.klayout_drc_errors}, LVS ${ev.lvs_errors}, antenna ${ev.antenna_violating_nets}; STA at three corners.`],
+    ['Stream-out and publish', 'GDS and LEF committed in local_build/; the GDS workflow converts to OASIS and publishes this site.'],
+  ];
+  $('#steps').innerHTML = steps.map(([b, s]) => `<li><div><b>${esc(b)}</b><span>${esc(s)}</span></div></li>`).join('');
+  const mu = D.metal_area_pct;
+  const uses = { Metal1: 'Cell-internal wiring and power rails', Metal2: 'Signal routing', Metal3: 'Signal routing', Metal4: 'Power stripes, macro pins, chip art, some routing' };
+  $('#metal-table tbody').innerHTML = Object.entries(mu).map(([k, v]) => `<tr><td>${k}</td><td class="num">${v} %</td><td>${uses[k] || ''}</td></tr>`).join('');
+  $('#route-text').textContent = `Routed wire: ${fmt(ev.wirelength_um)} µm. Worst static IR drop: ${ev.ir_drop_worst_mv} mV.`;
+  // ---- chip art
+  const a = D.chip_art;
+  $('#art-text').textContent = `A ${a.size_um[0]} × ${a.size_um[1]} µm picture of the SENO mascot pose, generated from ${a.image.replace(' (SENO pose)', '')} by tools/chip_art.py: ${fmt(a.metal_area_um2, 0)} µm² of floating Metal4 as ${a.rectangles} rectangles, on bare oxide at (${a.box_um[0]}, ${a.box_um[1]}) µm. It is not connected to any circuit.`;
+  // ---- macro table
+  const byCell = {};
+  D.macros.forEach(m => { (byCell[m.cell] = byCell[m.cell] || { m, at: [] }).at.push(`(${fmt(m.x0, 1)}, ${fmt(m.y0, 1)})`); });
+  $('#macro-table tbody').innerHTML = Object.values(byCell).map(({ m, at }) => `<tr><td>${esc(m.label)}<br><span class="mono" style="font-size:12px;color:var(--muted)">${esc(m.cell)}</span></td><td class="num">${at.length}</td><td class="num">${at.join('<br>')}</td></tr>`).join('');
+
+  buildWorld();
+}
+
+// ---------------- the 2D world ----------------
+let artBox = null;
+function sizeWorld() { world.style.width = Wum + 'px'; world.style.height = Hum + 'px'; }
+function buildWorld() {
+  sizeWorld();
+  const base = $('#base');
+  const small = innerWidth < 900 || (navigator.connection && /2g|3g/.test(navigator.connection.effectiveType || ''));
+  base.src = small ? D.images.overview_small : D.images.overview;
+  base.onerror = () => { base.onerror = null; base.src = '../gds_render.png'; };
+  // chip art, crisp at high zoom
+  artBox = D.images.chip_art_box_um;
+  const art = $('#artimg');
+  art.src = D.images.chip_art;
+  art.style.inset = 'auto';
+  Object.assign(art.style, { left: artBox[0] + 'px', top: (Hum - artBox[3]) + 'px', width: (artBox[2] - artBox[0]) + 'px', height: (artBox[3] - artBox[1]) + 'px' });
+  // macros
+  const svg = $('#macros');
+  svg.setAttribute('viewBox', `0 0 ${Wum} ${Hum}`);
+  svg.innerHTML = D.macros.map((m, i) => `<g class="m kind-${m.kind}" data-i="${i}"><rect x="${m.x0}" y="${Hum - m.y1}" width="${m.x1 - m.x0}" height="${m.y1 - m.y0}"/></g>`).join('');
+  // layers (lazy)
+  $('#layer-chips').innerHTML = `<button class="chip" data-layer="composite" aria-pressed="true"><i style="background:linear-gradient(90deg,#315CFF,#B7FF35)"></i>All layers</button>` +
+    D.layers.map(l => `<button class="chip" data-layer="${l.id}" aria-pressed="false"><i style="background:${l.color}"></i>${esc(l.label)}</button>`).join('');
+  $('#block-chips').innerHTML = D.blocks.map(b => `<button class="chip" data-block="${b.id}" aria-pressed="false"><i style="background:${b.color}"></i>${esc(b.label)}</button>`).join('');
+  $('#heats').innerHTML = D.blocks.map(b => `<img class="heat" data-block="${b.id}" alt="" decoding="async">`).join('');
+  makeLabels();
+  fit(false);
+  reveal();
+}
+function reveal() {
+  if (reduced.matches) return;
+  stage.classList.add('revealing');
+  setTimeout(() => stage.classList.remove('revealing'), 2000);
+}
+
+const layerState = { composite: true };
+function setLayerMode(id, on) {
+  if (id === 'composite') {
+    layerState.composite = true;
+    Object.keys(layerState).forEach(k => { if (k !== 'composite') layerState[k] = false; });
+  } else {
+    layerState.composite = false;
+    layerState[id] = on;
+    if (!D.layers.some(l => layerState[l.id])) layerState.composite = true;
+  }
+  $('#base').style.opacity = layerState.composite ? 1 : 0;
+  D.layers.forEach(l => {
+    let img = document.querySelector(`#layers img[data-layer="${l.id}"]`);
+    if (layerState[l.id] && !img) {
+      img = document.createElement('img'); img.className = 'layer'; img.dataset.layer = l.id; img.alt = ''; img.decoding = 'async';
+      img.onload = () => img.classList.toggle('on', !!layerState[l.id]);
+      img.src = l.image; $('#layers').appendChild(img);
+    }
+    if (img) img.classList.toggle('on', !!layerState[l.id] && img.complete);
+  });
+  document.querySelectorAll('[data-layer]').forEach(c => { if (c.classList.contains('chip')) c.setAttribute('aria-pressed', c.dataset.layer === 'composite' ? String(layerState.composite) : String(!!layerState[c.dataset.layer])); });
+}
+function setBlock(id, on) {
+  const img = document.querySelector(`#heats img[data-block="${id}"]`);
+  const b = D.blocks.find(x => x.id === id);
+  if (on && !img.src) img.src = b.heat;
+  img.classList.toggle('on', on);
+  document.querySelector(`.chip[data-block="${id}"]`).setAttribute('aria-pressed', String(on));
+  updateLabels();
+}
+$('#legend').addEventListener('click', e => {
+  const c = e.target.closest('.chip'); if (!c) return;
+  if (c.dataset.layer) setLayerMode(c.dataset.layer, c.dataset.layer === 'composite' ? true : c.getAttribute('aria-pressed') !== 'true');
+  if (c.dataset.block) setBlock(c.dataset.block, c.getAttribute('aria-pressed') !== 'true');
+});
+
+// ---------------- labels in screen space ----------------
+let labelEls = [];
+function makeLabels() {
+  const L = [];
+  const seen = {};
+  D.macros.forEach((m, i) => {
+    const short = m.kind === 'sram' ? 'SRAM 512×32' : m.kind === 'art' ? 'SENO chip art' : 'CFGMEM';
+    L.push({ kind: 'macro', i, text: short, x: (m.x0 + m.x1) / 2, y: (m.y0 + m.y1) / 2, color: m.kind === 'sram' ? '#FFC43D' : m.kind === 'art' ? '#B7FF35' : '#28B5E8', pri: m.kind === 'art' ? 3 : 1 });
+  });
+  D.blocks.forEach(b => L.push({ kind: 'block', id: b.id, text: b.label, x: (b.core_um[0] + b.core_um[2]) / 2, y: (b.core_um[1] + b.core_um[3]) / 2, color: b.color, pri: 2 }));
+  $('#labels').innerHTML = L.map((l, k) => `<span class="lbl" data-k="${k}"><i style="background:${l.color}"></i>${esc(l.text)}</span>`).join('');
+  labelEls = L.map((l, k) => ({ ...l, el: document.querySelector(`.lbl[data-k="${k}"]`) }));
+  updateLabels();
+}
+function toScreen(x, y) { // die um (y up) -> stage px
+  const px = x, py = Hum - y, c = Math.cos(cam.rot), s = Math.sin(cam.rot);
+  return [cam.tx + cam.s * (c * px - s * py), cam.ty + cam.s * (s * px + c * py)];
+}
+function toWorld(sx, sy) {
+  const dx = (sx - cam.tx) / cam.s, dy = (sy - cam.ty) / cam.s, c = Math.cos(-cam.rot), s = Math.sin(-cam.rot);
+  const px = c * dx - s * dy, py = s * dx + c * dy; return [px, Hum - py];
+}
+function updateLabels() {
+  if (!labelEls.length) return;
+  const W = stage.clientWidth, H = stage.clientHeight, z = cam.s / fitS;
+  const boxes = [];
+  labelEls.sort((a, b) => b.pri - a.pri).forEach(l => {
+    let show = true;
+    if (l.kind === 'block') show = document.querySelector(`#heats img[data-block="${l.id}"]`)?.classList.contains('on');
+    if (l.kind === 'macro' && world.classList.contains('no-macros')) show = false;
+    if (l.kind === 'macro' && l.text === 'CFGMEM' && z < 1.6 && innerWidth < 700) show = false;
+    const [x, y] = toScreen(l.x, l.y);
+    if (x < 10 || y < 10 || x > W - 10 || y > H - 10) show = false;
+    if (show) {
+      const w = l.el.offsetWidth || 80, h = 22, b = [x - w / 2, y - h / 2, x + w / 2, y + h / 2];
+      if (boxes.some(o => !(b[2] < o[0] || b[0] > o[2] || b[3] < o[1] || b[1] > o[3]))) show = false; else boxes.push(b);
+    }
+    l.el.style.left = x + 'px'; l.el.style.top = y + 'px';
+    l.el.style.opacity = show ? 1 : 0;
+  });
+}
+
+// ---------------- camera ----------------
+function apply() {
+  world.style.transform = `translate(${cam.tx}px,${cam.ty}px) rotate(${cam.rot}rad) scale(${cam.s})`;
+  $('#zoomread').textContent = (cam.s / fitS).toFixed(1) + '×';
+  // scale bar: a round number of um about 90 px long
+  const um = 90 / cam.s, p = Math.pow(10, Math.floor(Math.log10(um))), nice = [1, 2, 5, 10].map(k => k * p).find(v => v >= um * .6) || um;
+  $('#scale span').style.width = (nice * cam.s) + 'px'; $('#scale em').textContent = nice >= 1 ? `${fmt(nice)} µm` : `${nice} µm`;
+  // swap to the sharp overview when zoomed past the small one
+  const base = $('#base');
+  if (D && base.src.includes('1600') && cam.s * Wum > 1900) base.src = D.images.overview;
+  updateLabels();
+}
+function rotatedSize() { const q = Math.round(cam.rot / (Math.PI / 2)) % 2; return q ? [Hum, Wum] : [Wum, Hum]; }
+function fit(animate = true) {
+  const W = stage.clientWidth, H = stage.clientHeight, [rw, rh] = rotatedSize();
+  fitS = Math.min(W / rw, H / rh) * .94;
+  flyToWorld(Wum / 2, Hum / 2, fitS, animate);
+}
+function flyToBox(x0, y0, x1, y1, animate = true, pad = .86) {
+  const W = stage.clientWidth, H = stage.clientHeight;
+  const q = Math.round(cam.rot / (Math.PI / 2)) % 2, w = x1 - x0, h = y1 - y0;
+  const s = Math.min(W / (q ? h : w), H / (q ? w : h)) * pad;
+  flyToWorld((x0 + x1) / 2, (y0 + y1) / 2, Math.min(s, fitS * 60), animate);
+}
+let anim = 0;
+function flyToWorld(x, y, s, animate = true) {
+  cancelAnimationFrame(anim);
+  const W = stage.clientWidth, H = stage.clientHeight;
+  const target = () => { const px = x, py = Hum - y, c = Math.cos(cam.rot), sn = Math.sin(cam.rot); return [W / 2 - s * (c * px - sn * py), H / 2 - s * (sn * px + c * py)]; };
+  if (!animate || reduced.matches) { const [tx, ty] = target(); Object.assign(cam, { s, tx, ty }); apply(); return; }
+  // interpolate in world-centre/log-scale space so the motion looks like a camera move
+  const [cx0, cy0] = toWorld(W / 2, H / 2), s0 = cam.s, t0 = performance.now(), dur = 1300;
+  const step = now => {
+    const t = Math.min(1, (now - t0) / dur), e = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const cs = Math.exp(Math.log(s0) + (Math.log(s) - Math.log(s0)) * e);
+    const cx = cx0 + (x - cx0) * e, cy = cy0 + (y - cy0) * e;
+    const px = cx, py = Hum - cy, c = Math.cos(cam.rot), sn = Math.sin(cam.rot);
+    Object.assign(cam, { s: cs, tx: W / 2 - cs * (c * px - sn * py), ty: H / 2 - cs * (sn * px + c * py) });
+    apply();
+    if (t < 1) anim = requestAnimationFrame(step);
+  };
+  anim = requestAnimationFrame(step);
+}
+function zoomAt(f, sx, sy) {
+  const ns = Math.max(fitS * .7, Math.min(fitS * 80, cam.s * f)); f = ns / cam.s;
+  cam.tx = sx - f * (sx - cam.tx); cam.ty = sy - f * (sy - cam.ty); cam.s = ns; apply();
+}
+function rotate() {
+  const W = stage.clientWidth, H = stage.clientHeight, [cx, cy] = toWorld(W / 2, H / 2);
+  cam.rot = (cam.rot + Math.PI / 2) % (Math.PI * 2);
+  const [rw, rh] = rotatedSize(); fitS = Math.min(W / rw, H / rh) * .94;
+  flyToWorld(cx, cy, cam.s, false);
+}
+
+// pointer: pan, pinch, wheel, double-tap
+const ptrs = new Map(); let lastTap = 0, pinch0 = null;
+stage.addEventListener('pointerdown', e => {
+  stage.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+  stage.classList.add('dragging'); cancelAnimationFrame(anim); userTouched();
+  if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch0 = { d: Math.hypot(a[0] - b[0], a[1] - b[1]), s: cam.s }; }
+  const now = Date.now();
+  if (ptrs.size === 1 && now - lastTap < 300) { const r = stage.getBoundingClientRect(); zoomAt(2, e.clientX - r.left, e.clientY - r.top); }
+  lastTap = now;
+});
+stage.addEventListener('pointermove', e => {
+  if (!ptrs.has(e.pointerId)) { const r = stage.getBoundingClientRect(); const [x, y] = toWorld(e.clientX - r.left, e.clientY - r.top); $('#coords').textContent = x >= 0 && x <= Wum && y >= 0 && y <= Hum ? `x ${fmt(x, 1)}, y ${fmt(y, 1)} µm` : ''; return; }
+  const prev = ptrs.get(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+  if (ptrs.size === 1) { cam.tx += e.clientX - prev[0]; cam.ty += e.clientY - prev[1]; apply(); }
+  else if (ptrs.size === 2 && pinch0) {
+    const [a, b] = [...ptrs.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]), r = stage.getBoundingClientRect();
+    const mx = (a[0] + b[0]) / 2 - r.left, my = (a[1] + b[1]) / 2 - r.top;
+    zoomAt((pinch0.s * d / pinch0.d) / cam.s, mx, my);
+  }
+});
+const up = e => { ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch0 = null; if (!ptrs.size) stage.classList.remove('dragging'); };
+stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
+stage.addEventListener('wheel', e => { e.preventDefault(); userTouched(); const r = stage.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * .0015), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
+stage.addEventListener('keydown', e => {
+  const W = stage.clientWidth, H = stage.clientHeight, k = e.key;
+  if (k === '+' || k === '=') zoomAt(1.4, W / 2, H / 2); else if (k === '-') zoomAt(1 / 1.4, W / 2, H / 2);
+  else if (k.startsWith('Arrow')) { const d = 60; cam.tx += k === 'ArrowLeft' ? d : k === 'ArrowRight' ? -d : 0; cam.ty += k === 'ArrowUp' ? d : k === 'ArrowDown' ? -d : 0; apply(); }
+  else if (k === '0') fit(); else return;
+  e.preventDefault();
+});
+$('#zin').onclick = () => zoomAt(1.6, stage.clientWidth / 2, stage.clientHeight / 2);
+$('#zout').onclick = () => zoomAt(1 / 1.6, stage.clientWidth / 2, stage.clientHeight / 2);
+$('#rot').onclick = rotate;
+$('#reset').onclick = () => { cam.rot = 0; fit(); };
+$('#fs').onclick = () => { const box = $('#explorer-box'); if (document.fullscreenElement) document.exitFullscreen(); else (box.requestFullscreen || box.webkitRequestFullscreen)?.call(box); };
+document.addEventListener('fullscreenchange', () => setTimeout(() => fit(false), 60));
+const toggle = (btn, fn) => btn.addEventListener('click', () => { const on = btn.getAttribute('aria-pressed') !== 'true'; btn.setAttribute('aria-pressed', String(on)); fn(on); });
+toggle($('#t-macros'), on => { world.classList.toggle('no-macros', !on); updateLabels(); });
+toggle($('#t-labels'), on => stage.classList.toggle('hide-labels', !on));
+let rz = 0; new ResizeObserver(() => { clearTimeout(rz); rz = setTimeout(() => { if (!tour.active) fit(false); }, 120); }).observe(stage);
+
+// ---------------- 3D viewer ----------------
+function webgl() { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } }
+$('#v3-load').onclick = () => {
+  if (!webgl()) { $('#v3-msg').textContent = 'This browser has no WebGL, so the 3D viewer cannot run here. The 2D explorer above shows the same layout.'; return; }
+  const f = document.createElement('iframe');
+  f.src = viewerURL; f.title = 'Tiny Tapeout 3D GDS viewer for GARDA-chip'; f.loading = 'lazy'; f.allow = 'fullscreen'; f.referrerPolicy = 'no-referrer';
+  $('#viewer3d').appendChild(f); $('#v3-ph').hidden = true;
+};
+
+// ---------------- Auto Explore ----------------
+const tour = { active: false, playing: false, i: 0, t: 0, last: 0, raf: 0, fired: new Set() };
+const resetLook = () => { setLayerMode('composite', true); D.blocks.forEach(b => setBlock(b.id, false)); world.classList.remove('no-macros'); document.querySelectorAll('#macros .m').forEach(g => g.classList.remove('hl')); labelEls.forEach(l => l.el.classList.remove('hl')); };
+const hlMacros = kind => { document.querySelectorAll('#macros .m').forEach(g => g.classList.toggle('hl', D.macros[g.dataset.i].kind === kind)); labelEls.forEach(l => l.el.classList.toggle('hl', l.kind === 'macro' && D.macros[l.i].kind === kind)); };
+const blockBox = id => { const b = D.blocks.find(x => x.id === id); return b ? b.core_um : [0, 0, Wum, Hum]; };
+const STEPS = () => {
+  const ev = D.evidence, a = D.chip_art;
+  return [
+    { t: 'The whole tile', x: `One Tiny Tapeout 8x4 tile, ${fmt(Wum, 2)} × ${fmt(Hum, 2)} µm, on IHP's 130 nm SG13CMOS5L process. Everything here is drawn from the final GDS.`, go: () => { resetLook(); fit(); } },
+    { t: 'Two SRAM macros', x: 'Bottom left: two IHP 512×32 SRAMs, 2 KB each. They hold PRISM\'s packet FIFOs, one per state-machine shard.', go: () => { resetLook(); hlMacros('sram'); flyToBox(0, 0, 430, 540); } },
+    { t: 'Eight CFGMEM macros', x: 'Two columns of latch-array macros hold PRISM\'s configuration: the state words that make it speak UART, SPI, CAN, Ethernet and more.', go: () => { resetLook(); hlMacros('cfgmem'); flyToBox(520, 0, 1700, Hum, true, .95); } },
+    { t: 'PRISM state machines', x: 'The lime heat is where PRISM\'s named nets are routed: its two 16-state shards fill the channel between the CFGMEM columns.', go: () => { resetLook(); setBlock('prism_shards', true); flyToBox(...blockBox('prism_shards')); } },
+    { t: 'TinyQV RISC-V core', x: 'The blue heat is the TinyQV CPU and its QSPI memory controller, above the SRAM stack and close to the tile\'s pins.', go: () => { resetLook(); setBlock('tinyqv', true); flyToBox(...blockBox('tinyqv')); } },
+    { t: 'Metal4 power grid', x: 'Only Metal4 is shown now: the vertical VPWR/VGND stripe pairs on a 44.96 µm pitch that power every cell and macro.', go: () => { resetLook(); setLayerMode('metal4', true); flyToBox(1250, 380, Wum, Hum); } },
+    { t: 'SENO, in metal', x: `The chip art: the SENO mascot pose in ${fmt(a.metal_area_um2)} µm² of Metal4, ${a.size_um[0]} × ${a.size_um[1]} µm, on bare oxide between two power stripes. It is not wired to anything.`, go: () => { resetLook(); hlMacros('art'); flyToBox(a.box_um[0] - 8, a.box_um[1] - 8, a.box_um[2] + 8, a.box_um[3] + 8, true, .92); } },
+    { t: 'What is verified', x: `Signed off locally with DRC ${ev.klayout_drc_errors} and LVS ${ev.lvs_errors}. Timing passes at the typical corner, not at the slow one. Not yet submitted or fabricated.`, go: () => { resetLook(); fit(); } },
+  ];
+};
+let steps = [];
+const DUR = 7500;
+function tourPaint() {
+  const total = steps.length * DUR, done = tour.i * DUR + tour.t;
+  document.querySelectorAll('#tour-progress i').forEach((el, k) => { el.style.transform = `scaleX(${k < tour.i ? 1 : k === tour.i ? Math.min(1, tour.t / DUR) : 0})`; });
+  $('#tour-time').textContent = `${Math.floor(done / 60000)}:${String(Math.floor(done / 1000) % 60).padStart(2, '0')} / ${Math.floor(total / 60000)}:${String(Math.round(total / 1000) % 60).padStart(2, '0')}`;
+}
+function enter(i) {
+  tour.i = Math.max(0, Math.min(steps.length - 1, i)); tour.t = 0;
+  const s = steps[tour.i];
+  $('#tour-count').textContent = `${String(tour.i + 1).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')}`;
+  $('#tour-title').textContent = s.t; $('#tour-text').textContent = s.x;
+  const box = $('#tour'); box.classList.remove('is-in'); void box.offsetWidth; box.classList.add('is-in');
+  s.go(); tourPaint();
+}
+function frame(now) {
+  tour.raf = requestAnimationFrame(frame);
+  const dt = Math.min(100, now - (tour.last || now)); tour.last = now;
+  if (!tour.playing) return;
+  tour.t += dt;
+  if (tour.t >= DUR) { if (tour.i < steps.length - 1) enter(tour.i + 1); else { tour.t = DUR; setPlaying(false); $('#tour-count').textContent = 'Tour complete'; $('#tour-toggle').textContent = 'Replay'; tour.done = true; } }
+  tourPaint();
+}
+function setPlaying(on) { tour.playing = on; tour.done = false; const b = $('#tour-toggle'); b.textContent = on ? 'Pause' : 'Play'; b.setAttribute('aria-label', on ? 'Pause tour' : 'Resume tour'); b.setAttribute('aria-pressed', String(!on)); }
+function startTour() {
+  if (!D) return;
+  steps = STEPS();
+  $('#tour-progress').innerHTML = steps.map((s, k) => `<button type="button" data-k="${k}" aria-label="Chapter ${k + 1}: ${esc(s.t)}"><span><i></i></span></button>`).join('');
+  $('#tour').hidden = false; tour.active = true; cam.rot = 0;
+  // caption + whole stage on one screen: the stage takes what the bar, toolbar and caption leave
+  $('#tour-title').textContent = steps[0].t; $('#tour-text').textContent = steps[0].x;
+  const barH = $('.bar').getBoundingClientRect().height, toolH = $('.toolbar').getBoundingClientRect().height, tourH = $('#tour').getBoundingClientRect().height;
+  stage.style.height = Math.max(200, Math.min(620, innerHeight - barH - toolH - tourH - 20)) + 'px';
+  $('#explorer-box').scrollIntoView({ behavior: reduced.matches ? 'auto' : 'smooth', block: 'start' });
+  if (!tour.raf) { tour.last = 0; tour.raf = requestAnimationFrame(frame); }
+  setTimeout(() => { fitScaleOnly(); enter(0); setPlaying(true); }, reduced.matches ? 0 : 500);
+}
+function fitScaleOnly() { const W = stage.clientWidth, H = stage.clientHeight, [rw, rh] = rotatedSize(); fitS = Math.min(W / rw, H / rh) * .94; }
+function exitTour() { tour.active = false; setPlaying(false); cancelAnimationFrame(tour.raf); tour.raf = 0; $('#tour').hidden = true; stage.style.height = ''; resetLook(); setTimeout(() => fit(), 30); }
+function userTouched() { if (tour.active && tour.playing) setPlaying(false); }
+$('#auto').onclick = startTour;
+$('#tour-toggle').onclick = () => { if (tour.done) { enter(0); setPlaying(true); } else setPlaying(!tour.playing); };
+$('#tour-next').onclick = () => { enter(tour.i + 1); setPlaying(true); };
+$('#tour-prev').onclick = () => { enter(tour.i - 1); setPlaying(true); };
+$('#tour-replay').onclick = () => { enter(0); setPlaying(true); };
+$('#tour-exit').onclick = exitTour;
+$('#tour-progress').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { enter(Number(b.dataset.k)); setPlaying(true); } });
+document.addEventListener('visibilitychange', () => { if (document.hidden && tour.playing) setPlaying(false); });
+if (location.hash === '#auto' || new URLSearchParams(location.search).has('auto')) addEventListener('load', () => setTimeout(startTour, 700), { once: true });
+window.gardaGDS = { startTour, exitTour, state: () => ({ ...tour, cam: { ...cam }, fitS, steps: steps.length }) };
+})();
+</script>
+</body>
+</html>

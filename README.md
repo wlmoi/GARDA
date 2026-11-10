@@ -1,5 +1,12 @@
 # GARDA-chip (PRISM + TinyQV on IHP CMOS5L)
 
+**Physical silicon explorer (canonical GDSII reference):
+[wlmoi.github.io/GARDA/GDSII/](https://wlmoi.github.io/GARDA/GDSII/)**: the
+routed layout rendered from the final GDS, macro placement, the Metal4 power
+grid, the SENO chip art and the sign-off evidence.  Its assets are built by
+`python tools/gdsii_site.py` (see `site/GDSII/`); the project website is
+[garda-chip-explorer.vercel.app](https://garda-chip-explorer.vercel.app/).
+
 This repository is the IHP SG13CMOS5L port of
 [ttsky26a-qv-prism](../ttsky26a/ttsky26a-qv-prism): a PRISM programmable
 state-machine engine driven by a TinyQV RISC-V SoC, with the PRISM

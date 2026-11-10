@@ -1,4 +1,57 @@
-# Chip art: Calvin in Metal4
+# Chip art: SENO in Metal4
+
+## Current state: the SENO pose
+
+The art in the published GDS is the SENO mascot pose from `Calvin.png`
+(a cut-out on a transparent background), in the bare-oxide box of the
+`CALVIN_UP` variant described below: x 1634.9 to 1670.9, y 464.0 to 511.4
+(36 x 47.4 um), 1192 Metal4 pixels of 0.6 um as 212 rectangles, 429 um2.
+It was made with the `figure` mode of `tools/chip_art.py`:
+
+```
+python tools/chip_art.py --image Calvin.png --mode figure --edge 3 \
+    --box 1634.9 464.0 1670.9 511.4 --nofill all --out macros/CALVIN_UP
+```
+
+- **`--mode figure`** reads the PNG's alpha channel: the opaque silhouette
+  becomes metal, the figure is cropped to its opaque extent and fitted to
+  the box with its aspect ratio kept (`--margin` empty pixels inside every
+  edge), and the image is posterised into `--edge` flat colour regions whose
+  boundaries become one-pixel slots (face, glasses, jacket, sarong).  A 2x2
+  opening removes specks and spurs; the same Metal4 self-checks run.
+  `plate` / `ink` (a round avatar on a dark background) are unchanged.
+- **Into the GDS.** The new cell replaced the contents of
+  `tt_um_pettit_calvin` in both GDS views, which is what `Project.ChipArt`
+  does after stream-out, so placement, routing, DEF and netlist are
+  untouched.  Checked: a flattened per-layer XOR outside the art cell is
+  empty on every layer, the full-chip XOR differs only on Metal4 inside the
+  box, and the art keeps >= 0.6 um from every other Metal4 shape.  The
+  next `make harden-tt` with `config_merged_art_up.json` regenerates the
+  same art from `macros/CALVIN_UP/art.json`.
+
+## A larger SENO (not done yet)
+
+At 36 x 47 um the picture is visible only when zoomed in.  Seeing it on a
+whole-tile render needs roughly 160 um of height.  The current layout has
+no such free area: only 19.7 % of Metal4 is free (0.6 um clearance), in
+thin slivers between the PDN stripes and signal routes, 2 to 6 % in the
+PRISM channel.  So a large picture needs a new hardening run with the area
+reserved up front, the `CALVIN_UP` way:
+
+1. Pick a box in a standard-cell channel away from the tile pins and the
+   CFGMEM route-through pins, e.g. part of the 166 um gap between the
+   bank-B CFGMEMs (y 90.72 to 257.04), and snap its x edges to the
+   44.96 um stripe grid so the stripes frame the figure.
+2. `python tools/chip_art.py --image Calvin.png --mode figure --edge 4
+   --box <x0 y0 x1 y1> --nofill all --cell tt_um_seno_art --out macros/SENO_BIG`
+3. A copy of `src/config_merged_art_up.json` with `CHIP_ART_JSON` pointing
+   at `macros/SENO_BIG/art.json`, the three `ROUTING_OBSTRUCTIONS`
+   (Metal2 to Metal4) moved to the new box, and `CHIP_ART_CUT_ROWS` on.
+4. `make harden-tt` (Linux or WSL with LibreLane), then accept the run only
+   if DRC, LVS and antenna stay at zero and timing does not get worse; a
+   larger keep-out costs placement area in a design at 70 % utilization.
+
+# Chip art: Calvin in Metal4 (history)
 
 The tile carries a Metal4-only picture in its upper-right corner: Calvin
 (the author's avatar, `Calvin.png`), 36 x 57 um, in the channel between

@@ -1,7 +1,7 @@
 {
-  "gds": "/Users/Ken2/projects/tiny_tapeout/ihp-um-janestreet-prism/macros/CALVIN_UP/tt_um_pettit_calvin.gds",
+  "gds": "macros/CALVIN_UP/tt_um_pettit_calvin.gds",
   "cell": "tt_um_pettit_calvin",
-  "lef": "/Users/Ken2/projects/tiny_tapeout/ihp-um-janestreet-prism/macros/CALVIN_UP/tt_um_pettit_calvin.lef",
+  "lef": "macros/CALVIN_UP/tt_um_pettit_calvin.lef",
   "origin": [
     1634.9,
     464.0
@@ -17,10 +17,10 @@
     60,
     79
   ],
-  "metal_pixels": 2772,
-  "rectangles": 394,
-  "merged_polygons": 22,
-  "metal_area_um2": 997.92,
+  "metal_pixels": 1192,
+  "rectangles": 212,
+  "merged_polygons": 8,
+  "metal_area_um2": 429.12,
   "routing_obstruction": [
     "Metal4",
     1634.9,
@@ -30,12 +30,14 @@
   ],
   "exclusions": [],
   "clearance": 1.0,
-  "mode": "plate",
+  "mode": "figure",
   "extent": [
     1634.9,
     464.0,
     1670.9,
     511.4
   ],
-  "nofill": "all"
+  "nofill": "all",
+  "image": "Calvin.png (SENO pose)",
+  "edge_colors": 3
 }
