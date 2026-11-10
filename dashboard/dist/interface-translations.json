@@ -208,5 +208,16 @@
   "Cari modul atau sinyal": "Search modules or signals",
   "Nama pengujian atau metrik": "Test name or metric",
   "Cari hasil pengujian": "Search test results",
-  "Filter status": "Status filter"
+  "Filter status": "Status filter",
+  "Pilih kandidat": "Select a candidate",
+  "Gerbang izin": "Permission gate",
+  "Memori costmap": "Costmap memory",
+  "Gerbang keselamatan": "Safety gate",
+  "Belum ready": "Not ready",
+  "Hasil tidak valid": "Invalid result",
+  "Menyinkronkan reset dan switch, menerjemahkan opcode UART ke DWA dan neural, lalu menampilkan status LED.": "Synchronizes reset and switches, translates UART opcodes into DWA and neural commands, and drives status LEDs.",
+  "Opcode 10/11 memuat dan memulai neural": "Opcodes 10/11 load and start neural inference",
+  "24 64 64 4. Dual MAC fixed-point pada IHP SG13G2": "24 to 64 to 64 to 4. Dual fixed-point MAC on IHP SG13G2.",
+  "Transisi operand MAC turun 14,35% pada vektor uji. Ini indikator aktivitas RTL, bukan pengukuran daya.": "MAC operand transitions decrease by 14.35% on the test vectors. This indicates RTL activity; it is not a power measurement.",
+  "Model 6.020 kata: hasil RTL dan antarmuka pin tercatat di bawah. Bukti netlist/routing IHP berasal dari build historis; signoff SKY130 dinilai terpisah.": "The 6,020-word model has the RTL and pin-interface results listed below. IHP netlist and routing records come from a historical build. SKY130 signoff is assessed separately."
 }
