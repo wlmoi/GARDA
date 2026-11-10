@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="engineering-gallery.css">
   <script type="module" src="engineering-gallery.js"></script>
   <script type="module" src="proposal-viewer.js"></script>
+  <script type="module" src="ui-controls.js"></script>
+  <link rel="stylesheet" href="ui-controls.css">
   <link rel="stylesheet" href="proposal-viewer.css">
 </head>
 <body>
@@ -248,8 +250,8 @@
 
         </div>
 
-        <label for="clock-slider">Select cycle<span id="clock-range">0 / 3.556</span></label>
-        <input id="clock-slider" type="range" min="0" max="3556" value="0" step="1">
+        <div class="cycle-picker"><div class="cycle-picker-heading"><label for="clock-slider">Select cycle</label><output id="clock-range" for="clock-slider">0 / 3,556</output></div>
+        <input id="clock-slider" type="range" min="0" max="3556" value="0" step="1" aria-label="Select cycle"></div>
 
         <div class="clock-controls">
           <button type="button" id="clock-back">−1 clock</button>

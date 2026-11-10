@@ -1,3 +1,4 @@
+import {icon} from './ui-icons.js';
 const slider = document.getElementById('clock-slider');
 const play = document.getElementById('clock-play');
 const stages = [...document.querySelectorAll('[data-clock-stage]')];
@@ -11,7 +12,7 @@ const layers = [
   {name: 'FC3', start: 3361, inputs: 64, outputs: 3, groups: 1}
 ];
 let timer = null;
-const format = n => n.toLocaleString('id-ID');
+const format = n => n.toLocaleString('en-US');
 function describeClock(cycle) {
   if (cycle === 0) return {phase: null, detail: 'Siap memulai inferensi'};
   const layer = [...layers].reverse().find(item => cycle >= item.start);
@@ -65,8 +66,8 @@ function renderFlow(current, cycle) {
 }
 function render() {
   const cycle = Number(slider.value), current = describeClock(cycle);
-  document.getElementById('clock-number').textContent = `${format(cycle)} / 3.556`;
-  document.getElementById('clock-range').textContent = `${format(cycle)} / 3.556`;
+  document.getElementById('clock-number').textContent = `${format(cycle)} / 3,556`;
+  document.getElementById('clock-range').textContent = `${format(cycle)} / 3,556`;
   document.getElementById('clock-time').textContent = `${(cycle / 50).toLocaleString('id-ID', {maximumFractionDigits: 2})} µs`;
   document.getElementById('clock-layer').textContent = current.layer?.name || 'Siap';
   document.getElementById('clock-group').textContent = current.layer ? `${current.group} / ${current.layer.groups}` : '—';
@@ -76,7 +77,7 @@ function render() {
 }
 function stop() {
   if (timer !== null) window.clearInterval(timer);
-  timer = null; flowVisual.classList.toggle('is-playing', false); play.textContent = '▶ Putar'; play.setAttribute('aria-pressed', 'false');
+  timer = null; flowVisual.classList.toggle('is-playing', false); play.innerHTML = icon('play'); play.setAttribute('aria-label','Play inference'); play.title='Play inference'; play.setAttribute('aria-pressed', 'false');
   document.getElementById('clock-detail').setAttribute('aria-live', 'polite');
 }
 function setCycle(value) { slider.value = Math.max(0, Math.min(3556, value)); render(); }
@@ -113,7 +114,7 @@ document.querySelectorAll('[data-clock-start]').forEach(button => button.addEven
 play.addEventListener('click', () => {
   if (timer !== null) { stop(); return; }
   if (Number(slider.value) === 3556) setCycle(0);
-  play.textContent = 'Ⅱ Jeda'; play.setAttribute('aria-pressed', 'true');
+  play.innerHTML = icon('pause'); play.setAttribute('aria-label','Pause inference'); play.title='Pause inference'; play.setAttribute('aria-pressed', 'true');
   document.getElementById('clock-detail').setAttribute('aria-live', 'off'); startTimer();
 });
 reducedMotion.addEventListener('change', event => { if (event.matches) stop(); });

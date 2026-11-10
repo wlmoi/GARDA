@@ -505,10 +505,3 @@ init();
 setupPreferences();
 setupMotion();
 
-// Accessible compact navigation; engineering controls keep their own handlers.
-const mobileMenu = document.querySelector('.mobile-menu-toggle');
-const mainNavigation = document.getElementById('main-navigation');
-function closeNavigation(){const wasOpen=mobileMenu?.getAttribute('aria-expanded')==='true';mobileMenu?.setAttribute('aria-expanded','false');mainNavigation?.classList.remove('is-open');if(wasOpen)mobileMenu.focus();}
-mobileMenu?.addEventListener('click',()=>{const open=mobileMenu.getAttribute('aria-expanded')!=='true';mobileMenu.setAttribute('aria-expanded',String(open));mainNavigation?.classList.toggle('is-open',open);if(open)mainNavigation?.querySelector('a')?.focus();});
-mainNavigation?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNavigation));
-document.addEventListener('keydown',event=>{if(event.key==='Escape')closeNavigation();});
