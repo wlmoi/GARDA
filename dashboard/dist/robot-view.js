@@ -2,7 +2,7 @@ import * as T from './vendor/three.module.min.js';
 const canvas=document.getElementById('robot-scene');
 if(canvas){
 try {
-const renderer=new T.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const renderer=new T.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,matchMedia('(pointer: coarse)').matches?1.5:2));
 const scene=new T.Scene();scene.background=new T.Color('#0D1535');
 const camera=new T.PerspectiveCamera(40,1,.1,100);let yaw=.65,pitch=.7,distance=11;
 scene.add(new T.HemisphereLight(0xffffff,0x18385c,2.7));const light=new T.DirectionalLight(0xffffff,3);light.position.set(3,6,4);scene.add(light);

@@ -108,7 +108,8 @@ export class GardaScene {
     this._target = new THREE.Vector3(0, 4, 0);
 
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    // Phones: cap the backing store at 1.5x to keep the GPU cool during long demos.
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, matchMedia('(pointer: coarse)').matches ? 1.5 : 2));
     this.renderer.setClearColor(BG);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -155,6 +156,12 @@ export class GardaScene {
     this._resizeObserver = new ResizeObserver(() => this._resize());
     this._resizeObserver.observe(canvas.parentElement || canvas);
     this._resize();
+    // Skip WebGL work while the canvas is scrolled out of view.
+    this._onScreen = true;
+    if ('IntersectionObserver' in window) {
+      this._visibility = new IntersectionObserver(entries => { this._onScreen = entries[entries.length - 1].isIntersecting; }, { rootMargin: '200px 0px' });
+      this._visibility.observe(canvas);
+    }
     this._tick = this._tick.bind(this);
     this._raf = requestAnimationFrame(this._tick);
   }
@@ -635,7 +642,7 @@ export class GardaScene {
       const goal = parent.userData.baseY + (this._exploded ? parent.userData.explode : 0);
       parent.position.y += (goal - parent.position.y) * ease;
     });
-    if (!document.hidden) this.renderer.render(this.scene, this.camera);
+    if (!document.hidden && this._onScreen) this.renderer.render(this.scene, this.camera);
   }
 
   _applySelection() {

@@ -425,7 +425,8 @@ async function loadEvidence() {
     $('current-rtl-activity').textContent = current.activity_summary || '';
     $('tt-summary').textContent = report.summary || 'Hasil RTL dan implementasi fisik memiliki cakupan terpisah.';
     $('evidence-date').textContent = `Diperiksa ${report.checked_date || '15 Oktober 2026'}`;
-    $('tt-checks').innerHTML = (report.checks || []).map(c => `<div class="tt-check ${c.status === 'pass' ? '' : 'pending'}"><span>${esc(c.label)}</span><strong>${esc(c.result)}</strong></div>`).join('');
+    $('tt-checks').innerHTML = (report.checks || []).map(c => `<div class="tt-check ${c.status === 'pass' ? '' : 'pending'}" data-status="${esc(c.status || 'not_run')}" role="listitem"><span class="tt-check-label">${esc(c.label)}</span><strong class="tt-check-result">${esc(c.result)}</strong></div>`).join('');
+    $('tt-checks').setAttribute('role', 'list');
   } catch (error) {
     $('current-rtl-status').textContent = 'Bukti belum dimuat';
     $('current-rtl-summary').textContent = 'Buka laporan repository untuk hasil pengujian.';

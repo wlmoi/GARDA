@@ -1,0 +1,51 @@
+/* Readability and touch polish layered on top of the existing styles. */
+
+/* ---------- TinyTapeout evidence: one clean row per check ---------- */
+.tt-status-panel { border: 1px solid var(--color-hairline); padding: clamp(20px, 3vw, 32px) !important; }
+.tt-status-panel h3 code { font-size: .92em; }
+.tt-checks { display: grid; align-content: start; margin: 0; border-top: 1px solid var(--color-hairline); }
+.tt-check {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 16px; row-gap: 6px;
+  padding: 12px 0; border-bottom: 1px solid var(--color-hairline); min-width: 0;
+}
+.tt-check-label { min-width: 0; font-family: var(--font-body, 'Work Sans', sans-serif); font-size: 15px; line-height: 1.35; color: var(--color-ink-primary); overflow-wrap: anywhere; }
+.tt-check-result {
+  display: inline-flex; align-items: center; gap: 7px; justify-self: end; white-space: nowrap;
+  padding: 5px 10px 5px 9px; border-radius: 999px; border: 1px solid transparent;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace); font-size: 12px; font-weight: 600; letter-spacing: .03em; line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.tt-check-result::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+.tt-check[data-status="pass"] .tt-check-result {
+  color: var(--color-status-pass); background: color-mix(in srgb, var(--color-status-pass) 12%, transparent);
+  border-color: color-mix(in srgb, var(--color-status-pass) 35%, transparent);
+}
+.tt-check[data-status="running"] .tt-check-result {
+  color: var(--color-signal); background: color-mix(in srgb, var(--color-signal) 10%, transparent);
+  border-color: color-mix(in srgb, var(--color-signal) 35%, transparent);
+}
+.tt-check[data-status="running"] .tt-check-result::before { animation: tt-pulse 1.6s ease-in-out infinite; }
+.tt-check:not([data-status="pass"]):not([data-status="running"]) .tt-check-result {
+  color: var(--color-ink-secondary); background: transparent; border: 1px dashed var(--color-hairline-strong);
+}
+.tt-check:not([data-status="pass"]):not([data-status="running"]) .tt-check-result::before { background: transparent; border: 1.5px solid currentColor; }
+@keyframes tt-pulse { 50% { opacity: .35; } }
+@media (max-width: 380px) {
+  .tt-check { grid-template-columns: minmax(0, 1fr); }
+  .tt-check-result { justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) { .tt-check[data-status="running"] .tt-check-result::before { animation: none; } }
+
+/* ---------- touch targets (phones and tablets) ---------- */
+@media (max-width: 780px), (pointer: coarse) {
+  summary { min-height: 44px; padding-block: 10px; box-sizing: border-box; cursor: pointer; }
+  #legend button { min-height: 44px; }
+  #module-search { min-height: 44px; }
+  .viewport-controls button { min-width: 44px; min-height: 44px; }
+  .brand { min-height: 44px; display: inline-flex; align-items: center; }
+  .demo-next a, .stakeholder-grid a, .layout-link-section a, .flow-details a {
+    display: inline-flex; align-items: center; min-height: 44px;
+  }
+  .clock-layers button, .mode-tabs button, #tab-board, #tab-die, #show-ports { min-height: 44px; }
+  button, a, summary, select, input { touch-action: manipulation; }
+}
