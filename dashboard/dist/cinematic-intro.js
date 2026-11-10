@@ -16,7 +16,7 @@ function start(){
  logo.style.transition='none';logo.style.zIndex='2';
  overlay.style.pointerEvents='none';
  let renderer,raf,done=false;const resources=[];
- const finish=()=>{if(done)return;done=true;cancelAnimationFrame(raf);removeEventListener('resize',resize);removeEventListener('keydown',key);resources.forEach(r=>r.dispose());overlay.remove();renderer?.dispose();renderer?.forceContextLoss();try{sessionStorage.setItem('garda-boot-seen','1');}catch{}};
+ const finish=()=>{if(done)return;done=true;cancelAnimationFrame(raf);removeEventListener('resize',resize);removeEventListener('keydown',key);resources.forEach(r=>r.dispose());overlay.remove();document.dispatchEvent(new Event('garda-intro-complete'));renderer?.dispose();renderer?.forceContextLoss();try{sessionStorage.setItem('garda-boot-seen','1');}catch{}};
  const key=e=>{if(e.key==='Escape')finish();};addEventListener('keydown',key);
  let scene,camera,frames,signals,streaks;const dummy=new THREE.Object3D();const color=new THREE.Color();
  function resize(){if(!renderer)return;camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);}
