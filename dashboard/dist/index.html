@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#EFEFEE">
-  <meta name="description" content="GARDA: Publikasi Rekayasa Perangkat Keras. Akselerator Inferensi Neural Deterministik (71,12 µs @ 50 MHz) dan Gerbang Keselamatan Hardware Zero-Trust pada Intel Cyclone V SoC.">
-  <title>GARDA Editorial Engineering &amp; Hardware Explorer</title>
+  <meta name="description" content="GARDA mengembangkan chip refleks keselamatan untuk drone inspeksi jaringan listrik. Lihat demo, potensi manfaat bagi PLN, dan bukti pengujiannya.">
+  <title>GARDA | Refleks keselamatan untuk drone inspeksi</title>
   <link rel="icon" href="assets/garda-mark.svg" type="image/svg+xml">
 
   <!-- Typography: Archivo, IBM Plex Mono, Work Sans -->
@@ -37,11 +37,11 @@
 
       <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button>
       <nav id="main-navigation" aria-label="Navigasi utama">
-        <a href="#clock-explorer" data-i18n="nav.explorer">EKSPLORASI</a>
-        <a href="#architecture" data-i18n="nav.architecture">ARSITEKTUR</a>
-        <a href="#clock-explorer" data-i18n="nav.dataflow">DATAFLOW</a>
-        <a href="#robot-demo" data-i18n="nav.robot">ROBOT &amp; SAFETY</a>
-        <a href="#verification" data-i18n="nav.verification">VERIFIKASI</a>
+        <a href="#hero" data-i18n="nav.home">Beranda</a>
+        <a href="#solution" data-i18n="nav.solution">Solusi</a>
+        <a href="#robot-demo" data-i18n="nav.demo">Demo</a>
+        <a href="#architecture" data-i18n="nav.technology">Teknologi</a>
+        <a href="#verification" data-i18n="nav.results">Hasil pengujian</a>
       </nav>
 
       <div class="topbar-actions">
@@ -58,7 +58,7 @@
     <!-- CHAPTER 01: Hero — Scroll-Driven Portal Hero -->
     <section class="intro wrap portal-hero" id="hero" aria-label="Bab 01: Identitas dan Portal Hero GARDA">
       <div class="portal-stage" aria-hidden="true">
-        <img src="assets/garda-bulb.svg" alt="" class="portal-image">
+        <img src="assets/inspection-concept.svg" alt="" class="portal-image">
         <span class="portal-wash"></span>
         <span class="portal-veil"></span>
         <span class="portal-panel portal-panel-left"></span>
@@ -70,17 +70,10 @@
         <p class="eyebrow hero-reveal is-visible" style="--reveal-delay:80ms">
           <span class="status-dot"></span> HACKATHON ITS 2026 GARDA
         </p>
-        <h1 class="hero-reveal portal-title is-visible" style="--reveal-delay:160ms" data-i18n="hero.title">
-          <span class="portal-title-left">AI bergerak.</span><br>
-          <em class="portal-title-right">GARDA menjaga.</em>
-        </h1>
-        <p class="lead hero-reveal is-visible" style="--reveal-delay:240ms" data-i18n="hero.lead">
-          Jelajahi RISC-V dan Parallel16 74 → 128 → 64 → 3 dan telusuri bagaimana GARDA membatasi keluaran kendali.
-        </p>
-        <div class="hero-actions hero-reveal is-visible" style="--reveal-delay:320ms">
-          <a class="hero-primary" href="#clock-explorer" data-i18n="hero.explore">Jelajahi 3D </a>
-          <a href="#architecture" data-i18n="hero.play">Putar dataflow</a>
-        </div>
+        <h1 class="hero-reveal portal-title is-visible" data-i18n="hero.title"><span class="portal-title-left">Drone menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em></h1>
+        <p class="lead hero-reveal is-visible" data-i18n="hero.lead">Drone inspeksi jaringan listrik perlu menghindari rintangan tanpa bergantung pada koneksi ke server. GARDA mengembangkan chip yang menghitung usulan koreksi gerak dan memeriksanya dengan gerbang keselamatan perangkat keras untuk membantu operator menjaga wahana dan aset.</p>
+        <div class="hero-actions hero-reveal is-visible"><a class="hero-primary" href="#robot-demo" data-i18n="hero.explore">Lihat demo</a><a href="#solution" data-i18n="hero.play">Cara kerja dan manfaat</a></div>
+        <p class="hero-qualification" data-i18n="hero.stage">Prototipe riset. Demo browser adalah simulasi; penerapan pada drone inspeksi PLN masih memerlukan pilot.</p>
         <div class="hero-metrics hero-reveal is-visible" style="--reveal-delay:400ms">
           <div>
             <strong>3.556</strong>
@@ -95,24 +88,85 @@
 
     </section>
 
-    <section class="signal-story" aria-label="Cara kerja GARDA">
-      <div class="signal-story__pin">
-        <div class="signal-story__heading"><p>GARDA</p><h2>Dari data.<br>Ke keputusan.</h2><a href="#clock-explorer">Coba simulasinya <span aria-hidden="true">↓</span></a></div>
-        <div class="signal-story__steps">
-          <article class="signal-step"><span class="signal-step__index">01</span><h3>Amati</h3><p>Data sensor menjadi masukan untuk sistem.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="120" cy="90" r="20"/><path d="M65 90a55 55 0 0 1 110 0M25 90a95 95 0 0 1 190 0M120 90l55-55"/></g></svg></article>
-          <article class="signal-step"><span class="signal-step__index">02</span><h3>Hitung</h3><p>Jalur neural menghitung usulan keluaran. Telusuri tiap fase di simulasi Parallel16.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="80" y="14" width="80" height="72"/><path d="M95 0v14m25-14v14m25-14v14M95 86v14m25-14v14m25-14v14M55 30h25m-25 20h25m-25 20h25m80-40h25m-25 20h25m-25 20h25M98 33h44v34H98z"/></g></svg></article>
-          <article class="signal-step"><span class="signal-step__index">03</span><h3>Batasi</h3><p>Gerbang keselamatan memeriksa kondisi izin. Uji responsnya dengan kontrol fault.</p><svg viewBox="0 0 240 100" aria-hidden="true"><path d="M120 8l38 15v25c0 23-20 36-38 44-18-8-38-21-38-44V23zM101 48l13 13 25-26" fill="none" stroke="currentColor" stroke-width="3"/></svg></article>
-        </div>
-        <div class="signal-story__track" aria-hidden="true"><span></span></div>
+
+
+    <section class="wrap stakeholder-section" id="solution" aria-labelledby="solution-title">
+      <div class="section-editorial-header"><h2 id="solution-title">Inspeksi penting. Gerak aman juga.</h2><p>Untuk unit transmisi PLN, penyedia jasa drone, dan integrator robot inspeksi.</p></div>
+      <div class="stakeholder-grid">
+        <article><span class="font-mono">Masalah</span><h3>Bekerja dekat aset berisiko</h3><p>Drone perlu bergerak di sekitar menara, kabel, dan rintangan. Operator membutuhkan respons penghindaran yang cepat dan perilaku sistem yang dapat diperiksa.</p></article>
+        <article><span class="font-mono">Solusi</span><h3>AI mengusulkan, gerbang memeriksa</h3><p>GARDA mengolah data jarak dan gerak di perangkat. Usulan koreksi melewati pemeriksaan keselamatan sebelum menjadi keluaran kendali.</p></article>
+        <article><span class="font-mono">Potensi dampak</span><h3>Lindungi wahana dan dukung inspeksi</h3><p>Tujuannya mengurangi risiko kerusakan, mendukung pekerjaan inspeksi, dan menyediakan jejak keputusan. Dampak operasional serta penghematan biaya perlu diukur bersama mitra.</p></article>
       </div>
+      <details class="stakeholder-details"><summary>Apa yang sudah diketahui dari calon pengguna?</summary><p>Proposal mencatat wawancara awal dengan seorang manajer ULTG PLN: keselamatan menjadi pembatas operasi drone, dan insiden hilang kendali pernah terjadi. Temuan awal ini belum mewakili seluruh unit PLN atau menjadi persetujuan kemitraan.</p></details>
     </section>
+
+    <section class="wrap stakeholder-section public-demo" id="demo" aria-labelledby="demo-title"><div class="section-editorial-header"><h2 id="demo-title">Lihat GARDA bekerja</h2><p>Pilih rintangan atau emergency stop, tekan Putar, lalu amati perubahan gerak. Ini ilustrasi browser, bukan bukti uji terbang atau keselamatan lapangan.</p></div>          <div class="robot-section" id="robot-demo" aria-labelledby="robot-title">
+            <h3 id="robot-title">Coba skenario inspeksi</h3>
+            <p class="inference-time">Inferensi RTL: <strong>71,12 µs</strong> <span>pada clock referensi 50 MHz</span></p>
+
+            <div class="robot-panel">
+              <div class="robot-path" aria-label="Alur ilustrasi: LiDAR, RISC-V, 16 MAC, safety, robot">
+                <span data-robot-stage="lidar">LiDAR</span>
+                <span data-robot-stage="cpu">RISC-V</span>
+                <span data-robot-stage="mac">16 MAC</span>
+                <span data-robot-stage="safety">Safety</span>
+                <span data-robot-stage="robot">Robot</span>
+              </div>
+
+              <div class="robot-stage">
+                <canvas id="robot-scene" aria-label="Ilustrasi robot dan lingkungan 3D"></canvas>
+              </div>
+
+              <div class="robot-controls">
+                <label>Platform
+                  <select id="robot-platform">
+                    <option value="drone" selected>Drone LiDAR</option>
+                    <option value="hiwonder">Hiwonder mecanum</option>
+                    <option value="lite3">Lite3 LiDAR</option>
+                    <option value="surgery">Robot bedah</option>
+                  </select>
+                </label>
+                <label>Playback
+                  <select id="robot-playback">
+                    <option value="motion" selected>Gerakan saja</option>
+                    <option value="inference">Inferensi lalu gerak</option>
+                  </select>
+                </label>
+                <label>Skenario
+                  <select id="robot-scenario">
+                    <option value="avoid" selected>Menghindari rintangan</option>
+                    <option value="clear">Jalur bebas</option>
+                    <option value="obstacle">Rintangan</option>
+                    <option value="estop">Emergency stop</option>
+                  </select>
+                </label>
+                <button type="button" id="robot-play" aria-pressed="false">▶ Putar</button>
+                <button type="button" id="robot-reset">↺ Reset</button>
+                <label for="robot-progress">Posisi
+                  <input id="robot-progress" type="range" min="0" max="100" value="0" step="1">
+                </label>
+              </div>
+
+              <details class="flow-details">
+                <summary>Referensi inovasi robotik</summary>
+                <a href="https://r2surgical.com/blogs/news/physical-ai-and-surgical-robotics" target="_blank" rel="noreferrer">Physical AI and Surgical Robotics, R2 Surgical</a>
+                <p>Contoh arah inovasi: bantuan kamera dan pengaturan gerak alat melalui umpan balik visual. Artikel ini menjadi inspirasi demonstrasi konseptual, bukan bukti implementasi klinis.</p>
+                <a href="https://www.roboticscenter.ai/store/product/deeprobotics-lite3-lidar" target="_blank" rel="noreferrer">Lite3 LiDAR, Robotics Center</a>
+                <p>Model 3D disederhanakan dari referensi visual. Integrasi GARDA pada Lite3, drone, dan robot bedah merupakan eksplorasi desain.</p>
+              </details>
+
+              <p id="platform-note" class="scope-note"></p>
+              <p class="robot-readout">Jarak LiDAR: <strong id="lidar-distance">—</strong></p>
+              <p id="robot-status" role="status">Siap memulai ilustrasi.</p>
+            </div>
+          </div><div class="demo-next"><a href="#gate-demo">Uji gerbang keselamatan</a><a href="#clock-explorer">Telusuri perhitungan neural</a><a href="#verification">Lihat bukti pengujian</a></div></section>
 
     <section class="wrap chapter-section" id="clock-explorer" aria-labelledby="clock-title">
       <div class="section-editorial-header">
         <p class="mono-eyebrow">Bagian 02 Aliran data inferensi Parallel16</p>
-        <h2 class="editorial-title" id="clock-title">Kronologi Siklus Komputasi Neural</h2>
+        <h2 class="editorial-title" id="clock-title">Di balik keputusan GARDA</h2>
         <p class="editorial-desc">
-          Penelusuran operasi MAC 16-lane paralel pada arsitektur Parallel16 dari siklus 0 hingga 3.556.
+          Pilih skenario, jalankan robot, dan amati respons terhadap rintangan. Panel perhitungan menjelaskan proses neural di balik ilustrasi ini.
         </p>
       </div>
 
@@ -188,66 +242,7 @@
           </div>
 
           <!-- Synchronized Robot Simulation Panel -->
-          <div class="robot-section" id="robot-demo" aria-labelledby="robot-title">
-            <h3 id="robot-title">Simulasi Platform Robot &amp; LiDAR</h3>
-            <p class="inference-time">Inferensi RTL: <strong>71,12 µs</strong> <span>pada clock referensi 50 MHz</span></p>
 
-            <div class="robot-panel">
-              <div class="robot-path" aria-label="Alur ilustrasi: LiDAR, RISC-V, 16 MAC, safety, robot">
-                <span data-robot-stage="lidar">LiDAR</span>
-                <span data-robot-stage="cpu">RISC-V</span>
-                <span data-robot-stage="mac">16 MAC</span>
-                <span data-robot-stage="safety">Safety</span>
-                <span data-robot-stage="robot">Robot</span>
-              </div>
-
-              <div class="robot-stage">
-                <canvas id="robot-scene" aria-label="Ilustrasi robot dan lingkungan 3D"></canvas>
-              </div>
-
-              <div class="robot-controls">
-                <label>Platform
-                  <select id="robot-platform">
-                    <option value="drone" selected>Drone LiDAR</option>
-                    <option value="hiwonder">Hiwonder mecanum</option>
-                    <option value="lite3">Lite3 LiDAR</option>
-                    <option value="surgery">Robot bedah</option>
-                  </select>
-                </label>
-                <label>Playback
-                  <select id="robot-playback">
-                    <option value="motion" selected>Gerakan saja</option>
-                    <option value="inference">Inferensi lalu gerak</option>
-                  </select>
-                </label>
-                <label>Skenario
-                  <select id="robot-scenario">
-                    <option value="avoid" selected>Menghindari rintangan</option>
-                    <option value="clear">Jalur bebas</option>
-                    <option value="obstacle">Rintangan</option>
-                    <option value="estop">Emergency stop</option>
-                  </select>
-                </label>
-                <button type="button" id="robot-play" aria-pressed="false">▶ Putar</button>
-                <button type="button" id="robot-reset">↺ Reset</button>
-                <label for="robot-progress">Posisi
-                  <input id="robot-progress" type="range" min="0" max="100" value="0" step="1">
-                </label>
-              </div>
-
-              <details class="flow-details">
-                <summary>Referensi inovasi robotik</summary>
-                <a href="https://r2surgical.com/blogs/news/physical-ai-and-surgical-robotics" target="_blank" rel="noreferrer">Physical AI and Surgical Robotics, R2 Surgical</a>
-                <p>Contoh arah inovasi: bantuan kamera dan pengaturan gerak alat melalui umpan balik visual. Artikel ini menjadi inspirasi demonstrasi konseptual, bukan bukti implementasi klinis.</p>
-                <a href="https://www.roboticscenter.ai/store/product/deeprobotics-lite3-lidar" target="_blank" rel="noreferrer">Lite3 LiDAR, Robotics Center</a>
-                <p>Model 3D disederhanakan dari referensi visual. Integrasi GARDA pada Lite3, drone, dan robot bedah merupakan eksplorasi desain.</p>
-              </details>
-
-              <p id="platform-note" class="scope-note"></p>
-              <p class="robot-readout">Jarak LiDAR: <strong id="lidar-distance">—</strong></p>
-              <p id="robot-status" role="status">Siap memulai ilustrasi.</p>
-            </div>
-          </div>
         </div>
 
         <label for="clock-slider">Pilih clock <span id="clock-range">0 / 3.556</span></label>
@@ -283,6 +278,18 @@
           <button type="button" data-clock-start="1809">FC2 1.552 siklus</button>
           <button type="button" data-clock-start="3361">FC3 196 siklus</button>
         </div>
+      </div>
+    </section>
+
+    <section class="signal-story" aria-label="Cara kerja GARDA">
+      <div class="signal-story__pin">
+        <div class="signal-story__heading"><p>GARDA</p><h2>Dari data.<br>Ke keputusan.</h2><a href="#clock-explorer">Coba simulasinya <span aria-hidden="true">↓</span></a></div>
+        <div class="signal-story__steps">
+          <article class="signal-step"><span class="signal-step__index">01</span><h3>Amati</h3><p>Data sensor menjadi masukan untuk sistem.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="120" cy="90" r="20"/><path d="M65 90a55 55 0 0 1 110 0M25 90a95 95 0 0 1 190 0M120 90l55-55"/></g></svg></article>
+          <article class="signal-step"><span class="signal-step__index">02</span><h3>Hitung</h3><p>Jalur neural menghitung usulan keluaran. Telusuri tiap fase di simulasi Parallel16.</p><svg viewBox="0 0 240 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="80" y="14" width="80" height="72"/><path d="M95 0v14m25-14v14m25-14v14M95 86v14m25-14v14m25-14v14M55 30h25m-25 20h25m-25 20h25m80-40h25m-25 20h25m-25 20h25M98 33h44v34H98z"/></g></svg></article>
+          <article class="signal-step"><span class="signal-step__index">03</span><h3>Batasi</h3><p>Gerbang keselamatan memeriksa kondisi izin. Uji responsnya dengan kontrol fault.</p><svg viewBox="0 0 240 100" aria-hidden="true"><path d="M120 8l38 15v25c0 23-20 36-38 44-18-8-38-21-38-44V23zM101 48l13 13 25-26" fill="none" stroke="currentColor" stroke-width="3"/></svg></article>
+        </div>
+        <div class="signal-story__track" aria-hidden="true"><span></span></div>
       </div>
     </section>
 
@@ -803,6 +810,16 @@
     </section>
 
     <!-- Layout Viewer Link -->
+    <section class="wrap stakeholder-section" id="readiness" aria-labelledby="readiness-title">
+      <div class="section-editorial-header"><h2 id="readiness-title">Dari prototipe ke penggunaan lapangan</h2><p>GARDA diusulkan sebagai komponen untuk diintegrasikan ke wahana, bukan sebagai pengganti seluruh drone.</p></div>
+      <div class="stakeholder-grid">
+        <article><span class="font-mono">Bukti saat ini</span><h3>Komponen dan pengujian</h3><p>Hasil RTL, catatan build FPGA, dan uji antarmuka tersedia di tabel pengujian. Masing-masing berlaku pada konfigurasi dan revisi yang diuji.</p><a href="#verification">Periksa hasil pengujian</a></article>
+        <article><span class="font-mono">Langkah berikut</span><h3>Integrasi dan uji terawasi</h3><p>Rencana mencakup penyelesaian integrasi, pengujian hardware-in-the-loop drone, serta uji di lingkungan relevan sebelum operasi lapangan.</p></article>
+        <article><span class="font-mono">Model penerapan</span><h3>Pilot dengan kriteria penerimaan</h3><p>Operator dan tim menyepakati wahana, lingkungan, prosedur keselamatan, serta metrik. Risiko, energi, waktu inspeksi, dan biaya dibandingkan dengan kondisi awal.</p></article>
+      </div>
+      <details class="stakeholder-details"><summary>Bagaimana menilai kelayakan biaya dan daya?</summary><p>Proposal merencanakan modul FPGA untuk tahap awal, dilanjutkan pengembangan chip dan lisensi IP. Target daya chip 20 mW belum merupakan hasil pengukuran produk. Harga, biaya integrasi, dukungan, dan pengembalian investasi harus divalidasi melalui pilot; belum ada penghematan PLN yang diklaim tercapai.</p></details>
+    </section>
+
     <section class="wrap layout-link-section">
       <a href="layout/index.html">Status dan viewer layout fisik TinyTapeout </a>
       <p class="scope-note">Layout dipublikasikan bersama hasil pemeriksaan fisiknya.</p>
