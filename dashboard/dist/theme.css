@@ -107,3 +107,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 
 #main-content{padding-top:var(--header-height,64px)}
 .inference-time strong{margin-inline:6px}
+
+.clock-options{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;max-width:100%}
+.clock-options label{display:flex;flex-direction:column;gap:8px;min-width:0;font:500 13px/1.4 'Work Sans',sans-serif;color:var(--color-ink-primary)}
+.clock-options select{box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--color-hairline-strong);border-radius:6px;background:var(--color-surface);color:var(--color-ink-primary);font:400 13px 'Work Sans',sans-serif}
+@media(max-width:480px){.clock-options{grid-template-columns:minmax(0,1fr);gap:14px}}
