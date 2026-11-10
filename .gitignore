@@ -1,31 +1,37 @@
-.git/
-.work/
-.runtime/
-.venv/
-__pycache__/
-*.pyc
-**/db/
-**/incremental_db/
-**/sim_build/
-verification/build/
-*.qws
-*.zip
-*.out
-*.vcd
+.DS_Store
+.idea
 *.fst
+*.fst.hier
+*.log
+*.swp
+*.vcd
+gds_render_preview*
+runs
+src/config_merged.json
+src/user_config.json
+test/__pycache__/
+test/*results.xml
+test/gate_level_netlist.v
+test/peri-*.xml
 test/results.xml
-robot/jetauto/logs/*
-!robot/jetauto/logs/.gitkeep
-.vscode/
-.vercel/
-node_modules/
-# Public, intentional download artifacts required by the interactive explorer.
-!dashboard/dist/downloads/*.zip
-!dashboard/dist/downloads/*.sof
+test/sim_build*
+test/user_peripherals/__pycache__/
+test/user_peripherals/*/__pycache__/
+tt_submission
+tt/
+.venv-tt/
+test/programs/*/obj/
+test/results_*.xml
+__pycache__/
 
-# Assembled unified GitHub Pages artifact.
-_site/
-physical-viewer/
-gds_render/
-.vercel
-.env*
+# Large regenerable build artifacts (rebuilt by make harden-tt)
+local_build/sdf/
+local_build/spef/
+local_build/odb/
+local_build/mag_gds/
+local_build/mag/
+local_build/def/
+local_build/json_h/
+
+# Local tool settings
+.claude/

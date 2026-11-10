@@ -1,41 +1,89 @@
+# Tiny Tapeout project information
 project:
-  title: GARDA Neural Logic
-  author: William Anthony / iSeeDesignITB
-  discord: ''
-  description: Complete dual-MAC Q8.8 inference 24-64-64-4 with fixed model logic
-    and flip-flop activation storage; no physical SRAM.
-  language: Verilog
-  clock_hz: 50000000
-  tiles: 8x4
-  top_module: tt_um_wlmoi_garda_neural_logic
+  title:        "GARDA-chip"      # Project title
+  author:       "GARDA-chip"      # Your name
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "GARDA-chip"      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     64000000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "8x4"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_garda_chip"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
-  - garda_neural_logic_top.v
-  - garda_parameter_logic.v
-  - garda_neural_datapath_logic.v
-  - garda_activation_logic.v
+    - "project.v"
+    - "peripherals.v"
+    - "user_peripherals/uart/peri_uart.v"
+    - "user_peripherals/uart/uart_rx.v"
+    - "user_peripherals/uart/uart_tx.v"
+    - "user_peripherals/prism/prism_periph.v"
+    - "user_peripherals/prism/prism_datapath.v"
+    - "user_peripherals/prism/prism_fifo.v"
+    - "user_peripherals/prism/prism_dma.v"
+    - "user_peripherals/prism/prism_txdma.v"
+    - "user_peripherals/prism/prism_sram_fifo.v"
+    - "user_peripherals/prism/prism_trace_port.v"
+    - "user_peripherals/prism/prism_mrx.v"
+    - "user_peripherals/prism/sram_2048x32_bb.v"
+    - "user_peripherals/prism/prism_crc.v"
+    - "user_peripherals/prism/latch_shift_reg.v"
+    - "user_peripherals/prism/latch_loader.v"
+    - "user_peripherals/prism/prism.v"
+    - "user_peripherals/prism/prism_sr_sit.v"
+    - "user_peripherals/prism/prism_latch_sit.v"
+    - "user_peripherals/prism/prism_latch_reg.v"
+    - "user_peripherals/cfgmem/cfgmem_periph.v"
+    - "tinyQV/cpu/tinyqv.v"
+    - "tinyQV/cpu/alu.v"
+    - "tinyQV/cpu/core.v"
+    - "tinyQV/cpu/counter.v"
+    - "tinyQV/cpu/cpu.v"
+    - "tinyQV/cpu/decode.v"
+    - "tinyQV/cpu/mem_ctrl.v"
+    - "tinyQV/cpu/qspi_ctrl.v"
+    - "tinyQV/cpu/register.v"
+    - "tinyQV/cpu/latch_reg.v"
+    - "tinyQV/cpu/time.v"
+    - "tinyQV/peri/uart/uart_tx.v"
+
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
-  ui[0]: write_enable
-  ui[1]: register_address_bit0
-  ui[2]: register_address_bit1
-  ui[3]: register_address_bit2
-  ui[4]: register_address_bit3
-  ui[5]: read_select_bit0
-  ui[6]: read_select_bit1
-  ui[7]: read_select_bit2
-  uo[0]: read_data_bit0
-  uo[1]: read_data_bit1
-  uo[2]: read_data_bit2
-  uo[3]: read_data_bit3
-  uo[4]: read_data_bit4
-  uo[5]: read_data_bit5
-  uo[6]: read_data_bit6
-  uo[7]: read_data_bit7
-  uio[0]: write_data_bit0 (input)
-  uio[1]: write_data_bit1 (input)
-  uio[2]: write_data_bit2 (input)
-  uio[3]: write_data_bit3 (input)
-  uio[4]: write_data_bit4 (input)
-  uio[5]: write_data_bit5 (input)
-  uio[6]: write_data_bit6 (input)
-  uio[7]: write_data_bit7 (input)
+  # Inputs
+  ui[0]: "Interrupt 0"
+  ui[1]: "Interrupt 1"
+  ui[2]: ""
+  ui[3]: ""
+  ui[4]: ""
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: "UART RX"
+
+  # Outputs
+  uo[0]: "UART TX"
+  uo[1]: ""
+  uo[2]: ""
+  uo[3]: ""
+  uo[4]: ""
+  uo[5]: ""
+  uo[6]: "Debug UART TX"
+  uo[7]: "Debug signal / PWM"
+
+  # Bidirectional pins
+  uio[0]: "Flash CS"
+  uio[1]: "SD0"
+  uio[2]: "SD1"
+  uio[3]: "SCK"
+  uio[4]: "SD2"
+  uio[5]: "SD3"
+  uio[6]: "RAM A CS"
+  uio[7]: "RAM B CS / PWM"
+
+# Do not change!
 yaml_version: 6

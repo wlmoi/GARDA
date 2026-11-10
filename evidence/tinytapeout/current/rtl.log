@@ -1,3 +1,0 @@
-PASS hidden overflow: fault sticky and all outputs suppressed
-PASS full neural logic: 6020 readbacks, 100 vectors/400 outputs, 3080 cycles, fail-closed ownership
-/mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/asic/neural_logic/tb_neural_logic.v:94: $finish called at 8295622000 (1ps)

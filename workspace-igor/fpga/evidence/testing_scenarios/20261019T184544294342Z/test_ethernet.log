@@ -1,7 +1,0 @@
-DROP ('127.0.0.1', 62979): Request length 501 != 492
-BACKEND LATCHED: Invalid UART response: 00 00 00 00 00 00 00 00 00 00 00; reset FPGA and restart gateway
-BACKEND LATCHED: UART write deadline expired; reset FPGA and restart gateway
-----------------------------------------------------------------------
-Ran 16 tests in 1.971s
-
-OK

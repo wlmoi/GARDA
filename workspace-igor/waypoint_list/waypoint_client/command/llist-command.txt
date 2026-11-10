@@ -1,1 +1,0 @@
-src/waypoint_client/point/meihua.yaml

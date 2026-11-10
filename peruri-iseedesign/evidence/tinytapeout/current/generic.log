@@ -1,6 +1,0 @@
-upload start at 661000
-upload complete at 361881000
-readback/commit complete at 723101000
-vector 0 complete at 787141000
-PASS full neural logic: 6020 readbacks, 1 vectors/4 outputs, 3080 cycles, fail-closed ownership
-/mnt/c/Users/William Anthony/Documents/Codex/2026-09-30/files-mentioned-by-the-user-draft/outputs/peruri-iseedesign/asic/neural_logic/tb_neural_logic.v:94: $finish called at 789782000 (1ps)

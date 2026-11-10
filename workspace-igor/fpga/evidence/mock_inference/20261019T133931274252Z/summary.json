@@ -1,7 +1,0 @@
-{
-  "passed": false,
-  "status": "interrupted_after_repeated_zero_byte_timeouts",
-  "records_preserved": 45,
-  "numeric_received": 0,
-  "not_a_completed_batch": true
-}

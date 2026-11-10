@@ -1,3 +1,0 @@
-LIDAR: {"error": "Expected exactly one USB 1a86:7523 for auto; found []"}
-STM: {"error": "Expected exactly one USB 1a86:55d4 for auto; found []"}
-Evidence: D:\LinkedinProjects\igor_ws\igor_ws\fpga\evidence\testing_scenarios\20261020T023108815864Z\sensors

@@ -1,0 +1,17 @@
+{
+  "name": "GARDA-chip",
+  "top_module": "tt_um_garda_chip",
+  "tile": "8x4",
+  "die_um": [1724.16, 710.64],
+  "gds": "local_build/gds/tt_um_garda_chip.gds",
+  "gds_klayout": "local_build/klayout_gds/tt_um_garda_chip.klayout.gds",
+  "preview_png": "local_build/render/tt_um_garda_chip_overview.png",
+  "lef": "local_build/lef/tt_um_garda_chip.lef",
+  "netlist": "local_build/nl/tt_um_garda_chip.nl.v",
+  "image": "Calvin.png",
+  "tools": {
+    "info": "python tools/gds_view.py info",
+    "render": "python tools/gds_view.py render -o out.png"
+  },
+  "instructions": "AGENTS.md"
+}

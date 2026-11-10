@@ -1,8 +1,0 @@
-{
-  "header": "JP1_1_2",
-  "rx_fpga_pad": "V12",
-  "tx_fpga_pad": "E8",
-  "sha256": "e7160020a1c31332ffe49bfd7ec44f88afc0b5bf998c4a17093b432495ebe6cb",
-  "minimum_reported_slack_ns": 0.117,
-  "core_sha256": "0aff96cf9638582ab0bc6eabaf1462baa25a41196e1e73abc1aa4786cddc5d34"
-}

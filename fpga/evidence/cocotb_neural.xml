@@ -1,7 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1792147643" />
-    <testcase name="neural_export_and_latency" classname="test_neural" file="D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\test_neural.py" lineno="9" time="18.135944366455078" sim_time_ns="36434055.001" ratio_time="2008941.7052022829" />
-    <testcase name="neural_incomplete_input_rejected" classname="test_neural" file="D:\LinkedinProjects\igor_ws\igor_ws\fpga\verification\test_neural.py" lineno="33" time="0.0009543895721435547" sim_time_ns="66.0" ratio_time="69154.1503872096" />
-  </testsuite>
-</testsuites>

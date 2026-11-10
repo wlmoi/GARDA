@@ -1,8 +1,0 @@
-{
-  "sha256": "cb2e0de357a3865b4058f89d34b54f59ab8604db0865a7ceefff436bd6230b49",
-  "baud": 921600,
-  "adapter_TX": "JP1 pin 1 / FPGA RX V12",
-  "adapter_RX": "JP1 pin 2 / FPGA TX E8",
-  "ground": "JP1 pin 12",
-  "program_exit": 0
-}

@@ -1,9 +1,0 @@
-{
-  "specification": "D:\\LinkedinProjects\\igor_ws\\igor_ws\\fpga\\testing_scenario.md",
-  "specification_sha256": "1cf7fdc0eb0c46199149cae75a02e37095f8363dba2c45d9b0af7ed3d2dcc9b3",
-  "commit": "19a8098c34cd52b6ca35a3205e638a7c6e722f79",
-  "python": "C:\\Users\\William Anthony\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
-  "platform": "win32",
-  "motion_requested": false,
-  "note": "Software fixtures, RTL simulation and board checks are separate from robot acceptance."
-}

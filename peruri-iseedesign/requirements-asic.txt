@@ -1,3 +1,0 @@
-yowasp-yosys==0.69.0.0.post1233
-yowasp-runtime==1.96
-wasmtime==44.0.0

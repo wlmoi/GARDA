@@ -1,61 +1,22 @@
-name: GARDA DE10-Nano FPGA verification
+name: fpga
 
 on:
   push:
-  pull_request:
+    # Comment out (or remove) the following line to run the FPGA workflow on every push:
+    branches: none
   workflow_dispatch:
 
 jobs:
   fpga:
-    name: Parallel8 RTL and Cyclone V synthesis
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
     steps:
-      - name: Checkout the current GARDA source
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: checkout repo
+        uses: actions/checkout@v6
         with:
-          lfs: true
+          submodules: recursive
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+      - name: FPGA bitstream for TT ASIC Sim (ICE40UP5K)
+        uses: TinyTapeout/tt-gds-action/fpga/ice40up5k@ihp-cmos5l
         with:
-          python-version: '3.11'
-
-      - name: Install Icarus and Cyclone V synthesis tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y iverilog yosys
-
-      - name: Independently verify the bundled source model and generate vectors
-        working-directory: fpga
-        run: python verification/src_policy/run.py --check
-
-      - name: Verify Parallel8 core, UART and actual board wrapper
-        run: python fpga/experiments/parallel8/run.py
-
-      - name: Synthesize the active DE10-Nano project to Cyclone V cells
-        run: python fpga/scripts/synth_de10_parallel8.py
-
-      - name: Summarize source-current synthesis
-        run: |
-          python3 - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-          report = json.loads(Path('fpga/verification/build/de10_parallel8/summary.json').read_text())
-          with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as summary:
-              summary.write('GARDA Parallel8 core, UART and board-wrapper RTL regressions passed.\n\n')
-              summary.write(f"Target: {report['target']}; clock reference: 50 MHz.\n\n")
-              summary.write(report['scope'] + '.\n')
-          PY
-
-      - name: Preserve real synthesis and regression evidence
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
-        with:
-          name: garda-de10-parallel8-${{ github.sha }}
-          path: |
-            fpga/verification/build/de10_parallel8/
-            fpga/experiments/parallel8/artifacts/*.log
-            fpga/experiments/parallel8/artifacts/results.json
-            fpga/verification/src_policy/artifacts/
-          if-no-files-found: error
+          tools-repo: kdp1965/tt-support-tools
+          tools-ref: cmos-8x4

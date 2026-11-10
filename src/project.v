@@ -1,48 +1,459 @@
-// Tiny Tapeout prototype of the actual GARDA safety gate, with a register front end.
+/*
+ * Copyright (c) 2024 Michael Bell
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 `default_nettype none
-module tt_um_wlmoi_garda_gate(
- input wire [7:0] ui_in, output reg [7:0] uo_out,
- input wire [7:0] uio_in,output wire [7:0] uio_out,output wire [7:0] uio_oe,
- input wire ena,clk,rst_n);
-reg [7:0] flags;
-reg timeout;
-reg [4:0] candidate_v,previous_v,max_v,max_dv;
-reg signed [6:0] candidate_w,previous_w;
-reg [6:0] max_w,max_dw;
-wire motor_enable;
-wire [4:0] v_command;
-wire signed [6:0] omega_command;
-wire [7:0] fault_code;
-always @(posedge clk) begin
- if(!rst_n) begin
-  flags<=0;timeout<=0;candidate_v<=0;previous_v<=0;max_v<=0;max_dv<=0;
-  candidate_w<=0;previous_w<=0;max_w<=0;max_dw<=0;
- end else if(ena && ui_in[0]) case(ui_in[4:1])
-  0:flags<=uio_in;
-  1:timeout<=uio_in[0];
-  2:candidate_v<=uio_in[4:0];
-  3:previous_v<=uio_in[4:0];
-  4:max_v<=uio_in[4:0];
-  5:max_dv<=uio_in[4:0];
-  6:candidate_w<=uio_in[6:0];
-  7:previous_w<=uio_in[6:0];
-  8:max_w<=uio_in[6:0];
-  9:max_dw<=uio_in[6:0];
-  default:begin end
- endcase
-end
-garda_safety_security_gate gate(rst_n,flags[0] && ena,flags[1],flags[2],flags[3],flags[4],flags[5],flags[6],flags[7],timeout,candidate_v,previous_v,max_v,max_dv,candidate_w,previous_w,max_w,max_dw,motor_enable,v_command,omega_command,fault_code);
-always @(*) begin
- case(ui_in[7:5])
-  0:uo_out={7'd0,motor_enable};
-  1:uo_out={3'd0,v_command};
-  2:uo_out={omega_command[6],omega_command};
-  3:uo_out=fault_code;
-  4:uo_out=flags;
-  default:uo_out=0;
- endcase
-end
-assign uio_out=0;
-assign uio_oe=0;
+
+module tt_um_garda_chip (
+    input  wire [7:0] ui_in,    // Dedicated inputs
+    output wire [7:0] uo_out,   // Dedicated outputs
+    input  wire [7:0] uio_in,   // IOs: Input path - only some bits used
+    output wire [7:0] uio_out,  // IOs: Output path
+    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+    input  wire       ena,
+    input  wire       clk,
+    input  wire       rst_n
+);
+
+    // Address to peripheral map
+    localparam PERI_NONE = 4'h0;
+    localparam PERI_GPIO_OUT_SEL = 4'h3;
+    localparam PERI_DEBUG_UART = 4'h6;
+    localparam PERI_DEBUG_UART_STATUS = 4'h7;
+    localparam PERI_DMA_CFG = 4'h8;             // 0x8000020: PRISM RX DMA configuration (prism_dma.v)
+    localparam PERI_DMA_STATUS = 4'h9;          // 0x8000024: its ring head / tail and flags
+    localparam PERI_TXDMA = 4'hA;               // 0x8000028: PRISM TX DMA command / status (prism_txdma.v)
+    localparam PERI_TXRING_CFG = 4'hB;          // 0x800002C: its TX ring configuration
+    localparam PERI_TXRING_STATUS = 4'hD;       // 0x8000034: the ring's head / tail and frame-sent flag
+    localparam PERI_DEBUG = 4'hC;
+    localparam PERI_USER = 4'hF;
+
+    // Register the reset on the negative edge of clock for safety.
+    // This also allows the option of async reset in the design, which might be preferable in some cases
+    /* verilator lint_off SYNCASYNCNET */
+    reg rst_reg_n;
+    /* verilator lint_on SYNCASYNCNET */
+    always @(negedge clk) rst_reg_n <= rst_n;
+
+    // The peripherals (and the PRISM's ~1500 flops behind them) get the reset
+    // re-registered on the rising edge: their reset tree then has a full
+    // cycle instead of the half cycle after rst_reg_n, and they leave reset
+    // half a cycle after the CPU, long before it can talk to them.
+    reg rst_peri_n;
+    always @(posedge clk) rst_peri_n <= rst_reg_n;
+
+    // Bidirs are used for SPI interface
+    wire [3:0] qspi_data_in = {uio_in[5:4], uio_in[2:1]};
+    wire [3:0] qspi_data_out;
+    wire [3:0] qspi_data_oe;
+    wire       qspi_clk_out;
+    wire       qspi_flash_select;
+    wire       qspi_ram_a_select;
+    wire       qspi_ram_b_select;
+    wire [7:0] uio_oe_c;
+    assign uio_out = {qspi_ram_b_select, qspi_ram_a_select, qspi_data_out[3:2], 
+                      qspi_clk_out, qspi_data_out[1:0], qspi_flash_select};
+    assign uio_oe_c = rst_n ? {2'b11, qspi_data_oe[3:2], 1'b1, qspi_data_oe[1:0], 1'b1} : 8'h00;
+
+`ifdef SIM
+    assign uio_oe = uio_oe_c;
+`elsif SCL_sky130_fd_sc_hd
+    generate
+        genvar i;
+        for (i = 0; i < 8; i = i + 1) begin : GEN_UIO_OE
+            /* verilator lint_off PINMISSING */
+            (* keep = "true" *)
+            sky130_fd_sc_hd__and2_1 oe_and (
+                .A ( uio_oe_c[i] ),
+                .B ( uio_oe_c[i] ),
+                .X ( uio_oe[i] )
+            );
+            /* verilator lint_on PINMISSING */
+        end
+    endgenerate
+`else
+    // IHP sg13cmos5l cells: same pins as the sky130 cells above.
+    generate
+        genvar i;
+        for (i = 0; i < 8; i = i + 1) begin : GEN_UIO_OE
+            /* verilator lint_off PINMISSING */
+            (* keep = "true" *)
+            sg13cmos5l_and2_1 oe_and (
+                .A ( uio_oe_c[i] ),
+                .B ( uio_oe_c[i] ),
+                .X ( uio_oe[i] )
+            );
+            /* verilator lint_on PINMISSING */
+        end
+    endgenerate
+`endif
+
+    wire [27:0] addr;
+    wire  [1:0] write_n;
+    wire  [1:0] read_n;
+    wire        read_complete;
+    wire [31:0] data_to_write;
+
+    wire        data_ready;
+    reg [31:0] data_from_read;
+
+    wire       debug_instr_complete;
+    wire       debug_instr_ready;
+    wire       debug_instr_valid;
+    wire       debug_fetch_restart;
+    wire       debug_data_ready;
+    wire       debug_interrupt_pending;
+    wire       debug_branch;
+    wire       debug_early_branch;
+    wire       debug_ret;
+    wire       debug_reg_wen;
+    wire       debug_counter_0;
+    wire       debug_data_continue;
+    wire       debug_stall_txn;
+    wire       debug_stop_txn;
+    wire [3:0] debug_rd;
+
+    wire       debug_uart_txd;
+    wire       debug_signal;
+    reg  [7:6] gpio_out_sel;
+
+    reg [3:0] connect_peripheral;
+
+    // Debug
+    reg debug_register_data;
+    reg [3:0] debug_rd_r;
+
+    // Debug UART - runs fast to reduce the width of the count necessary for the divider!
+    wire debug_uart_tx_busy;
+    wire debug_uart_tx_start = write_n != 2'b11 && connect_peripheral == PERI_DEBUG_UART;
+
+    // Time
+    wire time_pulse;
+
+    // Peripherals interface
+    wire [7:0] peri_out;
+    wire [31:0] peri_data_out;
+    wire        peri_data_ready;
+    wire [15:2] peri_interrupts;
+
+    // Peripherals get synchronized ui_in.
+    reg [7:0] ui_in_sync0;
+    reg [7:0] ui_in_sync;
+    always @(posedge clk) begin
+        ui_in_sync0 <= ui_in;
+        ui_in_sync <= ui_in_sync0;
+    end
+
+    // The PRISM's RX DMA (prism_dma.v) lives here, next to the memory
+    // controller it drives; only a byte-serial tap reaches the PRISM
+    wire        dma_mem_req;
+    wire [24:0] dma_mem_addr;
+    wire [31:0] dma_mem_wdata;
+    wire  [1:0] dma_mem_write_n;
+    wire        dma_mem_continue;
+    wire        dma_mem_grant;
+    wire        dma_mem_ready;
+    wire  [7:0] dma_head;
+    wire        dma_empty, dma_drained, dma_avail4, dma_af, dma_frame_end, dma_crc_ok;
+    wire        dma_pop, dma_en, dma_shard, dma_chain, dma_hw_end, dma_irq;
+    wire [31:0] dma_cfg_rd, dma_st_rd;
+    wire        dma_cfg_wr = (write_n == 2'b10) && connect_peripheral == PERI_DMA_CFG;
+    wire        dma_st_wr  = (write_n == 2'b10) && connect_peripheral == PERI_DMA_STATUS;
+
+    // The PRISM's TX DMA (prism_txdma.v): frames from PSRAM B slots into
+    // FIFO B (SRAM[1]); the same kind of byte-serial tap, the other way, and
+    // for its TX ring a start strobe to shard 1 and shard 1's end of frame
+    wire        txd_mem_req;
+    wire [24:0] txd_mem_addr;
+    wire  [1:0] txd_mem_read_n;
+    wire        txd_mem_continue;
+    wire        txd_mem_ready;
+    wire [31:0] txd_mem_rdata;
+    wire  [7:0] txd_data;
+    wire        txd_push, txd_room, txd_hold, txd_irq;
+    wire        txd_ring, txd_start, txd_frame_end;
+    wire [31:0] txd_rd, txr_cfg_rd, txr_st_rd;
+    wire        txd_wr     = (write_n == 2'b10) && connect_peripheral == PERI_TXDMA;
+    wire        txr_cfg_wr = (write_n == 2'b10) && connect_peripheral == PERI_TXRING_CFG;
+    wire        txr_st_wr  = (write_n == 2'b10) && connect_peripheral == PERI_TXRING_STATUS;
+
+    // The memory port's second master is shared by the two engines.  The
+    // owner is picked while the port is free, RX first, and keeps it until
+    // its request drops (one burst, at most 8 words), so an RX burst waits
+    // for at most one TX burst.
+    wire        port_req, port_grant, port_ready, port_continue;
+    wire [24:0] port_addr;
+    wire  [1:0] port_write_n, port_read_n;
+    reg         txd_own;
+    always @(posedge clk) begin
+        if (!rst_reg_n)
+            txd_own <= 1'b0;
+        else if (!port_grant)
+            txd_own <= txd_mem_req & !dma_mem_req;
+    end
+    assign port_req      = port_grant ? (txd_own ? txd_mem_req : dma_mem_req) : (dma_mem_req | txd_mem_req);
+    assign port_addr     = txd_own ? txd_mem_addr     : dma_mem_addr;
+    assign port_write_n  = txd_own ? 2'b11            : dma_mem_write_n;
+    assign port_read_n   = txd_own ? txd_mem_read_n   : 2'b11;
+    assign port_continue = txd_own ? txd_mem_continue : dma_mem_continue;
+    assign dma_mem_grant = port_grant & !txd_own;
+    assign dma_mem_ready = port_ready & !txd_own;
+    assign txd_mem_ready = port_ready & txd_own;
+
+    // Interrupt requests; the RX DMA's frame interrupt is 10, the TX DMA's 11
+    wire [15:0] interrupt_req = {peri_interrupts[15:12], peri_interrupts[11] | txd_irq, peri_interrupts[10] | dma_irq,
+                                 peri_interrupts[9:2], ui_in_sync[1:0]};
+
+    tinyQV i_tinyqv(
+        .clk(clk),
+        .rstn(rst_reg_n),
+
+        .data_addr(addr),
+        .data_write_n(write_n),
+        .data_read_n(read_n),
+        .data_read_complete(read_complete),
+        .data_out(data_to_write),
+
+        .data_ready(data_ready),
+        .data_in(data_from_read),
+
+        .dma_req(port_req),
+        .dma_addr(port_addr),
+        .dma_wdata(dma_mem_wdata),
+        .dma_write_n(port_write_n),
+        .dma_read_n(port_read_n),
+        .dma_continue(port_continue),
+        .dma_grant(port_grant),
+        .dma_ready(port_ready),
+        .dma_rdata(txd_mem_rdata),
+
+        .interrupt_req(interrupt_req),
+        .time_pulse(time_pulse),
+
+        .spi_data_in(qspi_data_in),
+        .spi_data_out(qspi_data_out),
+        .spi_data_oe(qspi_data_oe),
+        .spi_clk_out(qspi_clk_out),
+        .spi_flash_select(qspi_flash_select),
+        .spi_ram_a_select(qspi_ram_a_select),
+        .spi_ram_b_select(qspi_ram_b_select),
+
+        .debug_instr_complete(debug_instr_complete),
+        .debug_instr_ready(debug_instr_ready),
+        .debug_instr_valid(debug_instr_valid),
+        .debug_fetch_restart(debug_fetch_restart),
+        .debug_data_ready(debug_data_ready),
+        .debug_interrupt_pending(debug_interrupt_pending),
+        .debug_branch(debug_branch),
+        .debug_early_branch(debug_early_branch),
+        .debug_ret(debug_ret),
+        .debug_reg_wen(debug_reg_wen),
+        .debug_counter_0(debug_counter_0),
+        .debug_data_continue(debug_data_continue),
+        .debug_stall_txn(debug_stall_txn),
+        .debug_stop_txn(debug_stop_txn),
+        .debug_rd(debug_rd)
+    );
+
+    assign uo_out[0] = peri_out[0];
+    assign uo_out[1] = peri_out[1];
+    assign uo_out[2] = debug_register_data ? debug_rd_r[0] : peri_out[2];
+    assign uo_out[3] = debug_register_data ? debug_rd_r[1] : peri_out[3];
+    assign uo_out[4] = debug_register_data ? debug_rd_r[2] : peri_out[4];
+    assign uo_out[5] = debug_register_data ? debug_rd_r[3] : peri_out[5];
+    assign uo_out[6] = gpio_out_sel[6] ? peri_out[6] : debug_uart_txd;
+    assign uo_out[7] = gpio_out_sel[7] ? peri_out[7] : debug_signal;
+
+    tinyQV_peripherals i_peripherals (
+        .clk(clk),
+        .rst_n(rst_peri_n),
+
+        .ui_in(ui_in_sync),
+        .ui_in_1ff(ui_in_sync0),
+        .ui_in_raw(ui_in),
+        .uo_out(peri_out),
+
+        .addr_in(addr[10:0]),
+        .data_in(data_to_write),
+
+        .data_write_n(write_n),
+        .data_read_n(read_n),
+
+        .data_out(peri_data_out),
+        .data_ready(peri_data_ready),
+
+        .data_read_complete(read_complete),
+
+        .user_interrupts(peri_interrupts),
+
+        .dma_head      ( dma_head      ),
+        .dma_empty     ( dma_empty     ),
+        .dma_drained   ( dma_drained   ),
+        .dma_avail4    ( dma_avail4    ),
+        .dma_af        ( dma_af        ),
+        .dma_frame_end ( dma_frame_end ),
+        .dma_pop       ( dma_pop       ),
+        .dma_en        ( dma_en        ),
+        .dma_shard     ( dma_shard     ),
+        .dma_chain     ( dma_chain     ),
+        .dma_hw_end    ( dma_hw_end    ),
+        .dma_crc_ok    ( dma_crc_ok    ),
+
+        .txd_data      ( txd_data      ),
+        .txd_push      ( txd_push      ),
+        .txd_room      ( txd_room      ),
+        .txd_hold      ( txd_hold      ),
+        .txd_ring      ( txd_ring      ),
+        .txd_start     ( txd_start     ),
+        .txd_frame_end ( txd_frame_end )
+    );
+
+    prism_dma i_dma (
+        .clk             ( clk              ),
+        .rst_n           ( rst_peri_n       ),
+        .cfg_wr          ( dma_cfg_wr       ),
+        .st_wr           ( dma_st_wr        ),
+        .wdata           ( data_to_write    ),
+        .cfg_rd          ( dma_cfg_rd       ),
+        .st_rd           ( dma_st_rd        ),
+        .fifo_head       ( dma_head         ),
+        .fifo_empty      ( dma_empty        ),
+        .fifo_drained    ( dma_drained      ),
+        .fifo_avail4     ( dma_avail4       ),
+        .fifo_af         ( dma_af           ),
+        .frame_end_pulse ( dma_frame_end    ),
+        .crc_ok          ( dma_crc_ok       ),
+        .fifo_pop        ( dma_pop          ),
+        .enable          ( dma_en           ),
+        .shard_sel       ( dma_shard        ),
+        .hw_end          ( dma_hw_end       ),
+        .chain           ( dma_chain        ),
+        .irq             ( dma_irq          ),
+        .mem_req         ( dma_mem_req      ),
+        .mem_addr        ( dma_mem_addr     ),
+        .mem_wdata       ( dma_mem_wdata    ),
+        .mem_write_n     ( dma_mem_write_n  ),
+        .mem_continue    ( dma_mem_continue ),
+        .mem_grant       ( dma_mem_grant    ),
+        .mem_ready       ( dma_mem_ready    )
+    );
+
+    prism_txdma i_txdma (
+        .clk             ( clk              ),
+        .rst_n           ( rst_peri_n       ),
+        .reg_wr          ( txd_wr           ),
+        .ring_cfg_wr     ( txr_cfg_wr       ),
+        .ring_st_wr      ( txr_st_wr        ),
+        .wdata           ( data_to_write    ),
+        .rd              ( txd_rd           ),
+        .ring_cfg_rd     ( txr_cfg_rd       ),
+        .ring_st_rd      ( txr_st_rd        ),
+        .irq             ( txd_irq          ),
+        .fifo_data       ( txd_data         ),
+        .fifo_push       ( txd_push         ),
+        .fifo_room       ( txd_room         ),
+        .fifo_hold       ( txd_hold         ),
+        .ring_on         ( txd_ring         ),
+        .chroma_start    ( txd_start        ),
+        .frame_end       ( txd_frame_end    ),
+        .mem_req         ( txd_mem_req      ),
+        .mem_addr        ( txd_mem_addr     ),
+        .mem_read_n      ( txd_mem_read_n   ),
+        .mem_continue    ( txd_mem_continue ),
+        .mem_ready       ( txd_mem_ready    ),
+        .mem_rdata       ( txd_mem_rdata    )
+    );
+
+    always @(*) begin
+        if ({addr[27:6], addr[1:0]} == 24'h800000) 
+            connect_peripheral = addr[5:2];
+        else if (addr[27:11] == 17'h10000)
+            connect_peripheral = PERI_USER;
+        else
+            connect_peripheral = PERI_NONE;
+    end
+
+    // Read data
+    always @(*) begin
+        case (connect_peripheral)
+            PERI_GPIO_OUT_SEL:data_from_read = {24'h0, gpio_out_sel, 6'h0};
+            PERI_DEBUG_UART_STATUS: data_from_read = {31'h0, debug_uart_tx_busy};
+            PERI_DMA_CFG:     data_from_read = dma_cfg_rd;
+            PERI_DMA_STATUS:  data_from_read = dma_st_rd;
+            PERI_TXDMA:       data_from_read = txd_rd;
+            PERI_TXRING_CFG:  data_from_read = txr_cfg_rd;
+            PERI_TXRING_STATUS: data_from_read = txr_st_rd;
+            PERI_USER:        data_from_read = peri_data_out;
+            default:          data_from_read = 32'hFFFF_FFFF;
+        endcase
+    end
+
+    assign data_ready = (connect_peripheral == PERI_USER) ? peri_data_ready : 1'b1;
+
+    // GPIO Out
+    always @(posedge clk) begin
+        if (!rst_reg_n) begin
+            gpio_out_sel <= {!ui_in[0], 1'b0};
+        end
+        if (write_n != 2'b11) begin
+            if (connect_peripheral == PERI_GPIO_OUT_SEL) gpio_out_sel <= data_to_write[7:6];
+        end
+    end
+
+    uart_tx #(.CLK_HZ(64_000_000), .BIT_RATE(4_000_000)) i_debug_uart_tx(
+        .clk(clk),
+        .resetn(rst_peri_n),
+        .uart_txd(debug_uart_txd),
+        .uart_tx_en(debug_uart_tx_start),
+        .uart_tx_data(data_to_write[7:0]),
+        .uart_tx_busy(debug_uart_tx_busy) 
+    );
+
+    reg [5:0] time_count;
+    always @(posedge clk) begin
+        if (!rst_reg_n) begin
+            time_count <= 0;
+        end else begin
+            time_count <= time_count + 1;
+        end
+    end
+    assign time_pulse = time_count == 6'h3f;
+
+    // Debug
+    always @(posedge clk) begin
+        if (!rst_reg_n)
+            debug_register_data <= ui_in[1];
+        else if (connect_peripheral == PERI_DEBUG)
+            debug_register_data <= data_to_write[0];
+    end
+
+    always @(posedge clk) begin
+        debug_rd_r <= debug_rd;
+    end
+
+    reg [15:0] debug_signals;
+    always @(*) begin
+        debug_signals  = {debug_instr_complete,
+                          debug_instr_ready,
+                          debug_instr_valid,
+                          debug_fetch_restart,
+                          read_n != 2'b11,
+                          write_n != 2'b11,
+                          debug_data_ready,
+                          debug_interrupt_pending,
+                          debug_branch,
+                          debug_early_branch,
+                          debug_ret,
+                          debug_reg_wen,
+                          debug_counter_0,
+                          debug_data_continue,
+                          debug_stall_txn,
+                          debug_stop_txn};
+    end
+    assign debug_signal = debug_signals[ui_in[6:3]];
+
+    // List all unused inputs to prevent warnings
+    wire _unused = &{ena, uio_in[7:6], uio_in[3], uio_in[0], read_complete, 1'b0};
+
 endmodule
-`default_nettype wire

@@ -1,0 +1,371 @@
+/*
+ * Register map and access helpers for the TinyQV PRISM design in this repo
+ * (CFGMEM peripheral 4 + PRISM peripheral 8).  Shared by the RISC-V test
+ * programs under test/programs/.
+ *
+ * NOTE: this design differs from the ttsky25a PRISM in the tinyQV-sdk
+ * (prism.h): the State Information Table (STEW per state) lives in the
+ * CFGMEM macros and is loaded through the CFGMEM peripheral, not through
+ * PRISM_REG_CFG_LSW/MSW.
+ *
+ * CFGMEM peripheral (base PERI_BASE_ADDRESS(4) = 0x8000100)
+ *   0x00 + i*4  write: shift "lo" macro i (i = 0..3); read: lo macro i's
+ *               output word (row CFGMEM_CTRL addr when addr_sel is set).
+ *   0x20 + i*4  write: shift "hi" macro i; read: hi macro i's output word.
+ *   The macros of a bank form a chain, host -> 0 -> 1 -> 2 -> 3 (macro i's
+ *   Di0 is macro i-1's Do0).  With the bank's bypass bit set every macro
+ *   passes Di0 to Do0, so the host word reaches all of them and each is
+ *   shifted with its own write; clear the bypass to read rows back.
+ *   0x1f        control BYTE (0x1f is not word aligned, so use 8-bit
+ *               accesses): [3:0] row address, [4] address select (1 = use
+ *               [3:0], 0 = PRISM drives the address), [5] (read only)
+ *               loader FSM busy, [6] bypass lo, [7] bypass hi.
+ *
+ *   Each macro is a 16 x 32 shift-loaded, random-read memory: a shift
+ *   write puts the new word in row 0 and moves row r to row r+1, so the
+ *   first word written ends up in row 15 and the last in row 0.  Every
+ *   shift write takes ~50 clocks (WROW walks rows 15..0); poll BUSY.
+ *
+ * PRISM peripheral (base PERI_BASE_ADDRESS(8) = 0x8000200)
+ *   32 states, 128-bit STEW: states 0-15 live in the lo macros (bank A,
+ *   stew bits [31:0] = lo[0] ... [127:96] = lo[3]) and states 16-31 in the
+ *   hi macros (bank B).  Fractured, shard 0 runs bank A and shard 1 bank B.
+ */
+#pragma once
+
+#include <stdint.h>
+#include <gpio.h>
+#include <csr.h>
+
+#define CFGMEM_PERIPHERAL_NUM   4
+#define PRISM_PERIPHERAL_NUM    8
+
+#define CFGMEM_BASE_ADDRESS     PERI_BASE_ADDRESS(CFGMEM_PERIPHERAL_NUM)
+#define PRISM_BASE_ADDRESS      PERI_BASE_ADDRESS(PRISM_PERIPHERAL_NUM)
+
+#define CFGMEM_COUNT            4       /* lo/hi macro pairs           */
+#define CFGMEM_DEPTH            16      /* rows per macro              */
+
+#define CFGMEM_REG_LO(i)        ((i) * 4)
+#define CFGMEM_REG_HI(i)        (0x20 + (i) * 4)
+#define CFGMEM_REG_CTRL         0x1f
+
+#define CFGMEM_CTRL_ADDR(r)     ((r) & 0xf)
+#define CFGMEM_CTRL_ADDR_SEL    (1u << 4)
+#define CFGMEM_CTRL_BUSY        (1u << 5)   /* read only */
+#define CFGMEM_CTRL_BYP_LO      (1u << 6)
+#define CFGMEM_CTRL_BYP_HI      (1u << 7)
+
+/* PRISM registers (byte offsets in the 512-byte region; docs/prism_interface.md) */
+#define PRISM_REG_CTRL          0x00    /* [31] interrupt (RO), [30] enable */
+#define PRISM_REG_INT_CLR       0x03    /* byte write, bit 7 clears the shard 0 IRQ */
+#define PRISM_REG_INT_CLR1      0x07    /* byte write, bit 7 clears the shard 1 IRQ */
+#define PRISM_REG_DBG_CTRL      0x04    /* shard 0 debug control */
+#define PRISM_REG_DBG_CTRL1     0x08    /* shard 1 debug control */
+#define PRISM_REG_DBG_STATUS    0x0c
+#define PRISM_REG_STEW0         0x10    /* current STEW of shard 0, 4 words */
+#define PRISM_REG_ID            0x20
+#define PRISM_REG_INT_STATUS    0x24    /* [3:2] semaphore seen by shard 1 / 0, [1:0] shard IRQs */
+#define PRISM_REG_DEBUG_DOUT    0x30
+#define PRISM_REG_DECISION      0x34
+#define PRISM_REG_OUT_DATA      0x38
+#define PRISM_REG_IN_DATA       0x3c
+#define PRISM_REG_FRAC_CFG      0x40    /* bit 0: fractured */
+#define PRISM_REG_OUT_MASK0     0x44
+#define PRISM_REG_COND_MASK0    0x48
+#define PRISM_REG_OUT_MASK1     0x4c
+#define PRISM_REG_COND_MASK1    0x50
+
+/* Per-shard window (shard 0 at 0x100, shard 1 at 0x180) */
+#define PRISM_SHARD_BASE(s)     (0x100 + (s) * 0x80)
+#define PRISM_SH_CFG0           0x00    /* chroma ctrl_reg: datapath configuration */
+#define PRISM_SH_PINMUX         0x04    /* chroma pinmux_reg: uo_out[7:1] sources */
+#define PRISM_SH_PRELOAD        0x08    /* 32-bit */
+#define PRISM_SH_COUNT1         0x0c    /* read count1; write loads it */
+#define PRISM_SH_COUNTS         0x10    /* {comm_count, shift_count, comm, compare, count2}; byte lanes writable */
+#define PRISM_SH_COUNT2         0x10    /* byte */
+#define PRISM_SH_COMPARE        0x11    /* byte */
+#define PRISM_SH_COMM           0x12    /* byte */
+#define PRISM_SH_HOST           0x14    /* host_in[1:0] */
+#define PRISM_SH_TOGGLE         0x15    /* byte write: toggle host_in[0], clear IRQ */
+#define PRISM_SH_FLAGS          0x18    /* RO datapath flags: [12] count3 >= limit [10] crc_ok [9] fifo_full [8] fifo_empty ... */
+#define PRISM_SH_CFG1           0x1c    /* [15:0] in_prev sources (4 x input number), [19:16] FIFO
+                                           almost-empty level, [23:20] almost-full level, [31:24] FIFO
+                                           flag selects for inputs 20 / 21 / 26 / 27 (2 bits each) */
+#define PRISM_SH_FIFO           0x20    /* byte: write pushes (TX mode), read pops (RX mode) */
+#define PRISM_SH_FIFO_STATUS    0x24    /* see PRISM_FIFO_*; any write flushes */
+#define PRISM_SH_CRC_POLY       0x28
+#define PRISM_SH_CRC            0x2c    /* read value; write = preset */
+#define PRISM_SH_CRC_EXPECTED   0x30
+#define PRISM_SH_CFG2           0x34    /* input slot selects */
+#define PRISM_SH_CONST          0x38    /* constants K3..K0 (K3 also the comm match value) */
+#define PRISM_SH_CFG3           0x3c    /* Manchester bit recoverer */
+#define PRISM_SH_PRELOAD2       0x40    /* free-running timer period (24 bits), 0 = off */
+#define PRISM_SH_TRACE_CFG      0x44
+#define PRISM_SH_TRACE_CTRL     0x48
+#define PRISM_SH_CTAB           0x4c    /* constant table: the latch FIFO as addressable constants */
+#define PRISM_SH_COMM_PINS      0x50
+#define PRISM_SH_FIFO32         0x54    /* 32-bit FIFO push / pop (CFG3[11]) */
+#define PRISM_SH_COUNT3         0x58    /* [7:0] count3 (counts up), [15:8] its limit, [23:16] mask of a masked load; byte lanes writable */
+
+/* Shard 0 shortcuts */
+#define PRISM_REG_CFG0          (PRISM_SHARD_BASE(0) + PRISM_SH_CFG0)
+#define PRISM_REG_PINMUX        (PRISM_SHARD_BASE(0) + PRISM_SH_PINMUX)
+#define PRISM_REG_PRELOAD       (PRISM_SHARD_BASE(0) + PRISM_SH_PRELOAD)
+#define PRISM_REG_COUNT1        (PRISM_SHARD_BASE(0) + PRISM_SH_COUNT1)
+#define PRISM_REG_COUNTS        (PRISM_SHARD_BASE(0) + PRISM_SH_COUNTS)
+#define PRISM_REG_COUNT2        (PRISM_SHARD_BASE(0) + PRISM_SH_COUNT2)
+#define PRISM_REG_COMPARE       (PRISM_SHARD_BASE(0) + PRISM_SH_COMPARE)
+#define PRISM_REG_COMM          (PRISM_SHARD_BASE(0) + PRISM_SH_COMM)
+#define PRISM_REG_HOST          (PRISM_SHARD_BASE(0) + PRISM_SH_HOST)
+#define PRISM_REG_TOGGLE        (PRISM_SHARD_BASE(0) + PRISM_SH_TOGGLE)
+#define PRISM_REG_FLAGS         (PRISM_SHARD_BASE(0) + PRISM_SH_FLAGS)
+#define PRISM_REG_CFG1          (PRISM_SHARD_BASE(0) + PRISM_SH_CFG1)
+#define PRISM_REG_FIFO          (PRISM_SHARD_BASE(0) + PRISM_SH_FIFO)
+#define PRISM_REG_FIFO_STATUS   (PRISM_SHARD_BASE(0) + PRISM_SH_FIFO_STATUS)
+#define PRISM_REG_CRC_POLY      (PRISM_SHARD_BASE(0) + PRISM_SH_CRC_POLY)
+#define PRISM_REG_CRC           (PRISM_SHARD_BASE(0) + PRISM_SH_CRC)
+#define PRISM_REG_CRC_EXPECTED  (PRISM_SHARD_BASE(0) + PRISM_SH_CRC_EXPECTED)
+
+/* FIFO status bits */
+#define PRISM_FIFO_EMPTY        (1u << 0)
+#define PRISM_FIFO_FULL         (1u << 1)
+#define PRISM_FIFO_ALMOST_EMPTY (1u << 2)
+#define PRISM_FIFO_ALMOST_FULL  (1u << 3)
+#define PRISM_FIFO_COUNT(v)     (((v) >> 8) & 0x1f)
+
+/* CFG0 bits (prism_datapath.v) */
+#define PRISM_CFG_SHIFT_IN_SEL(n) ((n) & 3)
+#define PRISM_CFG_CLR_NOT_LOAD  (1u << 6)
+#define PRISM_CFG_LATCH_IN_OUT  (1u << 7)
+#define PRISM_CFG_SHIFT_EN      (1u << 8)
+#define PRISM_CFG_SHIFT_DIR     (1u << 9)
+#define PRISM_CFG_SHIFT_WIDE    (1u << 10)
+#define PRISM_CFG_COUNT32       (1u << 11)
+#define PRISM_CFG_COUNT3_EN     (1u << 12)   /* pin_out[3] is count3's second command bit (was COUNT2_DEC_EN) */
+#define PRISM_CFG_LATCH_EN      (1u << 13)
+#define PRISM_CFG_COUNT_UP      (1u << 14)
+#define PRISM_CFG_WRAP_PRELOAD  (1u << 15)
+#define PRISM_CFG_SHIFT_LOAD_ONE (1u << 16)
+#define PRISM_CFG_COMM_LOAD_ONE (1u << 17)
+#define PRISM_CFG_IN_SYNC_SEL(n) (((n) & 3u) << 18)  /* 0 = 2 flops, 1 = 1 flop, 2 = raw pins */
+#define PRISM_CFG_CRC_MODE(n)   (((n) & 3u) << 20)   /* 0 off, 1 CRC8, 2 CRC16, 3 CRC32 */
+#define PRISM_CFG_CRC_REFLECT   (1u << 22)
+#define PRISM_CFG_FIFO_DIR_TX   (1u << 23)   /* 0 = RX (FSM pushes, host reads), 1 = TX (host writes, FSM pops) */
+#define PRISM_CFG_SEMA_SET_WINS (1u << 24)
+#define PRISM_CFG_CRC_INIT_ONES (1u << 25)
+#define PRISM_CFG_CRC_XOR_OUT   (1u << 26)
+#define PRISM_CFG_CRC_SRC_OUT   (1u << 27)   /* CRC over the shifter output bit instead of its input bit */
+
+/* Interrupt lines (TinyQV user interrupts): shard 0 = 8, shard 1 = 9 */
+#define PRISM_IRQ_SHARD0        8
+#define PRISM_IRQ_SHARD1        9
+#define PRISM_CTRL_IRQ1         (1u << 29)  /* shard 1 interrupt pending (RO) */
+
+#define PRISM_CTRL_ENABLE       (1u << 30)
+
+/* Debug control register bits (prism.v debug_ctrl0) */
+#define PRISM_DBG_HALT_REQ      (1u << 0)
+#define PRISM_DBG_STEP          (1u << 1)
+#define PRISM_DBG_BP0_EN        (1u << 2)
+#define PRISM_DBG_BP1_EN        (1u << 3)
+#define PRISM_DBG_BP0_SI(si)    (((si) & 0x1f) << 4)
+#define PRISM_DBG_BP1_SI(si)    (((si) & 0x1f) << 9)
+#define PRISM_DBG_BP0_COND(c)   (((c) & 3u) << 14)   /* see PRISM_BPC_* */
+#define PRISM_DBG_BP1_COND(c)   (((c) & 3u) << 16)
+#define PRISM_DBG_NEW_SI(si)    ((1u << 18) | (((si) & 0x1f) << 19))  /* load SI on write */
+#define PRISM_DBG_CTRL1         0x08    /* same layout for shard 1 */
+
+/* Breakpoint conditions.  ENTRY halts before the state's outputs act; the
+   others halt inside the state in the cycle the selected decision tree
+   matches, with that cycle's transition and outputs held off.  Keep
+   PRISM_DBG_HALT_REQ set while single stepping, or the FSM resumes after
+   a step that lands on a non-breakpoint state. */
+#define PRISM_BPC_ENTRY         0u
+#define PRISM_BPC_IF            1u      /* tree 0 ("if") matches */
+#define PRISM_BPC_ELSE_IF       2u      /* tree 1 ("else if" / "else") taken: matches while tree 0 does not */
+#define PRISM_BPC_ANY           3u      /* either tree taken (the state exits) */
+
+/* Debug status register fields */
+/* shard 0 in [12:0], shard 1 in [25:13]: {break[1:0], halt, next_si, curr_si} */
+#define PRISM_DBGS_CURR_SI(v)   ((v) & 0x1f)
+#define PRISM_DBGS_NEXT_SI(v)   (((v) >> 5) & 0x1f)
+#define PRISM_DBGS_HALT         (1u << 10)
+#define PRISM_DBGS_BREAK        (3u << 11)
+#define PRISM_DBGS_SHARD1(v)    (((v) >> 13) & 0x1fff)
+
+/* STEW / chroma geometry (chromas/tinyqv32.cfg) */
+#define PRISM_STATES            32
+#define PRISM_BANK_STATES       16      /* rows per CFGMEM bank */
+#define PRISM_STEW_WORDS        4       /* 128-bit STEW = 4 x 32 */
+
+/* ---------------------------------------------------------------------- */
+
+static inline void cfgmem_write(uint32_t reg, uint32_t value)
+{
+    *(volatile uint32_t *)(CFGMEM_BASE_ADDRESS + reg) = value;
+}
+
+static inline uint32_t cfgmem_read(uint32_t reg)
+{
+    return *(volatile uint32_t *)(CFGMEM_BASE_ADDRESS + reg);
+}
+
+static inline void cfgmem_ctrl(uint8_t value)
+{
+    *(volatile uint8_t *)(CFGMEM_BASE_ADDRESS + CFGMEM_REG_CTRL) = value;
+}
+
+static inline uint8_t cfgmem_ctrl_read(void)
+{
+    return *(volatile uint8_t *)(CFGMEM_BASE_ADDRESS + CFGMEM_REG_CTRL);
+}
+
+/* Wait for the shift-load FSM to finish walking the rows. */
+static inline void cfgmem_wait(void)
+{
+    while (cfgmem_ctrl_read() & CFGMEM_CTRL_BUSY)
+        ;
+}
+
+/* Shift lo macro i (row 0 <= Di0, older rows move up; Di0 is lo[i-1].Do0,
+   or the host word with BYP_LO set). */
+static inline void cfgmem_shift_lo(uint32_t i, uint32_t value)
+{
+    cfgmem_write(CFGMEM_REG_LO(i), value);
+    cfgmem_wait();
+}
+
+/* Shift hi macro i (Di0 is hi[i-1].Do0, or the host word with BYP_HI). */
+static inline void cfgmem_shift_hi(uint32_t i, uint32_t value)
+{
+    cfgmem_write(CFGMEM_REG_HI(i), value);
+    cfgmem_wait();
+}
+
+/* Read row r of hi macro i (bypass off). */
+static inline uint32_t cfgmem_read_hi(uint32_t i, uint32_t row)
+{
+    cfgmem_ctrl(CFGMEM_CTRL_ADDR_SEL | CFGMEM_CTRL_ADDR(row));
+    return cfgmem_read(CFGMEM_REG_HI(i));
+}
+
+/* Read row r of lo macro i (bypass off). */
+static inline uint32_t cfgmem_read_lo(uint32_t i, uint32_t row)
+{
+    cfgmem_ctrl(CFGMEM_CTRL_ADDR_SEL | CFGMEM_CTRL_ADDR(row));
+    return cfgmem_read(CFGMEM_REG_LO(i));
+}
+
+/* Hand the row address back to PRISM and clear the bypasses. */
+static inline void cfgmem_release(void)
+{
+    cfgmem_ctrl(0);
+}
+
+/*
+ * Load a chroma as emitted by yosys-prism: the highest state first, state 0
+ * last, PRISM_STEW_WORDS words per state with the most significant word
+ * first.  Word 0 goes to macro 3 ... word 3 to macro 0.  States 16-31 are
+ * loaded into the hi macros (bank B, bypass hi) and states 15-0 into the lo
+ * macros (bypass lo); the last word shifted in lands in row 0.  Returns the
+ * number of words that read back wrong.
+ */
+static inline uint32_t prism_load_chroma(const uint32_t *chroma, uint32_t states)
+{
+    uint32_t errors = 0;
+    const uint32_t *w = chroma;
+    uint32_t lo_states = states > PRISM_BANK_STATES ? PRISM_BANK_STATES : states;
+
+    if (states > PRISM_BANK_STATES) {
+        cfgmem_ctrl(CFGMEM_CTRL_BYP_HI);
+        for (uint32_t k = 0; k < states - PRISM_BANK_STATES; k++)
+            for (uint32_t j = 0; j < PRISM_STEW_WORDS; j++)
+                cfgmem_shift_hi(PRISM_STEW_WORDS - 1 - j, *w++);
+    }
+    cfgmem_ctrl(CFGMEM_CTRL_BYP_LO);
+    for (uint32_t k = 0; k < lo_states; k++)
+        for (uint32_t j = 0; j < PRISM_STEW_WORDS; j++)
+            cfgmem_shift_lo(PRISM_STEW_WORDS - 1 - j, *w++);
+    cfgmem_ctrl(0);
+
+    for (uint32_t s = 0; s < states; s++) {
+        const uint32_t *ws = chroma + (states - 1 - s) * PRISM_STEW_WORDS;
+        for (uint32_t j = 0; j < PRISM_STEW_WORDS; j++) {
+            uint32_t inst = PRISM_STEW_WORDS - 1 - j;
+            uint32_t got  = s < PRISM_BANK_STATES ? cfgmem_read_lo(inst, s)
+                                                  : cfgmem_read_hi(inst, s - PRISM_BANK_STATES);
+            if (got != ws[j]) errors++;
+        }
+    }
+    cfgmem_release();
+    return errors;
+}
+
+/*
+ * Fractured: load one 16-state table into each bank, bank A for shard 0 and
+ * bank B for shard 1.  Each pointer is PRISM_BANK_STATES rows in the
+ * yosys-prism order (highest state first, most significant word first):
+ * for a chroma built for 32 states that is its table + 64 words, the 16
+ * lowest states.  Returns the number of words that read back wrong.
+ */
+static inline uint32_t prism_load_banks(const uint32_t *bank_a, const uint32_t *bank_b)
+{
+    uint32_t errors = 0;
+
+    cfgmem_ctrl(CFGMEM_CTRL_BYP_HI);
+    for (uint32_t k = 0; k < PRISM_BANK_STATES * PRISM_STEW_WORDS; k++)
+        cfgmem_shift_hi(PRISM_STEW_WORDS - 1 - (k % PRISM_STEW_WORDS), bank_b[k]);
+    cfgmem_ctrl(CFGMEM_CTRL_BYP_LO);
+    for (uint32_t k = 0; k < PRISM_BANK_STATES * PRISM_STEW_WORDS; k++)
+        cfgmem_shift_lo(PRISM_STEW_WORDS - 1 - (k % PRISM_STEW_WORDS), bank_a[k]);
+    cfgmem_ctrl(0);
+
+    for (uint32_t s = 0; s < PRISM_BANK_STATES; s++) {
+        uint32_t row = (PRISM_BANK_STATES - 1 - s) * PRISM_STEW_WORDS;
+        for (uint32_t j = 0; j < PRISM_STEW_WORDS; j++) {
+            uint32_t inst = PRISM_STEW_WORDS - 1 - j;
+            if (cfgmem_read_lo(inst, s) != bank_a[row + j]) errors++;
+            if (cfgmem_read_hi(inst, s) != bank_b[row + j]) errors++;
+        }
+    }
+    cfgmem_release();
+    return errors;
+}
+
+/* ---------------------------------------------------------------------- */
+
+static inline void prism_write(uint32_t reg, uint32_t value)
+{
+    *(volatile uint32_t *)(PRISM_BASE_ADDRESS + reg) = value;
+}
+
+static inline void prism_write_byte(uint32_t reg, uint8_t value)
+{
+    *(volatile uint8_t *)(PRISM_BASE_ADDRESS + reg) = value;
+}
+
+static inline uint32_t prism_read(uint32_t reg)
+{
+    return *(volatile uint32_t *)(PRISM_BASE_ADDRESS + reg);
+}
+
+static inline uint8_t prism_read_byte(uint32_t reg)
+{
+    return *(volatile uint8_t *)(PRISM_BASE_ADDRESS + reg);
+}
+
+/* Route uo_out pins (bit mask) to the PRISM peripheral. */
+static inline void prism_claim_pins(uint32_t mask)
+{
+    for (uint32_t pin = 0; pin < 8; pin++)
+        if (mask & (1u << pin))
+            set_gpio_func(pin, PRISM_PERIPHERAL_NUM);
+}
+
+static inline void delay_cycles(uint32_t cycles)
+{
+    uint32_t start = read_cycle();
+    while ((uint32_t)(read_cycle() - start) < cycles)
+        ;
+}

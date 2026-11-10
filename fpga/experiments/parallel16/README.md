@@ -1,7 +1,0 @@
-# GARDA Parallel16 candidate
-
-This separate candidate executes the 74→128→64→3 Q8.8 policy with 16 MAC lanes and 16 2,048-word weight banks. The original Parallel8 implementation is unchanged. The banks contain 1,181 used words apiece: FC1 weights/biases at 0/592, FC2 at 600/1112, and FC3 at 1116/1180. Only the first three output lanes are active for FC3; no measured power-saving claim is made.
-
-The RTL schedule targets 8×(3×74+4) + 4×(3×128+4) + (3×64+4) = 3,556 core cycles. Actual clock frequency, routed timing, power and hardware behavior require a completed physical FPGA flow. The CPU/MMIO integration is a separate design; this directory's `garda_src_policy_parallel16.qpf` targets the existing 50 MHz DE10-Nano UART board wrapper with 921600-baud configuration and does not instantiate the CPU or MMIO adapter. It creates output in this directory only and does not program a board.
-
-Regenerate the RTL and bank images with `python fpga/experiments/parallel16/prepare.py`. This uses the existing Parallel8 core and the checked-in policy memory as inputs. Run `python fpga/experiments/parallel16/run_regression.py core`, `uart`, or `board` to simulate in temporary directories with Icarus Verilog; a passing run writes a per-suite JSON receipt with hashes of text normalized from CRLF to LF. For the separate MMIO interface run `python fpga/hwpe/run_test.py`. Receipts cover simulation only and must be checked against their recorded input hashes.

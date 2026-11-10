@@ -1,8 +1,0 @@
-{
-  "status": "error",
-  "error": "Close other JTAG terminals; board monitor unavailable",
-  "snapshots": 0,
-  "new_results_observed": 0,
-  "unobserved_results_at_least": 0,
-  "duration_s": 0.125
-}

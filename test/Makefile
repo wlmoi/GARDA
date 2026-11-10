@@ -1,47 +1,46 @@
-# Makefile
-# See https://docs.cocotb.org/en/stable/quickstart.html for more info
+USER_PERIPHERALS = \
+	uart \
+	prism.test \
+	cfgmem.test \
 
-# defaults
-SIM ?= icarus
-FST ?= -fst # Use more efficient FST format
-TOPLEVEL_LANG ?= verilog
-SRC_DIR = $(CURDIR)/../src
-PROJECT_SOURCES = garda_neural_logic_top.v garda_parameter_logic.v garda_neural_datapath_logic.v garda_activation_logic.v
-COMPILE_ARGS += -DSIM -DFUNCTIONAL
+.PHONY: all $(USER_PERIPHERALS)
 
-ifneq ($(GATES),yes)
+%-results.xml:
+	make -f test_$*.mk clean
+	make -f test_$*.mk
+	mv results.xml $@
+	mv sim_build/rtl/tb.fst $*-rtl.fst || true
+	mv sim_build/gl/tb.fst $*-gl.fst || true
 
-# RTL simulation:
-SIM_BUILD				= sim_build/rtl
-VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+peri-%.xml:
+	make -f test_basic.mk clean
+	MODULE=user_peripherals.$* make -f test_basic.mk || true
+	if [ ! -f results.xml ]; then echo '<failure message="$* failed (crashed)" />' > results.xml; fi
+	mv results.xml $@
+	mv sim_build/rtl/tb.fst $*-rtl.fst || true
+	mv sim_build/gl/tb.fst $*-gl.fst || true
 
-else
+all: clean basic-results.xml prog-results.xml $(USER_PERIPHERALS:%=peri-%.xml)
+	cat *results.xml peri-*.xml > results.xml
 
-# Gate level simulation:
-SIM_BUILD				= sim_build/gl
-COMPILE_ARGS    += -DGL_TEST
-COMPILE_ARGS    += -DFUNCTIONAL
-COMPILE_ARGS    += -DSIM
-VERILOG_SOURCES += $(PDK_ROOT)/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/verilog/sg13cmos5l_io.v
-VERILOG_SOURCES += $(PDK_ROOT)/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v
-VERILOG_SOURCES += $(PDK_ROOT)/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v
+$(USER_PERIPHERALS): %: peri-%.xml
 
-# this gets copied in by the GDS action workflow
-VERILOG_SOURCES += $(CURDIR)/gate_level_netlist.v
+clean:
+	rm *results.xml peri-*.xml *.fst sim_build/rtl/tb.fst sim_build/gl/tb.fst || true
 
-endif
+# RISC-V program tests: build test/programs/<name> into <name>.hex and run it
+# on the RTL through test_prog.mk (simulated QSPI flash + 2 PSRAMs).
+#   make cfgmem_verify
+PROGRAMS = cfgmem_verify sdk_check dma_verify txdma_verify ethtx_verify ethloop_verify ethring_verify vga_verify
 
-# Allow sharing configuration between design and testbench via `include`:
-COMPILE_ARGS 		+= -I$(SRC_DIR)
+.PHONY: $(PROGRAMS) $(PROGRAMS:%=%-hex)
 
-# Include the testbench sources:
-VERILOG_SOURCES += $(CURDIR)/tb.v
-TOPLEVEL = tb
+$(PROGRAMS:%=%-hex):
+	$(MAKE) -C programs/$(@:%-hex=%)
 
-# List test modules to run, separated by commas and without the .py suffix:
-COCOTB_TEST_MODULES = test
-MODULE = test
+# ethring_verify needs 16 RAM B slots (32 KB PSRAMs)
+ethring_verify: SIM_RAM_BITS = 15
 
-# include cocotb's make rules to take care of the simulator setup
-include $(shell cocotb-config --makefiles)/Makefile.sim
-
+$(PROGRAMS): %: %-hex
+	make -f test_prog.mk clean
+	make -f test_prog.mk PROG=$@ $(if $(SIM_RAM_BITS),SIM_RAM_BITS=$(SIM_RAM_BITS))

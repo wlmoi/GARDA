@@ -1,325 +1,155 @@
-<p align="center">
-  <img src="docs/assets/garda-banner.svg" alt="GARDA — Hackathon ITS 2026, AI untuk masalah nyata" width="100%">
-</p>
+# GARDA-chip (PRISM + TinyQV on IHP CMOS5L)
+
+This repository is the IHP SG13CMOS5L port of
+[ttsky26a-qv-prism](../ttsky26a/ttsky26a-qv-prism): a PRISM programmable
+state-machine engine driven by a TinyQV RISC-V SoC, with the PRISM
+configuration held in `CFGMEM_IHP16` latch-array macros built by
+[DFFRAM.librelane](../DFFRAM.librelane) (`make cfgmem16_cmos5l` /
+`make left_cmos5l`; views in `macros/`). It starts from
+`TinyTapeout/ttihp-verilog-template@cmos5l` (workflows, devcontainer, config
+defaults) as the competition rules require.
+
+Platform-specific RTL is guarded: `SIM` selects behavioural models,
+`SCL_sky130_fd_sc_hd` the original sky130 cells, and the fall-through
+branches use `sg13cmos5l_*` cells (same pin names). LibreLane defines the
+`SCL_<library>` macro at synthesis.
 
-# GARDA , Hackathon ITS 2026
+## Hardening locally
 
-<table>
-<tr>
-<td width="72%">
-<p><strong>AI untuk gerak robot yang dapat diperiksa.</strong></p>
-<p>RTL, inferensi Q8.8, gerbang keselamatan, dan explorer 3D dalam satu repository. Dikembangkan untuk <strong>Hackathon ITS 2026</strong> dengan biru, cyan, dan kuning maskot <strong>SENO</strong>.</p>
-<p><a href="https://garda-chip-explorer.vercel.app/"><img alt="Buka dashboard 3D" src="https://img.shields.io/badge/BUKA-DASHBOARD_3D-19BCE5?style=for-the-badge&amp;labelColor=082D67"></a> <a href="https://hackathon-its.id/"><img alt="Hackathon ITS 2026" src="https://img.shields.io/badge/HACKATHON-ITS_2026-F4D447?style=for-the-badge&amp;labelColor=082D67"></a></p>
-<p><strong>Jelajahi board → buka RTL → ikuti setiap clock.</strong></p>
-</td>
-<td width="28%" align="center">
-<img src="dashboard/dist/assets/seno.png" alt="SENO, maskot Hackathon ITS, dari gambar yang disediakan pengguna" width="245">
-</td>
-</tr>
-</table>
+The single-layer Tiny Tapeout PDN cannot reach the macros' Metal4 power pins
+on its own (pdngen carves its stripes around macros), so the flow gets one
+extra step, `Project.ExtendPowerStripes` (`odb_stripes.py`), that draws the
+tile stripes across each macro's pin columns.  The step is a LibreLane
+plugin (`librelane_plugin_prism_pdn.py`): LibreLane imports any
+`librelane_plugin_*` module it finds on the Python path, and running
+`python -m librelane` from the repository root, which is what
+`tt_tool.py --harden` and therefore the Tiny Tapeout GDS action do, puts the
+root on that path.  `meta.substituting_steps` in `src/config.json` then
+inserts the step after `OpenROAD.GeneratePDN`.  Nothing has to be installed
+and the CI build gets the same connected macro power as the local one.
 
-| Jelajahi | Tujuan |
-|:--|:--|
-| 🌐 [Buka dashboard 3D](https://garda-chip-explorer.vercel.app/) | Board, isi chip, port, dan source RTL |
-| ⏱ [Animated dataflow](https://garda-chip-explorer.vercel.app/#clock-explorer) | Model jadwal FSM Parallel8, 0–6.916 clock |
-| 📚 [Dokumentasi](docs/README.md) | Indeks seluruh panduan |
-| 🚀 [Mulai di sini](docs/QUICKSTART.md) | Menjalankan alur pengembangan |
-| 🔌 [Program FPGA](docs/FPGA_PROGRAMMING.md) | Proyek board dan pemrograman |
-| 🎬 [Panduan demo](docs/DEMO_GUIDE.md) | Urutan demonstrasi |
-| 🧩 [Explorer 3D RTL](docs/INTERACTIVE_EXPLORER.md) | Model, source, dan batas visualisasi |
-| ⚙️ [RISC-V dan neural HWPE](docs/RISCV_HWPE_ARCHITECTURE.md) | Pemilihan CPU, integrasi eksperimen, dan validasi sebelum SOF |
-| 📄 [Laporan teknis](docs/TECHNICAL_REPORT.md) | Arsitektur dan hasil pengujian |
-| 🧠 [Eksperimen AI](#hasil-eksperimen-model-ai-cl-drl-dan-akselerator-q88) | CL-DRL dan akselerator Q8.8 |
-| ☀️ [Hackathon ITS 2026](docs/HACKATHON_ITS_2026.md) | Konteks proposal, prinsip, dan jadwal resmi |
+The tile's stripes run on a 44.96 um pitch with 5.62 um between VPWR and
+VGND: the IHP SRAM's power-column grid (4 x 11.24 um), which the CFGMEM
+macros were regenerated to match, so one set of full-height stripes powers
+the macros and the SRAM.  With `FP_PDN_VOFFSET` 6.15 the first VPWR stripe
+is at 9.03 um; CFGMEM macros go at x = -2.41 + 44.96k um, the SRAM at
+3.36 + 11.24i um, all on row boundaries (n x 3.78 um).
 
-> **Status yang dapat ditelusuri.** Dashboard adalah situs statis; animasi clock memakai model jadwal FSM. Hasil RTL, build FPGA historis, dan status fisik ASIC ditampilkan sesuai buktinya. Target pengembangan SKY130 dan SRAM ada pada [rencana ASIC](asic/sky130_garda/README.md); kelulusan DRC, LVS, timing, dan precheck memerlukan laporan dari build yang sama.
+    git clone -b cmos-8x4 https://github.com/kdp1965/tt-support-tools tt   # once
+    make venv          # once: Python environment for tt_tool.py (.venv-tt)
+    make harden-tt     # exactly what CI runs: tt_tool.py --harden --ihp --no-docker
+    make harden        # alternative: flow.py (same step, inserted in Python)
 
-## GARDA sesuai proposal
+The tile is 8x4 (1724.16 x 710.64 um, the size allowed by the Jane Street
+competition).  The upstream `cmos` branch of the TT tools has no 8x4 template;
+the `cmos-8x4` branch of the fork adds ours from `tt_8x4/` (see its README),
+and the GitHub workflows point the actions at that branch.  `make config`
+also installs the template into an upstream checkout.  The CFGMEM macros form
+two full-height columns of four: bank A (lo macros, `CFGMEM_IHP_LEFT16`,
+pins facing east) at x = 537.11 um and bank B (hi macros, `CFGMEM_IHP16`,
+pins facing west) at 1346.39 um, with the PRISM logic in the 478 um
+channel between them.  The two 512x32 SRAM FIFO macros (one per shard,
+2 KB each) are stacked flush left at the bottom with their pin faces
+toward each other: (3.36, 3.78 um) `FS` and (3.36, 340.20 um) `N`, the
+145 um gap between them holding both FIFO wrappers and the trace ports;
+TinyQV lives above
+the stack under the tile pins.  All the 1P x32 macros share one width
+and the same power-column positions, so the stripes on the columns of
+the lower one serve the upper one too.  A CFGMEM column is a routing wall (Metal2 blocked, Metal3 chopped),
+so nothing but the SRAM and its wrapper may sit on the far side of one;
+docs/prism_interface.md section 4d.1 records the experiments behind this
+and the band-layout alternative kept in `src/config_band_v6.json`.
 
-**Gerbang AI Robot Deterministik & Aman**: policy PPO **74 → 128 → 64 → 3**, delapan MAC, Q8.8 dan gerbang keselamatan pada FPGA DE10-Nano. Jadwal inti **6.916 clock / 138,32 µs pada 50 MHz**, dengan UART acuan **921.600 baud**. Host ROS 2 mengolah sensor; STM32 menjalankan aktuasi dengan watchdog.
+Results land in `runs/wokwi/final/`.  To look at any step's database in the
+OpenROAD GUI, or the GDS in KLayout (both come from the nix shell):
 
-[Implementasi Parallel8](fpga/experiments/parallel8/README.md) , [Pemetaan ke GARDA.pdf](docs/PROPOSAL_ALIGNMENT.md) , [Hasil run GitHub Actions](https://github.com/wlmoi/GARDA/actions)
+    make gui FILE=runs/wokwi/22-project-extendpowerstripes/tt_um_garda_chip.odb
+    make gui RUN_DIR=runs/wokwi_phase6      # final database of another run
+    make klayout                            # final GDS of runs/wokwi
 
-Angka fitted dan daya pada proposal adalah snapshot eksperimen FPGA. Estimasi **50,36 mW dinamis / 476,18 mW total** bersifat vectorless dengan confidence Low, bukan pengukuran board.
+---
 
-## Eksperimen TinyTapeout neural terpisah
+![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-**100 vektor , 400 keluaran cocok , 6.020 kata model , 3.080 clock inferensi.** [Regresi terbaru](evidence/neural_logic_activity.json) mengikat hasil ke hash empat source RTL aktif. Koefisien MAC signed 12-bit mempertahankan nilai model tepat; operand nol diisolasi.
+# TinyQV - A Risc-V SoC for Tiny Tapeout
 
-Transisi operand MAC pada vektor uji berkurang **14,35%** dibanding baseline. Ini indikator aktivitas RTL; daya fisik memerlukan analisis teknologi dan pengukuran tersendiri. Latensi tetap **61,6 µs pada referensi 50 MHz**. [Metode dan reproduksi](asic/neural_logic/OPTIMIZATION.md).
+![Risc-V competition logo](docs/riscv_compo.jpg)
 
-## Arah proposal Hackathon ITS
+TinyQV is accepting peripherals for tape out on the Tiny Tapeout [ttsky25a shuttle](https://app.tinytapeout.com/shuttles/ttsky25a) as part of the [Tiny Tapeout Risc-V peripheral challenge](https://tinytapeout.com/competitions/risc-v-peripheral/).
 
-| 💛 Sustainable | 🩵 AI Driven | 💙 Innovative | 🌱 Local |
-|:--|:--|:--|:--|
-| Ukur energi per inferensi dan waktu idle. | Jalankan inferensi fixed-point di hardware. | Telusuri keputusan hingga port dan clock. | Validasi kebutuhan robot bersama calon pengguna lokal. |
+To contribute, start from either:
+- The [byte peripheral template](https://github.com/TinyTapeout/tinyqv-byte-peripheral-template) for simpler peripherals, or
+- The [full peripheral template](https://github.com/TinyTapeout/tinyqv-full-peripheral-template).
 
-Lihat [situs resmi Hackathon ITS](https://hackathon-its.id/) untuk program pra-inkubasi dan jadwal **September 2026–Februari 2027**. Identitas ini menunjukkan konteks pengembangan proposal, tanpa menyatakan status seleksi atau penghargaan.
+Further reading:
+- [Documentation for project](docs/info.md)
+- [More details about tinyQV](https://github.com/MichaelBell/tinyQV/tree/ttsky25a)
+- [tinyQV-sdk for building tinyQV programs](https://github.com/MichaelBell/tinyQV-sdk)
+- [Example tinyQV programs](https://github.com/MichaelBell/tinyQV-projects)
+- [tinyQV Micropython](https://github.com/MichaelBell/micropython/tree/tinyqv-sky25a)
 
-## Mengapa GARDA
+## TinyQV SoC Diagram
 
-Robot pengangkut material perlu mengambil keputusan cepat sekaligus menjaga pekerja dan barang di sekitarnya. Usulan gerak dapat menjadi tidak layak ketika peta belum lengkap, informasi sudah kedaluwarsa, atau pengaturan berubah. GARDA dirancang sebagai prosesor pendamping yang memeriksa pilihan gerak dan menentukan izin pada rangkaian FPGA.
+![TinyQV Soc Arhitecture Diagram](docs/architecture.png)
 
-Untuk Hackathon ITS 2026, GARDA berfokus pada kebutuhan navigasi robot logistik di lingkungan industri dan komunitas lokal. Repository ini memuat fondasi teknisnya: pemeriksa lintasan, pemilih gerak, gerbang izin, inti inferensi, serta perangkat pengujian yang dapat ditelusuri dari source hingga hasil. Pilot pada rute nyata merupakan tahap pengembangan berikutnya.
+## Peripheral data transaction timing
 
-## Dari peta menjadi keputusan yang bisa diperiksa
+### Read transactions
 
-GARDA mengevaluasi kandidat gerak pada costmap 128 × 128 menggunakan empat evaluator paralel. Setiap evaluator menangani 128 kandidat dengan 20 pose per kandidat. Hasil terbaik melewati `garda_safety_security_gate`, lalu tersedia sebagai izin, kode kecepatan, kode kecepatan sudut, dan status kesalahan.
+![Read transaction diagram](docs/wavedrom/read_txn.png)
 
-Repository ini menyatukan RTL, model numerik, bobot BRAM, testbench, proyek Quartus, bitstream `.sof`, diagram, dan bukti implementasi. Neural core **24 → 64 → 64 → 4** tersedia sebagai jalur inferensi terpisah. Top TinyTapeout aktif adalah `tt_um_wlmoi_garda_neural_logic`, yaitu inferensi neural lengkap dengan dua MAC, model tetap, dan aktivasi register tanpa SRAM fisik. Eksperimen subset gerbang sebelumnya merupakan arsip.
+`data_read_n` signals when there is a read and indicates the transaction width, encoded as in RV32 load instructions: 0, 1 or 2 for 8, 16 or 32-bit.  3 means no transaction.
 
-### Alur kerja yang tersedia
+The read may complete synchronously on the same clock, or be delayed by any number of clocks while the peripheral prepares the data.  `data_ready` signals when the transaction is complete.  `data_out` is sampled on the next clock, its value does not have to be held constant for any additional clocks.  Data for 8 or 16-bit reads should always be aligned to the LSB of `data_out`, even for unaligned reads.
 
-1. **Masukkan peta dan konfigurasi.** Host mengirim instruksi melalui UART **115200 baud, 8N1**, dalam paket delapan byte dengan CRC8. Peta 128 × 128 sel ditulis ke bank yang sedang tidak digunakan.
-2. **Aktifkan peta lengkap.** Pengelola memeriksa kelengkapan dan nomor urut sebelum mengaktifkan bank peta sekaligus. Empat salinan memori memberi setiap evaluator port baca sendiri.
-3. **Periksa 512 pilihan gerak.** Empat tile DWA bekerja paralel, masing-masing mengevaluasi 128 kandidat pada 20 pose perkiraan. Kandidat yang melewati rintangan, keluar peta, atau mengalami kesalahan aritmetika dibatalkan.
-4. **Pilih hasil terbaik.** Selector memilih skor terendah dengan aturan indeks terendah saat skor sama.
-5. **Putuskan izin.** `garda_safety_security_gate` memeriksa validitas peta, konfigurasi, hasil, deadline, batas gerak, dan masukan penghentian. Pada `garda_top`, izin serta kedua keluaran perintah hanya berasal dari gerbang ini. Saat syarat gagal, gerbang menutup izin dan menolkan perintah.
-6. **Baca hasil dan status.** Keluaran berupa izin **1 bit**, kode kecepatan **5 bit**, laju belok bertanda **7 bit**, kode gangguan **8 bit**, dan penghitung kejadian **32 bit**. Konversi hasil menjadi setpoint roda dan pengiriman ke motor berada pada tahap integrasi sistem.
+The top diagram shows a synchronous transaction, the bottom diagram shows a delayed transaction.
 
-Pemeriksa memakai model robot sebagai titik pada costmap yang rintangannya telah diperluas oleh host. Validasi bentuk robot, pengereman, dan respons fisik mengikuti tahap pengujian perangkat. Spesifikasi bilangan serta batas antarmuka tersedia pada [arsitektur](docs/ARCHITECTURE.md).
+Reads from the peripheral (loads to TinyQV) happen at most once every 24 clocks.  As long as data_ready is signalled within 7 clocks there is no impact on maximum instruction throughput.
 
-### Inti AI dan sistem tanpa laptop
+### Write transactions
 
-Proposal menempatkan pengendali **Soft Actor-Critic (SAC)** sebagai alternatif penentu gerak DWA/DWB. Inti inferensi fixed-point **24 → 64 → 64 → 4** sudah memiliki ROM, instruksi, dan pengujian numerik tersendiri. Penyatuan keluaran AI dengan pemeriksa lintasan dan gerbang menjadi target **Fase 1**. Pengujian DWA dan neural yang ditampilkan di bawah mengukur kedua jalur secara terpisah. Dokumentasi eksperimen pelatihan kurikulum (CL-DRL), telemetri, dan validasi generalisasi OOD disajikan pada [seksi eksperimen AI](#hasil-eksperimen-model-ai-cl-drl-dan-akselerator-q88).
+![Write transaction diagram](docs/wavedrom/write_txn.png)
 
-DE10-Nano memiliki **FPGA fabric** untuk komputasi dan gerbang, serta **HPS ARM** yang dapat menjalankan Linux. Jalur yang tersedia saat ini memakai UART host untuk pengujian awal. Integrasi sensor, transfer peta melalui HPS, bridge gerbang menuju controller motor, dan pengukuran sensor hingga motor merupakan tahap berikutnya. Target latensi sistem **p99 ≤ 5 ms** berbeda dari hasil kernel **158,76 µs**.
+Writes to the peripheral (stores from TinyQV) happen at most once every 8 clock cycles - the top diagram shows two writes as close together as possible.  The `address` is guaranteed to be stable for 8 clocks starting at the transaction.  Peripherals must accept writes, they can't delay the next transaction.
 
-Paket [JetAuto](docs/JETAUTO.md) menyediakan pengujian motor dan referensi UART STM **1 Mbps**. Proyek motor tersebut merupakan alat uji transport tersendiri. [Referensi receiver DE10-Nano](robot/jetauto/UART_RX_BUZZER_REFERENCE/README.md) menjelaskan decode paket dan perbedaan pin terhadap transmitter motor. Untuk STM yang hanya diakses melalui USB, tersedia [template transport HPS USB host](robot/hps_usb).
+`data_write_n` signals when there is a write and indicates the transaction width, encoded as in RV32 store instructions: 0, 1 or 2 for 8, 16 or 32-bit.  3 means no transaction.
 
-## Jelajahi board dan RTL secara interaktif
+Data for 8 or 16-bit writes is aligned to the LSB of `data_in`, even for unaligned writes.
 
-[GARDA RTL Explorer](dashboard/README.md) menampilkan DE10-Nano 3D, 20 deklarasi modul FPGA dari 19 berkas asli, serta empat modul neural TinyTapeout aktif. Klik blok untuk menelusuri fungsi, port, ukuran bit, hierarchy, dan source Verilog. Panel bukti membaca hasil verifikasi repository, sementara demo gerbang memakai model yang dibandingkan terhadap RTL pada 3.084 vektor.
+The `data_in` is modified between transactions, but due to the quad serial nature of TinyQV it is only modified 4 bits at a time, starting at the least significant bits.  Advanced users could rely on the upper bits being stable for additional clocks.
 
-Jalankan [START_DASHBOARD.bat](dashboard/START_DASHBOARD.bat) untuk membuka di laptop. Distribusi publik berada di `dashboard/dist` dan konfigurasi Vercel tersedia pada repository root. Panduan regenerasi, pengujian, batas model 3D, serta deployment tersedia pada [Interactive Explorer](docs/INTERACTIVE_EXPLORER.md).
+## What is Tiny Tapeout?
 
-## Hasil utama
+Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital and analog designs manufactured on a real chip.
 
-| Hasil | Angka | Bukti |
-|---|---:|---|
-| Evaluasi DWA | **512 kandidat × 20 pose** | [RTL dan arsitektur](docs/ARCHITECTURE.md) |
-| Waktu kernel DWA | **7.938 siklus , 158,76 µs pada 50 MHz** | [Enam scene](evidence/audit/scene_latency.csv) |
-| Inferensi neural | **400 keluaran cocok tepat pada 100 vektor** | [Hasil model pembanding](verification/neural_cocotb_results.json) |
-| Waktu kernel neural | **18.192 siklus , 363,84 µs pada 50 MHz** | [Analisis performa](docs/PERFORMANCE.md) |
-| Pemeriksaan RTL tercatat | **29.382 pemeriksaan tanpa kesalahan** | [Manifest bukti simulasi](evidence/waveforms/MANIFEST_BUKTI.json) |
-| Regresi gerbang | **13.078 kasus , 12/12 bin hasil fungsional** | [Coverage](verification/gate_functional_coverage.json) |
-| Regresi cocotb lokal | **8 test case pada 6 suite** | [Metodologi](docs/VERIFICATION.md) |
-| Fault injection | **9 skenario menghasilkan izin = 0** | [Daftar pengujian](evidence/audit/fault_status.csv) |
-| Implementasi FPGA | **DE10-Nano dan DE10-Lite** | [Resource dan timing](docs/PERFORMANCE.md) |
-| Diagram modul | **1 file `.io` dengan 28 halaman** | [Buka sumber diagram](docs/flowcharts/IGOR_RTL_Flowchart.io) |
-
-Angka waktu pada tabel adalah hasil kernel simulasi. Evaluasi DWA lengkap memerlukan 7.938 siklus (158,76 µs) pada keenam scene yang direkam. Berdasarkan pemodelan timing kode C yang ditranslasikan dari model referensi Python, kecepatan kernel 4-tile GARDA diperkirakan sekitar **1,2–1,7× lebih cepat** dibanding prosesor ARM sekelas HPS DE10-Nano (estimasi model, belum diukur langsung pada board), sedangkan prosesor desktop x86 mengeksekusinya dalam **21–37 µs**. Oleh karena itu, nilai jual utama GARDA bukan sekadar kecepatan mentah tunggal, melainkan **waktu eksekusi deterministik (*fixed timing*)**, **beban CPU nol (*zero CPU load*)** pada prosesor utama, serta **skalabilitas arsitektur hingga 16 tile** (diproyeksikan **~40 µs** atau **5–7× lebih cepat**, belum diimplementasikan). Cakupan pengukuran, asumsi daya, dan tahapan integrasi dijelaskan pada [catatan hasil](docs/RESULTS_AND_SCOPE.md).
-
-Implementasi DE10-Nano memakai **4.964 ALM, 131 M10K, dan 10 DSP**, dengan timing memenuhi clock **50 MHz**. Power Analyzer menghasilkan estimasi **506,69 mW** secara vectorless dengan confidence rendah. Ini estimasi rangkaian FPGA, bukan pengukuran konsumsi seluruh board dan HPS. Laporan asli serta hasil DE10-Lite tersedia pada [resource, timing, dan daya](docs/PERFORMANCE.md).
-
-## Arsitektur dalam satu pandangan
-
-![Arsitektur GARDA dengan empat evaluator dan lebar data](docs/assets/architecture.svg)
-
-Lihat [breakdown seluruh modul RTL](docs/RTL_MODULES.md), [bit flow](docs/ARCHITECTURE.md), serta [register TinyTapeout](docs/info.md).
-
-## Hasil Eksperimen Model AI: CL-DRL dan Akselerator Q8.8
-
-Sebagai pelengkap evaluasi lintasan deterministik DWA, arsitektur GARDA mengintegrasikan modul kendali otonom berbasis **Curriculum-based Deep Reinforcement Learning (CL-DRL)** menggunakan algoritma **Soft Actor-Critic (SAC)** untuk robot holonomik Mecanum. Model ini dilatih melalui kurikulum 4-tahap progresif dan dikuantisasi penuh ke representasi fixed-point **Q8.8 bit-true signed 16-bit** agar kompatibel langsung dengan akselerator Block RAM (M10K) pada FPGA Cyclone V DE10-Nano.
-
-Seluruh eksperimen pelatihan, komparasi numerik PyTorch FP32 vs Hardware Q8.8, serta pembuatan visualisasi dan ekspor bobot hardware terdokumentasi lengkap dalam notebook [notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb](notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb).
-
-### 1. Arsitektur Jaringan dan Kurikulum 4-Tahap Progresif
-
-* **Topologi Multi-Layer Perceptron (`24 → 64 → 64 → 4`)**:
-  * **24 Input**: 16 jarak sinar LiDAR 2D, koordinat relatif target ($d_{goal}, \theta_{rel}$), orientasi hadap bodi robot terhadap target ($\theta_{yaw}$), dan kecepatan angular 4 roda Mecanum saat ini.
-  * **Hidden Layers**: Dua lapisan tersembunyi masing-masing 64 neuron dengan aktivasi ReLU.
-  * **4 Output**: Kecepatan individual aktuasi 4 roda Mecanum ($v_{FL}, v_{FR}, v_{RL}, v_{RR}$) dalam rentang $[-1.0, 1.0]$.
-  * **Kuantisasi Q8.8**: 1 bit tanda, 7 bit integer, 8 bit fraksional (skala $256.0$). Akumulasi bit-true: $\text{acc} = \sum (w_{q8} \times x_{q8}) + (b_{q8} \ll 8)$.
-* **Desain Kurikulum 4-Tahap (*4-Stage Progressive Curriculum*)**:
-  1. **Tahap 1 — Basic Locomotion**: Lapangan kosong ($0$ rintangan), sasaran dekat ($0,8 - 1,8\text{ m}$), toleransi docking longgar $\pm 55^\circ$. Robot menguasai kinematika holonomik dalam $20 - 40$ langkah per episode.
-  2. **Tahap 2 — Heading Alignment & Obstacle Avoidance**: Jarak menengah ($1,5 - 2,8\text{ m}$), $1 - 2$ rintangan, toleransi docking $\pm 35^\circ$. Robot mempelajari navigasi *Two-Stage Blended Heading* dan manuver mengelak.
-  3. **Tahap 3 — Intermediate Clutter & Tight Yaw**: Jarak jauh ($2,0 - 3,8\text{ m}$), $2 - 3$ rintangan, toleransi docking presisi $\pm 26^\circ$. Penyelarasan orientasi diperketat.
-  4. **Tahap 4 — Full Cluttered Maze Navigation**: Arena penuh ($2,0 - 4,5\text{ m}$), $3 - 5$ rintangan padat/labirin acak, toleransi docking target kompetisi $\pm 20^\circ$.
-
-### 2. Dashboard Telemetri: PyTorch FP32 vs Hardware Bit-True Q8.8
-
-Evaluasi episode benchmark (seed 101) membandingkan inferensi **PyTorch Float32 asli** dengan **Simulasi Hardware Bit-True Q8.8** untuk melihat dampak kuantisasi dan penyederhanaan fungsi aktivasi perangkat keras terhadap lintasan kendali:
-
-<table>
-  <tr>
-    <td width="50%"><a href="notebook/telemetry_dashboard.png"><img src="notebook/telemetry_dashboard.png" alt="Dashboard Telemetri Navigasi CL-DRL: FP32 vs Hardware Q8.8" width="100%"></a><br><strong>Dashboard Telemetri (FP32 vs Hardware Q8.8)</strong></td>
-    <td width="50%"><a href="notebook/unique_scenarios_validation.png"><img src="notebook/unique_scenarios_validation.png" alt="Validasi 5 Skenario OOD dan Profil Kecepatan Roda" width="100%"></a><br><strong>Ringkasan Validasi 5 Skenario Uji Ekstrem (OOD)</strong></td>
-  </tr>
-</table>
-
-* **Kiri Atas — Perbandingan Lintasan (`PyTorch FP32 vs Hardware Q8.8`)**: Trajektori hardware Q8.8 mengikuti lintasan model PyTorch FP32 hingga mencapai pose target ($\sim 153$ langkah / $15,3\text{ s}$ pada run gambar di atas; serta $108$ langkah FP32 vs $96$ langkah Q8.8 pada log run terbaru di notebook).
-* **Kanan Atas — Profil Kecepatan 4 Roda (`Smoothness & Stability`)**: Menampilkan aktuasi ternormalisasi $[-1, 1]$ keempat motor roda Mecanum (`FL`, `FR`, `RL`, `RR`). Terlihat transisi koreksi cepat pada fase penghindaran rintangan awal (langkah $10 - 40$) sebelum memasuki fase jelajah yang lebih stabil menuju sasaran.
-* **Kiri Bawah — Jarak Bebas ke Rintangan Terdekat (`Safety Margin`)**: Saat melewati celah rintangan, jarak *clearance* sempat turun ke bawah garis *Safety Repulsion Buffer* ($0,45\text{ m}$) hingga minimum $\sim 0,21\text{ m}$ (di atas ambang repulsi $0,20\text{ m}$), namun selalu menjaga margin aman di atas batas tabrakan ($0,0\text{ m}$).
-* **Kanan Bawah — Deviasi Aksi Kuantisasi Bit-True (`Mean Error: 0.0761 atau 7.61%`)**: Rata-rata galat absolut aksi $|\Delta u| = |a_{\text{FP32}} - a_{\text{Q8.8}}|$ pada 100 sampel state tercatat sebesar **$0,0761$ ($7,61\%$)** dengan rentang $0,00 - 0,26$. Galat kuantisasi bit-true Q8.8 murni pada fungsi linear yang sama sebenarnya berada di orde $\sim 4,7 \times 10^{-3}$ ($\approx 1,2\text{ LSB}$); nilai rata-rata **$7,61\%$** pada grafik ini berasal dari penyederhanaan perangkat keras yang mengganti fungsi squashing non-linear $\tanh(\mu)$ bawaan SAC PyTorch dengan saturasi linear *hard-clipping* $[-1, 1]$ tanpa LUT ($\max |\tanh(z) - \text{clip}(z, -1, 1)| \approx 0,238$). Walaupun terdapat deviasi aksi rata-rata $7,61\%$, umpan balik *closed-loop* tetap mengantarkan robot mencapai target dengan selamat.
-
-### 3. Validasi Keandalan pada 5 Skenario Ekstrem (*Out-of-Distribution Generalization*)
-
-Untuk menguji kemampuan generalisasi di luar kondisi pelatihan nominal, model dievaluasi pada 5 skenario ekstrem Out-of-Distribution (OOD):
-
-<table>
-  <tr>
-    <td width="50%" align="center">
-      <a href="notebook/ood1_negative_x.gif"><img src="notebook/ood1_negative_x.gif" alt="OOD 1: Negative X-Quadrant Goal" width="100%"></a><br>
-      <strong>OOD 1: Negative X-Quadrant Goal</strong><br>
-      <em>Target di kuadran negatif (-0.5, 3.2) m membuktikan kemampuan translasi holonomik mundur-lateral tanpa harus berputar haluan secara berlebihan.</em>
-    </td>
-    <td width="50%" align="center">
-      <a href="notebook/ood2_5obstacle_maze.gif"><img src="notebook/ood2_5obstacle_maze.gif" alt="OOD 2: High-Density 5-Obstacle Maze" width="100%"></a><br>
-      <strong>OOD 2: High-Density 5-Obstacle Maze</strong><br>
-      <em>Labirin rapat 5 rintangan; model mengeksekusi manuver detour reaktif berbasis LiDAR tanpa terjebak jalan buntu (dead-end).</em>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <a href="notebook/ood3_heterogeneous_radius.gif"><img src="notebook/ood3_heterogeneous_radius.gif" alt="OOD 3: Heterogeneous Radius" width="100%"></a><br>
-      <strong>OOD 3: Heterogeneous Radius</strong><br>
-      <em>Rintangan berukuran heterogen ekstrem (R=0.40 m dan R=0.15 m); membuktikan adaptasi buffer clearance yang fleksibel terhadap geometri non-standar.</em>
-    </td>
-    <td width="50%" align="center">
-      <a href="notebook/ood4_slalom_barrier.gif"><img src="notebook/ood4_slalom_barrier.gif" alt="OOD 4: Slalom Barrier Bypass" width="100%"></a><br>
-      <strong>OOD 4: Slalom Barrier Bypass</strong><br>
-      <em>Navigasi slalom melewati celah sempit 0.75 m di antara rintangan ganda dengan presisi lintasan tinggi.</em>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      <a href="notebook/ood5_extreme_noise_slip.gif"><img src="notebook/ood5_extreme_noise_slip.gif" alt="OOD 5: Extreme Noise & Heavy Slip" width="52%"></a><br>
-      <strong>OOD 5: Extreme Noise & Heavy Slip</strong><br>
-      <em>Injeksi derau sensor LiDAR (3×) dan selip roda fisik (5×); memvalidasi ketangguhan kontrol closed-loop terhadap gangguan lingkungan dan fisik nyata.</em>
-    </td>
-  </tr>
-</table>
-
-> **Catatan Reprodusibilitas Gambar vs Log Notebook**: Gambar ringkasan di `notebook/*.png` dan `notebook/*.gif` di atas berasal dari sesi eksekusi visualisasi awal, sedangkan log teks di dalam [notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb](notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb) beserta folder [notebook/outputs/run_20261008_160243/visualizations/](notebook/outputs/run_20261008_160243/visualizations) berasal dari run pelatihan ulang (`run_20261008_160243`). Perbandingan hasil kedua run tercatat sebagai berikut:
-
-| Skenario Uji | Gambar di `notebook/unique_scenarios_validation.png` | Log Notebook (`run_20261008_160243`) |
-|---|---|---|
-| **Seed 101 (Baseline)** | FP32 & Q8.8: **SUCCESS** (~153 steps \| 15,3s) | FP32: **SUCCESS (108 steps \| 10,8s)** , Q8.8: **SUCCESS (96 steps \| 9,6s)** |
-| **OOD 1: Negative X Goal** | FP32: **SUCCESS (88 steps \| 8,8s)** , Q8.8: **SUCCESS (79 steps \| 7,9s)** | FP32: **SUCCESS (92 steps \| 9,2s)** , Q8.8: **SUCCESS (85 steps \| 8,5s)** |
-| **OOD 2: 5-Obstacle Maze** | FP32: **SUCCESS (138 steps \| 13,8s)** , Q8.8: **SUCCESS (131 steps \| 13,1s)** | FP32: **SUCCESS (136 steps \| 13,6s)** , Q8.8: **SUCCESS (126 steps \| 12,6s)** |
-| **OOD 3: Heterogeneous Radius** | FP32: **SUCCESS (129 steps \| 12,9s)** , Q8.8: **SUCCESS (114 steps \| 11,4s)** | FP32: **TIMEOUT (200 steps \| 20,0s)** , Q8.8: **SUCCESS (90 steps \| 9,0s)** |
-| **OOD 4: Slalom Barrier** | FP32: **SUCCESS (101 steps \| 10,1s)** , Q8.8: **SUCCESS (98 steps \| 9,8s)** | FP32: **SUCCESS (138 steps \| 13,8s)** , Q8.8: **SUCCESS (129 steps \| 12,9s)** |
-| **OOD 5: Noise & Heavy Slip** | FP32: **SUCCESS (114 steps \| 11,4s)** , Q8.8: **SUCCESS (111 steps \| 11,1s)** | FP32: **SUCCESS (103 steps \| 10,3s)** , Q8.8: **SUCCESS (98 steps \| 9,8s)** |
-
-### 4. Evaluasi Statistik 50 Episode Acak & Keterbatasan Model AI
-
-Selain pengujian pada 5 skenario OOD terkurasi di atas, model dievaluasi secara statistik pada **50 episode acak** dengan konfigurasi penuh (3 rintangan acak dan toleransi orientasi *docking* ketat $\pm 20^\circ$, tercatat pada Seksi 10 di [notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb](notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb)):
-
-| Metrik Evaluasi (50 Episode Acak) | Hasil Tercatat | Keterangan |
-|---|---:|---|
-| **Success Rate (Mencapai Target)** | **34 / 50 (68,0%)** | Robot berhasil mencapai posisi dan toleransi sudut $\pm 20^\circ$ |
-| **Timeout Rate (Batas Waktu Habis)** | **16 / 50 (32,0%)** | Robot berhenti/berputar melewati batas 200 langkah tanpa tabrakan |
-| **Collision Rate (Tabrakan)** | **0 / 50 (0,0%)** | Tidak ada satupun insiden tabrakan dengan rintangan |
-| **Action Delta Avg (*Smoothness Index*)** | **0,1655** | Sedikit di atas batas ideal $< 0,15$ akibat manuver reaktif jarak dekat |
-
-Temuan **68% keberhasilan dan 32% *timeout* dengan 0% tabrakan** menunjukkan bahwa kebijakan CL-DRL yang dilatih memiliki karakteristik konservatif (*safety-biased*): ketika berhadapan dengan konfigurasi rintangan acak yang menyulitkan penyelarasan sudut akhir ($\pm 20^\circ$), agen memprioritaskan penghindaran tabrakan sehingga waktu habis sebelum *docking* terpenuhi. Hal ini memperkuat alasan arsitektural GARDA untuk memosisikan jaringan saraf sebagai pengusul gerak pendamping yang tetap dikawal oleh evaluator lintasan deterministik **DWA** dan gerbang keselamatan **`garda_safety_security_gate`** pada FPGA.
-
-## Pilih jalur yang ingin dijalankan
-
-| Tujuan | Mulai dari | Top module |
-|---|---|---|
-| Simulasi RTL dan pemeriksaan numerik | [Quickstart](docs/QUICKSTART.md) | `garda_top`, neural core, UART, dan wrapper |
-| FPGA utama DE10-Nano | [Proyek Nano](fpga_de10_nano/README.md) | `garda_uart_top` |
-| FPGA lab DE10-Lite MAX 10 | [Paket Lite historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/README_MULAI_DI_SINI.md) | `igor_de10_lite_top` |
-| ASIC aktif: inferensi neural lengkap tanpa SRAM | [TinyTapeout](docs/TINYTAPEOUT.md) | `tt_um_wlmoi_garda_neural_logic` |
-| Neural ASIC aktif: model tetap, aktivasi register | [Implementasi dan acceptance](asic/neural_logic/README.md) | `tt_um_wlmoi_garda_neural_logic` (8x4) |
-| Percobaan SRAM tersimpan sebagai arsip | [Implementasi SRAM](asic/neural_sram/README.md) | `b70b1ec`, tidak dipilih manifest aktif |
-| Pengujian motor UART empat kecepatan | [JetAuto](docs/JETAUTO.md) | `stm_uart_multispeed_top` |
-
-### Jalankan regresi lokal
-
-Linux atau WSL dengan Python 3.11:
-
-```bash
-git clone https://github.com/wlmoi/GARDA.git
-cd GARDA
-sudo apt-get update
-sudo apt-get install -y iverilog make
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements.txt
-python scripts/validate_repository.py
-python verification/run.py all
-python verification/run.py tt_generic
-python verification/run.py tt_logic
-```
-
-Perintah `all` menjalankan tujuh test case. Suite `tt_generic` menambahkan test case kedelapan untuk gerbang historis. `tt_logic` menguji pin inferensi penuh target ASIC aktif. Instruksi Windows ada di [Quickstart](docs/QUICKSTART.md).
-
-### Buka di Quartus
-
-| Board | Proyek yang dibuka | Image yang diprogram |
-|---|---|---|
-| DE10-Nano , `5CSEBA6U23I7` | [garda.qpf](fpga_de10_nano/quartus/garda.qpf) | [igor.sof](fpga_de10_nano/quartus/output_files/igor.sof) |
-| DE10-Lite , `10M50DAF484C7G` | [Paket MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/igor_max10.qpf) | [Bitstream MAX 10 historis](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/output_files/igor_max10.sof) |
-
-Gunakan Quartus Standard 25.1 beserta device support yang sesuai. [Panduan programming](docs/FPGA_PROGRAMMING.md) memuat urutan JTAG, pin UART, reset, dan pemeriksaan hasil. Hash image tercatat di [build evidence](evidence/build_evidence.json).
-
-### Folder Quartus Ready
-
-Paket [ImplementationReadyQuartus](ImplementationReadyQuartus/README_MULAI_DI_SINI.md) dapat disalin langsung ke laptop lab atau onsite. Pilih [DE10-Nano](ImplementationReadyQuartus/IGOR_DE10_NANO/quartus/igor.qpf) atau [DE10-Lite](ImplementationReadyQuartus/MAX10_10M50DAF484C7G/quartus/igor_max10.qpf), lalu klik `BUKA_PROJECT_QUARTUS.bat` dalam folder board. Kedua paket menyertakan RTL, ROM, source constraints, SOF, dan report. [Receipt paket](ImplementationReadyQuartus/VERIFIKASI_PAKET.json) mencatat top, device, reference check, serta hash image terbaru.
-
-## Bukti yang bisa dibuka
-
-<table>
-  <tr>
-    <td width="50%"><a href="evidence/quartus/nano_resource.png"><img src="evidence/quartus/nano_resource.png" alt="Screenshot resource DE10-Nano pada Quartus"></a><br><strong>Quartus , DE10-Nano</strong></td>
-    <td width="50%"><a href="evidence/quartus/lite_resource.png"><img src="evidence/quartus/lite_resource.png" alt="Screenshot resource DE10-Lite pada Quartus"></a><br><strong>Quartus , DE10-Lite</strong></td>
-  </tr>
-  <tr>
-    <td><a href="evidence/waveforms/05_dwa_result.png"><img src="evidence/waveforms/05_dwa_result.png" alt="GTKWave hasil DWA dengan 7938 siklus"></a><br><strong>GTKWave , hasil DWA</strong></td>
-    <td><a href="evidence/waveforms/06_neural_result.png"><img src="evidence/waveforms/06_neural_result.png" alt="GTKWave hasil inferensi neural"></a><br><strong>GTKWave , hasil neural</strong></td>
-  </tr>
-</table>
-
-Screenshot berasal dari aplikasi Quartus dan GTKWave. Laporan asli, waveform, XML hasil, dan data pembanding tetap tersedia dalam `evidence/` dan `verification/`. Baca [indeks bukti](docs/EVIDENCE.md) untuk menelusuri setiap angka.
-
-## Peta repository
-
-```text
-GARDA/
-├── rtl/                  RTL accelerator FPGA
-├── src/                  Neural logic TinyTapeout aktif dan arsip eksperimen
-├── assets/               ROM BRAM dan vektor neural
-├── reference_model/      Model integer Python
-├── verification/         Cocotb, assertion, dan hasil numerik
-├── test/                 Harness standar TinyTapeout
-├── dashboard/            Explorer 3D, snapshot RTL, bukti, dan distribusi Vercel
-├── fpga_de10_nano/       Proyek Cyclone V yang berdiri sendiri
-├── ImplementationReadyQuartus/  Paket board dan bitstream historis
-├── robot/                SDK, BAT, UART RTL, dan transport HPS
-├── notebook/             Notebook pelatihan CL-DRL & aset visualisasi
-├── docs/                 Panduan, laporan teknis, diagram, dan demo
-├── evidence/             Laporan, waveform, provenance, dan hash
-└── .github/workflows/    Verifikasi serta jalur ASIC opsional
-```
-
-## Luaran proyek
-
-| Luaran | Lokasi |
-|---|---|
-| Source RTL, testbench, dan bitstream | `rtl/`, `verification/`, `test/`, dan kedua folder FPGA |
-| Laporan teknis singkat | [TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md) |
-| Pelatihan AI & kuantisasi CL-DRL | [notebook/](notebook/) dan [Jupyter Notebook](notebook/V3_PERURI_Chip_Hackathon_2026_DRL.ipynb) |
-| Arsitektur dan flowchart modul | [ARCHITECTURE.md](docs/ARCHITECTURE.md) dan [file `.io`](docs/flowcharts/IGOR_RTL_Flowchart.io) |
-| Panduan demo live pada board | [FPGA_PROGRAMMING.md](docs/FPGA_PROGRAMMING.md) |
-| Rundown video demo 3–5 menit | [DEMO_GUIDE.md](docs/DEMO_GUIDE.md) |
-| Knowledge dan pencapaian | [KNOWLEDGE.md](docs/KNOWLEDGE.md) dan [ACHIEVEMENTS.md](docs/ACHIEVEMENTS.md) |
-
-## Tim dan kontribusi
-
-**iSeeDesignITB , Institut Teknologi Bandung**
-
-| Anggota | NIM |
-|---|---|
-| William Anthony | 13223048 |
-| Karol Yangqian Poetracahya | 13523093 |
-| Brian Albar Hadian | 13523048 |
-| Bennaya Jonathan R. P. Siagian | 13223099 |
-
-Pembimbing: **Anggera Bayuwindra, S.T., M.T., Ph.D.**
-
-Template TinyTapeout dan komponen pihak ketiga dijelaskan dalam [referensi dan atribusi](docs/REFERENCES.md). Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk cara mempertahankan hasil yang dapat direproduksi.
+To learn more and get started, visit https://tinytapeout.com.
 
+## Set up your Verilog project
 
+1. Add your Verilog files to the `src` folder.
+2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
+3. Edit [docs/info.md](docs/info.md) and add a description of your project.
+4. Adapt the testbench to your design. See [test/README.md](test/README.md) for more information.
+
+The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
+
+## Enable GitHub actions to build the results page
+
+- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+
+## Resources
+
+- [FAQ](https://tinytapeout.com/faq/)
+- [Digital design lessons](https://tinytapeout.com/digital_design/)
+- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
+- [Join the community](https://tinytapeout.com/discord)
+- [Build your design locally](https://www.tinytapeout.com/guides/local-hardening/)
+
+## What next?
+
+- [Submit your design to the next shuttle](https://app.tinytapeout.com/).
+- Edit [this README](README.md) and explain your design, how it works, and how to test it.
+- Share your project on your social network of choice:
+  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
+  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout) [@matthewvenn](https://chaos.social/@matthewvenn)
+  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout) [@tinytapeout](https://twitter.com/tinytapeout)

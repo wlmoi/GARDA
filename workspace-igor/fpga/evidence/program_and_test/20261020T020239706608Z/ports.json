@@ -1,8 +1,0 @@
-[
-  {
-    "port": "COM17",
-    "description": "USB-SERIAL CH340 (COM17)",
-    "vid": 6790,
-    "pid": 29987
-  }
-]

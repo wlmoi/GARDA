@@ -1,7 +1,0 @@
-{
-  "error": "Expected one CH340 LiDAR port; found []",
-  "motion_permit": false,
-  "communication_ok": false,
-  "navigation_ready": false,
-  "pass_scope": "Serial transport and numeric feature format only; see scan_ok and support masks for measurement quality"
-}

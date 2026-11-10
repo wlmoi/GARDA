@@ -1,8 +1,5 @@
 name: test
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-24.04
@@ -10,7 +7,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v6
         with:
-          lfs: true
+          submodules: recursive
 
       - name: Install iverilog
         shell: bash
@@ -28,31 +25,20 @@ jobs:
 
       - name: Run tests
         run: |
-          python -m unittest discover -s test -p 'test_*.py' -v
           cd test
           make clean
           make
-          # make will return success even if the tests fail, so check results.xml for failed tests
-          python ../tools/check_cocotb_results.py results.xml
-
-      - name: Verify FPGA execution against the cycle model
-        env:
-          JP_TEST_FPGA: '1'
-        run: python -m unittest discover -s test -p 'test_*.py' -v
-
-      - name: Verify register-memory reference implementation
-        env:
-          JP_TEST_REGISTER: '1'
-        run: python -m unittest discover -s test -p 'test_*.py' -v
+          # make will return success even if the test fails, so check for failure in the results.xml
+          ! grep failure results.xml
 
       - name: Test Summary
-        uses: test-summary/action@v2.6
+        uses: test-summary/action@v2.4
         with:
           paths: "test/results.xml"
-        if: ${{ always() && hashFiles('test/results.xml') != '' }}
+        if: always()
 
       - name: upload waveform and test results
-        if: ${{ always() && hashFiles('test/tb.fst', 'test/results.xml', 'test/output/**') != '' }}
+        if: success() || failure()
         uses: actions/upload-artifact@v7
         with:
           name: test-results

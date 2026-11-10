@@ -1,7 +1,0 @@
-{
-  "exit_code": 0,
-  "utc": "2026-10-19T14:43:29.688772+00:00",
-  "port": "COM14",
-  "baud": 115200,
-  "source": "Official Slamtec/rplidar_sdk release v1.12.0"
-}

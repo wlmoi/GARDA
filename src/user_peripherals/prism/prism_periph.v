@@ -1,0 +1,2011 @@
+// Copyright (c) 2025-2026 Ken Pettit
+// SPDX-License-Identifier: Apache-2.0
+//
+// PRISM (Programmable Reconfigurable Indexed State Machine) peripheral for the
+// TinyQV RISC-V SoC - Jane Street 8x4 version.
+//
+// A 32-state fracturable PRISM core (two 16-state shards) with one datapath
+// per shard (prism_datapath.v: 24/32-bit count1 / shifter, 8-bit count2 with
+// compare, 8-bit comm shifter).  Each shard's outputs drive only its own
+// datapath; unfractured, shard 0 is the whole machine and shard 1 is idle.
+//
+// Register map (byte offsets in the 512-byte region, docs/prism_interface.md):
+//
+//   Common block (0x000-0x0FF)
+//     0x000  CTRL        [31] shard 0 interrupt (RO)  [30] enable  [29] shard 1 interrupt (RO)
+//            byte 0x003  write bit 7: clear shard 0 interrupt
+//            byte 0x007  write bit 7: clear shard 1 interrupt
+//     0x004-0x050        debugger / fracture registers (prism.v)
+//     0x020  ID
+//     0x024  INT_STATUS  [3:2] semaphore seen by shard 1 / shard 0, [1:0] interrupts
+//     (the RX DMA's registers are TinyQV internal ones, 0x8000020 / 0x8000024, see
+//      prism_dma.v; this module only provides the byte-serial FIFO tap and, with the
+//      chain mode, the mover that drains FIFO A into FIFO B)
+//
+//   Shard windows, identical layout: shard 0 at 0x100, shard 1 at 0x180
+//     +0x00  CFG0     datapath / input configuration (chroma ctrl_reg)
+//     +0x04  PINMUX   uo_out sources, 3 bits per pin: [3k+2:3k] uo_out[k+1] (chroma pinmux_reg), [23:21] uo_out[0]
+//                     (added 2026-09-30 for the VGA chroma; TinyQV's GPIO output function select must also
+//                     route uo_out[0] to the PRISM, it is the UART TX by default)
+//     +0x08  PRELOAD  32-bit
+//     +0x0C  COUNT1   read = count, write = load
+//     +0x10  COUNTS   {comm_count, shift_count, comm, compare, count2}; byte lanes 0-2 writable
+//     +0x14  HOST     host_in[1:0]; byte +0x15 write toggles host_in[0] and clears the interrupt
+//     +0x18  FLAGS    RO datapath flags
+//     +0x1C  CFG1     [19:16] FIFO almost-empty level, [23:20] FIFO almost-full level (bytes on a
+//                     16-byte FIFO, 4-byte units on shard 0's 64-byte one: FIFO_AW_A / FIFO_AW_B)
+//     +0x20  FIFO     byte: write pushes (TX mode), read pops (RX mode)
+//     +0x24  FIFO_STATUS {count[21:8], word bytes[7:6], push busy[5], word full[4], almost_full[3],
+//                     almost_empty[2], full[1], empty[0]}; any write flushes (the word registers too)
+//     +0x28  CRC_POLY
+//     +0x2C  CRC      value; write = preset (counter mode: the count)
+//     +0x30  CRC_EXPECTED (counter mode: the compare value)
+//     +0x34  CFG2     input slot selects: [3:0]/[7:4]/[11:8]/[15:12] inputs 16-19, [19:16]..[31:28] inputs 28-31
+//                     (0 = default: in_prev[i] / 0, 1-4 in_prev[0..3], 5-12 comm[0..7], 13 comm == K3, 14 flag2,
+//                      15 Manchester bit valid)
+//     +0x38  CONST    constants K0 [7:0] .. K3 [31:24]; OUT_COMM_LOAD source with CFG0[30] (select = {out20, out18}),
+//                     K3 also the comm match value
+//     +0x3C  CFG3     Manchester bit recoverer (prism_mrx.v): [2:0] receive pin (PRISM input 0-6), [3] enable,
+//                     [7:4] clocks per half bit, [8] shifter input = the recovered bit (slot code 15 = bit valid),
+//                     [9] double-edge sampling: the pin is sampled on both clock edges and [7:4] counts half
+//                     clocks per half bit (6 at 64 MHz, 5 at 50 MHz).
+//                     [11] 32-bit FIFO access through FIFO32 (+0x54), see there
+//                     [13:12] k: the sampler's timer action presets count1 to PRELOAD >> k instead of
+//                     loading it (with count1 counting up and wrapping at PRELOAD the terminal count is a
+//                     periodic bit clock and an edge puts the next tick 1 - 2^-k of a period later)
+//                     [14] bit-stuff unit: count2 counts the run of equal bits the shifter moves (COMPARE + 1
+//                     = the run that needs a stuff bit); receive: the stuff bit's OUT_SHIFT, CRC update and
+//                     count3 step are cancelled (input 30 = dropped until the next shift); OUT_CRC_CLEAR restarts
+//                     the run (recessive before the SOF); [15] transmit: the
+//                     shifter holds for one bit time and the pin (pinmux code 6) shows the complement of the
+//                     last bit (input 31 = holding)
+//                     Edge-clocked sampler: [16] enable, [21:17] the PRISM input whose edge clocks it,
+//                     [23:22] 0 rising / 1 falling / 2 either / 3 either edge of that input xor the next
+//                     one (of inputs 0-7: a Data-Strobe pair), and the actions on each edge with no state
+//                     transition: [24] shift, [25] count2 + 1, [26] capture the in_prev flops, [27] count1
+//                     clear / load; [28] flag2 inverts the edge (rising <-> falling) so one FSM flag
+//                     switches a bidirectional protocol's sampling edge; its sticky "edge pending" is
+//                     slot code 15 too (cleared by the FSM's OUT_SHIFT or OUT_LATCH) and FLAGS[11]
+//                     [10] counter mode (prism_crc.v, crc_mode must be 0): the 32-bit CRC register is an
+//                     up / down counter: OUT_CRC_CLEAR presets it (0, or all ones with CFG0[25]),
+//                     OUT_CRC_UPDATE + 1, OUT_LOAD_CRC - 1 (no shifter load); input 22 and FLAGS[10]
+//                     = count >= CRC_EXPECTED (unsigned).  CRC = the count, host readable / writable.
+//                     [29] SRAM FIFO replay (4b.12): a pop while cond_out[0] is high pushes the popped byte back
+//                     in at the tail, so a FIFO holding one line plays it again; the TX DMA's tap yields.
+//     +0x40  PRELOAD2 [23:0] timer 2 period: a 24-bit down counter reloads from it and raises input 28 (default
+//                     slot value) for one clock every PRELOAD2 + 1 clocks; 0 = off (Ethernet link pulses).
+//                     [24] restart the count on entry into state [29:25] (next SI == it, current SI != it):
+//                     a retriggerable timeout with no STEW bits; [30] one-shot: after its tick the timer
+//                     waits for the next entry instead of running on
+//     +0x58  COUNT3   [7:0] count3, [15:8] its limit, [23:16] mask: the comm bits a limit load clears (byte
+//                     lanes 0-2 writable; a disable clears the count, not the limit or the mask).  count3
+//                     counts up only; command = {pin_out[3] if CFG0[12], output 11}:
+//                     01 = + 1, 10 = clear, 11 = limit <= comm (with OUT_K_SEL0: comm & ~mask, a length
+//                     field narrower than the byte); input 29 (slot
+//                     default) and FLAGS[12] = count3 >= limit.  Without CFG0[12] pin_out[3] stays a pin
+//                     and output 11 alone counts up.
+//     +0x54  FIFO32   32-bit FIFO access (CFG3[11]).  TX: a word write pushes its four bytes, low byte
+//                     first, one every fourth clock (FIFO_STATUS[5] busy meanwhile; a write while busy is
+//                     dropped, so poll it when the FIFO can be full).  RX: a pop machine takes four bytes
+//                     out of the FIFO as soon as it holds them, low byte first, into a word register;
+//                     FIFO_STATUS[4] (and the shard's interrupt) say the word is complete, a read of FIFO32
+//                     takes it.  A byte read of FIFO (+0x20) while the word register holds bytes is served
+//                     from its low byte, the rest shift down and the machine refills the top, so bytes
+//                     never reorder however the host mixes word and byte reads; FIFO_STATUS[7:6] counts
+//                     the bytes held when the word is not complete (stragglers of a short message).
+//     +0x50  COMM_PINS multi-bit comm shift lanes: with CFG0[2] a uo_out pin whose pinmux code is 6 shows a bit of
+//                     the 6-bit window comm[base+5:base], base = COMM_PINS[2:0] (0-2), lane = COMM_PINS[3p+6:3p+4]
+//                     (p = uo_out pin 0-7, lanes 0-5; 6-7 read 0) instead of the shifter's serial bit.  Was a
+//                     4-bit window with 2-bit lanes for uo_out[7:1] until 2026-09-30 (VGA: six colour pins)
+//     +0x4C  CONST_TAB the 16x8 latch FIFO as an addressable constant table: [0] enable (OUT_COMM_LOAD loads comm
+//                     from the row at the 4-bit index instead of preload / K), {OUT_K_SEL1, OUT_K_SEL0} = how the
+//                     index moves on each load: 0 clear, 1 + 1, 2 + [10:8] add_to_idx, 3 = [7:4] idx_load
+//                     (+ idx_load with [1]); [2] post: the byte loaded is the row before the move (default:
+//                     after it); a write also sets the index from [19:16], which reads back live
+//     +0x44  TRACE_CFG  (write-only) [0] enable (this shard's trace owns its SRAM; one shard at a time, shard 0 wins),
+//                       [1] big: both SRAMs as one buffer, [6] other: trace into the other shard's SRAM instead of
+//                       this shard's (its own SRAM FIFO keeps running), [3:2] trigger: 0 = at once, 1 = in state [12:8], 2 = state
+//                       [12:8] taking either jump, 3 = an edge on PRISM input [20:16] ([5:4]: 0 rising, 1 falling,
+//                       2/3 either)
+//     +0x48  TRACE_CTRL write [0] arm (flushes the SRAM FIFO, waits for the trigger, then records every clock
+//                       until the buffer is full), [1] stop; read [0] armed, [1] running, [2] done, [3] big,
+//                       [4] active.  Entry (16 bits, two per SRAM word, prism_trace_port.v) = [4:0] SI,
+//                       [10:5] LUT mux inputs, [11] tree 0 matched, [12] tree 1 taken, [13] executing (not
+//                       halted); the outputs follow from these and the STEW.  1024 entries per SRAM.
+//            Readout: the SRAM FIFO wrapper then serves the entries (2 bytes each, low byte first) through the
+//            FIFO register of the window that reads that SRAM (shard s's for SRAM s), which acts as the SRAM
+//            FIFO in RX mode while the SRAM holds a finished trace (until the trace is switched off or armed
+//            again; the shard's own FIFO works as configured until then).  Pushes into a traced SRAM are dropped.
+//
+// CFG0 bits (chroma ctrl_reg; the datapath ones are decoded in prism_datapath.v):
+//     1:0  shift_in_sel      6 clr_not_load     7 latch_in_out    8 shift_en
+//     9    shift_dir        10 shift_wide      11 count32        12 count3_en (pin_out[3] is count3's
+//          second command bit; was count2_dec_en, whose output the sky25a PRISM shared with a pin)
+//     13   latch_en         14 count_up        15 wrap_preload   16 shift_load_one
+//     17   comm_load_one    19:18 in_sync_sel (0 = 2 flops, 1 = 1 flop, 2/3 = raw pins)
+//     21:20 crc_mode (0 off, 1 = 8, 2 = 16, 3 = 32 bits)   22 crc_reflect
+//     23   fifo_dir (0 = RX: FSM pushes comm, host reads; 1 = TX: host writes, FSM pops into comm)
+//     24   sema_set_wins (semaphore set beats clear in the same cycle)
+//     25   crc_init_ones    26 crc_xor_out (complement on OUT_LOAD_CRC)
+//     27   crc_src (0 = shifter input bit, 1 = shifter output bit)
+//     28   shift_in_cond (shifter input = cond_out[0], e.g. an FSM-decoded bit, instead of a pin)
+//     29   flag_latch (OUT_LATCH stores {cond_out[1], cond_out[0]} in latched_in and output 19 in flag2: FSM flags)
+//     30   comm_load_k (OUT_COMM_LOAD loads constant K[{out20, out18}] from CONST instead of preload[7:0])
+//     31   fifo_sram: this shard's FIFO is an SRAM FIFO (prism_sram_fifo.v on an IHP 1P macro; levels in
+//          64-byte units).  SRAM_FIFO parameter: 0 none, 1 one shared FIFO (shard 0 wins if both ask),
+//          2 one per shard (shard s owns SRAM s; unfractured shard 0 reaches SRAM 1 as FIFO B)
+//
+// Output bits (changes.md item 12):
+//     0-3  pin_out[3:0]        4  OUT_LATCH             5  OUT_FIFO_WR_RD (Phase 4)
+//     6    OUT_COUNT1_INC_DEC  7  OUT_COUNT1_CLEAR_LOAD 8  OUT_SHIFT
+//     9    OUT_COUNT2_INC     10  OUT_COUNT2_DEC (both = clear count2)
+//     11   OUT_COUNT3 (count3 command, with pin_out[3] under CFG0[12]; see COUNT3)
+//     12   OUT_CRC_CLEAR      13  OUT_CRC_UPDATE       14  OUT_HOST_INTERRUPT
+//     15   OUT_SEMA_CLEAR (fractured) / OUT_FIFO_PUSH_POP (unfractured, shard 0: which FIFO bit 5 strobes)
+//     16   OUT_COMM_LOAD      17  OUT_LOAD_CRC (selected shifter <= CRC; through comm one byte per load)
+//          (counter mode, CFG3[10]: 12 = preset, 13 = count up, 17 = count down)
+//     18   OUT_K_SEL0 (constant select bit 0 for OUT_COMM_LOAD with CFG0[30])
+//     19   OUT_SEMA_SET (fractured) / OUT_FLAG2 (value OUT_LATCH stores in flag2 with CFG0[29])
+//     20   OUT_K_SEL1 (constant select bit 1)
+//
+// Unfractured, shard 0 owns both FIFOs: A = its own, B = shard 1's (still
+// configured and served by the host through the shard 1 window).  Bit 5
+// strobes A when bit 15 is 0 and B when it is 1, each per its own
+// direction (push comm into an RX FIFO, pop a TX FIFO into comm); with the
+// usual A = RX / B = TX arrangement bit 15 is therefore "push (0) / pop
+// (1)", and single-FIFO chromas (bit 15 = 0) behave as before.  Shard 0
+// inputs 28-31 show FIFO B's empty / full / almost-empty / almost-full.
+//
+// Input bits (per shard):
+//     6:0  ui_in[6:0] (sync select)  7 shift_data   9:8 host_in   10 count1_term
+//     11   count2_cmp   13:12 latched_in (or latched outputs)   14 shift_term
+//     15   count2_eq_comm   19:16 in_prev[3:0] (edge-capture flops, sources in CFG1)
+//     20   FIFO flag slot E (default empty)   21 FIFO flag slot F (default full)
+//     22   crc_ok (counter mode: count >= compare)   23 count1_wrap   24 sema_in   25 other_shard_halt
+//     26   FIFO B flag slot E   27 FIFO B flag slot F (shard 0, unfractured); fractured: the other shard's
+//          pin_out[1] and pin_out[2], one clock old
+//     28    timer2 tick (slot default; CFG2 may select something else)
+//     29    count3 >= limit (slot default)   30 stuff unit: receive = a stuff bit was dropped (until the next
+//           shift), transmit = holding a stuff bit (slot default)   31 transmit: the next move will be a stuff bit
+//
+// CFG1 (per shard):
+//     3:0 / 7:4 / 11:8 / 15:12  in_prev[0..3] source: PRISM input number of the
+//          edge-capable input the flop follows (0-6 = ui_in pin, 8-9 = host_in);
+//          the flop captures its source when a decision tree reading that
+//          input fires and the jump is executed (core in_prev_cap strobe)
+//     19:16 FIFO almost-empty level   23:20 FIFO almost-full level
+//     25:24 / 27:26  flag select for inputs 20 / 21 (own FIFO)
+//     29:28 / 31:30  flag select for inputs 26 / 27 (FIFO B, shard 0 unfractured)
+//          each slot has a default side (E = empty, F = full): select bit 0
+//          picks the almost- flag of that side, bit 1 swaps to the other side,
+//          so any two of the four flags reach the two inputs (reset = empty, full)
+
+`default_nettype none
+
+module tqvp_prism
+#(
+    parameter SRAM_FIFO = 2,
+    parameter SRAM_AW = 9,
+    parameter CNT_CMP = 1,          // CNT_CMP: build the CRC register's counter mode (CFG3[10])
+    parameter FIFO_AW_A = 4,
+    parameter FIFO_AW_B = 4
+)
+(
+    input             clk,          // Clock - the TinyQV project clock is normally set to 64MHz.
+    input             rst_n,        // Reset_n - low to reset.
+    input      [7:0]  ui_in,        // The input PMOD, 2-flop synchronized (project.v).  ui_in[7] is normally UART RX.
+    input      [7:0]  ui_in_1ff,    // The input PMOD after one synchronizer flop
+    input      [7:0]  ui_in_raw,    // The raw input PMOD
+    output     [7:0]  uo_out,       // The output PMOD.  Each wire is only connected if this peripheral is selected.
+
+    (* keep = "true" *)
+    input     [8:0]   address,      // Byte address within the 512-byte PRISM region (0x200-0x3ff), fully decoded
+    (* keep = "true" *)
+    input     [31:0]  data_in,      // Data in to the peripheral, bottom 8, 16 or all 32 bits are valid on write.
+    (* keep = "true" *)
+    input     [1:0]   data_write_n, // 11 = no write, 00 = 8-bits, 01 = 16-bits, 10 = 32-bits
+    (* keep = "true" *)
+    input     [1:0]   data_read_n,  // 11 = no read,  00 = 8-bits, 01 = 16-bits, 10 = 32-bits
+    (* keep = "true" *)
+    output reg [31:0] data_out,     // Data out from the peripheral, bottom 8, 16 or all 32 bits are valid on read when data_ready is high.
+    output            data_ready,
+
+    output     [1:0]  user_interrupt, // Interrupt request per shard
+
+    // RX DMA tap (prism_dma.v sits next to TinyQV): the selected shard's
+    // receive FIFO, byte-serial, and the mode bits the engine owns
+    output    [7:0]   dma_head,       // the FIFO head byte
+    output            dma_empty,      // that FIFO has nothing
+    output            dma_drained,    // nothing anywhere (chain: both FIFOs and the mover)
+    output            dma_avail4,     // at least four more bytes are there
+    output            dma_af,         // the FIFO reached its almost-full level (burst trigger)
+    output            dma_frame_end,  // the receiving shard's OUT_HOST_INTERRUPT rising
+    input             dma_pop,        // take dma_head this clock
+    input             dma_en,
+    input             dma_shard,      // 0 = FIFO A, 1 = FIFO B
+    input             dma_chain,      // FIFO A drains into FIFO B by itself
+    input             dma_hw_end,     // the receiving shard's host interrupt ends frames (and is not a host IRQ)
+    output            dma_crc_ok,     // the receiving shard's crc_ok (the DMA latches it at the frame end)
+
+    // TX DMA tap (prism_txdma.v sits next to TinyQV): bytes pushed into
+    // shard 1's FIFO (FIFO B, the unfractured TX FIFO) while it is the SRAM
+    // FIFO on SRAM[1] in TX mode, one per clock
+    input     [7:0]   txd_data,
+    input             txd_push,
+    output            txd_room,       // that SRAM FIFO has room for a burst (32 bytes)
+    output            txd_hold,       // that FIFO takes shard 1's own re-push this clock (4b.12): the tap waits
+    input             txd_ring,       // TX ring on: shard 1's host interrupt ends its frames (not a host IRQ)
+    input             txd_start,      // TX ring: toggle shard 1's host_in[0] (start the next frame)
+    output            txd_frame_end,  // shard 1's OUT_HOST_INTERRUPT rising: the frame is out
+
+    // State Information Table interface (CFGMEM macros in peripherals.v)
+    output    [3:0]   sit_addr_a,
+    output    [3:0]   sit_addr_b,
+    input   [127:0]   stew_a,
+    input   [127:0]   stew_b
+);
+
+    // PRISM core configuration.  These must agree with the chroma .cfg used by
+    // yosys-prism: 128-bit STEW = 6 muxes x 5 bits, 2 x LUT3 (8 bits each),
+    // 2 x 5-bit jump, 3 x 21 outputs, 2 x 4-bit conditional-output LUT2, inc.
+    localparam  DEPTH               = 32;
+    localparam  PRISM_INPUTS        = 32;
+    localparam  OUTPUTS             = 21;
+    localparam  PRISM_COND_OUT      = 2;
+    localparam  PRISM_COND_LUT_SIZE = 2;
+    localparam  PRISM_STATE_INPUTS  = 6;
+    localparam  PRISM_LUT_SIZE      = 3;
+    localparam  PRISM_FRACTURABLE   = 1;
+    localparam  PRISM_DUAL_COMPARE  = 1;
+    localparam  SHARDS              = 2;
+
+    // Output bit assignments
+    localparam  OUT_LATCH             = 4;
+    localparam  OUT_FIFO_WR_RD        = 5;
+    localparam  OUT_COUNT1_INC_DEC    = 6;
+    localparam  OUT_COUNT1_CLEAR_LOAD = 7;
+    localparam  OUT_SHIFT             = 8;
+    localparam  OUT_COUNT2_INC        = 9;      // with OUT_COUNT2_DEC in the same clock: clear
+    localparam  OUT_COUNT2_DEC        = 10;
+    localparam  OUT_COUNT3            = 11;     // count3 command bit (pin_out[3] the other, CFG0[12])
+    localparam  OUT_CRC_CLEAR         = 12;
+    localparam  OUT_CRC_UPDATE        = 13;
+    localparam  OUT_HOST_INTERRUPT    = 14;
+    localparam  OUT_SEMA_CLEAR        = 15;
+    localparam  OUT_FIFO_PUSH_POP     = 15;     // same bit, unfractured meaning
+    localparam  OUT_COMM_LOAD         = 16;
+    localparam  OUT_LOAD_CRC          = 17;
+    localparam  OUT_SEMA_SET          = 19;
+    localparam  OUT_FLAG2             = 19;     // same bit: value OUT_LATCH loads into flag2
+    localparam  OUT_K_SEL0            = 18;     // constant select for OUT_COMM_LOAD (CFG_COMM_LOAD_K)
+    localparam  OUT_K_SEL1            = 20;
+
+    // CFG0 bits used here (the rest live in prism_datapath.v)
+    localparam  CFG_MSHIFT_EN         = 2;    // comm shifts {out20, out18} + 1 bits per OUT_SHIFT, from pins
+                                              // shift_in_sel .. shift_in_sel + 3 (PIO-like, 4n)
+    localparam  CFG_LATCH_IN_OUT      = 7;
+    localparam  CFG_SHIFT_WIDE        = 10;
+    localparam  CFG_COUNT3_EN         = 12;   // pin_out[3] is count3's second command bit, not a pin
+    localparam  CFG_LATCH_EN          = 13;
+    localparam  CFG_IN_SYNC_SEL       = 18;   // [19:18]
+    localparam  CFG_CRC_MODE          = 20;   // [21:20]
+    localparam  CFG_CRC_REFLECT       = 22;
+    localparam  CFG_FIFO_DIR          = 23;
+    localparam  CFG_SEMA_SET_WINS     = 24;
+    localparam  CFG_CRC_INIT_ONES     = 25;
+    localparam  CFG_CRC_XOR_OUT       = 26;
+    localparam  CFG_CRC_SRC           = 27;
+    localparam  CFG_SHIFT_IN_COND     = 28;   // shifter input = cond_out[0] instead of a pin
+    localparam  CFG_FLAG_LATCH        = 29;   // OUT_LATCH loads latched_in from {cond_out[1:0]} (FSM flags)
+    localparam  CFG_COMM_LOAD_K       = 30;   // OUT_COMM_LOAD loads comm from constant K[sel] instead of preload
+    localparam  CFG_FIFO_SRAM         = 31;   // this shard's FIFO is the 8 KB SRAM FIFO (shard 0 first)
+
+    // Common register addresses
+    localparam [8:0] REG_CTRL       = 9'h000;
+    localparam [8:0] REG_INT_CLR0   = 9'h003;   // byte
+    localparam [8:0] REG_INT_CLR1   = 9'h007;   // byte
+    localparam [8:0] REG_ID         = 9'h020;
+    localparam [8:0] REG_INT_STATUS = 9'h024;
+
+    // Shard window offsets (shard s base = 0x100 + 0x80 * s)
+    localparam [6:0] SH_CFG0         = 7'h00;
+    localparam [6:0] SH_PINMUX       = 7'h04;
+    localparam [6:0] SH_PRELOAD      = 7'h08;
+    localparam [6:0] SH_COUNT1       = 7'h0C;
+    localparam [6:0] SH_COUNTS       = 7'h10;
+    localparam [6:0] SH_HOST         = 7'h14;
+    localparam [6:0] SH_TOGGLE       = 7'h15; // byte
+    localparam [6:0] SH_FLAGS        = 7'h18;
+    localparam [6:0] SH_CFG1         = 7'h1C;
+    localparam [6:0] SH_FIFO         = 7'h20;
+    localparam [6:0] SH_FIFO_ST      = 7'h24;
+    localparam [6:0] SH_CRC_POLY     = 7'h28;
+    localparam [6:0] SH_CRC          = 7'h2C;
+    localparam [6:0] SH_CRC_EXP      = 7'h30;
+    localparam [6:0] SH_CFG2          = 7'h34; // input slot selects
+    localparam [6:0] SH_CONST         = 7'h38; // constants K3..K0 (K3 also the comm match value)
+    localparam [6:0] SH_CFG3          = 7'h3C; // Manchester bit recoverer
+    localparam [6:0] SH_PRELOAD2      = 7'h40; // free-running timer period (24 bits)
+    localparam [6:0] SH_TRACE_CFG     = 7'h44; // trace: configuration
+    localparam [6:0] SH_TRACE_CTRL    = 7'h48; //        arm / stop, status
+    localparam [6:0] SH_CTAB          = 7'h4C; // constant table: the latch FIFO as addressable constants
+    localparam [6:0] SH_COMM_PINS     = 7'h50; // multi-bit shift: comm bit per uo_out pin with pinmux code 6
+    localparam [6:0] SH_FIFO32        = 7'h54; // 32-bit FIFO push / pop (CFG3[11])
+    localparam [6:0] SH_COUNT3        = 7'h58; // count3 and its limit
+    localparam       CT_EN            = 0;     // CONST_TAB bits
+    localparam       CT_LOAD_ADDS     = 1;     // index mode 3 adds idx_load instead of loading it
+    localparam       CT_POST          = 2;     // load the row before the index moves
+    localparam       CT_LOAD          = 4;     // [7:4]  idx_load
+    localparam       CT_ADD           = 8;     // [10:8] add_to_idx
+    localparam       CTAB_W           = 11;
+    localparam       TRC_EN           = 0;     // TRACE_CFG bits
+    localparam       TRC_BIG          = 1;
+    localparam       TRC_TRIG         = 2;     // [3:2]
+    localparam       TRC_EDGE         = 4;     // [5:4]
+    localparam       TRC_SI           = 8;     // [12:8]
+    localparam       TRC_IN           = 16;    // [20:16]
+    localparam       TRC_OTHER        = 6;     // trace into the other shard's SRAM
+    localparam       T2_RELOAD        = 24;    // PRELOAD2: restart on entry into state [29:25]
+    localparam       T2_STATE         = 25;
+    localparam       T2_ONESHOT       = 30;
+    localparam       SI_W             = 5;     // state index width (DEPTH 32)
+    localparam       CFG3_MRX_EN      = 3;     // CFG3: [2:0] pin, [3] enable, [7:4] clocks per half bit
+    localparam       CFG3_SHIFT_MRX   = 8;     //       [8] shifter input = recovered bit
+    localparam       CFG3_MRX_DDR     = 9;     //       [9] double-edge sampling (hb in half clocks)
+    localparam       CFG3_CNT_EN      = 10;    //       [10] CRC register = up / down counter with compare
+    localparam       CFG3_FIFO32      = 11;    //       [11] 32-bit FIFO access through FIFO32
+    localparam       CFG3_SMP_PRESET  = 12;    //       [13:12] sampler timer action = count1 <= preload >> k (k = 1-3; 0 = load)
+    localparam       CFG3_STUFF_EN    = 14;    //       [14] bit-stuff unit on count2 (run of COMPARE + 1 equal bits)
+    localparam       CFG3_STUFF_TX    = 15;    //       [15] stuff unit inserts (transmit) instead of dropping (receive)
+    localparam       CFG3_SMP_EN      = 16;    // edge-clocked sampler: [16] enable
+    localparam       CFG3_SMP_SRC     = 17;    //       [21:17] clock input (PRISM input 0-31)
+    localparam       CFG3_SMP_EDGE    = 22;    //       [23:22] 0 rising, 1 falling, 2 either, 3 either edge of input xor the next (Data-Strobe)
+    localparam       CFG3_SMP_SHIFT   = 24;   //       [24] shift on the edge
+    localparam       CFG3_SMP_CNT2    = 25;   //       [25] count2 + 1 on the edge
+    localparam       CFG3_SMP_LATCH   = 26;   //       [26] capture the in_prev flops on the edge
+    localparam       CFG3_SMP_TIMER   = 27;   //       [27] count1 clear / load on the edge
+    localparam       CFG3_SMP_INV     = 28;   //       [28] flag2 swaps rising and falling
+    localparam       CFG3_FIFO_REPUSH = 29;   //       [29] SRAM FIFO: a pop with cond_out[0] high re-pushes the popped byte (4b.12)
+    localparam        IN_NUM_BITS     = 5;   // PRISM input number width
+    localparam [13:0] SRAM_BYTES      = 14'd4 << SRAM_AW;
+    localparam        SRAM_SHARED     = (SRAM_FIFO == 1);
+    localparam        NSRAM           = (SRAM_FIFO > SHARDS) ? SHARDS : SRAM_FIFO;
+    localparam        TRC_CFG_W       = 21;    // TRACE_CFG bits in use (write-only: no readback, to spare the read mux)
+
+    // The flop FIFOs: shard 0 (A) FIFO_AW_A, shard 1 (B) FIFO_AW_B deep.  A
+    // FIFO deeper than 16 bytes keeps CFG1's 4-bit levels in 4-byte units.
+    wire                prism_enable;
+    wire                prism_wr;
+    wire                word_wr;
+    wire                byte_wr;
+    wire                shard_win;          // address in a shard window
+    wire                shard_sel;          // which shard window
+    wire [6:0]          shard_off;          // offset within the window
+    wire [31:0]         prism_read_data;
+    reg                 enable_r;
+
+    // Core interface, shard 0 / shard 1
+    wire [PRISM_INPUTS-1:0]   in_data_0, in_data_1;
+    wire [OUTPUTS-1:0]        out_data_0, out_data_1;
+    wire [PRISM_COND_OUT-1:0] cond_out_0, cond_out_1;
+    wire                      fractured;      // cfg_fractured, static at run time
+    wire [1:0]                halt;           // per-shard halt, incl. the conditional-break cycle
+    wire                      halt_either;    // unused: per-shard halts are used instead
+
+    // Per-shard state exported for the register reads and cross-shard wiring
+    wire [32*SHARDS-1:0] cfg0_v;
+    wire [24*SHARDS-1:0] pinmux_v;
+    wire [32*SHARDS-1:0] preload_v;
+    wire [32*SHARDS-1:0] count1_v;
+    wire [32*SHARDS-1:0] counts_v;
+    wire [24*SHARDS-1:0] count3_v;          // {mask3, limit3, count3} per shard
+    wire [32*SHARDS-1:0] flags_v;
+    wire [32*SHARDS-1:0] cfg1_v;
+    wire [32*SHARDS-1:0] cfg2_v;
+    wire [32*SHARDS-1:0] cfg3_v;
+    wire [32*SHARDS-1:0] preload2_v;
+    wire [32*SHARDS-1:0] const_v;
+    wire [32*SHARDS-1:0] ctab_v;
+    wire [32*SHARDS-1:0] comm_pins_v;
+    wire [32*SHARDS-1:0] fifo_st_v;
+    wire [8*SHARDS-1:0]  fifo_head_v;
+    wire [8*SHARDS-1:0]  comm_v;            // comm register per shard (FIFO push data)
+    wire                 fifo_op_to_b;      // unfractured: shard 0's strobe aimed at FIFO B
+    wire [4*IN_NUM_BITS*SHARDS-1:0] in_prev_num_v; // per shard: 4 source input numbers
+    wire [4*SHARDS-1:0]  in_prev_cap_v;     // per shard: capture strobes from the core
+
+    // SRAM FIFO: per-shard requests, and the one FIFO's outputs
+    wire [SHARDS-1:0]    sram_sel_v, sram_push_v, sram_pop_v, sram_flush_v;
+    wire [SHARDS-1:0]    sram_repush_v;                  // replay: the pop re-pushes (CFG3[29] and cond_out[0])
+    wire [8*SHARDS-1:0]  sram_pdata_v;
+    wire [8*SHARDS-1:0]  sram_head_v;       // per SRAM FIFO instance (index = shard, or 0 when shared)
+    wire [14*SHARDS-1:0] sram_count_v;
+    wire [SHARDS-1:0]    sram_empty_v, sram_full_v;
+
+    // ---- SRAM FIFOs: prism_sram_fifo.v on IHP single-port macros ---------------
+    // SRAM_FIFO = 1: one FIFO owned by the shard with CFG0[31] set (shard 0
+    // first), its requests routed here and its flags / head fed back.
+    // SRAM_FIFO = 2: one FIFO per shard (shard s <-> SRAM s), no sharing.
+    // Trace (section 4m): per shard the 16-bit entry and three strobes for
+    // the SRAM trace ports (one shard's set is registered and sent below);
+    // per SRAM whether it is full and whether it holds a finished trace
+    // (its window's FIFO then reads it).
+    wire [SHARDS-1:0]    trc_en_v, trc_big_v, trc_other_v, trc_active_v, trc_big_act_v, trc_cap_v, trc_stop_v, trc_arm_v;
+    wire [SHARDS-1:0]    trc_full_v, trc_held_v;
+    wire [16*SHARDS-1:0] trc_din_v;
+    wire [32*SHARDS-1:0] trace_st_v;
+    wire [SI_W-1:0]      trace_si_0, trace_si_1, trace_nsi_0, trace_nsi_1;
+    wire [PRISM_STATE_INPUTS-1:0] trace_mux_0, trace_mux_1;
+    wire [1:0]           trace_match_0, trace_match_1;
+
+    // One shard traces at a time (shard 0 wins if both enable): into SRAM
+    // s (SRAM 0 when there is only one), or with TRACE_CFG[1] into both
+    // SRAMs as one buffer.  One 16-bit bus and three strobes cross the tile
+    // from a single set of flops here to the SRAM trace ports.  Two shards.
+    assign trc_active_v[0]        = (NSRAM > 0) && trc_en_v[0];
+    assign trc_active_v[SHARDS-1] = (NSRAM > 0) && trc_en_v[SHARDS-1] && !trc_en_v[0];
+    assign trc_big_act_v[0]        = (NSRAM > 1) && trc_active_v[0] && trc_big_v[0];
+    assign trc_big_act_v[SHARDS-1] = (NSRAM > 1) && trc_active_v[SHARDS-1] && trc_big_v[SHARDS-1];
+    wire        trc_sel1 = trc_active_v[SHARDS-1];      // whose entry goes out
+    reg  [15:0] trc_bus_din;
+    reg         trc_bus_cap, trc_bus_arm, trc_bus_stop, trc_stop_r;
+
+    always @(posedge clk or negedge rst_n)
+    begin
+        if (!rst_n)
+        begin
+            trc_bus_din  <= 16'h0;
+            trc_bus_cap  <= 1'b0;
+            trc_bus_arm  <= 1'b0;
+            trc_bus_stop <= 1'b0;
+            trc_stop_r   <= 1'b0;
+        end
+        else
+        begin
+            trc_bus_din  <= trc_sel1 ? trc_din_v[16*(SHARDS-1) +: 16] : trc_din_v[15:0];
+            trc_bus_cap  <= trc_sel1 ? trc_cap_v[SHARDS-1]  : trc_cap_v[0];
+            trc_bus_arm  <= trc_sel1 ? trc_arm_v[SHARDS-1]  : trc_arm_v[0];
+            trc_stop_r   <= trc_sel1 ? trc_stop_v[SHARDS-1] : trc_stop_v[0];  // stop reaches the port after the last entry
+            trc_bus_stop <= trc_stop_r;
+        end
+    end
+
+    // Input slot (inputs 16-19 and 28-31, CFG2 4 bits each): 0 = the slot's
+    // default (in_prev[i] for 16-19, 0 for 28-31), 1-4 = in_prev[0..3],
+    // 5-12 = comm[0..7], 13 = comm == K3, 14 = flag2
+    function slot_val;
+        input [3:0] code;
+        input       dflt;
+        input [3:0] in_prev;
+        input [7:0] comm;
+        input       match, flag2, mrx_valid;
+        begin
+            case (code)
+                4'd0:    slot_val = dflt;
+                4'd1:    slot_val = in_prev[0];
+                4'd2:    slot_val = in_prev[1];
+                4'd3:    slot_val = in_prev[2];
+                4'd4:    slot_val = in_prev[3];
+                4'd5:    slot_val = comm[0];
+                4'd6:    slot_val = comm[1];
+                4'd7:    slot_val = comm[2];
+                4'd8:    slot_val = comm[3];
+                4'd9:    slot_val = comm[4];
+                4'd10:   slot_val = comm[5];
+                4'd11:   slot_val = comm[6];
+                4'd12:   slot_val = comm[7];
+                4'd15:   slot_val = mrx_valid;
+                4'd13:   slot_val = match;
+                4'd14:   slot_val = flag2;
+                default: slot_val = 1'b0;
+            endcase
+        end
+    endfunction
+
+    // FIFO flag input slot: a default side (0 = empty side, 1 = full side);
+    // select bit 0 picks the almost- flag, bit 1 swaps to the other side
+    function fifo_flag;
+        input       full_side;
+        input [1:0] sel;
+        input       empty, full, ae, af;
+        begin
+            fifo_flag = (full_side ^ sel[1]) ? (sel[0] ? af : full) : (sel[0] ? ae : empty);
+        end
+    endfunction
+
+    wire [32*SHARDS-1:0] fifo32_v;      // the RX word registers
+    wire [14*SHARDS-1:0] fifo_count_v;
+    wire [SHARDS-1:0]    fifo_empty_v, fifo_full_v, fifo_af_v, host_irq_pulse_v, crc_ok_v;
+
+    // DMA chain mode (DMA_CFG[7]): FIFO A drains into FIFO B by itself, so
+    // the two 16-byte FIFOs act as one 32-byte one for the DMA, which then
+    // reads B (shard select 1); the frame end still comes from shard 0, the
+    // receiving chroma's shard.  A move pops A and pushes B in the same
+    // clock, one every third clock (the latch FIFO's push spacing); the
+    // byte is in neither count for a clock, which mv_busy covers.
+    reg  [1:0]           mv_gap;
+    reg                  mv_d1;
+    wire                 mv      = dma_chain & !fifo_empty_v[0] & !fifo_full_v[SHARDS-1] & (mv_gap == 2'd0);
+    wire                 mv_busy = mv | mv_d1;
+
+    always @(posedge clk or negedge rst_n)
+    begin
+        if (!rst_n)
+        begin
+            mv_gap <= 2'd0;
+            mv_d1  <= 1'b0;
+        end
+        else
+        begin
+            mv_d1 <= mv;
+            if (mv)
+                mv_gap <= 2'd2;
+            else if (mv_gap != 2'd0)
+                mv_gap <= mv_gap - 2'd1;
+        end
+    end
+    wire [8*SHARDS-1:0]  fifo_rd_v;     // what a byte read of FIFO returns
+    wire [32*SHARDS-1:0] crc_poly_v;
+    wire [32*SHARDS-1:0] crc_v;
+    wire [32*SHARDS-1:0] crc_exp_v;
+    wire [2*SHARDS-1:0]  host_in_v;
+    wire [SHARDS-1:0]    irq_v;
+    wire [SHARDS-1:0]    sema_v;            // semaphore as seen by shard s
+    wire [SHARDS-1:0]    sema_set_req;      // shard s asserts OUT_SEMA_SET (to the other shard)
+    wire [SHARDS-1:0]    halt_r_v;          // registered per-shard halt (breaks the cross-shard comb. path)
+    wire [2*SHARDS-1:0]  xs_v;              // registered per-shard pin_out[2:1]: the other shard's inputs 26-27 when fractured
+    wire [8*SHARDS-1:0]  pin_src_v;         // per-shard candidate value for uo_out[p]
+    wire [8*SHARDS-1:0]  pin_claim_v;       // per-shard "drives uo_out[p]"
+
+    // Pins
+    wire  [7:0]         uo_out_c;
+    (* keep = "true" *)
+    reg   [7:0]         latched_out;
+
+`ifndef SYNTH_FPGA
+    (* keep = "true" *)
+    reg   [31:0]        latch_data;
+    (* keep = "true" *)
+    reg                 latch_wr;
+    reg                 latch_wr_p0;
+`else
+    wire  [31:0]        latch_data;
+    assign latch_data = data_in;
+`endif
+
+    // =============================================================
+    // PRISM core
+    // =============================================================
+    prism
+    #(
+        .DEPTH         ( DEPTH               ),
+        .INPUTS        ( PRISM_INPUTS        ),
+        .OUTPUTS       ( OUTPUTS             ),
+        .COND_OUT      ( PRISM_COND_OUT      ),
+        .COND_LUT_SIZE ( PRISM_COND_LUT_SIZE ),
+        .STATE_INPUTS  ( PRISM_STATE_INPUTS  ),
+        .DUAL_COMPARE  ( PRISM_DUAL_COMPARE  ),
+        .FRACTURABLE   ( PRISM_FRACTURABLE   ),
+        .LUT_SIZE      ( PRISM_LUT_SIZE      ),
+        .W_ADDR        ( 9                   )
+     )
+    i_prism
+    (
+        .clk                ( clk               ),
+        .rst_n              ( rst_n             ),
+        .fsm_enable         ( prism_enable      ),
+        .in_data            ( in_data_0         ),
+        .in_data_1          ( in_data_1         ),
+        .out_data           ( out_data_0        ),
+        .cond_out           ( cond_out_0        ),
+        .out_data_1         ( out_data_1        ),
+        .cond_out_1         ( cond_out_1        ),
+        .fractured_out      ( fractured         ),
+`ifndef SYNTH_FPGA
+        .latch_data         ( latch_data        ),
+        .latch_wr           ( latch_wr          ),
+`endif
+        .debug_addr         ( address           ),
+        .debug_wr           ( prism_wr          ),
+        .debug_wdata        ( data_in           ),
+        .debug_rdata        ( prism_read_data   ),
+        .debug_halt_either  ( halt_either       ),
+        .debug_halt_shard   ( halt              ),
+        .in_prev_src        ( in_prev_num_v[0 +: 4*IN_NUM_BITS]           ),
+        .in_prev_src_1      ( in_prev_num_v[4*IN_NUM_BITS +: 4*IN_NUM_BITS] ),
+        .in_prev_cap        ( in_prev_cap_v[3:0]                          ),
+        .in_prev_cap_1      ( in_prev_cap_v[7:4]                          ),
+        .trace_si           ( trace_si_0        ),
+        .trace_si_1         ( trace_si_1        ),
+        .trace_nsi          ( trace_nsi_0       ),
+        .trace_nsi_1        ( trace_nsi_1       ),
+        .trace_mux          ( trace_mux_0       ),
+        .trace_mux_1        ( trace_mux_1       ),
+        .trace_match        ( trace_match_0     ),
+        .trace_match_1      ( trace_match_1     ),
+        .sit_addr_a         ( sit_addr_a        ),
+        .sit_addr_b         ( sit_addr_b        ),
+        .stew_a             ( stew_a            ),
+        .stew_b             ( stew_b            )
+    );
+
+    assign prism_wr     = data_write_n != 2'b11;
+    assign word_wr      = data_write_n == 2'b10;
+    assign byte_wr      = data_write_n == 2'b00;
+    assign prism_enable = enable_r;
+    assign shard_win    = address[8];
+    assign shard_sel    = address[7];
+    assign shard_off    = address[6:0];
+
+    // =============================================================
+    // Per-shard datapath, configuration, host handshake, interrupt
+    // =============================================================
+    genvar s;
+    generate
+        for (s = 0; s < SHARDS; s = s + 1)
+        begin : SH
+            wire [OUTPUTS-1:0]        out_s  = (s == 0) ? out_data_0 : out_data_1;
+            wire [PRISM_COND_OUT-1:0] cond_s = (s == 0) ? cond_out_0 : cond_out_1;
+            wire                      win    = shard_win && (shard_sel == (s == 1));
+            wire                      halt_s = halt[s];
+            reg                       halt_r;
+            reg   [1:0]               xs_r;                      // pin_out[2:1] as the other shard sees them
+            wire                      exec;
+            wire [31:0]               cfg0;
+            wire [23:0]               pinmux;
+            wire [31:0]               preload;
+            wire                      cfg0_en, pinmux_en, preload_en;
+            reg   [7:0]               compare;
+            (* keep = "true" *)
+            reg   [1:0]               host_in;
+            reg                       irq;
+            reg                       host_irq_r;
+            (* keep = "true" *)
+            reg   [1:0]               latched_in;
+            reg                       sema;
+            wire [31:0]               count1;
+            wire  [7:0]               count2;
+            wire  [7:0]               count3, limit3, mask3;
+            wire  [7:0]               comm;
+            wire  [4:0]               shift_count;
+            wire  [2:0]               comm_count;
+            wire                      count1_wrap, count1_term, count2_cmp, count2_eq_comm, shift_term, shift_data;
+            wire                      count3_cmp;
+            wire  [6:0]               pin_in;
+            wire  [1:0]               sync_sel = cfg0[CFG_IN_SYNC_SEL +: 2];
+            wire [PRISM_INPUTS-1:0]   in_s;
+            wire  [3:0]               pin_out = out_s[3:0];
+            wire                      sema_clr = exec & out_s[OUT_SEMA_CLEAR] & fractured;
+            wire [31:0]               cfg3;
+            wire [31:0]               preload2;
+            wire                      preload2_en;
+            reg                       flag2;                     // FSM flag (OUT_LATCH + OUT_FLAG2)
+            wire                      mrx_valid, mrx_value;      // Manchester bit recoverer
+            // Double-edge sampling for the recoverer (CFG3[9]): the raw pin is
+            // also sampled on the falling clock edge; each sample gets its own
+            // two-flop synchroniser so their order into the recoverer is fixed
+            wire                      mrx_ddr  = cfg3[CFG3_MRX_DDR];
+            wire                      mrx_pin  = ui_in_raw[cfg3[2:0]];
+            reg                       mrx_n;                     // falling-edge sample
+            reg   [1:0]               mrx_h_s, mrx_p_s;          // synchronised falling / rising samples
+            // Edge-clocked sampler (CFG3[27:16]): hardware actions on the
+            // selected edge of one PRISM input, with no state transition
+            wire                      smp_en   = cfg3[CFG3_SMP_EN];
+            wire  [1:0]               smp_cfg  = cfg3[CFG3_SMP_EDGE +: 2];
+            // Edge code 3: the clock is the selected input xor its neighbour
+            // (the next of inputs 0-7), either edge: the bit clock of a
+            // Data-Strobe pair (SpaceWire) with D and S on adjacent pins
+            wire                      smp_ds   = (smp_cfg == 2'd3);
+            wire  [2:0]               smp_nb   = cfg3[CFG3_SMP_SRC +: 3] + 3'd1;
+            wire                      smp_src  = in_s[cfg3[CFG3_SMP_SRC +: 5]] ^ (smp_ds & in_s[{2'b00, smp_nb}]);
+            wire  [1:0]               smp_pol  = smp_cfg[1] ? 2'd2 :                  // either edge, or the
+                                                 {1'b0, smp_cfg[0] ^ (cfg3[CFG3_SMP_INV] & flag2)};   // flag-swapped one
+            reg                       smp_prev;
+            reg                       smp_pending;               // sticky: an edge the FSM has not consumed
+            wire                      smp_rise = smp_src & ~smp_prev;
+            wire                      smp_fall = ~smp_src & smp_prev;
+            wire                      smp_edge = smp_en & exec & (smp_pol == 2'd0 ? smp_rise :
+                                                                  smp_pol == 2'd1 ? smp_fall : (smp_rise | smp_fall));
+            wire                      event_valid = mrx_valid | smp_pending;   // slot code 15
+            wire                      smp_timer   = smp_edge & cfg3[CFG3_SMP_TIMER];
+            wire  [1:0]               preset_k    = cfg3[CFG3_SMP_PRESET +: 2];
+            wire                      shift_in_bit = cfg3[CFG3_SHIFT_MRX]    ? mrx_value :
+                                                     cfg0[CFG_SHIFT_IN_COND] ? cond_s[0] : pin_in[{1'b0, cfg0[1:0]}];
+            // FIFO / CRC
+            wire [31:0]               cfg1;
+            wire [31:0]               cfg2;
+            wire [31:0]               consts;
+            wire [31:0]               crc_poly;
+            wire [31:0]               crc_exp;
+            wire                      cfg1_en, cfg2_en, const_en, crc_poly_en, crc_exp_en, cfg3_en;
+            // OUT_COMM_LOAD source: preload[7:0], or constant K[{out20, out18}]
+            wire  [7:0]               k_sel = out_s[OUT_K_SEL1] ? (out_s[OUT_K_SEL0] ? consts[31:24] : consts[23:16])
+                                                                : (out_s[OUT_K_SEL0] ? consts[15:8]  : consts[7:0]);
+            wire  [7:0]               comm_load_data;
+            wire                      comm_match = (comm == consts[31:24]);
+            // Constant table (CONST_TAB): the latch FIFO's 16 rows as
+            // constants at a 4-bit index; {OUT_K_SEL1, OUT_K_SEL0} says how
+            // the index moves on each OUT_COMM_LOAD (clear, + 1, + add_to_idx,
+            // = or + idx_load) and the row loaded is the one after the move
+            // (before it with CT_POST).  A host write sets the index.  While
+            // the shard is not executing the head is the row at the index,
+            // whatever the outputs say, so the host and the debugger see it.
+            wire [CTAB_W-1:0]         ctab;
+            wire                      ctab_en;
+            wire [27:0]               comm_pins;                // COMM_PINS: window base + 3-bit lane per output pin (code 6)
+            wire                      comm_pins_en;
+            wire                      ctab_wr  = prism_wr && win && shard_off == SH_CTAB;
+            reg   [3:0]               const_idx;
+            wire  [1:0]               idx_mode = {out_s[OUT_K_SEL1], out_s[OUT_K_SEL0]};
+            wire  [3:0]               idx_next = idx_mode == 2'd0 ? 4'd0 :
+                                                 idx_mode == 2'd1 ? const_idx + 4'd1 :
+                                                 idx_mode == 2'd2 ? const_idx + {1'b0, ctab[CT_ADD +: 3]} :
+                                                 ctab[CT_LOAD_ADDS] ? const_idx + ctab[CT_LOAD +: 4] :
+                                                                      ctab[CT_LOAD +: 4];
+            wire  [3:0]               tab_idx  = (ctab[CT_POST] | !exec) ? const_idx : idx_next;
+            wire                      tab_load = exec & out_s[OUT_COMM_LOAD] & ctab[CT_EN];
+
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                    const_idx <= 4'h0;
+                else if (ctab_wr)
+                    const_idx <= data_in[19:16];
+                else if (tab_load)
+                    const_idx <= idx_next;
+            end
+            wire  [7:0]               crc_byte;
+
+            // While the SRAM this window reads holds a finished trace, the
+            // window's FIFO is that SRAM FIFO in RX mode: the host pops the
+            // trace entries (the shard's own FIFO is frozen meanwhile; until
+            // the capture is done it works as configured)
+            wire                      fifo_traced;
+            wire                      fifo_dir = cfg0[CFG_FIFO_DIR] & !fifo_traced;
+
+            // Bit-stuff unit (CFG3[14], count2 = run length - 1 of the bits the
+            // shifter moves, COMPARE = the run length - 1 that calls for a stuff
+            // bit).  Receive: an OUT_SHIFT whose bit differs from the previous
+            // one while count2 >= COMPARE is the stuff bit: the shift, the CRC
+            // update and the count3 step of that clock are cancelled and the
+            // run restarts (input 30 = dropped, until the next shift).
+            // Transmit (CFG3[15]): an OUT_SHIFT while count2 >= COMPARE holds the
+            // shifter instead and the pin shows the complement of the last bit
+            // for that bit time (input 31 = holding); the next OUT_SHIFT moves on.
+            wire                      stuff_en    = cfg3[CFG3_STUFF_EN];
+            wire                      stuff_tx    = cfg3[CFG3_STUFF_TX];
+            reg                       stuff_prev, stuff_hold, stuff_dropped;
+
+            // a transmitter's shifter also moves on a FIFO pop, a CRC byte load or a
+            // comm load (the byte boundaries), so those count as bit times too
+            wire                      fsm_shift   = exec & (out_s[OUT_SHIFT] |
+                                                    (stuff_tx & (out_s[OUT_FIFO_WR_RD] | out_s[OUT_LOAD_CRC] | out_s[OUT_COMM_LOAD])));
+            wire                      stuff_bit   = stuff_tx ? shift_data : shift_in_bit;   // the bit moving now
+            wire                      stuff_reset = exec & out_s[OUT_CRC_CLEAR];             // a frame start restarts the run
+            wire                      stuff_same  = (stuff_bit == stuff_prev);
+            wire  [7:0]               stuff_cnt_n = stuff_same ? count2 + 8'd1 : 8'h0;   // the run after this bit
+
+            // receive: the bit after a full run that differs is the stuff bit (count before it)
+            wire                      stuff_rx_ev = stuff_en & !stuff_tx & fsm_shift & count2_cmp & !stuff_same & !stuff_reset;
+            // transmit: the bit just sent completes a full run: the next bit time is a stuff bit
+            wire                      stuff_tx_ev = stuff_en &  stuff_tx & fsm_shift & !stuff_hold & (stuff_cnt_n >= compare) & !stuff_reset;
+            wire                      stuff_event = stuff_rx_ev | stuff_tx_ev;
+
+            // (the transmit look-ahead reads the shifter's output bit only: shift_in_bit can come from cond_out)
+            wire  [7:0]               stuff_tx_n  = (shift_data == stuff_prev) ? count2 + 8'd1 : 8'h0;
+            wire                      stuff_due   = stuff_en & stuff_tx & !stuff_hold & (stuff_tx_n >= compare);   // input 31
+            wire                      stuff_act   = fsm_shift & !(stuff_tx & stuff_hold);   // a stuff bit time ends: no run change
+            wire                      stuff_inc   = stuff_act & !stuff_event & stuff_same & !stuff_reset;
+            wire                      stuff_clear = (stuff_act & (stuff_event | !stuff_same)) | stuff_reset;
+            wire                      tx_bit      = stuff_hold ? stuff_prev : shift_data;    // what a stuffed transmitter sends
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                begin
+                    stuff_prev    <= 1'b1;
+                    stuff_hold    <= 1'b0;
+                    stuff_dropped <= 1'b0;
+                end
+                else if (!stuff_en || !prism_enable)
+                begin
+                    stuff_prev    <= 1'b1;            // a CAN bus idles recessive
+                    stuff_hold    <= 1'b0;
+                    stuff_dropped <= 1'b0;
+                end
+                else if (stuff_reset)
+                begin
+                    stuff_prev    <= 1'b1;            // the bus was recessive before the SOF
+                    stuff_hold    <= 1'b0;
+                    stuff_dropped <= 1'b0;
+                end
+                else if (fsm_shift)
+                begin
+                    if (!(stuff_tx & stuff_hold))                 // (the stuff bit stays the last bit sent)
+                        stuff_prev <= stuff_tx_ev ? ~stuff_bit : stuff_bit;
+                    stuff_hold    <= stuff_tx_ev;
+                    stuff_dropped <= stuff_rx_ev;
+                end
+            end
+
+            // Unfractured, shard 0's OUT_FIFO_WR_RD strobes FIFO A (own,
+            // OUT_FIFO_PUSH_POP = 0) or FIFO B (shard 1's, = 1), each per
+            // its own direction.
+            wire                      fifo_dir_b = cfg0_v[32*(SHARDS-1) + CFG_FIFO_DIR];
+            wire                      sel_b    = (s == 0) && !fractured && out_s[OUT_FIFO_PUSH_POP];
+            wire                      fifo_op  = (exec & out_s[OUT_FIFO_WR_RD] & !sel_b & !stuff_event) |
+                                                 ((s == SHARDS-1) ? fifo_op_to_b : 1'b0);
+            wire                      fifo_rd  = (data_read_n != 2'b11) && win && (shard_off[6:2] == SH_FIFO[6:2]);
+            wire                      fifo_wr  = prism_wr && win && shard_off == SH_FIFO;
+            wire                      fifo_flush = prism_wr && win && shard_off == SH_FIFO_ST;
+            wire  [7:0]               fifo_head;
+            wire [13:0]               fifo_count;
+            wire                      fifo_empty, fifo_full, fifo_ae, fifo_af;
+
+            // This shard's FIFO storage: the flop FIFO, or the SRAM FIFO (CFG0[31])
+            localparam                SI = (SRAM_FIFO == 1) ? 0 : s;     // the SRAM FIFO serving this shard
+            wire                      fifo_sram = (SRAM_FIFO != 0) && (cfg0[CFG_FIFO_SRAM] || fifo_traced) &&
+                                                  (SRAM_FIFO != 1 || s == 0 || !cfg0_v[CFG_FIFO_SRAM]);
+            assign fifo_traced = (SRAM_FIFO != 0) && trc_held_v[SI];
+            wire  [7:0]               lf_head;
+            localparam                FIFO_AW    = (s == 0) ? FIFO_AW_A : FIFO_AW_B;
+            localparam                FIFO_DEPTH = 1 << FIFO_AW;
+            localparam                FIFO_LVL_SH = (FIFO_AW > 4) ? FIFO_AW - 4 : 0;   // CFG1 level unit = 2^FIFO_LVL_SH bytes
+            wire  [FIFO_AW:0]         lf_count;
+            wire  [FIFO_AW-1:0]       lf_tab_idx = tab_idx;                     // the table is rows 0-15
+            wire  [FIFO_AW-1:0]       lf_ae_lvl  = cfg1[16 +: 4] << FIFO_LVL_SH; // CFG1 levels: bytes, or 4-byte units on a deep FIFO
+            wire  [FIFO_AW-1:0]       lf_af_lvl  = cfg1[20 +: 4] << FIFO_LVL_SH;
+
+            // RX DMA (prism_dma.v, next to TinyQV) pops this shard's FIFO through the tap
+            wire                      dma_on    = dma_en && (dma_shard == (s == 1));
+            wire                      dma_end_s = dma_en && (dma_chain ? (s == 0) : (dma_shard == (s == 1)));  // its host interrupt ends the DMA's frames
+            wire                      lf_empty, lf_full, lf_ae, lf_af;
+            assign comm_load_data = ctab[CT_EN]           ? lf_head :          // the constant table's row
+                                    cfg0[CFG_COMM_LOAD_K] ? k_sel   : preload[7:0];
+            wire [31:0]               crc_value, crc_out;
+            wire                      crc_ok;
+            wire                      cnt_en = cfg3[CFG3_CNT_EN];    // CRC register counts (CFG3[10])
+
+            // in_prev edge-capture flops: CFG1[4i+3:4i] = source input number
+            reg   [3:0]               in_prev;
+            wire  [3:0]               in_prev_src_val;
+            wire  [3:0]               in_prev_cap = in_prev_cap_v[4*s +: 4];
+            genvar ip;
+            for (ip = 0; ip < 4; ip = ip + 1)
+            begin : IN_PREV_SRC
+                wire [3:0] sel = cfg1[4*ip +: 4];
+                assign in_prev_src_val[ip] = sel < 4'd7  ? pin_in[sel[2:0]] :
+                                             sel == 4'd8 ? host_in[0]       :
+                                             sel == 4'd9 ? host_in[1]       : 1'b0;
+                assign in_prev_num_v[IN_NUM_BITS*(4*s+ip) +: IN_NUM_BITS] = {1'b0, sel};
+            end
+            wire                      pop_dir  = sel_b ? fifo_dir_b : fifo_dir;          // direction of the FIFO bit 5 strobes
+            wire  [7:0]               pop_head = sel_b ? fifo_head_v[8*(SHARDS-1) +: 8] : fifo_head;
+            wire  [7:0]               push_src = (s == SHARDS-1 && !fractured) ? comm_v[7:0] : comm;
+
+            // 32-bit FIFO access (CFG3[11], FIFO32 at +0x54): a push machine that
+            // feeds a written word into a TX FIFO a byte at a time, and a pop
+            // machine that assembles a word from an RX FIFO, see below
+            wire                      f32_en   = cfg3[CFG3_FIFO32];
+            wire                      f32_rd   = (data_read_n != 2'b11) && win && (shard_off[6:2] == SH_FIFO32[6:2]);
+            wire                      f32_wr   = prism_wr && win && shard_off == SH_FIFO32;
+            reg  [31:0]               pop_w;                    // RX word register, byte k at [8k+7:8k]
+            reg  [2:0]                pop_n;                    // bytes it holds (0-4)
+            reg  [31:0]               push_w;                   // TX word, low byte next
+            reg  [1:0]                push_n;                   // bytes of it pushed so far
+            reg                       push_busy;
+            reg  [1:0]                push_gap;                 // clocks to wait before the next push
+            wire                      word_full = (pop_n == 3'd4);
+            wire                      rx32      = f32_en & !fifo_dir;
+
+            // A byte read of FIFO is served from the word register while that
+            // holds anything (the machine refills behind it), from the FIFO
+            // otherwise; the machine never pops in a cycle the host reads.
+            wire                      host_pop  = fifo_rd & (pop_n == 3'd0);
+            wire                      fsm_pop   = rx32 & !word_full & !fifo_empty & !fifo_rd &
+                                                  (fifo_count >= {11'h0, 3'd4 - pop_n});
+            wire                      fsm_push  = push_busy & (push_gap == 2'd0) & !fifo_full & !fifo_wr;
+            assign fifo_rd_v[8*s +: 8]   = (pop_n != 3'd0) ? pop_w[7:0] : fifo_head;
+            assign fifo32_v[32*s +: 32]  = pop_w;
+
+            // FIFO requests: RX (fifo_dir = 0) FSM pushes comm / host pops by reading,
+            //                TX (fifo_dir = 1) host pushes by writing / FSM pops into comm
+            wire                      mv_push = (s == SHARDS-1) & mv;          // chain: B takes A's head
+            wire                      mv_pop  = (s == 0) & mv;                 //        A gives it up
+
+            // TX DMA: B takes the tap's byte (TX mode only; the host does not push
+            // B while a copy runs, and the chain does not run with it)
+            wire                      txd_push_s = (s == SHARDS-1) & txd_push & fifo_dir;
+            wire                      f_push  = mv_push | txd_push_s | (fifo_dir ? (fifo_wr | fsm_push) : fifo_op);
+            wire  [7:0]               f_pdata = mv_push    ? fifo_head_v[7:0] :
+                                                txd_push_s ? txd_data :
+                                                fifo_dir ? (fifo_wr ? data_in[7:0] : push_w[7:0]) : push_src;
+            wire                      f_pop   = mv_pop | (dma_on & dma_pop) | (fifo_dir ? fifo_op : (host_pop | fsm_pop));
+
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                begin
+                    pop_w     <= 32'h0;
+                    pop_n     <= 3'd0;
+                    push_w    <= 32'h0;
+                    push_n    <= 2'd0;
+                    push_busy <= 1'b0;
+                    push_gap  <= 2'd0;
+                end
+                else if (fifo_flush)
+                begin
+                    pop_n     <= 3'd0;
+                    push_busy <= 1'b0;
+                end
+                else
+                begin
+                    // RX word register: a byte read shifts it down, a word read
+                    // of a complete word empties it, the machine fills slot pop_n
+                    if (fifo_rd && pop_n != 3'd0)
+                    begin
+                        pop_w <= {8'h00, pop_w[31:8]};
+                        pop_n <= pop_n - 3'd1;
+                    end
+                    else if (f32_rd && word_full)
+                        pop_n <= 3'd0;
+                    else if (fsm_pop)
+                    begin
+                        case (pop_n[1:0])
+                            2'd0: pop_w[7:0]   <= fifo_head;
+                            2'd1: pop_w[15:8]  <= fifo_head;
+                            2'd2: pop_w[23:16] <= fifo_head;
+                            2'd3: pop_w[31:24] <= fifo_head;
+                        endcase
+                        pop_n <= pop_n + 3'd1;
+                    end
+
+                    // TX push machine: one byte every fourth clock, waiting on a
+                    // full FIFO; a word write is taken only while idle
+                    if (f32_wr && f32_en && fifo_dir && !push_busy)
+                    begin
+                        push_w    <= data_in;
+                        push_n    <= 2'd0;
+                        push_gap  <= 2'd0;
+                        push_busy <= 1'b1;
+                    end
+                    else if (fsm_push)
+                    begin
+                        push_w   <= {8'h00, push_w[31:8]};
+                        push_n   <= push_n + 2'd1;
+                        push_gap <= 2'd3;
+                        if (push_n == 2'd3)
+                            push_busy <= 1'b0;
+                    end
+                    else if (push_gap != 2'd0)
+                        push_gap <= push_gap - 2'd1;
+                end
+            end
+
+            // halt_s covers the debugger halt and the cycle a conditional
+            // breakpoint fires, so that cycle's outputs never reach the datapath
+            assign exec = prism_enable && !halt_s;
+
+            // Input pins: 2-flop (default), 1-flop or raw, per shard (item 13)
+            assign pin_in = sync_sel == 2'd0 ? ui_in[6:0]     :
+                            sync_sel == 2'd1 ? ui_in_1ff[6:0] :
+                                               ui_in_raw[6:0];
+
+            // count2 commands: OUT_COUNT2_INC alone = + 1, OUT_COUNT2_DEC alone
+            // = - 1, both = clear.  The sampler's + 1 (CFG3[25]) joins after
+            // the decode, so an FSM decrement in the same clock cancels it
+            // instead of turning into a clear.
+            wire                      c2_inc_o = out_s[OUT_COUNT2_INC];
+            wire                      c2_dec_o = out_s[OUT_COUNT2_DEC];
+            wire                      c2_clear = c2_inc_o & c2_dec_o;
+            wire                      c2_smp   = smp_edge & cfg3[CFG3_SMP_CNT2];
+            wire                      c2_inc   = stuff_en ? stuff_inc   : !c2_clear & ((c2_inc_o & !c2_dec_o) | (c2_smp & !c2_dec_o));
+            wire                      c2_dec   = stuff_en ? 1'b0        : !c2_clear & c2_dec_o & !c2_smp;
+            wire                      c2_clr   = stuff_en ? stuff_clear : c2_clear;
+
+            // count3 commands: {pin_out[3] with CFG0[12], OUT_COUNT3} = 01 + 1,
+            // 10 clear, 11 limit <= comm
+            wire                      c3_hi    = out_s[3] & cfg0[CFG_COUNT3_EN];
+            wire                      c3_lo    = out_s[OUT_COUNT3];
+
+            prism_datapath i_dp
+            (
+                .clk              ( clk                                ),
+                .rst_n            ( rst_n                              ),
+                .enable           ( prism_enable                       ),
+                .exec             ( exec                               ),
+                .o_count1_step    ( out_s[OUT_COUNT1_INC_DEC]          ),
+                .o_count1_clrload ( out_s[OUT_COUNT1_CLEAR_LOAD] | (smp_timer & (preset_k == 2'd0)) ),
+                .o_count1_preset  ( smp_timer & (preset_k != 2'd0)  ),
+                .preset_data      ( preload >> preset_k               ),
+                .o_shift          ( (out_s[OUT_SHIFT] & !stuff_event) | (smp_edge & cfg3[CFG3_SMP_SHIFT]) ),
+                .o_count2_inc     ( c2_inc                             ),
+                .o_count2_dec     ( c2_dec                             ),
+                .o_count2_clear   ( c2_clr                             ),
+                .o_count3_inc     ( c3_lo & !c3_hi & !stuff_event      ),
+                .o_count3_clear   ( c3_hi & !c3_lo                     ),
+                .o_count3_limit   ( c3_hi &  c3_lo                     ),
+                .limit_k          ( k_sel                              ),
+                .o_comm_load      ( out_s[OUT_COMM_LOAD]  & !stuff_event ),
+                .o_fifo_pop       ( out_s[OUT_FIFO_WR_RD] & pop_dir & !stuff_event ),
+                .fifo_data        ( pop_head                           ),
+                .o_load_crc       ( out_s[OUT_LOAD_CRC] & !cnt_en & !stuff_event ),    // counter mode: OUT_LOAD_CRC only counts down
+                .crc_data         ( crc_out                            ),
+                .crc_byte         ( crc_byte                           ),
+                .comm_load_data   ( comm_load_data                     ),
+                .shift_in         ( shift_in_bit                       ),
+                .shift_in_hi      ( {pin_in[{1'b0, cfg0[1:0]} + 3'd3], pin_in[{1'b0, cfg0[1:0]} + 3'd2],
+                                     pin_in[{1'b0, cfg0[1:0]} + 3'd1]} ),
+                .shift_n1         ( {out_s[OUT_K_SEL1], out_s[OUT_K_SEL0]} ),
+                .cfg              ( cfg0                               ),
+                .preload          ( preload                            ),
+                .compare          ( compare                            ),
+                .wr_count1        ( prism_wr && win && shard_off == SH_COUNT1 ),
+                .wr_count1_data   ( data_in                            ),
+                .wr_count2        ( (word_wr || byte_wr) && win && shard_off == SH_COUNTS ),
+                .wr_count2_data   ( data_in[7:0]                       ),
+                .wr_comm          ( win && ((word_wr && shard_off == SH_COUNTS) ||
+                                            (byte_wr && shard_off == SH_COUNTS + 7'd2)) ),
+                .wr_comm_data     ( word_wr ? data_in[23:16] : data_in[7:0] ),
+                .wr_count3        ( (word_wr || byte_wr) && win && shard_off == SH_COUNT3 ),
+                .wr_count3_data   ( data_in[7:0]                       ),
+                .wr_limit3        ( win && ((word_wr && shard_off == SH_COUNT3) ||
+                                            (byte_wr && shard_off == SH_COUNT3 + 7'd1)) ),
+                .wr_limit3_data   ( word_wr ? data_in[15:8] : data_in[7:0] ),
+                .wr_mask3         ( win && ((word_wr && shard_off == SH_COUNT3) ||
+                                            (byte_wr && shard_off == SH_COUNT3 + 7'd2)) ),
+                .wr_mask3_data    ( word_wr ? data_in[23:16] : data_in[7:0] ),
+                .count1           ( count1                             ),
+                .count2           ( count2                             ),
+                .count3           ( count3                             ),
+                .limit3           ( limit3                             ),
+                .mask3            ( mask3                              ),
+                .comm             ( comm                               ),
+                .shift_count      ( shift_count                        ),
+                .comm_count       ( comm_count                         ),
+                .count1_wrap      ( count1_wrap                        ),
+                .count1_term      ( count1_term                        ),
+                .count2_cmp       ( count2_cmp                         ),
+                .count2_eq_comm   ( count2_eq_comm                     ),
+                .count3_cmp       ( count3_cmp                         ),
+                .shift_term       ( shift_term                         ),
+                .shift_data       ( shift_data                         )
+            );
+
+            // The flop FIFO (idle while the SRAM FIFO is this shard's storage)
+            prism_fifo #( .DEPTH ( FIFO_DEPTH ), .AW ( FIFO_AW ) ) i_fifo
+            (
+                .clk          ( clk                              ),
+                .rst_n        ( rst_n                            ),
+                .flush        ( fifo_flush & !fifo_sram          ),
+                .push         ( f_push & !fifo_sram              ),
+                .push_data    ( f_pdata                          ),
+                .pop          ( f_pop & !fifo_sram               ),
+                .tab_en       ( ctab[CT_EN]                      ),
+                .tab_idx      ( lf_tab_idx                       ),
+                .ae_level     ( lf_ae_lvl                        ),
+                .af_level     ( lf_af_lvl                        ),
+                .head         ( lf_head                          ),
+                .count        ( lf_count                         ),
+                .empty        ( lf_empty                         ),
+                .full         ( lf_full                          ),
+                .almost_empty ( lf_ae                            ),
+                .almost_full  ( lf_af                            )
+            );
+            assign fifo_head  = fifo_sram ? sram_head_v[8*SI +: 8]    : lf_head;
+            assign fifo_count = fifo_sram ? sram_count_v[14*SI +: 14] : {{(13-FIFO_AW){1'b0}}, lf_count};
+            assign fifo_empty = fifo_sram ? sram_empty_v[SI] : lf_empty;
+            assign fifo_full  = fifo_sram ? sram_full_v[SI]  : lf_full;
+
+            // SRAM FIFO almost-empty / almost-full (levels in 64-byte units),
+            // compared here so only the count crosses from the SRAM side
+            assign fifo_ae    = fifo_sram ? (sram_count_v[14*SI +: 14] <= {4'h0, cfg1[16 +: 4], 6'b0}) : lf_ae;
+            assign fifo_af    = fifo_sram ? (sram_count_v[14*SI +: 14] >= (SRAM_BYTES - {4'h0, cfg1[20 +: 4], 6'b0})) : lf_af;
+            // TX DMA: a burst (32 bytes) starts only while B is the SRAM FIFO
+            // in TX mode with room for all of it, so the tap never waits
+            if (s == SHARDS-1)
+            begin : TXD_ROOM
+                assign txd_room = fifo_sram & fifo_dir & (sram_count_v[14*SI +: 14] <= SRAM_BYTES - 14'd32);
+                assign txd_hold = fifo_sram & sram_repush_v[s];
+            end
+            assign sram_sel_v[s]          = fifo_sram;
+            assign sram_push_v[s]         = f_push;
+            assign sram_pdata_v[8*s +: 8] = f_pdata;
+            assign sram_pop_v[s]          = f_pop;
+            assign sram_flush_v[s]        = fifo_flush;
+
+            // SRAM FIFO replay (4b.12): with CFG3[29] a pop while cond_out[0]
+            // is high re-pushes the popped byte, so a FIFO that holds exactly
+            // one line plays it again; the VGA pixel shard raises cond_out[0]
+            // in its pixel state while the line shard's replay flag is up
+            assign sram_repush_v[s]       = cfg3[CFG3_FIFO_REPUSH] & exec & cond_s[0];
+
+            // CRC over the bit the shifter is receiving (crc_src = 0) or
+            // transmitting (crc_src = 1) in the cycle OUT_CRC_UPDATE is set
+            // or, with CFG3[10], a 32-bit up / down counter on the same strobes
+            prism_crc #( .COUNTER ( CNT_CMP ) ) i_crc
+            (
+                .clk          ( clk                              ),
+                .rst_n        ( rst_n                            ),
+                .enable       ( prism_enable                     ),
+                .clear        ( exec & out_s[OUT_CRC_CLEAR]      ),
+                .update       ( exec & out_s[OUT_CRC_UPDATE] & !stuff_event ),
+                .consume      ( exec & out_s[OUT_LOAD_CRC] & (cnt_en | !cfg0[CFG_SHIFT_WIDE]) & !stuff_event ),
+                .count_en     ( cnt_en                           ),
+                .bit_in       ( cfg0[CFG_CRC_SRC] ? shift_data : shift_in_bit ),
+                .mode         ( cfg0[CFG_CRC_MODE +: 2]          ),
+                .reflect      ( cfg0[CFG_CRC_REFLECT]            ),
+                .init_ones    ( cfg0[CFG_CRC_INIT_ONES]          ),
+                .xor_out      ( cfg0[CFG_CRC_XOR_OUT]            ),
+                .poly         ( crc_poly                         ),
+                .expected     ( crc_exp                          ),
+                .wr           ( prism_wr && win && shard_off == SH_CRC ),
+                .wr_data      ( data_in                          ),
+                .value        ( crc_value                        ),
+                .out_value    ( crc_out                          ),
+                .out_byte     ( crc_byte                         ),
+                .ok           ( crc_ok                           )
+            );
+
+            // PRISM inputs for this shard
+            assign in_s[6:0]   = pin_in;
+            assign in_s[7]     = (stuff_en & stuff_tx) ? tx_bit : shift_data;   // a stuffing transmitter reads the pin's bit
+            assign in_s[9:8]   = host_in;
+            assign in_s[10]    = count1_term;
+            assign in_s[11]    = count2_cmp;
+            assign in_s[13:12] = cfg0[CFG_LATCH_IN_OUT] ? {latched_out[7], latched_out[2]} : latched_in;
+            assign in_s[14]    = shift_term;
+            assign in_s[15]    = count2_eq_comm;
+
+            // Timer 2 (PRELOAD2): a down counter that reloads itself and ticks
+            // for one clock every PRELOAD2 + 1 clocks; the default value of
+            // input 28.  Nothing in the FSM needs to start it, which is the
+            // point: it paces things like Ethernet link pulses while count1 is
+            // busy.  With PRELOAD2[24] the count also restarts when the shard
+            // enters state PRELOAD2[29:25] (next SI is it, current SI is not),
+            // a retriggerable timeout that costs no STEW bits; with [30] as
+            // well the timer stops after its tick until the next entry.
+            wire [SI_W-1:0]           si_s  = (s == 0) ? trace_si_0  : trace_si_1;    // current / next state
+            wire [SI_W-1:0]           nsi_s = (s == 0) ? trace_nsi_0 : trace_nsi_1;
+            wire                      t2_entry = preload2[T2_RELOAD] && (nsi_s == preload2[T2_STATE +: SI_W]) &&
+                                                 (si_s != preload2[T2_STATE +: SI_W]);
+            reg  [23:0]               timer2;
+            reg                       timer2_tick;
+            reg                       timer2_armed;                     // one-shot: counting until the tick
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                begin
+                    timer2       <= 24'h0;
+                    timer2_tick  <= 1'b0;
+                    timer2_armed <= 1'b0;
+                end
+                else
+                begin
+                    timer2_tick <= 1'b0;
+                    if (preload2[23:0] == 24'h0)
+                    begin
+                        timer2       <= 24'h0;
+                        timer2_armed <= 1'b0;
+                    end
+                    else if (t2_entry)
+                    begin
+                        timer2       <= preload2[23:0];
+                        timer2_armed <= 1'b1;
+                    end
+                    else if (preload2[T2_ONESHOT] && preload2[T2_RELOAD] && !timer2_armed)
+                        ;                                               // one-shot: waiting for the next entry
+                    else if (timer2 == 24'h0)
+                    begin
+                        timer2       <= preload2[23:0];
+                        timer2_tick  <= 1'b1;
+                        timer2_armed <= !preload2[T2_ONESHOT];
+                    end
+                    else
+                        timer2 <= timer2 - 24'd1;
+                end
+            end
+
+            genvar sl;
+            for (sl = 0; sl < 4; sl = sl + 1)
+            begin : SLOTS
+                assign in_s[16+sl] = slot_val(cfg2[4*sl +: 4],    in_prev[sl], in_prev, comm, comm_match, flag2, event_valid);
+                assign in_s[28+sl] = slot_val(cfg2[16+4*sl +: 4], (sl == 0) ? timer2_tick   :
+                                                                   (sl == 1) ? count3_cmp    :
+                                                                   (sl == 2) ? (stuff_tx ? stuff_hold : stuff_dropped) : stuff_due,
+                                              in_prev, comm, comm_match, flag2, event_valid);
+            end
+
+            // Manchester bit recoverer: its bit valid is slot code 15, its bit
+            // the shifter input with CFG3[8]; consumed by the FSM's shift
+            always @(negedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                    mrx_n <= 1'b0;
+                else
+                    mrx_n <= mrx_pin;
+            end
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                begin
+                    mrx_h_s <= 2'b00;
+                    mrx_p_s <= 2'b00;
+                end
+                else
+                begin
+                    mrx_h_s <= {mrx_h_s[0], mrx_n};
+                    mrx_p_s <= {mrx_p_s[0], mrx_pin};
+                end
+            end
+            prism_mrx i_mrx
+            (
+                .clk     ( clk                    ),
+                .rst_n   ( rst_n                  ),
+                .enable  ( cfg3[CFG3_MRX_EN]      ),
+                .ddr     ( mrx_ddr                ),
+                .line    ( mrx_ddr ? mrx_p_s[1] : in_s[cfg3[2:0]] ),
+                .line_h  ( mrx_h_s[1]             ),
+                .hb      ( cfg3[7:4]              ),
+                .consume ( out_s[OUT_SHIFT]       ),
+                .valid   ( mrx_valid              ),
+                .value   ( mrx_value              )
+            );
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                begin
+                    smp_prev    <= 1'b0;
+                    smp_pending <= 1'b0;
+                end
+                else
+                begin
+                    smp_prev <= smp_src;
+                    if (!smp_en || !prism_enable)
+                        smp_pending <= 1'b0;
+                    else if (smp_edge)
+                        smp_pending <= 1'b1;
+                    else if (exec && (out_s[OUT_SHIFT] || out_s[OUT_LATCH]))
+                        smp_pending <= 1'b0;
+                end
+            end
+            assign in_s[20]    = fifo_flag(1'b0, cfg1[25:24], fifo_empty, fifo_full, fifo_ae, fifo_af);
+            assign in_s[21]    = fifo_flag(1'b1, cfg1[27:26], fifo_empty, fifo_full, fifo_ae, fifo_af);
+            assign in_s[22]    = crc_ok;
+            assign in_s[23]    = count1_wrap;
+            assign in_s[24]    = sema;
+            assign in_s[25]    = halt_r_v[1-s];     // other shard halted (registered: the live
+                                                    // halt includes the conditional break, which
+                                                    // depends on this shard's inputs)
+            // FIFO B's flags for shard 0 while it owns both FIFOs, same two-slot select;
+            // fractured, the other shard's pin_out[1] and pin_out[2], one clock old: two
+            // levels an FSM holds up for its neighbour (a link that is up, a fault)
+            wire [3:0]                fifo_b_fl = fifo_st_v[32*(SHARDS-1) +: 4];   // {af, ae, full, empty}
+            wire                      own_b     = (s == 0) && !fractured;
+            assign in_s[26]    = fractured ? xs_v[2*(1-s)] :
+                                 own_b & fifo_flag(1'b0, cfg1[29:28], fifo_b_fl[0], fifo_b_fl[1], fifo_b_fl[2], fifo_b_fl[3]);
+            assign in_s[27]    = fractured ? xs_v[2*(1-s) + 1] :
+                                 own_b & fifo_flag(1'b1, cfg1[31:30], fifo_b_fl[0], fifo_b_fl[1], fifo_b_fl[2], fifo_b_fl[3]);
+
+            // Output pins: uo_out[p] source select, PINMUX[3(p-1)+2:3(p-1)] for
+            // p = 1-7 and PINMUX[23:21] for uo_out[0] (added for the VGA chroma:
+            // TinyQV's GPIO output function select must route the pin here too,
+            // it is the UART TX by default)
+            //   0-3 pin_out[3:0], 4 cond_out[0], 5 cond_out[1], 6 shift_data
+            //   (a lane of the comm window in multi-bit shift mode: the 6-bit
+            //   window comm[base+5:base] is shared by the eight pins, each
+            //   picking one of its lanes, so a comm bit feeds at most six
+            //   window muxes instead of eight 8:1 pin muxes; lanes 6-7 read 0),
+            //   7 = this shard does not drive the pin
+            wire [2:0] comm_base = comm_pins[2:0];
+            wire [7:0] comm_win  = comm_base == 3'd0 ? {2'b00, comm[5:0]} :
+                                   comm_base == 3'd1 ? {2'b00, comm[6:1]} : {2'b00, comm[7:2]};
+            genvar k;
+            for (k = 0; k < 8; k = k + 1)
+            begin : GEN_PINMUX
+                wire [2:0] sel = (k == 0) ? pinmux[23:21] : pinmux[3*(k-1)+2 : 3*(k-1)];
+                wire       shift_lane = cfg0[CFG_MSHIFT_EN] ? comm_win[comm_pins[3*k+6 : 3*k+4]] :
+                                        (stuff_en & stuff_tx) ? tx_bit : shift_data;
+                assign pin_src_v[8*s+k]   = sel == 3'd0 ? pin_out[0] :
+                                            sel == 3'd1 ? pin_out[1] :
+                                            sel == 3'd2 ? pin_out[2] :
+                                            sel == 3'd3 ? pin_out[3] :
+                                            sel == 3'd4 ? cond_s[0]  :
+                                            sel == 3'd5 ? cond_s[1]  :
+                                            sel == 3'd6 ? shift_lane : 1'b0;
+                assign pin_claim_v[8*s+k] = sel != 3'd7;
+            end
+
+            // Semaphore from the other shard: set by its OUT_SEMA_SET, cleared
+            // by our OUT_SEMA_CLEAR; same-cycle priority from our CFG0.
+            assign sema_set_req[s] = exec & out_s[OUT_SEMA_SET];
+
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                begin
+                    halt_r      <= 1'b0;
+                    xs_r        <= 2'b0;
+                    host_irq_r  <= 1'b0;
+                    irq         <= 1'b0;
+                    host_in     <= 2'b0;
+                    compare     <= 8'h0;
+                    sema        <= 1'b0;
+                    latched_in  <= 2'h0;
+                    in_prev     <= 4'h0;
+                    flag2       <= 1'b0;
+                end
+                else
+                begin
+                    halt_r     <= halt_s;
+                    host_irq_r <= exec & out_s[OUT_HOST_INTERRUPT];
+
+                    // What the other shard sees of this one (inputs 26-27,
+                    // fractured): held while halted, low while disabled
+                    if (!prism_enable)
+                        xs_r <= 2'b0;
+                    else if (exec)
+                        xs_r <= out_s[2:1];
+
+                    // Interrupt: debugger halt, or OUT_HOST_INTERRUPT asserted
+                    // (once per assertion).  Cleared by a byte write to the
+                    // shard's INT_CLR byte with bit 7 set, by the host_in
+                    // toggle write, or by disabling the PRISM.
+                    if ((halt_s && !halt_r) ||
+                        (exec && out_s[OUT_HOST_INTERRUPT] && !host_irq_r && !(dma_end_s && dma_hw_end) &&
+                         !(s == SHARDS-1 && txd_ring)))
+                        irq <= 1'b1;                            // (a DMA takes the pulse as a frame end instead)
+                    else if (!prism_enable ||
+                             (byte_wr && address == (s == 0 ? REG_INT_CLR0 : REG_INT_CLR1) && data_in[7]) ||
+                             (byte_wr && win && shard_off == SH_TOGGLE))
+                        irq <= 1'b0;
+
+                    // host_in
+                    if (prism_wr && win && shard_off == SH_HOST)
+                        host_in <= data_in[1:0];
+                    else if ((byte_wr && win && shard_off == SH_TOGGLE) || (s == SHARDS-1 && txd_start))
+                        host_in[0] <= ~host_in[0];              // (the TX ring starts shard 1's frames the same way)
+
+                    // count2 compare register
+                    if (word_wr && win && shard_off == SH_COUNTS)
+                        compare <= data_in[15:8];
+                    else if (byte_wr && win && shard_off == SH_COUNTS + 7'd1)
+                        compare <= data_in[7:0];
+
+                    // Semaphore
+                    if (!prism_enable)
+                        sema <= 1'b0;
+                    else if (sema_set_req[1-s] && sema_clr)
+                        sema <= cfg0[CFG_SEMA_SET_WINS];
+                    else if (sema_set_req[1-s])
+                        sema <= 1'b1;
+                    else if (sema_clr)
+                        sema <= 1'b0;
+
+                    // Latched inputs, or FSM flags: with CFG_FLAG_LATCH the
+                    // conditional outputs (per-state constants) are the values
+                    // OUT_LATCH stores, and output 19 goes into flag2
+                    if (!prism_enable)
+                    begin
+                        latched_in <= 2'h0;
+                        flag2      <= 1'b0;
+                    end
+                    else if (exec && cfg0[CFG_LATCH_EN] && out_s[OUT_LATCH])
+                    begin
+                        latched_in <= cfg0[CFG_FLAG_LATCH] ? cond_s : {shift_data, cond_s[0]};
+                        flag2      <= out_s[OUT_FLAG2];
+                    end
+
+                    // in_prev: capture the selected source on the core's strobe,
+                    // or all four on the sampler's edge
+                    if (!prism_enable)
+                        in_prev <= 4'h0;
+                    else if (smp_edge && cfg3[CFG3_SMP_LATCH])
+                        in_prev <= in_prev_src_val;
+                    else
+                        in_prev <= (in_prev & ~in_prev_cap) | (in_prev_src_val & in_prev_cap);
+                end
+            end
+
+            // ---- Trace (section 4m): from the trigger on, every clock's
+            // {executing, tree 1 taken, tree 0 matched, the six selected LUT
+            // inputs, SI} goes to the SRAM trace port (next to the SRAM,
+            // prism_trace_port.v) until the buffer is full; the SRAM FIFO
+            // wrapper then serves the entries to the host as bytes.  One shard
+            // at a time: the entry and strobes are picked and registered above.
+            wire [TRC_CFG_W-1:0]      trace_cfg;
+            wire                      trace_cfg_en;
+            wire                      trc_act   = trc_active_v[s];       // owns an SRAM
+            wire                      big_act   = trc_big_act_v[s];      // owns both
+            wire [PRISM_STATE_INPUTS-1:0] mux_s = (s == 0) ? trace_mux_0   : trace_mux_1;
+            wire [1:0]                match_s   = (s == 0) ? trace_match_0 : trace_match_1;
+            wire [1:0]                trc_trig  = trace_cfg[TRC_TRIG +: 2];
+            wire [1:0]                trc_edge  = trace_cfg[TRC_EDGE +: 2];
+            wire                      trc_in_now = in_s[trace_cfg[TRC_IN +: 5]];
+            localparam                SI_OTHER = (NSRAM > 1) ? (1 - SI) : SI;   // the other shard's SRAM
+            wire                      trc_full_in = big_act ? trc_full_v[(NSRAM > 1) ? NSRAM-1 : 0] :
+                                                    trace_cfg[TRC_OTHER] ? trc_full_v[SI_OTHER] : trc_full_v[SI];
+            reg                       trc_in_prev;
+            reg                       trc_armed, trc_running, trc_done;
+            wire                      trc_edge_hit = trc_edge[1] ? (trc_in_now ^ trc_in_prev) :
+                                                     trc_edge[0] ? (!trc_in_now & trc_in_prev) :
+                                                                   (trc_in_now & !trc_in_prev);
+            wire                      trc_si_hit = (si_s == trace_cfg[TRC_SI +: SI_W]);
+            wire                      trc_trigger = trc_armed &
+                                                    ((trc_trig == 2'd0) |
+                                                     (trc_trig == 2'd1 && trc_si_hit) |
+                                                     (trc_trig == 2'd2 && trc_si_hit && exec && (|match_s)) |
+                                                     (trc_trig == 2'd3 && trc_edge_hit));
+            wire                      trc_capture = trc_act & (trc_running | trc_trigger) & !trc_full_in;
+            wire                      trc_ctrl_wr = prism_wr && win && shard_off == SH_TRACE_CTRL;
+            wire                      trc_arm     = trc_act & trc_ctrl_wr & data_in[0];
+            wire                      trc_stop    = trc_act & trc_ctrl_wr & data_in[1] & !data_in[0];
+            assign trc_en_v[s]              = trace_cfg[TRC_EN];
+            assign trc_big_v[s]             = trace_cfg[TRC_BIG];
+            assign trc_other_v[s]           = trace_cfg[TRC_OTHER];
+            assign trc_cap_v[s]             = trc_capture;
+            assign trc_stop_v[s]            = trc_stop;
+            assign trc_arm_v[s]             = trc_arm;
+            assign trc_din_v[16*s +: 16]    = {2'b00, exec, match_s, mux_s, si_s};
+            assign trace_st_v [32*s +: 32]  = {27'h0, trc_act, big_act, trc_done, trc_running, trc_armed};
+
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                begin
+                    trc_in_prev <= 1'b0;
+                    trc_armed   <= 1'b0;
+                    trc_running <= 1'b0;
+                    trc_done    <= 1'b0;
+                end
+                else
+                begin
+                    trc_in_prev <= trc_in_now;
+
+                    if (!trc_act)
+                    begin
+                        trc_armed   <= 1'b0;
+                        trc_running <= 1'b0;
+                    end
+                    else if (trc_arm)
+                    begin
+                        trc_armed   <= 1'b1;
+                        trc_running <= 1'b0;
+                        trc_done    <= 1'b0;
+                    end
+                    else if (trc_stop || (trc_running && trc_full_in))   // (full_in lingers 2 clocks after an arm)
+                    begin
+                        trc_armed   <= 1'b0;
+                        trc_running <= 1'b0;
+                        trc_done    <= 1'b1;
+                    end
+                    else if (trc_capture)
+                    begin
+                        trc_armed   <= 1'b0;
+                        trc_running <= 1'b1;
+                    end
+                end
+            end
+
+            // Configuration registers: latches (area) or flops (FPGA)
+            assign trace_cfg_en = win && shard_off == SH_TRACE_CFG;
+            assign cfg0_en    = win && shard_off == SH_CFG0;
+            assign pinmux_en  = win && shard_off == SH_PINMUX;
+            assign preload_en = win && shard_off == SH_PRELOAD;
+            assign cfg1_en     = win && shard_off == SH_CFG1;
+            assign cfg2_en     = win && shard_off == SH_CFG2;
+            assign const_en    = win && shard_off == SH_CONST;
+            assign cfg3_en     = win && shard_off == SH_CFG3;
+            assign preload2_en = win && shard_off == SH_PRELOAD2;
+            assign crc_poly_en = win && shard_off == SH_CRC_POLY;
+            assign crc_exp_en  = win && shard_off == SH_CRC_EXP;
+            assign ctab_en     = win && shard_off == SH_CTAB;
+            assign comm_pins_en = win && shard_off == SH_COMM_PINS;
+
+`ifndef SYNTH_FPGA
+            prism_latch_reg #( .WIDTH ( 32 ) ) cfg1_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( cfg1_en       ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( cfg1          )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) crc_poly_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( crc_poly_en   ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( crc_poly      )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) crc_exp_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( crc_exp_en    ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( crc_exp       )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) cfg2_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( cfg2_en       ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( cfg2          )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) const_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( const_en      ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( consts        )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) cfg3_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( cfg3_en       ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( cfg3          )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) preload2_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( preload2_en   ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( preload2      )
+            );
+            prism_latch_reg #( .WIDTH ( TRC_CFG_W ) ) trace_cfg_reg
+            (
+                .rst_n      ( rst_n                    ),
+                .enable     ( trace_cfg_en             ),
+                .wr         ( latch_wr                 ),
+                .data_in    ( latch_data[TRC_CFG_W-1:0] ),
+                .data_out   ( trace_cfg                )
+            );
+            prism_latch_reg #( .WIDTH ( 28 ) ) comm_pins_reg
+            (
+                .rst_n      ( rst_n             ),
+                .enable     ( comm_pins_en      ),
+                .wr         ( latch_wr          ),
+                .data_in    ( latch_data[27:0]  ),
+                .data_out   ( comm_pins         )
+            );
+            prism_latch_reg #( .WIDTH ( CTAB_W ) ) ctab_reg
+            (
+                .rst_n      ( rst_n                  ),
+                .enable     ( ctab_en                ),
+                .wr         ( latch_wr               ),
+                .data_in    ( latch_data[CTAB_W-1:0] ),
+                .data_out   ( ctab                   )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) cfg0_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( cfg0_en       ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( cfg0          )
+            );
+            prism_latch_reg #( .WIDTH ( 24 ) ) pinmux_reg
+            (
+                .rst_n      ( rst_n             ),
+                .enable     ( pinmux_en         ),
+                .wr         ( latch_wr          ),
+                .data_in    ( latch_data[23:0]  ),
+                .data_out   ( pinmux            )
+            );
+            prism_latch_reg #( .WIDTH ( 32 ) ) preload_reg
+            (
+                .rst_n      ( rst_n         ),
+                .enable     ( preload_en    ),
+                .wr         ( latch_wr      ),
+                .data_in    ( latch_data    ),
+                .data_out   ( preload       )
+            );
+`else
+            reg [31:0] cfg0_r;
+            reg [23:0] pinmux_r;
+            reg [31:0] preload_r;
+            reg [31:0] cfg1_r, crc_poly_r, crc_exp_r, cfg2_r, const_r, cfg3_r, preload2_r;
+            reg [TRC_CFG_W-1:0] trace_cfg_r;
+            reg [CTAB_W-1:0] ctab_r;
+            reg [27:0] comm_pins_r;
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (~rst_n)
+                begin
+                    cfg0_r     <= 32'h0;
+                    pinmux_r   <= 24'h0;
+                    preload_r  <= 32'h0;
+                    cfg1_r     <= 32'h0;
+                    crc_poly_r <= 32'h0;
+                    crc_exp_r  <= 32'h0;
+                    cfg2_r     <= 32'h0;
+                    const_r    <= 32'h0;
+                    cfg3_r     <= 32'h0;
+                    preload2_r <= 32'h0;
+                    trace_cfg_r <= 0;
+                    ctab_r     <= 0;
+                    comm_pins_r <= 0;
+                end
+                else
+                begin
+                    if (cfg0_en & prism_wr)     cfg0_r     <= data_in;
+                    if (pinmux_en & prism_wr)   pinmux_r   <= data_in[23:0];
+                    if (preload_en & prism_wr)  preload_r  <= data_in;
+                    if (cfg1_en & prism_wr)     cfg1_r     <= data_in;
+                    if (crc_poly_en & prism_wr) crc_poly_r <= data_in;
+                    if (crc_exp_en & prism_wr)  crc_exp_r  <= data_in;
+                    if (cfg2_en & prism_wr)     cfg2_r     <= data_in;
+                    if (const_en & prism_wr)    const_r    <= data_in;
+                    if (cfg3_en & prism_wr)     cfg3_r     <= data_in;
+                    if (preload2_en & prism_wr) preload2_r <= data_in;
+                    if (trace_cfg_en & prism_wr) trace_cfg_r <= data_in[TRC_CFG_W-1:0];
+                    if (ctab_en & prism_wr)     ctab_r     <= data_in[CTAB_W-1:0];
+                    if (comm_pins_en & prism_wr) comm_pins_r <= data_in[27:0];
+                end
+            end
+            assign cfg0     = cfg0_r;
+            assign pinmux   = pinmux_r;
+            assign preload  = preload_r;
+            assign cfg1     = cfg1_r;
+            assign crc_poly = crc_poly_r;
+            assign crc_exp  = crc_exp_r;
+            assign cfg2     = cfg2_r;
+            assign consts   = const_r;
+            assign cfg3     = cfg3_r;
+            assign preload2 = preload2_r;
+            assign trace_cfg = trace_cfg_r;
+            assign ctab      = ctab_r;
+            assign comm_pins = comm_pins_r;
+`endif
+
+            // Export for the read mux and cross-shard use
+            assign cfg0_v   [32*s +: 32] = cfg0;
+            assign pinmux_v [24*s +: 24] = pinmux;
+            assign preload_v[32*s +: 32] = preload;
+            assign count1_v [32*s +: 32] = count1;
+            assign counts_v [32*s +: 32] = {comm_count, shift_count, comm, compare, count2};
+            assign count3_v [24*s +: 24] = {mask3, limit3, count3};
+            assign flags_v  [32*s +: 32] = {19'h0, count3_cmp, smp_pending, crc_ok, fifo_full, fifo_empty,
+                                            latched_in, shift_data, shift_term, count2_eq_comm,
+                                            count2_cmp, count1_wrap, count1_term};
+            assign cfg1_v    [32*s +: 32] = cfg1;
+            assign cfg2_v    [32*s +: 32] = cfg2;
+            assign cfg3_v    [32*s +: 32] = cfg3;
+            assign preload2_v[32*s +: 32] = preload2;
+            assign const_v   [32*s +: 32] = consts;
+            assign ctab_v    [32*s +: 32] = {12'h0, const_idx, 5'h0, ctab};
+            assign comm_pins_v[32*s +: 32] = {4'h0, comm_pins};
+            assign fifo_st_v [32*s +: 32] = {10'h0, fifo_count, pop_n[1:0], push_busy, word_full,
+                                             fifo_af, fifo_ae, fifo_full, fifo_empty};
+            assign fifo_head_v[8*s +: 8]  = fifo_head;
+            assign fifo_count_v[14*s +: 14] = fifo_count;
+            assign fifo_empty_v[s]        = fifo_empty;
+            assign fifo_full_v[s]         = fifo_full;
+            assign fifo_af_v[s]           = fifo_af;
+            assign host_irq_pulse_v[s]    = exec & out_s[OUT_HOST_INTERRUPT] & !host_irq_r;
+            assign crc_ok_v[s]            = crc_ok;
+            assign comm_v     [8*s +: 8]  = comm;
+            if (s == 0)
+            begin : XOP
+                assign fifo_op_to_b = exec & out_s[OUT_FIFO_WR_RD] & sel_b;
+            end
+            assign crc_poly_v[32*s +: 32] = crc_poly;
+            assign crc_v     [32*s +: 32] = crc_value;
+            assign crc_exp_v [32*s +: 32] = crc_exp;
+            assign host_in_v[2*s +: 2]   = host_in;
+            assign irq_v[s]              = irq | (rx32 & word_full);    // 32-bit RX: a complete word is an interrupt
+            assign sema_v[s]             = sema;
+            assign halt_r_v[s]           = halt_r;
+            assign xs_v[2*s +: 2]        = xs_r;
+
+            if (s == 0)
+            begin : IN0
+                assign in_data_0 = in_s;
+            end
+            else
+            begin : IN1
+                assign in_data_1 = in_s;
+            end
+        end
+    endgenerate
+
+    assign user_interrupt = irq_v;
+
+    // =============================================================
+    // RX DMA tap: the selected shard's FIFO, byte-serial, for prism_dma.v
+    // (next to TinyQV); in chain mode the mover above feeds B from A and
+    // the frame end is shard 0's, the receiving chroma's
+    // =============================================================
+    wire [13:0] dma_count_sum = fifo_count_v[14*(SHARDS-1) +: 14] + fifo_count_v[13:0];
+    assign dma_head      = fifo_head_v[8*dma_shard +: 8];
+    assign dma_empty     = fifo_empty_v[dma_shard];
+    assign dma_drained   = dma_chain ? (fifo_empty_v[SHARDS-1] & fifo_empty_v[0] & !mv_busy) : fifo_empty_v[dma_shard];
+    assign dma_avail4    = (dma_chain ? dma_count_sum : fifo_count_v[14*dma_shard +: 14]) >= 14'd4;
+    assign dma_af        = fifo_af_v[dma_shard];
+    assign dma_frame_end = dma_chain ? host_irq_pulse_v[0] : host_irq_pulse_v[dma_shard];
+    assign dma_crc_ok    = dma_chain ? crc_ok_v[0] : crc_ok_v[dma_shard];
+
+    // TX ring (prism_txdma.v): shard 1's end of frame
+    assign txd_frame_end = host_irq_pulse_v[SHARDS-1];
+
+    // =============================================================
+    // Output pins: shard 0 wins a pin it claims, otherwise shard 1
+    // (whose default PINMUX claims everything with pin_out[0], which is
+    // 0 while unfractured).  A pin freezes while its owning shard is halted.
+    // uo_out[0] joined the mux on 2026-09-30 (VGA: eight pins); TinyQV
+    // shows it only when its GPIO output function select says so.
+    // =============================================================
+    genvar p;
+    generate
+        for (p = 0; p < 8; p = p + 1)
+        begin : GEN_PINS
+            wire owner1 = !pin_claim_v[p];
+            assign uo_out_c[p] = owner1 ? pin_src_v[8+p] : pin_src_v[p];
+            always @(posedge clk or negedge rst_n)
+            begin
+                if (!rst_n)
+                    latched_out[p] <= 1'b0;
+                else if (!prism_enable)
+                    latched_out[p] <= 1'b0;
+                else if (!(owner1 ? halt[1] : halt[0]))
+                    latched_out[p] <= uo_out_c[p];
+            end
+        end
+    endgenerate
+    assign uo_out = latched_out;
+
+    // =============================================================
+    // Register reads.  Registers are decoded on the word address; a byte
+    // or half-word read returns the addressed lane in data_out[7:0]
+    // (TinyQV takes the low bits), so e.g. COUNTS + 1 reads compare.
+    // =============================================================
+    reg [31:0] reg_word;
+    // ---- SRAM FIFOs (see the localparams above) and the trace's use of the SRAMs
+    wire       sram_own1   = sram_sel_v[SHARDS-1] & ~sram_sel_v[0];     // shared: shard 1 owns it
+    wire       sram_any    = |sram_sel_v;
+    genvar n;
+    generate
+        for (n = 0; n < NSRAM; n = n + 1)
+        begin : SRAM
+            // the requesting shard: the owner when shared, shard n otherwise
+            wire               si_1   = SRAM_SHARED ? sram_own1 : (n != 0);
+            wire               req_on = SRAM_SHARED ? sram_any  : sram_sel_v[n];
+            // Trace ownership of this SRAM (the FIFO is held flushed meanwhile):
+            // shard 0 when it traces into SRAM 0 (SRAM 1 with TRACE_CFG[6]) or
+            // into both, shard 1 when it traces into SRAM 1 (SRAM 0 with [6],
+            // or if that is the only one) or into both
+            wire               tgt0   = (NSRAM > 1) && trc_other_v[0];
+            wire               tgt1   = SRAM_SHARED ? 1'b0 : !((NSRAM > 1) && trc_other_v[SHARDS-1]);
+            wire               own0   = trc_active_v[0] & (trc_big_act_v[0] | ((n != 0) == tgt0));
+            wire               own1   = trc_active_v[SHARDS-1] &
+                                        (trc_big_act_v[SHARDS-1] | ((n != 0) == tgt1));
+            wire               trace_own = own0 | own1;
+            wire               big_own   = trc_big_act_v[0] | trc_big_act_v[SHARDS-1];
+            // the trace port: packs the owner's entries into this SRAM and
+            // hands them to the FIFO wrapper when the capture ends
+            wire               port_wen, port_full, port_held, port_load;
+            wire [SRAM_AW-1:0] port_addr;
+            wire        [31:0] port_din;
+            wire [SRAM_AW+2:0] port_bytes;
+            prism_trace_port #( .AW ( SRAM_AW ) ) i_trace
+            (
+                .clk        ( clk                    ),
+                .rst_n      ( rst_n                  ),
+                .own        ( trace_own              ),
+                .big        ( big_own                ),
+                .upper      ( n != 0                 ),
+                .lower_full ( trc_full_v[0]          ),
+                .arm        ( trc_bus_arm            ),
+                .cap        ( trc_bus_cap            ),
+                .stop       ( trc_bus_stop           ),
+                .entry      ( trc_bus_din            ),
+                .full       ( port_full              ),
+                .held       ( port_held              ),
+                .load       ( port_load              ),
+                .load_bytes ( port_bytes             ),
+                .wen        ( port_wen               ),
+                .addr       ( port_addr              ),
+                .din        ( port_din               )
+            );
+            wire               push   = req_on & sram_push_v[si_1] & !trace_own;   // a traced SRAM takes no pushes
+            wire               pop    = req_on & sram_pop_v[si_1];
+            wire               repush = req_on & sram_repush_v[si_1];
+            wire               flush  = (req_on & sram_flush_v[si_1]) | (trace_own & trc_bus_arm);
+            wire         [7:0] pdata  = sram_pdata_v[8*si_1 +: 8];
+            wire [SRAM_AW-1:0] f_addr;
+            wire [SRAM_AW+2:0] sram_cnt;
+            wire        [31:0] f_din, f_bm, sram_dout;
+            wire               f_wen, f_ren;
+            // the macro port: the trace port's write in the clocks it has one, else the FIFO's
+            wire [SRAM_AW-1:0] sram_addr = port_wen ? port_addr  : f_addr;
+            wire        [31:0] sram_din  = port_wen ? port_din   : f_din;
+            wire        [31:0] sram_bm   = port_wen ? {32{1'b1}} : f_bm;
+            wire               sram_wen  = port_wen | f_wen;
+            wire               sram_ren  = !port_wen & f_ren;
+            assign sram_count_v[14*n +: 14] = sram_cnt;          // zero-extended
+            assign trc_full_v[n]            = port_full;
+            assign trc_held_v[n]            = trace_own & port_held;
+            prism_sram_fifo #( .AW ( SRAM_AW ) ) i_sram_fifo
+            (
+                .clk          ( clk                    ),
+                .rst_n        ( rst_n                  ),
+                .flush        ( flush                  ),
+                .load         ( port_load              ),
+                .load_bytes   ( port_bytes             ),
+                .push         ( push                   ),
+                .push_data    ( pdata                  ),
+                .pop          ( pop                    ),
+                .repush       ( repush                 ),
+                .head         ( sram_head_v[8*n +: 8]  ),
+                .count        ( sram_cnt               ),
+                .empty        ( sram_empty_v[n]        ),
+                .full         ( sram_full_v[n]         ),
+                .sram_addr    ( f_addr                 ),
+                .sram_din     ( f_din                  ),
+                .sram_bm      ( f_bm                   ),
+                .sram_wen     ( f_wen                  ),
+                .sram_ren     ( f_ren                  ),
+                .sram_dout    ( sram_dout              )
+            );
+            // IHP single-port SRAM: A_DLY must be tied high, BIST off.  Separate
+            // `if`s (no else-if chain) so the instance path stays SRAM[n].M512.i_sram
+            if (SRAM_AW == 11)
+            begin : M2048
+                RM_IHPSG13_1P_2048x32_c2_bm_bist i_sram
+                (
+                    .A_CLK       ( clk                  ),
+                    .A_MEN       ( sram_ren | sram_wen  ),
+                    .A_WEN       ( sram_wen             ),
+                    .A_REN       ( sram_ren             ),
+                    .A_ADDR      ( sram_addr            ),
+                    .A_DIN       ( sram_din             ),
+                    .A_DLY       ( 1'b1                 ),
+                    .A_DOUT      ( sram_dout            ),
+                    .A_BM        ( sram_bm              ),
+                    .A_BIST_CLK  ( 1'b0                 ),
+                    .A_BIST_EN   ( 1'b0                 ),
+                    .A_BIST_MEN  ( 1'b0                 ),
+                    .A_BIST_WEN  ( 1'b0                 ),
+                    .A_BIST_REN  ( 1'b0                 ),
+                    .A_BIST_ADDR ( 11'h0                ),
+                    .A_BIST_DIN  ( 32'h0                ),
+                    .A_BIST_BM   ( 32'h0                )
+                );
+            end
+            if (SRAM_AW == 10)
+            begin : M1024
+                RM_IHPSG13_1P_1024x32_c2_bm_bist i_sram
+                (
+                    .A_CLK       ( clk                  ),
+                    .A_MEN       ( sram_ren | sram_wen  ),
+                    .A_WEN       ( sram_wen             ),
+                    .A_REN       ( sram_ren             ),
+                    .A_ADDR      ( sram_addr            ),
+                    .A_DIN       ( sram_din             ),
+                    .A_DLY       ( 1'b1                 ),
+                    .A_DOUT      ( sram_dout            ),
+                    .A_BM        ( sram_bm              ),
+                    .A_BIST_CLK  ( 1'b0                 ),
+                    .A_BIST_EN   ( 1'b0                 ),
+                    .A_BIST_MEN  ( 1'b0                 ),
+                    .A_BIST_WEN  ( 1'b0                 ),
+                    .A_BIST_REN  ( 1'b0                 ),
+                    .A_BIST_ADDR ( 10'h0                ),
+                    .A_BIST_DIN  ( 32'h0                ),
+                    .A_BIST_BM   ( 32'h0                )
+                );
+            end
+            if (SRAM_AW == 9)
+            begin : M512
+                RM_IHPSG13_1P_512x32_c2_bm_bist i_sram
+                (
+                    .A_CLK       ( clk                  ),
+                    .A_MEN       ( sram_ren | sram_wen  ),
+                    .A_WEN       ( sram_wen             ),
+                    .A_REN       ( sram_ren             ),
+                    .A_ADDR      ( sram_addr            ),
+                    .A_DIN       ( sram_din             ),
+                    .A_DLY       ( 1'b1                 ),
+                    .A_DOUT      ( sram_dout            ),
+                    .A_BM        ( sram_bm              ),
+                    .A_BIST_CLK  ( 1'b0                 ),
+                    .A_BIST_EN   ( 1'b0                 ),
+                    .A_BIST_MEN  ( 1'b0                 ),
+                    .A_BIST_WEN  ( 1'b0                 ),
+                    .A_BIST_REN  ( 1'b0                 ),
+                    .A_BIST_ADDR ( 9'h0                 ),
+                    .A_BIST_DIN  ( 32'h0                ),
+                    .A_BIST_BM   ( 32'h0                )
+                );
+            end
+        end
+        for (n = NSRAM; n < SHARDS; n = n + 1)
+        begin : NO_SRAM
+            assign sram_head_v[8*n +: 8]    = 8'h0;
+            assign sram_count_v[14*n +: 14] = 14'h0;
+            assign sram_empty_v[n]          = 1'b1;
+            assign sram_full_v[n]           = 1'b1;
+            assign trc_held_v[n]            = 1'b0;
+            assign trc_full_v[n]            = 1'b0;
+        end
+    endgenerate
+
+    always @*
+    begin
+        if (shard_win)
+        begin
+            case ({shard_off[6:2], 2'b00})
+                SH_CFG0:    reg_word = cfg0_v   [32*shard_sel +: 32];
+                SH_PINMUX:  reg_word = {8'h0, pinmux_v[24*shard_sel +: 24]};
+                SH_PRELOAD: reg_word = preload_v[32*shard_sel +: 32];
+                SH_COUNT1:  reg_word = count1_v [32*shard_sel +: 32];
+                SH_COUNTS:  reg_word = counts_v [32*shard_sel +: 32];
+                SH_HOST:    reg_word = {30'h0, host_in_v[2*shard_sel +: 2]};
+                SH_FLAGS:   reg_word = flags_v  [32*shard_sel +: 32];
+                SH_CFG1:    reg_word = cfg1_v   [32*shard_sel +: 32];
+                SH_FIFO:    reg_word = {24'h0, fifo_rd_v[8*shard_sel +: 8]};
+                SH_FIFO_ST: reg_word = fifo_st_v[32*shard_sel +: 32];
+                SH_CRC_POLY:reg_word = crc_poly_v[32*shard_sel +: 32];
+                SH_CRC:     reg_word = crc_v    [32*shard_sel +: 32];
+                SH_CRC_EXP: reg_word = crc_exp_v[32*shard_sel +: 32];
+                SH_CFG2:    reg_word = cfg2_v   [32*shard_sel +: 32];
+                SH_CFG3:    reg_word = cfg3_v   [32*shard_sel +: 32];
+                SH_PRELOAD2: reg_word = preload2_v[32*shard_sel +: 32];
+                SH_CONST:   reg_word = const_v  [32*shard_sel +: 32];
+                SH_TRACE_CTRL: reg_word = trace_st_v  [32*shard_sel +: 32];
+                SH_CTAB:    reg_word = ctab_v   [32*shard_sel +: 32];
+                SH_COMM_PINS: reg_word = comm_pins_v[32*shard_sel +: 32];
+                SH_FIFO32:  reg_word = fifo32_v[32*shard_sel +: 32];
+                SH_COUNT3:  reg_word = {8'h0, count3_v[24*shard_sel +: 24]};
+                default:    reg_word = 32'h0;
+            endcase
+        end
+        else
+        begin
+            case ({1'b0, address[7:2], 2'b00})
+                REG_CTRL:       reg_word = {irq_v[0], prism_enable, irq_v[1], 29'h0};
+                REG_ID:         reg_word = {3'(PRISM_COND_LUT_SIZE), 3'(PRISM_COND_OUT), 6'(PRISM_INPUTS), 6'(OUTPUTS), 6'(DEPTH),
+                                            1'(PRISM_FRACTURABLE), 1'(PRISM_DUAL_COMPARE), 3'(PRISM_STATE_INPUTS), 3'(PRISM_LUT_SIZE)};
+                REG_INT_STATUS: reg_word = {28'h0, sema_v, irq_v};
+                default:        reg_word = prism_read_data;   // debugger registers (word access)
+            endcase
+        end
+        data_out = reg_word >> {address[1:0], 3'b000};
+    end
+    assign data_ready = 1'b1;
+
+    // =============================================================
+    // Enable and the delayed write strobe for the latch based registers
+    // =============================================================
+    always @(posedge clk or negedge rst_n)
+    begin
+        if (!rst_n)
+        begin
+            enable_r        <= 1'b0;
+            `ifndef SYNTH_FPGA
+            latch_wr        <= 1'b0;
+            latch_wr_p0     <= 1'b0;
+            latch_data      <= 32'h0;
+            `endif
+        end
+        else
+        begin
+            `ifndef SYNTH_FPGA
+            latch_wr_p0 <= prism_wr;
+            latch_wr    <= latch_wr_p0;
+            if (prism_wr)
+                latch_data <= data_in;
+            `endif
+
+            if (word_wr && address == REG_CTRL)
+                enable_r <= data_in[30];
+        end
+    end
+
+endmodule

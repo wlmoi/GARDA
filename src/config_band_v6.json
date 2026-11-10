@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "flow": "Classic",
+    "substituting_steps": {
+      "+OpenROAD.GeneratePDN": "Project.ExtendPowerStripes"
+    }
+  },
+  "//1": "pdngen's connectivity check runs before flow.py's stripe step bridges the macro pins; LVS is the verdict",
+  "PL_TARGET_DENSITY_PCT": 55,
+  "CLOCK_PERIOD": 14,
+  "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+  "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+  "RUN_LINTER": 1,
+  "LINTER_INCLUDE_PDK_MODELS": 1,
+  "SYNTH_STRATEGY": "AREA 0",
+  "USE_LIGHTER": 0,
+  "FALLBACK_SDC_FILE": "src/base.sdc",
+  "DESIGN_REPAIR_MAX_SLEW_PCT": 25,
+  "DESIGN_REPAIR_REMOVE_BUFFERS": 1,
+  "RUN_HEURISTIC_DIODE_INSERTION": 1,
+  "RUN_ANTENNA_REPAIR": 1,
+  "HEURISTIC_ANTENNA_THRESHOLD": 200,
+  "CLOCK_PORT": "clk",
+  "RUN_KLAYOUT_XOR": 0,
+  "RUN_KLAYOUT_DRC": 1,
+  "DESIGN_REPAIR_BUFFER_OUTPUT_PORTS": 0,
+  "TOP_MARGIN_MULT": 1,
+  "BOTTOM_MARGIN_MULT": 1,
+  "LEFT_MARGIN_MULT": 6,
+  "RIGHT_MARGIN_MULT": 6,
+  "FP_SIZING": "absolute",
+  "GRT_ALLOW_CONGESTION": 1,
+  "FP_IO_HLENGTH": 2,
+  "FP_IO_VLENGTH": 2,
+  "FP_PDN_VPITCH": 44.96,
+  "FP_PDN_VWIDTH": 2.1,
+  "RUN_CTS": 1,
+  "FP_PDN_MULTILAYER": 0,
+  "//": "pdn_cfg.tcl is LibreLane's PDN config without the per-macro grid, which has no shapes with this single-layer PDN and makes an unpatched pdngen fail (PDN-0233); the macros get their power from Project.ExtendPowerStripes",
+  "PDN_CFG": "dir::pdn_cfg.tcl",
+  "MAGIC_DEF_LABELS": 0,
+  "MAGIC_WRITE_LEF_PINONLY": 1,
+  "FP_MACRO_HORIZONTAL_HALO": 2.0,
+  "FP_MACRO_VERTICAL_HALO": 0.48,
+  "DIODE_CELL": "sg13cmos5l_antennanp/A",
+  "ERROR_ON_PDN_VIOLATIONS": 0,
+  "EXTRA_VERILOG_MODELS": [
+    "src/user_peripherals/cfgmem/cfgmem.v",
+    "src/user_peripherals/cfgmem/cfgmem_left.v"
+  ],
+  "MACROS": {
+    "CFGMEM_IHP_LEFT16": {
+      "instances": {
+        "i_peripherals.CFGMEMS_LEFT[0].cfgmem_lo": {
+          "location": [
+            447.19,
+            619.92
+          ],
+          "orientation": "N"
+        },
+        "i_peripherals.CFGMEMS_LEFT[0].cfgmem_hi": {
+          "location": [
+            1301.43,
+            619.92
+          ],
+          "orientation": "N"
+        },
+        "i_peripherals.CFGMEMS_LEFT[1].cfgmem_lo": {
+          "location": [
+            447.19,
+            510.3
+          ],
+          "orientation": "N"
+        },
+        "i_peripherals.CFGMEMS_LEFT[1].cfgmem_hi": {
+          "location": [
+            1301.43,
+            510.3
+          ],
+          "orientation": "FS"
+        }
+      },
+      "gds": [
+        "macros/CFGMEM_IHP_LEFT16/CFGMEM_IHP_LEFT16.gds"
+      ],
+      "lef": [
+        "macros/CFGMEM_IHP_LEFT16/CFGMEM_IHP_LEFT16.lef"
+      ],
+      "nl": [
+        "macros/CFGMEM_IHP_LEFT16/CFGMEM_IHP_LEFT16.nl.v"
+      ],
+      "spef": {
+        "nom_*": [
+          "macros/CFGMEM_IHP_LEFT16/spef/CFGMEM_IHP_LEFT16.nom.spef"
+        ]
+      },
+      "lib": {
+        "nom_typ_1p20V_25C": [
+          "macros/CFGMEM_IHP_LEFT16/lib/CFGMEM_IHP_LEFT16__nom_typ_1p20V_25C.lib"
+        ],
+        "nom_fast_1p32V_m40C": [
+          "macros/CFGMEM_IHP_LEFT16/lib/CFGMEM_IHP_LEFT16__nom_fast_1p32V_m40C.lib"
+        ],
+        "nom_slow_1p08V_125C": [
+          "macros/CFGMEM_IHP_LEFT16/lib/CFGMEM_IHP_LEFT16__nom_slow_1p08V_125C.lib"
+        ]
+      }
+    },
+    "CFGMEM_IHP16": {
+      "instances": {
+        "i_peripherals.CFGMEMS[2].cfgmem_lo": {
+          "location": [
+            87.51,
+            619.92
+          ],
+          "orientation": "N"
+        },
+        "i_peripherals.CFGMEMS[2].cfgmem_hi": {
+          "location": [
+            941.75,
+            619.92
+          ],
+          "orientation": "N"
+        },
+        "i_peripherals.CFGMEMS[3].cfgmem_lo": {
+          "location": [
+            87.51,
+            510.3
+          ],
+          "orientation": "N"
+        },
+        "i_peripherals.CFGMEMS[3].cfgmem_hi": {
+          "location": [
+            941.75,
+            510.3
+          ],
+          "orientation": "N"
+        }
+      },
+      "gds": [
+        "macros/CFGMEM_IHP16/CFGMEM_IHP16.gds"
+      ],
+      "lef": [
+        "macros/CFGMEM_IHP16/CFGMEM_IHP16.lef"
+      ],
+      "nl": [
+        "macros/CFGMEM_IHP16/CFGMEM_IHP16.nl.v"
+      ],
+      "spef": {
+        "nom_*": [
+          "macros/CFGMEM_IHP16/spef/CFGMEM_IHP16.nom.spef"
+        ]
+      },
+      "lib": {
+        "nom_typ_1p20V_25C": [
+          "macros/CFGMEM_IHP16/lib/CFGMEM_IHP16__nom_typ_1p20V_25C.lib"
+        ],
+        "nom_fast_1p32V_m40C": [
+          "macros/CFGMEM_IHP16/lib/CFGMEM_IHP16__nom_fast_1p32V_m40C.lib"
+        ],
+        "nom_slow_1p08V_125C": [
+          "macros/CFGMEM_IHP16/lib/CFGMEM_IHP16__nom_slow_1p08V_125C.lib"
+        ]
+      }
+    },
+    "RM_IHPSG13_1P_1024x32_c2_bm_bist": {
+      "instances": {
+        "i_peripherals.i_prism.SRAM.M1024.i_sram": {
+          "location": [
+            1284.72,
+            3.78
+          ],
+          "orientation": "FS"
+        }
+      },
+      "gds": [
+        "pdk_dir::libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x32_c2_bm_bist.gds"
+      ],
+      "lef": [
+        "pdk_dir::libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_1024x32_c2_bm_bist.lef"
+      ],
+      "nl": [],
+      "spef": {},
+      "spice": [
+        "pdk_dir::libs.ref/sg13cmos5l_sram/cdl/RM_IHPSG13_1P_1024x32_c2_bm_bist.cdl"
+      ],
+      "lib": {
+        "nom_typ_1p20V_25C": [
+          "pdk_dir::libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_typ_1p20V_25C.lib"
+        ],
+        "nom_fast_1p32V_m40C": [
+          "pdk_dir::libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_fast_1p32V_m55C.lib"
+        ],
+        "nom_slow_1p08V_125C": [
+          "pdk_dir::libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_slow_1p08V_125C.lib"
+        ]
+      }
+    }
+  },
+  "PDN_MACRO_CONNECTIONS": [
+    "i_peripherals\\.CFGMEMS_LEFT\\\\?\\[0\\\\?\\]\\.cfgmem_lo VPWR VGND VPWR VGND",
+    "i_peripherals\\.CFGMEMS_LEFT\\\\?\\[0\\\\?\\]\\.cfgmem_hi VPWR VGND VPWR VGND",
+    "i_peripherals\\.CFGMEMS_LEFT\\\\?\\[1\\\\?\\]\\.cfgmem_lo VPWR VGND VPWR VGND",
+    "i_peripherals\\.CFGMEMS_LEFT\\\\?\\[1\\\\?\\]\\.cfgmem_hi VPWR VGND VPWR VGND",
+    "i_peripherals\\.CFGMEMS\\\\?\\[2\\\\?\\]\\.cfgmem_lo VPWR VGND VPWR VGND",
+    "i_peripherals\\.CFGMEMS\\\\?\\[2\\\\?\\]\\.cfgmem_hi VPWR VGND VPWR VGND",
+    "i_peripherals\\.CFGMEMS\\\\?\\[3\\\\?\\]\\.cfgmem_lo VPWR VGND VPWR VGND",
+    "i_peripherals\\.CFGMEMS\\\\?\\[3\\\\?\\]\\.cfgmem_hi VPWR VGND VPWR VGND",
+    "i_peripherals\\.i_prism\\.SRAM\\.M1024\\.i_sram VPWR VGND VDD! VSS!",
+    "i_peripherals\\.i_prism\\.SRAM\\.M1024\\.i_sram VPWR VGND VDDARRAY! VSS!"
+  ],
+  "MAX_TRANSITION_CONSTRAINT": 0.75,
+  "MAX_FANOUT_CONSTRAINT": 8,
+  "PNR_CORNERS": [
+    "nom_typ_1p20V_25C",
+    "nom_slow_1p08V_125C"
+  ],
+  "VERILOG_DEFINES": [
+    "PRISM_SRAM_AW=10"
+  ],
+  "DESIGN_NAME": "tt_um_garda_chip",
+  "VERILOG_FILES": [
+    "dir::project.v",
+    "dir::peripherals.v",
+    "dir::user_peripherals/uart/peri_uart.v",
+    "dir::user_peripherals/uart/uart_rx.v",
+    "dir::user_peripherals/uart/uart_tx.v",
+    "dir::user_peripherals/prism/prism_periph.v",
+    "dir::user_peripherals/prism/prism_datapath.v",
+    "dir::user_peripherals/prism/prism_fifo.v",
+    "dir::user_peripherals/prism/prism_sram_fifo.v",
+    "dir::user_peripherals/prism/sram_2048x32_bb.v",
+    "dir::user_peripherals/prism/prism_crc.v",
+    "dir::user_peripherals/prism/latch_shift_reg.v",
+    "dir::user_peripherals/prism/latch_loader.v",
+    "dir::user_peripherals/prism/prism.v",
+    "dir::user_peripherals/prism/prism_sr_sit.v",
+    "dir::user_peripherals/prism/prism_latch_sit.v",
+    "dir::user_peripherals/prism/prism_latch_reg.v",
+    "dir::user_peripherals/cfgmem/cfgmem_periph.v",
+    "dir::tinyQV/cpu/tinyqv.v",
+    "dir::tinyQV/cpu/alu.v",
+    "dir::tinyQV/cpu/core.v",
+    "dir::tinyQV/cpu/counter.v",
+    "dir::tinyQV/cpu/cpu.v",
+    "dir::tinyQV/cpu/decode.v",
+    "dir::tinyQV/cpu/mem_ctrl.v",
+    "dir::tinyQV/cpu/qspi_ctrl.v",
+    "dir::tinyQV/cpu/register.v",
+    "dir::tinyQV/cpu/latch_reg.v",
+    "dir::tinyQV/cpu/time.v",
+    "dir::tinyQV/peri/uart/uart_tx.v"
+  ],
+  "DIE_AREA": "0 0 1724.16 710.64",
+  "FP_DEF_TEMPLATE": "dir::../tt/tech/ihp-sg13cmos5l/def/tt_block_8x4_pgvdd.def",
+  "VDD_PIN": "VPWR",
+  "GND_PIN": "VGND",
+  "RT_MAX_LAYER": "Metal4",
+  "FP_PDN_VSPACING": 3.52,
+  "//pdn": "44.96 um pitch = 4 x 11.24 (IHP 1P SRAM same-polarity column pitch); VGND 5.62 um from VPWR (2.1 + 3.52) = the SRAM VDD/VSS alternation; CFGMEM macros regenerated on this grid (DFFRAM platform tech.yml), place them at x = 1.44 + 44.96k, the SRAM at x = 7.21 + 44.96j (+ 11.24i)",
+  "//sram": "SRAM bottom right at 1284.72 (= 3.36 + 114 x 11.24, columns on the stripe grid; 19 um channel to the core edge so pdngen needs no repair). Flush left it sat under the tile pins and TinyQV, the placer wrapped TinyQV around its corner and routed through it, while the 300 um under column D stayed empty.",
+  "FP_PDN_VOFFSET": 6.15,
+  "//pdn_offset": "VOFFSET 6.15 puts the first VPWR stripe at 9.03 = SRAM at x 3.36 (flush to the core edge, no sliver channel) + its first VDD column 5.67; rails then need macros at x = -2.41 + 44.96k",
+  "RUN_MAGIC_DRC": 0,
+  "KLAYOUT_DRC_RUNSET": "pdk_dir::libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc",
+  "//drc": "Magic has no notion of the IHP SRAM bit cells (2.2M false violations inside the macro); the TT precheck for ihp-sg13cmos5l runs only the KLayout PDK deck, so that is the local signoff too (dev-branch deck: the pinned PDK copy has broken includes)",
+  "//rows": "Upper row 619.92 N (pins face the gap); lower row 510.30 N (pins face down) for columns A-C, FS (pins into the gap) for column D whose lower macro sits above the SRAM: with it facing down (v4) the hi chain to column C dived through the SRAM (357 shorts, all inside the SRAM footprint, nothing else left); a 60 um gap (v5) cost 10% more wire",
+  "//halo": "KLayout NW.b (n-well spacing 1.24 um): cells abutting the SRAM at the 0.48 um halo violate it along its long edges; 2 um keeps them off",
+  "//recipe": "Band v6 recipe (2026-09-14), kept as the alternative floorplan if PRISM tracing into the SRAM or a CONST SRAM pushes the column POR off the routing cliff: CFGMEM 2x2 band at the top on the 44.96 um grid (rows 619.92 N / 510.30, columns 87.51 / 447.19 / 941.75 / 1301.43), lower row N (pins down) except column D lower FS (pins into the gap) because the SRAM sits under column D; SRAM bottom right at 1284.72 FS; VOFFSET 6.15, VSPACING 3.52, halo 2.0, KLayout DRC on, Magic DRC off. Result: GRT 2884, DRT 0 in 12 iterations, KLayout DRC 0, LVS clean, typ setup +0.38 ns, hold +0.002 ns. Add ERROR_ON_ILLEGAL_OVERLAPS 0 (26 Magic abstract-overlap spots of the same kind as the POR). Run it directly: python -m librelane ... --run-tag band --force-run-dir runs/band src/config_band_v6.json (this file carries the tile keys tt_tool would otherwise merge).",
+  "ERROR_ON_ILLEGAL_OVERLAPS": 0
+}

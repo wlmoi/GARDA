@@ -1,93 +1,122 @@
-name: TinyTapeout physical flow
+name: gds
+
 on:
   push:
-    # Documentation/UI and the unrelated HPS prototype do not change this GDS.
-    paths-ignore:
-      - 'README.md'
-      - 'docs/**'
-      - 'dashboard/**'
-      - 'src/igor_pipeline/fpga_pl/ai_accel_wrapper.v'
   workflow_dispatch:
-permissions:
-  contents: read
-concurrency:
-  group: garda-physical-${{ github.ref }}
-  cancel-in-progress: true
+
 jobs:
   gds:
     runs-on: ubuntu-24.04
-    timeout-minutes: 180
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: checkout repo
+        uses: actions/checkout@v6
         with:
           submodules: recursive
-      - name: Build GDS
-        timeout-minutes: 150
-        uses: TinyTapeout/tt-gds-action@3412659307918422f3f0727917cf9b499aaca588
+
+      - name: Read top module name
+        id: top_module
+        run: echo "TOP_MODULE=$(yq '.project.top_module' info.yaml)" >> "$GITHUB_OUTPUT"
+
+      # Publish the locally hardened views in local_build/ instead of running
+      # LibreLane on the runner.  The cmos5l branch of the action is the one to
+      # use: it writes tt_submission/pdk.json, which the precheck and gate level
+      # jobs below read (PDK = ihp-sg13cmos5l makes both skip ciel and run
+      # install_sg13cmos5l.sh), and it converts the GDS to OASIS.  tools-repo /
+      # tools-ref are the 8x4 cmos5l tree the action renders the preview with.
+      - name: Create and publish the GDS artifact
+        uses: TinyTapeout/tt-gds-action/custom_gds@ihp-cmos5l
         with:
           pdk: ihp-sg13cmos5l
-          tools-ref: d66cf179e7bc4d296362ab7e2e3b344dc3c4f665
-      - name: Verify complete neural logic in the actual submission
-        run: |
-          python -m pip install -r requirements-layout.txt
-          python scripts/check_neural_logic_layout.py tt_submission/tt_um_wlmoi_garda_neural_logic.oas --metrics runs/wokwi/final/metrics.json --report evidence/neural_logic_physical.json
-      - name: Preserve neural logic physical diagnostics
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
-        with:
-          name: neural-logic-physical-diagnostics
-          if-no-files-found: warn
-          path: |
-            evidence/neural_logic_physical.json
-            src/config*.json
-            src/user_config*.json
-            runs/wokwi/**/*.log
-            runs/wokwi/**/*.rpt
-            runs/wokwi/**/*.json
-            runs/wokwi/**/*.json.original
-            runs/wokwi/**/netgen_powered_netlist.v
-            runs/wokwi/**/feedback.txt
-            runs/wokwi/**/feedback.xml
-            runs/wokwi/**/cif_scale.txt
+          top_module: ${{ steps.top_module.outputs.TOP_MODULE }}
+          gds_path: local_build/gds/${{ steps.top_module.outputs.TOP_MODULE }}.gds
+          lef_path: local_build/lef/${{ steps.top_module.outputs.TOP_MODULE }}.lef
+          # the unpowered netlist: the gate level job simulates this against
+          # the PDK cell models, which carry no supply ports on CMOS5L
+          verilog_path: local_build/nl/${{ steps.top_module.outputs.TOP_MODULE }}.nl.v
+          tools-repo: kdp1965/tt-support-tools
+          tools-ref: cmos-8x4
+
   precheck:
     needs: gds
     runs-on: ubuntu-24.04
     steps:
-      - uses: TinyTapeout/tt-gds-action/precheck@3412659307918422f3f0727917cf9b499aaca588
+      - name: Run Tiny Tapeout Precheck
+        uses: TinyTapeout/tt-gds-action/precheck@ihp-cmos5l
+        with:
+          tools-repo: kdp1965/tt-support-tools
+          tools-ref: cmos-8x4
+
   gl_test:
     needs: gds
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: checkout repo
+        uses: actions/checkout@v6
         with:
           submodules: recursive
-      - uses: TinyTapeout/tt-gds-action/gl_test@3412659307918422f3f0727917cf9b499aaca588
+
+      - name: GL test
+        uses: kdp1965/tt-gds-action/gl_test@ihp-cmos5l-fix
+
+  # The GitHub Pages site.  The steps are the TT viewer action's
+  # (TinyTapeout/tt-gds-action/viewer@ihp-cmos5l) written out, minus its
+  # index.html that only redirects to the 3D viewer: the landing page comes
+  # from site/ instead (site/index.html links the 3D viewer and the SRAM
+  # write-up, site/ihp_sram_macro.html), next to the render, the GDS and the
+  # OASIS the action publishes.
   viewer:
-    needs: [gds, precheck, gl_test]
+    needs: gds
     runs-on: ubuntu-24.04
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
-      - name: Download actual Tiny Tapeout submission
+      - name: checkout repo
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: site
+          sparse-checkout-cone-mode: false
+
+      - name: Download GDS artifact
         uses: actions/download-artifact@v7
         with:
           name: tt_submission
-      - name: Download actual layout render
+
+      - name: Download gds_render (png) artifact
         uses: actions/download-artifact@v7
         with:
           name: gds_render
-          path: gds_render
-      - name: Package physical viewer without overwriting the dashboard
-        env:
-          PHYSICAL_RUN_ID: ${{ github.run_id }}
-          PHYSICAL_COMMIT: ${{ github.sha }}
+          path: gh-pages
+
+      - name: Assemble the site
         run: |
-          python dashboard/scripts/build_pages.py package --submission tt_submission --render gds_render --output physical-viewer --run-id "$PHYSICAL_RUN_ID" --commit "$PHYSICAL_COMMIT"
-      - name: Preserve validated physical viewer for unified Pages deployment
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+          cp tt_submission/*.gds gh-pages/tinytapeout.gds
+          cp tt_submission/*.oas gh-pages/tinytapeout.oas
+          cp -r site/. gh-pages/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
         with:
-          name: garda-physical-viewer
-          path: physical-viewer
-          if-no-files-found: error
-      - name: Explain the single publishing path
+          path: 'gh-pages'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+      - name: Display preview in workflow summary
         run: |
-          echo "Actual layout artifact is ready. GARDA unified GitHub Pages publishes the dashboard and matching physical viewer together." >> "$GITHUB_STEP_SUMMARY"
+          PAGE_URL=$(echo "${{ steps.deployment.outputs.page_url }}" | sed -e 's/\/$//')
+          PDK=$(jq -r '.PDK' tt_submission/pdk.json)
+          cat << EOF >> $GITHUB_STEP_SUMMARY
+          # Site
+          [Landing page]($PAGE_URL/) · [SRAM write-up]($PAGE_URL/ihp_sram_macro.html)
+
+          # 3D Viewer
+          [Open 3D viewer](https://gds-viewer.tinytapeout.com/?model=$PAGE_URL/tinytapeout.oas&pdk=$PDK)
+
+          # Tiny Tapeout Explorer
+          [Open in Tiny Tapeout Explorer](https://gds-explorer.tinytapeout.com/viewer?file=$PAGE_URL/tinytapeout.oas&pdk=$PDK)
+
+          # 2D Preview
+          ![png]($PAGE_URL/gds_render.png)
+          EOF
