@@ -32,14 +32,14 @@ function start(){
  resize();addEventListener('resize',resize);const began=performance.now();
  const smooth=t=>{const x=Math.max(0,Math.min(1,t));return x*x*(3-2*x);};
  const frame=now=>{if(done)return;const t=(now-began)/1000;
- const p=Math.max(0,Math.min(1,t/1.9));
+ const p=Math.max(0,Math.min(1,t/2.7));
  const e=p*p*p*(p*(p*6-15)+10);
- const opening=smooth(t/.2),logoExit=smooth((t-.7)/.5),landing=smooth((t-2.1)/.35);
+ const opening=smooth(t/.35),logoExit=smooth((t-.9)/.8),landing=smooth((t-2.9)/.7);
  logo.style.opacity=String(opening*(1-logoExit));
  logo.style.transform=`scale(${.92+.12*logoExit})`;
  renderer.domElement.style.opacity=String(opening*(1-landing));
  // Only the closing transition reveals the page. The tunnel stays opaque.
- overlay.style.background=t>=2.1?'transparent':ground;
+ overlay.style.background=t>=2.9?'transparent':ground;
  camera.position.set(.2*Math.sin(Math.PI*p)*Math.sin(2*Math.PI*p),0,4-60*e);
  camera.rotation.z=.025*Math.sin(Math.PI*p);
  light.position.copy(camera.position);lm.opacity=.13*Math.sin(Math.PI*p);
@@ -49,7 +49,7 @@ function start(){
   signals.setColorAt(i,color.copy(accentColor).multiplyScalar(.3+.7*pulse));
  }
  signals.instanceColor.needsUpdate=true;
- renderer.render(scene,camera);if(t>=2.45)finish();else raf=requestAnimationFrame(frame);};raf=requestAnimationFrame(frame);
+ renderer.render(scene,camera);if(t>=3.6)finish();else raf=requestAnimationFrame(frame);};raf=requestAnimationFrame(frame);
  }catch(error){console.warn('Cinematic intro unavailable',error);finish();}
- setTimeout(finish,3500);
+ setTimeout(finish,5000);
 }
