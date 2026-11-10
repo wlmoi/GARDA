@@ -3,10 +3,10 @@ const canvas=document.getElementById('robot-scene');
 if(canvas){
 try {
 const renderer=new T.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-const scene=new T.Scene();scene.background=new T.Color('#0D0D0F');
+const scene=new T.Scene();scene.background=new T.Color('#0D1535');
 const camera=new T.PerspectiveCamera(40,1,.1,100);let yaw=.65,pitch=.7,distance=11;
 scene.add(new T.HemisphereLight(0xffffff,0x18385c,2.7));const light=new T.DirectionalLight(0xffffff,3);light.position.set(3,6,4);scene.add(light);
-const robot=new T.Group();scene.add(robot);const green=0x58fd37,dark=0x15232d;const wheels=[];const body=new T.Group();robot.add(body);
+const robot=new T.Group();scene.add(robot);const green=0x315cff,dark=0x15232d;const wheels=[];const body=new T.Group();robot.add(body);
 function box(w,h,d,color,x,y,z,parent=body){const m=new T.Mesh(new T.BoxGeometry(w,h,d),new T.MeshStandardMaterial({color,roughness:.55,metalness:.25}));m.position.set(x,y,z);parent.add(m);return m;}
 function cylinder(r,h,color,x,y,z,parent=body){const m=new T.Mesh(new T.CylinderGeometry(r,r,h,32),new T.MeshStandardMaterial({color,roughness:.55}));m.position.set(x,y,z);parent.add(m);return m;}
 box(1.65,.22,2.25,green,0,.65,0);box(1.35,.12,1.8,dark,0,1,0);box(1.5,.1,1.25,green,0,1.35,.1);
@@ -15,7 +15,7 @@ for(const x of [-1,1])for(const z of [-.72,.72]){const wheel=new T.Group();wheel
 for(let i=0;i<8;i++){const a=i*Math.PI/4;const roller=cylinder(.105,.33,0x11191f,0,Math.sin(a)*.4,Math.cos(a)*.4,wheel);roller.rotation.z=(x*z>0?1:-1)*.8;roller.rotation.x=-a;}wheels.push(wheel);}
 cylinder(.38,.22,dark,0,1.52,-.38);cylinder(.29,.04,green,0,1.65,-.38);
 box(.14,.8,.14,dark,0,1.65,.6);const screen=box(1.25,.8,.08,dark,0,2,.64);screen.rotation.x=-.15;box(1.1,.65,.02,0x143965,0,2,.58);
-box(1.35,.25,.26,dark,0,2.28,-.05);for(const x of [-.45,0,.45]){const lens=cylinder(.075,.04,0x35b8e4,x,2.28,-.2);lens.rotation.x=Math.PI/2;}
+box(1.35,.25,.26,dark,0,2.28,-.05);for(const x of [-.45,0,.45]){const lens=cylinder(.075,.04,0x93acff,x,2.28,-.2);lens.rotation.x=Math.PI/2;}
 // Conceptual quadrotor inspired by the supplied reference, not a validated aircraft.
 const drone=new T.Group();scene.add(drone);const rotors=[];
 box(.7,.7,.95,dark,0,.55,0,drone);box(.6,.08,.7,0x34424b,0,.95,0,drone);
@@ -27,19 +27,19 @@ for(const x of [-1,1])for(const z of [-1,1]){
  const leg=box(.065,.9,.065,0x34424b,x*.55,-.1,z*.46,drone);leg.rotation.z=x*.25;
  box(.12,.08,.9,dark,x*.66,-.55,z*.4,drone);
 }
-cylinder(.27,.3,0x35b8e4,0,-.1,-.12,drone);box(.38,.3,.22,dark,0,.35,-.55,drone);const droneLens=cylinder(.11,.04,0x58fd37,0,.35,-.68,drone);droneLens.rotation.x=Math.PI/2;
-const scanCone=new T.Mesh(new T.ConeGeometry(2.2,2.7,48,1,true),new T.MeshBasicMaterial({color:0x58fd37,transparent:true,opacity:.09,side:T.DoubleSide,depthWrite:false}));scanCone.position.y=-1.45;drone.add(scanCone);
+cylinder(.27,.3,0x93acff,0,-.1,-.12,drone);box(.38,.3,.22,dark,0,.35,-.55,drone);const droneLens=cylinder(.11,.04,0x315cff,0,.35,-.68,drone);droneLens.rotation.x=Math.PI/2;
+const scanCone=new T.Mesh(new T.ConeGeometry(2.2,2.7,48,1,true),new T.MeshBasicMaterial({color:0x315cff,transparent:true,opacity:.09,side:T.DoubleSide,depthWrite:false}));scanCone.position.y=-1.45;drone.add(scanCone);
 const dog=new T.Group();scene.add(dog);const legs=[];
 box(.8,.38,1.55,0xfdfdff,0,1.3,0,dog);box(.65,.25,.35,0x25343f,0,1.3,-.85,dog);cylinder(.22,.3,0x202d35,0,1.65,-.35,dog);
 for(const x of [-.48,.48])for(const z of [-.55,.55]){const hip=new T.Group();hip.position.set(x,1.3,z);dog.add(hip);cylinder(.15,.18,0x74838b,0,0,0,hip);const thigh=box(.15,.5,.18,0xfdfdff,0,-.24,.1,hip);thigh.rotation.x=-.35;const knee=new T.Group();knee.position.set(0,-.48,.18);hip.add(knee);const shin=box(.09,.55,.1,0x647581,0,-.26,-.1,knee);shin.rotation.x=.35;cylinder(.1,.08,0x202d35,0,-.55,-.19,knee);legs.push({hip,knee,offset:x*z>0?0:Math.PI});}
 const surgery=new T.Group();scene.add(surgery);const arms=[];
 box(.65,2.2,.65,0xfdfdff,0,1.1,1.8,surgery);box(2.4,.3,.55,0xd6e3e9,0,2.3,1.6,surgery);
-for(const x of [-.85,.85]){const shoulder=new T.Group();shoulder.position.set(x,2.2,1.5);surgery.add(shoulder);cylinder(.18,.24,0x35b8e4,0,0,0,shoulder);box(.23,.25,.95,0xfdfdff,0,-.08,-.45,shoulder);const elbow=new T.Group();elbow.position.set(0,-.08,-.9);shoulder.add(elbow);cylinder(.15,.22,0x35b8e4,0,0,0,elbow);const tool=box(.07,.07,.9,0xa8bac5,0,-.08,-.42,elbow);const tip=box(.025,.025,.23,0x58fd37,0,-.08,-.97,elbow);arms.push({shoulder,elbow,sign:Math.sign(x)});}
+for(const x of [-.85,.85]){const shoulder=new T.Group();shoulder.position.set(x,2.2,1.5);surgery.add(shoulder);cylinder(.18,.24,0x93acff,0,0,0,shoulder);box(.23,.25,.95,0xfdfdff,0,-.08,-.45,shoulder);const elbow=new T.Group();elbow.position.set(0,-.08,-.9);shoulder.add(elbow);cylinder(.15,.22,0x93acff,0,0,0,elbow);const tool=box(.07,.07,.9,0xa8bac5,0,-.08,-.42,elbow);const tip=box(.025,.025,.23,0x315cff,0,-.08,-.97,elbow);arms.push({shoulder,elbow,sign:Math.sign(x)});}
 box(2,.18,2.2,0x25343f,0,.72,-.4,surgery);const target=cylinder(.2,.03,0x9bfd08,0,.84,-.55,surgery);
-const floor=box(12,.03,10,0x034ab6,0,-.03,0,scene);scene.add(new T.GridHelper(12,24,0x35b8e4,0x225bb5));
+const floor=box(12,.03,10,0x034ab6,0,-.03,0,scene);scene.add(new T.GridHelper(12,24,0x93acff,0x225bb5));
 const obstacle=box(1.25,1.1,.65,0xfdfdff,0,.55,-1.2,scene);
 const route=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(0,.025,3),new T.Vector3(0,.025,-3)]),new T.LineDashedMaterial({color:0x9bfd08,dashSize:.15,gapSize:.1}));route.computeLineDistances();scene.add(route);
-const rays=[];for(let i=0;i<41;i++){const line=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(),new T.Vector3()]),new T.LineBasicMaterial({color:0x35b8e4,transparent:true,opacity:.5}));scene.add(line);rays.push(line);}
+const rays=[];for(let i=0;i<41;i++){const line=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(),new T.Vector3()]),new T.LineBasicMaterial({color:0x93acff,transparent:true,opacity:.5}));scene.add(line);rays.push(line);}
 function positionAt(p,avoid){const rise=Math.max(0,Math.min(1,(p-.05)/.25));const smooth=rise*rise*(3-2*rise);return {x:avoid?2.7*smooth:0,z:3-p*6};}
 function hitBox(ox,oz,dx,dz){let near=0,far=4;for(const [o,d,lo,hi] of [[ox,dx,-.625,.625],[oz,dz,-1.525,-.875]]){if(Math.abs(d)<1e-8){if(o<lo||o>hi)return 4;}else{let a=(lo-o)/d,b=(hi-o)/d;if(a>b)[a,b]=[b,a];near=Math.max(near,a);far=Math.min(far,b);if(near>far)return 4;}}return near;}
 const slider=document.getElementById('robot-progress'),play=document.getElementById('robot-play'),mode=document.getElementById('robot-scenario'),status=document.getElementById('robot-status');let running=false,last=0,progress=0,phase='infer',phaseTime=0,stepStart=0,inferenceStep=0;
@@ -67,7 +67,7 @@ body.rotation.z=vibration?.004*Math.sin(p*530):0;
 const forward=3-pos.z,side=pos.x;
 const wheelTravel=[forward+side,forward-side,forward-side,forward+side];
 wheels.forEach((wheel,i)=>{wheel.rotation.x=-wheelTravel[i]/.42;});
-let nearest=4;const origin=new T.Vector3(0,1.6,-.38);robot.localToWorld(origin);if(airborne){origin.x=drone.position.x;origin.y=2.9;origin.z=drone.position.z;}rays.forEach((line,i)=>{const angle=(i/40-.5)*Math.PI*2;const dx=Math.sin(angle),dz=Math.cos(angle);const distance=obstacle.visible?hitBox(origin.x,origin.z,dx,dz):4;nearest=Math.min(nearest,distance);line.visible=!surgical;const points=line.geometry.attributes.position;points.setXYZ(0,origin.x,origin.y,origin.z);points.setXYZ(1,origin.x+dx*distance,.55,origin.z+dz*distance);points.needsUpdate=true;line.geometry.computeBoundingSphere();line.material.color.set(distance<4?0x9bfd08:0x35b8e4);});
+let nearest=4;const origin=new T.Vector3(0,1.6,-.38);robot.localToWorld(origin);if(airborne){origin.x=drone.position.x;origin.y=2.9;origin.z=drone.position.z;}rays.forEach((line,i)=>{const angle=(i/40-.5)*Math.PI*2;const dx=Math.sin(angle),dz=Math.cos(angle);const distance=obstacle.visible?hitBox(origin.x,origin.z,dx,dz):4;nearest=Math.min(nearest,distance);line.visible=!surgical;const points=line.geometry.attributes.position;points.setXYZ(0,origin.x,origin.y,origin.z);points.setXYZ(1,origin.x+dx*distance,.55,origin.z+dz*distance);points.needsUpdate=true;line.geometry.computeBoundingSphere();line.material.color.set(distance<4?0x9bfd08:0x93acff);});
 const reading=document.getElementById('lidar-distance');if(reading)reading.textContent=surgical?'Tidak digunakan':nearest<4?nearest.toFixed(2)+' m':'4,00 m+';
 status.textContent=emergency?'E-stop , keluaran nol':blocked&&progress>=.25?'LiDAR , berhenti':avoid&&p>.15&&p<.85?'LiDAR → koreksi arah → menghindar':p>=1?'Tujuan tercapai':'LiDAR memindai , maju';
 if(running&&phase==='infer'&&!emergency)status.textContent='Inferensi berjalan, robot diam';
