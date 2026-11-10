@@ -317,14 +317,14 @@
         <div class="proof-right">
           <div class="proof-table-card">
             <div class="table-card-header">
-              <span class="mono-label">DISTRIBUSI KOMPUTASI PARALLEL16 PER LAYER</span>
+              <span class="mono-label">PARALLEL16 CYCLES BY LAYER</span>
               <span class="status-pill verified">RTL VERIFIED PASS</span>
             </div>
 
-            <table class="editorial-table">
+            <table class="editorial-table proof-cycle-table">
               <thead>
                 <tr>
-                  <th>Fase / Layer</th>
+                  <th>Phase / layer</th>
                   <th>Tensor configuration</th>
                   <th>SIMD groups</th>
                   <th>Cycle count</th>
@@ -333,32 +333,32 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="font-display">FC1 (Layer 1)</td>
-                  <td class="font-mono">74 128 (Q8.8)</td>
-                  <td class="font-mono">8 kelompok (16 lane)</td>
-                  <td class="font-mono text-signal">1.808</td>
-                  <td class="font-mono">50,84%</td>
+                  <td data-label="Layer" class="font-display">FC1 (Layer 1)</td>
+                  <td data-label="Tensor" class="font-mono">74 → 128 (Q8.8)</td>
+                  <td data-label="SIMD groups" class="font-mono">8 groups (16 lane)</td>
+                  <td data-label="Cycles" class="font-mono text-signal">1,808</td>
+                  <td data-label="Time share" class="font-mono">50.84%</td>
                 </tr>
                 <tr>
-                  <td class="font-display">FC2 (Layer 2)</td>
-                  <td class="font-mono">128 64 (Q8.8)</td>
-                  <td class="font-mono">4 kelompok (16 lane)</td>
-                  <td class="font-mono text-signal">1.552</td>
-                  <td class="font-mono">43,64%</td>
+                  <td data-label="Layer" class="font-display">FC2 (Layer 2)</td>
+                  <td data-label="Tensor" class="font-mono">128 → 64 (Q8.8)</td>
+                  <td data-label="SIMD groups" class="font-mono">4 groups (16 lane)</td>
+                  <td data-label="Cycles" class="font-mono text-signal">1,552</td>
+                  <td data-label="Time share" class="font-mono">43.64%</td>
                 </tr>
                 <tr>
-                  <td class="font-display">FC3 (Output)</td>
-                  <td class="font-mono">64 3 (v, ω, head)</td>
-                  <td class="font-mono">1 kelompok (16 lane)</td>
-                  <td class="font-mono text-signal">196</td>
-                  <td class="font-mono">5,51%</td>
+                  <td data-label="Layer" class="font-display">FC3 (Output)</td>
+                  <td data-label="Tensor" class="font-mono">64 → 3 (v, ω, head)</td>
+                  <td data-label="SIMD groups" class="font-mono">1 group (16 lane)</td>
+                  <td data-label="Cycles" class="font-mono text-signal">196</td>
+                  <td data-label="Time share" class="font-mono">5.51%</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <th colspan="3">Total Parallel16 inference cycles</th>
-                  <th class="font-mono text-signal">3.556</th>
-                  <th class="font-mono">100,00%</th>
+                  <th class="font-mono text-signal">3,556</th>
+                  <th class="font-mono">100.00%</th>
                 </tr>
               </tfoot>
             </table>
@@ -369,6 +369,7 @@
               <div class="bar-segment fc3" style="width: 5.51%" title="FC3: 196 siklus (5.51%)">FC3</div>
             </div>
 
+            <p class="proof-bar-legend"><span>FC1 50.84%</span><span>FC2 43.64%</span><span>FC3 5.51%</span></p>
             <p class="proof-table-footnote">A cycle-accurate Verilog testbench checks 236 random and deterministic inputs. All binary outputs match the Python numerical reference.</p>
           </div>
         </div>
