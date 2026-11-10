@@ -29,6 +29,7 @@
   <script type="module" src="engineering-gallery.js"></script>
   <script type="module" src="proposal-viewer.js"></script>
   <script type="module" src="ui-controls.js"></script>
+  <script type="module" src="inference-guide.js"></script>
   <link rel="stylesheet" href="ui-controls.css">
   <link rel="stylesheet" href="proposal-viewer.css">
 </head>
@@ -854,9 +855,10 @@
     </section>
   </main>
 
+<dialog class="inference-guide" aria-labelledby="inference-guide-title"><button type="button" class="guide-close" aria-label="Close inference guide">×</button><p class="mono-eyebrow">FOLLOW THE DECISION</p><h2 id="inference-guide-title">See the computation behind the motion.</h2><p>The Parallel16 timeline is just below the robot demo. Follow the 16 MAC lanes, then return to see the resulting movement.</p><div class="guide-flow" aria-hidden="true"><span>Sense</span><span>Compute</span><span>Check</span><span>Move</span></div><button type="button" class="guide-view">View inference ↓</button><button type="button" class="guide-stay">Stay with the robot</button></dialog>
 <dialog id="proposal-viewer" class="proposal-viewer" aria-labelledby="proposal-title">
  <header class="proposal-viewer-header"><h2 id="proposal-title">GARDA Proposal</h2><button type="button" class="proposal-close" aria-label="Close proposal">Close ×</button></header>
- <div class="proposal-toolbar"><button type="button" class="proposal-prev" aria-label="Previous PDF page">←</button><label>Page <input class="proposal-page-number" type="number" min="1" value="1" aria-label="PDF page number"> <span class="proposal-page-total">/ —</span></label><button type="button" class="proposal-next" aria-label="Next PDF page">→</button><label>Zoom <select class="proposal-zoom" aria-label="PDF zoom"><option value="1">Fit width</option><option value="1.5">150%</option><option value="2">200%</option></select></label><a href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener">Open full PDF ↗</a></div>
+ <div class="proposal-toolbar"><button type="button" class="proposal-prev" aria-label="Previous PDF page">←</button><label>Page <input class="proposal-page-number" type="number" min="1" value="1" aria-label="PDF page number"> <span class="proposal-page-total">/ —</span></label><button type="button" class="proposal-next" aria-label="Next PDF page">→</button><button type="button" class="proposal-sections-toggle" aria-expanded="false" aria-controls="proposal-contents">Contents</button><a href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener">Open full PDF ↗</a></div><nav id="proposal-contents" class="proposal-contents" aria-label="Proposal sections" hidden></nav>
  <p class="proposal-status" role="status" aria-live="polite">Loading proposal…</p><div class="proposal-pages"><canvas role="img" aria-label="GARDA proposal page"></canvas><div class="proposal-accessible-text"></div></div>
 </dialog>
   <div id="toast" class="toast" role="status" hidden></div>
