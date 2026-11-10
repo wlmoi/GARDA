@@ -57,3 +57,4 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 @media(max-width:780px){.people-section{padding-block:64px}.people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.person-card{padding:20px}.event-identity{gap:14px}.event-identity img{width:135px}.event-identity span{font-size:12px}}
 @media(max-width:480px){.people-grid{grid-template-columns:minmax(0,1fr)}.proposal-cta{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.proposal-cta:before{display:none}}
+@media(max-width:780px){.editorial-closing.wrap,.layout-link-section{box-sizing:border-box;width:calc(100% - 32px);margin-inline:auto}.closing-title{font-size:clamp(34px,9.5vw,54px)}.closing-desc{font-size:16px;line-height:1.7}.closing-actions .btn-action{white-space:normal;max-width:100%;box-sizing:border-box}.people-section{box-sizing:border-box}}
