@@ -237,7 +237,7 @@ export class GardaScene {
     this.fpga = this._box(root, -7, 4.05, 0, 29.2, 2.7, 29.2, '#303842', { roughness: .42, pick: '_fpga' });
     this._flatLabel(root, ['ALTERA', 'CYCLONE V', 'SoC'], -7, 5.42, -1.7, 22, 10,
       { color: '#c7cdd2', size: 53, height: 320 });
-    this._flatLabel(root, ['5CSEBA6U23I7', 'GARDA   |   FPGA + HPS'], -7, 5.43, 7, 23, 5,
+    this._flatLabel(root, ['10M50DAF484C7G', 'GARDA   |   FPGA MAX 10'], -7, 5.43, 7, 23, 5,
       { color: '#b4c3ce', size: 43, height: 200, mono: true });
     const pinMarker = new THREE.Mesh(new THREE.CircleGeometry(.72, 20), this._mat('#c7cdd2', .3));
     pinMarker.rotation.x = -Math.PI / 2;
@@ -368,7 +368,7 @@ export class GardaScene {
       this._leds.push(led);
     }
     this._silk(root, 'LED 0 1 2 3 4 5 6 7', 37, 29, 25, 2.1);
-    this._silk(root, 'DE10-Nano', -6, 19, 38, 5.5, 1.67, { size: 66 });
+    this._silk(root, 'DE10-Lite', -6, 19, 38, 5.5, 1.67, { size: 66 });
     this._silk(root, 'TERASIC    |    iSeeDesignITB', -5, 23, 38, 2.2, 1.67, { size: 39 });
     this._silk(root, 'CYCLONE V SE', 8, -37.1, 25, 2.2);
   }

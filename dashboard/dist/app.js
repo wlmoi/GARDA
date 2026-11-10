@@ -325,9 +325,9 @@ function setMode(next, fromScene = false) {
     b.setAttribute('aria-selected', String(yes));
     b.tabIndex = yes ? 0 : -1;
   });
-  $('mode-chip').textContent = tt ? 'NEURAL CORE / IHP HISTORIS' : mode === 'die' ? '20 MODUL / 19 BERKAS' : 'CYCLONE V SoC';
+  $('mode-chip').textContent = tt ? 'NEURAL CORE / IHP HISTORIS' : mode === 'die' ? '20 MODUL / 19 BERKAS' : 'MAX 10 / 10M50DAF484C7G';
   $('stage-kicker').textContent = tt ? 'TINYTAPEOUT EXPLORER' : mode === 'die' ? 'LOGICAL RTL EXPLORER' : 'BOARD EXPLORER';
-  $('stage-title').innerHTML = tt ? '24 → 64 → 64 → 4.<br>Dual MAC. Model tetap.' : mode === 'die' ? 'Dari masukan peta.<br>Ke gerbang keputusan.' : 'Satu board.<br>Dua dunia komputasi.';
+  $('stage-title').innerHTML = tt ? '24 → 64 → 64 → 4.<br>Dual MAC. Model tetap.' : mode === 'die' ? 'Dari masukan peta.<br>Ke gerbang keputusan.' : 'Board DE10-Lite.<br>Target FPGA MAX 10.';
   $('block-count').textContent = tt ? '4 modul' : '20 modul / 19 berkas';
   renderLegend();
   if (!selected || !available().some(m => m.id === selected.id)) selectBlock(tt ? 'tt_um_wlmoi_garda_neural_logic' : 'garda_uart_top');

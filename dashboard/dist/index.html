@@ -426,8 +426,8 @@
         <div class="arch-drawing-col">
           <div class="technical-blueprint-box">
             <div class="blueprint-header">
-              <span class="blueprint-title">SKEMATIK JALUR DATA DAN LOGIKA GARDA</span>
-              <span class="blueprint-status">ACTIVE SCHEMATIC</span>
+              <span class="blueprint-title">Datapath GARDA</span>
+              <span class="blueprint-status">Datapath aktif</span>
             </div>
 
             <svg class="blueprint-svg" viewBox="0 0 760 480" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -491,7 +491,7 @@
 
             <!-- Interactive RTL source selector buttons -->
             <div class="flow-selector-strip">
-              <span class="mono-label">PILIH MODUL UNTUK INSPEKSI SOURCE VERILOG:</span>
+              <span class="mono-label">Pilih blok untuk melihat antarmukanya</span>
               <div class="flow" id="flow"></div>
             </div>
           </div>
@@ -500,12 +500,12 @@
     </section>
 
     <!-- CHAPTER 04: FPGA Board Explorer (Cyclone V SoC & RTL Die) -->
-    <section class="wrap chapter-section" id="explorer" aria-label="Bab 04: Penjelajah Perangkat Keras Board DE10-Nano dan Die RTL">
+    <section class="wrap chapter-section" id="explorer" aria-label="Bab 04: Penjelajah Perangkat Keras Board DE10-Lite dan Die RTL">
       <div class="section-editorial-header">
         <p class="mono-eyebrow">Bagian 05 Jelajahi perangkat keras</p>
         <h2 class="editorial-title">Pemeriksaan Board &amp; Die Silikon</h2>
         <p class="editorial-desc">
-          Model digital 3D board DE10-Nano Cyclone V SoC dan pemetaan 20 modul RTL ke blok komputasi hardware.
+          Model digital 3D target DE10-Lite MAX 10 (10M50DAF484C7G) dan pemetaan modul RTL. Model 3D merupakan ilustrasi konseptual, bukan layout komponen atau bukti implementasi fisik board.
         </p>
       </div>
 
@@ -514,10 +514,10 @@
         <div class="explorer-main">
           <div class="viewport-toolbar">
             <div class="mode-tabs" role="tablist" aria-label="Pilihan tampilan board atau die">
-              <button id="tab-board" type="button" role="tab" aria-selected="true" data-mode="board">Board DE10-Nano</button>
+              <button id="tab-board" type="button" role="tab" aria-selected="true" data-mode="board">Board DE10-Lite</button>
               <button id="tab-die" type="button" role="tab" aria-selected="false" data-mode="die">Isi RTL Silikon</button>
             </div>
-            <span id="mode-chip" class="scope-label">CYCLONE V SoC (5CSEBA6U23I7)</span>
+            <span id="mode-chip" class="scope-label">MAX 10 (10M50DAF484C7G)</span>
           </div>
 
           <!-- Editorial Stage with Corner-Pinned Metadata -->
@@ -527,16 +527,16 @@
 
             <!-- Corner-Pinned Technical Labels -->
             <div class="stage-corner top-left">
-              <span class="corner-id" id="stage-kicker">BOARD / DE10-NANO</span>
+              <span class="corner-id" id="stage-kicker">BOARD / DE10-LITE</span>
               <h3 class="corner-title" id="stage-title">Satu board.<br>Dua dunia komputasi.</h3>
             </div>
             <div class="stage-corner top-right">
-              <span class="corner-id">IC / 5CSEBA6U23I7</span>
-              <span class="corner-val">TSMC 28nm LP</span>
+              <span class="corner-id">IC / 10M50DAF484C7G</span>
+              <span class="corner-val">Target tapeout: SKY130 130 nm</span>
             </div>
             <div class="stage-corner bottom-left">
               <span class="corner-id">FABRIC</span>
-              <span class="corner-val">110K LE 41.5K ALM</span>
+              <span class="corner-val">FPGA Intel MAX 10</span>
             </div>
             <div class="stage-corner bottom-right">
               <span class="corner-id">INTERFACE</span>
@@ -570,7 +570,7 @@
             <p class="source-ref" id="source-ref"></p>
 
             <div class="inspector-actions">
-              <button id="show-source" type="button" class="btn-action primary small">Lihat Kode .v </button>
+              <button id="show-source" hidden type="button" class="btn-action primary small">Lihat Kode .v </button>
               <button id="show-ports" type="button" class="btn-action quiet small">Port &amp; Bit Flow</button>
             </div>
           </div>
@@ -760,7 +760,7 @@
 
       <!-- Ruled Technical Pinout Table -->
       <div class="pinout-section">
-        <h3 class="def-title">Spesifikasi Pinout Antarmuka Perangkat Keras DE10-Nano</h3>
+        <h3 class="def-title">Referensi pin historis DE10-Nano (bukan pin DE10-Lite)</h3>
         <dl class="pin-map">
           <div><dt>CLK / 50 MHz</dt><dd>PIN_V11</dd></div>
           <div><dt>UART_RX / JP1 pin 1</dt><dd>PIN_V12</dd></div>
@@ -782,7 +782,7 @@
       <!-- Scope & Power Details Disclosure -->
       <details class="scope-details">
         <summary>Cakupan bukti pengujian, estimasi daya, dan batasan implementasi</summary>
-        <p>Hasil Parallel8 adalah catatan simulasi dan fit eksperimen FPGA terdahulu; belum membuktikan implementasi gabungan atau pengujian board pada revisi ini. <a href="https://github.com/wlmoi/GARDA/tree/main/fpga/experiments/parallel8" target="_blank" rel="noreferrer">Sumber eksperimen Parallel8 </a> Netlist IHP, bitstream, dan paket Quartus adalah bukti build historis. Hasil SKY130 memerlukan build dan signoff tersendiri. Daya 506,69 mW berasal dari estimasi vectorless proyek DWA lain, dengan confidence rendah; pengukuran board dan sistem masih diperlukan.</p>
+        <p>Hasil Parallel8 adalah catatan simulasi dan fit eksperimen FPGA terdahulu; belum membuktikan implementasi gabungan atau pengujian board pada revisi ini.  Netlist IHP, bitstream, dan paket Quartus adalah bukti build historis. Hasil SKY130 memerlukan build dan signoff tersendiri. Daya 506,69 mW berasal dari estimasi vectorless proyek DWA lain, dengan confidence rendah; pengukuran board dan sistem masih diperlukan.</p>
       </details>
     </section>
 
@@ -802,7 +802,7 @@
         </p>
 
         <div class="closing-actions">
-          <a class="btn-action primary" href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer">Buka GitHub Repository </a>
+          
           <a class="btn-action secondary" href="downloads/IGOR_DE10_NANO_READY.zip" download>Unduh Paket Quartus (.zip) ↓</a>
         </div>
       </div>
@@ -815,7 +815,7 @@
           <span>Departemen Teknik Elektro &amp; Informatika Institut Teknologi Sepuluh Nopember</span>
         </div>
         <div class="footer-col-right">
-          <a href="https://github.com/wlmoi/GARDA" target="_blank" rel="noreferrer" class="font-mono">wlmoi/GARDA </a>
+          
         </div>
       </footer>
 
