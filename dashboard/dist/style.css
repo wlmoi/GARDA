@@ -3,51 +3,38 @@
    Achromatic Editorial Palette + Signal-Blue Accent (#2F5BFF)
    ========================================================================== */
 
-/* Local font fallbacks */
-@font-face {
-  font-family: DM;
-  src: url('assets/dm-sans-400.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: Mont;
-  src: url('assets/montserrat-700.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-
 /* --------------------------------------------------------------------------
    Design Tokens
    -------------------------------------------------------------------------- */
 :root {
   /* Color Palette — Light Mode Default: Pure White Canvas */
-  --color-ground-primary: #FFFFFF;
-  --color-ground-secondary: #F8F9FA;
+  --color-ground-primary: #F5F7FA;
+  --color-ground-secondary: #E9EEF4;
   --color-surface: #FFFFFF;
-  --color-ink-primary: #0D0D0F;
-  --color-ink-secondary: #3A3B45;
-  --color-ink-muted: #646874;
-  --color-signal: #0b67bd;
-  --color-signal-lift: #2563EB;
-  --color-hairline: rgba(13, 13, 15, 0.09);
-  --color-hairline-strong: rgba(13, 13, 15, 0.18);
+  --color-ink-primary: #102139;
+  --color-ink-secondary: #4A596A;
+  --color-ink-muted: #4A596A;
+  --color-signal: #006CA8;
+  --color-signal-lift: #007BC0;
+  --color-hairline: rgba(16,33,57,.14);
+  --color-hairline-strong: rgba(16,33,57,.3);
 
   /* Inverted Surfaces */
-  --color-inverted-ground: #050684;
-  --color-inverted-surface: #0a0c48;
+  --color-inverted-ground: #102139;
+  --color-inverted-surface: #14283F;
   --color-inverted-ink: #FFFFFF;
-  --color-inverted-muted: #8E9099;
-  --color-inverted-hairline: rgba(255, 255, 255, 0.14);
+  --color-inverted-muted: #C4D0E0;
+  --color-inverted-hairline: rgba(255,255,255,.18);
 
   /* Semantic Status Colors */
   --color-status-pass: #1A8A3E;
   --color-status-alert: #D32F2F;
 
   /* Typography System — Section 4 */
-  --font-display: 'Archivo', Mont, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-body: 'Work Sans', DM, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Archivo', sans-serif;
+  --font-technical: "IBM Plex Mono", monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'Work Sans', sans-serif;
 
   /* Layout Spacing */
   --header-height: 64px;
@@ -59,26 +46,26 @@
   --transition-fast: 0.2s var(--ease-editorial);
   --transition-normal: 0.35s var(--ease-editorial);
 
-  --paper: #FFFFFF;
-  --portal-bg: #FFFFFF;
+  --paper: #F5F7FA;
+  --portal-bg: #F5F7FA;
 }
 
 /* Dark Theme Overrides — GARDA Signature Dark Palette */
 :root[data-theme="dark"] {
-  --color-ground-primary: #050684;
-  --color-ground-secondary: #08099c;
-  --color-surface: #0a0da8;
+  --color-ground-primary: #102139;
+  --color-ground-secondary: #14283F;
+  --color-surface: #14283F;
   --color-ink-primary: #FFFFFF;
-  --color-ink-secondary: #C7D2FE;
-  --color-ink-muted: #818CF8;
-  --color-signal: #9BFD08;
-  --color-signal-lift: #BAFD45;
-  --color-hairline: rgba(255, 255, 255, 0.14);
-  --color-hairline-strong: rgba(255, 255, 255, 0.28);
-  --color-inverted-ground: #020340;
-  --color-inverted-surface: #040552;
-  --paper: #050684;
-  --portal-bg: #050684;
+  --color-ink-secondary: #C4D0E0;
+  --color-ink-muted: #C4D0E0;
+  --color-signal: #75BEDE;
+  --color-signal-lift: #FFBD07;
+  --color-hairline: rgba(255,255,255,.18);
+  --color-hairline-strong: rgba(255,255,255,.35);
+  --color-inverted-ground: #102139;
+  --color-inverted-surface: #14283F;
+  --paper: #102139;
+  --portal-bg: #102139;
 }
 
 /* --------------------------------------------------------------------------
@@ -2518,4 +2505,23 @@ nav[aria-label="Navigasi editorial"] a[aria-current="true"] {
   .scroll-progress {
     display: none !important;
   }
+}
+
+.portal-hero{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(240px,.8fr);align-items:center;gap:clamp(24px,5vw,80px);min-height:min(680px,85svh)!important;padding-block:clamp(48px,8vw,100px)!important}.portal-stage{display:none!important}.portal-copy{position:relative!important;inset:auto!important;width:auto!important;opacity:1!important;transform:none!important;z-index:1}.portal-copy .hero-reveal,.portal-title-left,.portal-title-right{opacity:1!important;transform:none!important;visibility:visible!important}.engineering-bulb{margin:0;width:min(100%,360px);justify-self:center;color:#9B7000}.engineering-bulb svg{display:block;width:100%;height:auto}:root[data-theme="dark"] .engineering-bulb{color:#F4D43F}.site-intro{display:none!important}@media(max-width:780px){.portal-hero{grid-template-columns:1fr;min-height:0!important}.engineering-bulb{width:min(60vw,220px)}.topbar a,.topbar button,.hero-actions a{min-height:44px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Locked GARDA brand roles */
+:root { --brand-navy:#243E80; --brand-blue:#007BC0; --brand-light-blue:#75BEDE; --brand-gold:#FFBD07; --brand-blue-text:#006CA8; }
+h1,h2,h3,.brand-label { font-family:var(--font-display); font-weight:800; }
+button,input,select,textarea,nav a,.hero-actions a { font-family:var(--font-body); }
+code,pre,.hero-metrics,.result-label { font-family:var(--font-technical); font-variant-numeric:tabular-nums; }
+.engineering-bulb { color:var(--brand-navy); }
+:root[data-theme="dark"] .engineering-bulb { color:var(--brand-light-blue); }
+a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var(--color-signal); outline-offset:4px; }
+
+/* Keep content available while modules and evidence load. */
+.scroll-reveal{opacity:1;visibility:visible;transform:none}
+@media(prefers-reduced-motion:no-preference){
+.portal-copy{animation:garda-enter .7s ease-out both}
+.engineering-bulb{animation:garda-enter .9s ease-out both}
+@keyframes garda-enter{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
 }

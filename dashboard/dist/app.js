@@ -132,7 +132,7 @@ function setupMotion() {
   }), { rootMargin: '-25% 0px -60%' }) : null;
   sections.forEach(section => navObserver?.observe(section));
 
-  const progress = $('.scroll-progress span');
+  const progress = document.querySelector('.scroll-progress span');
   const updateScroll = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if (progress) progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
