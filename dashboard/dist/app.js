@@ -36,7 +36,7 @@ const translations = {
     'hero.title': '<span class="portal-title-left">Drones inspect.</span><br><em class="portal-title-right">GARDA keeps watch.</em>',
     'hero.lead': 'Power-line inspection drones need to avoid obstacles without depending on a server connection. GARDA is developing a chip that computes proposed motion corrections and checks them with a hardware safety gate to help operators protect vehicles and assets.',
     'hero.explore': 'Watch the demo',
-    'hero.play': 'Read the GARDA proposal ↗',
+    'hero.play': 'Read the GARDA proposal',
     'hero.metricCycles': 'Parallel16 clocks, RTL tested',
     'hero.metricTime': 'core projection at 50 MHz'
   }

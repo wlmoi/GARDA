@@ -27,6 +27,8 @@
   <script type="module" src="scroll-story.js"></script>
   <link rel="stylesheet" href="engineering-gallery.css">
   <script type="module" src="engineering-gallery.js"></script>
+  <script type="module" src="proposal-viewer.js"></script>
+  <link rel="stylesheet" href="proposal-viewer.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -77,7 +79,7 @@
         </p>
         <h1 class="hero-reveal portal-title is-visible" data-i18n="hero.title"><span class="portal-title-left">Drone menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em></h1>
         <p class="lead hero-reveal is-visible" data-i18n="hero.lead">Drone inspeksi jaringan listrik perlu menghindari rintangan tanpa bergantung pada koneksi ke server. GARDA mengembangkan chip yang menghitung usulan koreksi gerak dan memeriksanya dengan gerbang keselamatan perangkat keras untuk membantu operator menjaga wahana dan aset.</p>
-        <div class="hero-actions hero-reveal is-visible"><a class="hero-primary" href="#robot-demo" data-i18n="hero.explore">Lihat demo</a><a class="btn-action secondary proposal-cta" href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener" data-i18n="hero.play">Read the GARDA proposal ↗</a></div>
+        <div class="hero-actions hero-reveal is-visible"><a class="hero-primary" href="#robot-demo" data-i18n="hero.explore">Lihat demo</a><a class="btn-action secondary proposal-cta" aria-haspopup="dialog" aria-controls="proposal-viewer" href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener" data-i18n="hero.play">Read the GARDA proposal ↗</a></div>
         <div class="hero-metrics hero-reveal is-visible" style="--reveal-delay:400ms">
           <div>
             <strong>3.556</strong>
@@ -850,6 +852,11 @@
     </section>
   </main>
 
+<dialog id="proposal-viewer" class="proposal-viewer" aria-labelledby="proposal-title">
+ <header class="proposal-viewer-header"><h2 id="proposal-title">GARDA Proposal</h2><button type="button" class="proposal-close" aria-label="Close proposal">Close ×</button></header>
+ <div class="proposal-toolbar"><button type="button" class="proposal-prev" aria-label="Previous PDF page">←</button><label>Page <input class="proposal-page-number" type="number" min="1" value="1" aria-label="PDF page number"> <span class="proposal-page-total">/ —</span></label><button type="button" class="proposal-next" aria-label="Next PDF page">→</button><label>Zoom <select class="proposal-zoom" aria-label="PDF zoom"><option value="1">Fit width</option><option value="1.5">150%</option><option value="2">200%</option></select></label><a href="downloads/GARDA-Proposal-SENO-Hackathon-2026.pdf" target="_blank" rel="noopener">Open full PDF ↗</a></div>
+ <p class="proposal-status" role="status" aria-live="polite">Loading proposal…</p><div class="proposal-pages"><canvas role="img" aria-label="GARDA proposal page"></canvas><div class="proposal-accessible-text"></div></div>
+</dialog>
   <div id="toast" class="toast" role="status" hidden></div>
   <script type="module" src="clock-explorer.js?v=editorial1"></script>
   <script type="module" src="robot-view.js?v=editorial1"></script>
