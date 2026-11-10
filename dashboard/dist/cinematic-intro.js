@@ -4,14 +4,14 @@ let seen=false;try{seen=sessionStorage.getItem('garda-boot-seen')==='1';}catch{}
 if(!reduced&&!seen)start();
 function start(){
  const overlay=document.createElement('div');overlay.className='boot-intro';overlay.setAttribute('aria-label','GARDA cinematic introduction');
- overlay.innerHTML='<img class="boot-logo" src="assets/garda-mark.svg" alt="GARDA">';
+ overlay.innerHTML='<img class="boot-logo" src="assets/garda-intro-mark.svg" alt="GARDA">';
  document.body.append(overlay);
  const theme=getComputedStyle(document.documentElement);
  const ground=theme.getPropertyValue('--color-ground-primary').trim()||'#050684';
  const accent=theme.getPropertyValue('--color-signal').trim()||'#9BFD08';
  const surface=theme.getPropertyValue('--color-ground-secondary').trim()||'#034AB6';
  const accentColor=new THREE.Color(accent);
- overlay.style.background=ground;
+ overlay.style.background='transparent';
  const logo=overlay.querySelector('.boot-logo');
  logo.style.transition='none';logo.style.zIndex='2';
  overlay.style.pointerEvents='none';
@@ -22,7 +22,7 @@ function start(){
  function resize(){if(!renderer)return;camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);}
  try{
  renderer=new THREE.WebGLRenderer({antialias:innerWidth>780,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<780?1.25:2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;overlay.prepend(renderer.domElement);
- scene=new THREE.Scene();scene.background=new THREE.Color(ground);scene.fog=new THREE.FogExp2(ground,.025);camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,160);camera.position.z=4;
+ scene=new THREE.Scene();scene.background=null;renderer.setClearColor(0x000000,0);scene.fog=new THREE.FogExp2(ground,.025);camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,160);camera.position.z=4;
  scene.add(new THREE.AmbientLight(accent,.7));const keyLight=new THREE.DirectionalLight(0xffffff,2);keyLight.position.set(2,3,4);scene.add(keyLight);const light=new THREE.PointLight(accent,30,24);scene.add(light);
  const shape=new THREE.Shape();shape.moveTo(-3,-3);shape.lineTo(3,-3);shape.lineTo(3,3);shape.lineTo(-3,3);shape.closePath();const hole=new THREE.Path();hole.moveTo(-2.82,-2.82);hole.lineTo(-2.82,2.82);hole.lineTo(2.82,2.82);hole.lineTo(2.82,-2.82);hole.closePath();shape.holes.push(hole);
  const geometry=new THREE.ExtrudeGeometry(shape,{depth:.12,bevelEnabled:false});const metal=new THREE.MeshStandardMaterial({color:surface,metalness:.65,roughness:.4});const signalMaterial=new THREE.MeshBasicMaterial({color:0xffffff});resources.push(geometry,metal,signalMaterial);
@@ -32,13 +32,13 @@ function start(){
  resize();addEventListener('resize',resize);const began=performance.now();
  const smooth=t=>{const x=Math.max(0,Math.min(1,t));return x*x*(3-2*x);};
  const frame=now=>{if(done)return;const t=(now-began)/1000;
- const p=Math.max(0,Math.min(1,(t-.4)/1.65));
+ const p=Math.max(0,Math.min(1,t/1.9));
  const e=p*p*p*(p*(p*6-15)+10);
- const opening=smooth(t/.2),logoExit=smooth((t-.3)/.35),landing=smooth((t-2.05)/.4);
+ const opening=smooth(t/.2),logoExit=smooth((t-.7)/.5),landing=smooth((t-1.85)/.6);
  logo.style.opacity=String(opening*(1-logoExit));
  logo.style.transform=`scale(${.92+.12*logoExit})`;
- renderer.domElement.style.opacity=String(smooth((t-.3)/.3)*(1-landing));
- overlay.style.background=t>2.05?'transparent':ground;
+ renderer.domElement.style.opacity=String(opening*(1-landing));
+ overlay.style.background='transparent';
  camera.position.set(.2*Math.sin(Math.PI*p)*Math.sin(2*Math.PI*p),0,4-60*e);
  camera.rotation.z=.025*Math.sin(Math.PI*p);
  light.position.copy(camera.position);lm.opacity=.13*Math.sin(Math.PI*p);
