@@ -440,7 +440,7 @@ export class GardaScene {
       mat.makeRotationY(Math.PI / 2); mat.setPosition(50.6, 4.16, z); pads.setMatrixAt(padCount * 3 + i, mat);
     }
     root.add(pads);
-    this._flatLabel(root, tiny ? 'TinyTapeout  |  GARDA NEURAL' : 'GARDA  |  RTL ARCHITECTURE',
+    this._flatLabel(root, tiny ? 'GARDA  |  NEURAL CORE RTL' : 'GARDA  |  RTL ARCHITECTURE',
       0, 4.69, -28.6, 76, 4,
       { size: 49, color: '#25405b', height: 128 });
     this._flatLabel(root, 'CONCEPTUAL PLACEMENT', 0, 4.69, 29.1, 64, 2.1,

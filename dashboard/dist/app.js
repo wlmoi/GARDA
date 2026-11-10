@@ -330,8 +330,8 @@ function setMode(next, fromScene = false) {
     b.setAttribute('aria-selected', String(yes));
     b.tabIndex = yes ? 0 : -1;
   });
-  $('mode-chip').textContent = tt ? 'NEURAL CORE / IHP HISTORIS' : mode === 'die' ? '20 MODUL / 19 BERKAS' : 'MAX 10 / 10M50DAF484C7G';
-  $('stage-kicker').textContent = tt ? 'TINYTAPEOUT EXPLORER' : mode === 'die' ? 'LOGICAL RTL EXPLORER' : 'BOARD EXPLORER';
+  $('mode-chip').textContent = tt ? 'NEURAL CORE / RTL' : mode === 'die' ? '20 MODUL / 19 BERKAS' : 'MAX 10 / 10M50DAF484C7G';
+  $('stage-kicker').textContent = tt ? 'NEURAL CORE RTL EXPLORER' : mode === 'die' ? 'LOGICAL RTL EXPLORER' : 'BOARD EXPLORER';
   $('stage-title').innerHTML = tt ? '24 → 64 → 64 → 4.<br>Dual MAC. Model tetap.' : mode === 'die' ? 'Dari masukan peta.<br>Ke gerbang keputusan.' : 'Board DE10-Lite.<br>Target FPGA MAX 10.';
   $('block-count').textContent = tt ? '4 modul' : '20 modul / 19 berkas';
   renderLegend();
@@ -419,21 +419,16 @@ async function loadEvidence() {
     if (!r.ok) throw Error(r.status);
     report = await r.json();
     const current = report.current_rtl || {};
-    $('tt-functional').textContent = current.status === 'pass' ? 'RTL PASS' : 'Uji ulang';
     $('current-rtl-status').textContent = current.result || 'Perlu uji ulang';
     $('current-rtl-status').dataset.status = current.status || 'rerun_required';
     $('current-rtl-summary').textContent = current.summary || 'Bukti RTL aktif belum tersedia.';
     $('current-rtl-activity').textContent = current.activity_summary || '';
-    $('tt-summary').textContent = report.summary || 'Hasil RTL dan implementasi fisik memiliki cakupan terpisah.';
     $('evidence-date').textContent = `Diperiksa ${report.checked_date || '15 Oktober 2026'}`;
-    $('tt-checks').innerHTML = (report.checks || []).map(c => `<div class="tt-check ${c.status === 'pass' ? '' : 'pending'}" data-status="${esc(c.status || 'not_run')}" role="listitem"><span class="tt-check-label">${esc(c.label)}</span><strong class="tt-check-result">${esc(c.result)}</strong></div>`).join('');
-    $('tt-checks').setAttribute('role', 'list');
+    // the chip status panel (#tt-checks) is filled by silicon-status.js from the GDSII layout facts
   } catch (error) {
     $('current-rtl-status').textContent = 'Bukti belum dimuat';
     $('current-rtl-summary').textContent = 'Buka laporan repository untuk hasil pengujian.';
     $('current-rtl-activity').textContent = '';
-    $('tt-functional').textContent = 'Lihat bukti repository';
-    $('tt-summary').textContent = 'Laporan pengujian terbaru belum berhasil dimuat.';
     $('tt-report-link').hidden = true;
   }
 }

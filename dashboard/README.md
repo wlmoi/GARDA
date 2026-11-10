@@ -69,7 +69,7 @@ Bukti TinyTapeout berikut merupakan hasil revisi historis dan tidak membuktikan 
 
 ## Physical silicon
 
-The canonical GDSII reference is [wlmoi.github.io/GARDA/GDSII/](https://wlmoi.github.io/GARDA/GDSII/): GARDA-chip (`tt_um_garda_chip`, PRISM + TinyQV, IHP SG13CMOS5L 8x4). It is a separate design from the neural-logic core in the evidence table. The dashboard links it from the navigation, the 3D section below the demo (`silicon-3d.js`) and the closing link.
+The canonical GDSII reference is [wlmoi.github.io/GARDA/GDSII/](https://wlmoi.github.io/GARDA/GDSII/): GARDA-chip (`tt_um_garda_chip`, PRISM + TinyQV, IHP SG13CMOS5L 8x4). It is GARDA's Tiny Tapeout target (the chip's I/O and control); the neural core is verified in RTL and on FPGA and is not part of that layout. The dashboard links it from the navigation, the 3D section below the demo (`silicon-3d.js`) and the closing link.
 
 ## Deploy Vercel
 

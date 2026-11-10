@@ -328,11 +328,11 @@ footer{border-top:1px solid var(--line);padding:26px 0 calc(40px + env(safe-area
 
   <section id="variants" aria-labelledby="var-title">
     <div class="wrap">
-      <h2 id="var-title">Which GARDA silicon is this?</h2>
-      <p class="sub">The GARDA project has more than one hardware experiment. They are separate designs and must not be confused.</p>
+      <h2 id="var-title">Where this chip fits in GARDA</h2>
+      <p class="sub">GARDA's Tiny Tapeout target is this tile. What it contains, and what runs elsewhere:</p>
       <div class="variants">
-        <div class="card"><span class="pill ok">Layout shown here</span><h3 style="margin-top:10px">GARDA-chip<i class="ic-chip" aria-hidden="true"></i>tt_um_garda_chip</h3><p>PRISM + TinyQV on IHP SG13CMOS5L, Tiny Tapeout 8x4 tile. Routed and signed off locally (DRC 0, LVS 0); the timing caveats are listed in the evidence table. Not fabricated.</p></div>
-        <div class="card"><span class="pill no">No layout published here</span><h3 style="margin-top:10px">GARDA neural-logic accelerator</h3><p>The neural-accelerator and chip I/O experiments described in the hackathon proposal (<span class="mono">tt_um_wlmoi_garda_neural_logic</span>) are a different design. Their layout and verification status are not part of this page; none of the numbers above apply to them.</p></div>
+        <div class="card"><span class="pill ok">On this tile</span><h3 style="margin-top:10px">GARDA-chip<i class="ic-chip" aria-hidden="true"></i>tt_um_garda_chip</h3><p>The chip's I/O and control: the PRISM programmable protocol engine and a TinyQV RISC-V core on IHP SG13CMOS5L, 8x4 tile. Routed and signed off (DRC 0, LVS 0); the timing caveats are in the evidence table. Not yet fabricated.</p></div>
+        <div class="card"><span class="pill part">Verified in RTL and on FPGA</span><h3 style="margin-top:10px">Neural inference core</h3><p>The Parallel16 neural core and the hardware safety gate shown on the <a href="https://garda-chip-explorer.vercel.app/">GARDA website</a> are verified in RTL and on FPGA. They are not part of this tile's layout, so none of the layout numbers above describe them.</p></div>
       </div>
     </div>
   </section>

@@ -19,9 +19,9 @@
   <link rel="stylesheet" href="style.css?v=editorial1">
   <script src="vendor/gsap.min.js?v=3.15.1"></script>
   <script src="vendor/ScrollTrigger.min.js?v=3.15.1"></script>
-  <script type="module" src="app.js?v=editorial1"></script>
+  <script type="module" src="app.js?v=editorial2"></script>
   <script type="module" src="localization.js"></script>
-  <script type="module" src="verification-table.js"></script>
+  <script type="module" src="verification-table.js?v=2"></script>
   <script type="module" src="cinematic-intro.js?v=2"></script>
   <script type="module" src="hero-motion.js?v=2"></script>
   <link rel="stylesheet" href="scroll-story.css">
@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="judge-mode.css?v=judge2">
   <script type="module" src="judge-mode.js?v=judge2"></script>
   <script type="module" src="silicon-3d.js?v=1"></script>
+  <script type="module" src="silicon-status.js?v=1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -180,7 +181,7 @@
       <div class="silicon-3d-head">
         <p class="mono-eyebrow">Physical silicon<i class="ic-chip" aria-hidden="true"></i>GDSII in 3D</p>
         <h2 id="silicon-3d-title">The chip layout, layer by layer.</h2>
-        <p>Rotate and zoom through the real routed layout of <strong>GARDA-chip</strong> (<code>tt_um_garda_chip</code>): PRISM state machines and a TinyQV RISC-V core on an IHP SG13CMOS5L Tiny Tapeout 8x4 tile, 1724.16 × 710.64 µm. This is a separate design from the neural-logic core in the test results below.</p>
+        <p>Rotate and zoom through the real routed layout of GARDA's Tiny Tapeout chip, <strong>GARDA-chip</strong> (<code>tt_um_garda_chip</code>): the PRISM programmable I/O engine and a TinyQV RISC-V control core on an IHP SG13CMOS5L 8x4 tile, 1724.16 × 710.64 µm, with the SENO mascot in Metal4. The neural core above is verified in RTL and on FPGA; this tile carries the chip's I/O and control.</p>
       </div>
       <div class="silicon-3d-stage" id="silicon-3d-stage">
         <img class="silicon-3d-poster" src="https://wlmoi.github.io/GARDA/GDSII/assets/overview-1600.jpg" alt="Layout of GARDA-chip rendered from its final GDS" width="1600" height="659" loading="lazy" decoding="async" onerror="this.remove()">
@@ -578,7 +579,7 @@
             </div>
             <div class="stage-corner top-right">
               <span class="corner-id">IC / 10M50DAF484C7G</span>
-              <span class="corner-val">Target tapeout: SKY130 130 nm</span>
+              <span class="corner-val" data-i18n="judge-mode">Tapeout target: GARDA-chip, IHP SG13CMOS5L 130 nm</span>
             </div>
             <div class="stage-corner bottom-left">
               <span class="corner-id">FABRIC</span>
@@ -761,11 +762,11 @@
               <td><span class="status-pill verified">3.084 VECTORS PASS</span></td>
             </tr>
             <tr>
-              <td><span class="cat-pill asic">ASIC EXP</span></td>
-              <td class="font-display">TinyTapeout ASIC Core</td>
-              <td class="font-mono" id="tt-latency">3.080 siklus</td>
-              <td>24 64 64 4. Dual MAC fixed-point pada IHP SG13G2</td>
-              <td><span id="tt-functional" class="status-pill note">Loading status</span></td>
+              <td><span class="cat-pill asic">ASIC LAYOUT</span></td>
+              <td class="font-display" data-i18n="judge-mode">GARDA-chip tapeout tile (<code>tt_um_garda_chip</code>)</td>
+              <td class="font-mono" id="chip-result" data-i18n="judge-mode">DRC 0 / LVS 0</td>
+              <td data-i18n="judge-mode" id="chip-method">IHP SG13CMOS5L 8x4 tile, PRISM + TinyQV, routed and signed off with LibreLane</td>
+              <td><span id="chip-status" class="status-pill verified" data-i18n="judge-mode">LAYOUT SIGNED OFF</span></td>
             </tr>
             <tr>
               <td><span class="cat-pill illustrative">ILLUSTRATIVE</span></td>
@@ -781,7 +782,7 @@
       <!-- Active RTL Verification Status -->
       <article class="rtl-current-card" aria-labelledby="current-rtl-title">
         <div>
-          <p class="mono-eyebrow">TinyTapeout RTL aktif</p>
+          <p class="mono-eyebrow" data-i18n="judge-mode">Neural core RTL regression</p>
           <h3 id="current-rtl-title">Fixed model. Matching results.</h3>
           <p id="current-rtl-summary">Checking evidence against the current code…</p>
           <p id="current-rtl-activity" class="scope-note"></p>
@@ -792,14 +793,15 @@
         </div>
       </article>
 
-      <!-- TinyTapeout Status Panel -->
-      <div class="tt-status-panel">
+      <!-- Tapeout chip status: same facts as the GDSII explorer (layout.json) -->
+      <div class="tt-status-panel" data-i18n="judge-mode">
         <div>
-          <p class="mono-eyebrow">TINYTAPEOUT / HISTORICAL IMPLEMENTATION EVIDENCE</p>
-          <h3><code>tt_um_wlmoi_garda_neural_logic</code></h3>
-          <p id="tt-summary">RTL results and physical implementation status are reported separately.</p>
+          <p class="mono-eyebrow">Tiny Tapeout chip<i class="ic-chip" aria-hidden="true"></i>physical implementation</p>
+          <h3><code>tt_um_garda_chip</code></h3>
+          <p id="tt-summary">GARDA-chip: the PRISM programmable I/O engine and a TinyQV RISC-V control core on an IHP SG13CMOS5L 8x4 tile. Routed and signed off; not yet fabricated.</p>
+          <a class="btn-action secondary small" href="https://wlmoi.github.io/GARDA/GDSII/">Explore Physical Silicon / GDSII ↗</a>
         </div>
-        <div id="tt-checks" class="tt-checks"></div>
+        <div id="tt-checks" class="tt-checks" role="list"></div>
       </div>
 
       <!-- Ruled Technical Pinout Table -->
@@ -817,16 +819,17 @@
 
       <!-- Technical Download Resources Strip -->
       <div class="verification-links">
-        <a href="data/tinytapeout-report.json" id="tt-report-link" class="btn-action secondary small" download>Test report JSON</a>
+        <a href="data/tinytapeout-report.json" id="tt-report-link" class="btn-action secondary small" download data-i18n="judge-mode">Neural core RTL report (JSON)</a>
         <a href="downloads/IGOR_DE10_NANO_READY.zip" class="btn-action secondary small" download>Historical Quartus package</a>
         <a href="downloads/igor.sof" class="btn-action secondary small" download>Bitstream .sof ↓</a>
-        <a href="downloads/TINYTAPEOUT_SOURCE.zip" class="btn-action secondary small" download>TinyTapeout code</a>
+        <a href="downloads/TINYTAPEOUT_SOURCE.zip" class="btn-action secondary small" download data-i18n="judge-mode">Neural core RTL source (zip)</a>
+        <a href="https://wlmoi.github.io/GARDA/tinytapeout.gds" class="btn-action secondary small" download data-i18n="judge-mode">GARDA-chip GDSII ↓</a>
       </div>
 
       <!-- Scope & Power Details Disclosure -->
       <details class="scope-details">
         <summary>Test scope, power estimates and implementation limits</summary>
-        <p>Parallel8 simulation and fit records describe an earlier FPGA experiment. They do not demonstrate an integrated implementation or board test for this revision. The IHP netlist, bitstream and Quartus package are historical build evidence. SKY130 requires its own build and signoff. The 506.69 mW figure is a low-confidence vectorless estimate from a separate DWA project; board and system measurements are still required.</p>
+        <p>Parallel8 simulation and fit records describe an earlier FPGA experiment. They do not demonstrate an integrated implementation or board test for this revision. The bitstream and Quartus package are historical build evidence. The Tiny Tapeout target is GARDA-chip on IHP SG13CMOS5L; its layout and sign-off results are on the GDSII page. The 506.69 mW figure is a low-confidence vectorless estimate from a separate DWA project; board and system measurements are still required.</p>
       </details>
     </section>
 
