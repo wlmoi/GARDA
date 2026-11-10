@@ -2523,3 +2523,18 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
 
 @keyframes garda-enter{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
 }
+
+/* Simulation-first reading order and readable theme surfaces. */
+:root{--color-ground-primary:#FFFFFF;--paper:#FFFFFF;--portal-bg:#FFFFFF}
+:root[data-theme="dark"]{--color-ground-primary:#102139;--paper:#102139;--portal-bg:#102139}
+#clock-explorer{padding-top:calc(var(--header-height) + 36px);scroll-margin-top:var(--header-height)}
+.intro-mascot{display:none}
+.portal-image{object-fit:contain!important;max-height:72svh;inset:14% 8%!important;width:84%!important;height:72%!important}
+.portal-copy{z-index:4}.portal-copy .lead,.portal-copy .hero-actions,.portal-copy .hero-metrics{background:var(--color-ground-primary);padding:12px;border:1px solid var(--color-hairline-strong)}
+.btn-action,button,input,select{border-color:var(--color-hairline-strong)}
+.inverted-proof-section{color:#FFFFFF;background:#102139}
+.inverted-proof-section p,.inverted-proof-section small{color:#C4D0E0}
+:root[data-theme="dark"] .chapter-section{color:#FFFFFF}
+:root[data-theme="dark"] .chapter-section p{color:#C4D0E0}
+@media(max-width:780px){.portal-hero{min-height:100svh}.portal-title{font-size:clamp(2.5rem,10vw,4.5rem)}.portal-copy{max-width:100%}.hero-metrics{flex-wrap:wrap}}
+@media(prefers-reduced-motion:no-preference){.chapter-section> .section-line{animation:garda-enter .6s ease-out both}}
