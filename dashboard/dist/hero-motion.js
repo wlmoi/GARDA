@@ -8,7 +8,8 @@ function reveal() {
  // the hero answers the intro: title lines rise in turn, then the lead
  gsap.fromTo('.portal-title > span, .portal-title > em', {opacity:0,yPercent:55,filter:'blur(8px)'}, {opacity:1,yPercent:0,filter:'blur(0px)',duration:.9,stagger:.16,ease:'power3.out',clearProps:'filter'});
  gsap.fromTo('.portal-copy .lead, .portal-copy .eyebrow', {opacity:0,y:18}, {opacity:1,y:0,duration:.8,stagger:.1,delay:.25,ease:'power2.out'});
- gsap.fromTo('.portal-stage .portal-image', {opacity:0,scale:.92,rotate:-4}, {opacity:1,scale:1,rotate:0,duration:1.2,ease:'power3.out'});
+ // opacity and blur only: the frame's own transform centres it and must not be overwritten
+ gsap.fromTo('.hero-drone', {opacity:0,filter:'blur(12px) saturate(.6)'}, {opacity:1,filter:'blur(0px) saturate(1)',duration:1.2,ease:'power3.out',clearProps:'filter'});
  gsap.fromTo('.hero-actions > *', {opacity:0,y:20}, {opacity:1,y:0,stagger:.12,duration:.7,delay:.35});
  gsap.fromTo('.hero-metrics > *', {opacity:0,y:20}, {opacity:1,y:0,stagger:.12,duration:.8,delay:.55});
 }

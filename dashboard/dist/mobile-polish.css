@@ -8,6 +8,44 @@
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 2h2v3H9zM13 2h2v3h-2zM9 19h2v3H9zM13 19h2v3h-2zM2 9h3v2H2zM2 13h3v2H2zM19 9h3v2h-3zM19 13h3v2h-3z'/%3E%3Crect x='6' y='6' width='12' height='12' rx='2.5'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* ---------- hero: the GARDA drone animation ---------- */
+/* the GIF has its own dark scene, so it sits in a deliberate rounded "viewport"
+   that reads as a window into the simulation in both themes */
+.portal-hero .hero-drone {
+  /* centred inside the portal stage (which clips), as large as it allows */
+  position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: min(94%, 620px, calc(92svh * 4 / 3)); aspect-ratio: 4 / 3; border-radius: 24px; overflow: hidden;
+  background: #091521 url("assets/hero-drone-still.webp") center / cover no-repeat;
+  border: 1px solid rgba(183, 255, 53, .28);
+  box-shadow: 0 0 0 6px rgba(183, 255, 53, .06), 0 40px 80px -36px rgba(7, 11, 32, .75), 0 0 70px -20px rgba(49, 92, 255, .55);
+  translate: 0 var(--hero-travel, 0px);
+}
+.portal-hero .hero-drone picture, .portal-hero .hero-drone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.portal-hero .hero-drone::after { /* soft vignette so the edges melt into the frame */
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  box-shadow: inset 0 0 60px 14px rgba(9, 21, 33, .85);
+}
+.hero-drone-tag {
+  position: absolute; z-index: 2; left: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 2px;
+  padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(7, 11, 32, .72); color: #F7F9FF;
+  border: 1px solid rgba(183, 255, 53, .35); font: 600 11.5px/1 var(--font-mono, monospace); letter-spacing: .06em; text-transform: uppercase;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.hero-drone-tag .ic-chip { color: #B7FF35; margin: 0 6px 0 2px; }
+/* the old static chip illustration is replaced by the drone */
+.portal-stage .portal-image { display: none !important; }
+/* tablets and small laptops: the copy keeps a column, the drone takes the rest */
+@media (min-width: 781px) and (max-width: 1359px) {
+  .portal-hero .portal-copy { max-width: 52vw !important; }
+  .portal-hero .portal-title { font-size: clamp(36px, 5.1vw, 66px) !important; }
+}
+@media (max-width: 780px) {
+  .portal-hero.portal-hero { grid-template-rows: auto auto !important; }
+  .portal-hero.portal-hero .portal-stage { height: auto !important; min-height: 0 !important; display: grid !important; place-items: center; padding: 14px 0 4px !important; overflow: visible !important; }
+  .portal-hero .hero-drone { position: relative; left: auto; top: auto; transform: none; translate: none; width: min(100%, 460px); }
+}
+@media (prefers-reduced-motion: reduce) { .portal-hero .hero-drone { translate: none; } }
+
 /* ---------- 3D GDSII view ---------- */
 .silicon-3d { padding-block: clamp(40px, 7vw, 88px); }
 .silicon-3d-head { max-width: 860px; margin-bottom: 22px; }

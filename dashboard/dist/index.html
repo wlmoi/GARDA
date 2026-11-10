@@ -23,7 +23,7 @@
   <script type="module" src="localization.js"></script>
   <script type="module" src="verification-table.js?v=2"></script>
   <script type="module" src="cinematic-intro.js?v=2"></script>
-  <script type="module" src="hero-motion.js?v=2"></script>
+  <script type="module" src="hero-motion.js?v=3"></script>
   <link rel="stylesheet" href="scroll-story.css">
   <link rel="stylesheet" href="theme.css">
   <script type="module" src="scroll-story.js"></script>
@@ -34,7 +34,7 @@
   <script type="module" src="inference-guide.js"></script>
   <link rel="stylesheet" href="ui-controls.css">
   <link rel="stylesheet" href="proposal-viewer.css">
-  <link rel="stylesheet" href="mobile-polish.css?v=judge2">
+  <link rel="stylesheet" href="mobile-polish.css?v=judge3">
   <link rel="stylesheet" href="judge-mode.css?v=judge2">
   <script type="module" src="judge-mode.js?v=judge2"></script>
   <script type="module" src="silicon-3d.js?v=1"></script>
@@ -76,7 +76,13 @@
     <!-- CHAPTER 01: Hero — Scroll-Driven Portal Hero -->
     <section class="intro wrap portal-hero" id="hero" aria-label="Bab 01: Identitas dan Portal Hero GARDA">
       <div class="portal-stage" aria-hidden="true">
-        <img src="assets/garda-chip-scene.svg" alt="" class="portal-image">
+        <div class="hero-drone">
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-drone-still.webp" type="image/webp">
+            <source srcset="assets/hero-drone.webp" type="image/webp">
+            <img src="assets/hero-drone.gif" alt="" width="600" height="450" decoding="async" fetchpriority="high">
+          </picture>
+        </div>
         <span class="portal-wash"></span>
         <span class="portal-veil"></span>
         <span class="portal-panel portal-panel-left"></span>
