@@ -7,6 +7,19 @@ const clamp = (v, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, v));
 const ease = t => (t < .5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
 const text = selector => ($(selector)?.textContent || '').replace(/\s+/g, ' ').trim();
 const SEP = '<i class="ic-chip" aria-hidden="true"></i>'; // chip icon instead of a middle dot
+const isId = () => document.documentElement.lang === 'id';
+const UI = {
+  pause: ['Pause tour', 'Jeda tur'], resume: ['Resume tour', 'Lanjutkan tur'], replayTour: ['Replay tour', 'Putar ulang tur'],
+  replay: ['Replay', 'Ulang'], prev: ['Previous chapter', 'Bab sebelumnya'], next: ['Next chapter', 'Bab berikutnya'],
+  exit: ['Exit judge mode', 'Keluar dari mode juri'], chapters: ['Tour chapters', 'Bab tur'], chapter: ['Chapter', 'Bab'],
+  region: ['GARDA judge mode tour', 'Tur mode juri GARDA'], fab: ['Watch GARDA in Action: start the hands-free tour', 'Lihat GARDA beraksi: mulai tur otomatis'],
+  fabText: ['Watch in action', 'Lihat beraksi'], complete: ['Tour complete', 'Tur selesai'],
+  doneTitle: ['AI computes. Hardware checks.', 'AI menghitung. Hardware memeriksa.'],
+  doneText: ['That was GARDA in 76 seconds. Replay it, or close the tour and try every simulation yourself.', 'Itulah GARDA dalam 76 detik. Putar ulang, atau tutup tur dan coba sendiri setiap simulasinya.'],
+  cycle: ['Cycle', 'Siklus'], range: ['LiDAR range', 'Jarak LiDAR'], permitted: ['PERMITTED', 'DIIZINKAN'], blocked: ['BLOCKED', 'DIBLOKIR'],
+};
+const t = key => UI[key][isId() ? 1 : 0];
+const L = (step, key) => (isId() && step.id ? step.id[key] : step[key]);
 const fmt = ms => { const s = Math.max(0, Math.round(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
 
 function fire(el, type) { el.dispatchEvent(new Event(type, { bubbles: true })); }
@@ -38,41 +51,51 @@ function resetGate() {
 
 const FAULTS = ['all conditions valid', 'reset active', 'emergency stop', 'protective stop', 'system not ready', 'invalid costmap',
   'invalid configuration', 'arithmetic fault', 'watchdog timeout', 'result incomplete or invalid', 'command over v/omega limit', 'command change over delta limit'];
+const FAULTS_ID = ['semua kondisi valid', 'reset aktif', 'emergency stop', 'protective stop', 'sistem belum siap', 'costmap tidak valid',
+  'konfigurasi tidak valid', 'fault aritmetika', 'watchdog timeout', 'hasil belum lengkap atau tidak valid', 'perintah melewati batas v/omega', 'perubahan perintah melewati batas delta'];
 function gateLive() {
   const code = Number((text('#fault-reason').match(/Fault\s+(\d+)/) || [])[1] || 0);
   const enabled = text('#permit-value') === '1';
-  const verdict = enabled ? '<b class="is-pass">PERMITTED</b>' : `<b class="is-block">BLOCKED</b>${SEP}fault ${code}, ${FAULTS[code] || ''}`;
+  const verdict = enabled ? `<b class="is-pass">${t('permitted')}</b>` : `<b class="is-block">${t('blocked')}</b>${SEP}fault ${code}, ${(isId() ? FAULTS_ID : FAULTS)[code] || ''}`;
   return { html: `AI v <b>${text('#candidate-value')}</b> → motor_enable <b class="${enabled ? 'is-pass' : 'is-block'}">${text('#permit-value')}</b>${SEP}${verdict}`, state: enabled ? 'pass' : 'block' };
 }
-const robotLive = () => ({ html: `${text('#robot-status')}${SEP}LiDAR range <b>${text('#lidar-distance')}</b>`, state: /stopped|E-stop/i.test(text('#robot-status')) ? 'block' : '' });
+const robotLive = () => ({ html: `${text('#robot-status')}${SEP}${t('range')} <b>${text('#lidar-distance')}</b>`, state: /stopped|E-stop/i.test(text('#robot-status')) ? 'block' : '' });
 
 const STEPS = [
-  { label: 'Intro', title: 'Drones inspect. GARDA keeps watch.', dur: 7000, target: '#hero', focus: '.portal-copy', align: 'top',
+  { id: { label: 'Pembuka', title: 'Drone menginspeksi. GARDA menjaga.', text: 'AI di perangkat mengusulkan setiap gerakan. Gerbang hardware terpisah memutuskan apakah motor boleh bergerak.' },
+    label: 'Intro', title: 'Drones inspect. GARDA keeps watch.', dur: 7000, target: '#hero', focus: '.portal-copy', align: 'top',
     text: 'AI on the device proposes every move. A separate hardware gate decides whether the motors may act.' },
-  { label: 'Sensing', title: 'Sensor scanning', dur: 10000, target: '#robot-demo', focus: '.robot-stage',
+  { id: { label: 'Sensor', title: 'Pemindaian sensor', text: 'Drone LiDAR terbang di jalur inspeksinya. Data jarak langsung masuk ke GARDA, tanpa server di tengahnya.' },
+    label: 'Sensing', title: 'Sensor scanning', dur: 10000, target: '#robot-demo', focus: '.robot-stage',
     text: 'A LiDAR drone flies its inspection route. Range data goes straight into GARDA, with no server in the loop.',
     at: { 700: () => startRobot('avoid') }, live: robotLive },
-  { label: 'Inference', title: 'AI inference in hardware', dur: 12000, target: '#clock-explorer', focus: '.clock-panel', anchor: '.clock-stats', align: 'top',
+  { id: { label: 'Inferensi', title: 'Inferensi AI di hardware', text: '16 jalur MAC menjalankan jaringan saraf dalam 3.556 siklus: 71,12 µs pada 50 MHz. RTL cocok dengan seluruh 236 uji referensi.' },
+    label: 'Inference', title: 'AI inference in hardware', dur: 12000, target: '#clock-explorer', focus: '.clock-panel', anchor: '.clock-stats', align: 'top',
     text: '16 MAC lanes run the neural network in 3,556 cycles: 71.12 µs at 50 MHz. The RTL matches all 236 reference tests.',
     enter: () => { stopRobot(); stopClock(); setValue('#clock-slider', 0); },
     tick: ms => setValue('#clock-slider', Math.round(ease(clamp((ms - 700) / 10300)) * 3556)),
-    live: () => ({ html: `Cycle <b>${text('#clock-number')}</b>${SEP}${text('#clock-layer')}${SEP}<b>${text('#clock-time')}</b>` }) },
-  { label: 'Obstacle', title: 'Obstacle detected', dur: 8000, target: '#robot-demo', focus: '.robot-stage',
+    live: () => ({ html: `${t('cycle')} <b>${text('#clock-number')}</b>${SEP}${text('#clock-layer')}${SEP}<b>${text('#clock-time')}</b>` }) },
+  { id: { label: 'Rintangan', title: 'Rintangan terdeteksi', text: 'Sebuah rintangan menghalangi jalur. Jarak LiDAR turun dan drone berhenti sebelum menabrak.' },
+    label: 'Obstacle', title: 'Obstacle detected', dur: 8000, target: '#robot-demo', focus: '.robot-stage',
     text: 'An obstacle blocks the path. LiDAR range drops and the drone stops short instead of pressing on.',
     at: { 700: () => startRobot('obstacle') }, live: robotLive },
-  { label: 'Safety gate', title: 'Hardware safety intervention', dur: 11000, target: '#gate-demo', focus: '#gate-result', anchor: '.gate-sliders',
+  { id: { label: 'Gerbang', title: 'Intervensi keselamatan hardware', text: 'Kini AI meminta kecepatan di atas batas 20. Gerbang menolak: motor_enable turun ke 0.' },
+    label: 'Safety gate', title: 'Hardware safety intervention', dur: 11000, target: '#gate-demo', focus: '#gate-result', anchor: '.gate-sliders',
     text: 'The AI now asks for more speed than the limit of 20 allows. The gate refuses: motor_enable drops to 0.',
     enter: () => { stopRobot(); resetGate(); },
     tick: ms => setValue('#candidate-v', Math.round(12 + ease(clamp((ms - 1800) / 5200)) * 14)), live: gateLive },
-  { label: 'E-stop', title: 'Emergency stop', dur: 9000, target: '#gate-demo', focus: '#gate-result', anchor: '.gate-sliders',
+  { id: { label: 'E-stop', title: 'Emergency stop', text: 'Perintah aman kembali, jadi motor boleh jalan. Lalu operator menekan E-stop dan gerbang memutus motor_enable, apa pun permintaan AI.' },
+    label: 'E-stop', title: 'Emergency stop', dur: 9000, target: '#gate-demo', focus: '#gate-result', anchor: '.gate-sliders',
     text: 'A safe command is back, so the motors may run. Then the operator hits E-stop and the gate cuts motor_enable, whatever the AI says.',
     enter: () => { resetGate(); }, at: { 3800: () => setFault('estop', true) }, live: gateLive },
-  { label: 'Verification', title: 'Verified, cycle by cycle', dur: 10000, target: '#verification', focus: '.verification-table-wrap tbody tr:first-child',
+  { id: { label: 'Verifikasi', title: 'Terverifikasi, siklus demi siklus', text: 'Inti neural cocok di seluruh 708 keluaran. Model gerbang dan Verilog-nya sepakat pada 3.084 vektor yang mencakup 12 fault.' },
+    label: 'Verification', title: 'Verified, cycle by cycle', dur: 10000, target: '#verification', focus: '.verification-table-wrap tbody tr:first-child',
     text: 'The neural core matches all 708 outputs. The gate model and its Verilog agree on 3,084 vectors covering 12 faults.',
     enter: () => { const wrap = $('.verification-table-wrap'); if (wrap) wrap.scrollLeft = 0; },
     at: { 4800: () => refocus('.verification-table-wrap tbody tr:nth-child(4)') },
     tick: ms => { const wrap = $('.verification-table-wrap'); if (wrap && wrap.scrollWidth > wrap.clientWidth + 4) wrap.scrollLeft = ease(clamp((ms - 2500) / 5000)) * (wrap.scrollWidth - wrap.clientWidth); } },
-  { label: 'Impact', title: 'Who benefits', dur: 9000, target: '#solution', focus: '.stakeholder-grid',
+  { id: { label: 'Dampak', title: 'Siapa yang diuntungkan', text: 'Unit PLN, operator drone dan integrator robot mendapat penghindaran di perangkat, keputusan yang dapat diaudit, dan penghentian yang tak bisa dibatalkan AI.' },
+    label: 'Impact', title: 'Who benefits', dur: 9000, target: '#solution', focus: '.stakeholder-grid',
     text: 'PLN units, drone operators and robot integrators get on-device avoidance, auditable decisions and a stop the AI cannot override.' }
 ];
 const TOTAL = STEPS.reduce((sum, s) => sum + s.dur, 0);
@@ -89,7 +112,7 @@ const ICON = {
 const hud = document.createElement('section');
 hud.className = 'judge-hud';
 hud.hidden = true;
-hud.dataset.i18n = 'judge-mode'; // not a translation key: keeps localization away from tour copy
+hud.dataset.i18nSkip = ''; // the tour localizes its own copy (see T below)
 hud.setAttribute('aria-label', 'GARDA judge mode tour');
 hud.innerHTML = `
   <div class="judge-progress" role="group" aria-label="Tour chapters">${STEPS.map((s, i) => `<button type="button" class="judge-seg" data-index="${i}" aria-label="Chapter ${i + 1}: ${s.label}" title="${s.label}"><span></span></button>`).join('')}</div>
@@ -113,11 +136,32 @@ document.body.appendChild(hud);
 const fab = document.createElement('button');
 fab.type = 'button';
 fab.className = 'judge-fab';
-fab.dataset.i18n = 'judge-mode';
+fab.dataset.i18nSkip = '';
 fab.dataset.judgeStart = '';
 fab.hidden = true;
 fab.setAttribute('aria-label', 'Watch GARDA in Action: start the hands-free tour');
 fab.innerHTML = `${ICON.play}<span>Watch in action</span>`;
+
+function relabel() {
+  hud.setAttribute('aria-label', t('region'));
+  hud.querySelector('.judge-progress').setAttribute('aria-label', t('chapters'));
+  hud.querySelectorAll('.judge-seg').forEach((seg, i) => { const l = L(STEPS[i], 'label'); seg.setAttribute('aria-label', `${t('chapter')} ${i + 1}: ${l}`); seg.title = l; });
+  hud.querySelector('[data-judge="prev"]').setAttribute('aria-label', t('prev'));
+  hud.querySelector('[data-judge="next"]').setAttribute('aria-label', t('next'));
+  hud.querySelector('[data-judge="replay"]').setAttribute('aria-label', t('replayTour'));
+  hud.querySelector('[data-judge="replay"] span').textContent = t('replay');
+  hud.querySelector('[data-judge="exit"]').setAttribute('aria-label', t('exit'));
+  fab.setAttribute('aria-label', t('fab'));
+  fab.querySelector('span').textContent = t('fabText');
+}
+relabel();
+// switching language mid-tour updates the copy in place, without restarting the chapter
+document.addEventListener('garda-language', () => setTimeout(() => {
+  relabel();
+  if (!active) return;
+  if (done) { ui.count.textContent = t('complete'); ui.title.textContent = t('doneTitle'); ui.text.textContent = t('doneText'); }
+  else { const step = STEPS[index]; ui.count.innerHTML = `${String(index + 1).padStart(2, '0')} / ${String(STEPS.length).padStart(2, '0')}${SEP}${L(step, 'label')}`; ui.title.textContent = L(step, 'title'); ui.text.textContent = L(step, 'text'); ui.toggle.setAttribute('aria-label', playing ? t('pause') : t('resume')); }
+}, 0));
 document.body.appendChild(fab);
 
 const ui = {
@@ -189,9 +233,9 @@ function enterStep(i) {
   index = clamp(i, 0, STEPS.length - 1); elapsed = 0; fired = new Set(); done = false;
   const step = STEPS[index];
   hud.classList.remove('is-done');
-  ui.count.innerHTML = `${String(index + 1).padStart(2, '0')} / ${String(STEPS.length).padStart(2, '0')}${SEP}${step.label}`;
-  ui.title.textContent = step.title;
-  ui.text.textContent = step.text;
+  ui.count.innerHTML = `${String(index + 1).padStart(2, '0')} / ${String(STEPS.length).padStart(2, '0')}${SEP}${L(step, 'label')}`;
+  ui.title.textContent = L(step, 'title');
+  ui.text.textContent = L(step, 'text');
   ui.live.innerHTML = ''; ui.live.className = 'judge-live';
   ui.copy.classList.remove('is-in'); void ui.copy.offsetWidth; ui.copy.classList.add('is-in');
   step.enter?.();
@@ -234,7 +278,7 @@ function setPlaying(on) {
   playing = on && !done;
   hud.classList.toggle('is-paused', !playing && !done);
   ui.toggle.innerHTML = playing ? ICON.pause : ICON.play;
-  ui.toggle.setAttribute('aria-label', playing ? 'Pause tour' : done ? 'Replay tour' : 'Resume tour');
+  ui.toggle.setAttribute('aria-label', playing ? t('pause') : done ? t('replayTour') : t('resume'));
   if (!playing) { stopRobot(); stopClock(); }
   else if (STEPS[index].at) { // resume a robot chapter: replay its scripted action
     const shot = Object.keys(STEPS[index].at).find(at => fired.has(at));
@@ -255,11 +299,11 @@ function finish() {
   focused?.classList.remove('judge-focus'); focused = null;
   restore(saved);
   hud.classList.add('is-done'); hud.classList.remove('is-paused');
-  ui.count.textContent = 'Tour complete';
-  ui.title.textContent = 'AI computes. Hardware checks.';
-  ui.text.textContent = 'That was GARDA in 76 seconds. Replay it, or close the tour and try every simulation yourself.';
+  ui.count.textContent = t('complete');
+  ui.title.textContent = t('doneTitle');
+  ui.text.textContent = t('doneText');
   ui.live.innerHTML = ''; ui.live.className = 'judge-live';
-  ui.toggle.innerHTML = ICON.replay; ui.toggle.setAttribute('aria-label', 'Replay tour');
+  ui.toggle.innerHTML = ICON.replay; ui.toggle.setAttribute('aria-label', t('replayTour'));
   lockScreen(false);
   paint();
 }

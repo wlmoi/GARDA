@@ -18,7 +18,7 @@ const translations = {
     'nav.dataflow': 'DATAFLOW',
     'nav.robot': 'ROBOT & SAFETY',
     'nav.verification': 'VERIFIKASI',
-    'hero.title': '<span class="portal-title-left">Drone menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em>',
+    'hero.title': '<span class="portal-title-left"><a class=\"hero-term-link\" href=\"https://halorobotics.com/transmisi-pln-drone-inspeksi/\" target=\"_blank\" rel=\"noopener\">Drone</a> menginspeksi.</span><br><em class="portal-title-right">GARDA menjaga.</em>',
     'hero.lead': 'Drone inspeksi jaringan listrik perlu menghindari rintangan tanpa bergantung pada koneksi ke server. GARDA mengembangkan chip yang menghitung usulan koreksi gerak dan memeriksanya dengan gerbang keselamatan perangkat keras untuk membantu operator menjaga wahana dan aset.',
     'hero.explore': 'Lihat demo',
     'hero.play': 'Cara kerja dan manfaat',
@@ -33,7 +33,7 @@ const translations = {
     'nav.dataflow': 'DATAFLOW',
     'nav.robot': 'ROBOT & SAFETY',
     'nav.verification': 'VERIFICATION',
-    'hero.title': '<span class="portal-title-left">Drones inspect.</span><br><em class="portal-title-right">GARDA keeps watch.</em>',
+    'hero.title': '<span class="portal-title-left"><a class=\"hero-term-link\" href=\"https://halorobotics.com/transmisi-pln-drone-inspeksi/\" target=\"_blank\" rel=\"noopener\">Drones</a> inspect.</span><br><em class="portal-title-right">GARDA keeps watch.</em>',
     'hero.lead': 'Power-line inspection drones need to avoid obstacles without depending on a server connection. GARDA is developing a chip that computes proposed motion corrections and checks them with a hardware safety gate to help operators protect vehicles and assets.',
     'hero.explore': 'Watch the demo',
     'hero.play': 'Read the GARDA proposal',
@@ -48,7 +48,9 @@ function setupPreferences() {
   let theme = 'dark', language = 'en';
   try {
     theme = localStorage.getItem('garda-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    language = 'en';
+    // English by default; a visitor's choice is remembered, and ?lang=id / ?lang=en deep-links a language
+    const asked = new URLSearchParams(location.search).get('lang');
+    language = asked === 'id' || asked === 'en' ? asked : (localStorage.getItem('garda-language') === 'id' ? 'id' : 'en');
   } catch (error) {
     console.warn('Preferences unavailable', error.message);
   }
@@ -72,9 +74,12 @@ function setupPreferences() {
       if (value) el.innerHTML = value;
     });
     languageToggle.setAttribute('aria-label', language === 'id' ? 'Switch to English' : 'Beralih ke Bahasa Indonesia');
+    languageToggle.setAttribute('aria-pressed', String(language === 'id'));
+    languageToggle.innerHTML = `<span class="lang-opt${language === 'id' ? ' is-on' : ''}">ID</span><span aria-hidden="true">/</span><span class="lang-opt${language === 'en' ? ' is-on' : ''}">EN</span>`;
     try { localStorage.setItem('garda-language', language); } catch (error) { console.warn('Language preference unavailable', error.message); }
   };
 
+  languageToggle.hidden = false;
   themeToggle.addEventListener('click', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
   languageToggle.addEventListener('click', () => applyLanguage(language === 'id' ? 'en' : 'id'));
   applyTheme(theme);
