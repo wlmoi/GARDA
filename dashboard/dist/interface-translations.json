@@ -101,5 +101,14 @@
   "Berhenti": "Stop",
   "Kecepatan": "Speed",
   "Skenario": "Scenario",
-  "Menu": "Menu"
+  "Menu": "Menu",
+  "Dari data.": "From data.",
+  "Ke keputusan.": "To decisions.",
+  "Coba simulasinya": "Try the simulation",
+  "Amati": "Observe",
+  "Hitung": "Compute",
+  "Batasi": "Constrain",
+  "Data sensor menjadi masukan untuk sistem.": "Sensor data becomes the input to the system.",
+  "Jalur neural menghitung usulan keluaran. Telusuri tiap fase di simulasi Parallel16.": "The neural path computes proposed outputs. Explore each phase in the Parallel16 simulation.",
+  "Gerbang keselamatan memeriksa kondisi izin. Uji responsnya dengan kontrol fault.": "The safety gate checks permission conditions. Test its response using fault controls."
 }
