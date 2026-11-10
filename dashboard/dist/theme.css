@@ -33,3 +33,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 :root[data-theme] .portal-hero .hero-metrics strong{color:var(--color-ink-primary)}
 :root[data-theme] .topbar{background:var(--color-ground-primary);border-bottom:1px solid var(--color-hairline)}
 @media(max-width:780px){.portal-hero{min-height:0}.portal-copy{padding-top:16px}.portal-stage{height:170px!important}.portal-copy .lead{line-height:1.65}.event-identity{display:flex;align-items:center;gap:12px}.event-identity img{width:140px}.event-identity p{margin:0}.portal-title{letter-spacing:-.035em}}
+
+:root[data-theme="dark"] .portal-title .portal-title-right{color:var(--safety-lime)}
+:root[data-theme="light"] .portal-title .portal-title-right{color:#376100}
+
