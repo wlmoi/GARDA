@@ -114,6 +114,10 @@ def main():
     comp.save(os.path.join(OUT, 'overview.webp'), 'WEBP', quality=82, method=6)
     comp.resize((1600, int(round(1600 * H / W))), Image.LANCZOS).save(os.path.join(OUT, 'overview-1600.webp'), 'WEBP', quality=80, method=6)
     comp.resize((1600, int(round(1600 * H / W))), Image.LANCZOS).save(os.path.join(OUT, 'overview-1600.jpg'), 'JPEG', quality=84, optimize=True)
+    # the dashboard (Vercel) shows the same render as its 3D-section poster; keep its own copy in sync
+    dash = os.path.join(ROOT, 'dashboard', 'dist', 'assets')
+    if os.path.isdir(dash):
+        comp.resize((1600, int(round(1600 * H / W))), Image.LANCZOS).save(os.path.join(dash, 'gdsii-overview.jpg'), 'JPEG', quality=84, optimize=True)
 
     # ---- chip art inset (Metal4 only, magnified)
     art = json.load(open(os.path.join(ROOT, 'macros', 'CALVIN_UP', 'art.json')))
