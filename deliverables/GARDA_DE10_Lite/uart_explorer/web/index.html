@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GARDA UART Explorer</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header id="top">
+  <div class="brand"><b>GARDA</b> UART Explorer<small>real serial events, decoded per garda_uart_protocol.v</small></div>
+  <div id="modeBadge" class="badge none">NOT CONNECTED</div>
+  <div class="conn">
+    <select id="port" title="Serial port"></select><button id="refresh" title="Rescan ports">⟳</button>
+    <span class="uart">115200 8N1 · 8.68 µs/bit</span>
+    <button id="btnLive" class="b-live">Connect LIVE</button>
+    <button id="btnSim" class="b-sim">Simulation</button>
+    <select id="trace"></select><button id="btnTrace" class="b-rec">Replay trace</button>
+    <button id="btnDisc">Disconnect</button>
+    <label class="spd">Speed <select id="speed"><option>0.25</option><option>0.5</option><option selected>1</option><option>2</option><option>4</option></select>×</label>
+  </div>
+  <div class="board">Board: DE10-Nano · 5CSEBA6U23I7 (repo RTL target) · top <code>garda_uart_top</code></div>
+</header>
+<div id="banner" hidden></div>
+
+<section id="hero">
+  <button id="demoBtn" class="demo">▶ RUN LIVE UART DEMO</button>
+  <div class="democtl">
+    <button id="dPause">Pause visualization</button><button id="dResume">Resume</button>
+    <button id="dReplay">Replay</button><button id="dStop">Stop safely</button>
+    <div class="prog"><i id="progBar"></i></div><span id="progTxt">idle</span>
+  </div>
+  <ol id="steps"></ol><div id="verdict"></div>
+</section>
+
+<main>
+  <section class="panel center" id="pDiagram"><h2>Host → FPGA dataflow <small id="diagNote"></small></h2>
+    <svg id="diagram" viewBox="0 0 960 330" role="img" aria-label="UART dataflow diagram"></svg>
+    <div class="legend"><span class="sw tx"></span>TX request <span class="sw rx"></span>valid response <span class="sw wn"></span>warning <span class="sw er"></span>failure
+      <span class="dash"></span>dashed = explanatory stage, not live telemetry</div>
+  </section>
+
+  <section class="panel" id="pIO"><h2>Board I/O <small id="ioNote"></small></h2>
+    <div class="board-io">
+      <div class="leds" id="leds"></div>
+      <div class="sws" id="sws"></div>
+      <div class="keys"><button id="key0" class="key">KEY0<small>reset</small></button><button id="key1" class="key">KEY1<small>E-stop</small></button></div>
+    </div>
+    <label class="spd"><input type="checkbox" id="poll"> auto-read status every 500 ms (op 7)</label>
+    <div id="ioHelp" class="help"></div>
+  </section>
+
+  <aside class="panel right" id="pInspect"><h2>Packet inspector</h2>
+    <div class="tabs"><button class="on" data-t="dec">Decoded</button><button data-t="hex">HEX</button></div>
+    <div id="detail" class="detail">Select a packet.</div>
+    <div id="plist" class="plist"></div>
+    <div class="exports"><a href="/api/export?fmt=json">JSON</a><a href="/api/export?fmt=csv">CSV</a><a href="/api/export?fmt=hex">HEX</a><button id="clr">Clear</button></div>
+  </aside>
+
+  <section class="panel" id="pLab"><h2>Command lab <small>only commands the deployed RTL implements</small></h2>
+    <div class="row"><select id="op"></select><input id="payload" value="0" size="14" title="payload (decimal or 0x hex)"><button id="send" class="b-live">Send</button></div>
+    <div id="opHelp" class="help"></div>
+    <details><summary>NN input editor (24 Q8.8 features) — op 10/11/12</summary>
+      <div class="row"><select id="vec"></select><button id="loadVec">Load vector</button><button id="runNN" class="b-live">Run inference</button></div>
+      <div id="feat" class="feat"></div><div id="nnOut" class="help"></div></details>
+    <div id="unsup" class="unsup"></div>
+    <div id="labOut" class="help"></div>
+  </section>
+
+  <section class="panel" id="pSafety"><h2>Hardware safety gate <small>from FPGA responses (ops 7, 14, 16)</small></h2>
+    <div id="safety"></div>
+  </section>
+
+  <section class="panel wide" id="pWave"><h2>UART waveform</h2>
+    <div class="tabs"><button class="on">DECODED RECONSTRUCTION</button><button disabled title="No logic analyzer / hardware trace attached">CAPTURED WAVEFORM (no data)</button></div>
+    <div class="wctl"><button id="zin">＋</button><button id="zout">－</button><button id="pl">◀</button><button id="pr">▶</button>
+      <button id="wpause">Pause</button><button id="wreplay">Replay</button><span id="wInfo"></span></div>
+    <canvas id="wave" width="1400" height="220"></canvas>
+    <div class="note">Reconstructed from the actual packet bytes and 8N1 framing. NOT a physical capture; pyserial timestamps cannot give bit-edge timing. TX and RX lanes share a nominal time axis; the host-to-FPGA gap is not measured here.</div>
+  </section>
+
+  <section class="panel wide" id="pTime"><h2>Event timeline</h2><div id="timeline" class="timeline"></div></section>
+</main>
+<script src="wave.js"></script><script src="app.js"></script>
+</body></html>
