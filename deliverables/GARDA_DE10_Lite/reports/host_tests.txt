@@ -1,0 +1,21 @@
+test_only_single_10m50da (__main__.JtagGuardTests.test_only_single_10m50da) ... ok
+test_sof_checks (__main__.JtagGuardTests.test_sof_checks) ... ok
+test_crc_error_counted (__main__.LinkTests.test_crc_error_counted) ... ok
+test_foreign_image_rejected (__main__.LinkTests.test_foreign_image_rejected) ... ok
+test_open_port_without_answer_is_not_responding (__main__.LinkTests.test_open_port_without_answer_is_not_responding) ... ok
+test_responding_requires_valid_ident (__main__.LinkTests.test_responding_requires_valid_ident) ... ok
+test_bad_responses_are_errors (__main__.ProtocolTests.test_bad_responses_are_errors) ... ok
+test_decoders (__main__.ProtocolTests.test_decoders) ... ok
+test_vectors_confirmed_by_rtl_simulation (__main__.ProtocolTests.test_vectors_confirmed_by_rtl_simulation) ... ok
+test_failure_stops_sequence_and_records_nothing (__main__.SequenceTests.test_failure_stops_sequence_and_records_nothing) ... ok
+test_not_connected (__main__.SequenceTests.test_not_connected) ... ok
+test_dns_rebinding_host_rejected (__main__.ServiceSecurityTests.test_dns_rebinding_host_rejected) ... ok
+test_no_path_traversal (__main__.ServiceSecurityTests.test_no_path_traversal) ... ok
+test_page_carries_token_and_state_is_honest (__main__.ServiceSecurityTests.test_page_carries_token_and_state_is_honest) ... ok
+test_post_requires_token_and_origin (__main__.ServiceSecurityTests.test_post_requires_token_and_origin) ... ok
+test_programming_needs_typed_idcode (__main__.ServiceSecurityTests.test_programming_needs_typed_idcode) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.761s
+
+OK

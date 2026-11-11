@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="garda-token" content="__GARDA_TOKEN__">
+<title>GARDA FPGA Control Center</title>
+<link rel="icon" href="assets/garda-mark.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="assets/garda-mark.svg" alt=""><div><strong>GARDA</strong><span>FPGA Control Center</span></div></div>
+  <div class="top-pills">
+    <span id="pillJtag" class="tpill"><i></i>JTAG</span>
+    <span id="pillUart" class="tpill"><i></i>UART</span>
+    <span id="pillBuild" class="tpill"><i></i>BUILD</span>
+  </div>
+  <div id="modeBadge" class="mode mode-offline">OFFLINE</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div id="safety" class="safety s-unknown">
+      <div class="safety-ring"><div class="ring-core"><span id="safetyIcon">?</span></div></div>
+      <div class="safety-text">
+        <p class="eyebrow">Hardware safety gate · DE10-Lite MAX 10</p>
+        <h1 id="safetyWord">NO DATA YET</h1>
+        <p id="safetyReason">Connect the UART or pick a data source.</p>
+        <div class="safety-facts">
+          <div><span>Fault</span><strong id="sfFault">--</strong></div>
+          <div><span>Velocity v</span><strong id="sfV">--</strong></div>
+          <div><span>Omega ω</span><strong id="sfW">--</strong></div>
+          <div><span>Source</span><strong id="sfSource">--</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="btnProgramOnly" class="btn btn-primary btn-xl"><span class="ico">⚡</span> PROGRAM FPGA</button>
+      <button id="btnProgram" class="btn btn-lime-outline">PROGRAM FPGA &amp; RUN UART TEST</button>
+      <div class="row2">
+        <button id="btnDemo" class="btn btn-secondary">▶ RUN DEMO ONLY</button>
+        <button id="btnJudge" class="btn btn-judge">★ JUDGE DEMO MODE</button>
+      </div>
+      <div class="row2">
+        <button id="btnEstop" class="btn btn-danger">■ E-STOP</button>
+        <button id="btnReset" class="btn btn-quiet">↺ SAFE RESET</button>
+      </div>
+      <div class="source">
+        <span>Data source</span>
+        <div class="seg" role="tablist">
+          <button data-src="live" class="on">LIVE HARDWARE</button>
+          <button data-src="recorded">RECORDED TRACE</button>
+          <button data-src="sim">SOFTWARE SIMULATION</button>
+        </div>
+        <select id="traceSelect" hidden></select>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow card" aria-label="Signal flow">
+    <div class="flow-node" id="fnSensor"><b>Sensors</b><span>24 values · UART</span></div><i class="flow-link"></i>
+    <div class="flow-node" id="fnNeural"><b>Neural core</b><span>24-64-64-4 · Q8.8</span></div><i class="flow-link"></i>
+    <div class="flow-node" id="fnPlanner"><b>DWA planner</b><span>4 tiles · 512 paths</span></div><i class="flow-link"></i>
+    <div class="flow-node" id="fnGate"><b>Safety gate</b><span>11 checks · 1 cycle</span></div><i class="flow-link"></i>
+    <div class="flow-node" id="fnMotor"><b>Motor command</b><span id="fnMotorSub">held at zero</span></div>
+  </section>
+
+  <div id="replayBanner" class="replay-banner" hidden></div>
+
+  <section class="grid3">
+    <article class="card">
+      <header><h2>FPGA status</h2><button id="btnScan" class="mini">↻ Scan JTAG</button></header>
+      <ul id="fpgaStates" class="states">
+        <li data-s="BOARD DISCONNECTED">BOARD DISCONNECTED</li><li data-s="USB-BLASTER DETECTED">USB-BLASTER DETECTED</li>
+        <li data-s="READY TO PROGRAM">READY TO PROGRAM</li><li data-s="PROGRAMMING">PROGRAMMING</li>
+        <li data-s="PROGRAMMING SUCCESSFUL">PROGRAMMING SUCCESSFUL</li><li data-s="PROGRAMMING FAILED">PROGRAMMING FAILED</li>
+      </ul>
+      <p id="fpgaDetail" class="detail"></p>
+    </article>
+    <article class="card">
+      <header><h2>UART status</h2><span id="rtt" class="pill"></span></header>
+      <ul id="uartStates" class="states">
+        <li data-s="PORT NOT FOUND">PORT NOT FOUND</li><li data-s="PORT DETECTED">PORT DETECTED</li>
+        <li data-s="CONNECTING">CONNECTING</li><li data-s="CONNECTED">CONNECTED</li>
+        <li data-s="FPGA RESPONDING">FPGA RESPONDING</li><li data-s="TIMEOUT / CRC ERROR">TIMEOUT / CRC ERROR</li>
+      </ul>
+      <div class="connect">
+        <select id="portSelect"></select>
+        <input id="portManual" placeholder="/dev/ttyUSB0 · COM5">
+        <select id="baudSelect"><option>115200</option><option>921600</option></select>
+        <button id="btnConnect" class="mini">Connect</button>
+      </div>
+      <div class="counters">
+        <div><span>TX</span><strong id="cTx">0</strong></div><div><span>RX</span><strong id="cRx">0</strong></div>
+        <div><span>Timeouts</span><strong id="cTo">0</strong></div><div><span>CRC err</span><strong id="cCrc">0</strong></div>
+      </div>
+      <div class="quick">
+        <button data-cmd="status">STATUS</button><button data-cmd="ext_status">EXT</button>
+        <button data-cmd="capture">CAPTURE</button><button data-cmd="counters">COUNTERS</button><button data-cmd="ports">PORTS A/B</button><button data-cmd="port_info">WHO AM I</button><button data-cmd="ident">IDENT</button>
+      </div>
+      <label class="check"><input type="checkbox" id="monitor" checked> Live monitor (poll STATUS every second)</label>
+    </article>
+    <article class="card">
+      <header><h2>Engineering data</h2><span id="timingPill" class="pill"></span></header>
+      <dl id="eng" class="eng"></dl>
+    </article>
+  </section>
+
+  <section class="grid2">
+    <article class="card">
+      <header><h2>Demonstration sequence</h2><span id="seqResult" class="pill"></span></header>
+      <div id="progress" class="progress" hidden><div></div><span></span></div>
+      <ol id="steps" class="steps"><li class="empty">Press a button above to run a sequence.</li></ol>
+      <button id="btnAbort" class="mini" hidden>Abort sequence</button>
+    </article>
+    <article class="card terminal-card">
+      <header><h2>UART proof · every frame on the wire</h2><span class="pill" id="logCount">0 frames</span></header>
+      <div class="term-tools">
+        <div class="chips" id="termFilter"><button data-f="all" class="on">All</button><button data-f="nopoll">Hide polling</button><button data-f="err">Errors</button></div>
+        <button id="termPause" class="mini">❚❚ Pause</button>
+      </div>
+      <div class="term-head"><span>#</span><span>time</span><span>opcode</span><span>TX host → FPGA</span><span>RX FPGA → host</span><span>check</span></div>
+      <div id="terminal" class="terminal" aria-live="polite"></div>
+    </article>
+  </section>
+
+  <section class="grid2 board">
+    <article class="card">
+      <header><h2>JP1 wiring &amp; board mirror</h2><span class="pill">3.3 V · 115200 8N1</span></header>
+      <div class="board-wrap">
+        <div class="header-wrap">
+          <div id="jp1" class="jp1" role="img" aria-label="JP1 header: port A pins 1 RX and 2 TX, port B pins 3 RX and 4 TX, GND pins 12 and 30"></div>
+          <div class="legend">
+            <span><i class="lg green"></i><b>Port A · laptop cable</b>: pin 1 RX ← adapter TX (green) · pin 2 TX → adapter RX (white) · GND pin 12 (black)</span>
+            <span><i class="lg green"></i><b>Port B · Jetson Nano J41</b>: pin 3 RX ← J41 pin 8 TXD · pin 4 TX → J41 pin 10 RXD · GND pin 30 ↔ J41 pin 6</span>
+            <span><i class="lg red"></i>Pin 11: 5 V, leave the red wire open · both ports are 3.3 V</span>
+          </div>
+          <p id="pinInfo" class="pin-info">Hover a pin for details.</p>
+        </div>
+        <div class="mirror">
+          <p class="eyebrow">7-segment · fault | last fault | frames</p>
+          <div id="hex" class="hex"></div>
+          <p class="eyebrow">LEDR9 … LEDR0</p>
+          <div id="leds" class="leds"></div>
+          <p class="eyebrow">SW9 … SW0 · KEY1 KEY0</p>
+          <div id="switches" class="switches"><span class="detail">read live with BOARD_IO</span></div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <header><h2>VGA monitor output</h2><span class="pill">640 × 480 @ 60 Hz</span></header>
+      <div class="crt"><img id="vgaPreview" class="vga" src="assets/vga_stopped.png" alt="Rendered VGA status screen"></div>
+      <p class="detail">Plug a monitor into the DE10-Lite VGA port. The FPGA draws this screen itself from the live safety-gate signals. The picture here is the RTL-rendered frame for the current state.</p>
+    </article>
+  </section>
+</main>
+
+<div id="toasts" class="toasts" aria-live="assertive"></div>
+
+<div id="judge" class="judge" hidden>
+  <div class="judge-top"><img src="assets/garda-mark.svg" alt=""><span>GARDA · Judge demo</span><span id="judgeMode" class="mode"></span><button id="judgeClose" class="mini">Close</button></div>
+  <div class="judge-body">
+    <p id="judgeCount" class="judge-count"></p>
+    <h2 id="judgeTitle"></h2>
+    <p id="judgeExplain" class="judge-explain"></p>
+    <p id="judgeExplainId" class="judge-explain id"></p>
+    <div id="judgeStatus" class="judge-status"></div>
+    <p id="judgeDetail" class="judge-detail"></p>
+  </div>
+  <div id="judgeDots" class="judge-dots"></div>
+</div>
+
+<dialog id="confirm">
+  <form method="dialog">
+    <p class="eyebrow">JTAG configuration</p>
+    <h2 id="cfTitle">Program the FPGA?</h2>
+    <div class="cf-target" id="cfTarget">Scanning…</div>
+    <p>File: <b id="cfFile">-</b></p>
+    <p class="detail" id="cfWarn"></p>
+    <p class="detail">Volatile JTAG load. The flash is not written; power-cycling restores the previous flash image.</p>
+    <div class="row2"><button value="cancel" class="btn btn-quiet">Cancel</button><button id="cfGo" value="go" class="btn btn-primary">⚡ Program this board</button></div>
+  </form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="garda-token" content="__GARDA_TOKEN__">
+<title>GARDA Drone Simulator</title>
+<link rel="icon" href="assets/garda-mark.svg">
+<style>
+@font-face{font-family:PJS;src:url(assets/pjs-500.woff2) format("woff2");font-weight:400 600;font-display:swap}
+@font-face{font-family:PJS;src:url(assets/pjs-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:PJS;src:url(assets/pjs-800.woff2) format("woff2");font-weight:800;font-display:swap}
+:root{--navy:#000099;--deep:#00005C;--ink:#000040;--blue:#0A2BD8;--sky:#1E8FE0;--teal:#22B5A6;--lime:#9AFF00;--red:#FF3B5C;--amber:#FFB020;
+ --txt:#E6EAFF;--mut:#9FA9E8;--card:rgba(10,20,140,.55);--line:rgba(160,180,255,.22);color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
+html,body{width:100%;height:100%;overflow:hidden;background:#00003A;color:var(--txt);font-family:PJS,"DM Sans",system-ui,sans-serif}
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block}
+.hud{position:fixed;pointer-events:none}.hud *{pointer-events:auto}
+/* top bar */
+.top{left:28px;right:28px;top:22px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:18px}
+.wm{font-weight:800;font-size:58px;line-height:.9;color:var(--lime);letter-spacing:-2px;text-shadow:0 0 30px #9aff0044}
+.bt b{display:block;font-size:20px;font-weight:800;color:#fff}.bt span{font-size:14px;color:var(--mut)}.bt em{font-style:normal;color:var(--lime)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.chip{display:flex;align-items:center;gap:9px;padding:10px 16px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.06em;
+ background:rgba(0,0,64,.7);border:2px solid var(--line);backdrop-filter:blur(8px);transition:all .35s}
+.chip i{width:10px;height:10px;border-radius:50%;background:#4a5490}
+.chip.on{border-color:var(--lime);color:var(--lime)}.chip.on i{background:var(--lime);box-shadow:0 0 12px var(--lime);animation:pulse 1.4s infinite}
+.chip.off{border-color:#4a5490;color:var(--mut)}.chip.warn{border-color:var(--amber);color:var(--amber)}.chip.warn i{background:var(--amber)}
+.chip.bad{border-color:var(--red);color:var(--red)}.chip.bad i{background:var(--red);animation:pulse .6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+/* decision banner */
+.banner{left:50%;top:118px;transform:translateX(-50%);text-align:center}
+.banner b{display:inline-block;max-width:min(980px,80vw);font-weight:800;font-size:38px;line-height:1.15;letter-spacing:.02em;padding:10px 34px;border-radius:14px;
+ background:rgba(0,0,64,.55);border:2px solid var(--line);backdrop-filter:blur(8px);transition:all .25s}
+.banner small{display:block;margin-top:8px;font-size:15px;color:var(--mut);font-weight:600}
+.banner.safe b{color:var(--lime);border-color:#9aff0066}
+.banner.fix b{color:var(--amber);border-color:var(--amber);box-shadow:0 0 40px #ffb02055;animation:pop .35s}
+.banner.stop b{color:#fff;background:rgba(255,59,92,.85);border-color:var(--red);box-shadow:0 0 50px #ff3b5c88;animation:pop .35s}
+.banner.crash b{color:#fff;background:var(--red);border-color:#fff;animation:shake .5s}
+.banner.idle b{color:var(--mut)}
+@keyframes pop{from{transform:scale(1.12)}}@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+/* flow strip (deck section 02) */
+.flow{left:50%;bottom:26px;transform:translateX(-50%);display:flex;align-items:center;gap:0;padding:12px 16px;border-radius:18px;
+ background:rgba(0,0,64,.62);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.node{width:170px;padding:10px 14px;border-radius:12px;border:2px solid var(--line);transition:all .3s}
+.node .k{font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--mut)}.node b{display:block;font-size:17px;font-weight:800}
+.node span{font-size:12px;color:var(--mut)}
+.node.on{border-color:var(--lime);box-shadow:0 0 24px #9aff0033}.node.on b{color:var(--lime)}
+.node.fix{border-color:var(--amber);box-shadow:0 0 24px #ffb02044}.node.fix b{color:var(--amber)}
+.node.stop{border-color:var(--red);box-shadow:0 0 24px #ff3b5c55}.node.stop b{color:var(--red)}
+.node.dead{opacity:.45;border-style:dashed}
+.link{width:46px;height:3px;margin:0 4px;background:repeating-linear-gradient(90deg,#4a5490 0 7px,transparent 7px 12px)}
+.link.live{background:repeating-linear-gradient(90deg,var(--lime) 0 7px,transparent 7px 12px);background-size:12px 3px;animation:dash .45s linear infinite}
+.link.cut{background:var(--red)}
+@keyframes dash{to{background-position:12px 0}}
+/* side cards */
+.left{left:28px;bottom:26px;width:310px;display:grid;gap:10px}
+.card{padding:14px 16px;border-radius:16px;background:rgba(0,0,64,.62);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.card h3{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--mut);margin-bottom:10px}
+.dist{position:relative;height:16px;border-radius:8px;background:#0a1260;overflow:hidden}
+.dist i{position:absolute;left:0;top:0;bottom:0;width:50%;border-radius:8px;background:linear-gradient(90deg,var(--red),var(--amber) 30%,var(--lime) 60%);transition:width .15s}
+.dist u{position:absolute;top:-4px;bottom:-4px;width:3px;background:#fff;left:24%}
+.dist-l{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:6px}.dist-l b{color:#fff;font-size:15px}
+.legend{display:grid;gap:7px;font-size:13px;color:var(--mut)}.legend span{display:flex;align-items:center;gap:9px}
+.sw{width:22px;height:10px;border-radius:5px}
+.stat{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--mut)}.stat b{font-size:22px;color:#fff;font-weight:800}
+.right{right:28px;bottom:26px;width:290px;display:grid;gap:10px}
+.btn{width:100%;border:2px solid var(--line);border-radius:14px;padding:13px 16px;font:800 15px PJS,system-ui,sans-serif;letter-spacing:.04em;color:#fff;
+ background:rgba(0,0,64,.7);cursor:pointer;transition:transform .12s,box-shadow .2s,background .2s;backdrop-filter:blur(8px)}
+.btn:hover{transform:translateY(-1px)}.btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.btn.prog{background:var(--lime);color:var(--navy);border-color:var(--lime);font-size:17px;box-shadow:0 8px 30px #9aff0040;position:relative;overflow:hidden}
+.btn.prog:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,#ffffff88 50%,transparent 65%);transform:translateX(-100%);animation:sheen 3.2s ease-in-out infinite}
+@keyframes sheen{60%,100%{transform:translateX(100%)}}
+.btn.go{background:var(--blue);border-color:var(--sky)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tog{font-size:13px;padding:10px}.tog.on{border-color:var(--lime);color:var(--lime)}
+.note{font-size:11.5px;line-height:1.45;color:var(--mut);padding:0 4px}
+/* overlays */
+.flash{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle,transparent 40%,#ff3b5c66);opacity:0;transition:opacity .2s}
+.flash.on{opacity:1}
+.flash.shock{background:radial-gradient(circle,#dff4ff55 0%,#4fb8ff66 45%,#00146688);animation:zap .12s steps(2) 7}
+@keyframes zap{50%{opacity:.25}}
+.card h3{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.card h3 small{font-size:11px;color:var(--lime);letter-spacing:.06em}
+.dv{font-size:18px;color:#fff;letter-spacing:0}
+.tasks{list-style:none;display:grid;gap:6px}
+.tasks li{display:flex;gap:10px;align-items:flex-start;padding:6px 8px;border-radius:10px;border:1px solid transparent;transition:all .25s}
+.tasks li i{font-style:normal;width:20px;text-align:center;font-weight:800;color:var(--mut)}
+.tasks li b{display:block;font-size:13px}.tasks li small{font-size:11px;color:var(--mut)}
+.tasks li.cur{border-color:var(--amber);background:rgba(255,176,32,.12)}.tasks li.cur i{color:var(--amber);animation:pulse 1s infinite}
+.tasks li.done i{color:var(--lime)}.tasks li.done b{color:var(--lime)}
+.tasks li.fail{border-color:#ff3b5c66}.tasks li.fail i,.tasks li.fail b{color:var(--red)}
+.tasks li.skip{opacity:.55}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
+.toast{position:fixed;left:50%;bottom:150px;transform:translateX(-50%);padding:12px 20px;border-radius:12px;background:rgba(0,0,64,.85);
+ border:1px solid var(--line);font-weight:700;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.on{opacity:1}.toast.ok{border-color:var(--lime);color:var(--lime)}.toast.err{border-color:var(--red);color:#ffb3c0}
+dialog{margin:auto;background:#000060;color:var(--txt);border:2px solid var(--line);border-radius:20px;padding:28px;max-width:460px;font-family:PJS,system-ui,sans-serif}
+dialog::backdrop{background:#00002acc}dialog h2{font-weight:800;font-size:24px;margin-bottom:10px}
+dialog p{color:var(--mut);font-size:14px;margin:8px 0}
+.target{font:13px/1.5 ui-monospace,Consolas,monospace;padding:12px;border-radius:12px;background:#00004a;border:1px solid var(--line);margin:12px 0;white-space:pre-wrap}
+.target.ok{border-color:var(--lime);color:var(--lime)}.target.bad{border-color:var(--red);color:#ffb3c0}
+.progbar{height:8px;border-radius:4px;background:#00004a;overflow:hidden;margin-top:10px}.progbar i{display:block;height:100%;width:0;background:var(--lime);transition:width .4s}
+@media (max-width:1100px){.flow{display:none}.left{width:240px}.right{width:240px}.wm{font-size:42px}.banner b{font-size:30px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div class="flash" id="flash"></div>
+
+<div class="hud top">
+  <div class="brand"><div class="wm">GARDA</div>
+    <div class="bt"><b>Drone Simulator</b><span><em>AI menyetir,</em> GARDA yang memastikan tidak menabrak</span></div></div>
+  <div class="chips">
+    <div class="chip off" id="chipFpga"><i></i><span>FPGA TIDAK TERHUBUNG</span></div>
+    <div class="chip off" id="chipGarda"><i></i><span>REFLEKS GARDA NONAKTIF</span></div>
+  </div>
+</div>
+
+<div class="hud banner idle" id="banner"><b id="bannerTxt">SIAP</b><small id="bannerSub">Tekan MULAI MISI</small></div>
+
+<div class="hud left">
+  <div class="card">
+    <h3>MISI INSPEKSI SUTET 500 kV <small id="taskRound">putaran 1</small></h3>
+    <ol class="tasks" id="tasks"></ol>
+  </div>
+  <div class="card">
+    <h3>JARAK KE STRUKTUR <b class="dv" id="distVal">–</b></h3>
+    <div class="dist"><i id="distBar"></i><u title="batas aman 1,2 m"></u></div>
+    <div class="dist-l"><span>0 m</span><span>batas aman <b>1,2 m</b></span><span>5 m</span></div>
+  </div>
+  <div class="card stats">
+    <div class="stat"><span>Foto inspeksi</span><b id="statPhoto">0</b></div>
+    <div class="stat"><span>Koreksi GARDA</span><b id="statFix">0</b></div>
+    <div class="stat"><span>Tabrakan</span><b id="statCrash">0</b></div>
+    <div class="stat"><span>Kesetrum</span><b id="statShock">0</b></div>
+  </div>
+</div>
+
+<div class="hud flow" id="flow">
+  <div class="node" id="nSensor"><div class="k">01 SENSOR</div><b>LiDAR + IMU</b><span>tanpa kompas</span></div><div class="link" id="l1"></div>
+  <div class="node" id="nAI"><div class="k">02 AI</div><b>Mengusulkan</b><span>arah terbang</span></div><div class="link" id="l2"></div>
+  <div class="node" id="nGate"><div class="k">03 GERBANG SILIKON</div><b id="gateTxt">—</b><span id="gateSub">FPGA GARDA</span></div><div class="link" id="l3"></div>
+  <div class="node" id="nMotor"><div class="k">04 MOTOR</div><b id="motorTxt">Siaga</b><span>gerak drone</span></div>
+</div>
+
+<div class="hud right">
+  <button class="btn prog" id="btnProgram">⚡ PROGRAM FPGA</button>
+  <button class="btn go" id="btnRun">▶ MULAI MISI</button>
+  <div class="row"><button class="btn tog" id="btnWind">💨 ANGIN KENCANG</button><button class="btn tog" id="btnCam">🎥 KAMERA</button></div>
+  <button class="btn tog" id="btnSim" title="Hanya untuk latihan tanpa board. Ditandai SIMULASI.">SIMULASI TANPA FPGA</button>
+  <p class="note">Drone memotret komponen SUTET dari dekat. Refleks GARDA (batas 1,2 m) aktif hanya bila FPGA GARDA merespons. Tekan <b>KEY1</b> atau naikkan <b>SW3</b> di board: drone langsung ditahan (hover).</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<dialog id="dlg"><form method="dialog">
+  <h2>⚡ Program FPGA GARDA</h2>
+  <p>Memuat rangkaian GARDA ke DE10-Lite lewat JTAG. Sementara (flash tidak ditulis).</p>
+  <div class="target" id="dlgTarget">Memindai JTAG…</div>
+  <div class="progbar" id="dlgBar" hidden><i></i></div>
+  <p id="dlgMsg"></p>
+  <div class="row" style="margin-top:14px"><button class="btn" value="cancel">Batal</button><button class="btn prog" id="dlgGo" value="go" disabled>Program</button></div>
+</form></dialog>
+
+<script type="module" src="drone.js"></script>
+</body>
+</html>

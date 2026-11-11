@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Wed Nov 11 22:25:10 2026
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : garda_de10_lite
+Top-level Entity Name : garda_de10_lite_top
+Family : MAX 10
+Total logic elements : 23,683
+    Total combinational functions : 22,702
+    Dedicated logic registers : 2,909
+Total registers : 2909
+Total pins : 89
+Total virtual pins : 0
+Total memory bits : 1,051,008
+Embedded Multiplier 9-bit elements : 23
+Total PLLs : 1
+UFM blocks : 0
+ADC blocks : 0

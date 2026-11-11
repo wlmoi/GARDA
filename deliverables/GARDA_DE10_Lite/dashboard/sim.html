@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="garda-token" content="__GARDA_TOKEN__">
+<title>GARDA Physical AI</title>
+<link rel="icon" href="assets/garda-mark.svg">
+<link rel="stylesheet" href="sim.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/" title="Back to the Control Center"><img src="assets/garda-mark.svg" alt=""><span><b>GARDA</b> Physical AI Simulator</span></a>
+  <span class="map-chip" title="The legacy 24-64-64-4 model's outputs have no documented Vx/Vy/omega meaning; this view maps outputs 0,1,2 to Vx, Vy, omega for the demo.">demo mapping · outputs 0,1,2 → Vx, Vy, ω</span>
+  <span id="prov" class="prov sim">SOFTWARE SIMULATION</span>
+</header>
+
+<section class="pipeline" aria-label="Physical AI data flow">
+  <div class="stage" id="stSensor">
+    <div class="st-head"><span class="st-num">1</span><b>Sensors</b><small id="sensorSrc">24 values</small></div>
+    <canvas id="cvSensor" width="220" height="120"></canvas>
+  </div>
+  <div class="flow" id="flow1"><i></i></div>
+  <div class="stage" id="stNeural">
+    <div class="st-head"><span class="st-num">2</span><b>Neural core</b><small id="nnWhere">24 → 64 → 64 → 4</small></div>
+    <canvas id="cvNet" width="220" height="120"></canvas>
+  </div>
+  <div class="flow" id="flow2"><i></i></div>
+  <div class="stage" id="stGate">
+    <div class="st-head"><span class="st-num">3</span><b>Safety gate</b><small>clamp −1.00 … +0.99</small></div>
+    <div class="gate-box"><div id="shield" class="shield"><svg viewBox="0 0 64 72"><path d="M32 3 6 13v20c0 17 11 30 26 36 15-6 26-19 26-36V13z"/></svg><span id="shieldTxt">?</span></div>
+      <ul id="reasons" class="reasons"><li>waiting…</li></ul></div>
+  </div>
+  <div class="flow" id="flow3"><i></i></div>
+  <div class="stage" id="stWheels">
+    <div class="st-head"><span class="st-num">4</span><b>Mecanum wheels</b><small>rad/s</small></div>
+    <div class="wheels"><div class="wh" id="w0"><i></i><span>FL</span></div><div class="wh" id="w1"><i></i><span>FR</span></div>
+      <div class="wh" id="w2"><i></i><span>RL</span></div><div class="wh" id="w3"><i></i><span>RR</span></div></div>
+  </div>
+</section>
+
+<main class="main">
+  <section class="arena-card">
+    <canvas id="arena" width="1200" height="750"></canvas>
+    <div id="estopOverlay" class="estop-overlay" hidden><b>E-STOP</b><span>motor command forced to zero by the safety gate</span></div>
+    <div class="arena-legend"><span><i class="lg lime"></i>gated motion</span><span><i class="lg blue"></i>LiDAR rays</span><span><i class="lg red"></i>obstacle</span></div>
+  </section>
+  <aside class="side">
+    <div class="gauges">
+      <div class="gauge" id="gVx"><canvas width="220" height="130"></canvas><b>Vx</b><strong>0.00</strong><small>raw 0.00</small></div>
+      <div class="gauge" id="gVy"><canvas width="220" height="130"></canvas><b>Vy</b><strong>0.00</strong><small>raw 0.00</small></div>
+      <div class="gauge" id="gW"><canvas width="220" height="130"></canvas><b>ω</b><strong>0.00</strong><small>raw 0.00</small></div>
+    </div>
+    <div class="card"><div class="card-h"><b>Command history</b><small>solid = gated · dashed = raw</small></div><canvas id="spark" width="560" height="170"></canvas></div>
+    <div class="stats">
+      <div><span>Inference rate</span><strong id="sHz">–</strong></div>
+      <div><span>Bit-exact</span><strong id="sExact">–</strong></div>
+      <div><span>Latency / inference</span><strong id="sLat">–</strong></div>
+      <div><span>Step</span><strong id="sStep">0</strong></div>
+    </div>
+  </aside>
+</main>
+
+<footer class="controls">
+  <div class="seg" id="segBackend" title="Where the neural network and the safety gate run">
+    <button data-v="fpga">LIVE FPGA</button><button data-v="model" class="on">SIMULATION</button></div>
+  <div class="seg" id="segInputs" title="Where the 24 sensor values come from">
+    <button data-v="golden" class="on">GOLDEN DATASET</button><button data-v="lidar">VIRTUAL LIDAR</button></div>
+  <button id="btnRun" class="btn go">▶ START</button>
+  <button id="btnEstop" class="btn stop">■ E-STOP</button>
+  <button id="btnReset" class="btn quiet">↺ SAFE RESET</button>
+  <span id="msg" class="msg" role="status"></span>
+</footer>
+<script src="sim.js"></script>
+</body>
+</html>

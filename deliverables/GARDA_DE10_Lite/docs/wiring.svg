@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Consolas,monospace">
+  <rect width="760" height="360" fill="#070B20"/>
+  <text x="24" y="34" fill="#F7F9FF" font-size="18" font-weight="bold">GARDA DE10-Lite UART wiring (3.3 V)</text>
+  <rect x="24" y="56" width="300" height="280" rx="12" fill="#0b3a2a" stroke="#1f6b4f"/>
+  <text x="40" y="82" fill="#cfe" font-size="13">DE10-Lite  JP1 (2x20, top 12 pins)</text>
+  <g font-size="12" fill="#9fb">
+    <!-- pins: odd left column x=150, even right column x=190; rows 26 px -->
+    <g fill="#c8a25a">
+      <rect x="143" y="100" width="14" height="14"/><rect x="183" y="100" width="14" height="14"/>
+      <rect x="143" y="126" width="14" height="14"/><rect x="183" y="126" width="14" height="14"/>
+      <rect x="143" y="152" width="14" height="14"/><rect x="183" y="152" width="14" height="14"/>
+      <rect x="143" y="178" width="14" height="14"/><rect x="183" y="178" width="14" height="14"/>
+      <rect x="143" y="204" width="14" height="14"/><rect x="183" y="204" width="14" height="14"/>
+      <rect x="143" y="230" width="14" height="14"/><rect x="183" y="230" width="14" height="14"/>
+    </g>
+    <text x="40" y="112">1  GPIO_0 V10 RX</text>
+    <text x="205" y="112">2  GPIO_1 W10 TX</text>
+    <text x="40" y="242">11 5V (unused)</text>
+    <text x="205" y="242">12 GND</text>
+    <text x="40" y="290" fill="#cfe">Odd pins: left row. Even pins: right row.</text>
+    <text x="40" y="308" fill="#cfe">Pin 1 is marked on the PCB silkscreen.</text>
+  </g>
+  <path d="M157 107 C 330 60, 420 90, 560 110" stroke="#29c46a" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M197 107 C 330 140, 430 150, 560 150" stroke="#EEF" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M197 237 C 330 240, 430 200, 560 190" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M197 237 C 330 240, 430 200, 560 190" stroke="#667" stroke-width="1" fill="none"/>
+  <rect x="560" y="80" width="176" height="180" rx="10" fill="#1b1f33" stroke="#526387"/>
+  <text x="576" y="104" fill="#F7F9FF" font-size="14" font-weight="bold">USB-TTL adapter</text>
+  <text x="576" y="116" fill="#29c46a" font-size="13">TXD  (green)</text>
+  <text x="576" y="156" fill="#EEF" font-size="13">RXD  (white)</text>
+  <text x="576" y="196" fill="#A8B6D4" font-size="13">GND  (black)</text>
+  <text x="576" y="236" fill="#FF5364" font-size="13">5V   (red): open</text>
+  <text x="350" y="300" fill="#B7FF35" font-size="13">adapter TX → FPGA RX (pin 1)</text>
+  <text x="350" y="320" fill="#B7FF35" font-size="13">FPGA TX → adapter RX (pin 2)</text>
+  <text x="350" y="340" fill="#A8B6D4" font-size="12">115200 8N1 · 3.3 V levels · common GND</text>
+</svg>

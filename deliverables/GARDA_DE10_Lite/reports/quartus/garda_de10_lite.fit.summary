@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Nov 11 22:32:09 2026
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : garda_de10_lite
+Top-level Entity Name : garda_de10_lite_top
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 23,226 / 49,760 ( 47 % )
+    Total combinational functions : 22,712 / 49,760 ( 46 % )
+    Dedicated logic registers : 2,909 / 49,760 ( 6 % )
+Total registers : 2909
+Total pins : 89 / 360 ( 25 % )
+Total virtual pins : 0
+Total memory bits : 1,051,008 / 1,677,312 ( 63 % )
+Embedded Multiplier 9-bit elements : 23 / 288 ( 8 % )
+Total PLLs : 1 / 4 ( 25 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

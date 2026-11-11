@@ -1,0 +1,54 @@
+{
+  "build_id": "0x6AF487A6",
+  "build_time_utc": "2026-11-11T15:20:06Z",
+  "quartus_exit_code": 0,
+  "compile_seconds": 759,
+  "baud": 115200,
+  "clks_per_bit": 391,
+  "clock_hz": 45000000,
+  "top": "garda_de10_lite_top",
+  "target_board": "Terasic DE10-Lite",
+  "expected_jtag_idcode": "0x031050DD",
+  "fitter_status": "Successful - Wed Nov 11 22:32:09 2026",
+  "quartus_version": "24.1std.0 Build 1077 03/04/2025 SC Lite Edition",
+  "device": "10M50DAF484C7G",
+  "family": "MAX 10",
+  "logic_elements": "23,226 / 49,760 ( 47 % )",
+  "registers": "2909",
+  "memory_bits": "1,051,008 / 1,677,312 ( 63 % )",
+  "multipliers_9bit": "23 / 288 ( 8 % )",
+  "pins": "89 / 360 ( 25 % )",
+  "pll": "1 / 4 ( 25 % )",
+  "timing_corners": {
+    "Slow 1200mV 85C": {
+      "setup": 1.321,
+      "hold": 0.332,
+      "recovery": 15.391,
+      "removal": 2.671
+    },
+    "Slow 1200mV 0C": {
+      "setup": 2.985,
+      "hold": 0.285,
+      "recovery": 15.803,
+      "removal": 2.355
+    },
+    "Fast 1200mV 0C": {
+      "setup": 12.928,
+      "hold": 0.151,
+      "recovery": 17.645,
+      "removal": 1.182
+    }
+  },
+  "worst_slack_ns": 0.151,
+  "fmax_mhz_by_clock": {
+    "core_clock|pll|auto_generated|pll1|clk[0]": 47.84,
+    "clk50": 58.83
+  },
+  "fmax_mhz_worst_corner": 47.84,
+  "timing_met": true,
+  "sof_present": true,
+  "release": true,
+  "sof_file": "garda_de10_lite.sof",
+  "sof_sha256": "19d6c42288b1af078197efea5f6bf1bad471ff1055a90efe08d8b4f381ef803b",
+  "pof_file": "garda_de10_lite.pof"
+}

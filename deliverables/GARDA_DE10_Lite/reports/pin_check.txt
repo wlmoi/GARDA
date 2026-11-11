@@ -1,0 +1,2 @@
+checked 87 pin assignments against the DE10-Lite manual
+PASS

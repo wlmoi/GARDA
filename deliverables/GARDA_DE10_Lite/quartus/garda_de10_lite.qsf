@@ -1,0 +1,172 @@
+# GARDA DE10-Lite Quartus Prime Standard/Lite project settings.
+# Target: Terasic DE10-Lite, Intel/Altera MAX 10 10M50DAF484C7G.
+# Pin locations are taken from the DE10-Lite User Manual (Terasic, October 17, 2022),
+# tables 3-2 (clocks), 3-3 (keys), 3-4 (switches), 3-5 (LEDs), 3-6 (HEX), 3-7 (GPIO JP1).
+# scripts/check_pins.py re-checks every PIN_ below against the manual text.
+
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY garda_de10_lite_top
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name VERILOG_INPUT_VERSION VERILOG_2001
+set_global_assignment -name SEARCH_PATH ../rtl/de10_lite
+
+# MAX 10 M9K initial contents (neural weight ROM) require an internal
+# configuration mode with memory initialisation (ERAM). Without this the
+# fitter rejects the design (error 16031).
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE IMAGE WITH ERAM"
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED WITH WEAK PULL-UP"
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+
+# Sources: unmodified GARDA core + DE10-Lite integration.
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_uart_rx.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_uart_tx.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_uart_protocol.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_config_registers.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_costmap_manager.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_costmap_bank.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_rollout_tile.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_candidate_generator.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_kinematic_step.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_trig_lut.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_score_accumulator.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_best_candidate_selector.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_safety_security_gate.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_status_logger.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_neural_core.v
+set_global_assignment -name VERILOG_FILE ../rtl/garda_core/garda_neural_rom.v
+set_global_assignment -name VERILOG_FILE ../rtl/de10_lite/garda_safe_reset_sniffer.v
+set_global_assignment -name VERILOG_FILE ../rtl/de10_lite/garda_lite_uart_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/de10_lite/garda_de10_lite_top.v
+set_global_assignment -name SDC_FILE garda_de10_lite.sdc
+
+# ---------------- Clock (Table 3-2) ----------------
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+# ---------------- Push buttons (Table 3-3), Schmitt trigger, active low ----------------
+set_location_assignment PIN_B8 -to KEY[0]
+set_location_assignment PIN_A7 -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[1]
+# ---------------- Slide switches (Table 3-4) ----------------
+set_location_assignment PIN_C10 -to SW[0]
+set_location_assignment PIN_C11 -to SW[1]
+set_location_assignment PIN_D12 -to SW[2]
+set_location_assignment PIN_C12 -to SW[3]
+set_location_assignment PIN_A12 -to SW[4]
+set_location_assignment PIN_B12 -to SW[5]
+set_location_assignment PIN_A13 -to SW[6]
+set_location_assignment PIN_A14 -to SW[7]
+set_location_assignment PIN_B14 -to SW[8]
+set_location_assignment PIN_F15 -to SW[9]
+# ---------------- LEDs (Table 3-5) ----------------
+set_location_assignment PIN_A8 -to LEDR[0]
+set_location_assignment PIN_A9 -to LEDR[1]
+set_location_assignment PIN_A10 -to LEDR[2]
+set_location_assignment PIN_B10 -to LEDR[3]
+set_location_assignment PIN_D13 -to LEDR[4]
+set_location_assignment PIN_C13 -to LEDR[5]
+set_location_assignment PIN_E14 -to LEDR[6]
+set_location_assignment PIN_D14 -to LEDR[7]
+set_location_assignment PIN_A11 -to LEDR[8]
+set_location_assignment PIN_B11 -to LEDR[9]
+# ---------------- 7-segment displays (Table 3-6), common anode ----------------
+set_location_assignment PIN_C14 -to HEX0[0]
+set_location_assignment PIN_E15 -to HEX0[1]
+set_location_assignment PIN_C15 -to HEX0[2]
+set_location_assignment PIN_C16 -to HEX0[3]
+set_location_assignment PIN_E16 -to HEX0[4]
+set_location_assignment PIN_D17 -to HEX0[5]
+set_location_assignment PIN_C17 -to HEX0[6]
+set_location_assignment PIN_D15 -to HEX0[7]
+set_location_assignment PIN_C18 -to HEX1[0]
+set_location_assignment PIN_D18 -to HEX1[1]
+set_location_assignment PIN_E18 -to HEX1[2]
+set_location_assignment PIN_B16 -to HEX1[3]
+set_location_assignment PIN_A17 -to HEX1[4]
+set_location_assignment PIN_A18 -to HEX1[5]
+set_location_assignment PIN_B17 -to HEX1[6]
+set_location_assignment PIN_A16 -to HEX1[7]
+set_location_assignment PIN_B20 -to HEX2[0]
+set_location_assignment PIN_A20 -to HEX2[1]
+set_location_assignment PIN_B19 -to HEX2[2]
+set_location_assignment PIN_A21 -to HEX2[3]
+set_location_assignment PIN_B21 -to HEX2[4]
+set_location_assignment PIN_C22 -to HEX2[5]
+set_location_assignment PIN_B22 -to HEX2[6]
+set_location_assignment PIN_A19 -to HEX2[7]
+set_location_assignment PIN_F21 -to HEX3[0]
+set_location_assignment PIN_E22 -to HEX3[1]
+set_location_assignment PIN_E21 -to HEX3[2]
+set_location_assignment PIN_C19 -to HEX3[3]
+set_location_assignment PIN_C20 -to HEX3[4]
+set_location_assignment PIN_D19 -to HEX3[5]
+set_location_assignment PIN_E17 -to HEX3[6]
+set_location_assignment PIN_D22 -to HEX3[7]
+set_location_assignment PIN_F18 -to HEX4[0]
+set_location_assignment PIN_E20 -to HEX4[1]
+set_location_assignment PIN_E19 -to HEX4[2]
+set_location_assignment PIN_J18 -to HEX4[3]
+set_location_assignment PIN_H19 -to HEX4[4]
+set_location_assignment PIN_F19 -to HEX4[5]
+set_location_assignment PIN_F20 -to HEX4[6]
+set_location_assignment PIN_F17 -to HEX4[7]
+set_location_assignment PIN_J20 -to HEX5[0]
+set_location_assignment PIN_K20 -to HEX5[1]
+set_location_assignment PIN_L18 -to HEX5[2]
+set_location_assignment PIN_N18 -to HEX5[3]
+set_location_assignment PIN_M20 -to HEX5[4]
+set_location_assignment PIN_N19 -to HEX5[5]
+set_location_assignment PIN_N20 -to HEX5[6]
+set_location_assignment PIN_L19 -to HEX5[7]
+# ---------------- UART on GPIO header JP1 (Table 3-7) ----------------
+# Port A: pin 1 GPIO_0 RX, pin 2 GPIO_1 TX. Port B: pin 3 GPIO_2 RX, pin 4 GPIO_3 TX. GND pins 12 and 30.
+# Port A (laptop cable): JP1 pin 1 RX / pin 2 TX.  Port B (Jetson Nano): JP1 pin 3 RX / pin 4 TX.
+set_location_assignment PIN_V10 -to JP1_RX[0]
+set_location_assignment PIN_W10 -to JP1_TX[0]
+set_location_assignment PIN_V9 -to JP1_RX[1]
+set_location_assignment PIN_W9 -to JP1_TX[1]
+# Idle-high RX when nothing is connected, so a floating pin cannot latch a protocol fault.
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JP1_RX[*]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to JP1_TX[*]
+
+set_global_assignment -name LAST_QUARTUS_VERSION "24.1std.0 Lite Edition"
+# Timing closure (no RTL change). The worst path is the legacy planner ->
+# UART response snapshot (rollout tile best_score -> selector -> response_sample).
+# Physical synthesis restructures logic / duplicates registers but keeps the
+# cycle-by-cycle behaviour of the netlist.
+set_global_assignment -name OPTIMIZATION_MODE "AGGRESSIVE PERFORMANCE"
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT EXTRA
+
+# ---------------- VGA (Table 3-11), live status screen ----------------
+set_location_assignment PIN_AA1 -to VGA_R[0]
+set_location_assignment PIN_V1 -to VGA_R[1]
+set_location_assignment PIN_Y2 -to VGA_R[2]
+set_location_assignment PIN_Y1 -to VGA_R[3]
+set_location_assignment PIN_W1 -to VGA_G[0]
+set_location_assignment PIN_T2 -to VGA_G[1]
+set_location_assignment PIN_R2 -to VGA_G[2]
+set_location_assignment PIN_R1 -to VGA_G[3]
+set_location_assignment PIN_P1 -to VGA_B[0]
+set_location_assignment PIN_T1 -to VGA_B[1]
+set_location_assignment PIN_P4 -to VGA_B[2]
+set_location_assignment PIN_N2 -to VGA_B[3]
+set_location_assignment PIN_N3 -to VGA_HS
+set_location_assignment PIN_N1 -to VGA_VS
+set_global_assignment -name VERILOG_FILE ../rtl/de10_lite/garda_vga_status.v
+set_global_assignment -name VERILOG_FILE ../rtl/de10_lite/garda_clock.v
+set_global_assignment -name VERILOG_FILE ../rtl/de10_lite/garda_uart_port_arbiter.v
+set_global_assignment -name VERILOG_FILE ../rtl/de10_lite/garda_estop_sniffer.v
