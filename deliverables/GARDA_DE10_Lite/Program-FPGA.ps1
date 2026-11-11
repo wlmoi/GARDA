@@ -24,7 +24,7 @@ param(
   [string]$Sof,
   [string]$Cable,
   [string]$QuartusBin,
-  [string]$DeviceRegex = '5C[SE]',
+  [string]$DeviceRegex = '',
   [int]$Retries = 3,
   [int]$ToolTimeoutSec = 60,
   [switch]$DryRun,
@@ -34,7 +34,10 @@ param(
 $ErrorActionPreference = 'Stop'
 $Here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $LogPath = Join-Path $Here 'program_fpga.log'
-if (-not $Sof) { $Sof = Join-Path $Here '..\..\dashboard\dist\downloads\igor.sof' }
+if (-not $Sof) {
+  $de10lite = Join-Path $Here 'quartus_de10lite\output_files\garda_de10lite.sof'   # built by Build-DE10Lite.ps1
+  $Sof = if (Test-Path $de10lite) { $de10lite } else { Join-Path $Here '..\..\dashboard\dist\downloads\igor.sof' }
+}
 
 function Log([string]$m, [string]$c = 'Gray') {
   $line = "{0} {1}" -f (Get-Date -Format 'HH:mm:ss'), $m
@@ -46,8 +49,6 @@ function Die([string]$m, [int]$code = 1) { Log "FAILED: $m" 'Red'; exit $code }
 function Find-QuartusBin {
   $cands = @()
   if ($QuartusBin) { $cands += $QuartusBin }
-  $cmd = Get-Command quartus_pgm.exe -ErrorAction SilentlyContinue
-  if ($cmd) { $cands += (Split-Path -Parent $cmd.Source) }
   if ($env:QUARTUS_ROOTDIR) { $cands += (Join-Path $env:QUARTUS_ROOTDIR 'bin64'), (Join-Path $env:QUARTUS_ROOTDIR 'bin') }
   foreach ($root in 'C:\intelFPGA_lite', 'C:\intelFPGA', 'C:\altera', 'C:\altera_lite', 'C:\documents') {
     if (Test-Path $root) {
@@ -57,6 +58,9 @@ function Find-QuartusBin {
       $cands += (Join-Path $root 'quartus\bin64'), (Join-Path $root 'quartus\bin')
     }
   }
+  # PATH entry last: an old Quartus II (e.g. 9.1) on PATH cannot program MAX 10 / modern devices.
+  $cmd = Get-Command quartus_pgm.exe -ErrorAction SilentlyContinue
+  if ($cmd) { $cands += (Split-Path -Parent $cmd.Source) }
   foreach ($c in $cands) { if ($c -and (Test-Path (Join-Path $c 'quartus_pgm.exe'))) { return (Resolve-Path $c).Path } }
   return $null
 }
@@ -113,6 +117,7 @@ $bytes = [IO.File]::ReadAllBytes($Sof)
 $ascii = [Text.Encoding]::ASCII.GetString($bytes[0..([Math]::Min($bytes.Length, 1048576) - 1)])
 $sofDev = if ($ascii -match '(5C[A-Z0-9]{9,12}|10M[0-9A-Z]{6,12}|EP[0-9A-Z]{6,14})') { $Matches[1] } else { $null }
 Log ("SOF: {0}  ({1:N0} bytes, target device string: {2})" -f $Sof, $bytes.Length, $(if ($sofDev) { $sofDev } else { 'not found' }))
+if (-not $DeviceRegex) { $DeviceRegex = if ($sofDev) { [regex]::Escape($sofDev.Substring(0, 3)) } else { '5C[SE]' } }
 if ($Sof -match 'igor\.sof$') { Log '  note: igor.sof is the historical build (igor_uart_top). Rebuild from source if the RTL changed.' 'Yellow' }
 
 $ok = $false

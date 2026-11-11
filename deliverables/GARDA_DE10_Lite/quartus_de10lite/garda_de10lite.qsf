@@ -1,0 +1,56 @@
+set_global_assignment -name FAMILY "MAX 10 FPGA"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY garda_de10lite_top
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+set_global_assignment -name SDC_FILE garda_de10lite.sdc
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED WITH WEAK PULL-UP"
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name POWER_DEFAULT_TOGGLE_RATE "12.5%"
+set_global_assignment -name VERILOG_FILE garda_de10lite_top.v
+set_global_assignment -name VERILOG_FILE rtl/garda_best_candidate_selector.v
+set_global_assignment -name VERILOG_FILE rtl/garda_candidate_generator.v
+set_global_assignment -name VERILOG_FILE rtl/garda_config_registers.v
+set_global_assignment -name VERILOG_FILE rtl/garda_costmap_bank.v
+set_global_assignment -name VERILOG_FILE rtl/garda_costmap_manager.v
+set_global_assignment -name VERILOG_FILE rtl/garda_kinematic_step.v
+set_global_assignment -name VERILOG_FILE rtl/garda_neural_core.v
+set_global_assignment -name VERILOG_FILE rtl/garda_neural_rom.v
+set_global_assignment -name VERILOG_FILE rtl/garda_rollout_tile.v
+set_global_assignment -name VERILOG_FILE rtl/garda_safety_security_gate.v
+set_global_assignment -name VERILOG_FILE rtl/garda_score_accumulator.v
+set_global_assignment -name VERILOG_FILE rtl/garda_status_logger.v
+set_global_assignment -name VERILOG_FILE rtl/garda_top.v
+set_global_assignment -name VERILOG_FILE rtl/garda_trig_lut.v
+set_global_assignment -name VERILOG_FILE rtl/garda_uart_protocol.v
+set_global_assignment -name VERILOG_FILE rtl/garda_uart_rx.v
+set_global_assignment -name VERILOG_FILE rtl/garda_uart_top.v
+set_global_assignment -name VERILOG_FILE rtl/garda_uart_tx.v
+
+# ---- DE10-Lite pins (verify against the DE10-Lite user manual before first use)
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+set_location_assignment PIN_B8  -to KEY[0]
+set_location_assignment PIN_A7  -to KEY[1]
+set_location_assignment PIN_C10 -to SW[0]
+set_location_assignment PIN_C11 -to SW[1]
+set_location_assignment PIN_D12 -to SW[2]
+set_location_assignment PIN_C12 -to SW[3]
+set_location_assignment PIN_A12 -to SW[4]
+set_location_assignment PIN_B12 -to SW[5]
+set_location_assignment PIN_A13 -to SW[6]
+set_location_assignment PIN_A14 -to SW[7]
+set_location_assignment PIN_B14 -to SW[8]
+set_location_assignment PIN_F15 -to SW[9]
+set_location_assignment PIN_A8  -to LEDR[0]
+set_location_assignment PIN_A9  -to LEDR[1]
+set_location_assignment PIN_A10 -to LEDR[2]
+set_location_assignment PIN_B10 -to LEDR[3]
+set_location_assignment PIN_D13 -to LEDR[4]
+set_location_assignment PIN_C13 -to LEDR[5]
+set_location_assignment PIN_E14 -to LEDR[6]
+set_location_assignment PIN_D14 -to LEDR[7]
+set_location_assignment PIN_A11 -to LEDR[8]
+set_location_assignment PIN_B11 -to LEDR[9]
+set_location_assignment PIN_AB5 -to ARDUINO_RX
+set_location_assignment PIN_AB6 -to ARDUINO_TX
