@@ -11,5 +11,5 @@ Your connected board is a **DE10-Lite (MAX 10 10M50DAF484C7G)**.
 Board behaviour: SW2 = ready inhibit (fault 4), SW3 = protective stop (fault 3), KEY1 = E-stop (fault 2), KEY0 = reset.
 LEDR[7:0] = {fault[3:0], done, busy, rst_n, enable}; LEDR8/LEDR9 = UART RX/TX activity.
 
-Status: pin assignments are from the standard DE10-Lite pinout and must be checked against the user manual; the project has NOT yet been compiled or programmed.
+Status: pin assignments verified against published DE10-Lite pin tables (clock, keys, switches, LEDs, Arduino D0/D1); the project has NOT yet been compiled or programmed, and nothing is confirmed on a physical board. Use a 3.3 V adapter only (the header is not 5 V safe).
 `uart_explorer/` is the PC-side tool (see its README and TEST_REPORT).

@@ -28,7 +28,10 @@ set_global_assignment -name VERILOG_FILE rtl/garda_uart_rx.v
 set_global_assignment -name VERILOG_FILE rtl/garda_uart_top.v
 set_global_assignment -name VERILOG_FILE rtl/garda_uart_tx.v
 
-# ---- DE10-Lite pins (verify against the DE10-Lite user manual before first use)
+# ---- DE10-Lite pins, device 10M50DAF484C7G, all 3.3-V LVTTL.
+# Cross-checked 2026-11-11 against: iuma.ulpgc.es DE10-Lite pin table (clock, KEY, SW, LEDR) and the community
+# de10-lite-pins.qsf gist + Terasic user manual (ARDUINO_IO0 = PIN_AB5 'RXD', ARDUINO_IO1 = PIN_AB6 'TXD').
+# Not yet confirmed on a physical board.
 set_location_assignment PIN_P11 -to MAX10_CLK1_50
 set_location_assignment PIN_B8  -to KEY[0]
 set_location_assignment PIN_A7  -to KEY[1]
@@ -54,3 +57,6 @@ set_location_assignment PIN_A11 -to LEDR[8]
 set_location_assignment PIN_B11 -to LEDR[9]
 set_location_assignment PIN_AB5 -to ARDUINO_RX
 set_location_assignment PIN_AB6 -to ARDUINO_TX
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_RX
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_TX
