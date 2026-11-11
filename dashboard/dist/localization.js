@@ -5,7 +5,7 @@
 // every text node can be shown in either language whatever its source was.
 // interface-translations-fix.json ({source: [english, indonesian]}) is the
 // reviewed wording and wins over both; PATTERNS cover strings built at runtime.
-const V='?v=2';
+const V='?v=3';
 const dictionary=await fetch('./interface-translations.json'+V).then(r=>r.json());
 const extraId=await fetch('./interface-translations-id.json'+V).then(r=>r.ok?r.json():{}).catch(()=>({}));
 const fixes=await fetch('./interface-translations-fix.json'+V).then(r=>r.ok?r.json():{}).catch(()=>({}));

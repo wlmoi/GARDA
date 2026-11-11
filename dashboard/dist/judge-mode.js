@@ -62,8 +62,8 @@ function gateLive() {
 const robotLive = () => ({ html: `${text('#robot-status')}${SEP}${t('range')} <b>${text('#lidar-distance')}</b>`, state: /stopped|E-stop/i.test(text('#robot-status')) ? 'block' : '' });
 
 const STEPS = [
-  { id: { label: 'Pembuka', title: 'Drone menginspeksi. GARDA menjaga.', text: 'AI di perangkat mengusulkan setiap gerakan. Gerbang hardware terpisah memutuskan apakah motor boleh bergerak.' },
-    label: 'Intro', title: 'Drones inspect. GARDA keeps watch.', dur: 7000, target: '#hero', focus: '.portal-copy', align: 'top',
+  { id: { label: 'Pembuka', title: 'Physical AI untuk drone. Diawasi ketat oleh GARDA.', text: 'AI di perangkat mengusulkan setiap gerakan. Gerbang hardware terpisah memutuskan apakah motor boleh bergerak.' },
+    label: 'Intro', title: 'Physical AI for drones. Kept in check by GARDA.', dur: 7000, target: '#hero', focus: '.portal-copy', align: 'top',
     text: 'AI on the device proposes every move. A separate hardware gate decides whether the motors may act.' },
   { id: { label: 'Sensor', title: 'Pemindaian sensor', text: 'Drone LiDAR terbang di jalur inspeksinya. Data jarak langsung masuk ke GARDA, tanpa server di tengahnya.' },
     label: 'Sensing', title: 'Sensor scanning', dur: 10000, target: '#robot-demo', focus: '.robot-stage',

@@ -560,8 +560,8 @@
   "Atur ulang kamera"
  ],
  "Model 3D membutuhkan WebGL. Daftar modul dan kode sumber tetap dapat diakses di panel samping.": [
-  "The 3D view needs WebGL. The module list and source code are still available in the side panel.",
-  "Tampilan 3D membutuhkan WebGL. Daftar modul dan kode sumber tetap tersedia di panel samping."
+  "The 3D view needs WebGL. The module list and interface details are still available in the side panel.",
+  "Tampilan 3D membutuhkan WebGL. Daftar modul dan detail antarmuka tetap tersedia di panel samping."
  ],
  "Lihat Kode .v": [
   "View Verilog",
@@ -1430,5 +1430,165 @@
  "Close menu": [
   "Close menu",
   "Tutup menu"
+ ],
+ "HACKATHON ITS 2026 GARDA": [
+  "ITS HACKATHON 2026",
+  "HACKATHON ITS 2026"
+ ],
+ "GARDA HACKATHON ITS 2026": [
+  "ITS HACKATHON 2026",
+  "HACKATHON ITS 2026"
+ ],
+ "Working near assets carries risk": [
+  "Flying near power lines is risky",
+  "Terbang dekat jaringan listrik berisiko"
+ ],
+ "Bekerja dekat aset berisiko": [
+  "Flying near power lines is risky",
+  "Terbang dekat jaringan listrik berisiko"
+ ],
+ "Drones operate around towers, cables, and obstacles. Operators need fast avoidance responses and system behaviour they can inspect.": [
+  "Drones fly close to towers, cables and other obstacles. Operators need fast avoidance and a system whose decisions they can check.",
+  "Drone terbang dekat menara, kabel, dan rintangan lain. Operator membutuhkan penghindaran yang cepat dan sistem yang keputusannya bisa diperiksa."
+ ],
+ "Drone perlu bergerak di sekitar menara, kabel, dan rintangan. Operator membutuhkan respons penghindaran yang cepat dan perilaku sistem yang dapat diperiksa.": [
+  "Drones fly close to towers, cables and other obstacles. Operators need fast avoidance and a system whose decisions they can check.",
+  "Drone terbang dekat menara, kabel, dan rintangan lain. Operator membutuhkan penghindaran yang cepat dan sistem yang keputusannya bisa diperiksa."
+ ],
+ "AI proposes, the gate checks": [
+  "AI proposes; the gate checks",
+  "AI mengusulkan, gerbang memeriksa"
+ ],
+ "AI mengusulkan, gerbang memeriksa": [
+  "AI proposes; the gate checks",
+  "AI mengusulkan, gerbang memeriksa"
+ ],
+ "GARDA processes range and motion data on the device. Proposed corrections pass through safety checks before becoming control outputs.": [
+  "GARDA processes range and motion data on the drone itself. Every proposed correction passes safety checks before it reaches the motors.",
+  "GARDA mengolah data jarak dan gerak langsung di drone. Setiap usulan koreksi melewati pemeriksaan keselamatan sebelum sampai ke motor."
+ ],
+ "GARDA mengolah data jarak dan gerak di perangkat. Usulan koreksi melewati pemeriksaan keselamatan sebelum menjadi keluaran kendali.": [
+  "GARDA processes range and motion data on the drone itself. Every proposed correction passes safety checks before it reaches the motors.",
+  "GARDA mengolah data jarak dan gerak langsung di drone. Setiap usulan koreksi melewati pemeriksaan keselamatan sebelum sampai ke motor."
+ ],
+ "Protect vehicles and support inspection": [
+  "Protect drones and support inspections",
+  "Lindungi drone dan dukung inspeksi"
+ ],
+ "Lindungi wahana dan dukung inspeksi": [
+  "Protect drones and support inspections",
+  "Lindungi drone dan dukung inspeksi"
+ ],
+ "The aim is to reduce damage risk, support inspection work, and provide decision traces. Operational impact and cost savings need to be measured with partners.": [
+  "The goal is to lower the risk of damage, support inspection work and keep a record of every decision. Operational impact and cost savings still have to be measured with partners.",
+  "Tujuannya menurunkan risiko kerusakan, mendukung pekerjaan inspeksi, dan mencatat setiap keputusan. Dampak operasional dan penghematan biaya masih perlu diukur bersama mitra."
+ ],
+ "Tujuannya mengurangi risiko kerusakan, mendukung pekerjaan inspeksi, dan menyediakan jejak keputusan. Dampak operasional serta penghematan biaya perlu diukur bersama mitra.": [
+  "The goal is to lower the risk of damage, support inspection work and keep a record of every decision. Operational impact and cost savings still have to be measured with partners.",
+  "Tujuannya menurunkan risiko kerusakan, mendukung pekerjaan inspeksi, dan mencatat setiap keputusan. Dampak operasional dan penghematan biaya masih perlu diukur bersama mitra."
+ ],
+ "The proposal records an initial interview with a PLN ULTG manager: safety limits drone operations, and a loss-of-control incident had occurred. These early findings do not represent all PLN units or constitute a partnership agreement.": [
+  "The proposal records a first interview with a PLN ULTG manager: safety concerns limit drone operations, and a drone has lost control before. These early findings do not represent every PLN unit and are not a partnership agreement.",
+  "Proposal mencatat wawancara awal dengan seorang manajer ULTG PLN: masalah keselamatan membatasi operasi drone, dan pernah terjadi drone hilang kendali. Temuan awal ini belum mewakili seluruh unit PLN dan bukan perjanjian kemitraan."
+ ],
+ "Proposal mencatat wawancara awal dengan seorang manajer ULTG PLN: keselamatan menjadi pembatas operasi drone, dan insiden hilang kendali pernah terjadi. Temuan awal ini belum mewakili seluruh unit PLN atau menjadi persetujuan kemitraan.": [
+  "The proposal records a first interview with a PLN ULTG manager: safety concerns limit drone operations, and a drone has lost control before. These early findings do not represent every PLN unit and are not a partnership agreement.",
+  "Proposal mencatat wawancara awal dengan seorang manajer ULTG PLN: masalah keselamatan membatasi operasi drone, dan pernah terjadi drone hilang kendali. Temuan awal ini belum mewakili seluruh unit PLN dan bukan perjanjian kemitraan."
+ ],
+ "Platform estimates and a 20 mW chip design target. These are not equivalent measured system-power results.": [
+  "Estimated platform power next to GARDA's 20 mW chip design target. These are not like-for-like measurements.",
+  "Estimasi daya platform dibandingkan target desain chip GARDA 20 mW. Angka-angka ini bukan pengukuran yang setara."
+ ],
+ "GARDA runs neural inference on an FPGA. RTL tests verify the core cycle count. The complete robot response time requires separate measurement.": [
+  "GARDA runs neural inference on an FPGA. RTL tests confirm the core's cycle count. The response time of the whole robot still needs to be measured separately.",
+  "GARDA menjalankan inferensi neural langsung di FPGA. Pengujian RTL memastikan jumlah siklus inti. Waktu respons robot secara keseluruhan masih perlu diukur tersendiri."
+ ],
+ "A cycle-accurate Verilog testbench checks 236 random and deterministic inputs. All binary outputs match the Python numerical reference.": [
+  "A cycle-accurate Verilog testbench applies 236 random and fixed test inputs. Every binary output matches the Python reference model.",
+  "Testbench Verilog yang akurat per siklus menguji 236 masukan acak dan tetap. Seluruh keluaran biner cocok dengan model referensi Python."
+ ],
+ "*The 71.12 µs latency is calculated from the verified RTL cycle count at a target clock of 50 MHz. It is not a measured end-to-end robot response time.": [
+  "*The 71.12 µs latency is calculated from the verified RTL cycle count at a 50 MHz target clock. It is not a measured end-to-end response time of the robot.",
+  "*Latensi 71,12 µs dihitung dari jumlah siklus RTL yang terverifikasi pada clock target 50 MHz. Angka ini bukan waktu respons end-to-end robot yang diukur."
+ ],
+ "Receives 8-byte CRC-8 frames from the ARM HPS at 115200 baud. Manages robot configuration, waypoints and operating modes.": [
+  "Receives 8-byte frames protected by CRC-8 from the ARM HPS at 115200 baud, and manages robot configuration, waypoints and operating modes.",
+  "Menerima frame 8 byte berpelindung CRC-8 dari ARM HPS pada 115200 baud, serta mengatur konfigurasi robot, waypoint, dan mode operasi."
+ ],
+ "A local 128 × 128, 8-bit buffer in FPGA M10K memory isolates obstacle reads from the HPS memory bus.": [
+  "A local 128 × 128, 8-bit buffer in FPGA M10K memory, so obstacle reads never load the HPS memory bus.",
+  "Buffer lokal 128 × 128 (8 bit) di memori M10K FPGA, sehingga pembacaan rintangan tidak membebani bus memori HPS."
+ ],
+ "A 16-lane SIMD MAC engine uses Q8.8 fixed-point arithmetic to map 74 observation features to trajectory outputs in 3,556 clock cycles.": [
+  "A 16-lane SIMD MAC engine with Q8.8 fixed-point arithmetic turns 74 observation features into trajectory outputs in 3,556 clock cycles.",
+  "Mesin MAC SIMD 16 lane dengan aritmetika fixed point Q8.8 mengubah 74 fitur observasi menjadi keluaran trajektori dalam 3.556 siklus clock."
+ ],
+ "GARDA connects the host interface, local costmap memory, neural accelerator, trajectory evaluator and hardware safety gate.": [
+  "GARDA links the host interface, local costmap memory, neural accelerator, trajectory evaluator and hardware safety gate.",
+  "GARDA menghubungkan antarmuka host, memori costmap lokal, akselerator neural, evaluator trajektori, dan gerbang keselamatan perangkat keras."
+ ],
+ "Results marked PASS passed the tests stated in the table. Simulation, calculations, historical builds, and signoff status are reported separately. Passing component tests does not mean the entire system has been validated in the field.": [
+  "PASS means the item passed the test listed in the table. Simulations, calculations, historical builds and sign-off status are reported separately. Passing component tests does not mean the whole system has been validated in the field.",
+  "PASS berarti item tersebut lulus pengujian yang tercantum di tabel. Simulasi, perhitungan, build historis, dan status sign-off dilaporkan terpisah. Lulus uji komponen tidak berarti seluruh sistem sudah tervalidasi di lapangan."
+ ],
+ "Hasil berlabel PASS telah lulus pengujian yang disebutkan pada tabel. Simulasi, perhitungan, build historis, dan status signoff ditampilkan terpisah. Kelulusan pengujian komponen tidak berarti seluruh sistem telah tervalidasi di lapangan.": [
+  "PASS means the item passed the test listed in the table. Simulations, calculations, historical builds and sign-off status are reported separately. Passing component tests does not mean the whole system has been validated in the field.",
+  "PASS berarti item tersebut lulus pengujian yang tercantum di tabel. Simulasi, perhitungan, build historis, dan status sign-off dilaporkan terpisah. Lulus uji komponen tidak berarti seluruh sistem sudah tervalidasi di lapangan."
+ ],
+ "MAC operand transitions decrease by 14.35% on the test vectors. This indicates RTL activity; it is not a power measurement.": [
+  "MAC operand switching drops by 14.35% on the test vectors. This measures RTL activity, not power.",
+  "Perpindahan nilai operand MAC turun 14,35% pada vektor uji. Ini ukuran aktivitas RTL, bukan pengukuran daya."
+ ],
+ "Transisi operand MAC turun 14,35% pada vektor uji. Ini indikator aktivitas RTL, bukan pengukuran daya.": [
+  "MAC operand switching drops by 14.35% on the test vectors. This measures RTL activity, not power.",
+  "Perpindahan nilai operand MAC turun 14,35% pada vektor uji. Ini ukuran aktivitas RTL, bukan pengukuran daya."
+ ],
+ "GARDA is proposed as a component for integration into a vehicle, rather than a replacement for the entire drone.": [
+  "GARDA is meant to be built into an existing drone, not to replace it.",
+  "GARDA dirancang untuk dipasang pada drone yang sudah ada, bukan untuk menggantikannya."
+ ],
+ "GARDA diusulkan sebagai komponen untuk diintegrasikan ke wahana, bukan sebagai pengganti seluruh drone.": [
+  "GARDA is meant to be built into an existing drone, not to replace it.",
+  "GARDA dirancang untuk dipasang pada drone yang sudah ada, bukan untuk menggantikannya."
+ ],
+ "The plan covers integration, drone hardware-in-the-loop testing, and trials in relevant environments before field operations.": [
+  "The plan covers integration, hardware-in-the-loop tests with a drone, and trials in realistic environments before any field operation.",
+  "Rencananya mencakup integrasi, uji hardware-in-the-loop dengan drone, dan uji coba di lingkungan yang realistis sebelum operasi lapangan."
+ ],
+ "Rencana mencakup penyelesaian integrasi, pengujian hardware-in-the-loop drone, serta uji di lingkungan relevan sebelum operasi lapangan.": [
+  "The plan covers integration, hardware-in-the-loop tests with a drone, and trials in realistic environments before any field operation.",
+  "Rencananya mencakup integrasi, uji hardware-in-the-loop dengan drone, dan uji coba di lingkungan yang realistis sebelum operasi lapangan."
+ ],
+ "The People Behind GARDA": [
+  "The people behind GARDA",
+  "Orang-orang di balik GARDA"
+ ],
+ "The 3D view requires WebGL. The module list and interface details remain available in the side panel.": [
+  "The 3D view needs WebGL. The module list and interface details are still available in the side panel.",
+  "Tampilan 3D membutuhkan WebGL. Daftar modul dan detail antarmuka tetap tersedia di panel samping."
+ ],
+ "Choose a scenario, run the robot and observe its response to obstacles. The computation panel explains the neural processing behind the illustration.": [
+  "Choose a scenario, run the robot and watch how it responds to obstacles. The computation panel explains the neural processing behind each move.",
+  "Pilih skenario, jalankan robot, dan amati responsnya terhadap rintangan. Panel perhitungan menjelaskan proses neural di balik setiap gerakan."
+ ],
+ "Pilih skenario, jalankan robot, dan amati respons terhadap rintangan. Panel perhitungan menjelaskan proses neural di balik ilustrasi ini.": [
+  "Choose a scenario, run the robot and watch how it responds to obstacles. The computation panel explains the neural processing behind each move.",
+  "Pilih skenario, jalankan robot, dan amati responsnya terhadap rintangan. Panel perhitungan menjelaskan proses neural di balik setiap gerakan."
+ ],
+ "The neural path computes proposed outputs. Explore each phase in the Parallel16 simulation.": [
+  "The neural network computes a proposed move. Step through each phase in the Parallel16 simulation.",
+  "Jaringan neural menghitung usulan gerakan. Telusuri tiap fasenya di simulasi Parallel16."
+ ],
+ "Jalur neural menghitung usulan keluaran. Telusuri tiap fase di simulasi Parallel16.": [
+  "The neural network computes a proposed move. Step through each phase in the Parallel16 simulation.",
+  "Jaringan neural menghitung usulan gerakan. Telusuri tiap fasenya di simulasi Parallel16."
+ ],
+ "Sensor data becomes the input to the system.": [
+  "Sensor data becomes the system's input.",
+  "Data sensor menjadi masukan sistem."
+ ],
+ "Data sensor menjadi masukan untuk sistem.": [
+  "Sensor data becomes the system's input.",
+  "Data sensor menjadi masukan sistem."
  ]
 }
